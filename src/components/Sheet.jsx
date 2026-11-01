@@ -26,6 +26,12 @@ function zones(scene, beat, device) {
   const sayLines = Math.ceil(say.length / (phone ? 34 : 42));
   const chronicleH = (phone ? 170 : 150) + sayLines * 24 + (scene.title.length > 22 ? 28 : 0);
   out.push(phone ? { name: 'chronicle', x: 12, y: d.h - 96 - chronicleH, w: d.w - 24, h: chronicleH } : { name: 'chronicle', x: 24, y: d.h - 24 - chronicleH, w: 400, h: chronicleH });
+  const pending = scene.beats[beat].pendingVerse;
+  if (!v && pending && !phone) {
+    // not fetched yet: a medium verse's panel, so its framing can be judged before the words arrive
+    const h = 275;
+    out.push(pending.place === 'lower' ? { name: 'verse', x: 448, y: d.h - 150 - h, w: 552, h } : { name: 'verse', x: 72, y: d.h * 0.13, w: 880, h });
+  }
   if (v) {
     const ar = verseArabic(v);
     const width = phone ? d.w * 0.92 - 32 : 552;

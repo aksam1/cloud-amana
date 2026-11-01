@@ -97,8 +97,10 @@ void main() {
     vec2 local = p.xy - aCenter.xy;
     float len = length(aCenter.xy);
     vec2 dir = len > 0.001 ? aCenter.xy / len : vec2(0.0, 1.0);
-    vec2 c = aCenter.xy + dir * spread * (0.4 + aRand.x) * t + vec2((aRand.y - 0.5) * spread * 0.5 * t, spread * 0.3 * t);
-    c.y -= 0.5 * grav * t * t;
+    vec2 v = dir * spread * (0.4 + aRand.x) + vec2((aRand.y - 0.5) * spread * 0.5, spread * 0.3);
+    // it travels out only until it lands, then lies still on the floor line
+    float land = (v.y + sqrt(max(0.0, v.y * v.y + 2.0 * grav * (aCenter.y - floorY)))) / max(grav, 1.0);
+    vec2 c = vec2(aCenter.x + v.x * min(t, land), aCenter.y + v.y * t - 0.5 * grav * t * t);
     c.y = max(c.y, floorY + abs(local.y) * 0.35);
     float ang = (aRand.x - 0.5) * spin * min(t, 1.1);
     float ca = cos(ang);
@@ -325,6 +327,13 @@ export function Card({ layer, beat, env, dissolve }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [breakable, x0, y0, x1, y1, k]);
   const broke = useRef(null);
+  // a break brought in by an earlier beat's `at` has already happened: its shards lie where they fell
+  // (entering that later beat directly, or holding it part way in a still, never replays it)
+  const brokeBefore = useMemo(() => {
+    if (!breakable || layer.shatter) return false;
+    const since = Object.keys(layer.at ?? {}).map(Number).filter((b) => b <= beat && layer.at[b]?.shatter).sort((a, b) => a - b).at(-1);
+    return since !== undefined && since < beat;
+  }, [breakable, layer, beat]);
   useFrame(({ clock }, dt) => {
     const u = material.uniforms;
     const e = env.current;
@@ -365,10 +374,11 @@ export function Card({ layer, beat, env, dissolve }) {
     if (breakable) {
       const sh = cfg.shatter;
       if (sh) {
-        if (broke.current === null) broke.current = clock.elapsedTime;
+        if (broke.current === null) broke.current = clock.elapsedTime - (brokeBefore ? 600 : 0);
         const delay = sh.delay ?? 0;
         const dur = sh.dur ?? 2600;
-        u.shatterT.value = e.still ? (Math.min(1, e.moment ?? 1) * (delay + dur) - delay) / 1000 : clock.elapsedTime - broke.current - delay / 1000;
+        if (e.still) u.shatterT.value = brokeBefore ? 600 : (Math.min(1, e.moment ?? 1) * (delay + dur) - delay) / 1000;
+        else u.shatterT.value = clock.elapsedTime - broke.current - delay / 1000;
         u.grav.value = (sh.gravity ?? 1700) * k;
         u.spread.value = (sh.spread ?? 240) * k;
         u.spin.value = sh.spin ?? 5;

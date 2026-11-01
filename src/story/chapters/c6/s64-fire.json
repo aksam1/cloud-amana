@@ -42,6 +42,6 @@
       "say": "But the fire did not burn him." },
     { "dur": 13000, "ambient": ["air", "spring"], "world": { "fog": "#1a2232", "light": 0.85, "bloom": 0.8, "haze": 0.12, "shake": 0.2 },
       "cam": { "pos": [800, 520, 560], "look": [800, 520, -2400] },
-      "pendingVerse": { "ref": "21:69", "place": "lower" } }
+      "pendingVerse": { "ref": "21:69", "place": "sky" } }
   ]
 }

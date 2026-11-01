@@ -48,7 +48,8 @@
       { "type": "column", "depth": 0.4, "x": 1350, "y": 790, "h": 800, "w": 58, "stone": "#6a4a30", "lit": "#a07a50", "dark": "#2a1a10", "ppu": 0.9 },
       { "type": "idol", "depth": 0.44, "x": 430, "y": 800, "h": 320, "kind": "wood", "ppu": 1.2, "seed": 8, "at": { "2": { "shatter": { "delay": 300, "seed": 8 } } } },
       { "type": "idol", "depth": 0.44, "x": 1170, "y": 800, "h": 320, "kind": "stone", "ppu": 1.2, "seed": 9, "at": { "2": { "shatter": { "delay": 0, "seed": 9 } } } },
-      { "type": "light", "depth": 0.48, "pos": [800, 830], "h": 66, "color": "#fffaf0", "glow": 0.7, "bright": 1.4 },
+      { "type": "light", "depth": 0.48, "pos": [800, 830], "h": 66, "color": "#fffaf0", "glow": 0.7, "bright": 1.4,
+        "at": { "3": { "pose": "walk", "path": [[800, 830], [610, 836]], "dur": 6000, "delay": 600 } } },
       { "type": "dust", "box": [-600, 100, -3000, 2200, 950, -900], "count": 900, "size": 3, "color": "#fff0d0", "opacity": 0.45, "wind": [4, 6, 0], "swirl": 20 },
       { "type": "dust", "show": [2, null], "box": [-1200, 600, -3200, 2800, 1100, -700], "count": 900, "size": 7, "color": "#a08060", "opacity": 0.38, "wind": [6, -24, 0], "swirl": 50, "blend": "normal" }
     ] }
@@ -61,7 +62,7 @@
     { "dur": 9000, "ambient": ["echo", "stone"], "sfx": [{ "name": "drop", "at": 300 }, { "name": "rumble", "at": 700 }, { "name": "drop", "at": 1200 }, { "name": "drop", "at": 1900 }, { "name": "drop", "at": 2500 }],
       "cam": { "dx": 6000, "pos": [800, 490, 920], "look": [800, 520, -3000] },
       "say": "He broke them to pieces, all but the largest of them." },
-    { "dur": 12000, "ambient": ["echo", "air"], "cam": { "dx": 6000, "pos": [800, 480, 860], "look": [800, 520, -3000] },
+    { "dur": 12000, "ambient": ["echo", "air"], "cam": { "dx": 6000, "pos": [800, 580, 1350], "look": [800, 1250, -3000] },
       "pendingVerse": { "ref": "21:58", "place": "lower" } }
   ]
 }

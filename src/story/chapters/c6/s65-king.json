@@ -20,12 +20,12 @@
   "cam": { "pos": [800, 520, 1150], "look": [800, 520, -3000] },
   "imagePrompt": "A towering throne hall of mud brick and glazed lapis tiles, ranks of columns, a dark figure seated high on a stepped throne; a small steady white light standing far below before it; through the great doorway behind, the sun rising red-gold in the east and pouring a long beam of light across the floor; lapis blue, gold, deep shadow; ink-wash and parchment texture.",
   "layers": [
-    { "type": "set", "show": [[0, 1], [2, null]], "layers": [
+    { "type": "set", "show": [0, 1], "layers": [
       { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#141a2a"], [1, "#0e121c"]] },
       { "type": "facade", "depth": 0.18, "x": 800, "y": 712, "w": 2400, "h": 820, "stone": "#34446e", "light": 0.85 },
       { "type": "floor", "depth": 0.19, "y": 714, "vp": [800, 500], "color": "#4a4458", "color2": "#1a1a26", "lines": 14, "gloss": 0.35, "area": [-800, 708, 2400, 1350] },
       { "type": "platform", "depth": 0.2, "x": 800, "y": 712, "w": 560, "steps": 6, "rise": 22, "dais": 50, "thrones": 1, "stone": "#b8845a", "lit": "#e8b884", "dark": "#4a2e22", "ppu": 1 },
-      { "type": "light", "depth": 0.2, "pos": [800, 526], "h": 64, "w": 0.66, "color": "#3a2a3a", "glow": 0.08, "bright": 0.35, "solid": 0.95 },
+      { "type": "light", "depth": 0.2, "pos": [800, 526], "h": 64, "w": 0.66, "color": "#9a6a5a", "glow": 0.15, "bright": 0.6, "solid": 0.9 },
       { "type": "column", "depth": 0.26, "x": 420, "y": 740, "h": 600, "w": 44, "stone": "#b8845a", "lit": "#e8b884", "dark": "#4a2e22" },
       { "type": "column", "depth": 0.26, "x": 1180, "y": 740, "h": 600, "w": 44, "stone": "#b8845a", "lit": "#e8b884", "dark": "#4a2e22" },
       { "type": "brazier", "depth": 0.3, "x": 560, "y": 790, "s": 1 },
@@ -37,13 +37,13 @@
       { "type": "column", "depth": 0.42, "x": 1400, "y": 830, "h": 900, "w": 70, "stone": "#b8845a", "lit": "#e8b884", "dark": "#4a2e22", "ppu": 0.9 }
     ] },
 
-    { "type": "set", "show": [1, 2], "dx": 6000, "layers": [
-      { "type": "heavens", "horizon": 610, "sun": { "rise": 6, "set": 18, "x0": 520, "x1": 1500, "peak": 520, "size": 40 }, "tod": [5.3, 6.9, 8500] },
+    { "type": "set", "show": [1, null], "dx": 6000, "layers": [
+      { "type": "heavens", "horizon": 610, "sun": { "rise": 6, "set": 18, "x0": 520, "x1": 1500, "peak": 520, "size": 40 }, "tod": [5.3, 6.9, 8500], "at": { "2": { "tod": [6.9, 7.6, 13000] } } },
       { "type": "ridge", "depth": 0.05, "y": 612, "amp": 34, "seed": 86, "sharp": 0.4, "color": "#6a5a68", "haze": 0.3, "fog": 0.4 },
       { "type": "ground", "depth": 0.12, "y": 640, "amp": 4, "seed": 87, "color": "#7a7a4a", "color2": "#4a4a32", "grass": true, "grassColor": "#8a8a58" },
       { "type": "facade", "depth": 0.3, "x": 800, "y": 800, "w": 2600, "h": 980, "gate": { "w": 760, "h": 640 }, "stone": "#34446e", "light": 0.8, "ppu": 0.8 },
       { "type": "floor", "depth": 0.32, "y": 802, "vp": [800, 500], "color": "#4a4458", "color2": "#1a1a26", "lines": 10, "gloss": 0.4, "area": [-800, 796, 2400, 1350] },
-      { "type": "light", "depth": 0.36, "pos": [700, 830], "h": 60, "color": "#fffaf0", "glow": 0.7, "bright": 1.4 }
+      { "type": "light", "depth": 0.36, "pos": [760, 830], "h": 60, "color": "#fffaf0", "glow": 0.7, "bright": 1.4 }
     ] }
   ],
   "beats": [
@@ -51,7 +51,7 @@
       "say": "A king claimed that he, too, gave life and death." },
     { "dur": 10000, "ambient": ["air", "echo"], "cam": { "dx": 6000, "from": { "pos": [800, 560, 1150], "look": [800, 540, -3000] }, "pos": [800, 540, 1000], "look": [800, 520, -3000] },
       "say": "Ibrahim answered: my Lord brings the sun up from the east; bring it up from the west." },
-    { "dur": 13000, "ambient": ["air"], "cam": { "pos": [800, 515, 950], "look": [800, 515, -3000] },
-      "pendingVerse": { "ref": "2:258", "place": "lower" } }
+    { "dur": 13000, "ambient": ["air"], "cam": { "dx": 6000, "pos": [800, 530, 880], "look": [800, 520, -3000] },
+      "pendingVerse": { "ref": "2:258", "place": "sky", "part": "Ibrahim's answer about the sun rising in the east, to the disbeliever left confounded" } }
   ]
 }

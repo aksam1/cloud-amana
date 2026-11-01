@@ -3,7 +3,7 @@
 //   npm run verses
 // A whole ayah or passage takes its English verbatim from ayahs.json. A part of an ayah needs `ar`
 // [first, last] (or one range per ayah) and its matching `en` excerpt chosen by hand from the words
-// output; those are reported, never guessed. The ref is added to the scene's `ayahs`.
+// output (a `part` note says which part was meant); those are reported, never guessed. The ref is added to the scene's `ayahs`.
 import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -39,6 +39,7 @@ for (const file of walk(join(root, 'src/story/chapters')).filter((f) => f.endsWi
     };
     if (missing.length) return wait(`not fetched yet (${missing.join(', ')}); run npm run words -- ${p.ref}`);
     if (p.ar && !p.en) return wait('part of an ayah: add the matching Sahih International "en" excerpt to pendingVerse');
+    if (p.part && !p.ar) return wait(`part of an ayah (${p.part}): add its "ar" [first, last] and the matching "en" from npm run words -- ${p.ref}`);
     const verse = { ref: p.ref, ...(p.ar ? { ar: p.ar } : {}), place: p.place ?? 'lower', en: p.en ?? parts.map((r) => ayahs[r].en).join(' ') };
     let n = 0;
     text = text.replace(/"pendingVerse": \{[^{}]*\}/g, (m) => (n++ === skipped ? `"verse": ${compact(verse)}` : m));

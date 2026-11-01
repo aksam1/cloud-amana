@@ -14,7 +14,8 @@ artifact at https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq. Chapters arrive a
   (`ref` + `ar`). Run `npm run words -- 11:58` to see the indexes; it fetches missing ayat (from
   api.alquran.cloud, which the environment's network policy must allow). If they cannot be fetched, the
   verse beat holds its shot with `"pendingVerse": { "ref", "place" }` (the checker warns) until
-  `npm run verses` fills it; never stand in other text or another edition.
+  `npm run verses` fills it (a `"part"` note marks part of an ayah, whose `ar`/`en` are then chosen by
+  hand); never stand in other text or another edition.
 - A scene's `arabic` title is plain Arabic, never a Quran phrase (the checker rejects it).
 - Imagined details and tradition/hadith details are labelled in the scene's `art` list.
 - No music and no instruments. Sound beds are synthesized wind, water, crowds and voices without words.
@@ -55,7 +56,11 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `{ "name": "gate", "at": 12500 }`), `cam`, `world` (GL).
 - Passages: `"ref": "89:6-8"`; `ar` omitted for whole ayat, or one range per ayah (`null` = whole ayah).
 - Caption panels at lg (1024×768): chronicle bottom-left (x 228–697 design, y > ~630), verse panel
-  x 725–1372, y ~490–724. During a verse beat keep the subject in the upper ~55% of the frame.
+  x 725–1372, y ~490–724. During a verse beat keep the subject in the upper ~55% of the frame, or, when
+  the subject stands on the floor (a room, a tent, a crowd), place the verse `"sky"` (top, centred, y
+  ~100–400 px at 1024×768) and keep the subject in the middle band. The sheet outlines a pending verse
+  as a medium-sized panel. To place things by numbers: a design point (x, y) on depth d stands at
+  world (800 + (x−800)/d, 450 + (y−450)/d, 1000 − 1000/d); the vertical half-view is tan⁻¹ 0.45.
 
 ## WebGL scenes (`"renderer": "gl"`, from Chapter 4)
 
@@ -71,7 +76,14 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - GL-native types: `light` (people of light: `pose`, `path` with z for true 3D walks, `delay`, `w`,
   `bright`, `solid`, `kind: "flame"`), `crowd` (people or `kind: "army"`; `ground` for world-space bands;
   `y: [front, back]`; `out` puts lights out), `dust` (`blend: "normal"` for smoke/sand), `ribbons`,
-  `cloth` (`pole`, `tear`), `storm`, `sun` (the visible one streams god-rays).
+  `cloth` (`pole`, `tear`), `storm`, `sun` (the visible one streams god-rays), `heavens` (a living sky:
+  per-beat `tod` [from, to, ms] hours run the sky through night, dawn, day and dusk; `star`, `moon`, `sun`
+  {rise, set, x0, x1, peak} rise and set behind the hills; it drives the scene's light and haze while shown,
+  so use it instead of a `sky` card), `fire` (ink-wash flame sheets: `pos`, `w`, `h`, `heat`; `cool` 0–1
+  eases it to calm silver-blue light over `coolDur`).
+- A card can `shatter` {delay, dur, spread, gravity, spin, floor, cols, rows} (usually set in `at` for the
+  beat it breaks): it is cut into shards that fly, tumble and rest on the `floor` line; a negative `delay`
+  shows it already broken.
 - Overlays stay flat on screen above the 3D world: calligraphy, guidance, jeers, numerals, lightning,
   tint, particles, inkdrop, flash (`OVERLAY` in `src/gl/GLStage.jsx`). Position them where the subject appears
   for that beat's camera, and keep the camera still while they play.
@@ -101,6 +113,10 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - A card's own `fade` is a number (ms); a painter's `fade` word ("none", "out") is passed to the painter.
 - Thamud's land (`src/layers/hijr.jsx`): `outcrop` (sandstone with carved `homes`, lamps `lit`, a `rift`
   of light), `shecamel` (only as light; poses stand, walk, drink, kneel) and `well` (`trough`, `frame`).
+- Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`
+  (stepped temple tower with stairs and shrine) and `tent` (goat hair, `lit` lamp inside).
+- A card's dry-brush flecks fall only on real edges (where its cover changes sharply); soft washes such as
+  clouds stay whole. Before, half-clear paintings broke into a blocky mosaic.
 - Daylight figures of light blow out to white: use `glow` 0.1–0.3, `bright` ~0.85, `solid` ~0.5.
 - Cards draw in depth order with no depth buffer: a floor card must stand behind everything on it, a
   crowd's whole mesh sorts by its middle Z, and a dune band in front hides whatever stands below its crest.

@@ -33,16 +33,17 @@
     { "type": "idol", "depth": 0.34, "x": 1080, "y": 752, "h": 280, "kind": "clay", "ppu": 1.2, "seed": 7, "shatter": { "delay": -6000, "seed": 7 } },
     { "type": "crowd", "area": [140, 1460, -2600, -1300], "y": [820, 760], "count": 520, "size": 22, "color": "#f0a860", "dim": 0.3, "glow": 0.55, "mill": 8, "speed": 0, "flicker": 0.5,
       "at": { "2": { "dim": 0.75, "flicker": 0.05, "mill": 2 } } },
-    { "type": "light", "depth": 0.44, "pos": [800, 812], "h": 64, "color": "#fffaf0", "glow": 0.8, "bright": 1.5 },
-    { "type": "jeers", "show": [0, 2], "center": [800, 560], "from": [520, 300], "clear": [90, 110], "count": 30, "size": 40, "period": 6 },
+    { "type": "light", "depth": 0.44, "pos": [800, 812], "h": 64, "color": "#fffaf0", "glow": 0.8, "bright": 1.5,
+      "at": { "2": { "pose": "walk", "path": [[800, 812], [650, 812]], "dur": 5000, "delay": 800 } } },
+    { "type": "jeers", "show": [0, 2], "center": [800, 610], "from": [520, 280], "clear": [80, 100], "count": 30, "size": 40, "period": 6 },
     { "type": "dust", "box": [-1200, 200, -3200, 2800, 1000, -700], "count": 900, "size": 4, "color": "#c8a880", "opacity": 0.35, "wind": [10, -6, 0], "swirl": 40, "blend": "normal" }
   ],
   "beats": [
-    { "dur": 9000, "ambient": ["crowd", "jeer"], "cam": { "pos": [800, 520, 1000], "look": [800, 540, -3000] },
+    { "dur": 9000, "ambient": ["crowd", "jeer"], "cam": { "pos": [800, 560, 1000], "look": [800, 700, -3000] },
       "say": "When they returned and saw what had been done, they brought Ibrahim before everyone." },
     { "dur": 8000, "ambient": ["jeer", "crowd"],
       "say": "Was it you who did this to our gods, they asked." },
-    { "dur": 12000, "ambient": ["air"], "cam": { "pos": [800, 515, 960], "look": [800, 540, -3000] },
+    { "dur": 12000, "ambient": ["air"], "cam": { "pos": [800, 580, 1350], "look": [800, 1250, -3000] },
       "pendingVerse": { "ref": "21:63", "place": "lower" } }
   ]
 }

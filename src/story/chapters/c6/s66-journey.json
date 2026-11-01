@@ -72,7 +72,7 @@
       "say": "They travelled far toward the west, trusting God to guide them." },
     { "dur": 10000, "ambient": ["wind"], "cam": { "dx": 12000, "from": { "pos": [800, 560, 1150], "look": [800, 560, -3000] }, "pos": [800, 540, 1000], "look": [800, 540, -3000] },
       "say": "Over plains and rivers and mountain passes they went on." },
-    { "dur": 13000, "ambient": ["birds", "air"], "cam": { "dx": 18000, "from": { "pos": [800, 520, 1150], "look": [800, 600, -3000] }, "pos": [800, 520, 1000], "look": [800, 610, -3000] },
-      "pendingVerse": { "ref": "37:99", "place": "lower" } }
+    { "dur": 13000, "ambient": ["birds", "air"], "cam": { "dx": 18000, "from": { "pos": [800, 520, 1150], "look": [800, 360, -3000] }, "pos": [800, 520, 1000], "look": [800, 330, -3000] },
+      "pendingVerse": { "ref": "37:99", "place": "sky" } }
   ]
 }

@@ -43,6 +43,6 @@
     { "dur": 13000, "ambient": ["wind", "birds"], "cam": { "pos": [800, 575, 1120], "look": [800, 495, -4000] },
       "say": "Then the sun, the greatest of them, and it set as well." },
     { "dur": 12000, "ambient": ["air"], "cam": { "pos": [800, 570, 1080], "look": [800, 500, -4000] },
-      "pendingVerse": { "ref": "6:79", "place": "lower" } }
+      "pendingVerse": { "ref": "6:79", "place": "sky" } }
   ]
 }
