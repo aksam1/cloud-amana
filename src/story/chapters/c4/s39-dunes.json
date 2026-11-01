@@ -25,7 +25,7 @@
     { "type": "iram", "show": [1, null], "depth": 0.15, "seed": 9, "haze": "#f2d6b2", "reveal": { "dir": "up", "dur": 3800, "delay": 4200 } },
     { "type": "crowd", "show": [2, null], "area": [420, 1180, -5900, -5500], "y": 664, "count": 320, "size": 3.2, "color": "#ffd6a0", "dim": 0.35, "flow": [1, 0.2], "speed": 5, "mill": 2 },
     { "type": "dunes", "depth": 0.18, "lit": "#f4b464", "body": "#cf8648", "shade": "#4a2a5c", "y": 606, "amp": 34, "count": 8, "seed": 4, "haze": 0.2 },
-    { "type": "animals", "show": [2, null], "depth": 0.24, "size": 0.7, "fade": "none", "area": [80, 560, 760, 680],
+    { "type": "animals", "show": [1, 2], "depth": 0.24, "size": 0.7, "fade": "none", "area": [80, 560, 760, 680],
       "pairs": [{ "kind": "camel", "path": [[200, 640]] }, { "kind": "camel", "path": [[260, 643]] }, { "kind": "camel", "path": [[320, 641]] }, { "kind": "camel", "path": [[380, 644]] }, { "kind": "camel", "path": [[440, 642]] }],
       "move": { "path": [[420, -6, 0]], "dur": 30000 } },
     { "type": "dunes", "depth": 0.28, "lit": "#f4b464", "body": "#cf8648", "shade": "#4a2a5c", "y": 630, "amp": 56, "count": 6, "seed": 5, "haze": 0.1 },

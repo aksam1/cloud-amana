@@ -18,7 +18,7 @@
   "pen": true,
   "dissolve": 2400,
   "world": { "fog": "#1c2030", "fogNear": 3000, "fogFar": 26000, "light": 0.62, "rays": 0, "bloom": 0.7, "haze": 0, "hazeY": 0.6, "shake": 0.4, "dof": 0 },
-  "cam": { "pos": [800, 580, 900], "look": [800, 640, -4000] },
+  "cam": { "pos": [800, 1080, -600], "look": [800, 1700, -4000] },
   "imagePrompt": "Night in the rock valley under a cold moon: inside a carved hall lit by one small fire, nine dim figures like dark embers leaning together, faint jagged strokes passing between them; then a single dark ember crossing the silver plain alone toward a soft light resting beside the well; then the plain empty, the well and the towering rocks in moonlight, the soft light gone; deep indigo, silver, ember red; restrained and grave, nothing violent shown; ink-wash and parchment texture.",
   "layers": [
     { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#0a0e1c"], [0.55, "#1a2238"], [1, "#34344a"]] },
@@ -40,7 +40,7 @@
       { "type": "light", "depth": 0.2, "pos": [960, 708], "h": 50, "w": 0.6, "color": "#9a4a2a", "glow": 0.35, "bright": 0.55, "solid": 0.65 },
       { "type": "dust", "box": [700, 1000, -4050, 900, 1710, -3950], "count": 120, "size": 4, "color": "#ffb060", "opacity": 0.8, "wind": [4, -60, 0], "swirl": 14 },
       { "type": "dunes", "depth": 0.35, "y": 800, "amp": 14, "count": 7, "seed": 73, "lit": "#4a4454", "body": "#2e2a36", "shade": "#141018" },
-      { "type": "jeers", "center": [800, 560], "from": [300, 170], "clear": [40, 30], "count": 16, "size": 30, "period": 8 }
+      { "type": "jeers", "center": [800, 400], "from": [380, 210], "clear": [60, 40], "count": 18, "size": 34, "period": 8 }
     ] },
 
     { "type": "set", "show": [1, null], "dx": 6000, "layers": [
@@ -58,7 +58,7 @@
     ] }
   ],
   "beats": [
-    { "dur": 9000, "ambient": ["crickets", "voices"], "cam": { "pos": [800, 560, 760], "look": [800, 640, -4000] },
+    { "dur": 9000, "ambient": ["crickets", "voices"], "cam": { "pos": [800, 1150, -1200], "look": [800, 1720, -4000] },
       "say": "In the city were nine men who spread corruption and would not set things right." },
     { "dur": 10000, "ambient": ["crickets", "air"], "cam": { "dx": 6000, "from": { "pos": [800, 480, 1150], "look": [800, 560, -3000] }, "pos": [820, 470, 980], "look": [820, 580, -3000] },
       "say": "They grew tired of the sign and of the one who brought it, and the most wretched of them went out against her." },

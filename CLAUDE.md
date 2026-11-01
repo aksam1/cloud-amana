@@ -11,7 +11,10 @@ artifact at https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq. Chapters arrive a
 - Prophets appear only as figures of steady light, far away or from behind. No faces, ever.
 - Every ayah is cited in Arabic and English. English is Sahih International, verbatim; `…` marks a gap.
   Quran text is never typed into a scene: it comes from `src/data/ayahs.json` by word range
-  (`ref` + `ar`). Run `npm run words -- 11:58` to see the indexes; it fetches missing ayat.
+  (`ref` + `ar`). Run `npm run words -- 11:58` to see the indexes; it fetches missing ayat (from
+  api.alquran.cloud, which the environment's network policy must allow). If they cannot be fetched, the
+  verse beat holds its shot with `"pendingVerse": { "ref", "place" }` (the checker warns) until
+  `npm run verses` fills it; never stand in other text or another edition.
 - A scene's `arabic` title is plain Arabic, never a Quran phrase (the checker rejects it).
 - Imagined details and tradition/hadith details are labelled in the scene's `art` list.
 - No music and no instruments. Sound beds are synthesized wind, water, crowds and voices without words.
@@ -28,6 +31,7 @@ npm run scene -- 5 49 id "Title" --gl   # scaffold a scene (drop --gl for a 2D s
 npm run check               # verbatim English, Arabic ranges, titles, layer types, sound names
 npm run prompts             # regenerate docs/ image prompts from scenes' imagePrompt
 npm run publish             # build + deploy/index.html + the files map for the artifact
+npm run verses              # turn each beat's pendingVerse into its verse once the ayat are fetched
 ```
 
 ## Reviewing scenes (do this for every beat)
@@ -69,7 +73,7 @@ npm run publish             # build + deploy/index.html + the files map for the 
   `y: [front, back]`; `out` puts lights out), `dust` (`blend: "normal"` for smoke/sand), `ribbons`,
   `cloth` (`pole`, `tear`), `storm`, `sun` (the visible one streams god-rays).
 - Overlays stay flat on screen above the 3D world: calligraphy, guidance, jeers, numerals, lightning,
-  tint, particles, inkdrop (`OVERLAY` in `src/gl/GLStage.jsx`). Position them where the subject appears
+  tint, particles, inkdrop, flash (`OVERLAY` in `src/gl/GLStage.jsx`). Position them where the subject appears
   for that beat's camera, and keep the camera still while they play.
 - Montage: a `set` layer groups a shot's layers, composed as if from the reference camera, and stands
   them `dx` across / `dz` along; a beat's `cam` with the same `dx`/`dz` frames it. Give each set a `show`
@@ -92,6 +96,11 @@ npm run publish             # build + deploy/index.html + the files map for the 
   the gap with a card in between (there, a second plaza floor behind the roofs).
 - Every material is compiled while the stage loads (`ReadyGate`); never rebuild the finishing passes per
   beat (a scene with god-rays in any beat keeps them, at weight 0 where a beat has none).
+- A camera's `look` (and `pos`) y is not scaled by depth: to aim at something standing at design y on a
+  card at depth d (z = 1000 − 1000/d), look at y' = 450 + (y − 450) × (1000 − z) / 1000.
+- A card's own `fade` is a number (ms); a painter's `fade` word ("none", "out") is passed to the painter.
+- Thamud's land (`src/layers/hijr.jsx`): `outcrop` (sandstone with carved `homes`, lamps `lit`, a `rift`
+  of light), `shecamel` (only as light; poses stand, walk, drink, kneel) and `well` (`trough`, `frame`).
 - Daylight figures of light blow out to white: use `glow` 0.1–0.3, `bright` ~0.85, `solid` ~0.5.
 - Cards draw in depth order with no depth buffer: a floor card must stand behind everything on it, a
   crowd's whole mesh sorts by its middle Z, and a dune band in front hides whatever stands below its crest.

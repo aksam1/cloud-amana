@@ -21,7 +21,7 @@ const scenes = walk(join(root, 'src/story/chapters'))
   .sort((a, b) => a.chapter - b.chapter || a.order - b.order);
 
 const out = [
-  '# Image prompts — Chapter 1',
+  '# Image prompts',
   '',
   'Generated from the scene files by `npm run prompts`. Each prompt = scene description + shared style + content rules.',
   '',

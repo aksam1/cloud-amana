@@ -12,7 +12,8 @@
     "prompts": "node scripts/export-prompts.mjs",
     "words": "node scripts/words.mjs",
     "scene": "node scripts/new-scene.mjs",
-    "publish": "node scripts/publish.mjs"
+    "publish": "node scripts/publish.mjs",
+    "verses": "node scripts/fill-verses.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^9.8.2",

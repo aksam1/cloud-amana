@@ -66,6 +66,7 @@ for (const s of scenes) {
       if (l.ar[1] >= n) errors.push(`${where}: layer word range ${l.ar} outside ${l.ref} (${n} words)`);
     }
   }
+  for (const [i, b] of s.beats.entries()) if (b.pendingVerse) warns.push(`${where}: beat ${i} still waits for its verse ${b.pendingVerse.ref} (fetch it, then npm run verses)`);
   const says = s.beats.filter((b) => b.say).length;
   if (says < 2 || says > 4) warns.push(`${where}: ${says} narration sentences (brief asks for 2–4)`);
   s.beats.forEach((b, i) => {

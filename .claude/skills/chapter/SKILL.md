@@ -26,6 +26,10 @@ npm run words -- 26:128-130 7:65 11:58
 This fetches anything missing into `src/data/ayahs.json` and prints word indexes. Copy English verbatim
 from its output (Sahih International, including brackets and its spelling of names, such as 'Aad);
 use `…` for a gap. Single ayah: `ar: [first, last]`. Passage: `"ref": "69:6-7"` with `ar` per ayah.
+If the fetch is refused (api.alquran.cloud not allowed by the environment's network policy), tell the
+user how to allow it, give each verse beat `"pendingVerse": { "ref": "7:79", "place": "lower" }` and
+build everything else; `npm run verses` fills them once the ayat are in. Never type a verse or take it
+from another edition.
 
 ## 3. Chapter file
 
