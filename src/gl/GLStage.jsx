@@ -64,13 +64,21 @@ function Env({ target, env, sun, beat }) {
 /**
  * Holds the stage hidden until its paintings are in and every shader has finished compiling (browsers
  * compile them in the background and draw nothing with an unfinished one), so it never fades in on an
- * empty frame.
+ * empty frame and never stalls later on a shader it meets for the first time.
  */
 function ReadyGate({ painted, onReady }) {
   const gl = useThree((s) => s.gl);
   const frames = useRef(0);
-  useFrame(() => {
+  const asked = useRef(false);
+  useFrame(({ scene, camera }) => {
     if (!painted || frames.current < 0) return;
+    // every material is compiled now, including those of sets further along the montage that the camera
+    // cannot see yet (three compiles a material the first time it draws it, which would stall the frame
+    // at the cut to that set)
+    if (!asked.current) {
+      asked.current = true;
+      gl.compile(scene, camera);
+    }
     const compiled = gl.info.programs.every((p) => !p.isReady || p.isReady());
     frames.current = compiled ? frames.current + 1 : 0;
     if (frames.current > 2) {
@@ -161,10 +169,12 @@ function StillDriver({ ready, painted, onShot }) {
   return null;
 }
 
-// The finishing passes. The composer is rebuilt when god-rays come or go; each build gets its own ink-wash
-// effect, because a composer disposes the effects it held when it goes.
-function Effects({ target, sun, lite, env }) {
-  const rays = !!(sun && !lite && target.rays > 0);
+// The finishing passes. A scene that has god-rays in any beat keeps them all through (at no strength where a
+// beat has none), so changing beats never rebuilds the passes: a rebuild compiles every shader again, which
+// stalls the frame (a visible hitch at a cut). The composer is only rebuilt when the light source first
+// arrives; each build gets its own ink-wash effect, because a composer disposes the effects it held.
+function Effects({ target, sun, lite, env, anyRays }) {
+  const rays = !!(sun && !lite && anyRays);
   return <Composer key={rays ? 'rays' : 'plain'} rays={rays} sun={sun} target={target} env={env} />;
 }
 
@@ -184,7 +194,7 @@ function Composer({ rays, sun, target, env }) {
   const bloom = <Bloom intensity={target.bloom} luminanceThreshold={0.92} luminanceSmoothing={0.15} mipmapBlur />;
   return rays ? (
     <EffectComposer multisampling={0} autoClear={false}>
-      <GodRays sun={sun} density={0.92} decay={0.94} weight={0.32 * target.rays} exposure={0.4} samples={48} blur />
+      <GodRays sun={sun} density={0.92} decay={0.94} weight={0.32 * Math.max(0, target.rays)} exposure={0.4} samples={48} blur />
       {bloom}
       <primitive object={ink} />
     </EffectComposer>
@@ -220,6 +230,7 @@ export default function GLStage({ scene, beat, start = beat, still = false, mome
   const pending = useRef(null);
   const veilBox = useRef(null);
   const target = useMemo(() => worldAt(scene, shown), [scene, shown]);
+  const anyRays = useMemo(() => scene.beats.some((_, b) => worldAt(scene, b).rays > 0), [scene]);
   const env = useRef(null);
   if (env.current === null) env.current = { fogColor: new Color(target.fog), fogNear: target.fogNear, fogFar: target.fogFar, focus: R, dof: target.dof, light: target.light, sunDir: new Vector3(0, 0, -1), still, moment };
   // phones and small GPUs: fewer particles, no god-rays, a lower resolution
@@ -238,9 +249,8 @@ export default function GLStage({ scene, beat, start = beat, still = false, mome
       return undefined;
     }
     let live = true;
-    Promise.all(paint(beat))
-      .catch(() => null)
-      .then(() => live && (pending.current = beat));
+    // (a slow device still on its first paintings goes after a few seconds, finishing the shot as it can)
+    Promise.race([Promise.all(paint(beat)).catch(() => null), new Promise((r) => setTimeout(r, 3000))]).then(() => live && (pending.current = beat));
     return () => {
       live = false;
       if (pending.current === beat) pending.current = null;
@@ -268,14 +278,14 @@ export default function GLStage({ scene, beat, start = beat, still = false, mome
   }, [scene, paint]);
 
   return (
-    <div className="absolute inset-0" style={{ background: scene.world?.fog || scene.base || '#07060a' }}>
+    <div className="absolute inset-0" style={{ background: target.fog || scene.base || '#07060a' }}>
       <Canvas frameloop={still ? 'never' : 'always'} flat linear legacy dpr={lite ? 1 : [1, 1.75]} gl={{ antialias: !lite, powerPreference: 'high-performance', preserveDrawingBuffer: still }} onCreated={(state) => import.meta.env.DEV && (window.__gl = state)} camera={{ fov: FOV, near: 1, far: 40000, position: [0, 0, R] }} style={{ opacity: ready ? 1 : 0, transition: 'opacity 1.2s ease' }}>
         <color attach="background" args={[scene.base || '#07060a']} />
         <Env target={target} env={env} sun={sunLayer && resolveLayer(sunLayer, shown)} beat={shown} />
         <CameraRig scene={scene} beat={shown} start={start} still={still} reduced={reduced} durations={durations} env={env} shake={target.shake} />
         {painted && cards.map((l) => <Card key={l.key} layer={l} beat={shown} env={env} dissolve={dissolve} />)}
         {native.map((l) => (l.type === 'sun' ? <Sun key={l.key} ref={l === sunLayer ? setSunMesh : undefined} layer={l} beat={shown} env={env} dissolve={dissolve} /> : createElement(NATIVE[l.type], { key: l.key, layer: l, beat: shown, env, dissolve, lite: lite || reduced })))}
-        <Effects target={target} sun={sunMesh} lite={lite} env={env} />
+        <Effects target={target} sun={sunMesh} lite={lite} env={env} anyRays={anyRays} />
         {still && <StillDriver ready={ready} painted={painted} onShot={setShot} />}
         {!still && <Dissolve pending={pending} onShot={onShot} box={veilBox} dur={dissolve} shown={shown} />}
         <ReadyGate painted={painted} onReady={() => setReady(true)} />

@@ -30,7 +30,7 @@
       { "type": "iram", "depth": 0.12, "seed": 92, "x0": -500, "x1": 2100, "area": [-600, 160, 2200, 640], "haze": "#f0dcc0",
         "rows": [{ "y": 590, "h": 200, "n": 40, "w": 9 }, { "y": 610, "h": 280, "n": 28, "w": 13 }] },
       { "type": "facade", "depth": 0.3, "x": 800, "y": 640, "w": 1700, "h": 150, "stone": "#d0a080" },
-      { "type": "floor", "depth": 0.4, "y": 638, "vp": [800, 430], "color": "#d8b48a", "color2": "#a88460", "lines": 14, "gloss": 0.05, "area": [-800, 634, 2400, 1350] },
+      { "type": "floor", "depth": 0.4, "y": 638, "vp": [800, 430], "color": "#b8946e", "color2": "#8a6a50", "lines": 14, "gloss": 0, "area": [-800, 634, 2400, 1350] },
       { "type": "light", "show": [1, null], "depth": 0.3, "pos": [380, 490], "h": 40, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
       { "type": "light", "show": [1, null], "depth": 0.3, "pos": [560, 490], "h": 41, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
       { "type": "light", "show": [1, null], "depth": 0.3, "pos": [1020, 490], "h": 40, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
