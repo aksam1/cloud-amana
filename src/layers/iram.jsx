@@ -110,7 +110,9 @@ export function Column({ cfg }) {
       ) : (
         <>
           <path d={`M${x - w / 2},${y - 14} L${x - tw / 2},${top + w * 0.5} L${x + tw / 2},${top + w * 0.5} L${x + w / 2},${y - 14} Z`} fill={`url(#${uid}g)`} />
-          <path d={`M${x - w * 0.62},${top + w * 0.52} Q${x},${top + w * 0.2} ${x + w * 0.62},${top + w * 0.52} Z`} fill={mixColor(stone, lit, 0.3)} />
+          {/* the capital: a cushion swelling from the shaft up to the slab that crowns it (touching it, so
+              the slab never floats on a column seen up close) */}
+          <path d={`M${x - tw / 2},${top + w * 0.56} Q${x - w * 0.5},${top + w * 0.4} ${x - w * 0.7},${top + w * 0.23} L${x + w * 0.7},${top + w * 0.23} Q${x + w * 0.5},${top + w * 0.4} ${x + tw / 2},${top + w * 0.56} Z`} fill={mixColor(stone, lit, 0.3)} />
           <rect x={x - w * 0.82} y={top} width={w * 1.64} height={w * 0.24} fill={mixColor(stone, dark, 0.15)} />
         </>
       )}

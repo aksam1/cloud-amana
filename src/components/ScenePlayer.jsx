@@ -236,7 +236,8 @@ function Player({ scene, start = 0, still = false, moment }) {
   return (
     <div className="relative h-full w-full select-none overflow-hidden bg-night">
       {scene.renderer === 'gl' ? (
-        <Suspense fallback={null}>
+        // while the 3D renderer loads, the scene's own haze rather than the black behind it
+        <Suspense fallback={<div className="absolute inset-0" style={{ background: scene.world?.fog || scene.base || '#07060a' }} />}>
           <GLStage scene={scene} beat={beat} start={start} still={still} moment={moment === undefined ? 1 : Number(moment)} reduced={reduced} durations={durations} />
         </Suspense>
       ) : (

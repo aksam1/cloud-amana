@@ -93,10 +93,47 @@ async function paint(cfg, area, ppu) {
   }
   root.unmount();
   host.remove();
+  const cut = cutEdges(canvas, w, h);
   const texture = new CanvasTexture(canvas);
   texture.generateMipmaps = true;
   texture.minFilter = LinearMipmapLinearFilter;
   texture.magFilter = LinearFilter;
   texture.anisotropy = 4;
-  return { texture, w, h, empty: svgs.length === 0 };
+  return { texture, w, h, cut, empty: svgs.length === 0 };
+}
+
+/**
+ * Which sides of a painting run off the edge of its card [left, right, top, bottom] (1 where they do): there
+ * the card cuts the paint off, and the stage roughens the cut. A painting that ends inside its card keeps
+ * its own edge (the far edge of a floor meeting a wall stays where it was painted).
+ */
+function cutEdges(src, w, h) {
+  // the four edges are copied onto two small canvases kept for reading, so the painting itself (soon a
+  // texture) is never read back
+  const read = (cw, ch, draw) => {
+    const c = document.createElement('canvas');
+    c.width = cw;
+    c.height = ch;
+    const g = c.getContext('2d', { willReadFrequently: true });
+    draw(g);
+    return g.getImageData(0, 0, cw, ch).data;
+  };
+  const share = (data, from, count, step) => {
+    let n = 0;
+    for (let i = 0; i < count; i++) if (data[(from + i * step) * 4 + 3] > 24) n++;
+    return n / count > 0.04 ? 1 : 0;
+  };
+  try {
+    const cols = read(2, h, (g) => {
+      g.drawImage(src, 0, 0, 1, h, 0, 0, 1, h);
+      g.drawImage(src, w - 1, 0, 1, h, 1, 0, 1, h);
+    });
+    const rows = read(w, 2, (g) => {
+      g.drawImage(src, 0, 0, w, 1, 0, 0, w, 1);
+      g.drawImage(src, 0, h - 1, w, 1, 0, 1, w, 1);
+    });
+    return [share(cols, 0, h, 2), share(cols, 1, h, 2), share(rows, 0, w, 1), share(rows, w, w, 1)];
+  } catch {
+    return [1, 1, 0, 0];
+  }
 }

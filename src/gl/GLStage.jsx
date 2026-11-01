@@ -4,7 +4,7 @@
 import { createElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Bloom, EffectComposer, GodRays } from '@react-three/postprocessing';
-import { Color, Vector3 } from 'three';
+import { Color, ColorManagement, Vector3 } from 'three';
 import { Stage, useCamera } from '../components/Stage.jsx';
 import { expandLayers, resolveLayer, visibleAt } from '../lib/story.js';
 import { areaOf, captureLayer } from './capture.jsx';
@@ -13,6 +13,12 @@ import { Card, Cloth, Crowd, Dust, Light, Ribbons, Storm, Sun } from './elements
 import { InkWashEffect } from './InkWash.js';
 import { FOV, R, place, shift } from './space.js';
 import GL_TYPES from './types.json';
+
+// Every colour is used exactly as written, as the painted cards' colours are. The stage draws straight to
+// the screen without converting colours back from linear, so letting three convert hex colours to linear
+// on the way in would darken and oversaturate everything given as a colour (the haze, glows, cloth, dust)
+// next to the paintings, and the two would never match. Only this stage uses three.
+ColorManagement.enabled = false;
 
 const NATIVE = { light: Light, crowd: Crowd, dust: Dust, ribbons: Ribbons, cloth: Cloth, storm: Storm };
 // Layers that stay flat on the screen above the 3D world: writing, flashes, colour washes.
@@ -75,45 +81,54 @@ function ReadyGate({ painted, onReady }) {
   return null;
 }
 
+const smooth = (u) => u * u * (3 - 2 * u);
+
 /**
- * Takes a picture of the frame just drawn when asked (`pending` holds the beat to go to), so the stage can
- * dissolve from it to the next shot. It runs after the finishing passes, while the frame is still there.
+ * The dissolve between montage sets. When asked (`pending` holds the beat to go to) it takes a picture of
+ * the frame just drawn (it runs after the finishing passes, while the frame is still there), lays it over
+ * the stage in `box` and hands over to the new shot beneath it. The picture only begins to fade once the
+ * new shot has been drawn a few times (its textures uploaded, its camera in place), and it fades in step
+ * with the frames rather than on a clock of its own, so a slow frame can never uncover an unfinished shot.
+ * A dissolve asked for while one is still fading takes the fading picture into its own.
  */
-function Snapshot({ pending, onShot }) {
+function Dissolve({ pending, onShot, box, dur, shown }) {
   const gl = useThree((s) => s.gl);
-  useFrame(() => {
+  const st = useRef({ el: null, beat: null, drawn: 0, t0: null });
+  useFrame(({ clock }) => {
+    const s = st.current;
+    if (s.el) {
+      if (shown === s.beat) s.drawn++;
+      if (s.drawn > 2) {
+        s.t0 ??= clock.elapsedTime;
+        const u = Math.min(1, (clock.elapsedTime - s.t0) / Math.max(0.05, dur / 1000));
+        s.el.style.opacity = String(1 - smooth(u));
+        if (u >= 1) {
+          s.el.remove();
+          s.el = null;
+        }
+      }
+    }
     const next = pending.current;
-    if (next === null) return;
+    if (next === null || !box.current) return;
     pending.current = null;
     const src = gl.domElement;
     const copy = document.createElement('canvas');
     copy.width = src.width;
     copy.height = src.height;
-    copy.getContext('2d').drawImage(src, 0, 0);
-    onShot(copy, next);
+    const g = copy.getContext('2d');
+    g.drawImage(src, 0, 0);
+    if (s.el) {
+      g.globalAlpha = Number(s.el.style.opacity || 1);
+      g.drawImage(s.el, 0, 0);
+      s.el.remove();
+    }
+    copy.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:1';
+    box.current.appendChild(copy);
+    Object.assign(s, { el: copy, beat: next, drawn: 0, t0: null });
+    onShot(next);
   }, 2);
+  useEffect(() => () => st.current.el?.remove(), []);
   return null;
-}
-
-/** The last shot laid over the new one and faded away: a dissolve with nothing showing between the two. */
-function Veil({ shot, dur }) {
-  const box = useRef(null);
-  useEffect(() => {
-    if (!shot) return undefined;
-    const el = shot.canvas;
-    el.style.cssText = `position:absolute;inset:0;width:100%;height:100%;opacity:1;pointer-events:none;transition:opacity ${dur}ms cubic-bezier(0.45,0.05,0.3,1)`;
-    box.current.appendChild(el);
-    let raf = requestAnimationFrame(() => {
-      raf = requestAnimationFrame(() => (el.style.opacity = '0'));
-    });
-    const done = setTimeout(() => el.remove(), dur + 200);
-    return () => {
-      cancelAnimationFrame(raf);
-      clearTimeout(done);
-      el.remove();
-    };
-  }, [shot, dur]);
-  return <div ref={box} className="pointer-events-none absolute inset-0" />;
 }
 
 /**
@@ -202,8 +217,8 @@ export default function GLStage({ scene, beat, start = beat, still = false, mome
   const [ready, setReady] = useState(false);
   const [sunMesh, setSunMesh] = useState(null);
   const [shot, setShot] = useState(null);
-  const [veil, setVeil] = useState(null);
   const pending = useRef(null);
+  const veilBox = useRef(null);
   const target = useMemo(() => worldAt(scene, shown), [scene, shown]);
   const env = useRef(null);
   if (env.current === null) env.current = { fogColor: new Color(target.fog), fogNear: target.fogNear, fogFar: target.fogFar, focus: R, dof: target.dof, light: target.light, sunDir: new Vector3(0, 0, -1), still, moment };
@@ -211,16 +226,28 @@ export default function GLStage({ scene, beat, start = beat, still = false, mome
   const lite = useMemo(() => window.matchMedia('(max-width: 820px)').matches || (navigator.hardwareConcurrency ?? 8) <= 4, []);
   const overlayCam = useCamera();
   const dissolve = scene.dissolve ?? 1800;
-  // Moving to another set: keep drawing the last shot for one more frame, take its picture, then show the
-  // new shot complete beneath that picture as it fades. Nothing between the two shots is ever on screen.
+  // the paintings of a beat's cards (shared with the cards themselves, so asking twice paints once)
+  const paint = useCallback((b) => cards.filter((l) => visibleAt(l, b)).map((l) => captureLayer(resolveLayer(l, b), areaOf(l), l.ppu ?? 0.7)), [cards]);
+  // Moving to another set: keep showing the last shot until every painting of the new one is in, take a
+  // picture of the last frame, then show the new shot complete beneath that picture as it fades. Nothing
+  // between the two shots, and no half-painted shot, is ever on screen.
   useEffect(() => {
-    if (beat === shown) return;
-    if (still || !ready || !changesSet(scene, shown, beat)) setShown(beat);
-    else pending.current = beat;
-  }, [beat, shown, still, ready, scene]);
-  const onShot = useCallback((canvas, next) => {
+    if (beat === shown) return undefined;
+    if (still || !ready || !changesSet(scene, shown, beat)) {
+      setShown(beat);
+      return undefined;
+    }
+    let live = true;
+    Promise.all(paint(beat))
+      .catch(() => null)
+      .then(() => live && (pending.current = beat));
+    return () => {
+      live = false;
+      if (pending.current === beat) pending.current = null;
+    };
+  }, [beat, shown, still, ready, scene, paint]);
+  const onShot = useCallback((next) => {
     env.current.snapBeat = next;
-    setVeil({ canvas });
     setShown(next);
   }, []);
 
@@ -228,7 +255,6 @@ export default function GLStage({ scene, beat, start = beat, still = false, mome
   // later beats go on painting behind it, in beat order, so each is ready before its beat comes.
   useEffect(() => {
     let live = true;
-    const paint = (b) => cards.filter((l) => visibleAt(l, b)).map((l) => captureLayer(resolveLayer(l, b), areaOf(l), l.ppu ?? 0.7));
     Promise.all(paint(start)).then(async () => {
       if (!live) return;
       setPainted(true);
@@ -239,11 +265,11 @@ export default function GLStage({ scene, beat, start = beat, still = false, mome
     };
     // the opening beat is fixed for the life of the stage
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scene, cards]);
+  }, [scene, paint]);
 
   return (
     <div className="absolute inset-0" style={{ background: scene.world?.fog || scene.base || '#07060a' }}>
-      <Canvas frameloop={still ? 'never' : 'always'} flat linear dpr={lite ? 1 : [1, 1.75]} gl={{ antialias: !lite, powerPreference: 'high-performance', preserveDrawingBuffer: still }} onCreated={(state) => import.meta.env.DEV && (window.__gl = state)} camera={{ fov: FOV, near: 1, far: 40000, position: [0, 0, R] }} style={{ opacity: ready ? 1 : 0, transition: 'opacity 1.2s ease' }}>
+      <Canvas frameloop={still ? 'never' : 'always'} flat linear legacy dpr={lite ? 1 : [1, 1.75]} gl={{ antialias: !lite, powerPreference: 'high-performance', preserveDrawingBuffer: still }} onCreated={(state) => import.meta.env.DEV && (window.__gl = state)} camera={{ fov: FOV, near: 1, far: 40000, position: [0, 0, R] }} style={{ opacity: ready ? 1 : 0, transition: 'opacity 1.2s ease' }}>
         <color attach="background" args={[scene.base || '#07060a']} />
         <Env target={target} env={env} sun={sunLayer && resolveLayer(sunLayer, shown)} beat={shown} />
         <CameraRig scene={scene} beat={shown} start={start} still={still} reduced={reduced} durations={durations} env={env} shake={target.shake} />
@@ -251,11 +277,11 @@ export default function GLStage({ scene, beat, start = beat, still = false, mome
         {native.map((l) => (l.type === 'sun' ? <Sun key={l.key} ref={l === sunLayer ? setSunMesh : undefined} layer={l} beat={shown} env={env} dissolve={dissolve} /> : createElement(NATIVE[l.type], { key: l.key, layer: l, beat: shown, env, dissolve, lite: lite || reduced })))}
         <Effects target={target} sun={sunMesh} lite={lite} env={env} />
         {still && <StillDriver ready={ready} painted={painted} onShot={setShot} />}
-        {!still && <Snapshot pending={pending} onShot={onShot} />}
+        {!still && <Dissolve pending={pending} onShot={onShot} box={veilBox} dur={dissolve} shown={shown} />}
         <ReadyGate painted={painted} onReady={() => setReady(true)} />
       </Canvas>
       {shot && <img src={shot} alt="" className="pointer-events-none absolute inset-0 h-full w-full" />}
-      <Veil shot={veil} dur={dissolve} />
+      <div ref={veilBox} className="pointer-events-none absolute inset-0" />
       {overlay.layers.length > 0 && <Stage scene={overlay} beat={beat} cam={overlayCam} reduced={reduced} bare />}
     </div>
   );

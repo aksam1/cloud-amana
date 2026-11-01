@@ -3,7 +3,7 @@
 // glow. Crowds and armies are thousands of them drawn at once. Dust, ribbons and storms are particles and
 // ink strokes drifting on a gentle noise field, never in straight lines.
 import { forwardRef, useCallback, useEffect, useMemo, useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { AdditiveBlending, Color, DoubleSide, Float32BufferAttribute, InstancedBufferAttribute, InstancedBufferGeometry, NormalBlending, PlaneGeometry, ShaderMaterial, Vector3 } from 'three';
 import { areaOf, artOf, captureLayer } from './capture.jsx';
 import { brushMask } from './brush.js';
@@ -97,6 +97,7 @@ uniform float sat;
 uniform vec2 texel;
 uniform float rough;
 uniform float feather;
+uniform vec2 cutY;
 varying vec2 vUv;
 varying float vDepth;
 float h21(vec2 p) { return fract(sin(dot(p, vec2(41.3, 289.1))) * 43758.5453); }
@@ -118,10 +119,17 @@ void main() {
   // dry brush: where the paint thins out at the edge of a shape, the paper shows through in flecks
   float soft = mix(texture2D(map, uv, bias + 2.0).a, texture2D(map2, uv, bias + 2.0).a, swap);
   c.a *= 1.0 - soft * (1.0 - soft) * 4.0 * rough * 0.4 * smoothstep(0.4, 0.8, vn(px / 3.5));
-  // the painting thins out irregularly at the card's sides rather than ending on a ruled line
+  // where a card cuts its painting off, the paint gives out the way a dry brush does: a ragged edge that
+  // wanders in and out, broken into streaks along the stroke, never a ruled line. Its sides always do; its
+  // top and bottom only where the painting runs off them (cutY: bottom, top), so a painting that ends
+  // inside its card (the far edge of a floor) keeps the edge it was painted with.
   if (feather > 0.0) {
-    float side = min(vUv.x, 1.0 - vUv.x) / (texel.x * feather) + (vn(vec2(px.y / 37.0, vUv.x < 0.5 ? 5.3 : 9.1)) - 0.5) * 0.9;
-    c.a *= smoothstep(0.0, 1.0, side);
+    vec2 tex = 1.0 / texel;
+    float dx = min(vUv.x, 1.0 - vUv.x) * tex.x / feather;
+    float dy = min(mix(1e3, vUv.y, cutY.x), mix(1e3, 1.0 - vUv.y, cutY.y)) * tex.y / feather;
+    float sx = dx + (vn(vec2(px.y / 37.0, vUv.x < 0.5 ? 5.3 : 9.1)) - 0.5) * 0.9 + (vn(vec2(px.y / 5.0, px.x / 19.0)) - 0.5) * 0.35;
+    float sy = dy + (vn(vec2(px.x / 37.0, vUv.y < 0.5 ? 2.7 : 7.7)) - 0.5) * 0.9 + (vn(vec2(px.x / 5.0, px.y / 19.0)) - 0.5) * 0.35;
+    c.a *= smoothstep(0.05, 0.7, sx) * smoothstep(0.05, 0.7, sy);
   }
   if (useMask > 0.5) {
     float m = texture2D(mask, vUv).r;
@@ -142,7 +150,8 @@ void main() {
  * {dir, dur, delay} paints it in stroke by stroke when it first appears; `move` {path, dur, delay} slides
  * it along design-unit offsets (a block hauled up a ramp, a caravan crossing); `light`, `sat`, `tint`
  * [colour, amount] and `fog` (how much distance haze it takes, 0 for a sky) grade it; per-beat changes to its art crossfade to a fresh painting.
- * Its edges are read as if brushed (`rough`, 0 for crisp) and its sides thin out over `feather` texture pixels.
+ * Its edges are read as if brushed (`rough`, 0 for crisp) and wherever it cuts its painting off, on any side, the
+ * paint gives out raggedly over `feather` texture pixels.
  * Every element stands where its montage `set` puts it (`dx` across, `dz` along the camera's flight).
  */
 export function Card({ layer, beat, env, dissolve }) {
@@ -177,6 +186,7 @@ export function Card({ layer, beat, env, dissolve }) {
           texel: { value: [1 / 1024, 1 / 1024] },
           rough: { value: layer.rough ?? 1 },
           feather: { value: layer.feather ?? 36 },
+          cutY: { value: [0, 0] },
         },
         vertexShader: cardVertex,
         fragmentShader: cardFragment,
@@ -187,15 +197,22 @@ export function Card({ layer, beat, env, dissolve }) {
   );
   const artKey = JSON.stringify(artOf(cfg));
   const loaded = useRef(null);
+  const gl = useThree((s) => s.gl);
   useEffect(() => {
     let live = true;
-    captureLayer(cfg, area, ppu).then(({ texture, w, h }) => {
+    captureLayer(cfg, area, ppu).then(({ texture, w, h, cut }) => {
       if (!live) return;
+      // sent to the GPU now rather than on the card's first frame, so a new shot never stalls on uploads
+      gl.initTexture(texture);
       const u = material.uniforms;
       u.texel.value = [1 / w, 1 / h];
-      if (!u.map.value) {
+      u.cutY.value = [cut[3], cut[2]];
+      // a shot reached through the dissolve (or held still) stands complete: its art is not crossfaded
+      const e = env.current;
+      if (!u.map.value || e.still || e.snapBeat === beat) {
         u.map.value = texture;
         u.map2.value = texture;
+        u.swap.value = 0;
       } else {
         u.map2.value = texture;
         u.swap.value = 0.0001;

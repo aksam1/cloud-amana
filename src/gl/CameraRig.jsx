@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { CatmullRomCurve3, Vector3 } from 'three';
 import { FOV, R, ease, world } from './space.js';
@@ -68,7 +68,8 @@ export function CameraRig({ scene, beat, start, still, reduced, durations, env, 
     const c = still ? glCameraAt(scene, start + 1) : opens ? openingOf(scene, start) : glCameraAt(scene, start);
     cur.current = { pos: vec(c.pos), look: vec(c.look), fov: c.fov, focus: c.focus };
   }
-  useEffect(() => {
+  // set before the next frame is drawn, so a cut to a new set never shows a frame from the old framing
+  useLayoutEffect(() => {
     const c = scene.beats[beat]?.cam;
     const opens = !still && last.current !== beat && changesSet(scene, last.current, beat);
     last.current = beat;
