@@ -1,0 +1,45 @@
+{
+  "id": "guests",
+  "chapter": 6,
+  "order": 67,
+  "node": "ibrahim",
+  "title": "The Honoured Guests",
+  "arabic": "الضيوف",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "The guests are angels and appear only as tall figures of radiance; Ibrahim appears as a steady light. The meal is told, not shown."
+  ],
+  "ambient": ["sheep", "air"],
+  "base": "#2a2434",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": { "fog": "#7a6a86", "fogNear": 5000, "fogFar": 36000, "light": 0.9, "rays": 0, "bloom": 0.8, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [800, 520, 1150], "look": [800, 560, -3000] },
+  "imagePrompt": "A dark goat-hair tent among rolling hills at dusk, a small fire before it, a steady white light standing at its door; three tall figures made only of white radiance approaching across the grass, soft light like folded wings around them; then all of them seated in a ring of calm light; dusk violet, lamp amber, pure white; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 640, "sun": { "rise": 6, "set": 18, "x0": 300, "x1": 1360, "peak": 480 }, "moon": { "rise": 19.6, "set": 6, "x0": 260, "x1": 1340, "peak": 380, "size": 26 },
+      "tod": [17.4, 18.8, 9000], "at": { "1": { "tod": [18.8, 19.8, 9000] }, "2": { "tod": [19.8, 20.8, 13000] } } },
+    { "type": "ridge", "depth": 0.05, "y": 640, "amp": 60, "seed": 101, "sharp": 0.3, "color": "#6a6a5a", "haze": 0.35, "fog": 0.4 },
+    { "type": "ground", "depth": 0.12, "y": 668, "amp": 24, "seed": 102, "color": "#6a7a4a", "color2": "#4a5a32", "grass": true, "grassColor": "#8a9a58" },
+    { "type": "tent", "depth": 0.22, "x": 760, "y": 718, "w": 560, "h": 210, "lit": true, "ppu": 1 },
+    { "type": "brazier", "depth": 0.26, "x": 900, "y": 760, "s": 0.7 },
+    { "type": "light", "kind": "flame", "depth": 0.26, "pos": [900, 713], "h": 40, "color": "#ffb050", "glow": 1.1 },
+    { "type": "light", "depth": 0.24, "pos": [700, 726], "h": 48, "color": "#fffaf0", "glow": 0.8, "bright": 1.5, "at": { "1": { "glow": 0.45, "bright": 1.2 }, "2": { "glow": 0.9, "bright": 1.6 } } },
+    { "type": "light", "depth": 0.26, "h": 78, "w": 0.46, "color": "#ffffff", "glow": 1.6, "bright": 2.0, "pose": "walk", "path": [[1500, 760], [1040, 752]], "dur": 8000, "at": { "1": { "pose": "stand" }, "2": { "glow": 2.2 } } },
+    { "type": "light", "depth": 0.26, "h": 80, "w": 0.46, "color": "#ffffff", "glow": 1.6, "bright": 2.0, "pose": "walk", "path": [[1580, 764], [1120, 756]], "dur": 8000, "delay": 500, "at": { "1": { "pose": "stand" }, "2": { "glow": 2.2 } } },
+    { "type": "light", "depth": 0.26, "h": 78, "w": 0.46, "color": "#ffffff", "glow": 1.6, "bright": 2.0, "pose": "walk", "path": [[1660, 762], [1200, 754]], "dur": 8000, "delay": 1000, "at": { "1": { "pose": "stand" }, "2": { "glow": 2.2 } } },
+    { "type": "ground", "depth": 0.4, "y": 820, "amp": 12, "seed": 103, "color": "#5a6a3a", "color2": "#3a4a2a", "grass": true, "grassColor": "#7a8a4a", "wind": 1 },
+    { "type": "dust", "box": [-1200, 200, -4000, 2800, 950, 900], "count": 500, "size": 2.5, "color": "#fff0d0", "opacity": 0.3, "wind": [6, -2, 0] }
+  ],
+  "beats": [
+    { "dur": 10000, "ambient": ["sheep", "air"], "cam": { "pos": [860, 520, 1050], "look": [880, 570, -3000] },
+      "say": "One evening three guests came to Ibrahim's tent, and he hurried to bring them a roasted calf." },
+    { "dur": 9000, "ambient": ["fire", "air"], "cam": { "pos": [860, 525, 980], "look": [880, 575, -3000] },
+      "say": "But their hands did not reach for it, and he grew afraid." },
+    { "dur": 13000, "ambient": ["air"], "cam": { "pos": [860, 520, 940], "look": [880, 570, -3000] },
+      "pendingVerse": { "ref": "51:28", "place": "lower" } }
+  ]
+}

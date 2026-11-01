@@ -1,0 +1,58 @@
+{
+  "id": "toward",
+  "chapter": 6,
+  "order": 68,
+  "node": "ibrahim",
+  "title": "Toward the Cities of Lut",
+  "arabic": "نحو مدن لوط",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "The angels appear only as radiance and Ibrahim as a steady light, far away; the sea and the cities by it are imagined, looking ahead to the next chapter, the story of Lut."
+  ],
+  "ambient": ["wind", "air"],
+  "base": "#2a2a36",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": { "fog": "#8a7a8a", "fogNear": 5000, "fogFar": 38000, "light": 0.9, "rays": 0, "bloom": 0.7, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [800, 540, 1200], "look": [800, 560, -3000] },
+  "imagePrompt": "A ridge at dawn above a deep valley, a steady white light standing with three tall radiances; far below, a still, dark, mineral sea and walled cities along its shore under a bruised sky; the radiances descending the valley toward the cities, the white light remaining on the ridge; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 600, "sun": { "rise": 6, "set": 18, "x0": 1340, "x1": 300, "peak": 460, "size": 34 },
+      "tod": [4.9, 6.1, 10000], "at": { "1": { "tod": [6.1, 6.6, 10000] }, "2": { "tod": [6.6, 7.2, 13000] } } },
+
+    { "type": "set", "show": [0, 1], "layers": [
+      { "type": "ridge", "depth": 0.05, "y": 610, "amp": 60, "seed": 104, "sharp": 0.4, "color": "#5a5a6a", "haze": 0.3, "fog": 0.4 },
+      { "type": "ridge", "depth": 0.14, "y": 680, "amp": 120, "seed": 105, "sharp": 0.5, "color": "#6a5e5a", "haze": 0.15 },
+      { "type": "hillpath", "depth": 0.3, "points": [[820, 900], [760, 800], [840, 720], [800, 668]], "w0": 80, "w1": 14, "color": "#b0a088", "edge": "#7a6a56", "grass": "#8a8a6a" },
+      { "type": "light", "depth": 0.5263, "h": 40, "color": "#fffaf0", "glow": 0.8, "bright": 1.5, "pose": "walk", "path": [[800, 840, -900], [770, 760, -1600], [820, 690, -3000]], "dur": 10000 },
+      { "type": "light", "depth": 0.5263, "h": 54, "w": 0.46, "color": "#ffffff", "glow": 1.5, "bright": 2.0, "pose": "walk", "path": [[760, 840, -900], [740, 760, -1600], [790, 690, -3000]], "dur": 10000, "delay": 500 },
+      { "type": "light", "depth": 0.5263, "h": 54, "w": 0.46, "color": "#ffffff", "glow": 1.5, "bright": 2.0, "pose": "walk", "path": [[840, 840, -900], [800, 760, -1600], [850, 690, -3000]], "dur": 10000, "delay": 900 },
+      { "type": "light", "depth": 0.5263, "h": 54, "w": 0.46, "color": "#ffffff", "glow": 1.5, "bright": 2.0, "pose": "walk", "path": [[880, 840, -900], [830, 760, -1600], [880, 690, -3000]], "dur": 10000, "delay": 1300 },
+      { "type": "ridge", "depth": 0.5, "y": 880, "amp": 50, "seed": 106, "sharp": 0.4, "color": "#4a4448", "haze": 0 }
+    ] },
+
+    { "type": "set", "show": [1, null], "dx": 6000, "layers": [
+      { "type": "ridge", "depth": 0.05, "y": 560, "amp": 70, "seed": 107, "sharp": 0.5, "color": "#6a5a6a", "haze": 0.3, "fog": 0.4 },
+      { "type": "water", "mode": "sea", "level": 622, "flood": false, "depth": 0.08, "reflect": [["0", "#8a8a98"], ["1", "#2a3038"]] },
+      { "type": "town", "depth": 0.1, "y": 626, "x0": 300, "x1": 760, "s": 0.5, "grade": "town", "lit": 0, "haze": "#8a7a8a", "seed": 108 },
+      { "type": "town", "depth": 0.1, "y": 628, "x0": 980, "x1": 1300, "s": 0.45, "grade": "town", "lit": 0, "haze": "#8a7a8a", "seed": 109 },
+      { "type": "ridge", "depth": 0.16, "y": 700, "amp": 140, "seed": 110, "sharp": 0.6, "color": "#5a4e4a", "haze": 0.1 },
+      { "type": "light", "depth": 0.2, "h": 40, "w": 0.46, "color": "#ffffff", "glow": 1.4, "bright": 1.9, "pose": "walk", "path": [[760, 700], [700, 640]], "dur": 12000, "at": { "2": { "pose": "gone" } } },
+      { "type": "light", "depth": 0.2, "h": 40, "w": 0.46, "color": "#ffffff", "glow": 1.4, "bright": 1.9, "pose": "walk", "path": [[800, 704], [760, 640]], "dur": 12000, "delay": 500, "at": { "2": { "pose": "gone" } } },
+      { "type": "light", "depth": 0.2, "h": 40, "w": 0.46, "color": "#ffffff", "glow": 1.4, "bright": 1.9, "pose": "walk", "path": [[840, 700], [820, 640]], "dur": 12000, "delay": 900, "at": { "2": { "pose": "gone" } } },
+      { "type": "ridge", "depth": 0.4, "y": 860, "amp": 70, "seed": 111, "sharp": 0.4, "color": "#4a4248", "haze": 0 },
+      { "type": "light", "depth": 0.42, "pos": [380, 760], "h": 54, "color": "#fffaf0", "glow": 0.8, "bright": 1.5 }
+    ] }
+  ],
+  "beats": [
+    { "dur": 10000, "ambient": ["wind", "air"], "cam": { "pos": [800, 540, 1100], "look": [800, 600, -3000] },
+      "say": "At dawn Ibrahim walked with his guests and asked them where they were going." },
+    { "dur": 10000, "ambient": ["air"], "cam": { "dx": 6000, "from": { "pos": [800, 520, 1150], "look": [800, 600, -3000] }, "pos": [800, 510, 1050], "look": [800, 600, -3000] },
+      "say": "They were going on, they said, to the people of Lut." },
+    { "dur": 13000, "ambient": ["wind"], "cam": { "dx": 6000, "pos": [800, 505, 1000], "look": [800, 600, -3000] },
+      "pendingVerse": { "ref": "51:31-32", "place": "lower" } }
+  ]
+}

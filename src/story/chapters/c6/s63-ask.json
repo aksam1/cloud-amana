@@ -1,0 +1,48 @@
+{
+  "id": "ask",
+  "chapter": 6,
+  "order": 63,
+  "node": "ibrahim",
+  "title": "Ask Them",
+  "arabic": "المواجهة",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "The crowd's anger is drawn as jagged strokes, never words; the people appear as dim lights and Ibrahim as a steady light. The broken idols lie as they fell."
+  ],
+  "ambient": ["crowd", "jeer"],
+  "base": "#1a1410",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": { "fog": "#e0c8a8", "fogNear": 6000, "fogFar": 40000, "light": 0.95, "rays": 0.5, "bloom": 0.6, "haze": 0.08, "hazeY": 0.6, "shake": 0.6, "dof": 0 },
+  "cam": { "pos": [800, 520, 1150], "look": [800, 540, -3000] },
+  "imagePrompt": "The temple court crowded with figures of dim amber light around a single steady white light, jagged dark-red strokes of anger swirling around it; behind, the broken idols lie in shards before the one great idol still standing; then the strokes falling away and the crowd's lights lowering in silence; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#fff4dc"], [1, "#f0d8b0"]] },
+    { "type": "sun", "pos": [800, 120, -6000], "size": 40, "color": "#fff4dc" },
+    { "type": "facade", "depth": 0.18, "x": 800, "y": 700, "w": 2400, "h": 760, "stone": "#8a6a4e", "light": 0.8, "doors": [{ "x": 800, "w": 160, "h": 260 }] },
+    { "type": "floor", "depth": 0.19, "y": 702, "vp": [800, 520], "color": "#7a5a40", "color2": "#3a2a20", "lines": 16, "gloss": 0.15, "area": [-800, 696, 2400, 1350] },
+    { "type": "idol", "depth": 0.2, "x": 800, "y": 698, "h": 440, "kind": "gilt", "ppu": 1 },
+    { "type": "column", "depth": 0.24, "x": 470, "y": 712, "h": 560, "w": 40, "stone": "#6a4a30", "lit": "#a07a50", "dark": "#2a1a10" },
+    { "type": "column", "depth": 0.24, "x": 1130, "y": 712, "h": 560, "w": 40, "stone": "#6a4a30", "lit": "#a07a50", "dark": "#2a1a10" },
+    { "type": "idol", "depth": 0.27, "x": 600, "y": 724, "h": 250, "kind": "clay", "ppu": 1.2, "seed": 4, "shatter": { "delay": -6000, "seed": 4 } },
+    { "type": "idol", "depth": 0.27, "x": 1000, "y": 724, "h": 250, "kind": "wood", "ppu": 1.2, "seed": 5, "shatter": { "delay": -6000, "seed": 5 } },
+    { "type": "idol", "depth": 0.34, "x": 520, "y": 752, "h": 280, "kind": "stone", "ppu": 1.2, "seed": 6, "shatter": { "delay": -6000, "seed": 6 } },
+    { "type": "idol", "depth": 0.34, "x": 1080, "y": 752, "h": 280, "kind": "clay", "ppu": 1.2, "seed": 7, "shatter": { "delay": -6000, "seed": 7 } },
+    { "type": "crowd", "area": [140, 1460, -2600, -1300], "y": [820, 760], "count": 520, "size": 22, "color": "#f0a860", "dim": 0.3, "glow": 0.55, "mill": 8, "speed": 0, "flicker": 0.5,
+      "at": { "2": { "dim": 0.75, "flicker": 0.05, "mill": 2 } } },
+    { "type": "light", "depth": 0.44, "pos": [800, 812], "h": 64, "color": "#fffaf0", "glow": 0.8, "bright": 1.5 },
+    { "type": "jeers", "show": [0, 2], "center": [800, 560], "from": [520, 300], "clear": [90, 110], "count": 30, "size": 40, "period": 6 },
+    { "type": "dust", "box": [-1200, 200, -3200, 2800, 1000, -700], "count": 900, "size": 4, "color": "#c8a880", "opacity": 0.35, "wind": [10, -6, 0], "swirl": 40, "blend": "normal" }
+  ],
+  "beats": [
+    { "dur": 9000, "ambient": ["crowd", "jeer"], "cam": { "pos": [800, 520, 1000], "look": [800, 540, -3000] },
+      "say": "When they returned and saw what had been done, they brought Ibrahim before everyone." },
+    { "dur": 8000, "ambient": ["jeer", "crowd"],
+      "say": "Was it you who did this to our gods, they asked." },
+    { "dur": 12000, "ambient": ["air"], "cam": { "pos": [800, 515, 960], "look": [800, 540, -3000] },
+      "pendingVerse": { "ref": "21:63", "place": "lower" } }
+  ]
+}
