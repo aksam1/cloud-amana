@@ -33,7 +33,9 @@ npm run publish             # build + deploy/index.html + the files map for the 
 ## Reviewing scenes (do this for every beat)
 
 - `#/scene/<id>?beat=n&still` holds the end of beat n (paused, camera where the beat ends).
-- Add `&t=0.4` to hold walks, moves and reveals part way (a line of walkers mid-gate, a reveal half painted).
+- Add `&t=0.4` to hold walks, moves and reveals part way (a line of walkers mid-gate, a reveal half painted),
+  with the camera part way along its move too. `&t=0` is where a beat begins: for a beat that opens a set,
+  the opening framing seen through the dissolve; for beat 0, the scene's first framing. Check both.
 - `#/sheet/<chapter>` is a contact sheet of every beat, desk and phone, with the caption panels' zones.
 - The browser pane is usually hidden: WebGL stills still render (still mode advances frames by hand), but
   motion/CSS animations barely run there. Wait ~10–15 s after a full load; retry a blank screenshot.
@@ -71,12 +73,25 @@ npm run publish             # build + deploy/index.html + the files map for the 
   for that beat's camera, and keep the camera still while they play.
 - Montage: a `set` layer groups a shot's layers, composed as if from the reference camera, and stands
   them `dx` across / `dz` along; a beat's `cam` with the same `dx`/`dz` frames it. Give each set a `show`
-  range so neighbouring shots crossfade. Layers outside sets are shared backdrops (sky, sun, far dunes).
+  range ending where the next set begins. Changing set dissolves: the stage waits (up to 3 s) until the
+  new set is painted, snapshots the last frame and fades it over the new shot once that has been drawn,
+  so nothing between the shots shows. Layers outside sets are shared backdrops (sky, sun, far dunes).
 - World (scene `world`, beat `world` overrides, merged cumulatively): fog, fogNear, fogFar, light, rays,
   bloom, haze/hazeY (heat shimmer band), shake, dof, cycle {period, min} (days and nights flickering).
 
 ## Gotchas learned the hard way
 
+- Colours in the GL stage are used exactly as written, like the painted cards' (`ColorManagement` is off in
+  `GLStage.jsx`). Turning it back on darkens and oversaturates every hex colour (haze, glows, cloth, dust)
+  against the paintings: a `#3a3a4a` haze came out near black.
+- A card roughens its edges only where its painting runs off the card (checked when it is painted; sides
+  always). A painting that ends inside its `area` keeps its own edge, so leave a few units of margin
+  above a floor's far edge.
+- A camera that moves in opens gaps between foreground cards onto whatever stands far behind (The Cloud
+  looked through its roofs onto the dark base of the far dunes): hold such beats with `&still` and fill
+  the gap with a card in between (there, a second plaza floor behind the roofs).
+- Every material is compiled while the stage loads (`ReadyGate`); never rebuild the finishing passes per
+  beat (a scene with god-rays in any beat keeps them, at weight 0 where a beat has none).
 - Daylight figures of light blow out to white: use `glow` 0.1–0.3, `bright` ~0.85, `solid` ~0.5.
 - Cards draw in depth order with no depth buffer: a floor card must stand behind everything on it, a
   crowd's whole mesh sorts by its middle Z, and a dune band in front hides whatever stands below its crest.

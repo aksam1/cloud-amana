@@ -59,8 +59,10 @@ npm run check
 ```
 Then for each scene and beat open `#/scene/<id>?beat=n&still` (and `&t=0.4` for walks, moves and
 reveals), `location.reload()` after editing JSON, and look for: blown-out figures, cards hiding what
-stands on them, subjects under the caption panels, empty frames, and the Arabic in the panel. Finish
-with `#/sheet/<N>` for desk and phone. Fix, then look again.
+stands on them, subjects under the caption panels, empty frames, and the Arabic in the panel. Also open
+`&t=0` for each scene's beat 0 and every beat that opens a set (where the camera starts: what shows
+through the dissolve), and look for a card's edge, a gap between cards onto something dark far behind,
+or plain haze where the shot should be. Finish with `#/sheet/<N>` for desk and phone. Fix, then look again.
 
 ## 6. Publish
 

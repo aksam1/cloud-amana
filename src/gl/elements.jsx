@@ -776,6 +776,7 @@ export function Cloth({ layer, beat, env, dissolve }) {
   const [w, h, amp] = [wd * kc, hd * kc, ad * kc];
   const pres = usePresence(layer, beat, dissolve, env);
   const group = useRef(null);
+  const poleRef = useRef(null);
   const geometry = useMemo(() => new PlaneGeometry(w, h, 24, 14).translate(0, -h / 2, 0), [w, h]);
   const material = useMemo(
     () =>
@@ -804,6 +805,9 @@ export function Cloth({ layer, beat, env, dissolve }) {
     u.light.value = env.current.light;
     u.color.value.set(color);
     u.amp.value = amp * (flight ? 2.4 : 1);
+    // the pole comes and goes with its banner (a pole left standing in another set's shot reads as a
+    // stray stroke across it)
+    if (poleRef.current) poleRef.current.material.opacity = 0.9 * pres.current.o;
     if (flight) {
       if (torn.current === null) torn.current = clock.elapsedTime;
       const f = progressOf(env, clock.elapsedTime, torn.current, tear.delay ?? 0, tear.dur ?? 5000);
@@ -819,9 +823,9 @@ export function Cloth({ layer, beat, env, dissolve }) {
     <group ref={group}>
       <mesh geometry={geometry} material={material} renderOrder={Math.round(Z) + 0.5} />
       {pole > 0 && (
-        <mesh position={[-w / 2, -(pole * kc) / 2 + h * 0.08, -1]} renderOrder={Math.round(Z) + 0.4}>
+        <mesh ref={poleRef} position={[-w / 2, -(pole * kc) / 2 + h * 0.08, -1]} renderOrder={Math.round(Z) + 0.4}>
           <planeGeometry args={[Math.max(2, w * 0.05), pole * kc + h * 0.16]} />
-          <meshBasicMaterial color="#3a2a1e" transparent opacity={0.9} depthWrite={false} />
+          <meshBasicMaterial color="#3a2a1e" transparent opacity={0} depthWrite={false} />
         </mesh>
       )}
     </group>

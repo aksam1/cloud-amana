@@ -588,31 +588,61 @@ export function Riverbed({ cfg }) {
 
 /**
  * A vast storm cloud filling the sky's width along `x0`–`x1`: billows of charcoal, slate blue and bruised
- * violet piled from a flat dark underside at `y` up `h`, its upper edges lit.
+ * violet piled in rows from a flat dark underside at `y` up `h`, the higher rows behind the lower so each
+ * shows only its top, lit along its upper edge (`edge`); their outlines are torn by the wind rather than
+ * drawn as ellipses.
  */
 export function Cloudbank({ cfg }) {
   const uid = useUid('cb');
   const { y = 420, h = 360, x0 = -800, x1 = 2400, colors = ['#2a2a34', '#3e4a5e', '#5a4a66'], edge = '#c8b8b0', seed = 13 } = cfg;
+  const rows = 6;
   const billows = useMemo(() => {
     const r = rng(seed);
-    return Array.from({ length: 5 }, (_, row) =>
-      Array.from({ length: 14 }, (_, i) => ({ x: x0 + ((i + r() * 0.8) / 14) * (x1 - x0), y: y - (row / 5) * h - r() * 40, rx: 140 + r() * 160, ry: 70 + r() * 70, row })),
-    ).flat();
-  }, [y, h, x0, x1, seed]);
+    const out = [];
+    // the top row first: each lower row is nearer and overlaps the one above it
+    for (let row = rows - 1; row >= 0; row--) {
+      const lift = row / (rows - 1);
+      const n = 16 + Math.round(r() * 4);
+      for (let i = 0; i < n; i++) {
+        const rx = (110 + r() * 120) * (1.15 - lift * 0.35);
+        out.push({ x: x0 + ((i + r() * 0.9) / n) * (x1 - x0), y: y - lift * h * 0.86 - r() * 34, rx, ry: rx * (0.42 + r() * 0.18), row, tone: Math.min(colors.length - 1, Math.floor(lift * colors.length)) });
+      }
+    }
+    return out;
+    // the colours only pick a tone per billow
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [y, h, x0, x1, seed, colors.length]);
   return (
     <Svg>
       <defs>
-        <filter id={`${uid}b`} x="-10%" y="-30%" width="120%" height="160%">
-          <feGaussianBlur stdDeviation="6" />
+        {colors.map((c, k) => (
+          <linearGradient key={k} id={`${uid}g${k}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor={mixColor(c, edge, 0.42)} />
+            <stop offset="0.3" stopColor={mixColor(c, edge, 0.12)} />
+            <stop offset="0.75" stopColor={c} />
+            <stop offset="1" stopColor={mixColor(c, '#000000', 0.22)} />
+          </linearGradient>
+        ))}
+        {/* the wind tears every outline: the billows are read through a slow turbulence */}
+        <filter id={`${uid}t`} x="-4%" y="-25%" width="108%" height="150%" filterUnits="objectBoundingBox">
+          <feTurbulence type="fractalNoise" baseFrequency="0.011 0.019" numOctaves="3" seed={seed} result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="54" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <filter id={`${uid}b`} x="-10%" y="-40%" width="120%" height="180%">
+          <feGaussianBlur stdDeviation="9" />
         </filter>
       </defs>
-      <rect x={x0} y={y - 20} width={x1 - x0} height="160" fill={colors[0]} filter={`url(#${uid}b)`} />
-      {billows.map((b, i) => (
-        <g key={i}>
-          <ellipse cx={b.x} cy={b.y - 8} rx={b.rx} ry={b.ry} fill={edge} opacity={0.18 + (4 - b.row) * 0.02} filter={`url(#${uid}b)`} />
-          <ellipse cx={b.x} cy={b.y} rx={b.rx * 0.96} ry={b.ry * 0.92} fill={colors[b.row % colors.length]} opacity="0.92" />
-        </g>
-      ))}
+      <g filter={`url(#${uid}t)`}>
+        {/* the flat, dark underside the whole mass sits on */}
+        <rect x={x0} y={y - 40} width={x1 - x0} height="150" fill={colors[0]} filter={`url(#${uid}b)`} />
+        {billows.map((b, i) => (
+          <g key={i}>
+            {/* light caught along the top of each billow, softly beyond its edge */}
+            <ellipse cx={b.x} cy={b.y - b.ry * 0.18} rx={b.rx * 1.02} ry={b.ry * 0.96} fill={edge} opacity={0.16 + (b.row / rows) * 0.14} filter={`url(#${uid}b)`} />
+            <ellipse cx={b.x} cy={b.y} rx={b.rx} ry={b.ry} fill={`url(#${uid}g${b.tone})`} opacity="0.95" />
+          </g>
+        ))}
+      </g>
     </Svg>
   );
 }

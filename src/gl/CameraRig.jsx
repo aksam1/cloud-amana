@@ -56,16 +56,19 @@ const fitFov = (aspect) => {
  * faint handheld drift (the world's `shake`) keeps it alive; `focus` racks the depth of field to that
  * distance from the camera. A beat that opens a new set starts at its own opening framing (`from` {pos,
  * look}, or its framing drawn back a little) while the stage dissolves to it. In still mode it stands where
- * the beat ends.
+ * the beat ends, or part way along the move when the still is held part way (`&t=0` is where it begins).
  */
 export function CameraRig({ scene, beat, start, still, reduced, durations, env, shake = 1 }) {
   const { camera } = useThree();
   const cur = useRef(null);
   const seg = useRef(null);
   const last = useRef(start);
+  // a still held part way (`moment` under 1) stands the camera part way along the beat's move too, from
+  // where the beat begins (its opening framing, when it opens a set): what the viewer sees at that moment
+  const part = still && (env.current.moment ?? 1) < 1 && !!scene.beats[start]?.cam;
   if (cur.current === null) {
-    const opens = !still && scene.beats[start]?.cam && changesSet(scene, start - 1, start);
-    const c = still ? glCameraAt(scene, start + 1) : opens ? openingOf(scene, start) : glCameraAt(scene, start);
+    const opens = (!still || part) && scene.beats[start]?.cam && changesSet(scene, start - 1, start);
+    const c = still && !part ? glCameraAt(scene, start + 1) : opens ? openingOf(scene, start) : glCameraAt(scene, start);
     cur.current = { pos: vec(c.pos), look: vec(c.look), fov: c.fov, focus: c.focus };
   }
   // set before the next frame is drawn, so a cut to a new set never shows a frame from the old framing
@@ -94,22 +97,23 @@ export function CameraRig({ scene, beat, start, still, reduced, durations, env, 
       t0: null,
       dur: still || reduced || c.cut ? 0 : (c.dur ?? durations?.[beat] ?? 6000) / 1000,
       ease: ease(c.ease || 'inOut'),
+      hold: part && !c.cut ? env.current.moment : null,
     };
-  }, [beat, scene, still, reduced, durations]);
+  }, [beat, scene, still, reduced, durations, part, env]);
   useFrame(({ clock }) => {
     const t = clock.elapsedTime;
     const c = cur.current;
     const s = seg.current;
     if (s) {
       if (s.t0 === null) s.t0 = t;
-      const u = s.dur ? Math.min(1, (t - s.t0) / s.dur) : 1;
+      const u = s.hold ?? (s.dur ? Math.min(1, (t - s.t0) / s.dur) : 1);
       const e = s.ease(u);
       if (s.curve) c.pos.copy(s.curve.getPoint(e));
       else c.pos.lerpVectors(s.p0, s.p1, e);
       c.look.lerpVectors(s.look0, s.look1, e);
       c.fov = s.fov0 + (s.fov1 - s.fov0) * e;
       c.focus = s.f0 + (s.f1 - s.f0) * e;
-      if (u >= 1) seg.current = null;
+      if (u >= 1 || s.hold !== null) seg.current = null;
     }
     camera.position.copy(c.pos);
     camera.lookAt(c.look);
