@@ -116,9 +116,12 @@ void main() {
   vec2 w = vec2(vn(px / 90.0), vn(px / 90.0 + 31.7)) - 0.5 + (vec2(vn(px / 26.0 + 3.1), vn(px / 26.0 + 8.9)) - 0.5) * 0.45;
   vec2 uv = vUv + w * texel * 6.0 * rough;
   vec4 c = mix(texture2D(map, uv, bias), texture2D(map2, uv, bias), swap);
-  // dry brush: where the paint thins out at the edge of a shape, the paper shows through in flecks
+  // dry brush: where the paint thins out at the edge of a shape, the paper shows through in flecks. An
+  // edge is where the painting's cover changes sharply (it differs from its blurred self); a soft wash that
+  // is evenly half-clear, like a cloud, has no edge inside it and stays whole
   float soft = mix(texture2D(map, uv, bias + 2.0).a, texture2D(map2, uv, bias + 2.0).a, swap);
-  c.a *= 1.0 - soft * (1.0 - soft) * 4.0 * rough * 0.4 * smoothstep(0.4, 0.8, vn(px / 3.5));
+  float edgeBand = smoothstep(0.06, 0.3, abs(c.a - soft));
+  c.a *= 1.0 - edgeBand * rough * 0.35 * smoothstep(0.4, 0.8, vn(px / 3.5));
   // where a card cuts its painting off, the paint gives out the way a dry brush does: a ragged edge that
   // wanders in and out, broken into streaks along the stroke, never a ruled line. Its sides always do; its
   // top and bottom only where the painting runs off them (cutY: bottom, top), so a painting that ends

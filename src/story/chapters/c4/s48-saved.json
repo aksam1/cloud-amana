@@ -54,8 +54,14 @@
     ] },
     { "type": "set", "show": [3, 4], "dx": 10000, "layers": [
       { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#3a5a8a"], [0.5, "#9ab8d4"], [1, "#e8d8c0"]] },
-      { "type": "stars", "depth": 0.03, "fog": 0, "maxY": 700, "count": 200 },
-      { "type": "clouds", "depth": 0.2, "y": 300, "count": 6, "color": "#f4ece0", "scale": 1.6, "spanY": 300, "seed": 4, "move": { "path": [[-600, 0]], "dur": 9000 } }
+      { "type": "stars", "depth": 0.03, "fog": 0, "maxY": 560, "count": 220 },
+      { "type": "ridge", "depth": 0.05, "y": 596, "amp": 60, "seed": 15, "sharp": 0.5, "color": "#8a7a86", "haze": 0.4 },
+      { "type": "dunes", "depth": 0.08, "y": 606, "amp": 8, "count": 14, "seed": 128, "lit": "#f2cf98", "body": "#d8a870", "shade": "#8a6a78", "haze": 0.4, "hazeColor": "#efe2c8" },
+      { "type": "clouds", "depth": 0.12, "y": 300, "count": 7, "color": "#f4ece0", "scale": 1.6, "spanY": 260, "seed": 4, "move": { "path": [[-900, 0]], "dur": 9000 } },
+      { "type": "dunes", "depth": 0.15, "y": 648, "amp": 30, "count": 8, "seed": 129, "lit": "#f2cf98", "body": "#d8a870", "shade": "#8a6a78", "haze": 0.2, "hazeColor": "#efe2c8" },
+      { "type": "clouds", "depth": 0.25, "y": 160, "count": 6, "color": "#f8f2e8", "scale": 1.8, "spanY": 200, "seed": 9, "move": { "path": [[-1500, 0]], "dur": 9000 } },
+      { "type": "dunes", "depth": 0.35, "y": 760, "amp": 60, "count": 5, "seed": 130, "lit": "#f2cf98", "body": "#d8a870", "shade": "#8a6a78" },
+      { "type": "dust", "box": [-1400, 200, -4000, 3000, 950, 900], "count": 900, "size": 3, "color": "#f0dcc0", "opacity": 0.35, "wind": [140, -6, 0], "swirl": 40 }
     ] },
     { "type": "set", "show": [4, null], "dx": 15000, "layers": [
       { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#8aa8c8"], [0.5, "#e8d8c4"], [1, "#e8b890"]] },
@@ -78,7 +84,7 @@
       "say": "There Hud and those who believed with him rested beside a spring, calm and safe." },
     { "dur": 12000, "ambient": ["spring", "birds", "rustle"], "cam": { "dx": 5000, "pos": [820, 560, 640], "look": [800, 640, -1000] },
       "verse": { "ref": "11:58", "ar": [0, 9], "place": "lower", "en": "And when Our command came, We saved Hud and those who believed with him, by mercy from Us" } },
-    { "dur": 8000, "ambient": ["air"], "world": { "cycle": { "period": 2.2, "min": 0.15 }, "rays": 0 }, "cam": { "dx": 10000, "from": { "pos": [800, 560, 1000], "look": [800, 450, 0] }, "pos": [800, 450, 1000], "look": [800, 200, 0] },
+    { "dur": 8000, "ambient": ["air"], "world": { "cycle": { "period": 2.2, "min": 0.15 }, "rays": 0 }, "cam": { "dx": 10000, "from": { "pos": [800, 520, 1000], "look": [800, 470, 0] }, "pos": [800, 480, 1000], "look": [800, 440, 0] },
       "say": "Time passed over the land." },
     { "dur": 12000, "ambient": ["echo"], "world": { "cycle": null, "light": 1.0, "rays": 0.35, "fog": "#e8d4c0" }, "cam": { "dx": 15000, "from": { "pos": [800, 160, 1200], "look": [800, 320, -2000] }, "path": [[800, 300, 1050]], "pos": [800, 470, 820], "look": [800, 560, -2000] },
       "say": "Far away, among cliffs of red rock, another steady light was walking toward his people: Salih." }
