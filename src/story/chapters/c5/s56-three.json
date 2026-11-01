@@ -1,0 +1,73 @@
+{
+  "id": "three",
+  "chapter": 5,
+  "order": 56,
+  "node": "salih",
+  "title": "Three Days",
+  "arabic": "المهلة",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "The numerals counting the days come from the verse's \"three days\"; the departure by night is imagined from 11:66.",
+    "Salih and those who believed appear only as steady lights, from behind and far away."
+  ],
+  "ambient": ["wind", "air"],
+  "base": "#3a2a30",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": { "fog": "#c8a090", "fogNear": 5000, "fogFar": 36000, "light": 0.85, "rays": 0.3, "bloom": 0.65, "haze": 0.1, "hazeY": 0.6, "shake": 0.4, "dof": 0 },
+  "cam": { "pos": [800, 540, 1250], "look": [800, 600, -3000] },
+  "imagePrompt": "A small steady white light seen from behind on a rocky rise above the valley of carved rock homes, facing them in silence; then days and nights flickering past over the valley, pale Arabic numerals one, two, three appearing and fading in the sky, the lamps in the carved doorways still burning; then, by starlight, a short line of steady white lights walking out of the valley into the open desert; violet dusk, indigo night, rose stone; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "sky", "show": [[0, 2], [3, null]], "depth": 0.03, "fog": 0, "stops": [[0, "#4a5a86"], [0.45, "#c89a98"], [0.7, "#f0a878"], [1, "#e88a5a"]] },
+    { "type": "sun", "show": [[0, 2], [3, null]], "pos": [1250, 610, -26000], "size": 36, "color": "#ffb878" },
+
+    { "type": "set", "show": [[0, 2], [3, null]], "layers": [
+      { "type": "ridge", "depth": 0.05, "y": 590, "amp": 60, "seed": 11, "sharp": 0.5, "color": "#7a5056", "haze": 0.4 },
+      { "type": "outcrop", "depth": 0.1, "x": 260, "y": 610, "w": 420, "h": 260, "shape": "dome", "seed": 114, "stone": "#b0644a", "lit": "#e8a87a", "dark": "#4a2a32",
+        "homes": [{ "x": 220, "y": 602, "w": 64, "h": 92, "lit": true }, { "x": 350, "y": 605, "w": 50, "h": 72, "lit": true }] },
+      { "type": "outcrop", "depth": 0.1, "x": 800, "y": 610, "w": 320, "h": 330, "shape": "tower", "seed": 115, "stone": "#b0644a", "lit": "#e8a87a", "dark": "#4a2a32",
+        "homes": [{ "x": 800, "y": 602, "w": 70, "h": 104, "lit": true }] },
+      { "type": "outcrop", "depth": 0.1, "x": 1330, "y": 610, "w": 440, "h": 280, "shape": "twin", "seed": 116, "stone": "#b0644a", "lit": "#e8a87a", "dark": "#4a2a32",
+        "homes": [{ "x": 1290, "y": 602, "w": 64, "h": 92, "lit": true }, { "x": 1420, "y": 605, "w": 50, "h": 72, "lit": true }] },
+      { "type": "outcrop", "depth": 0.14, "x": 520, "y": 640, "w": 380, "h": 300, "shape": "dome", "seed": 117, "stone": "#b0644a", "lit": "#e8a87a", "dark": "#4a2a32",
+        "homes": [{ "x": 490, "y": 632, "w": 80, "h": 116, "lit": true }] },
+      { "type": "outcrop", "depth": 0.14, "x": 1100, "y": 640, "w": 360, "h": 320, "shape": "twin", "seed": 118, "stone": "#b0644a", "lit": "#e8a87a", "dark": "#4a2a32",
+        "homes": [{ "x": 1080, "y": 632, "w": 84, "h": 120, "lit": true }] },
+      { "type": "dunes", "depth": 0.16, "y": 654, "amp": 6, "count": 12, "seed": 77, "lit": "#d8a080", "body": "#b07a5a", "shade": "#6a4a50" },
+      { "type": "crowd", "area": [300, 1300, -6800, -5600], "y": 656, "count": 80, "size": 9, "color": "#ffc070", "dim": 0.2, "glow": 0.8, "mill": 3, "speed": 0, "flicker": 0.3 },
+      { "type": "dunes", "depth": 0.45, "y": 790, "amp": 70, "count": 2, "seed": 78, "lit": "#b08070", "body": "#8a5a50", "shade": "#4a3040" },
+      { "type": "light", "show": [0, 2], "depth": 0.47, "pos": [800, 736], "h": 70, "color": "#fffaf0", "glow": 1.1, "bright": 1.7 },
+      { "type": "numerals", "show": [1, 2], "days": 3, "nights": 3, "every": 1500, "area": [300, 110, 1300, 360], "size": 120, "day": "#f0dcc0", "night": "#a8bcd8" }
+    ] },
+
+    { "type": "set", "show": [2, 3], "dx": 6000, "layers": [
+      { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#0a0e1c"], [0.55, "#1a2238"], [1, "#30324a"]] },
+      { "type": "stars", "depth": 0.03, "fog": 0, "maxY": 620, "count": 240 },
+      { "type": "dunes", "depth": 0.1, "y": 590, "amp": 8, "count": 12, "seed": 79, "lit": "#5a5464", "body": "#3e3848", "shade": "#1a1620" },
+      { "type": "outcrop", "depth": 0.2, "x": 140, "y": 660, "w": 520, "h": 460, "shape": "dome", "seed": 119, "stone": "#4a3e4c", "lit": "#7a6c84", "dark": "#16121c", "sand": false },
+      { "type": "outcrop", "depth": 0.2, "x": 1460, "y": 660, "w": 520, "h": 420, "shape": "twin", "seed": 120, "stone": "#4a3e4c", "lit": "#7a6c84", "dark": "#16121c", "sand": false },
+      { "type": "dunes", "depth": 0.22, "y": 666, "amp": 10, "count": 9, "seed": 80, "lit": "#5a5464", "body": "#3e3848", "shade": "#1a1620" },
+      { "type": "light", "depth": 0.5263, "h": 40, "color": "#fffaf0", "glow": 1.3, "bright": 1.8, "pose": "walk", "path": [[800, 760, -900], [800, 690, -1600], [800, 610, -4200], [800, 596, -4800]], "dur": 11000 },
+      { "type": "light", "depth": 0.5263, "h": 37, "color": "#fff4e0", "glow": 1.0, "bright": 1.6, "pose": "walk", "path": [[786, 760, -900], [786, 690, -1600], [792, 610, -4200], [793, 596, -4800]], "dur": 11000, "delay": 700 },
+      { "type": "light", "depth": 0.5263, "h": 38, "color": "#fff4e0", "glow": 1.0, "bright": 1.6, "pose": "walk", "path": [[814, 760, -900], [814, 690, -1600], [808, 610, -4200], [807, 596, -4800]], "dur": 11000, "delay": 1300 },
+      { "type": "light", "depth": 0.5263, "h": 36, "color": "#fff4e0", "glow": 1.0, "bright": 1.6, "pose": "walk", "path": [[794, 760, -900], [794, 690, -1600], [796, 610, -4200], [796, 596, -4800]], "dur": 11000, "delay": 1900 },
+      { "type": "light", "depth": 0.5263, "h": 37, "color": "#fff4e0", "glow": 1.0, "bright": 1.6, "pose": "walk", "path": [[808, 760, -900], [808, 690, -1600], [805, 610, -4200], [804, 596, -4800]], "dur": 11000, "delay": 2500 },
+      { "type": "dunes", "depth": 0.5, "y": 830, "amp": 22, "count": 6, "seed": 81, "lit": "#4a4454", "body": "#2e2a36", "shade": "#141018" },
+      { "type": "dust", "box": [-1400, 100, -5000, 3000, 950, 900], "count": 600, "size": 2.5, "color": "#c8d0e8", "opacity": 0.3, "wind": [8, -2, 0] }
+    ] }
+  ],
+  "beats": [
+    { "dur": 9000, "ambient": ["wind", "air"], "cam": { "pos": [800, 520, 1150], "look": [800, 600, -3000] },
+      "say": "Salih told them to enjoy their homes for three days, for then it would come." },
+    { "dur": 10000, "ambient": ["wind", "crickets"], "world": { "cycle": { "period": 3, "min": 0.15 } }, "cam": { "pos": [800, 500, 1080], "look": [800, 600, -3000] },
+      "say": "For three days and nights they waited in their houses of stone, still mocking." },
+    { "dur": 12000, "ambient": ["desert", "crickets"], "world": { "cycle": null, "light": 0.6, "fog": "#1c2030", "rays": 0 },
+      "cam": { "dx": 6000, "from": { "pos": [800, 560, 1150], "look": [800, 600, -3000] }, "pos": [800, 540, 1000], "look": [800, 600, -4000] },
+      "say": "On the last night, Salih and those who believed left the valley." },
+    { "dur": 12000, "ambient": ["air"], "world": { "light": 0.85, "fog": "#c8a090", "rays": 0.3 }, "cam": { "pos": [800, 520, 1100], "look": [800, 600, -3000] },
+      "pendingVerse": { "ref": "11:65", "place": "lower" } }
+  ]
+}

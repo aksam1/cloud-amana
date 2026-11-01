@@ -1,0 +1,49 @@
+{
+  "id": "drink",
+  "chapter": 5,
+  "order": 54,
+  "node": "salih",
+  "title": "The Water Shared",
+  "arabic": "قسمة الماء",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "The well and the alternating days are imagined from the verses; the she-camel is drawn as soft light and the people as dim lights."
+  ],
+  "ambient": ["water", "desert"],
+  "base": "#e8cca4",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2200,
+  "world": { "fog": "#efdcc4", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0.45, "bloom": 0.55, "haze": 0.15, "hazeY": 0.6, "shake": 0.5, "dof": 0 },
+  "cam": { "pos": [800, 480, 980], "look": [780, 540, -3000] },
+  "imagePrompt": "A great round stone well on the sandy floor of the rock valley, its curb worn smooth, water glinting deep inside; the she-camel of soft light drinking alone at a stone trough beside it while the people's dim amber lights wait far back among the palms; then a time-lapse of days and nights passing over the valley, the she-camel's light crossing the plain to graze and the herds coming to the well on their own days; rose stone, cool water blue, pale gold; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#a4bed4"], [0.42, "#f0e4d0"], [0.72, "#f4d4a6"], [1, "#eebd86"]] },
+    { "type": "sun", "pos": [320, 300, -26000], "size": 32, "color": "#fff0c8" },
+    { "type": "ridge", "depth": 0.05, "y": 560, "amp": 55, "seed": 10, "sharp": 0.5, "color": "#b88470", "haze": 0.45 },
+    { "type": "outcrop", "depth": 0.1, "x": 1100, "y": 578, "w": 420, "h": 260, "shape": "dome", "seed": 105, "ppu": 0.9, "homes": [{ "x": 1060, "y": 570, "w": 64, "h": 92 }, { "x": 1180, "y": 573, "w": 50, "h": 72 }] },
+    { "type": "outcrop", "depth": 0.1, "x": 1500, "y": 578, "w": 300, "h": 240, "shape": "tower", "seed": 106, "ppu": 0.9, "homes": [{ "x": 1500, "y": 570, "w": 60, "h": 90 }] },
+    { "type": "dunes", "depth": 0.12, "y": 588, "amp": 5, "count": 12, "seed": 69, "lit": "#e8bf8a", "body": "#cf9a66", "shade": "#8a5a52", "haze": 0.3, "hazeColor": "#efdcc4" },
+    { "type": "palms", "depth": 0.16, "items": [{ "x": 120, "y": 604, "h": 190, "lean": 0.04 }, { "x": 230, "y": 600, "h": 210, "lean": -0.03 }, { "x": 340, "y": 606, "h": 175, "lean": 0.06 }, { "x": 450, "y": 602, "h": 200, "lean": -0.05 }], "seed": 107 },
+    { "type": "crowd", "area": [110, 520, -5600, -4700], "y": 604, "count": 80, "size": 10, "color": "#ffc078", "dim": 0.4, "glow": 0.5, "mill": 2, "speed": 0 },
+    { "type": "dunes", "depth": 0.2, "y": 644, "amp": 6, "count": 10, "seed": 70, "lit": "#e8bf8a", "body": "#cf9a66", "shade": "#8a5a52" },
+    { "type": "shecamel", "show": [1, 2], "depth": 0.2, "x": 1300, "y": 640, "h": 70, "pose": "walk", "face": -1, "glow": 0.8, "move": { "path": [[-700, 0, 0]], "dur": 9000 } },
+    { "type": "animals", "show": [1, 2], "depth": 0.22, "size": 0.7, "fade": "none", "area": [1060, 560, 1700, 700],
+      "pairs": [{ "kind": "camel", "path": [[1220, 660]] }, { "kind": "camel", "path": [[1340, 662]] }, { "kind": "camel", "path": [[1460, 659]] }],
+      "move": { "path": [[-420, 4, 0]], "dur": 9000, "delay": 3000 } },
+    { "type": "shecamel", "show": [[0, 1], [2, null]], "depth": 0.295, "x": 800, "y": 708, "h": 150, "pose": "drink", "face": 1, "glow": 0.8, "ppu": 1 },
+    { "type": "well", "depth": 0.3, "x": 640, "y": 720, "w": 230, "h": 80, "trough": { "len": 300, "side": 1 }, "frame": true, "ppu": 1 },
+    { "type": "dunes", "depth": 0.38, "y": 800, "amp": 18, "count": 7, "seed": 71, "lit": "#e8bf8a", "body": "#cf9a66", "shade": "#8a5a52" },
+    { "type": "dust", "box": [-1400, 100, -5000, 3000, 950, 900], "count": 1300, "size": 3, "color": "#ffe0b0", "opacity": 0.4, "wind": [10, -2, 0] }
+  ],
+  "beats": [
+    { "dur": 9000, "ambient": ["water", "desert"], "cam": { "pos": [800, 470, 820], "look": [780, 540, -3000] },
+      "say": "The water of the valley was shared: one day the she-camel drank, and the next day the people." },
+    { "dur": 10000, "ambient": ["herd", "air"], "world": { "cycle": { "period": 3.2, "min": 0.3 } }, "cam": { "pos": [800, 440, 980], "look": [800, 520, -3000] },
+      "say": "She grazed freely on God's earth, and for a time they let her be." },
+    { "dur": 12000, "ambient": ["water"], "world": { "cycle": null }, "cam": { "pos": [780, 470, 760], "look": [780, 540, -3000] },
+      "pendingVerse": { "ref": "26:155-156", "place": "lower" } }
+  ]
+}

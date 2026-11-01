@@ -7,8 +7,9 @@ import { Throng, Deeds, Journeys, Followers, Refusal, Scribbles, Blooms, Jeers }
 import { Ark, Flood, Springs, Waves, Oven } from './flood.jsx';
 import { Animals } from './creatures.jsx';
 import { Dunes, Column, Iram, Monument, Floor, Facade, Platform, Brazier, Pool, Palms, Terraces, Riverbed, Cloudbank, Sandwall, Trunks, Cliffs, Works, Block } from './iram.jsx';
+import { Outcrop, SheCamel, Well } from './hijr.jsx';
 import { Figure, Crowd, Angels, Flame, Cities, Clay, Crow, Eyes } from './beings.jsx';
-import { Calligraphy, Orbit, Wisp, Guidance, Trail, Beam, Lightning, InkDrop, Scroll, Numerals } from './fx.jsx';
+import { Calligraphy, Orbit, Wisp, Guidance, Trail, Beam, Lightning, InkDrop, Scroll, Numerals, Flash } from './fx.jsx';
 import { Pen, Garment, Constellations, Woodwork } from './craft.jsx';
 import { Particles, Flock, Globe } from './canvas.jsx';
 
@@ -80,6 +81,9 @@ export const LAYERS = {
   cliffs: Cliffs,
   works: Works,
   block: Block,
+  outcrop: Outcrop,
+  shecamel: SheCamel,
+  well: Well,
   figure: Figure,
   crowd: Crowd,
   angels: Angels,
@@ -98,6 +102,7 @@ export const LAYERS = {
   inkdrop: InkDrop,
   scroll: Scroll,
   numerals: Numerals,
+  flash: Flash,
   pen: Pen,
   garment: Garment,
   constellations: Constellations,

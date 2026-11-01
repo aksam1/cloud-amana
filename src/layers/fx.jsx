@@ -525,3 +525,23 @@ export function Numerals({ cfg }) {
     </Svg>
   );
 }
+
+/**
+ * A single sudden flash of light over everything, `delay` ms into the beat: up to `peak` in `rise` ms,
+ * gone over `dur` ms. Left out for viewers who ask for reduced motion.
+ */
+export function Flash({ cfg }) {
+  const { reduced } = useStage();
+  const { color = '#fffaf0', peak = 0.85, delay = 0, rise = 120, dur = 2400 } = cfg;
+  if (reduced) return null;
+  const total = rise + dur;
+  return (
+    <motion.div
+      className="absolute inset-0"
+      style={{ background: color }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: [0, peak, 0] }}
+      transition={{ delay: delay / 1000, duration: total / 1000, times: [0, rise / total, 1], ease: 'easeOut' }}
+    />
+  );
+}

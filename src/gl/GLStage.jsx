@@ -22,7 +22,7 @@ ColorManagement.enabled = false;
 
 const NATIVE = { light: Light, crowd: Crowd, dust: Dust, ribbons: Ribbons, cloth: Cloth, storm: Storm };
 // Layers that stay flat on the screen above the 3D world: writing, flashes, colour washes.
-const OVERLAY = new Set(['calligraphy', 'lightning', 'tint', 'particles', 'inkdrop', 'guidance', 'jeers', 'numerals']);
+const OVERLAY = new Set(['calligraphy', 'lightning', 'tint', 'particles', 'inkdrop', 'guidance', 'jeers', 'numerals', 'flash']);
 
 /** The world for a beat: the scene's `world`, with each beat's `world` changes applied in turn. */
 function worldAt(scene, beat) {

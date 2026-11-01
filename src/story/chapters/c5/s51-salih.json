@@ -1,0 +1,52 @@
+{
+  "id": "salih",
+  "chapter": 5,
+  "order": 51,
+  "node": "salih",
+  "title": "Salih Among His People",
+  "arabic": "صالح بين قومه",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "Salih is shown only as a figure of steady white-gold light, from far away and from behind; his walk into the city and the rock he stands on are imagined."
+  ],
+  "ambient": ["city", "desert"],
+  "base": "#e8c8a0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2200,
+  "world": { "fog": "#f0dcc4", "fogNear": 6000, "fogFar": 42000, "light": 1.05, "rays": 0.4, "bloom": 0.55, "haze": 0.18, "hazeY": 0.6, "shake": 0.5, "dof": 0 },
+  "cam": { "pos": [800, 640, 200], "look": [800, 560, -9000] },
+  "imagePrompt": "A city of homes carved into towering red rock outcrops, a wide sandy square between them crowded with figures of dim amber light; walking in from the desert road, small and far away and seen from behind, a single figure of steady white-gold light; then the same figure standing on a low flat rock at the centre of the square, a soft wave of light spreading from it over the crowd, white-gold Arabic calligraphy forming in the air above; warm afternoon light, rose and ochre stone, dust in the air; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#a4bed4"], [0.42, "#f0e4d0"], [0.72, "#f4d4a6"], [1, "#eebd86"]] },
+    { "type": "sun", "pos": [300, 260, -26000], "size": 32, "color": "#fff0c8" },
+    { "type": "ridge", "depth": 0.05, "y": 520, "amp": 50, "seed": 8, "sharp": 0.5, "color": "#b88470", "haze": 0.45 },
+    { "type": "outcrop", "depth": 0.1, "x": 250, "y": 548, "w": 420, "h": 260, "shape": "dome", "seed": 92, "ppu": 0.9, "homes": [{ "x": 210, "y": 540, "w": 70, "h": 100 }, { "x": 340, "y": 543, "w": 56, "h": 80 }] },
+    { "type": "outcrop", "depth": 0.1, "x": 800, "y": 548, "w": 360, "h": 330, "shape": "tower", "seed": 93, "ppu": 0.9, "homes": [{ "x": 800, "y": 540, "w": 80, "h": 120 }] },
+    { "type": "outcrop", "depth": 0.1, "x": 1350, "y": 548, "w": 440, "h": 280, "shape": "twin", "seed": 94, "ppu": 0.9, "homes": [{ "x": 1300, "y": 540, "w": 72, "h": 104 }, { "x": 1430, "y": 543, "w": 56, "h": 80 }] },
+    { "type": "dunes", "depth": 0.12, "y": 556, "amp": 4, "count": 14, "seed": 62, "lit": "#e8bf8a", "body": "#cf9a66", "shade": "#8a5a52", "haze": 0.2, "hazeColor": "#f0dcc4" },
+    { "type": "outcrop", "depth": 0.15, "x": 800, "y": 570, "w": 170, "h": 110, "shape": "dome", "seed": 95, "sand": false, "ppu": 1.2 },
+    { "type": "crowd", "area": [330, 700, -7000, -5300], "y": 568, "count": 160, "size": 11, "color": "#ffc078", "dim": 0.35, "glow": 0.55, "mill": 6, "speed": 0, "flicker": 0.25 },
+    { "type": "crowd", "area": [900, 1270, -7000, -5300], "y": 568, "count": 160, "seed": 4, "size": 11, "color": "#ffc078", "dim": 0.35, "glow": 0.55, "mill": 6, "speed": 0, "flicker": 0.25 },
+    { "type": "crowd", "area": [560, 1040, -7400, -6200], "y": 566, "count": 90, "seed": 6, "size": 11, "color": "#ffc078", "dim": 0.35, "glow": 0.55, "mill": 5, "speed": 0, "flicker": 0.25 },
+    { "type": "outcrop", "depth": 0.2, "x": 110, "y": 600, "w": 520, "h": 420, "shape": "dome", "seed": 96, "ppu": 0.9, "homes": [{ "x": 160, "y": 590, "w": 100, "h": 150 }, { "x": 300, "y": 594, "w": 70, "h": 100 }] },
+    { "type": "outcrop", "depth": 0.2, "x": 1490, "y": 600, "w": 520, "h": 440, "shape": "twin", "seed": 97, "ppu": 0.9, "homes": [{ "x": 1430, "y": 590, "w": 110, "h": 160 }] },
+    { "type": "dunes", "depth": 0.25, "y": 626, "amp": 6, "count": 10, "seed": 63, "lit": "#e8bf8a", "body": "#cf9a66", "shade": "#8a5a52" },
+    { "type": "crowd", "area": [120, 560, -4200, -3000], "y": [690, 640], "count": 180, "seed": 8, "size": 16, "color": "#ffc078", "dim": 0.35, "glow": 0.5, "mill": 6, "speed": 0, "flicker": 0.25 },
+    { "type": "crowd", "area": [1040, 1480, -4200, -3000], "y": [690, 640], "count": 180, "seed": 9, "size": 16, "color": "#ffc078", "dim": 0.35, "glow": 0.5, "mill": 6, "speed": 0, "flicker": 0.25 },
+    { "type": "light", "depth": 0.15, "h": 34, "color": "#fffaf0", "glow": 1.4, "bright": 1.8, "pose": "walk", "path": [[800, 790, -900], [800, 640, -3000], [800, 574, -5480], [800, 462, -5660]], "dur": 15000 },
+    { "type": "dunes", "depth": 0.45, "y": 790, "amp": 14, "count": 7, "seed": 64, "lit": "#e8bf8a", "body": "#cf9a66", "shade": "#8a5a52" },
+    { "type": "guidance", "show": [1, null], "from": [800, 400], "area": [320, 200, 1280, 420], "count": 26, "wave": true, "size": 28, "color": "#fff0c0" },
+    { "type": "dust", "box": [-1400, 0, -7000, 3000, 950, 1000], "count": 1800, "size": 3, "color": "#ffe0b0", "opacity": 0.42, "wind": [12, -2, 0] }
+  ],
+  "beats": [
+    { "dur": 9000, "ambient": ["city", "desert"], "cam": { "pos": [800, 580, -700], "look": [800, 548, -9000] },
+      "say": "Among them lived one of their own, Salih, trusted and wise, and his light was not like theirs." },
+    { "dur": 9000, "ambient": ["crowd", "voice"], "cam": { "pos": [800, 470, -2200], "look": [800, 540, -9000] },
+      "say": "He called them to worship God alone, who had brought them out of the earth and settled them in it." },
+    { "dur": 12000, "ambient": ["voice", "air"], "cam": { "pos": [800, 420, -2500], "look": [800, 560, -9000] },
+      "pendingVerse": { "ref": "11:61", "place": "lower" } }
+  ]
+}

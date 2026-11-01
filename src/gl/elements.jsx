@@ -23,7 +23,7 @@ function usePresence(layer, beat, dissolve, env, gone = false) {
   const on = visibleAt(layer, beat) && !gone;
   const st = useRef(null);
   if (st.current === null) st.current = { o: env.current.still && on ? 1 : 0, since: null };
-  const fade = Math.max(0.05, (layer.fade ?? dissolve) / 1000);
+  const fade = Math.max(0.05, (typeof layer.fade === 'number' ? layer.fade : dissolve) / 1000);
   useFrame(({ clock }, dt) => {
     const s = st.current;
     if (on && s.since === null) s.since = clock.elapsedTime;

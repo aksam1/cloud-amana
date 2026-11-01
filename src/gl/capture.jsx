@@ -25,7 +25,9 @@ let skipBefore = false;
 
 // Only the art: placement and timing belong to the card, not to the picture painted on it.
 const CARD_KEYS = new Set(['key', 'show', 'at', 'reveal', 'move', 'area', 'ppu', 'fade', 'z', 'depth', 'fog', 'focus', 'renderOrder', 'opacity', 'tint', 'light', 'sat', 'bright', 'blur', 'hue', 'rough', 'feather', 'dx', 'dz']);
-export const artOf = (cfg) => Object.fromEntries(Object.entries(cfg).filter(([k]) => !CARD_KEYS.has(k)));
+// (`fade` as a word, such as "none" or "out", belongs to the painter: the animals' own fading at the ends of
+// their walks; only a number is the card's time to come and go)
+export const artOf = (cfg) => Object.fromEntries(Object.entries(cfg).filter(([k, v]) => !CARD_KEYS.has(k) || (k === 'fade' && typeof v === 'string')));
 
 /** The design area a card captures: its own `area`, the painter's `bounds` for what it draws, or three frames. */
 export const areaOf = (layer) => layer.area ?? LAYERS[layer.type]?.bounds?.(layer) ?? AREA;
@@ -83,7 +85,8 @@ async function paint(cfg, area, ppu) {
     copy.setAttribute('height', String(h));
     copy.removeAttribute('class');
     const img = new Image();
-    img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(new XMLSerializer().serializeToString(copy))}`;
+    const xml = new XMLSerializer().serializeToString(copy);
+    img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(xml)}`;
     try {
       await img.decode();
       g.drawImage(img, 0, 0, w, h);
