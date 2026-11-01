@@ -1,0 +1,28 @@
+// Hash routes: #/ (title) · #/map?arrive=&from= · #/scene/:id (?beat=n opens at a moment, &still holds it,
+// &t=0.5 holds it halfway through its timed motions)
+// · #/sheet/:chapter or #/sheet/:sceneId (contact sheet of every beat, for reviewing compositions)
+import { useEffect, useState } from 'react';
+
+function parse(hash) {
+  const [path, q] = hash.replace(/^#/, '').split('?');
+  const parts = (path || '/').split('/').filter(Boolean);
+  const query = Object.fromEntries(new URLSearchParams(q || ''));
+  if (parts[0] === 'map') return { name: 'map', query, key: 'map' };
+  if (parts[0] === 'scene' && parts[1]) return { name: 'scene', id: parts[1], query, key: `scene:${parts[1]}:${query.beat ?? ''}:${'still' in query}:${query.t ?? ''}` };
+  if (parts[0] === 'sheet' && parts[1]) return { name: 'sheet', id: parts[1], query, key: `sheet:${parts[1]}:${query.device ?? ''}` };
+  return { name: 'title', query, key: 'title' };
+}
+
+export function useRoute() {
+  const [hash, setHash] = useState(() => window.location.hash);
+  useEffect(() => {
+    const onChange = () => setHash(window.location.hash);
+    window.addEventListener('hashchange', onChange);
+    return () => window.removeEventListener('hashchange', onChange);
+  }, []);
+  return parse(hash);
+}
+
+export function go(path) {
+  window.location.hash = path;
+}

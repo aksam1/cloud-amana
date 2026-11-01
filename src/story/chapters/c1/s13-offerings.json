@@ -1,0 +1,41 @@
+{
+  "id": "offerings",
+  "chapter": 1,
+  "order": 13,
+  "node": "humanity",
+  "title": "The Two Offerings",
+  "arabic": "القربان",
+  "source": "mixed",
+  "notes": ["Classical commentators describe Habil offering his best ram and Qabil offering poor grain, and fire descending to consume the accepted offering. The Quran says only that one offering was accepted and the other was not."],
+  "ayahs": ["5:27"],
+  "ambient": ["storm"],
+  "base": "#121216",
+  "cam": { "z": 1.12, "y": 40 },
+  "imagePrompt": "A bare rocky hilltop above the valley under heavy layered storm clouds of charcoal and bronze, with a single break in the clouds directly overhead; dry grass bent flat by the wind; two rough stone altars about ten paces apart, framed symmetrically; on the left altar a large healthy ram with a thick white fleece; on the right a thin, dry bundle of poor grain with stalks fallen to the ground; a pillar of pure white fire descending from the break in the clouds onto the left altar, sparks rising in a spiral like stars, the white fire the brightest point in the frame; the right altar untouched, its grain lifted and scattered by the wind.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#121216"], [0.5, "#2e2c2e"], [1, "#5a4a36"]] },
+    { "type": "beam", "depth": 0.2, "x": 560, "y": 690, "w": 60, "color": "#c9c0b0", "dur": 3000, "opacity": 0.22, "show": [0, 3] },
+    { "type": "clouds", "depth": 0.3, "y": 210, "count": 9, "color": "#2a282c", "rim": "#8a6a3a", "scale": 1.4, "at": { "3": { "part": true } } },
+    { "type": "range", "count": 2, "y": [600, 640], "amp": [50, 80], "depth": [0.4, 0.6], "colors": ["#4a4440", "#2a2622"], "fade": [0.3, 0.8], "seed": 17 },
+    { "type": "ground", "depth": 1, "y": 662, "amp": 22, "seed": 9, "color": "#4a4036", "color2": "#1e1a16", "grass": 60, "grassColor": "#8a8456", "wind": 1, "rocks": 10 },
+    { "type": "altar", "depth": 1, "x": 560, "y": 700, "offering": "ram", "at": { "1": { "placed": true }, "3": { "burn": true } } },
+    { "type": "altar", "depth": 1, "x": 1040, "y": 700, "offering": "grain", "at": { "2": { "placed": true }, "4": { "scatter": true } } },
+    { "type": "figure", "depth": 1, "x": 470, "y": 710, "h": 120, "color": "#fdfaf2" },
+    { "type": "figure", "depth": 1, "x": 1130, "y": 710, "h": 124, "color": "#f0a54a", "flicker": true, "at": { "4": { "color": "#c2501f", "embers": true } } },
+    { "type": "beam", "depth": 1, "x": 560, "y": 640, "w": 70, "color": "#ffffff", "fire": true, "dur": 900, "show": [3, null] },
+    { "type": "particles", "kind": "sparks", "origin": { "x": 560, "y": 630, "r": 20 }, "count": 50, "show": [3, null] }
+  ],
+  "beats": [
+    { "dur": 7500, "cam": { "z": 1, "y": 20 },
+      "say": "On a bare hilltop above the valley, the two brothers each brought an offering.",
+      "verse": { "ref": "5:27", "ar": [1, 6], "en": "And recite to them the story of Adam's two sons, in truth…" } },
+    { "dur": 7000, "cam": { "x": -240, "z": 1.5, "y": 150 },
+      "say": "Habil laid down a healthy ram with a thick white fleece, gently and with care." },
+    { "dur": 6500, "cam": { "x": 240, "z": 1.5, "y": 150 },
+      "say": "Qabil dropped a thin bundle of poor grain without a second look." },
+    { "dur": 9500, "cam": { "x": -150, "z": 1.12, "y": 20 }, "sfx": ["rumble", { "name": "whoosh", "at": 900 }],
+      "say": "The clouds parted, and white fire came down upon Habil's offering.",
+      "verse": { "ref": "5:27", "ar": [7, 16], "en": "…when they both offered a sacrifice [to Allah], and it was accepted from one of them but was not accepted from the other." } },
+    { "dur": 7500, "cam": { "x": 260, "z": 1.6, "y": 140 }, "ambient": ["storm", "wind"] }
+  ]
+}

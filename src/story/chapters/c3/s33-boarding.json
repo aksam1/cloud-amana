@@ -1,0 +1,58 @@
+{
+  "id": "boarding",
+  "chapter": 3,
+  "order": 33,
+  "node": "nuh",
+  "title": "The Sign and the Boarding",
+  "arabic": "التنور والركوب",
+  "source": "quran",
+  "ayahs": ["11:40"],
+  "notes": ["Commentators differ on what \"the oven\" (at-tannur) means: an oven for baking bread from which water welled up as the sign, the face of the earth, or the breaking of dawn."],
+  "art": ["The animals are drawn as ink figures; Nuh, his family and the believers appear only as figures of light."],
+  "ambient": ["bubbles"],
+  "base": "#4a80c0",
+  "captions": "parchment",
+  "focus": 0.9,
+  "dissolve": 2000,
+  "cam": { "x": 100, "y": 180, "z": 1 },
+  "imagePrompt": "Close up inside a simple home: a clay oven where, instead of fire, water suddenly bubbles up and spills over the rim onto the floor; then a wide plain where a vast wooden ship stands on dry land with its ramp lowered and its door glowing, the clear sky darkening fast as heavy storm clouds of thick black and grey ink roll in; pairs of animals drawn in fine ink strokes approach from every direction, lions, camels, horses, deer, sheep and birds, two by two, walking calmly up the ramp; figures of light walk up behind them while one steady white-gold figure stands at the top of the ramp watching them enter; darkening greys and greens, warm brown timber, parchment texture, no faces.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "shift": 4500, "stops": [[0, "#4a80c0"], [0.6, "#a8c4dc"], [1, "#e4dcc4"]],
+      "at": { "2": { "stops": [[0, "#2a3040"], [0.6, "#5a6070"], [1, "#7a7a78"]] }, "3": { "stops": [[0, "#1a2028"], [0.6, "#3e4650"], [1, "#5a5e60"]] } } },
+    { "type": "clouds", "show": [1, null], "depth": 0.18, "y": 120, "count": 9, "color": "#2a2e36", "scale": 2, "spanY": 200, "seed": 31, "enter": 1500, "enterDur": 7000 },
+    { "type": "clouds", "show": [1, null], "depth": 0.22, "y": 240, "count": 8, "color": "#3a3e46", "scale": 1.7, "spanY": 160, "seed": 37, "enter": -1500, "enterDur": 8000 },
+    { "type": "range", "count": 2, "y": [600, 640], "amp": [40, 60], "depth": [0.2, 0.36], "colors": ["#7a8478", "#566050"], "haze": [0.3, 0.6], "sharp": 0.3, "edge": false, "seed": 93 },
+    { "type": "ground", "depth": 0.9, "y": 700, "amp": 6, "seed": 23, "x1": 3200, "color": "#7a8058", "color2": "#3e4430", "grass": 30, "grassColor": "#8a9a5a" },
+    { "type": "ark", "depth": 0.9, "x": 980, "y": 690, "s": 0.72, "built": 3, "ramp": true, "lit": 0.9 },
+    { "type": "animals", "show": [2, null], "depth": 0.9, "size": 0.78,
+      "pairs": [
+        { "kind": "lion", "path": [[-200, 762, 1], [600, 754, 1], [930, 744, 1], [948, 652, 0.66]], "dur": 9000, "delay": 0 },
+        { "kind": "camel", "path": [[-60, 712, 0.62], [520, 724, 0.78], [910, 744, 1], [950, 652, 0.66]], "dur": 10500, "delay": 900, "step": 0.55 },
+        { "kind": "horse", "path": [[1900, 772, 1.1], [1300, 760, 1.04], [1000, 746, 1], [956, 652, 0.66]], "dur": 8500, "delay": 300, "face": -1, "gap": [30, 10] },
+        { "kind": "deer", "path": [[1820, 712, 0.6], [1260, 726, 0.8], [994, 744, 1], [952, 652, 0.66]], "dur": 9500, "delay": 1600, "face": -1, "gap": [30, 10] },
+        { "kind": "sheep", "path": [[280, 870, 1.25], [700, 800, 1.1], [924, 748, 1], [950, 652, 0.66]], "dur": 9000, "delay": 2200, "step": 0.3 },
+        { "kind": "bird", "path": [[150, 180, 1], [700, 380, 0.9], [950, 600, 0.6]], "dur": 6000, "delay": 1200 },
+        { "kind": "bird", "path": [[1750, 240, 1], [1250, 420, 0.9], [960, 600, 0.6]], "dur": 6000, "delay": 2800, "face": -1, "gap": [26, -14] }
+      ] },
+    { "type": "animals", "show": [3, null], "depth": 0.9, "size": 0.55,
+      "pairs": [
+        { "kind": "light", "path": [[640, 800, 1.1], [900, 750, 1], [950, 652, 0.68]], "dur": 6000, "delay": 600, "gap": [-34, 6] },
+        { "kind": "light", "path": [[560, 820, 1.15], [890, 752, 1], [948, 652, 0.68]], "dur": 6500, "delay": 2000, "gap": [-34, 6] },
+        { "kind": "light", "path": [[480, 836, 1.2], [880, 754, 1], [950, 652, 0.68]], "dur": 7000, "delay": 3400, "gap": [-34, 6] }
+      ] },
+    { "type": "figure", "show": [3, null], "depth": 0.9, "x": 1012, "y": 648, "h": 40, "color": "#fffaf0", "glow": 1.6 },
+    { "type": "lightning", "depth": 0, "x": 1320, "flash": 0, "at": { "2": { "flash": 1 }, "3": { "flash": 2 } } },
+    { "type": "tint", "depth": 0, "color": "#3a4a40", "amount": 0, "blend": "multiply", "opacity": 0, "at": { "2": { "amount": 0.2, "opacity": 1 }, "3": { "amount": 0.3, "opacity": 1 } } },
+    { "type": "oven", "show": [0, 1], "depth": 0, "well": 1.4, "fade": 2200 }
+  ],
+  "beats": [
+    { "dur": 6500, "ambient": ["bubbles"], "cam": { "x": 100, "y": 180, "z": 1, "cut": true },
+      "say": "Then came the sign: water welled up from a clay oven where the fire should have been." },
+    { "dur": 6000, "ambient": ["wind", "storm"], "sfx": { "name": "thunder", "at": 3600 }, "cam": { "x": 100, "y": 180, "z": 1 },
+      "say": "The sky darkened as heavy clouds rolled in." },
+    { "dur": 9500, "ambient": ["herd", "wind", "storm"], "cam": { "x": 120, "y": 220, "z": 1.04 },
+      "say": "From every direction the animals came to the ship, two by two." },
+    { "dur": 10000, "ambient": ["herd", "wind", "storm"], "sfx": { "name": "thunder", "at": 5000 }, "cam": { "x": 140, "y": 330, "z": 1 },
+      "verse": { "ref": "11:40", "ar": [0, 20], "place": "lower", "en": "…until when Our command came and the oven overflowed, We said, \"Load upon the ship of each [creature] two mates and your family, except those about whom the word has preceded, and [include] whoever has believed.\"…" } }
+  ]
+}

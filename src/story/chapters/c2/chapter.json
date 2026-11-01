@@ -1,0 +1,10 @@
+{
+  "number": 2,
+  "title": "Prophet Idris and the Generations Before Nuh",
+  "arabic": "إدريس",
+  "nodes": ["idris"],
+  "parts": [
+    { "title": "Shith and Idris", "from": 19, "to": 24 },
+    { "title": "The Generations Before Nuh", "from": 25, "to": 26 }
+  ]
+}

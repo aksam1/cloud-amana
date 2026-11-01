@@ -1,0 +1,10 @@
+{
+  "number": 12,
+  "title": "Musa and Harun",
+  "arabic": "موسى وهارون",
+  "nodes": ["musa", "harun"],
+  "parts": [
+    { "title": "Prophet Musa", "nodes": ["musa"] },
+    { "title": "Prophet Harun", "nodes": ["harun"] }
+  ]
+}

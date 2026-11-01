@@ -1,0 +1,38 @@
+{
+  "id": "jinn",
+  "chapter": 1,
+  "order": 2,
+  "node": "jinn",
+  "title": "The Jinn Are Created",
+  "arabic": "خلق الجن",
+  "source": "mixed",
+  "notes": ["That the jinn lived on earth before Adam, building and spreading strife, comes from early commentators such as Ibn Abbas, not from the words of the Quran."],
+  "ayahs": ["15:27", "55:15"],
+  "ambient": ["wind", "fire"],
+  "base": "#0d0710",
+  "cam": { "z": 1.15, "y": 40 },
+  "imagePrompt": "The young earth at dusk under a smouldering red sky; from the horizon a smokeless flame, blue at its core and orange at its edges, twists upward and splits into countless small flickering fire-forms spreading over mountains and desert like fire carried on wind; ghostly silhouettes of towers rising and crumbling in time-lapse; drifting embers; warm reds against dark parchment; restless, powerful, wild.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#0d0710"], [0.5, "#3a1616"], [0.82, "#8a3a1c"], [1, "#c4612c"]],
+      "glow": { "x": 800, "y": 610, "rx": 950, "ry": 200, "color": "#ff8a3a", "opacity": 0.45 } },
+    { "type": "stars", "depth": 0.1, "count": 90, "maxY": 340, "opacity": 0.6 },
+    { "type": "range", "count": 3, "y": [560, 620], "amp": [60, 100], "depth": [0.35, 0.7], "colors": ["#4a2a24", "#1a0f0c"], "fade": [0.25, 0.85], "seed": 7 },
+    { "type": "cities", "depth": 0.75, "y": 622, "count": 14, "show": [2, null] },
+    { "type": "mist", "depth": 0.8, "y": 640, "color": "#5a2a1e", "opacity": 0.55 },
+    { "type": "ground", "depth": 1, "y": 652, "amp": 10, "seed": 4, "color": "#2a1a12", "color2": "#0e0907", "rocks": 12 },
+    { "type": "flame", "depth": 0.85, "x": 800, "y": 640, "h": 150, "at": { "1": { "spread": { "count": 28, "area": [-150, 560, 1750, 700] } } } },
+    { "type": "particles", "depth": 1.1, "kind": "embers", "count": 110 }
+  ],
+  "beats": [
+    { "dur": 5500, "cam": { "z": 1.05, "y": 20 }, "sfx": "whoosh", "sfxAt": 600 },
+    { "dur": 8000, "cam": { "z": 0.9, "y": 0 },
+      "say": "Before humankind, Allah created the jinn from a smokeless flame of fire.",
+      "verse": { "ref": "55:15", "ar": [0, 5], "en": "And He created the jinn from a smokeless flame of fire." } },
+    { "dur": 7500, "cam": { "x": 120, "z": 0.95 },
+      "say": "They spread over mountains and deserts like fire carried on the wind, building and roaming." },
+    { "dur": 7000, "cam": { "x": -80, "z": 1 },
+      "say": "Their cities rose and crumbled; early commentators say they filled the earth with strife." },
+    { "dur": 8500, "cam": { "x": 0, "z": 1.05 },
+      "verse": { "ref": "15:27", "ar": [0, 6], "en": "And the jinn We created before from scorching fire." } }
+  ]
+}

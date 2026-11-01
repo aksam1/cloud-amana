@@ -1,0 +1,10 @@
+{
+  "number": 20,
+  "title": "The Signs of the Hour",
+  "arabic": "أشراط الساعة",
+  "nodes": ["minor", "major"],
+  "parts": [
+    { "title": "The Minor Signs", "nodes": ["minor"] },
+    { "title": "The Major Signs", "nodes": ["major"] }
+  ]
+}

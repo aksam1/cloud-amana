@@ -1,0 +1,41 @@
+{
+  "id": "garden",
+  "chapter": 1,
+  "order": 7,
+  "node": "adam",
+  "title": "Adam and Hawwa in the Garden",
+  "arabic": "في الجنة",
+  "source": "quran",
+  "art": ["Adam and Hawwa appear only as two distant figures of light seen from behind. The Quran does not name the tree's fruit, so it is drawn as no particular kind."],
+  "ayahs": ["2:35"],
+  "ambient": ["water", "birds", "wind"],
+  "base": "#cfe0d8",
+  "captions": "parchment",
+  "focus": 0.85,
+  "cam": { "z": 1.25, "y": -80 },
+  "imagePrompt": "A breathtaking paradise garden: rivers of clear water, golden light pouring through endless trees, fruit glowing like lanterns; two tiny soft figures of white-gold light seen far away from behind; one tree standing apart with deeper, darker green leaves, faintly shimmering, quiet and forbidding, kept in frame; luminous jewel-like greens and golds.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#7fb2c9"], [0.5, "#d8e2c8"], [1, "#fff1cf"]],
+      "glow": { "x": 800, "y": 360, "rx": 900, "ry": 420, "color": "#fff0c0", "opacity": 0.65 } },
+    { "type": "rays", "depth": 0.2, "x": 900, "y": -120, "count": 12, "spread": 70, "angle": 100, "len": 1700, "color": "#fff3c8", "blend": "screen" },
+    { "type": "garden", "depth": 0.35, "plane": "back", "seed": 3, "y": 570, "count": 10 },
+    { "type": "ground", "depth": 0.8, "y": 610, "amp": 12, "seed": 6, "color": "#6f9a4a", "color2": "#2f5a2e", "grass": 80, "grassColor": "#8fbf5a" },
+    { "type": "water", "depth": 0.82, "points": [[820, 600], [760, 650], [880, 730], [700, 840], [820, 1020]], "w0": 6, "w1": 340, "reflect": [[0, "#eef6f2"], [1, "#7fb0c0"]] },
+    { "type": "tree", "depth": 0.8, "x": 1060, "y": 622, "h": 330, "kind": "forbidden" },
+    { "type": "garden", "depth": 0.85, "plane": "mid", "seed": 8, "y": 650, "count": 6, "avoid": [900, 1220] },
+    { "type": "figure", "depth": 0.85, "x": 640, "y": 712, "h": 70, "pose": "walk", "color": "#fff6e0", "moveDur": 7000, "at": { "1": { "x": 700 }, "2": { "x": 770 } } },
+    { "type": "figure", "depth": 0.85, "x": 604, "y": 718, "h": 64, "pose": "walk", "color": "#fff0d8", "moveDur": 7000, "at": { "1": { "x": 664 }, "2": { "x": 734 } } },
+    { "type": "garden", "depth": 1.3, "plane": "front", "seed": 14, "y": 940, "count": 3, "avoid": [280, 1320] },
+    { "type": "particles", "kind": "dust", "count": 70 }
+  ],
+  "beats": [
+    { "dur": 6500, "cam": { "z": 1.05, "y": 0 },
+      "say": "Adam and Hawwa were given the Garden: clear rivers, golden light, fruit glowing like lanterns." },
+    { "dur": 10000, "cam": { "x": -80, "z": 1.1, "y": 20 },
+      "say": "Everything in it was theirs to enjoy.",
+      "verse": { "ref": "2:35", "ar": [1, 10], "en": "O Adam, dwell, you and your wife, in Paradise and eat therefrom in [ease and] abundance from wherever you will." } },
+    { "dur": 8500, "cam": { "x": 170, "z": 1.2, "y": -20 },
+      "say": "One tree stood apart, its leaves darker than the rest.",
+      "verse": { "ref": "2:35", "ar": [11, 14], "en": "But do not approach this tree…" } }
+  ]
+}

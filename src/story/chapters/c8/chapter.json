@@ -1,0 +1,10 @@
+{
+  "number": 8,
+  "title": "Ismail and Ishaq",
+  "arabic": "إسماعيل وإسحاق",
+  "nodes": ["ismail", "ishaq"],
+  "parts": [
+    { "title": "Prophet Ismail", "nodes": ["ismail"] },
+    { "title": "Prophet Ishaq", "nodes": ["ishaq"] }
+  ]
+}

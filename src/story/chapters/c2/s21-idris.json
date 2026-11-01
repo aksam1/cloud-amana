@@ -1,0 +1,41 @@
+{
+  "id": "idris",
+  "chapter": 2,
+  "order": 21,
+  "node": "idris",
+  "title": "Idris, a Man of Truth",
+  "arabic": "إدريس",
+  "source": "quran",
+  "ayahs": ["19:56"],
+  "art": ["Idris appears only as a figure of light seen from behind; the camera stops at his door out of respect. The town at night is imagined."],
+  "ambient": ["voices", "wind"],
+  "base": "#0b1024",
+  "captions": "parchment",
+  "focus": 0.7,
+  "dissolve": 2000,
+  "cam": { "x": 0, "y": 0, "z": 1 },
+  "imagePrompt": "Night inside a stone town, eye level, looking straight down a narrow street: house fronts of dark blue stone on both sides receding toward an end wall, small oil lamps on brackets throwing warm pools of amber light onto the paving between deep blue shadows, a strip of starry sky above the rooftops; at the end of the street an open arched doorway glowing with lamplight, and inside, seen from behind, a single kneeling figure of calm, steady white-gold light, head lowered in prayer, brighter than any lamp; faint Arabic calligraphy softly written on the stone above the door; parchment texture, no faces.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#070b1c"], [1, "#24304e"]] },
+    { "type": "stars", "depth": 0.08, "count": 90, "maxY": 200, "size": 0.9 },
+    { "type": "ground", "depth": 0.72, "y": 490, "amp": 2, "seed": 5, "color": "#2c2a3a", "color2": "#100e18" },
+    { "type": "lane", "depth": 0.7, "end": true, "y": 490, "h": 330, "seed": 2 },
+    { "type": "figure", "depth": 0.7, "x": 800, "y": 486, "h": 46, "pose": "kneel", "color": "#fff4d6", "glow": 1.2 },
+    { "type": "calligraphy", "depth": 0.7, "show": [2, 3], "text": "إدريس", "font": "ruqaa", "x": 800, "y": 296, "size": 40, "color": "#ffe9b8", "w": 170, "dur": 2800, "fade": 2600 },
+    { "type": "lane", "depth": 0.78, "gap": 150, "y": 502, "h": 360, "lamp": "right", "seed": 3 },
+    { "type": "lane", "depth": 0.9, "gap": 210, "y": 520, "h": 420, "lamp": "left", "seed": 4, "door": 0.2 },
+    { "type": "lane", "depth": 1.1, "gap": 290, "y": 550, "h": 500, "lamp": "right", "seed": 5, "door": 0.7 },
+    { "type": "lane", "depth": 1.4, "gap": 400, "y": 600, "h": 620, "lamp": "left", "seed": 6 },
+    { "type": "lane", "depth": 1.9, "gap": 560, "y": 690, "h": 820, "seed": 7, "door": 0.4 }
+  ],
+  "beats": [
+    { "dur": 7000, "cam": { "z": 1.25 },
+      "say": "In one of the towns, on a quiet street, a lamp burned late into the night." },
+    { "dur": 7000, "ambient": ["wind"], "cam": { "y": 30, "z": 1.5 },
+      "say": "Inside, a man sat alone in prayer, his light steadier than any lamp: Idris." },
+    { "dur": 8500, "ambient": ["wind"], "cam": { "y": 50, "z": 1.6 },
+      "verse": { "ref": "19:56", "ar": [0, 8], "place": "lower", "en": "And mention in the Book, Idrees. Indeed, he was a man of truth and a prophet." } },
+    { "dur": 6000, "ambient": [], "cam": { "y": 50, "z": 1.63 },
+      "say": "The lamps flickered; his light did not." }
+  ]
+}

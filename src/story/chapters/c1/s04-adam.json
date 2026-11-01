@@ -1,0 +1,42 @@
+{
+  "id": "adam",
+  "chapter": 1,
+  "order": 4,
+  "node": "adam",
+  "title": "The Creation of Adam",
+  "arabic": "خلق آدم",
+  "source": "mixed",
+  "notes": [
+    "A hadith in Tirmidhi says Adam was made from a handful taken from all of the earth, so his children came in its colours: red, white, black and every shade between.",
+    "In Sahih Muslim, Iblis is described circling the clay form before it was given life, trying to understand what it was."
+  ],
+  "art": ["Adam is shown only as a silhouette of light within the clay, never in detail."],
+  "ayahs": ["15:28-29", "2:31-32", "18:50"],
+  "ambient": ["air"],
+  "base": "#0a0806",
+  "focus": 0.72,
+  "cam": { "z": 1.2, "y": 60 },
+  "imagePrompt": "Clay of many colours (red, white, black, ochre) gathering from every direction into the outline of a standing human figure, seen only as a silhouette of light within the clay; rings of angelic light encircling it; just outside the rings, a dark figure wrapped in a faint smouldering glow with arms crossed, watching with suspicion; Arabic words orbiting the luminous silhouette.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#0a0806"], [0.5, "#2e2412"], [1, "#7a6232"]] },
+    { "type": "radiance", "depth": 0.2, "x": 800, "y": 140, "size": 0.8, "intensity": 0.55, "rays": false },
+    { "type": "angels", "depth": 0.7, "mode": "ring", "cx": 800, "cy": 650, "rx": 430, "ry": 110, "rings": 2, "count": 20 },
+    { "type": "figure", "depth": 0.72, "x": 1310, "y": 712, "h": 160, "dark": true, "rim": "#ff7a2a", "flicker": true },
+    { "type": "clay", "depth": 0.72, "x": 800, "y": 662, "h": 230, "at": { "1": { "form": true }, "2": { "breath": true } } },
+    { "type": "orbit", "depth": 0.72, "x": 800, "y": 560, "rx": 310, "ry": 80, "size": 30, "show": [3, null] },
+    { "type": "particles", "kind": "dust", "count": 60 }
+  ],
+  "beats": [
+    { "dur": 6000, "cam": { "z": 1.05, "y": 60 },
+      "say": "Allah gathered clay from every land of the earth: red and white, black and every shade between." },
+    { "dur": 9000, "cam": { "z": 1.14, "y": 90 },
+      "say": "The soil drew together into the shape of a man, while Iblis, a jinn, circled and watched.",
+      "verse": { "ref": "15:28", "ar": [4, 11], "en": "I will create a human being out of clay from an altered black mud." } },
+    { "dur": 10000, "cam": { "z": 1.2, "y": 70 }, "sfx": "whoosh",
+      "say": "A breath of light flowed into the form, and it glowed from within.",
+      "verse": { "ref": "15:29", "ar": [0, 8], "en": "And when I have proportioned him and breathed into him of My [created] soul, then fall down to him in prostration." } },
+    { "dur": 9500, "cam": { "z": 1.02, "y": 30 },
+      "say": "Adam was taught the names of all things, names the angels could not give.",
+      "verse": { "ref": "2:31", "ar": [0, 3], "en": "And He taught Adam the names - all of them." } }
+  ]
+}

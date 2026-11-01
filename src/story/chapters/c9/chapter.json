@@ -1,0 +1,10 @@
+{
+  "number": 9,
+  "title": "Yaqub and Yusuf",
+  "arabic": "يعقوب ويوسف",
+  "nodes": ["yaqub", "yusuf"],
+  "parts": [
+    { "title": "Prophet Yaqub", "nodes": ["yaqub"] },
+    { "title": "Prophet Yusuf", "nodes": ["yusuf"] }
+  ]
+}

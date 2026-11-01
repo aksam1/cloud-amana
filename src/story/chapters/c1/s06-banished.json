@@ -1,0 +1,41 @@
+{
+  "id": "banished",
+  "chapter": 1,
+  "order": 6,
+  "node": "adam",
+  "title": "Iblis Is Banished",
+  "arabic": "طرد إبليس",
+  "source": "quran",
+  "art": ["Iblis is shown only as a shadowed flame: no horns, no human face."],
+  "ayahs": ["7:13", "7:16-17"],
+  "ambient": ["storm"],
+  "base": "#0a0a0e",
+  "focus": 0.7,
+  "cam": { "z": 1.15 },
+  "imagePrompt": "A dark flame-like figure torn from a court of harsh white light and falling through layered bands of sky like a meteor of black smoke trailing ember sparks; as it falls it turns back, two burning points for eyes in the dark; storm-grey ink wash deepening to near-black.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#0a0a0e"], [0.6, "#24242c"], [1, "#45423e"]],
+      "at": { "2": { "stops": [[0, "#050508"], [0.5, "#121220"], [1, "#2a2030"]] } } },
+    { "type": "radiance", "depth": 0.2, "x": 800, "y": 250, "size": 1, "intensity": 0.8, "show": [0, 2], "at": { "1": { "harsh": true, "intensity": 1 } } },
+    { "type": "figure", "depth": 0.7, "x": 860, "y": 690, "h": 180, "dark": true, "rim": "#ff8a3a", "flicker": true, "show": [0, 2], "at": { "1": { "rim": "#ff3a1a" } } },
+    { "type": "clouds", "depth": 0.6, "rise": 900, "y": 400, "count": 10, "color": "#3a3440", "opacity": 0.85, "show": [2, 4] },
+    { "type": "trail", "depth": 0.8, "from": { "x": 920, "y": -300 }, "to": { "x": 700, "y": 1250 }, "dur": 4200, "size": 1.3, "bend": 160, "show": [2, 4] },
+    { "type": "particles", "kind": "embers", "count": 60, "area": [560, -300, 1100, 1300], "show": [2, 4] },
+    { "type": "tint", "depth": 0, "color": "#000000", "amount": 0.6, "show": [3, null] },
+    { "type": "eyes", "depth": 0.3, "x": 800, "y": 400, "gap": 62, "size": 10, "show": [3, null] }
+  ],
+  "beats": [
+    { "dur": 5000, "cam": { "z": 1.05 },
+      "say": "The light of the court turned against Iblis." },
+    { "dur": 10000, "cam": { "z": 1.2 }, "sfx": "thunder",
+      "say": "He was cast out, and his flame was torn from the heavens.",
+      "verse": { "ref": "7:13", "ar": [1, 12], "en": "Descend from Paradise, for it is not for you to be arrogant therein. So get out; indeed, you are of the debased." } },
+    { "dur": 5200, "cam": { "y": 60, "z": 0.9 }, "sfx": "fall",
+      "say": "He fell through layer after layer of sky like a meteor of smoke." },
+    { "dur": 9500, "cam": { "z": 1.25, "y": -20 },
+      "say": "As he fell, he turned back and made his vow.",
+      "verse": { "ref": "7:16", "ar": [1, 6], "who": "Iblis", "style": "iblis", "en": "Because You have put me in error, I will surely sit in wait for them on Your straight path." } },
+    { "dur": 9500, "cam": { "z": 1.4, "y": -30 },
+      "verse": { "ref": "7:17", "ar": [0, 10], "who": "Iblis", "style": "iblis", "en": "Then I will come to them from before them and from behind them and on their right and on their left…" } }
+  ]
+}

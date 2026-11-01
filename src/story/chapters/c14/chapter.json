@@ -1,0 +1,10 @@
+{
+  "number": 14,
+  "title": "Dawud and Sulayman",
+  "arabic": "داود وسليمان",
+  "nodes": ["dawud", "sulayman"],
+  "parts": [
+    { "title": "Prophet Dawud", "nodes": ["dawud"] },
+    { "title": "Prophet Sulayman", "nodes": ["sulayman"] }
+  ]
+}

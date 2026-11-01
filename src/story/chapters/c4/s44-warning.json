@@ -1,0 +1,65 @@
+{
+  "id": "warning",
+  "chapter": 4,
+  "order": 44,
+  "node": "hud",
+  "title": "The Final Warning",
+  "arabic": "الإنذار الأخير",
+  "source": "quran",
+  "ayahs": ["11:56"],
+  "art": [
+    "The crowd's scorn is drawn as jagged strokes, never words; Hud and those who believed appear only as steady lights, seen from far away as they leave the city."
+  ],
+  "ambient": ["crowd", "jeer", "dry"],
+  "base": "#2a1e16",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2200,
+  "world": { "fog": "#e8d8bc", "fogNear": 5000, "fogFar": 32000, "light": 1.1, "rays": 0.3, "bloom": 0.55, "haze": 0.35, "hazeY": 0.6, "shake": 0.5, "dof": 0 },
+  "cam": { "pos": [800, 450, 1000], "look": [800, 440, 0] },
+  "imagePrompt": "The great plaza of Iram, dusty and hot under a harsh white sun; a larger, angrier crowd of dim amber figures presses in around the base of a stepped platform; on top stands one small figure of calm white light while sharp, jagged red-amber strokes of mocking calligraphy swirl around him like a storm without ever touching him; then the city's great gates seen from within, open onto the desert, a small line of steady white lights walking out through them in single file and away over the dunes; dusty ochre, harsh light; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#e4dccb"], [0.5, "#f0e2c4"], [1, "#e8c898"]] },
+    { "type": "sun", "pos": [420, 80, -26000], "size": 34, "color": "#fffaf0" },
+
+    { "type": "set", "show": [0, 3], "layers": [
+      { "type": "iram", "depth": 0.12, "seed": 81, "x0": -500, "x1": 2100, "area": [-600, 120, 2200, 600], "haze": "#e8d8bc",
+        "rows": [{ "y": 540, "h": 220, "n": 40, "w": 9 }, { "y": 555, "h": 300, "n": 28, "w": 13 }] },
+      { "type": "floor", "depth": 0.22, "y": 560, "vp": [800, 430], "color": "#d8b88a", "color2": "#a8845a", "lines": 24, "gloss": 0.05, "area": [-800, 555, 2400, 1350] },
+      { "type": "column", "depth": 0.25, "x": 300, "y": 590, "h": 420, "w": 26 },
+      { "type": "column", "depth": 0.25, "x": 1300, "y": 590, "h": 420, "w": 26 },
+      { "type": "crowd", "area": [200, 1400, -2650, -2350], "y": 596, "count": 300, "size": 22, "color": "#e89850", "dim": 0.3, "glow": 0.55, "flicker": 0.6, "mill": 6, "speed": 0, "seed": 3 },
+      { "type": "platform", "depth": 0.3, "x": 800, "y": 600, "w": 600, "steps": 7, "rise": 24, "dais": 40, "ppu": 0.9 },
+      { "type": "light", "depth": 0.3, "pos": [800, 392], "h": 58, "color": "#fffaf0", "glow": 1.4, "bright": 1.8 },
+      { "type": "crowd", "area": [380, 1220, -2300, -1100], "y": [760, 606], "count": 900, "size": 22, "color": "#e89850", "dim": 0.3, "glow": 0.55, "flicker": 0.6, "mill": 8, "speed": 0 },
+      { "type": "column", "depth": 0.45, "x": 120, "y": 700, "h": 640, "w": 40 },
+      { "type": "column", "depth": 0.45, "x": 1480, "y": 700, "h": 640, "w": 40 },
+      { "type": "dust", "box": [-1200, 100, -3000, 2800, 950, 800], "count": 1400, "size": 4, "color": "#d8b088", "opacity": 0.38, "wind": [24, -3, 0], "swirl": 50, "blend": "normal" },
+      { "type": "jeers", "show": [1, 2], "center": [800, 358], "from": [560, 300], "clear": [100, 112], "count": 30, "size": 44, "period": 7 }
+    ] },
+
+    { "type": "set", "show": [3, null], "dx": 6000, "layers": [
+      { "type": "dunes", "depth": 0.1, "y": 560, "amp": 14, "count": 12, "seed": 82, "lit": "#ecc890", "body": "#c8985e", "shade": "#7a5868", "haze": 0.45, "hazeColor": "#e8d8bc" },
+      { "type": "dunes", "depth": 0.18, "y": 600, "amp": 80, "count": 5, "seed": 83, "lit": "#ecc890", "body": "#c8985e", "shade": "#7a5868", "haze": 0.2, "hazeColor": "#e8d8bc" },
+      { "type": "light", "depth": 0.5263, "h": 37, "color": "#fffaf0", "glow": 1.3, "bright": 1.8, "pose": "walk", "path": [[800, 742, -900], [800, 672, -1500], [800, 561, -4000], [800, 529, -4450], [800, 519, -4800]], "dur": 11000 },
+      { "type": "light", "depth": 0.5263, "h": 35, "color": "#fff4e0", "glow": 1.0, "bright": 1.6, "pose": "walk", "path": [[786, 742, -900], [786, 672, -1500], [791.6, 561, -4000], [793, 529, -4450], [793, 519, -4800]], "dur": 11000, "delay": 1600 },
+      { "type": "light", "depth": 0.5263, "h": 36, "color": "#fff4e0", "glow": 1.0, "bright": 1.6, "pose": "walk", "path": [[812, 742, -900], [812, 672, -1500], [807.2, 561, -4000], [806, 529, -4450], [806, 519, -4800]], "dur": 11000, "delay": 3000 },
+      { "type": "light", "depth": 0.5263, "h": 34, "color": "#fff4e0", "glow": 1.0, "bright": 1.6, "pose": "walk", "path": [[792, 742, -900], [792, 672, -1500], [795.2, 561, -4000], [796, 529, -4450], [796, 519, -4800]], "dur": 11000, "delay": 4300 },
+      { "type": "light", "depth": 0.5263, "h": 36, "color": "#fff4e0", "glow": 1.0, "bright": 1.6, "pose": "walk", "path": [[816, 742, -900], [816, 672, -1500], [809.6, 561, -4000], [808, 529, -4450], [808, 519, -4800]], "dur": 11000, "delay": 5600 },
+      { "type": "facade", "depth": 0.45, "x": 800, "y": 700, "w": 2200, "h": 420, "gate": { "w": 240, "h": 330 }, "towers": true, "stone": "#c89a78", "ppu": 0.8 },
+      { "type": "floor", "depth": 0.6, "y": 712, "vp": [800, 420], "color": "#c8a47a", "color2": "#9a7a56", "lines": 18, "gloss": 0.05, "area": [-800, 706, 2400, 1350] },
+      { "type": "dust", "box": [-1200, 200, -3000, 2800, 950, 900], "count": 1000, "size": 4, "color": "#e0bc90", "opacity": 0.38, "wind": [26, -3, 0], "swirl": 50, "blend": "normal" }
+    ] }
+  ],
+  "beats": [
+    { "dur": 8000, "ambient": ["crowd", "jeer", "dry"], "cam": { "pos": [800, 470, 600], "look": [800, 430, -2333] },
+      "say": "The drought went on, and the crowd that gathered before Hud grew larger and angrier." },
+    { "dur": 9000, "ambient": ["crowd", "jeer", "dry"],
+      "say": "Their scorn swirled around him like a storm, but it never touched him, and his light stayed calm." },
+    { "dur": 11000, "ambient": ["jeer", "dry", "voice"],
+      "verse": { "ref": "11:56", "ar": [0, 19], "place": "lower", "en": "Indeed, I have relied upon Allah, my Lord and your Lord. There is no creature but that He holds its forelock. Indeed, my Lord is on a path [that is] straight." } },
+    { "dur": 16000, "ambient": ["desert", "dry"], "sfx": { "name": "gate", "at": 12500 }, "cam": { "dx": 6000, "pos": [800, 470, 900], "look": [800, 560, -3000] },
+      "say": "Then he went down the back steps, and the few who believed followed him out of the city and into the desert." }
+  ]
+}

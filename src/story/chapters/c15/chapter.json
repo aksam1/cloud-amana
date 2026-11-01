@@ -1,0 +1,10 @@
+{
+  "number": 15,
+  "title": "Ilyas and Al-Yasaʿ",
+  "arabic": "إلياس واليسع",
+  "nodes": ["ilyas", "alyasa"],
+  "parts": [
+    { "title": "Prophet Ilyas", "nodes": ["ilyas"] },
+    { "title": "Prophet Al-Yasaʿ", "nodes": ["alyasa"] }
+  ]
+}

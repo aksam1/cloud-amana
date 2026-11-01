@@ -1,0 +1,10 @@
+{
+  "number": 4,
+  "title": "Prophet Hud",
+  "arabic": "هود",
+  "nodes": ["hud"],
+  "parts": [
+    { "title": "The Pride of ʿAd", "from": 39, "to": 42 },
+    { "title": "The Wind", "from": 43, "to": 48 }
+  ]
+}

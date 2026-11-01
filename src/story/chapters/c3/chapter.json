@@ -1,0 +1,10 @@
+{
+  "number": 3,
+  "title": "Prophet Nuh and the Great Flood",
+  "arabic": "نوح",
+  "nodes": ["nuh"],
+  "parts": [
+    { "title": "The Call", "from": 27, "to": 31 },
+    { "title": "The Ark and the Flood", "from": 32, "to": 38 }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "pen",
+  "chapter": 2,
+  "order": 22,
+  "node": "idris",
+  "title": "The Pen and the Stars",
+  "arabic": "القلم",
+  "source": "tradition",
+  "notes": ["Classical commentators, among them Ibn Kathir, relate that Idris was the first to write with the pen and to sew garments; some accounts also link him with the study of the stars. These come from narrations, not the Quran, and they vary in strength."],
+  "art": ["Idris is shown only through hands of light and, at night, a small figure of light seen from behind; the writing is flowing marks, not words."],
+  "ambient": ["air", "birds"],
+  "base": "#5e4632",
+  "focus": 1,
+  "dissolve": 2000,
+  "cam": { "x": 0, "y": 0, "z": 1 },
+  "imagePrompt": "Daylight inside a simple workroom of stone blocks, a single golden beam of sunlight falling through a small window across a timber table full of floating dust, sheets of parchment, an ink pot and reed pens; a close-up of soft hands of light dipping a reed pen and drawing the first flowing lines on the parchment, the strokes spilling off the page and spreading across the whole frame into the parchment texture of the story; then hands of light stitching two pieces of linen into a garment; then a flat rooftop at night under a deep indigo sky, a small figure of light pointing upward as silver ink lines join the brightest stars into patterns; warm gold to indigo and silver, no faces.",
+  "layers": [
+    { "type": "room", "depth": 1, "show": [0, 1] },
+    { "type": "particles", "depth": 1, "show": [0, 1], "kind": "dust", "count": 70, "area": [600, 220, 1280, 720] },
+    { "type": "pen", "depth": 1, "show": [1, 3], "phase": "write", "at": { "2": { "phase": "spill" } } },
+    { "type": "garment", "depth": 1, "show": [3, 4], "dur": 5 },
+    { "type": "sky", "depth": 0.05, "show": [4, null], "stops": [[0, "#060a1e"], [0.6, "#141c3c"], [1, "#2a3050"]] },
+    { "type": "stars", "depth": 0.08, "show": [4, null], "count": 170, "maxY": 640, "color": "#e6ecff" },
+    { "type": "constellations", "depth": 1, "show": [4, null], "figure": { "x": 760, "y": 690 } }
+  ],
+  "beats": [
+    { "dur": 6000, "cam": { "z": 1.06 },
+      "say": "In a simple room of stone, a beam of morning light fell across the table." },
+    { "dur": 7000, "sfx": [{ "name": "scratch", "at": 1500 }, { "name": "scratch", "at": 3300 }],
+      "say": "Many scholars related that Idris was among the first to write with the pen." },
+    { "dur": 5000, "sfx": "page" },
+    { "dur": 6000, "sfx": "page",
+      "say": "Tradition also remembers him sewing garments and watching the stars." },
+    { "dur": 8500, "ambient": ["wind"], "cam": { "z": 1.04 } }
+  ]
+}

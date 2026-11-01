@@ -1,0 +1,10 @@
+{
+  "number": 17,
+  "title": "Zakariya and Yahya",
+  "arabic": "زكريا ويحيى",
+  "nodes": ["zakariya", "yahya"],
+  "parts": [
+    { "title": "Prophet Zakariya", "nodes": ["zakariya"] },
+    { "title": "Prophet Yahya", "nodes": ["yahya"] }
+  ]
+}

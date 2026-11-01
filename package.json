@@ -1,0 +1,32 @@
+{
+  "name": "amanah",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5210 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 5211",
+    "ayahs": "node scripts/fetch-ayahs.mjs",
+    "check": "node scripts/check-story.mjs",
+    "prompts": "node scripts/export-prompts.mjs",
+    "words": "node scripts/words.mjs",
+    "scene": "node scripts/new-scene.mjs",
+    "publish": "node scripts/publish.mjs"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.8.2",
+    "@react-three/postprocessing": "^3.2.2",
+    "motion": "^14.8.0",
+    "postprocessing": "^6.39.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.186.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.5"
+  }
+}

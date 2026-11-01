@@ -1,0 +1,44 @@
+{
+  "id": "shith",
+  "chapter": 1,
+  "order": 18,
+  "node": "humanity",
+  "title": "Adam's Final Days and Shith",
+  "arabic": "شيث",
+  "source": "tradition",
+  "then": "map",
+  "notes": [
+    "Classical narrations say Adam entrusted guidance to his son Shith (Seth), whom many scholars count among the prophets.",
+    "A weak hadith mentions scrolls revealed to Shith; the scroll of light here stands for guidance passed on, not a particular book."
+  ],
+  "art": ["Adam and his family appear only as figures of light."],
+  "ambient": ["fire", "wind"],
+  "base": "#1b130d",
+  "focus": 0.92,
+  "cam": { "z": 1.18, "y": 40 },
+  "imagePrompt": "The interior of a large stone and timber dwelling at dusk, lit by oil lamps and a central hearth, warm amber light and deep soft shadows, woven mats on the floor, parchment texture over everything; at the centre a seated figure of pale, soft light like late-afternoon sun; many generations of figures of light sitting in widening circles and spilling out of the open doorway into the night, where more lights stretch across the valley; one figure of clear, steady white-gold light seated closest; a scroll made of light passing between their hands, every head lowered; a stream of soft particles rising through the roof to join the stars.",
+  "layers": [
+    { "type": "dwelling", "depth": 0.9, "at": { "4": { "dim": 0.25 } } },
+    { "type": "crowd", "depth": 0.92, "cx": 800, "cy": 712, "rings": 3, "per": [7, 12, 17], "rx": 220, "ry": 52, "gapX": 125, "gapY": 34, "size": 44,
+      "spill": { "count": 14, "x0": 1200, "x1": 1330, "y0": 610, "y1": 640, "size": 22 }, "at": { "3": { "bow": true } } },
+    { "type": "figure", "depth": 0.92, "x": 800, "y": 668, "h": 124, "pose": "sit", "color": "#fff4dc", "glow": 0.8, "dim": 0.25,
+      "at": { "4": { "dim": 1 }, "5": { "pose": "gone" } } },
+    { "type": "figure", "depth": 0.92, "x": 690, "y": 676, "h": 106, "pose": "sit", "color": "#fff1c8", "glow": 1.25 },
+    { "type": "calligraphy", "depth": 0.92, "text": "شيث", "font": "ruqaa", "x": 690, "y": 540, "size": 54, "color": "#ffe8b0", "w": 200, "dur": 2200, "show": [1, null] },
+    { "type": "scroll", "depth": 0.92, "from": { "x": 780, "y": 612 }, "to": { "x": 708, "y": 620 }, "show": [2, null],
+      "at": { "3": { "pass": true, "bright": true }, "5": { "flood": true } } },
+    { "type": "particles", "depth": 0.92, "kind": "rise", "origin": { "x": 800, "y": 620, "r": 30 }, "count": 60, "show": [4, null] }
+  ],
+  "beats": [
+    { "dur": 7500, "cam": { "z": 1.05, "y": 30 },
+      "say": "Adam grew old, and his children's children filled the valley." },
+    { "dur": 7500, "cam": { "x": -40, "z": 1.15, "y": 60 },
+      "say": "Closest to him sat his son Shith." },
+    { "dur": 6500, "cam": { "x": -60, "z": 1.36, "y": 130 } },
+    { "dur": 8500, "cam": { "x": -80, "z": 1.5, "y": 150 },
+      "say": "Adam placed the guidance in Shith's hands, and every head in the room bowed." },
+    { "dur": 9000, "cam": { "x": 0, "z": 1.1, "y": 40 }, "ambient": ["wind"],
+      "say": "Then Adam's light faded gently and rose to join the stars." },
+    { "dur": 5200, "cam": { "x": -92, "z": 2.6, "y": 170, "dur": 4600 }, "ambient": ["wind"], "sfx": "page", "sfxAt": 3800 }
+  ]
+}

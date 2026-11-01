@@ -1,0 +1,11 @@
+{
+  "number": 19,
+  "title": "The Final Messenger ﷺ",
+  "arabic": "محمد ﷺ",
+  "nodes": ["mawlid", "revelation", "wafat"],
+  "parts": [
+    { "title": "The Birth", "nodes": ["mawlid"] },
+    { "title": "The First Revelation", "nodes": ["revelation"] },
+    { "title": "The Passing", "nodes": ["wafat"] }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "cloud",
+  "chapter": 4,
+  "order": 45,
+  "node": "hud",
+  "title": "The Cloud",
+  "arabic": "السحابة",
+  "source": "quran",
+  "ayahs": ["46:24"],
+  "art": [
+    "The people of ʿAd appear only as figures of dim light; their rush onto the roofs and the waving banners are imagined from their words in the verse."
+  ],
+  "ambient": ["desert", "city"],
+  "base": "#1e1a24",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2200,
+  "world": { "fog": "#f0dcc0", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0.6, "bloom": 0.6, "haze": 0.1, "hazeY": 0.6, "shake": 0.6, "dof": 0 },
+  "cam": { "pos": [800, 520, 1000], "look": [800, 470, 0] },
+  "imagePrompt": "Morning over Iram: a vast dark cloud on the horizon rolling slowly toward the city and filling the whole width of the sky, painted in enormous layered ink-wash strokes of charcoal, slate blue and bruised violet, its upper edges lit gold; dim figures of light rush onto rooftops and stand on top of columns raising their arms, banners waving; then, from inside the cloud's cold shadow, the small city far off still lit gold and cheering; then the light turns cold, no rain falls, and a single sharp wave of sand sweeps across the plaza; bright morning gold shifting to cold bruised darkness; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "sky", "show": [[0, 2], [3, null]], "depth": 0.03, "fog": 0, "stops": [[0, "#8fb0d0"], [0.45, "#f4e2c4"], [0.7, "#f8cc8a"], [1, "#f0b060"]] },
+    { "type": "sun", "show": [0, 2], "pos": [240, 400, -26000], "size": 34, "color": "#ffe6b0" },
+
+    { "type": "set", "show": [[0, 2], [3, null]], "layers": [
+      { "type": "dunes", "depth": 0.05, "y": 560, "amp": 10, "count": 14, "seed": 91, "lit": "#f2c088", "body": "#d09a64", "shade": "#6a5070", "haze": 0.5, "hazeColor": "#f0dcc0" },
+      { "type": "cloudbank", "depth": 0.06, "y": 540, "h": 420, "colors": ["#2a2a34", "#3e4a5e", "#5a4a66"], "edge": "#f0c890", "area": [-800, -450, 2400, 620],
+        "move": { "path": [[0, -60, 2500], [0, -220, 9000]], "dur": 24000 } },
+      { "type": "iram", "depth": 0.12, "seed": 92, "x0": -500, "x1": 2100, "area": [-600, 160, 2200, 640], "haze": "#f0dcc0",
+        "rows": [{ "y": 590, "h": 200, "n": 40, "w": 9 }, { "y": 610, "h": 280, "n": 28, "w": 13 }] },
+      { "type": "facade", "depth": 0.3, "x": 800, "y": 640, "w": 1700, "h": 150, "stone": "#d0a080" },
+      { "type": "light", "show": [1, null], "depth": 0.3, "pos": [380, 490], "h": 40, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "light", "show": [1, null], "depth": 0.3, "pos": [560, 490], "h": 41, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "light", "show": [1, null], "depth": 0.3, "pos": [1020, 490], "h": 40, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "light", "show": [1, null], "depth": 0.3, "pos": [1240, 490], "h": 39, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "cloth", "depth": 0.3, "pos": [470, 380], "w": 40, "h": 100, "pole": 110, "color": "#8a1e1e", "trim": "#d4a040", "amp": 10, "speed": 3, "at": { "1": { "amp": 20, "speed": 5 }, "3": { "amp": 34, "speed": 8 }, "4": { "amp": 6, "speed": 1.2 } } },
+      { "type": "cloth", "depth": 0.3, "pos": [1130, 380], "w": 40, "h": 100, "pole": 110, "color": "#8a1e1e", "trim": "#d4a040", "amp": 10, "speed": 3.2, "at": { "1": { "amp": 20, "speed": 5.4 }, "3": { "amp": 34, "speed": 8 }, "4": { "amp": 6, "speed": 1.2 } } },
+      { "type": "column", "depth": 0.42, "x": 260, "y": 690, "h": 560, "w": 36 },
+      { "type": "column", "depth": 0.42, "x": 1340, "y": 690, "h": 600, "w": 38 },
+      { "type": "light", "show": [1, null], "depth": 0.42, "pos": [260, 122], "h": 40, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "light", "show": [1, null], "depth": 0.42, "pos": [1340, 82], "h": 40, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "facade", "depth": 0.5, "x": 330, "y": 830, "w": 700, "h": 180, "stone": "#c89676" },
+      { "type": "facade", "depth": 0.5, "x": 1290, "y": 830, "w": 640, "h": 190, "stone": "#c89676" },
+      { "type": "light", "show": [1, null], "depth": 0.5, "pos": [200, 650], "h": 52, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "light", "show": [1, null], "depth": 0.5, "pos": [440, 650], "h": 54, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "light", "show": [1, null], "depth": 0.5, "pos": [1180, 640], "h": 53, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "light", "show": [1, null], "depth": 0.5, "pos": [1420, 640], "h": 52, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
+      { "type": "floor", "depth": 0.65, "y": 760, "vp": [800, 430], "color": "#d8b48a", "color2": "#a88460", "lines": 20, "gloss": 0.05, "area": [-800, 755, 2400, 1350] },
+      { "type": "dust", "show": [3, 4], "fade": 600, "box": [-1400, 890, -700, 3000, 990, -400], "count": 1400, "size": 6, "color": "#d8b088", "opacity": 0.75, "wind": [620, -20, 0], "swirl": 40, "blend": "normal" },
+      { "type": "dust", "box": [-1400, 0, -3000, 3000, 1000, 800], "count": 1200, "size": 3, "color": "#ffe0b0", "opacity": 0.4, "wind": [16, -2, 0], "at": { "3": { "color": "#a8a8b8", "opacity": 0.3 } } }
+    ] },
+
+    { "type": "set", "show": [2, 3], "dx": 6000, "layers": [
+      { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#1e1e2a"], [0.3, "#3a3a50"], [0.55, "#c8a070"], [0.7, "#f4d090"], [1, "#e8b060"]] },
+      { "type": "dunes", "depth": 0.06, "y": 590, "amp": 8, "count": 14, "seed": 93, "lit": "#f2c088", "body": "#d09a64", "shade": "#6a5070", "haze": 0.4, "hazeColor": "#f0d0a0" },
+      { "type": "iram", "depth": 0.15, "seed": 94, "x0": 300, "x1": 1300, "area": [200, 350, 1400, 650], "haze": "#f0d0a0",
+        "rows": [{ "y": 600, "h": 110, "n": 30, "w": 6 }, { "y": 612, "h": 150, "n": 20, "w": 9 }] },
+      { "type": "crowd", "area": [420, 1180, -6200, -5400], "y": 612, "count": 220, "size": 7, "color": "#ffd090", "dim": 0.15, "glow": 0.9, "flicker": 0.5, "mill": 3, "speed": 0 },
+      { "type": "cloudbank", "depth": 0.3, "y": 130, "h": 520, "colors": ["#1e1e28", "#2a3040", "#3a3048"], "edge": "#5a5468", "area": [-800, -500, 2400, 260] },
+      { "type": "dunes", "depth": 0.5, "y": 720, "amp": 50, "count": 5, "seed": 95, "lit": "#6a5a5a", "body": "#4a3e44", "shade": "#2a2230" },
+      { "type": "dust", "box": [-1400, 0, -3000, 3000, 1000, 800], "count": 900, "size": 3, "color": "#c8b8a8", "opacity": 0.3, "wind": [12, -2, 0] }
+    ] }
+  ],
+  "beats": [
+    { "dur": 8000, "ambient": ["desert", "city"], "cam": { "pos": [800, 510, 820], "look": [800, 460, -2000] },
+      "say": "One morning a vast dark cloud appeared on the horizon, rolling toward the valleys of ʿAd." },
+    { "dur": 8000, "ambient": ["cheer", "banners", "city"], "cam": { "pos": [800, 490, 700], "look": [800, 440, -2000] },
+      "say": "The people rushed onto their roofs and columns, cheering, sure it had come to bring them rain." },
+    { "dur": 7000, "ambient": ["cheer", "desert"], "world": { "fog": "#5a5060", "rays": 0.3, "light": 0.95 }, "cam": { "dx": 6000, "pos": [800, 470, 880], "look": [800, 470, 0] } },
+    { "dur": 8000, "ambient": ["desert"], "sfx": { "name": "gust", "at": 600 }, "world": { "fog": "#3a3a4a", "fogNear": 3000, "fogFar": 22000, "rays": 0, "light": 0.55, "bloom": 0.4, "haze": 0 },
+      "cam": { "pos": [800, 520, 480], "look": [800, 450, -2000] },
+      "say": "But no rain fell. A first cold gust swept across the plaza, and the cheering stopped." },
+    { "dur": 12000, "ambient": ["air"], "cam": { "pos": [800, 500, 520], "look": [800, 440, -2000] },
+      "verse": { "ref": "46:24", "ar": [0, 19], "place": "lower", "en": "And when they saw it as a cloud approaching their valleys, they said, \"This is a cloud bringing us rain!\" Rather, it is that for which you were impatient: a wind, within it a painful punishment" } }
+  ]
+}

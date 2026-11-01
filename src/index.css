@@ -1,0 +1,477 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cinzel", "Times New Roman", serif;
+  --font-body: "Cormorant Garamond", Georgia, serif;
+  --font-quran: "Amiri Quran", "Amiri", "Scheherazade New", serif;
+  --font-ruqaa: "Aref Ruqaa", "Amiri", serif;
+
+  --color-night: #0b0a0e;
+  --color-ink: #1c140d;
+  --color-ink-soft: #4a3826;
+  --color-parchment: #ecdcb9;
+  --color-parchment-2: #dcc79d;
+  --color-bronze: #a5772f;
+  --color-gold: #e2bb68;
+  --color-gold-hi: #f7e0a3;
+  --color-ivory: #f3e7cc;
+  --color-blood: #8c2617;
+  --color-ember: #e0662c;
+  --color-lapis: #1c2748;
+}
+
+:root {
+  color-scheme: dark;
+  --noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n' x='0' y='0'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.12 0 0 0 0 0.06 0 0 0 0.55 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+  --fibers: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='f' x='0' y='0'><feTurbulence type='fractalNoise' baseFrequency='0.012 0.32' numOctaves='2' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.24 0 0 0 0 0.1 0 0 0 0.28 0'/></filter><rect width='600' height='600' filter='url(%23f)'/></svg>");
+  --ease-ink: cubic-bezier(0.45, 0.05, 0.3, 1);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Screens are absolutely placed inside #root (not fixed to the viewport), so they stay within any
+   safe-area padding a host puts on the page. */
+#root {
+  position: relative;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--color-night);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Component classes live in the components layer so Tailwind utilities (absolute, left-*, …) can
+   override them; unlayered CSS would beat every utility. */
+@layer components {
+
+/* ── Surfaces ─────────────────────────────────────────── */
+
+.parchment {
+  color: var(--color-ink);
+  background-color: var(--color-parchment);
+  background-image:
+    radial-gradient(130% 100% at 50% 35%, transparent 50%, rgb(96 62 24 / 0.38) 100%),
+    var(--fibers),
+    var(--noise);
+}
+
+.parchment-night {
+  background-color: #15110d;
+  background-image:
+    radial-gradient(120% 90% at 50% 40%, rgb(60 42 22 / 0.35), transparent 70%),
+    var(--fibers),
+    var(--noise);
+}
+
+/* double ink rule just inside a parchment edge, like a scribe's margin */
+.ruled {
+  position: relative;
+}
+.ruled::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  pointer-events: none;
+  border: 1px solid rgb(84 54 20 / 0.55);
+  box-shadow:
+    inset 0 0 0 3px rgb(236 220 185 / 0.35),
+    inset 0 0 0 4px rgb(84 54 20 / 0.3);
+}
+
+.cartouche {
+  clip-path: polygon(
+    16px 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    16px 100%,
+    0 calc(100% - 16px),
+    0 16px
+  );
+}
+
+/* ── Type ─────────────────────────────────────────────── */
+
+.quran {
+  font-family: var(--font-quran);
+  direction: rtl;
+  line-height: 2.05;
+  font-feature-settings: "calt", "liga";
+}
+.ruqaa {
+  font-family: var(--font-ruqaa);
+  direction: rtl;
+}
+.caps {
+  font-family: var(--font-display);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.gold-text {
+  background: linear-gradient(180deg, #fff4d2 0%, #eecb7c 48%, #a9752d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Controls ─────────────────────────────────────────── */
+
+.hud-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid rgb(226 187 104 / 0.32);
+  background: rgb(14 11 9 / 0.55);
+  color: var(--color-ivory);
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.12s;
+  cursor: pointer;
+}
+.hud-btn:hover {
+  background: rgb(42 31 20 / 0.78);
+  border-color: rgb(247 224 163 / 0.7);
+}
+.hud-btn:active {
+  transform: scale(0.95);
+}
+.hud-btn[aria-pressed="true"] {
+  color: var(--color-gold-hi);
+  border-color: var(--color-gold);
+  background: rgb(60 42 18 / 0.7);
+}
+.hud-btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.hud-btn.icon {
+  width: 44px;
+  padding: 0;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0 1.6rem;
+  border-radius: 999px;
+  border: 1px solid #f7e0a3;
+  background: linear-gradient(180deg, #f3d48b 0%, #c8913e 100%);
+  color: #22170b;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 4px rgb(226 187 104 / 0.12), 0 10px 30px -10px rgb(226 187 104 / 0.6);
+  transition: transform 0.12s, box-shadow 0.25s, filter 0.2s;
+  cursor: pointer;
+}
+.btn-gold:hover {
+  filter: brightness(1.07);
+  box-shadow: 0 0 0 6px rgb(226 187 104 / 0.18), 0 14px 36px -10px rgb(226 187 104 / 0.75);
+}
+.btn-gold:active {
+  transform: scale(0.97);
+}
+
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgb(84 54 20 / 0.45);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.btn-ink:hover {
+  background: rgb(84 54 20 / 0.08);
+  border-color: rgb(84 54 20 / 0.8);
+}
+
+:where(button, a, [role="button"], [tabindex]):focus-visible {
+  outline: 2px solid var(--color-gold-hi);
+  outline-offset: 3px;
+}
+.map-node:focus-visible {
+  outline: none;
+}
+.map-node:focus-visible .node-focus {
+  opacity: 1;
+}
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(84 54 20 / 0.45) transparent;
+}
+
+} /* end @layer components */
+
+/* ── Stage overlays ───────────────────────────────────── */
+
+.stage-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--fibers), var(--noise);
+  mix-blend-mode: overlay;
+  opacity: 0.32;
+}
+.stage-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 75% 70% at 50% 46%, transparent 55%, rgb(6 4 3 / 0.78) 100%);
+}
+
+.beat-progress {
+  transform-origin: left center;
+  animation-name: beat-fill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes beat-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Arabic revealed right-to-left, the way the pen moves */
+.ink-reveal {
+  -webkit-mask-image: linear-gradient(to left, #000 0 44%, transparent 56% 100%);
+  mask-image: linear-gradient(to left, #000 0 44%, transparent 56% 100%);
+  -webkit-mask-size: 230% 100%;
+  mask-size: 230% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 0% 0;
+  mask-position: 0% 0;
+  animation: ink-reveal var(--dur, 2.4s) var(--ease-ink) var(--delay, 0s) forwards;
+}
+@keyframes ink-reveal {
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+/* One word of a verse written by a pen: swept in right to left, the ink thick and wet at first, settling thin. */
+.pen-word {
+  display: inline-block;
+  -webkit-mask-image: linear-gradient(to left, #000 0 42%, transparent 58% 100%);
+  mask-image: linear-gradient(to left, #000 0 42%, transparent 58% 100%);
+  -webkit-mask-size: 240% 100%;
+  mask-size: 240% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 0% 0;
+  mask-position: 0% 0;
+  animation: pen-sweep var(--w, 700ms) var(--ease-ink) var(--d, 0ms) both, pen-ink calc(var(--w, 700ms) * 2) ease-out var(--d, 0ms) both;
+}
+@keyframes pen-sweep {
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+@keyframes pen-ink {
+  from {
+    -webkit-text-stroke: 0.045em currentColor;
+    filter: blur(0.5px);
+  }
+  to {
+    -webkit-text-stroke: 0 currentColor;
+    filter: blur(0);
+  }
+}
+
+/* A whole layer painted in left to right as it first appears, like a brush crossing the canvas. */
+.brush-reveal {
+  -webkit-mask-image: linear-gradient(to right, #000 0 44%, transparent 56% 100%);
+  mask-image: linear-gradient(to right, #000 0 44%, transparent 56% 100%);
+  -webkit-mask-size: 230% 100%;
+  mask-size: 230% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+  animation: brush-reveal var(--dur, 2.4s) var(--ease-ink) forwards;
+}
+@keyframes brush-reveal {
+  to {
+    -webkit-mask-position: 0% 0;
+    mask-position: 0% 0;
+  }
+}
+
+/* ── Ambient motion ───────────────────────────────────── */
+
+.twinkle { animation: twinkle 3.6s ease-in-out infinite alternate; }
+@keyframes twinkle { from { opacity: 0.15; } to { opacity: 1; } }
+
+.flicker { animation: flicker 2.3s steps(9, end) infinite; }
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  20% { opacity: 0.82; }
+  35% { opacity: 0.95; }
+  52% { opacity: 0.7; }
+  70% { opacity: 0.92; }
+}
+
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flame 0.9s ease-in-out infinite alternate;
+}
+@keyframes flame {
+  0% { transform: scale(1, 1) skewX(0deg); }
+  33% { transform: scale(0.94, 1.08) skewX(3deg); }
+  66% { transform: scale(1.05, 0.95) skewX(-4deg); }
+  100% { transform: scale(0.97, 1.05) skewX(2deg); }
+}
+
+.bob { animation: bob 1.1s ease-in-out infinite alternate; }
+@keyframes bob { to { transform: translateY(-1.6px); } }
+
+.drift { animation: drift var(--t, 40s) linear infinite alternate; }
+@keyframes drift { from { transform: translateX(-6%); } to { transform: translateX(6%); } }
+
+.sway {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: sway var(--t, 3.2s) ease-in-out infinite alternate;
+}
+@keyframes sway {
+  from { transform: skewX(calc(var(--k, 6deg) * -1)); }
+  to { transform: skewX(var(--k, 6deg)); }
+}
+
+.spin { animation: spin var(--t, 80s) linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.breathe { animation: breathe var(--t, 5s) ease-in-out infinite alternate; }
+@keyframes breathe { from { opacity: 0.55; } to { opacity: 1; } }
+
+.rise-fade { animation: rise-fade var(--t, 2.6s) ease-out infinite; }
+@keyframes rise-fade {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-34px); opacity: 0; }
+}
+
+.smoke {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: smoke var(--t, 6s) ease-out infinite;
+}
+@keyframes smoke {
+  0% { transform: translate(0, 0) scale(0.4); opacity: 0; }
+  15% { opacity: 0.55; }
+  100% { transform: translate(var(--dx, 18px), var(--rise, -170px)) scale(2.4); opacity: 0; }
+}
+
+/* An awning's loose cloth lifting in the breeze, hung from its top edge. */
+.flutter {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: flutter var(--t, 2.6s) ease-in-out infinite alternate;
+}
+@keyframes flutter {
+  from { transform: skewX(-3deg) scaleY(0.96); }
+  to { transform: skewX(3deg) scaleY(1.03); }
+}
+
+/* Heat over the fields: a band of air that wavers and stretches. */
+.shimmer {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: shimmer var(--t, 2.6s) ease-in-out infinite alternate;
+}
+@keyframes shimmer {
+  from { transform: translateX(-10px) scaleY(0.6); }
+  to { transform: translateX(10px) scaleY(1.5); }
+}
+
+.shake { animation: shake 0.18s steps(2, end) infinite; }
+@keyframes shake {
+  0% { transform: translate(0.6px, -0.4px); }
+  50% { transform: translate(-0.8px, 0.5px); }
+  100% { transform: translate(0.4px, 0.7px); }
+}
+
+.halo-pulse {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: halo-pulse 2.8s ease-in-out infinite;
+}
+@keyframes halo-pulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.55; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+.wiggle { animation: wiggle 5s ease-in-out infinite alternate; }
+@keyframes wiggle {
+  from { transform: translate(-6px, 3px) skewX(-2deg); }
+  to { transform: translate(6px, -4px) skewX(2deg); }
+}
+
+/* A walking leg swung from the hip, and a bird's wings beating. */
+.gait {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: gait var(--t, 0.42s) ease-in-out infinite alternate;
+}
+@keyframes gait {
+  from { transform: rotate(-16deg); }
+  to { transform: rotate(16deg); }
+}
+.flap {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flap 0.45s ease-in-out infinite alternate;
+}
+@keyframes flap {
+  from { transform: scaleY(1); }
+  to { transform: scaleY(-0.55); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkle, .flicker, .flame, .bob, .drift, .sway, .spin, .breathe,
+  .rise-fade, .smoke, .shake, .halo-pulse, .wiggle, .shimmer, .flutter, .gait, .flap {
+    animation: none !important;
+  }
+  .ink-reveal, .brush-reveal {
+    animation-duration: 0.6s !important;
+  }
+  .pen-word {
+    animation-duration: 0.4s !important;
+    animation-delay: 0s !important;
+  }
+}
