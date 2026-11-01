@@ -10,6 +10,8 @@ import { expandLayers, resolveLayer, visibleAt } from '../lib/story.js';
 import { areaOf, captureLayer } from './capture.jsx';
 import { CameraRig, changesSet } from './CameraRig.jsx';
 import { Card, Cloth, Crowd, Dust, Light, Ribbons, Storm, Sun } from './elements.jsx';
+import { Heavens } from './heavens.jsx';
+import { Fire } from './fire.jsx';
 import { InkWashEffect } from './InkWash.js';
 import { FOV, R, place, shift } from './space.js';
 import GL_TYPES from './types.json';
@@ -20,7 +22,7 @@ import GL_TYPES from './types.json';
 // next to the paintings, and the two would never match. Only this stage uses three.
 ColorManagement.enabled = false;
 
-const NATIVE = { light: Light, crowd: Crowd, dust: Dust, ribbons: Ribbons, cloth: Cloth, storm: Storm };
+const NATIVE = { light: Light, crowd: Crowd, dust: Dust, ribbons: Ribbons, cloth: Cloth, storm: Storm, heavens: Heavens, fire: Fire };
 // Layers that stay flat on the screen above the 3D world: writing, flashes, colour washes.
 const OVERLAY = new Set(['calligraphy', 'lightning', 'tint', 'particles', 'inkdrop', 'guidance', 'jeers', 'numerals', 'flash']);
 
@@ -43,18 +45,21 @@ function Env({ target, env, sun, beat }) {
     const e = env.current;
     const snap = e.still || e.snapBeat === beat;
     const k = snap ? 1 : Math.min(1, dt * 0.9);
-    e.fogColor.lerp(scratch.set(target.fog), k);
+    // a living sky (`heavens`) leads the light and the haze with the hour while it is shown
+    const sky = e.drive;
+    if (sky) e.fogColor.copy(sky.fog);
+    else e.fogColor.lerp(scratch.set(target.fog), k);
     e.fogNear += (target.fogNear - e.fogNear) * k;
     e.fogFar += (target.fogFar - e.fogFar) * k;
     e.dof += (target.dof - e.dof) * k;
-    let light = target.light;
+    let light = sky ? sky.light : target.light;
     // `cycle` {period, min}: day and night flickering past, as in a storm that lasts for days. It starts
     // at full day when it begins, so numerals counting the days can keep time with it.
-    if (target.cycle) {
+    if (!sky && target.cycle) {
       e.cycleStart ??= clock.elapsedTime;
       light *= target.cycle.min + (1 - target.cycle.min) * (0.5 + 0.5 * Math.cos(((clock.elapsedTime - e.cycleStart) / target.cycle.period) * Math.PI * 2));
     } else e.cycleStart = null;
-    e.light += (light - e.light) * (snap ? 1 : Math.min(1, dt * (target.cycle ? 8 : 0.9)));
+    e.light += (light - e.light) * (snap || sky ? 1 : Math.min(1, dt * (target.cycle ? 8 : 0.9)));
     if (sun) e.sunDir.set(...shift(place(sun.pos ?? [1100, 300, -6000]), sun)).applyMatrix4(camera.matrixWorldInverse).normalize();
     if (scene.background?.isColor) scene.background.copy(e.fogColor);
   });

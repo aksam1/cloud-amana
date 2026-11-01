@@ -46,7 +46,7 @@ Ibrahim goes into the fire and is not harmed. No music.
   steady white light standing apart; dust in slanting light; ochre, brick red, river blue and gold;
   ink-wash and parchment texture.
 
-### 60 · The Star, the Moon and the Sun · النجم والقمر والشمس (`heavens`)
+### 60 · The Star, the Moon and the Sun · النجم والقمر والشمس (`search`)
 - **Ayah:** 6:79. **Engine:** the living sky, end to end.
 - **Beats.** (1) Night falls over the plain; a bright star rises; Ibrahim's light on a hill, from behind.
   *Say:* When night covered him, he saw a star rise, and said: is this my lord? But it set, and he said: I

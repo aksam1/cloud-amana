@@ -24,7 +24,7 @@ let painting = 0;
 let skipBefore = false;
 
 // Only the art: placement and timing belong to the card, not to the picture painted on it.
-const CARD_KEYS = new Set(['key', 'show', 'at', 'reveal', 'move', 'area', 'ppu', 'fade', 'z', 'depth', 'fog', 'focus', 'renderOrder', 'opacity', 'tint', 'light', 'sat', 'bright', 'blur', 'hue', 'rough', 'feather', 'dx', 'dz']);
+const CARD_KEYS = new Set(['key', 'show', 'at', 'reveal', 'move', 'area', 'ppu', 'fade', 'z', 'depth', 'fog', 'focus', 'renderOrder', 'opacity', 'tint', 'light', 'sat', 'bright', 'blur', 'hue', 'rough', 'feather', 'dx', 'dz', 'shatter']);
 // (`fade` as a word, such as "none" or "out", belongs to the painter: the animals' own fading at the ends of
 // their walks; only a number is the card's time to come and go)
 export const artOf = (cfg) => Object.fromEntries(Object.entries(cfg).filter(([k, v]) => !CARD_KEYS.has(k) || (k === 'fade' && typeof v === 'string')));

@@ -3,5 +3,9 @@
   "title": "Prophet Ibrahim",
   "arabic": "إبراهيم",
   "nodes": ["ibrahim"],
-  "parts": []
+  "parts": [
+    { "title": "The Search", "from": 59, "to": 61 },
+    { "title": "The Fire", "from": 62, "to": 65 },
+    { "title": "The Journey", "from": 66, "to": 68 }
+  ]
 }

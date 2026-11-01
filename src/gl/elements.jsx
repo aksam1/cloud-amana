@@ -4,7 +4,7 @@
 // ink strokes drifting on a gentle noise field, never in straight lines.
 import { forwardRef, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { AdditiveBlending, Color, DoubleSide, Float32BufferAttribute, InstancedBufferAttribute, InstancedBufferGeometry, NormalBlending, PlaneGeometry, ShaderMaterial, Vector3 } from 'three';
+import { AdditiveBlending, BufferGeometry, Color, DoubleSide, Float32BufferAttribute, InstancedBufferAttribute, InstancedBufferGeometry, NormalBlending, PlaneGeometry, ShaderMaterial, Vector3 } from 'three';
 import { areaOf, artOf, captureLayer } from './capture.jsx';
 import { brushMask } from './brush.js';
 import { figureTexture, glowTexture, soldierTexture, windTexture } from './textures.js';
@@ -19,7 +19,7 @@ const clamp01 = (v) => Math.min(1, Math.max(0, v));
  * still mode (reviewing one moment), and on a beat the stage reached by dissolving through a snapshot of
  * the last shot (`snapBeat`), everything stands at once in its final state.
  */
-function usePresence(layer, beat, dissolve, env, gone = false) {
+export function usePresence(layer, beat, dissolve, env, gone = false) {
   const on = visibleAt(layer, beat) && !gone;
   const st = useRef(null);
   if (st.current === null) st.current = { o: env.current.still && on ? 1 : 0, since: null };
@@ -75,6 +75,80 @@ void main() {
   vDepth = -mv.z;
   gl_Position = projectionMatrix * mv;
 }`;
+
+// A breakable card is cut into shards (`shardGeometry`): until `shatterT` passes 0 they sit edge to edge,
+// exactly the flat card; then each flies out from the middle with its own push and spin, falls under
+// gravity and comes to rest on the floor line, still carrying its piece of the painting.
+const shardVertex = /* glsl */ `
+attribute vec3 aCenter;
+attribute vec3 aRand;
+uniform float shatterT;
+uniform float grav;
+uniform float spread;
+uniform float spin;
+uniform float floorY;
+varying vec2 vUv;
+varying float vDepth;
+void main() {
+  vUv = uv;
+  vec3 p = position;
+  float t = shatterT - aRand.z * 0.45;
+  if (t > 0.0) {
+    vec2 local = p.xy - aCenter.xy;
+    float len = length(aCenter.xy);
+    vec2 dir = len > 0.001 ? aCenter.xy / len : vec2(0.0, 1.0);
+    vec2 c = aCenter.xy + dir * spread * (0.4 + aRand.x) * t + vec2((aRand.y - 0.5) * spread * 0.5 * t, spread * 0.3 * t);
+    c.y -= 0.5 * grav * t * t;
+    c.y = max(c.y, floorY + abs(local.y) * 0.35);
+    float ang = (aRand.x - 0.5) * spin * min(t, 1.1);
+    float ca = cos(ang);
+    float sa = sin(ang);
+    p = vec3(c + vec2(ca * local.x - sa * local.y, sa * local.x + ca * local.y), (aRand.y - 0.5) * spread * 0.5 * min(t, 1.4));
+  }
+  vec4 mv = modelViewMatrix * vec4(p, 1.0);
+  vDepth = -mv.z;
+  gl_Position = projectionMatrix * mv;
+}`;
+
+/** A `w` × `h` card cut into `cols` × `rows` jittered cells, two triangle shards each, every shard with its own vertices. */
+function shardGeometry(w, h, cols, rows, seed) {
+  const r = rng(seed);
+  const grid = [];
+  for (let j = 0; j <= rows; j++) {
+    for (let i = 0; i <= cols; i++) {
+      const edge = i === 0 || j === 0 || i === cols || j === rows;
+      grid.push([-w / 2 + (i / cols) * w + (edge ? 0 : (r() - 0.5) * (w / cols) * 0.7), -h / 2 + (j / rows) * h + (edge ? 0 : (r() - 0.5) * (h / rows) * 0.7)]);
+    }
+  }
+  const at = (i, j) => grid[j * (cols + 1) + i];
+  const pos = [];
+  const uv = [];
+  const centre = [];
+  const rand = [];
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
+      const [a, b, c, d] = [at(i, j), at(i + 1, j), at(i + 1, j + 1), at(i, j + 1)];
+      const tris = r() < 0.5 ? [[a, b, c], [a, c, d]] : [[a, b, d], [b, c, d]];
+      for (const tri of tris) {
+        const cx = (tri[0][0] + tri[1][0] + tri[2][0]) / 3;
+        const cy = (tri[0][1] + tri[1][1] + tri[2][1]) / 3;
+        const rr = [r(), r(), r()];
+        for (const [x, y] of tri) {
+          pos.push(x, y, 0);
+          uv.push(x / w + 0.5, y / h + 0.5);
+          centre.push(cx, cy, 0);
+          rand.push(...rr);
+        }
+      }
+    }
+  }
+  const g = new BufferGeometry();
+  g.setAttribute('position', new Float32BufferAttribute(pos, 3));
+  g.setAttribute('uv', new Float32BufferAttribute(uv, 2));
+  g.setAttribute('aCenter', new Float32BufferAttribute(centre, 3));
+  g.setAttribute('aRand', new Float32BufferAttribute(rand, 3));
+  return g;
+}
 
 const cardFragment = /* glsl */ `
 uniform sampler2D map;
@@ -165,10 +239,17 @@ export function Card({ layer, beat, env, dissolve }) {
   const ppu = layer.ppu ?? 0.7;
   const pres = usePresence(layer, beat, dissolve, env);
   const mesh = useRef(null);
+  // a card that breaks in some beat (`shatter`) is cut into shards from the start, edge to edge until then
+  const breakable = !!layer.shatter || Object.values(layer.at ?? {}).some((a) => a && a.shatter);
   const material = useMemo(
     () =>
       new ShaderMaterial({
         uniforms: {
+          shatterT: { value: -1 },
+          grav: { value: 0 },
+          spread: { value: 0 },
+          spin: { value: 0 },
+          floorY: { value: -1e6 },
           map: { value: null },
           map2: { value: null },
           swap: { value: 0 },
@@ -191,12 +272,12 @@ export function Card({ layer, beat, env, dissolve }) {
           feather: { value: layer.feather ?? 36 },
           cutY: { value: [0, 0] },
         },
-        vertexShader: cardVertex,
+        vertexShader: breakable ? shardVertex : cardVertex,
         fragmentShader: cardFragment,
         transparent: true,
         depthWrite: false,
       }),
-    [layer.reveal],
+    [layer.reveal, breakable],
   );
   const artKey = JSON.stringify(artOf(cfg));
   const loaded = useRef(null);
@@ -236,6 +317,14 @@ export function Card({ layer, beat, env, dissolve }) {
   const [x0, y0, x1, y1] = area;
   const shotZ = layer.dz ?? 0;
   const base = [((x0 + x1) / 2 - 800) * k + (layer.dx ?? 0), (450 - (y0 + y1) / 2) * k, z + shotZ];
+  const shards = useMemo(() => {
+    if (!breakable) return null;
+    const sh = layer.shatter ?? Object.values(layer.at ?? {}).find((a) => a && a.shatter).shatter;
+    return shardGeometry((x1 - x0) * k, (y1 - y0) * k, sh.cols ?? 6, sh.rows ?? 9, sh.seed ?? 5);
+    // cut once per card
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [breakable, x0, y0, x1, y1, k]);
+  const broke = useRef(null);
   useFrame(({ clock }, dt) => {
     const u = material.uniforms;
     const e = env.current;
@@ -271,10 +360,28 @@ export function Card({ layer, beat, env, dissolve }) {
       const [dx, dy, dz] = move.at(progressOf(env, clock.elapsedTime, moveStart.current, move.delay, move.dur));
       mesh.current.position.set(base[0] + dx * k, base[1] - dy * k, base[2] + dz);
     }
+    // `shatter` {delay, dur, spread, gravity, spin, floor} (design units, ms; `floor` the design y the
+    // shards come to rest on, the card's foot by default)
+    if (breakable) {
+      const sh = cfg.shatter;
+      if (sh) {
+        if (broke.current === null) broke.current = clock.elapsedTime;
+        const delay = sh.delay ?? 0;
+        const dur = sh.dur ?? 2600;
+        u.shatterT.value = e.still ? (Math.min(1, e.moment ?? 1) * (delay + dur) - delay) / 1000 : clock.elapsedTime - broke.current - delay / 1000;
+        u.grav.value = (sh.gravity ?? 1700) * k;
+        u.spread.value = (sh.spread ?? 240) * k;
+        u.spin.value = sh.spin ?? 5;
+        u.floorY.value = ((y0 + y1) / 2 - (sh.floor ?? y1 - 8)) * k;
+      } else {
+        broke.current = null;
+        u.shatterT.value = -1;
+      }
+    }
   });
   return (
     <mesh ref={mesh} position={base} renderOrder={Math.round(z + shotZ)} material={material} frustumCulled={false}>
-      <planeGeometry args={[(x1 - x0) * k, (y1 - y0) * k]} />
+      {shards ? <primitive object={shards} attach="geometry" /> : <planeGeometry args={[(x1 - x0) * k, (y1 - y0) * k]} />}
     </mesh>
   );
 }

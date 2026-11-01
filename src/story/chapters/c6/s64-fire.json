@@ -1,0 +1,47 @@
+{
+  "id": "fire",
+  "chapter": 6,
+  "order": 64,
+  "node": "ibrahim",
+  "title": "The Fire",
+  "arabic": "النار",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "How Ibrahim was cast into the fire is from the commentaries and is not shown; he appears only as a steady light, and the fire's turning cool is drawn from the verse. Nothing violent is shown."
+  ],
+  "ambient": ["roar", "fire"],
+  "base": "#0e0a0c",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": { "fog": "#1e1416", "fogNear": 3000, "fogFar": 30000, "light": 0.72, "rays": 0, "bloom": 0.95, "haze": 0.55, "hazeY": 0.32, "shake": 0.5, "dof": 0 },
+  "cam": { "pos": [800, 560, 1200], "look": [800, 520, -2400] },
+  "imagePrompt": "A colossal fire in a walled pit at night, flames like ink-wash tongues of orange and crimson leaping higher than the walls, sparks streaming into a black sky, a vast crowd of dim lights held far back by the heat; a single steady white light descending into the heart of the flames; then the fire turning silver and cool, its tongues slowing into calm pale light, the white light resting at its centre unharmed; ember red turning to silver-blue; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#08060c"], [0.5, "#1e1218"], [1, "#4a2418"]], "at": { "2": { "stops": [[0, "#080a14"], [0.5, "#161c2c"], [1, "#2a3448"]] } } },
+    { "type": "ridge", "depth": 0.05, "y": 612, "amp": 50, "seed": 71, "sharp": 0.5, "color": "#2a1e1e", "haze": 0.2 },
+    { "type": "town", "depth": 0.12, "y": 642, "x0": -500, "x1": 2100, "s": 0.8, "grade": "town", "night": true, "lit": 0.25, "haze": "#2a1a18", "seed": 72 },
+    { "type": "crowd", "area": [80, 500, -4200, -3000], "y": 718, "count": 170, "size": 18, "color": "#ffb070", "dim": 0.3, "glow": 0.6, "mill": 4, "speed": 0, "flicker": 0.3 },
+    { "type": "crowd", "area": [1100, 1520, -4200, -3000], "y": 718, "count": 170, "seed": 4, "size": 18, "color": "#ffb070", "dim": 0.3, "glow": 0.6, "mill": 4, "speed": 0, "flicker": 0.3 },
+    { "type": "dunes", "depth": 0.2, "y": 730, "amp": 6, "count": 10, "seed": 73, "lit": "#6a4a3a", "body": "#4a3028", "shade": "#1e1418" },
+    { "type": "fire", "depth": 0.3, "pos": [800, 770], "w": 940, "h": 900, "heat": 1.1, "cool": 0, "coolDur": 4500, "at": { "2": { "cool": 1, "heat": 0.92 } } },
+    { "type": "light", "show": [1, null], "depth": 0.3, "h": 56, "color": "#fffaf0", "glow": 1.4, "bright": 1.9, "path": [[800, 60], [800, 380], [800, 690]], "dur": 5200, "delay": 600 },
+    { "type": "facade", "depth": 0.32, "x": 800, "y": 800, "w": 1180, "h": 80, "stone": "#5a3e30", "light": 0.85 },
+    { "type": "dust", "box": [-400, -1050, -2500, 2000, 1480, -2100], "count": 700, "size": 5, "color": "#ffb050", "opacity": 0.85, "wind": [10, -190, 0], "swirl": 60,
+      "at": { "2": { "color": "#e8f0ff", "wind": [4, -40, 0], "opacity": 0.55 } } },
+    { "type": "dust", "box": [-600, -1400, -2700, 2200, 400, -2200], "count": 140, "size": 46, "color": "#2a2020", "opacity": 0.3, "wind": [8, -70, 0], "swirl": 40, "blend": "normal",
+      "at": { "2": { "opacity": 0.06 } } },
+    { "type": "dunes", "depth": 0.5, "y": 870, "amp": 16, "count": 7, "seed": 74, "lit": "#5a3e30", "body": "#3a2620", "shade": "#140e10" }
+  ],
+  "beats": [
+    { "dur": 9500, "ambient": ["roar", "fire"], "cam": { "pos": [800, 560, 1050], "look": [800, 520, -2400] },
+      "say": "They built a fire so great that its heat kept them far away, and cast Ibrahim into it." },
+    { "dur": 8500, "ambient": ["fire", "roar"], "sfx": [{ "name": "whoosh", "at": 700 }], "cam": { "pos": [800, 530, 760], "look": [800, 510, -2400] },
+      "say": "But the fire did not burn him." },
+    { "dur": 13000, "ambient": ["air", "spring"], "world": { "fog": "#1a2232", "light": 0.85, "bloom": 0.8, "haze": 0.12, "shake": 0.2 },
+      "cam": { "pos": [800, 520, 560], "look": [800, 520, -2400] },
+      "pendingVerse": { "ref": "21:69", "place": "lower" } }
+  ]
+}

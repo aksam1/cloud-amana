@@ -1,0 +1,48 @@
+{
+  "id": "search",
+  "chapter": 6,
+  "order": 60,
+  "node": "ibrahim",
+  "title": "The Star, the Moon and the Sun",
+  "arabic": "النجم والقمر والشمس",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "Ibrahim appears only as a figure of steady light, seen from behind; the hill and the plain are imagined, and the night, the moon's and the sun's courses are compressed into moments."
+  ],
+  "ambient": ["crickets", "air"],
+  "base": "#0c0e1a",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": { "fog": "#202638", "fogNear": 4000, "fogFar": 36000, "light": 0.6, "rays": 0, "bloom": 0.7, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [800, 600, 1350], "look": [800, 520, -4000] },
+  "imagePrompt": "A lone steady white light seen from behind on a rocky hill above a dark plain; the night sky deep indigo with countless stars, one bright star rising and setting; then a great full moon rising silver over the hills and sinking again; then dawn flooding the plain with gold as the sun climbs, crosses the sky and sets in crimson; the whole sky changing in one continuous time-lapse; indigo, silver, gold and crimson; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 628,
+      "star": { "rise": 20.2, "set": 1.8, "x0": 330, "x1": 1260, "peak": 330, "size": 8, "halo": 80 },
+      "moon": { "rise": 1.9, "set": 5.5, "x0": 260, "x1": 1340, "peak": 400, "size": 34 },
+      "sun": { "rise": 6, "set": 18, "x0": 240, "x1": 1360, "peak": 470, "size": 36 },
+      "tod": [19.3, 2.2, 11000],
+      "at": { "1": { "tod": [2.2, 5.7, 10000] }, "2": { "tod": [5.7, 18.9, 13000] }, "3": { "tod": [18.9, 19.5, 12000] } } },
+    { "type": "ridge", "depth": 0.04, "y": 622, "amp": 46, "seed": 61, "sharp": 0.45, "color": "#5a5a6c", "haze": 0.35, "fog": 0.4 },
+    { "type": "ridge", "depth": 0.07, "y": 648, "amp": 70, "seed": 62, "sharp": 0.5, "color": "#6a5e58", "haze": 0.2, "fog": 0.5 },
+    { "type": "dunes", "depth": 0.14, "y": 690, "amp": 10, "count": 12, "seed": 63, "lit": "#c8a07a", "body": "#9a7a5e", "shade": "#4a3a48" },
+    { "type": "palms", "depth": 0.16, "items": [{ "x": 300, "y": 700, "h": 120, "lean": 0.05 }, { "x": 360, "y": 698, "h": 140, "lean": -0.04 }, { "x": 1210, "y": 702, "h": 125, "lean": 0.06 }], "seed": 64, "light": 0.8 },
+    { "type": "dunes", "depth": 0.24, "y": 750, "amp": 18, "count": 8, "seed": 65, "lit": "#b8906c", "body": "#8a6a52", "shade": "#3e3040" },
+    { "type": "ridge", "depth": 0.45, "y": 760, "amp": 60, "seed": 66, "sharp": 0.3, "color": "#6a5448", "haze": 0, "x0": -400, "x1": 2000 },
+    { "type": "light", "depth": 0.45, "pos": [800, 722], "h": 54, "color": "#fffaf0", "glow": 0.9, "bright": 1.5 },
+    { "type": "dust", "box": [-1400, 200, -5000, 3000, 950, 900], "count": 600, "size": 2.5, "color": "#e8dcc8", "opacity": 0.25, "wind": [8, -2, 0] }
+  ],
+  "beats": [
+    { "dur": 11000, "ambient": ["crickets", "air"], "cam": { "pos": [800, 590, 1250], "look": [800, 500, -4000] },
+      "say": "When night covered him, he saw a star rise, and said: is this my lord? But it set, and he said: I do not love things that set." },
+    { "dur": 10000, "ambient": ["crickets", "wind"], "cam": { "pos": [800, 580, 1180], "look": [800, 490, -4000] },
+      "say": "Then he saw the moon rising, and it too went down." },
+    { "dur": 13000, "ambient": ["wind", "birds"], "cam": { "pos": [800, 575, 1120], "look": [800, 495, -4000] },
+      "say": "Then the sun, the greatest of them, and it set as well." },
+    { "dur": 12000, "ambient": ["air"], "cam": { "pos": [800, 570, 1080], "look": [800, 500, -4000] },
+      "pendingVerse": { "ref": "6:79", "place": "lower" } }
+  ]
+}
