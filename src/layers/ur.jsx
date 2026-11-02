@@ -215,3 +215,55 @@ Tent.bounds = (c) => {
   const { x = 800, y = 720, w = 520, h = 200 } = c;
   return [x - w * 0.8, y - h * 1.12, x + w * 0.8, y + 24];
 };
+
+// ── The ram ──────────────────────────────────────────────
+
+/**
+ * The ram sent as a ransom, drawn only as soft light: in profile on the line `y` at `x`, `h` tall at the
+ * shoulder, facing right (`face: -1` for left), woolly, a horn curled at the side of its head; `glow` (0–1)
+ * is the halo round it.
+ */
+export function Ram({ cfg }) {
+  const uid = useUid('rm');
+  const { x = 800, y = 700, h = 90, face = 1, color = '#fffaf0', edge = '#e8d4a8', glow = 0.8 } = cfg;
+  const body =
+    'M-0.6,-0.52 C-0.66,-0.64 -0.56,-0.78 -0.42,-0.78 C-0.34,-0.86 -0.2,-0.86 -0.12,-0.8 C-0.02,-0.88 0.12,-0.88 0.2,-0.8 C0.28,-0.84 0.36,-0.8 0.38,-0.72 L0.44,-0.8 C0.5,-0.88 0.62,-0.88 0.68,-0.8 L0.78,-0.66 C0.8,-0.61 0.76,-0.58 0.71,-0.59 L0.62,-0.61 C0.56,-0.58 0.5,-0.52 0.44,-0.48 C0.4,-0.4 0.32,-0.36 0.2,-0.36 L-0.38,-0.36 C-0.52,-0.36 -0.6,-0.42 -0.6,-0.52 Z';
+  const legs = [-0.44, -0.33, 0.18, 0.29].map((lx) => `M${lx - 0.035},-0.4 L${lx + 0.035},-0.4 L${lx + 0.022},0 L${lx - 0.022},0 Z`).join(' ');
+  const horn = 'M0.5,-0.84 C0.38,-0.94 0.28,-0.8 0.34,-0.68 C0.4,-0.58 0.54,-0.62 0.53,-0.71 C0.52,-0.78 0.43,-0.77 0.44,-0.7';
+  const shape = (fill) => (
+    <>
+      <path d={legs} fill={fill} />
+      <path d={body} fill={fill} />
+      <path d="M-0.6,-0.56 q-0.08,0.04 -0.06,0.14" stroke={fill} strokeWidth="0.04" strokeLinecap="round" fill="none" />
+    </>
+  );
+  return (
+    <Svg>
+      <defs>
+        <radialGradient id={`${uid}core`} cx="0.45" cy="0.4" r="0.75">
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="0.55" stopColor={color} />
+          <stop offset="1" stopColor={edge} />
+        </radialGradient>
+        <radialGradient id={`${uid}halo`}>
+          <stop offset="0" stopColor={color} stopOpacity="0.5" />
+          <stop offset="0.55" stopColor={edge} stopOpacity="0.14" />
+          <stop offset="1" stopColor={edge} stopOpacity="0" />
+        </radialGradient>
+        <filter id={`${uid}b`} x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="0.03" />
+        </filter>
+      </defs>
+      <ellipse cx={x} cy={y - h * 0.55} rx={h * 1.3} ry={h * 0.85} fill={`url(#${uid}halo)`} opacity={0.6 * glow} />
+      <g transform={`translate(${x},${y}) scale(${face * h},${h})`}>
+        <g filter={`url(#${uid}b)`} opacity={0.5 + glow * 0.4}>{shape(edge)}</g>
+        {shape(`url(#${uid}core)`)}
+        <path d={horn} stroke={mixColor(edge, '#a08050', 0.35)} strokeWidth="0.05" strokeLinecap="round" fill="none" />
+      </g>
+    </Svg>
+  );
+}
+Ram.bounds = (c) => {
+  const { x = 800, y = 700, h = 90 } = c;
+  return [x - h * 1.6, y - h * 1.5, x + h * 1.6, y + h * 0.3];
+};

@@ -28,9 +28,11 @@ const alpha = (hex, a) => {
 
 /**
  * A person of light, no face or detail: a soft body and head, the feet at the bottom centre of a 128×256
- * texture. `pose`: "stand", "raise" (an arm lifted, calling), "reach" (an arm held out) or "kneel".
+ * texture. `pose`: "stand", "raise" (an arm lifted, calling), "reach" (an arm held out), "kneel", "bow"
+ * (kneeling with the forehead to the ground) or "babe" (an infant lying swaddled; give it `w` about 1).
  */
 export function figureTexture(color = '#fff4d6', pose = 'stand') {
+  if (pose === 'bow' || pose === 'babe') return lowTexture(color, pose);
   return once(`fig:${color}:${pose}`, () => {
     const [c, g] = canvasOf(128, 256);
     g.translate(64, 250);
@@ -56,6 +58,58 @@ export function figureTexture(color = '#fff4d6', pose = 'stand') {
       else g.quadraticCurveTo(30, -68, 56, -72);
       g.stroke();
     }
+    return toTexture(c);
+  });
+}
+
+/** Figures low to the ground: one bowed in prostration (head to the right), or an infant wrapped and lying. */
+function lowTexture(color, pose) {
+  return once(`fig:${color}:${pose}`, () => {
+    const [c, g] = canvasOf(128, 256);
+    g.translate(64, 250);
+    g.filter = 'blur(1.3px)';
+    const grad = g.createLinearGradient(0, -60, 0, 0);
+    grad.addColorStop(0, '#ffffff');
+    grad.addColorStop(0.5, color);
+    grad.addColorStop(1, alpha(color, 0.2));
+    g.fillStyle = grad;
+    if (pose === 'bow') {
+      // the back curved over the knees, the forehead down on the ground in front
+      g.fill(new Path2D('M-52,0 C-56,-26 -44,-50 -14,-54 C14,-56 34,-40 40,-18 L44,0 Z'));
+      g.beginPath();
+      g.arc(46, -10, 13, 0, Math.PI * 2);
+      g.fillStyle = '#fffaf0';
+      g.fill();
+    } else {
+      g.fill(new Path2D('M-50,0 C-54,-18 -40,-30 -10,-30 L26,-28 C34,-28 38,-20 36,-10 L34,0 Z'));
+      g.beginPath();
+      g.arc(42, -16, 14, 0, Math.PI * 2);
+      g.fillStyle = '#fffaf0';
+      g.fill();
+    }
+    return toTexture(c);
+  });
+}
+
+/**
+ * A bird of light, centred in a 128×128 texture: `wings` "up" or "down" in flight (two frames to beat
+ * between), or "rest" folded, perched.
+ */
+export function birdTexture(color = '#fffaf0', wings = 'up') {
+  return once(`bird:${color}:${wings}`, () => {
+    const [c, g] = canvasOf(128, 128);
+    g.translate(64, 64);
+    g.filter = 'blur(1px)';
+    const grad = g.createRadialGradient(0, 0, 2, 0, 0, 52);
+    grad.addColorStop(0, '#ffffff');
+    grad.addColorStop(0.45, color);
+    grad.addColorStop(1, alpha(color, 0.25));
+    g.fillStyle = grad;
+    // body and head, the tail fanned behind
+    g.fill(new Path2D('M-34,6 L-46,0 L-46,14 Z M-36,8 C-24,0 2,-2 18,2 C26,-6 36,-6 40,0 C36,6 28,8 20,10 C4,16 -22,16 -36,8 Z'));
+    if (wings === 'rest') g.fill(new Path2D('M-22,6 C-10,-8 10,-8 16,2 C6,6 -8,8 -22,6 Z'));
+    else if (wings === 'up') g.fill(new Path2D('M-8,4 C-14,-20 -30,-40 -44,-52 C-22,-46 0,-30 10,2 Z M2,2 C6,-22 16,-42 30,-56 C30,-36 22,-14 12,4 Z'));
+    else g.fill(new Path2D('M-8,8 C-16,24 -30,38 -46,44 C-26,30 -10,18 -2,8 Z M4,8 C10,26 20,40 34,50 C24,30 18,18 12,8 Z'));
     return toTexture(c);
   });
 }

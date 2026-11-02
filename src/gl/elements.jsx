@@ -7,7 +7,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { AdditiveBlending, BufferGeometry, Color, DoubleSide, Float32BufferAttribute, InstancedBufferAttribute, InstancedBufferGeometry, NormalBlending, PlaneGeometry, ShaderMaterial, Vector3 } from 'three';
 import { areaOf, artOf, captureLayer } from './capture.jsx';
 import { brushMask } from './brush.js';
-import { figureTexture, glowTexture, soldierTexture, windTexture } from './textures.js';
+import { birdTexture, figureTexture, glowTexture, soldierTexture, windTexture } from './textures.js';
 import { place, scaleAt, shift, world, zOf } from './space.js';
 import { resolveLayer, visibleAt } from '../lib/story.js';
 import { rng } from '../lib/geo.js';
@@ -39,7 +39,7 @@ export function usePresence(layer, beat, dissolve, env, gone = false) {
  * How far along a timed motion is (0–1): `dur` ms after `delay` ms from `start`. In still mode it stands at
  * the held `moment` of the beat (the end, unless the review asks for part way), counting delays too.
  */
-const progressOf = (env, now, start, delay, dur) => {
+export const progressOf = (env, now, start, delay, dur) => {
   const e = env.current;
   if (e.still) return e.moment >= 1 ? 1 : Math.min(1, Math.max(0, (e.moment * (delay + dur) - delay) / Math.max(1, dur)));
   return Math.min(1, Math.max(0, (now - start - delay / 1000) / Math.max(0.001, dur / 1000)));
@@ -278,6 +278,8 @@ export function Card({ layer, beat, env, dissolve }) {
         fragmentShader: cardFragment,
         transparent: true,
         depthWrite: false,
+        // both faces, so a card turned over by its `move` shows its back
+        side: DoubleSide,
       }),
     [layer.reveal, breakable],
   );
@@ -311,7 +313,7 @@ export function Card({ layer, beat, env, dissolve }) {
     // the art key stands for cfg, area and ppu
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [artKey, material]);
-  const move = useMemo(() => (cfg.move ? { at: track([[0, 0, 0], ...cfg.move.path]), dur: cfg.move.dur ?? 6000, delay: cfg.move.delay ?? 0, key: JSON.stringify(cfg.move) } : null), [cfg.move]);
+  const move = useMemo(() => (cfg.move ? { at: track([[0, 0, 0], ...cfg.move.path]), rot: cfg.move.rot, dur: cfg.move.dur ?? 6000, delay: cfg.move.delay ?? 0, key: JSON.stringify(cfg.move) } : null), [cfg.move]);
   const moveStart = useRef(null);
   useEffect(() => {
     moveStart.current = null;
@@ -366,8 +368,11 @@ export function Card({ layer, beat, env, dissolve }) {
     } else u.tintAmt.value = 0;
     if (move) {
       if (moveStart.current === null) moveStart.current = clock.elapsedTime;
-      const [dx, dy, dz] = move.at(progressOf(env, clock.elapsedTime, moveStart.current, move.delay, move.dur));
+      const along = progressOf(env, clock.elapsedTime, moveStart.current, move.delay, move.dur);
+      const [dx, dy, dz] = move.at(along);
       mesh.current.position.set(base[0] + dx * k, base[1] - dy * k, base[2] + dz);
+      // `rot` [x°, z°] turns the card over as it goes (a city overturned), eased along the same move
+      if (move.rot) mesh.current.rotation.set((move.rot[0] * Math.PI * along * along * (3 - 2 * along)) / 180, 0, ((move.rot[1] ?? 0) * Math.PI * along) / 180);
     }
     // `shatter` {delay, dur, spread, gravity, spin, floor} (design units, ms; `floor` the design y the
     // shards come to rest on, the card's foot by default)
@@ -406,12 +411,15 @@ export function Card({ layer, beat, env, dissolve }) {
  * `w` is the body's width to its height (0.5; broader for the people of ʿAd); `bright` is how much light
  * the body itself gives (1.5; under 1 for dim figures in daylight, so they stay amber rather than white),
  * and `solid` (0–1) lays a deeper amber shape beneath it so a figure keeps its presence against bright sand. `kind: "flame"` is a fire
- * instead (a brazier, a lamp): glow only, flickering, `h` tall.
+ * instead (a brazier, a lamp): glow only, flickering, `h` tall. `kind: "bird"` is a bird of light, `h` across, its
+ * `pos` the middle of the bird: it beats its wings while its `path` carries it and folds them when it alights,
+ * facing the way it flies.
  */
 export function Light({ layer, beat, env, dissolve }) {
   const cfg = resolveLayer(layer, beat);
   const { h: hd = 60, color = '#fff4d6', glow = 1, pose = 'stand', path, dur = 6000, delay = 0, kind = 'person', w = 0.5, bright = 1.5, solid = 0 } = cfg;
   const flame = kind === 'flame';
+  const bird = kind === 'bird';
   const z0 = zOf(layer);
   const at = (p) => shift(place([p[0], p[1], p[2] ?? z0]), layer);
   const h = hd * scaleAt((cfg.pos ?? path?.[0] ?? [0, 0, z0])[2] ?? z0);
@@ -429,9 +437,17 @@ export function Light({ layer, beat, env, dissolve }) {
     started.current = null;
   }, [routeKey]);
   const tint = useMemo(() => new Color(color), [color]);
-  const body = figureTexture(color, pose === 'walk' || pose === 'gone' ? 'stand' : pose);
+  const body = bird ? birdTexture(color, 'rest') : figureTexture(color, pose === 'walk' || pose === 'gone' ? 'stand' : pose);
+  const wings = bird ? [birdTexture(color, 'up'), birdTexture(color, 'down'), body] : null;
+  const face = useRef(1);
   const halo = glowTexture();
-  const layersOfGlow = flame
+  const layersOfGlow = bird
+    ? [
+        { s: [h * 0.9, h * 0.75], y: 0, o: 0.9, boost: 2 },
+        { s: [h * 2, h * 1.8], y: 0, o: 0.42, boost: 1.3 },
+        { s: [h * 3.4, h * 3.4], y: 0, o: 0.16, boost: 1 },
+      ]
+    : flame
     ? [
         { s: [h * 0.34, h * 0.72], y: h * 0.34, o: 1, boost: 2.4 },
         { s: [h * 1.1, h * 1.35], y: h * 0.42, o: 0.55, boost: 1.5 },
@@ -448,8 +464,18 @@ export function Light({ layer, beat, env, dissolve }) {
     const u = route ? progressOf(env, t, started.current, delay, dur) : 1;
     const [X, Y, Z] = route ? route(u) : at(cfg.pos ?? [800, 700]);
     // a walker's step bobs until the walk is done
-    const bob = pose === 'walk' && u < 1 ? Math.abs(Math.sin(t * 5.5)) * h * 0.02 : 0;
+    const flying = bird && !!route && u < 1;
+    const bob = bird ? (flying ? Math.sin(t * 13 + phase) * h * 0.05 : 0) : pose === 'walk' && u < 1 ? Math.abs(Math.sin(t * 5.5)) * h * 0.02 : 0;
     group.current.position.set(X, Y + bob, Z);
+    if (bird && bodyRef.current) {
+      // two frames of the wingbeat while it flies; folded once it has alighted
+      bodyRef.current.material.map = flying ? (Math.sin(t * 13 + phase) > 0 ? wings[0] : wings[1]) : wings[2];
+      if (route) {
+        const ahead = route(Math.min(1, u + 0.02))[0] - X;
+        if (Math.abs(ahead) > 0.5) face.current = ahead < 0 ? -1 : 1;
+      }
+      bodyRef.current.scale.set(h * face.current, h, 1);
+    }
     // drawn just after the cards at its depth (a group's own order would sort it before every card)
     const order = Math.round(Z) + 0.5;
     glows.current.forEach((sp) => sp && (sp.renderOrder = order));
@@ -475,13 +501,13 @@ export function Light({ layer, beat, env, dissolve }) {
           <spriteMaterial map={halo} color={tint.clone().multiplyScalar(L.boost)} blending={AdditiveBlending} transparent depthWrite={false} opacity={0} />
         </sprite>
       ))}
-      {!flame && solid > 0 && (
+      {!flame && !bird && solid > 0 && (
         <sprite ref={underRef} center={[0.5, 0]} scale={[h * w * 1.04, h * 1.02, 1]}>
           <spriteMaterial map={body} color={tint.clone().multiplyScalar(0.55)} transparent depthWrite={false} opacity={0} />
         </sprite>
       )}
       {!flame && (
-        <sprite ref={bodyRef} center={[0.5, 0]} scale={[h * w, h, 1]}>
+        <sprite ref={bodyRef} center={bird ? [0.5, 0.5] : [0.5, 0]} scale={bird ? [h, h, 1] : [h * w, h, 1]}>
           <spriteMaterial map={body} color={new Color(bright, bright, bright)} transparent depthWrite={false} opacity={0} />
         </sprite>
       )}
@@ -501,9 +527,12 @@ uniform float mill;
 uniform float march;
 uniform vec2 flow;
 uniform vec4 area;
+uniform vec4 orbit;
+uniform vec4 orbitOpt;
 varying vec2 vUv;
 varying float vSeed;
 varying float vGlint;
+varying float vHide;
 void main() {
   vec3 p = aOffset;
   float w = area.y - area.x;
@@ -511,6 +540,17 @@ void main() {
   float pace = speed * time * (march > 0.5 ? 1.0 : 0.7 + aSeed * 0.6);
   p.x = area.x + mod(p.x - area.x + flow.x * pace, w);
   p.z = area.z + mod(p.z - area.z + flow.y * pace, d);
+  vHide = 0.0;
+  if (orbitOpt.x > 0.5) {
+    // circling a centre (orbit.xy = x, z; orbit.zw = radii) the way pilgrims go round the House:
+    // anticlockwise seen from above, each on their own ring of the band, the inner rings quicker
+    float rf = mix(orbitOpt.z, orbitOpt.w, fract(aSeed * 7.13 + aOffset.x * 0.0011 + aOffset.z * 0.0007));
+    float a = aSeed * 81.7 - time * orbitOpt.y * (0.8 + 0.4 * fract(aSeed * 3.7)) / max(rf, 0.3);
+    p.x = orbit.x + cos(a) * orbit.z * rf;
+    p.z = orbit.y + sin(a) * orbit.w * rf;
+    // a crowd drawn as two halves, behind and in front of what it circles: each keeps only its own side
+    vHide = orbitOpt.x > 1.5 ? step(0.0, (p.z - orbit.y) * (orbitOpt.x > 2.5 ? -1.0 : 1.0)) : 0.0;
+  }
   p.x += sin(time * 0.6 + aSeed * 40.0) * mill;
   p.z += cos(time * 0.45 + aSeed * 23.0) * mill;
   p.y += abs(sin(time * 5.0 + (march > 0.5 ? 0.0 : aSeed * 30.0))) * size * 0.025 * (march + 0.4);
@@ -535,7 +575,9 @@ uniform float time;
 varying vec2 vUv;
 varying float vSeed;
 varying float vGlint;
+varying float vHide;
 void main() {
+  if (vHide > 0.5) discard;
   vec4 t = texture2D(map, vUv);
   float alive = smoothstep(outP, outP + 0.015, vSeed);
   float fl = 1.0 - flicker * 0.4 * step(0.62, fract(sin(vSeed * 91.7 + floor(time * 7.0 + vSeed * 13.0)) * 43758.5453));
@@ -552,10 +594,13 @@ void main() {
  * `cols` that march in step, shields glinting in a rolling wave. `y` may be [front, back] so the ranks
  * recede up the frame, as ground does seen from above. `ground` (a world height, e.g. -300) lays the crowd
  * out in the world instead: `area` [x0, x1, z0, z1] and `size` in world units, so an avenue keeps its width.
+ * `orbit` {center: [x, z], radius: [rx, rz], band: [inner, outer], speed, half} (world units, with `ground`)
+ * sets them circling instead, anticlockwise from above; `half` "back" or "front" keeps one side of the ring,
+ * so a pair of crowds can pass behind and in front of what they circle.
  */
 export function Crowd({ layer, beat, env, dissolve, lite }) {
   const cfg = resolveLayer(layer, beat);
-  const { area = [300, 1300, -600, 200], y = 700, count = 400, size = 30, color = '#ffc890', dim = 0.3, flow = [0, 0], speed = 20, mill = 6, kind = 'people', out = 0, outDur = 8000, flicker = 0.35, rows = 12, cols = 30, glow = 1, ground } = cfg;
+  const { area = [300, 1300, -600, 200], y = 700, count = 400, size = 30, color = '#ffc890', dim = 0.3, flow = [0, 0], speed = 20, mill = 6, kind = 'people', out = 0, outDur = 8000, flicker = 0.35, rows = 12, cols = 30, glow = 1, ground, orbit } = cfg;
   const inWorld = ground !== undefined;
   // world units per design unit for this crowd (1 when it is laid out in the world)
   const k = inWorld ? 1 : scaleAt((area[2] + area[3]) / 2);
@@ -613,6 +658,8 @@ export function Crowd({ layer, beat, env, dissolve, lite }) {
           outP: { value: 0 },
           flicker: { value: flicker },
           glow: { value: glow },
+          orbit: { value: [0, 0, 1, 1] },
+          orbitOpt: { value: [0, 0, 0.5, 1] },
         },
         vertexShader: crowdVertex,
         fragmentShader: crowdFragment,
@@ -640,12 +687,21 @@ export function Crowd({ layer, beat, env, dissolve, lite }) {
     u.dim.value += (dim - u.dim.value) * Math.min(1, dt * 0.8);
     u.flicker.value = flicker;
     u.glow.value = glow;
+    if (orbit) {
+      const [cx, cz] = orbit.center ?? [0, -3000];
+      const [rx, rz] = orbit.radius ?? [600, 400];
+      u.orbit.value = [cx + (layer.dx ?? 0), cz + (layer.dz ?? 0), rx, rz];
+      u.orbitOpt.value = [orbit.half === 'back' ? 2 : orbit.half === 'front' ? 3 : 1, orbit.speed ?? 0.12, orbit.band?.[0] ?? 0.5, orbit.band?.[1] ?? 1];
+    } else u.orbitOpt.value = [0, 0, 0.5, 1];
     if (out) {
       if (outStart.current === null) outStart.current = clock.elapsedTime;
       u.outP.value = Math.min(out, progressOf(env, clock.elapsedTime, outStart.current, 0, outDur) * out) * 1.02;
     } else u.outP.value = 0;
   });
-  const zMid = (area[2] + area[3]) / 2 + (layer.dz ?? 0);
+  // a circling half sorts on its own side of the centre; a whole ring by the middle of its band
+  const zMid = orbit
+    ? (orbit.center?.[1] ?? -3000) + (orbit.half === 'back' ? -1 : orbit.half === 'front' ? 1 : 0) * (orbit.radius?.[1] ?? 400) * 0.5 + (layer.dz ?? 0)
+    : (area[2] + area[3]) / 2 + (layer.dz ?? 0);
   return <mesh geometry={geometry} material={material} frustumCulled={false} renderOrder={Math.round(zMid)} />;
 }
 

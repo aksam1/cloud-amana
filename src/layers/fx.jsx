@@ -499,21 +499,23 @@ const DIGITS = '٠١٢٣٤٥٦٧٨٩';
 /**
  * Days and nights counted in a storm: Arabic numerals that appear and fade one after another, `every` ms
  * apart, day and night in turn (day one, night one, day two…), each somewhere in `area` [x0, y0, x1, y1].
- * Set `every` to half the world's `cycle` period and they keep time with the light.
+ * Set `every` to half the world's `cycle` period and they keep time with the light. `count` n counts plainly
+ * from one to n instead.
  */
 export function Numerals({ cfg }) {
   const { reduced } = useStage();
-  const { days = 8, nights = 7, every = 1300, delay = 0, size = 120, day = '#e8dcc0', night = '#9fb4d0', area = [300, 160, 1300, 480], seed = 8 } = cfg;
+  const { days = 8, nights = 7, every = 1300, delay = 0, size = 120, day = '#e8dcc0', night = '#9fb4d0', area = [300, 160, 1300, 480], seed = 8, count } = cfg;
   const items = useMemo(() => {
     const r = rng(seed);
-    return Array.from({ length: days + nights }, (_, i) => ({
-      text: String(Math.floor(i / 2) + 1).replace(/\d/g, (d) => DIGITS[d]),
-      isDay: i % 2 === 0,
+    // `count` n counts plainly from one to n (seven runs between two hills), all in the day colour
+    return Array.from({ length: count ?? days + nights }, (_, i) => ({
+      text: String(count ? i + 1 : Math.floor(i / 2) + 1).replace(/\d/g, (d) => DIGITS[d]),
+      isDay: count ? true : i % 2 === 0,
       x: area[0] + r() * (area[2] - area[0]),
       y: area[1] + r() * (area[3] - area[1]),
       at: delay / 1000 + (i * every) / 1000,
     }));
-  }, [days, nights, every, delay, area, seed]);
+  }, [days, nights, every, delay, area, seed, count]);
   const shown = reduced ? items.slice(-2) : items;
   return (
     <Svg>

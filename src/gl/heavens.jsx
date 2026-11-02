@@ -139,8 +139,8 @@ void main() {
 
 /**
  * The living sky over a scene, standing at world depth `z` (−26000) behind everything: `horizon` is the
- * design y where it meets the land. Each beat sets its time of day with `tod` [from, to, ms] (hours 0–24,
- * running forward past midnight; a single number holds still). `star`, `moon` and `sun` {rise, set, x0, x1,
+ * design y where it meets the land. Each beat sets its time of day with `tod` [from, to, ms, days] (hours 0–24,
+ * running forward past midnight; `days` whole days more first, for ages passing; a single number holds still). `star`, `moon` and `sun` {rise, set, x0, x1,
  * peak} are the hours they rise and set, the design x they rise at and set at, and how high they climb
  * above the horizon (defaults: the sun 6–18 from the left). `drive: false` leaves the scene's light alone.
  */
@@ -210,10 +210,11 @@ export function Heavens({ layer, beat, env, dissolve, lite }) {
     const tod = Array.isArray(cfg.tod) ? cfg.tod : [cfg.tod ?? 12, cfg.tod ?? 12, 1];
     const key = JSON.stringify(tod);
     if (clock.current.key !== key) clock.current = { key, t0: c.elapsedTime };
-    const [h0, h1, ms = 8000] = tod;
+    const [h0, h1, ms = 8000, days = 0] = tod;
     const u = e.still ? Math.min(1, e.moment ?? 1) : Math.min(1, (c.elapsedTime - clock.current.t0) / Math.max(0.05, ms / 1000));
-    const ease = u * u * (3 - 2 * u);
-    const h = h0 + wrap(h1 - h0) * ease;
+    // whole days run through first (days and nights flickering past), then the last stretch eases to rest
+    const ease = days ? u : u * u * (3 - 2 * u);
+    const h = h0 + (wrap(h1 - h0) + 24 * days) * ease;
     skyAt(h, scratch.zen, scratch.hor);
     const day = smooth(4.9, 7, wrap(h)) * (1 - smooth(17.3, 19.4, wrap(h)));
     const s = skyMat.uniforms;

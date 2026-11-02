@@ -5,7 +5,9 @@
   "nodes": ["ibrahim"],
   "parts": [
     { "title": "The Search", "from": 59, "to": 61 },
-    { "title": "The Fire", "from": 62, "to": 65 },
-    { "title": "The Journey", "from": 66, "to": 68 }
+    { "title": "The Fire", "from": 62, "to": 66 },
+    { "title": "Hajar and Ismail", "from": 67, "to": 70 },
+    { "title": "The Sacrifice", "from": 71, "to": 72 },
+    { "title": "The House", "from": 73, "to": 76 }
   ]
 }

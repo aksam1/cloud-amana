@@ -1,0 +1,51 @@
+{
+  "id": "ismail",
+  "chapter": 6,
+  "order": 68,
+  "node": "ibrahim",
+  "title": "A Forbearing Son",
+  "arabic": "الغلام الحليم",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "Sarah and Hajar appear only as dim figures of light; Ismail, newborn, as a small light. Ibrahim appears as a steady light.",
+    "That Hajar came to Sarah in Egypt and that Sarah gave her to Ibrahim is told in the hadith (al-Bukhari). The camp in the land of Canaan is imagined."
+  ],
+  "ambient": ["sheep", "air"],
+  "base": "#26222e",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": { "fog": "#7a6e7e", "fogNear": 5000, "fogFar": 36000, "light": 0.95, "rays": 0, "bloom": 0.8, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [800, 520, 1150], "look": [800, 560, -3000] },
+  "imagePrompt": "A camp of dark goat-hair tents among olive trees and green hills at dusk, two dim amber figures of light by the tents and a steady white light before them; then night, the white light kneeling in prayer under a great field of stars and a rising moon; then dawn, and beside the second tent a tiny new light wrapped in white; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 640, "sun": { "rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 470, "size": 32 },
+      "moon": { "rise": 19, "set": 6.5, "x0": 1320, "x1": 280, "peak": 360, "size": 24 },
+      "tod": [16.6, 17.6, 10000], "at": { "1": { "tod": [22.5, 2.5, 10000] }, "2": { "tod": [4.9, 6.4, 12000] } } },
+    { "type": "ridge", "depth": 0.05, "y": 640, "amp": 50, "seed": 130, "sharp": 0.3, "color": "#6a7468", "haze": 0.35, "fog": 0.4 },
+    { "type": "ground", "depth": 0.12, "y": 668, "amp": 18, "seed": 131, "color": "#6a7a4a", "color2": "#4a5a32", "grass": true, "grassColor": "#8a9a58" },
+    { "type": "tree", "depth": 0.16, "x": 250, "y": 692, "h": 250, "kind": "living", "seed": 132 },
+    { "type": "tree", "depth": 0.17, "x": 1390, "y": 696, "h": 270, "kind": "living", "seed": 133 },
+    { "type": "tent", "depth": 0.2, "x": 1120, "y": 712, "w": 360, "h": 150, "lit": false, "ppu": 1, "at": { "1": { "lit": true } } },
+    { "type": "tent", "depth": 0.22, "x": 700, "y": 720, "w": 520, "h": 200, "lit": true, "ppu": 1 },
+    { "type": "light", "depth": 0.235, "pos": [560, 734], "h": 52, "w": 0.55, "color": "#f0c890", "glow": 0.3, "bright": 1.0, "solid": 0.6 },
+    { "type": "light", "depth": 0.235, "pos": [1040, 734], "h": 50, "w": 0.55, "color": "#ecc8a4", "glow": 0.3, "bright": 1.0, "solid": 0.6 },
+    { "type": "light", "show": [2, null], "depth": 0.235, "pos": [1084, 736], "h": 22, "w": 1.0, "pose": "babe", "color": "#fffaf0", "glow": 1.0, "bright": 1.7 },
+    { "type": "brazier", "depth": 0.26, "x": 900, "y": 772, "s": 0.6 },
+    { "type": "light", "kind": "flame", "depth": 0.26, "pos": [900, 734], "h": 32, "color": "#ffb050", "glow": 1.1 },
+    { "type": "light", "depth": 0.25, "pos": [800, 752], "h": 62, "color": "#fffaf0", "glow": 0.7, "bright": 1.4,
+      "at": { "1": { "pose": "kneel" }, "2": { "pose": "stand" } } },
+    { "type": "ground", "depth": 0.4, "y": 832, "amp": 10, "seed": 134, "color": "#5a6a3a", "color2": "#3a4a2a", "grass": true, "grassColor": "#7a8a4a", "wind": 1 },
+    { "type": "dust", "box": [-1200, 200, -4000, 2800, 950, 900], "count": 400, "size": 2.5, "color": "#fff0d0", "opacity": 0.3, "wind": [5, -2, 0] }
+  ],
+  "beats": [
+    { "dur": 10000, "ambient": ["sheep", "air"], "cam": { "pos": [800, 520, 1100], "look": [820, 570, -3000] },
+      "say": "Years passed in the land where they had settled, and Sarah had no children. In Egypt she had been given a companion, Hajar, and she gave Hajar to Ibrahim as a wife." },
+    { "dur": 10000, "ambient": ["crickets", "fire"], "cam": { "pos": [830, 545, 760], "look": [850, 640, -3000] },
+      "say": "Old by now, Ibrahim prayed for a son who would be righteous." },
+    { "dur": 12000, "ambient": ["birds", "air"], "cam": { "pos": [920, 545, 780], "look": [950, 630, -3000] },
+      "pendingVerse": { "ref": "37:100-101", "place": "sky" } }
+  ]
+}

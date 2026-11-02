@@ -8,7 +8,7 @@ import { Ark, Flood, Springs, Waves, Oven } from './flood.jsx';
 import { Animals } from './creatures.jsx';
 import { Dunes, Column, Iram, Monument, Floor, Facade, Platform, Brazier, Pool, Palms, Terraces, Riverbed, Cloudbank, Sandwall, Trunks, Cliffs, Works, Block } from './iram.jsx';
 import { Outcrop, SheCamel, Well } from './hijr.jsx';
-import { Idol, Ziggurat, Tent } from './ur.jsx';
+import { Idol, Ziggurat, Tent, Ram } from './ur.jsx';
 import { Figure, Crowd, Angels, Flame, Cities, Clay, Crow, Eyes } from './beings.jsx';
 import { Calligraphy, Orbit, Wisp, Guidance, Trail, Beam, Lightning, InkDrop, Scroll, Numerals, Flash } from './fx.jsx';
 import { Pen, Garment, Constellations, Woodwork } from './craft.jsx';
@@ -88,6 +88,7 @@ export const LAYERS = {
   idol: Idol,
   ziggurat: Ziggurat,
   tent: Tent,
+  ram: Ram,
   figure: Figure,
   crowd: Crowd,
   angels: Angels,
