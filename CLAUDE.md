@@ -75,10 +75,13 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   (time-lapse: palms withering, a pool drying).
 - GL-native types: `light` (people of light: `pose` stand/walk/raise/reach/kneel/bow (prostration)/babe
   (an infant lying; give it `w` ~1)/gone, `path` with z for true 3D walks, `delay`, `w`, `bright`, `solid`,
-  `kind: "flame"`, `kind: "bird"` (wings beat along its path, fold when it lands; `pos` is its middle)),
+  `kind: "flame"`, `kind: "bird"` (wings beat along its path, fold when it lands; `pos` is its middle),
+  `kind: "ember"` (a figure of shadow in a smouldering glow of `color`: Iblis)),
   `crowd` (people or `kind: "army"`; `ground` for world-space bands; `y: [front, back]`; `out` puts lights
   out; `orbit` {center [x, z], radius [rx, rz], band, speed, half} circles a centre anticlockwise, with a
-  "back" and a "front" half as two layers around what they circle, centre z on that card's plane), `dust` (`blend: "normal"` for smoke/sand), `ribbons`,
+  "back" and a "front" half as two layers around what they circle, centre z on that card's plane;
+  `kind: "angels"` stands columns of light in ranks or rings (orbit at speed 0); `bow` 1 bends them low in
+  a wave toward `bowTo`), `dust` (`blend: "normal"` for smoke/sand), `ribbons`,
   `cloth` (`pole`, `tear`), `storm`, `sun` (the visible one streams god-rays), `heavens` (a living sky:
   per-beat `tod` [from, to, ms] hours run the sky through night, dawn, day and dusk; `star`, `moon`, `sun`
   {rise, set, x0, x1, peak} rise and set behind the hills; it drives the scene's light and haze while shown,
@@ -87,7 +90,10 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `coolDur`), `masonry` (a building of stone raised course by course on one plane: `pos` foot middle, `w`,
   `h`, `side` face receding to `horizon`, `courses`, `blocks`, `built` 0–1 or `build` [from, to, ms,
   delay], `door` {x, w, h, lift}, `robe` 0–1 black cloth with a gold band), `spring` (a pool welling up:
-  `pos`, `r`, `squash`, `well` 0–1 or `rise` [from, to, ms, delay], `rim` 0–1 bank of sand).
+  `pos`, `r`, `squash`, `well` 0–1 or `rise` [from, to, ms, delay], `rim` 0–1 bank of sand), `cosmos` (the
+  beginning: `thread` of gold light, swirling `smoke`, `split` parting it, `skies` 0–7 shells of light; a
+  backdrop that eases between beats; tinted gold it is the angels' court), `globe` (the earth's curve with
+  every life a light on the land: `pos`, `r`, `r0`/`zoomDur`, `phase` appear/dark/gold).
 - A card can `shatter` {delay, dur, spread, gravity, spin, floor, cols, rows} (usually set in `at` for the
   beat it breaks): it is cut into shards that fly, tumble and rest on the `floor` line; a negative `delay`
   shows it already broken, and a break from an earlier beat's `at` shows already fallen. A card's `move`
@@ -127,6 +133,12 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   (stepped temple tower with stairs and shrine), `tent` (goat hair, `lit` lamp inside) and `ram` (only as
   light). `numerals` can `count` plainly from one (Hajar's seven runs).
 - Scene ids are unique across all chapters (`son`, `call`, `warning` were taken): `npm run check` says so.
+- Painters drawn on a live 2D canvas (`useCanvas`, such as the old `globe`) do not paint onto GL cards; a GL
+  native with the same type name takes over in GL scenes (`heavens`, `globe`).
+- A shader's clock (`clock.elapsedTime`) can be very large in a still or after long play: never let it push
+  a threshold that should settle (the globe's lights once switched off for good as it turned).
+- Chapter 1 was rebuilt for the GL stage keeping each scene's words, verses and timing; its old 2D
+  compositions are in git history.
 - A `dust` box is in world units ([x − 800, 450 − y, z], not scaled by depth): to fill the air over a far
   city (depth 0.1, z −9000) its x and y spans must be ten times wider, and `size` large (points shrink with
   distance).

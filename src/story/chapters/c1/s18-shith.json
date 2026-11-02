@@ -6,39 +6,30 @@
   "title": "Adam's Final Days and Shith",
   "arabic": "شيث",
   "source": "tradition",
-  "then": "map",
-  "notes": [
-    "Classical narrations say Adam entrusted guidance to his son Shith (Seth), whom many scholars count among the prophets.",
-    "A weak hadith mentions scrolls revealed to Shith; the scroll of light here stands for guidance passed on, not a particular book."
-  ],
-  "art": ["Adam and his family appear only as figures of light."],
+  "art": ["Adam, Shith and their family appear only as figures of light. That guidance passed to Shith is told in the traditions."],
   "ambient": ["fire", "wind"],
   "base": "#1b130d",
-  "focus": 0.92,
-  "cam": { "z": 1.18, "y": 40 },
+  "renderer": "gl",
+  "dissolve": 2400,
+  "world": {"fog": "#2a1e16", "fogNear": 3000, "fogFar": 26000, "light": 0.95, "rays": 0, "bloom": 0.85, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 520, 1100], "look": [800, 580, -3000]},
   "imagePrompt": "The interior of a large stone and timber dwelling at dusk, lit by oil lamps and a central hearth, warm amber light and deep soft shadows, woven mats on the floor, parchment texture over everything; at the centre a seated figure of pale, soft light like late-afternoon sun; many generations of figures of light sitting in widening circles and spilling out of the open doorway into the night, where more lights stretch across the valley; one figure of clear, steady white-gold light seated closest; a scroll made of light passing between their hands, every head lowered; a stream of soft particles rising through the roof to join the stars.",
   "layers": [
-    { "type": "dwelling", "depth": 0.9, "at": { "4": { "dim": 0.25 } } },
-    { "type": "crowd", "depth": 0.92, "cx": 800, "cy": 712, "rings": 3, "per": [7, 12, 17], "rx": 220, "ry": 52, "gapX": 125, "gapY": 34, "size": 44,
-      "spill": { "count": 14, "x0": 1200, "x1": 1330, "y0": 610, "y1": 640, "size": 22 }, "at": { "3": { "bow": true } } },
-    { "type": "figure", "depth": 0.92, "x": 800, "y": 668, "h": 124, "pose": "sit", "color": "#fff4dc", "glow": 0.8, "dim": 0.25,
-      "at": { "4": { "dim": 1 }, "5": { "pose": "gone" } } },
-    { "type": "figure", "depth": 0.92, "x": 690, "y": 676, "h": 106, "pose": "sit", "color": "#fff1c8", "glow": 1.25 },
-    { "type": "calligraphy", "depth": 0.92, "text": "شيث", "font": "ruqaa", "x": 690, "y": 540, "size": 54, "color": "#ffe8b0", "w": 200, "dur": 2200, "show": [1, null] },
-    { "type": "scroll", "depth": 0.92, "from": { "x": 780, "y": 612 }, "to": { "x": 708, "y": 620 }, "show": [2, null],
-      "at": { "3": { "pass": true, "bright": true }, "5": { "flood": true } } },
-    { "type": "particles", "depth": 0.92, "kind": "rise", "origin": { "x": 800, "y": 620, "r": 30 }, "count": 60, "show": [4, null] }
+    {"type": "dwelling", "depth": 0.3, "at": {"4": {"dim": 0.25}}},
+    {"type": "crowd", "ground": -726, "area": [-2000, 2000, -3000, -1000], "count": 34, "size": 110, "color": "#ffd8a0", "dim": 0.3, "glow": 0.6, "mill": 0, "speed": 0, "flicker": 0.15, "at": {"3": {"dim": 0.62}}, "orbit": {"center": [0, -1857], "radius": [1150, 420], "band": [0.5, 1], "speed": 0, "half": "back"}},
+    {"type": "light", "depth": 0.35, "pos": [800, 704], "h": 90, "color": "#fff4dc", "glow": 0.8, "bright": 1.4, "pose": "kneel", "at": {"4": {"glow": 0.45, "bright": 1.1}, "5": {"pose": "gone", "path": [[800, 704], [820, 140]], "dur": 5000}}},
+    {"type": "light", "depth": 0.35, "pos": [690, 708], "h": 80, "color": "#fff1c8", "glow": 1.0, "bright": 1.5, "pose": "kneel"},
+    {"type": "scroll", "depth": 0.35, "from": {"x": 780, "y": 612}, "to": {"x": 708, "y": 620}, "show": [2, null], "at": {"3": {"pass": true, "bright": true}}},
+    {"type": "crowd", "ground": -726, "area": [-2000, 2000, -3000, -1000], "count": 34, "size": 110, "color": "#ffd8a0", "dim": 0.3, "glow": 0.6, "mill": 0, "speed": 0, "flicker": 0.15, "at": {"3": {"dim": 0.62}}, "orbit": {"center": [0, -1857], "radius": [1150, 420], "band": [0.5, 1], "speed": 0, "half": "front"}},
+    {"type": "dust", "box": [-1000, 300, -2600, 2600, 950, -1000], "count": 260, "size": 3, "color": "#ffd8a0", "opacity": 0.3, "wind": [2, -6, 0], "swirl": 40},
+    {"type": "calligraphy", "text": "شيث", "font": "ruqaa", "x": 690, "y": 540, "size": 54, "color": "#ffe8b0", "w": 200, "dur": 2200, "show": [1, null]}
   ],
   "beats": [
-    { "dur": 7500, "cam": { "z": 1.05, "y": 30 },
-      "say": "Adam grew old, and his children's children filled the valley." },
-    { "dur": 7500, "cam": { "x": -40, "z": 1.15, "y": 60 },
-      "say": "Closest to him sat his son Shith." },
-    { "dur": 6500, "cam": { "x": -60, "z": 1.36, "y": 130 } },
-    { "dur": 8500, "cam": { "x": -80, "z": 1.5, "y": 150 },
-      "say": "Adam placed the guidance in Shith's hands, and every head in the room bowed." },
-    { "dur": 9000, "cam": { "x": 0, "z": 1.1, "y": 40 }, "ambient": ["wind"],
-      "say": "Then Adam's light faded gently and rose to join the stars." },
-    { "dur": 5200, "cam": { "x": -92, "z": 2.6, "y": 170, "dur": 4600 }, "ambient": ["wind"], "sfx": "page", "sfxAt": 3800 }
+    {"dur": 7500, "cam": {"pos": [800, 520, 1100], "look": [800, 580, -3000]}, "say": "Adam grew old, and his children's children filled the valley."},
+    {"dur": 7500, "cam": {"pos": [740, 525, 950], "look": [720, 600, -3000]}, "say": "Closest to him sat his son Shith."},
+    {"dur": 6500, "cam": {"pos": [780, 525, 920], "look": [760, 600, -3000]}},
+    {"dur": 8500, "cam": {"pos": [800, 520, 1000], "look": [800, 590, -3000]}, "say": "Adam placed the guidance in Shith's hands, and every head in the room bowed."},
+    {"dur": 9000, "ambient": ["wind"], "cam": {"pos": [800, 515, 1050], "look": [800, 570, -3000]}, "say": "Then Adam's light faded gently and rose to join the stars."},
+    {"dur": 5200, "ambient": ["wind"], "sfx": "page", "cam": {"pos": [800, 500, 1100], "look": [800, 500, -3000]}, "sfxAt": 3800}
   ]
 }

@@ -7,7 +7,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { AdditiveBlending, BufferGeometry, Color, DoubleSide, Float32BufferAttribute, InstancedBufferAttribute, InstancedBufferGeometry, NormalBlending, PlaneGeometry, ShaderMaterial, Vector3 } from 'three';
 import { areaOf, artOf, captureLayer } from './capture.jsx';
 import { brushMask } from './brush.js';
-import { birdTexture, figureTexture, glowTexture, soldierTexture, windTexture } from './textures.js';
+import { birdTexture, columnTexture, figureTexture, glowTexture, soldierTexture, windTexture } from './textures.js';
 import { place, scaleAt, shift, world, zOf } from './space.js';
 import { resolveLayer, visibleAt } from '../lib/story.js';
 import { rng } from '../lib/geo.js';
@@ -413,13 +413,16 @@ export function Card({ layer, beat, env, dissolve }) {
  * and `solid` (0–1) lays a deeper amber shape beneath it so a figure keeps its presence against bright sand. `kind: "flame"` is a fire
  * instead (a brazier, a lamp): glow only, flickering, `h` tall. `kind: "bird"` is a bird of light, `h` across, its
  * `pos` the middle of the bird: it beats its wings while its `path` carries it and folds them when it alights,
- * facing the way it flies.
+ * facing the way it flies. `kind: "ember"` is a figure of shadow in a smouldering glow of `color` (Iblis), its
+ * body `dark`.
  */
 export function Light({ layer, beat, env, dissolve }) {
   const cfg = resolveLayer(layer, beat);
   const { h: hd = 60, color = '#fff4d6', glow = 1, pose = 'stand', path, dur = 6000, delay = 0, kind = 'person', w = 0.5, bright = 1.5, solid = 0 } = cfg;
   const flame = kind === 'flame';
   const bird = kind === 'bird';
+  // a figure of shadow in a smouldering glow (Iblis): the body dark, laid over the scene; `color` the embers
+  const ember = kind === 'ember';
   const z0 = zOf(layer);
   const at = (p) => shift(place([p[0], p[1], p[2] ?? z0]), layer);
   const h = hd * scaleAt((cfg.pos ?? path?.[0] ?? [0, 0, z0])[2] ?? z0);
@@ -483,13 +486,13 @@ export function Light({ layer, beat, env, dissolve }) {
     if (underRef.current) underRef.current.renderOrder = order + 0.05;
     const o = pres.current.o;
     // a person breathes slowly (about every four seconds); a flame flickers
-    const breathe = flame ? Math.sin(t * 11 + phase) * 0.5 + Math.sin(t * 17.3 + phase * 2) * 0.3 + Math.sin(t * 5.1) * 0.2 : Math.sin((t / 4) * Math.PI * 2 + phase);
+    const breathe = flame || ember ? Math.sin(t * (ember ? 6 : 11) + phase) * 0.5 + Math.sin(t * 17.3 + phase * 2) * 0.3 + Math.sin(t * 5.1) * 0.2 : Math.sin((t / 4) * Math.PI * 2 + phase);
     glows.current.forEach((sp, i) => {
       if (!sp) return;
       const L = layersOfGlow[i];
       const s = 1 + breathe * (flame ? 0.08 + i * 0.04 : 0.04 + i * 0.03);
       sp.scale.set(L.s[0] * s, L.s[1] * s, 1);
-      sp.material.opacity = o * L.o * glow * (0.88 + breathe * 0.12);
+      sp.material.opacity = o * L.o * glow * (ember ? 0.75 + breathe * 0.25 : 0.88 + breathe * 0.12);
     });
     if (bodyRef.current) bodyRef.current.material.opacity = o;
     if (underRef.current) underRef.current.material.opacity = o * Math.min(1, solid * 1.4);
@@ -508,7 +511,11 @@ export function Light({ layer, beat, env, dissolve }) {
       )}
       {!flame && (
         <sprite ref={bodyRef} center={bird ? [0.5, 0.5] : [0.5, 0]} scale={bird ? [h, h, 1] : [h * w, h, 1]}>
-          <spriteMaterial map={body} color={new Color(bright, bright, bright)} transparent depthWrite={false} opacity={0} />
+          {ember ? (
+            <spriteMaterial map={body} color={cfg.dark ?? '#140806'} blending={NormalBlending} transparent depthWrite={false} opacity={0} />
+          ) : (
+            <spriteMaterial map={body} color={new Color(bright, bright, bright)} transparent depthWrite={false} opacity={0} />
+          )}
         </sprite>
       )}
     </group>
@@ -529,6 +536,8 @@ uniform vec2 flow;
 uniform vec4 area;
 uniform vec4 orbit;
 uniform vec4 orbitOpt;
+uniform vec2 shape;
+uniform vec3 bowing;
 varying vec2 vUv;
 varying float vSeed;
 varying float vGlint;
@@ -553,10 +562,15 @@ void main() {
   }
   p.x += sin(time * 0.6 + aSeed * 40.0) * mill;
   p.z += cos(time * 0.45 + aSeed * 23.0) * mill;
-  p.y += abs(sin(time * 5.0 + (march > 0.5 ? 0.0 : aSeed * 30.0))) * size * 0.025 * (march + 0.4);
+  p.y += abs(sin(time * 5.0 + (march > 0.5 ? 0.0 : aSeed * 30.0))) * size * 0.025 * (march + 0.4) * shape.y;
   vec4 mv = modelViewMatrix * vec4(p, 1.0);
   float s = size * (0.86 + aSeed * 0.28);
-  mv.xy += position.xy * vec2(s * 0.5, s);
+  // bowing (bowing.x 0-1, bowing.y seconds since it began) runs through the ranks as a wave, each one
+  // bending low toward bowing.z (a world x) and staying down
+  float bw = bowing.x * smoothstep(0.0, 1.0, (bowing.y - aSeed * 1.4) / 1.2);
+  float lean = sign(bowing.z - p.x);
+  mv.xy += position.xy * vec2(s * shape.x, s * (1.0 - 0.62 * bw));
+  mv.x += position.y * s * bw * 0.45 * lean;
   vUv = uv;
   vSeed = aSeed;
   vGlint = march * pow(max(0.0, sin(time * 1.4 - (p.x + p.z) * 0.004)), 28.0);
@@ -596,11 +610,14 @@ void main() {
  * out in the world instead: `area` [x0, x1, z0, z1] and `size` in world units, so an avenue keeps its width.
  * `orbit` {center: [x, z], radius: [rx, rz], band: [inner, outer], speed, half} (world units, with `ground`)
  * sets them circling instead, anticlockwise from above; `half` "back" or "front" keeps one side of the ring,
- * so a pair of crowds can pass behind and in front of what they circle.
+ * so a pair of crowds can pass behind and in front of what they circle. `kind: "angels"` stands columns of
+ * light instead, in rows or rings (an `orbit` at `speed` 0); `bow` (0-1) bends them low in a wave toward
+ * `bowTo` (a world x, the middle of the frame by default) and they stay bowed.
  */
 export function Crowd({ layer, beat, env, dissolve, lite }) {
   const cfg = resolveLayer(layer, beat);
-  const { area = [300, 1300, -600, 200], y = 700, count = 400, size = 30, color = '#ffc890', dim = 0.3, flow = [0, 0], speed = 20, mill = 6, kind = 'people', out = 0, outDur = 8000, flicker = 0.35, rows = 12, cols = 30, glow = 1, ground, orbit } = cfg;
+  const { area = [300, 1300, -600, 200], y = 700, count = 400, size = 30, color = '#ffc890', dim = 0.3, flow = [0, 0], speed = 20, mill = 6, kind = 'people', out = 0, outDur = 8000, flicker = 0.35, rows = 12, cols = 30, glow = 1, ground, orbit, bow = 0, bowTo = 0 } = cfg;
+  const angels = kind === 'angels';
   const inWorld = ground !== undefined;
   // world units per design unit for this crowd (1 when it is laid out in the world)
   const k = inWorld ? 1 : scaleAt((area[2] + area[3]) / 2);
@@ -644,7 +661,7 @@ export function Crowd({ layer, beat, env, dissolve, lite }) {
     () =>
       new ShaderMaterial({
         uniforms: {
-          map: { value: army ? soldierTexture() : figureTexture('#ffe2b8') },
+          map: { value: army ? soldierTexture() : angels ? columnTexture() : figureTexture('#ffe2b8') },
           color: { value: new Color(color) },
           time: { value: 0 },
           size: { value: size * k },
@@ -660,6 +677,8 @@ export function Crowd({ layer, beat, env, dissolve, lite }) {
           glow: { value: glow },
           orbit: { value: [0, 0, 1, 1] },
           orbitOpt: { value: [0, 0, 0.5, 1] },
+          shape: { value: angels ? [0.38, 0] : [0.5, 1] },
+          bowing: { value: [0, 0, 0] },
         },
         vertexShader: crowdVertex,
         fragmentShader: crowdFragment,
@@ -669,8 +688,12 @@ export function Crowd({ layer, beat, env, dissolve, lite }) {
       }),
     // rebuilt only when the kind of crowd changes; values below follow the beat
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [army],
+    [army, angels],
   );
+  const bowStart = useRef(null);
+  useEffect(() => {
+    bowStart.current = null;
+  }, [bow]);
   const outStart = useRef(null);
   useEffect(() => {
     outStart.current = null;
@@ -687,6 +710,11 @@ export function Crowd({ layer, beat, env, dissolve, lite }) {
     u.dim.value += (dim - u.dim.value) * Math.min(1, dt * 0.8);
     u.flicker.value = flicker;
     u.glow.value = glow;
+    if (bow) {
+      if (bowStart.current === null) bowStart.current = clock.elapsedTime;
+      const e = env.current;
+      u.bowing.value = [bow, e.still ? 99 : clock.elapsedTime - bowStart.current, bowTo + (layer.dx ?? 0)];
+    } else u.bowing.value = [0, 0, 0];
     if (orbit) {
       const [cx, cz] = orbit.center ?? [0, -3000];
       const [rx, rz] = orbit.radius ?? [600, 400];

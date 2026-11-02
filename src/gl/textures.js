@@ -129,6 +129,42 @@ export function glowTexture() {
   });
 }
 
+/**
+ * An angel as a column of light: a slender shaft, brightest at its head and fading toward the ground, a
+ * soft glow round it and the faintest suggestion of folded wings; no face or figure. Feet at the bottom.
+ */
+export function columnTexture() {
+  return once('column', () => {
+    const [c, g] = canvasOf(96, 256);
+    const glow = g.createRadialGradient(48, 100, 2, 48, 100, 70);
+    glow.addColorStop(0, 'rgba(255,242,204,0.55)');
+    glow.addColorStop(1, 'rgba(255,242,204,0)');
+    g.fillStyle = glow;
+    g.fillRect(0, 0, 96, 256);
+    g.filter = 'blur(1.2px)';
+    const wing = g.createLinearGradient(0, 30, 0, 140);
+    wing.addColorStop(0, 'rgba(255,246,220,0.55)');
+    wing.addColorStop(1, 'rgba(255,246,220,0)');
+    g.strokeStyle = wing;
+    g.lineWidth = 2.4;
+    g.beginPath();
+    g.moveTo(44, 56);
+    g.bezierCurveTo(18, 30, 8, 80, 22, 122);
+    g.moveTo(52, 56);
+    g.bezierCurveTo(78, 30, 88, 80, 74, 122);
+    g.stroke();
+    const shaft = g.createLinearGradient(0, 10, 0, 256);
+    shaft.addColorStop(0, '#ffffff');
+    shaft.addColorStop(0.42, '#ffe9b6');
+    shaft.addColorStop(1, 'rgba(226,187,104,0)');
+    g.fillStyle = shaft;
+    g.beginPath();
+    g.roundRect(41, 10, 14, 246, 7);
+    g.fill();
+    return toTexture(c);
+  });
+}
+
 /** A soldier of dim amber light: broad shoulders, a crested helmet, a round bronze shield and a spear. */
 export function soldierTexture() {
   return once('soldier', () => {

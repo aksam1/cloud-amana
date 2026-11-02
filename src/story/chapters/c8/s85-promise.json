@@ -1,0 +1,42 @@
+{
+  "id": "promise",
+  "chapter": 8,
+  "order": 85,
+  "node": "ismail",
+  "title": "Ismail the Messenger",
+  "arabic": "إسماعيل النبي",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Ismail appears only as a steady light, far away; the people of the valley as dim lights.", "That Ismail grew up among the tribe of Jurhum, learned their tongue and married among them is told in the hadith (al-Bukhari)."],
+  "ambient": ["desert", "voices"],
+  "base": "#d8c0a0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#dcc4a4", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.2, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [1000, 515, 1150], "look": [1000, 560, -3000]},
+  "imagePrompt": "A valley among dark mountains at dawn, goat-hair tents of a tribe around a stone-rimmed spring, the plain stone walls of the House; a steady white light walking among dim amber lights of the people; then the people gathered before the House listening to him; ochre, slate, rose; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 600, "sun": {"rise": 6, "set": 18, "x0": 1300, "x1": 300, "peak": 280, "size": 34}, "tod": [5.4, 6.4, 10000], "at": {"1": {"tod": [6.4, 7.6, 10000]}, "2": {"tod": [7.6, 8.6, 12000]}}},
+    {"type": "peak", "depth": 0.06, "x": 240, "y": 310, "w": 480, "h": 360, "color": "#4a3c38", "lit": "#9a7a68", "seed": 140},
+    {"type": "peak", "depth": 0.06, "x": 1360, "y": 290, "w": 520, "h": 380, "color": "#463834", "lit": "#947464", "seed": 141},
+    {"type": "ridge", "depth": 0.1, "y": 612, "amp": 100, "seed": 143, "sharp": 0.7, "color": "#5a4a40", "haze": 0.25},
+    {"type": "ground", "depth": 0.14, "y": 650, "amp": 6, "seed": 190, "color": "#c4a476", "color2": "#967656"},
+    {"type": "tent", "depth": 0.15, "x": 260, "y": 662, "w": 260, "h": 100, "lit": true, "ppu": 1},
+    {"type": "tent", "depth": 0.15, "x": 1460, "y": 664, "w": 280, "h": 110, "lit": true, "ppu": 1},
+    {"type": "tent", "depth": 0.13, "x": 520, "y": 652, "w": 200, "h": 80, "lit": true, "ppu": 1},
+    {"type": "tent", "depth": 0.13, "x": 1180, "y": 654, "w": 220, "h": 84, "lit": true, "ppu": 1},
+    {"type": "masonry", "depth": 0.2, "pos": [920, 712], "w": 300, "h": 210, "side": 96, "courses": 11, "blocks": 9, "built": 1, "door": {"x": 0.8, "w": 0.14, "h": 0.34}},
+    {"type": "spring", "depth": 0.2, "pos": [1310, 716], "r": 40, "squash": 0.26, "well": 1, "rim": 1},
+    {"type": "crowd", "area": [880, 1480, -4400, -3300], "y": [728, 700], "count": 34, "size": 28, "color": "#ffd8a0", "dim": 0.3, "glow": 0.5, "mill": 14, "speed": 0, "flicker": 0.15, "at": {"1": {"mill": 3}}},
+    {"type": "light", "depth": 0.21, "pos": [1220, 724], "h": 58, "color": "#fffaf0", "glow": 0.3, "bright": 1.0, "solid": 0.6, "pose": "walk", "path": [[1440, 730], [1220, 724]], "dur": 8000, "at": {"1": {"pose": "raise", "path": null}}},
+    {"type": "ground", "depth": 0.38, "y": 832, "amp": 10, "seed": 191, "color": "#b89868", "color2": "#8a6a48"},
+    {"type": "dust", "box": [-1400, 200, -9000, 3000, 900, 0], "count": 400, "size": 3, "color": "#fff0dc", "opacity": 0.26, "wind": [3, -3, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["desert", "voices"], "cam": {"pos": [1000, 515, 1150], "look": [1000, 560, -3000]}, "say": "Ismail grew up among the tribe that had settled by the spring, learned their tongue, and married among them."},
+    {"dur": 10000, "ambient": ["voices", "wind"], "cam": {"pos": [1100, 520, 1000], "look": [1140, 585, -3000]}, "say": "God made him a messenger and a prophet, and he was known for keeping his word."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [1060, 520, 1080], "look": [1090, 580, -3000]}, "pendingVerse": {"ref": "19:54", "place": "sky"}}
+  ]
+}

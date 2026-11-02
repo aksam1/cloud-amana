@@ -14,6 +14,8 @@ import { Heavens } from './heavens.jsx';
 import { Fire } from './fire.jsx';
 import { Masonry } from './masonry.jsx';
 import { Spring } from './spring.jsx';
+import { Cosmos } from './cosmos.jsx';
+import { Globe } from './globe.jsx';
 import { InkWashEffect } from './InkWash.js';
 import { FOV, R, place, shift } from './space.js';
 import GL_TYPES from './types.json';
@@ -24,7 +26,7 @@ import GL_TYPES from './types.json';
 // next to the paintings, and the two would never match. Only this stage uses three.
 ColorManagement.enabled = false;
 
-const NATIVE = { light: Light, crowd: Crowd, dust: Dust, ribbons: Ribbons, cloth: Cloth, storm: Storm, heavens: Heavens, fire: Fire, masonry: Masonry, spring: Spring };
+const NATIVE = { light: Light, crowd: Crowd, dust: Dust, ribbons: Ribbons, cloth: Cloth, storm: Storm, heavens: Heavens, fire: Fire, masonry: Masonry, spring: Spring, cosmos: Cosmos, globe: Globe };
 // Layers that stay flat on the screen above the 3D world: writing, flashes, colour washes.
 const OVERLAY = new Set(['calligraphy', 'lightning', 'tint', 'particles', 'inkdrop', 'guidance', 'jeers', 'numerals', 'flash']);
 

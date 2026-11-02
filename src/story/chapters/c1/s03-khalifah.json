@@ -6,31 +6,28 @@
   "title": "The Angels Are Told of a Khalifah",
   "arabic": "الخليفة",
   "source": "quran",
-  "art": ["No one stands at the centre of the court. Divine speech is shown only as light and as words written in the air."],
   "ayahs": ["2:30"],
+  "art": ["No one stands at the centre of the court, and no light stands for God: His words appear only as the verse and as words written in the air."],
   "ambient": ["air"],
   "base": "#0d0a06",
-  "cam": { "z": 1.12, "y": -20 },
+  "renderer": "gl",
+  "dissolve": 2400,
+  "world": {"fog": "#2a2214", "fogNear": 6000, "fogFar": 60000, "light": 1.0, "rays": 0, "bloom": 1.0, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 470, 1300], "look": [800, 470, -3000]},
   "imagePrompt": "A vast heavenly court of light: endless ranks of angels as tall columns of white-gold light receding into golden haze, an empty centre filled only by overwhelming radiance and slow rays; Arabic calligraphy glowing in the air, written stroke by stroke; a ripple of light passing through the ranks of angels.",
   "layers": [
-    { "type": "sky", "depth": 0.05, "stops": [[0, "#0d0a06"], [0.4, "#3b2c12"], [0.8, "#8a6a2e"], [1, "#d9b46a"]] },
-    { "type": "rays", "depth": 0.2, "x": 800, "y": 230, "count": 14, "spread": 170, "angle": 90, "len": 1500, "color": "#fff1c8", "opacity": 0.28, "blend": "screen" },
-    { "type": "radiance", "depth": 0.25, "x": 800, "y": 250, "size": 1.05, "intensity": 0.72 },
-    { "type": "mist", "depth": 0.5, "y": 600, "color": "#f3e3c0", "opacity": 0.35 },
-    { "type": "angels", "depth": 0.6, "mode": "ranks", "rows": 5, "per": 18, "y": 520, "rowGap": 66, "gap": [600, 1000], "at": { "2": { "ripple": 1 } } },
-    { "type": "calligraphy", "depth": 0.3, "ref": "2:30", "ar": [4, 8], "x": 800, "y": 330, "size": 86, "color": "#ffe8b0", "w": 900, "dur": 4200, "show": [1, null], "at": { "2": { "opacity": 0.35 }, "3": { "opacity": 0.8 } } },
-    { "type": "particles", "kind": "dust", "count": 70 }
+    {"type": "cosmos", "smoke": 0.55, "colors": ["#a8803e", "#fff0c8", "#2a1c0c"], "gold": "#ffe8b0", "base": "#120c06"},
+    {"type": "mist", "depth": 0.06, "y": 620, "color": "#f8ecd0", "bands": 4, "spread": 60, "h": 90, "fog": 0.3},
+    {"type": "crowd", "kind": "angels", "area": [-1500, 640, -16000, -2400], "y": [840, 600], "count": 360, "size": 100, "color": "#fff2cc", "dim": 0.3, "glow": 0.5, "mill": 0, "speed": 0, "flicker": 0.1, "at": {"2": {"flicker": 0.38, "dim": 0.05}, "3": {"flicker": 0.12}}},
+    {"type": "crowd", "kind": "angels", "area": [960, 3100, -16000, -2400], "y": [840, 600], "count": 360, "size": 100, "color": "#fff2cc", "dim": 0.3, "glow": 0.5, "mill": 0, "speed": 0, "flicker": 0.1, "at": {"2": {"flicker": 0.38, "dim": 0.05}, "3": {"flicker": 0.12}}},
+    {"type": "mist", "depth": 0.3, "y": 840, "color": "#f4e4c4", "bands": 3, "spread": 40, "h": 70},
+    {"type": "dust", "box": [-1600, 0, -14000, 3200, 1000, 0], "count": 900, "size": 3, "color": "#fff0c8", "opacity": 0.4, "wind": [2, -4, 0], "swirl": 50},
+    {"type": "calligraphy", "ref": "2:30", "ar": [4, 8], "x": 800, "y": 330, "size": 86, "color": "#ffe8b0", "w": 900, "dur": 4200, "show": [1, null], "at": {"2": {"opacity": 0.35}, "3": {"opacity": 0.8}}}
   ],
   "beats": [
-    { "dur": 5500, "cam": { "z": 0.92, "y": 0 },
-      "say": "The angels stood in endless ranks, and a word came to them." },
-    { "dur": 9500, "cam": { "z": 1.05, "y": -30 },
-      "say": "Allah told them He would place a khalifah, a successor, upon the earth.",
-      "verse": { "ref": "2:30", "ar": [4, 8], "showAr": false, "en": "Indeed, I will make upon the earth a successive authority." } },
-    { "dur": 11000, "cam": { "z": 1.12, "y": -10 },
-      "say": "They asked how one who might spread corruption and shed blood could be chosen, while they praised Him.",
-      "verse": { "ref": "2:30", "ar": [11, 22], "who": "The angels", "style": "angels", "en": "Will You place upon it one who causes corruption therein and sheds blood, while we declare Your praise and sanctify You?" } },
-    { "dur": 9500, "cam": { "z": 0.96, "y": 0 },
-      "verse": { "ref": "2:30", "ar": [25, 29], "en": "Indeed, I know that which you do not know." } }
+    {"dur": 5500, "cam": {"pos": [800, 470, 1300], "look": [800, 470, -3000]}, "say": "The angels stood in endless ranks, and a word came to them."},
+    {"dur": 9500, "cam": {"pos": [800, 462, 1120], "look": [800, 458, -3000]}, "say": "God told them He would place a khalifah, a successor, upon the earth.", "verse": {"ref": "2:30", "ar": [4, 8], "showAr": false, "en": "Indeed, I will make upon the earth a successive authority."}},
+    {"dur": 11000, "cam": {"pos": [800, 470, 1040], "look": [800, 470, -3000]}, "say": "They asked how one who might spread corruption and shed blood could be chosen, while they praised Him.", "verse": {"ref": "2:30", "ar": [11, 22], "who": "The angels", "style": "angels", "en": "Will You place upon it one who causes corruption therein and sheds blood, while we declare Your praise and sanctify You?"}},
+    {"dur": 9500, "cam": {"pos": [800, 462, 1080], "look": [800, 458, -3000]}, "verse": {"ref": "2:30", "ar": [25, 29], "en": "Indeed, I know that which you do not know."}}
   ]
 }

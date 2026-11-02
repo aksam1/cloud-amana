@@ -2,9 +2,20 @@
   "number": 8,
   "title": "Ismail and Ishaq",
   "arabic": "إسماعيل وإسحاق",
-  "nodes": ["ismail", "ishaq"],
+  "nodes": [
+    "ismail",
+    "ishaq"
+  ],
   "parts": [
-    { "title": "Prophet Ismail", "nodes": ["ismail"] },
-    { "title": "Prophet Ishaq", "nodes": ["ishaq"] }
+    {
+      "title": "Prophet Ismail",
+      "from": 85,
+      "to": 87
+    },
+    {
+      "title": "Prophet Ishaq",
+      "from": 88,
+      "to": 90
+    }
   ]
 }
