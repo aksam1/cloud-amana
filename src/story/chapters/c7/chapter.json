@@ -3,5 +3,9 @@
   "title": "Prophet Lut",
   "arabic": "لوط",
   "nodes": ["lut"],
-  "parts": []
+  "parts": [
+    { "title": "The Cities of the Plain", "from": 78, "to": 79 },
+    { "title": "The Guests of Lut", "from": 80, "to": 82 },
+    { "title": "The Morning", "from": 83, "to": 84 }
+  ]
 }

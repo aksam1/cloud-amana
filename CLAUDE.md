@@ -73,17 +73,27 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `sat`, `tint` [colour, amount], `area` (what it paints), `ppu` (texture pixels per unit; raise it for
   cards the camera gets close to, keep width × ppu ≤ 4096). Changing a card's art in `at` crossfades it
   (time-lapse: palms withering, a pool drying).
-- GL-native types: `light` (people of light: `pose`, `path` with z for true 3D walks, `delay`, `w`,
-  `bright`, `solid`, `kind: "flame"`), `crowd` (people or `kind: "army"`; `ground` for world-space bands;
-  `y: [front, back]`; `out` puts lights out), `dust` (`blend: "normal"` for smoke/sand), `ribbons`,
+- GL-native types: `light` (people of light: `pose` stand/walk/raise/reach/kneel/bow (prostration)/babe
+  (an infant lying; give it `w` ~1)/gone, `path` with z for true 3D walks, `delay`, `w`, `bright`, `solid`,
+  `kind: "flame"`, `kind: "bird"` (wings beat along its path, fold when it lands; `pos` is its middle)),
+  `crowd` (people or `kind: "army"`; `ground` for world-space bands; `y: [front, back]`; `out` puts lights
+  out; `orbit` {center [x, z], radius [rx, rz], band, speed, half} circles a centre anticlockwise, with a
+  "back" and a "front" half as two layers around what they circle, centre z on that card's plane), `dust` (`blend: "normal"` for smoke/sand), `ribbons`,
   `cloth` (`pole`, `tear`), `storm`, `sun` (the visible one streams god-rays), `heavens` (a living sky:
   per-beat `tod` [from, to, ms] hours run the sky through night, dawn, day and dusk; `star`, `moon`, `sun`
   {rise, set, x0, x1, peak} rise and set behind the hills; it drives the scene's light and haze while shown,
-  so use it instead of a `sky` card), `fire` (ink-wash flame sheets: `pos`, `w`, `h`, `heat`; `cool` 0–1
-  eases it to calm silver-blue light over `coolDur`).
+  so use it instead of a `sky` card; `tod` [from, to, ms, days] runs whole days past first), `fire`
+  (ink-wash flame sheets: `pos`, `w`, `h`, `heat`; `cool` 0–1 eases it to calm silver-blue light over
+  `coolDur`), `masonry` (a building of stone raised course by course on one plane: `pos` foot middle, `w`,
+  `h`, `side` face receding to `horizon`, `courses`, `blocks`, `built` 0–1 or `build` [from, to, ms,
+  delay], `door` {x, w, h, lift}, `robe` 0–1 black cloth with a gold band), `spring` (a pool welling up:
+  `pos`, `r`, `squash`, `well` 0–1 or `rise` [from, to, ms, delay], `rim` 0–1 bank of sand).
 - A card can `shatter` {delay, dur, spread, gravity, spin, floor, cols, rows} (usually set in `at` for the
   beat it breaks): it is cut into shards that fly, tumble and rest on the `floor` line; a negative `delay`
-  shows it already broken.
+  shows it already broken, and a break from an earlier beat's `at` shows already fallen. A card's `move`
+  can `rot` [x°, z°] to turn it over as it goes (both faces are drawn; it turns about the card's middle).
+  A `move` set in an earlier beat restarts when a later beat is entered directly or held in a still:
+  give the later beats its end state (`path: [[end]]`, `dur: 1`), as The Morning does.
 - Overlays stay flat on screen above the 3D world: calligraphy, guidance, jeers, numerals, lightning,
   tint, particles, inkdrop, flash (`OVERLAY` in `src/gl/GLStage.jsx`). Position them where the subject appears
   for that beat's camera, and keep the camera still while they play.
@@ -114,7 +124,12 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Thamud's land (`src/layers/hijr.jsx`): `outcrop` (sandstone with carved `homes`, lamps `lit`, a `rift`
   of light), `shecamel` (only as light; poses stand, walk, drink, kneel) and `well` (`trough`, `frame`).
 - Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`
-  (stepped temple tower with stairs and shrine) and `tent` (goat hair, `lit` lamp inside).
+  (stepped temple tower with stairs and shrine), `tent` (goat hair, `lit` lamp inside) and `ram` (only as
+  light). `numerals` can `count` plainly from one (Hajar's seven runs).
+- Scene ids are unique across all chapters (`son`, `call`, `warning` were taken): `npm run check` says so.
+- A `dust` box is in world units ([x − 800, 450 − y, z], not scaled by depth): to fill the air over a far
+  city (depth 0.1, z −9000) its x and y spans must be ten times wider, and `size` large (points shrink with
+  distance).
 - A card's dry-brush flecks fall only on real edges (where its cover changes sharply); soft washes such as
   clouds stay whole. Before, half-clear paintings broke into a blocky mosaic.
 - Daylight figures of light blow out to white: use `glow` 0.1–0.3, `bright` ~0.85, `solid` ~0.5.

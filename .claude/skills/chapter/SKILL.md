@@ -49,7 +49,9 @@ Scaffold with `npm run scene -- <N> <order> <id> "<Title>" --gl`, then write the
   camera at world depth z). The walker must stay in front of any card it walks over.
 - Time-lapse: change a card's art in `at` (wither, water, dry, colour); it crossfades each beat.
 - Day/night: beat `world.cycle` {period, min} with a `numerals` overlay `every` = period × 500.
-- Verse beat: subject in the upper ~55% of the frame; the verse panel takes the lower third.
+- Verse beat: subject in the upper ~55% of the frame; the verse panel takes the lower third. When the
+  subject stands on the floor (a room, a tent, a crowd), place the verse `"sky"` instead and keep the
+  subject in the middle band, clear of the chronicle at the bottom left.
 - Daylight figures: `glow` 0.1–0.3, `bright` ~0.85, `solid` ~0.5. Night or interiors: defaults.
 
 Add any new painter to `src/layers/<theme>.jsx` with a doc comment and a `bounds(cfg)` when it draws in a
