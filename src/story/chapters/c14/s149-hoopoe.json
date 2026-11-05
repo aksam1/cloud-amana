@@ -22,7 +22,7 @@
     {"type": "ridge", "depth": 0.04, "y": 620, "amp": 50, "seed": 1170, "sharp": 0.3, "color": "#8a8a78", "haze": 0.35, "fog": 0.4},
     {"type": "ridge", "depth": 0.08, "y": 660, "amp": 40, "seed": 1171, "sharp": 0.3, "color": "#7a8064", "haze": 0.25, "fog": 0.3},
     {"type": "ground", "depth": 0.14, "y": 690, "amp": 10, "seed": 1172, "color": "#b0a078", "color2": "#8a7a58", "grass": false, "grassColor": "#9aaa62"},
-    {"type": "masonry", "depth": 0.2, "pos": [1000, 712], "w": 1020, "h": 540, "side": 60, "courses": 12, "blocks": 14, "built": 1, "stone": "#e8dcc4", "stone2": "#f4ecd8", "ink": "#6a5a48", "door": {"x": 0.5, "w": 0.1, "h": 0.3}},
+    {"type": "masonry", "depth": 0.13, "pos": [1080, 690], "w": 663, "h": 312, "side": 40, "courses": 18, "blocks": 26, "built": 1, "stone": "#e8dcc4", "stone2": "#f4ecd8", "ink": "#6a5a48", "door": {"x": 0.5, "w": 0.1, "h": 0.3}},
     {"type": "light", "kind": "bird", "depth": 0.4, "h": 14, "color": "#ffe8c0", "glow": 0.8, "bright": 1.4, "path": [[1600, 300, -1500], [1200, 500, -1500], [900, 720, -1500], [870, 780, -1500]], "dur": 6000, "delay": 600},
     {"type": "light", "depth": 0.44, "pos": [760, 802], "h": 112, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
     {"type": "crowd", "kind": "army", "area": [-200, 600, -2000, -1600], "y": [798, 780], "rows": 3, "cols": 8, "size": 92, "color": "#e8d8b8", "dim": 0.25, "glow": 0.3},

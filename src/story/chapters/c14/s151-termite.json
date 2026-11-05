@@ -22,7 +22,7 @@
     {"type": "ridge", "depth": 0.04, "y": 620, "amp": 50, "seed": 1180, "sharp": 0.3, "color": "#8a8a78", "haze": 0.35, "fog": 0.4},
     {"type": "ridge", "depth": 0.08, "y": 660, "amp": 40, "seed": 1181, "sharp": 0.3, "color": "#7a8064", "haze": 0.25, "fog": 0.3},
     {"type": "ground", "depth": 0.14, "y": 690, "amp": 10, "seed": 1182, "color": "#7a8a52", "color2": "#4a5a32", "grass": true, "grassColor": "#9aaa62"},
-    {"type": "masonry", "depth": 0.2, "pos": [1000, 712], "w": 900, "h": 480, "side": 60, "courses": 12, "blocks": 14, "built": 0.5, "stone": "#e8dcc4", "stone2": "#f4ecd8", "ink": "#6a5a48", "at": {"0": {"build": [0.5, 0.75, 10000]}, "1": {"build": [0.75, 0.95, 12000]}, "2": {"built": 0.95}}},
+    {"type": "masonry", "depth": 0.13, "pos": [1080, 690], "w": 585, "h": 273, "side": 40, "courses": 18, "blocks": 26, "built": 0.5, "stone": "#e8dcc4", "stone2": "#f4ecd8", "ink": "#6a5a48", "at": {"0": {"build": [0.5, 0.75, 10000]}, "1": {"build": [0.75, 0.95, 12000]}, "2": {"built": 0.95}}},
     {"type": "light", "depth": 0.36, "pos": [300, 760], "h": 119, "color": "#ff6a2a", "glow": 0.6, "bright": 1.4, "kind": "ember", "at": {"2": {"pose": "kneel"}}},
     {"type": "light", "depth": 0.36, "pos": [410, 770], "h": 119, "color": "#ff6a2a", "glow": 0.6, "bright": 1.4, "kind": "ember", "at": {"2": {"pose": "kneel"}}},
     {"type": "light", "depth": 0.36, "pos": [520, 760], "h": 119, "color": "#ff6a2a", "glow": 0.6, "bright": 1.4, "kind": "ember", "at": {"2": {"pose": "kneel"}}},

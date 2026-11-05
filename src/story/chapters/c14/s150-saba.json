@@ -27,7 +27,7 @@
     {"type": "brazier", "depth": 0.3, "x": 960, "y": 790, "s": 0.6},
     {"type": "light", "kind": "flame", "depth": 0.3, "pos": [960, 742], "h": 20, "color": "#ffb050", "glow": 1.1},
     {"type": "floor", "depth": 0.19, "y": 714, "vp": [800, 500], "color": "#5a7a8a", "color2": "#1a2a34", "lines": 14, "gloss": 0.9, "area": [-800, 708, 2400, 1350]},
-    {"type": "platform", "depth": 0.24, "x": 800, "y": 728, "w": 216, "steps": 4, "rise": 7, "dais": 11, "thrones": 1, "stone": "#c8a868", "lit": "#f0d898", "dark": "#5a4a28", "ppu": 1},
+    {"type": "platform", "depth": 0.24, "x": 800, "y": 728, "w": 216, "steps": 4, "rise": 7, "dais": 11, "stone": "#c8a868", "lit": "#f0d898", "dark": "#5a4a28", "ppu": 1},
     {"type": "light", "depth": 0.241, "pos": [700, 689], "h": 61, "color": "#fffaf0", "glow": 0.6, "bright": 1.35},
     {"type": "light", "depth": 0.44, "pos": [900, 802], "h": 109, "color": "#f4dcc0", "glow": 0.35, "bright": 1.0, "solid": 0.55, "at": {"2": {"pose": "kneel"}}}
   ],

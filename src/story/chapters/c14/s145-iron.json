@@ -21,9 +21,10 @@
     {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#141018"], [1, "#0c0a0e"]]},
     {"type": "facade", "depth": 0.2, "x": 800, "y": 724, "w": 2400, "h": 820, "stone": "#3a3230", "light": 0.6},
     {"type": "floor", "depth": 0.21, "y": 726, "vp": [800, 520], "color": "#3a3430", "color2": "#141210", "lines": 8, "gloss": 0.15, "area": [-800, 720, 2400, 1350]},
-    {"type": "fire", "depth": 0.3, "pos": [600, 772], "w": 72, "h": 72, "heat": 1},
+    {"type": "brazier", "depth": 0.3, "x": 1020, "y": 790, "s": 0.9},
+    {"type": "fire", "depth": 0.301, "pos": [1020, 724], "w": 54, "h": 54, "heat": 1},
     {"type": "light", "kind": "flame", "depth": 0.36, "pos": [1000, 720], "h": 50, "color": "#ffb060", "glow": 0.8},
-    {"type": "dust", "box": [0, 300, -2000, 1200, 900, -1000], "count": 200, "size": 4, "color": "#ffb060", "opacity": 0.6, "wind": [4, 30, 0], "swirl": 40},
+    {"type": "dust", "box": [400, 300, -2600, 1500, 900, -1400], "count": 200, "size": 4, "color": "#ffb060", "opacity": 0.6, "wind": [4, 30, 0], "swirl": 40},
     {"type": "light", "depth": 0.42, "pos": [820, 792], "h": 107, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "pose": "reach"}
   ],
   "beats": [
