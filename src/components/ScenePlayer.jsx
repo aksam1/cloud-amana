@@ -5,6 +5,7 @@ import { VerseCaption } from './Captions.jsx';
 import { Chronicle } from './Chronicle.jsx';
 import { Icon, SourceBadge } from './Ornaments.jsx';
 import { Toast, useToast } from './Toast.jsx';
+import { BridgeCard } from './Bridge.jsx';
 import { cameraAt, chapterByNumber, chapterScenes, nextNodeId, nextScene, nodeById, prevScene, sceneById, verseArabic } from '../lib/story.js';
 import { captionHoldMs } from '../lib/pacing.js';
 import { ambience } from '../lib/audio.js';
@@ -57,6 +58,8 @@ function Player({ scene, start = 0, still = false, moment }) {
   const [playing, setPlaying] = useState(!still);
   const [ended, setEnded] = useState(false);
   const [titleCard, setTitleCard] = useState(!still);
+  // the page between stories opens a chapter's first scene (not a still, not a scene entered part way)
+  const [bridge, setBridge] = useState(() => !still && start === 0 && !!chapterByNumber[scene.chapter]?.bridge && chapterScenes(scene.chapter)[0]?.id === scene.id);
   const [ayahOpen, setAyahOpen] = useState(false);
   const [help, setHelp] = useState(false);
   const [dock, setDock] = useState(0); // how far up the screen the chronicle reaches
@@ -92,9 +95,10 @@ function Player({ scene, start = 0, still = false, moment }) {
     cam.r.set(c0.r);
     setLast(scene.id);
     lightNode(scene.node);
+    if (bridge) return undefined;
     const t = setTimeout(() => setTitleCard(false), TITLE_MS);
     return () => clearTimeout(t);
-  }, [scene, cam, start, still]);
+  }, [scene, cam, start, still, bridge]);
 
   // Camera: each beat glides (or cuts) to its framing; skipping ahead interrupts and re-aims.
   useEffect(() => {
@@ -230,7 +234,7 @@ function Player({ scene, start = 0, still = false, moment }) {
   }, [goNext, goPrev, help, ayahOpen, prefs.chronicle, toggleSound]);
 
   const lines = useMemo(() => beats.slice(0, beat + 1).filter((bt) => bt.say).map((bt) => bt.say), [beats, beat]);
-  const frozen = !playing || ayahOpen || help;
+  const frozen = !playing || ayahOpen || help || bridge;
   const nextLabel = scene.then === 'map' || !next ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `${roman(next.order)}. ${next.title}`;
 
   return (
@@ -265,8 +269,10 @@ function Player({ scene, start = 0, still = false, moment }) {
         aria-hidden="true"
       />
 
+      <AnimatePresence>{bridge && <BridgeCard chapter={chapter} onBegin={() => setBridge(false)} />}</AnimatePresence>
+
       <AnimatePresence>
-        {titleCard && (
+        {titleCard && !bridge && (
           <motion.div key="title" className="pointer-events-none absolute inset-0 z-20 grid place-items-center px-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 1.1 } }}>
             <div className="text-center" style={{ textShadow: '0 2px 24px rgb(0 0 0 / .9)' }}>
               <div className="caps text-[0.66rem] text-gold/85">

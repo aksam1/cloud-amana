@@ -4,30 +4,10 @@
   "arabic": "موسى في التيه",
   "nodes": [],
   "parts": [
-    {
-      "title": "Provision",
-      "from": 131,
-      "to": 132
-    },
-    {
-      "title": "The Mountain and the Calf",
-      "from": 133,
-      "to": 135
-    },
-    {
-      "title": "The Cow",
-      "from": 136,
-      "to": 136
-    },
-    {
-      "title": "Musa and the Servant of God",
-      "from": 137,
-      "to": 139
-    },
-    {
-      "title": "The Wandering",
-      "from": 140,
-      "to": 140
-    }
+    { "title": "Provision", "from": 131, "to": 132 },
+    { "title": "The Mountain and the Calf", "from": 133, "to": 135 },
+    { "title": "The Cow", "from": 136, "to": 136 },
+    { "title": "Musa and the Servant of God", "from": 137, "to": 139 },
+    { "title": "The Wandering", "from": 140, "to": 140 }
   ]
 }
