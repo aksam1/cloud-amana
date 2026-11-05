@@ -7,60 +7,24 @@
   "arabic": "مدينة الأصنام",
   "source": "quran",
   "ayahs": [],
-  "art": [
-    "The city and its temple tower are imagined after the ziggurats of Mesopotamia; the people and Azar appear as dim lights, and Ibrahim as a steady light. The idols have blank faces."
-  ],
+  "art": ["The city and its temple tower are imagined after the ziggurats of Mesopotamia; the people and Azar appear as dim lights, and Ibrahim as a steady light. The idols have blank faces."],
   "ambient": ["water", "city"],
   "base": "#e8c8a0",
   "captions": "parchment",
   "renderer": "gl",
   "pen": true,
   "dissolve": 2400,
-  "world": { "fog": "#ecd6b8", "fogNear": 6000, "fogFar": 42000, "light": 1.0, "rays": 0, "bloom": 0.6, "haze": 0.15, "hazeY": 0.6, "shake": 0.5, "dof": 0 },
-  "cam": { "pos": [800, 540, 1250], "look": [800, 520, -3000] },
+  "world": {"fog": "#ecd6b8", "fogNear": 6000, "fogFar": 42000, "light": 1.0, "rays": 0, "bloom": 0.6, "haze": 0.15, "hazeY": 0.6, "shake": 0.5, "dof": 0},
+  "cam": {"pos": [800, 540, 1250], "look": [800, 520, -3000]},
   "imagePrompt": "Dawn over a city of sun-baked mud brick between two broad rivers, palm groves along the banks, a vast stepped temple tower rising from its heart with long ramps where streams of dim amber lights climb toward the summit; inside a workshop, rows of carved stone and wooden figures with tall headdresses and blank faces stand in ranks, a dim figure bent at work among them, and a single young steady white light standing apart; dust in slanting light; ochre, brick red, river blue and gold; ink-wash and parchment texture.",
   "layers": [
-    { "type": "set", "show": [0, 1], "layers": [
-      { "type": "heavens", "horizon": 640, "sun": { "rise": 6, "set": 18, "x0": 330, "x1": 1300, "peak": 470, "size": 34 }, "tod": [5.1, 7.0, 9000] },
-      { "type": "ridge", "depth": 0.04, "y": 636, "amp": 24, "seed": 81, "sharp": 0.3, "color": "#8a7a7a", "haze": 0.4, "fog": 0.4 },
-      { "type": "ziggurat", "depth": 0.1, "x": 820, "y": 652, "w": 900, "h": 470, "ppu": 0.9 },
-      { "type": "crowd", "area": [760, 880, -9300, -8700], "y": [652, 470], "count": 90, "size": 9, "color": "#ffc078", "dim": 0.3, "glow": 0.6, "flow": [0, -1], "speed": 18, "mill": 1, "flicker": 0.2 },
-      { "type": "town", "depth": 0.14, "y": 680, "x0": -500, "x1": 2100, "s": 0.9, "grade": "town", "lit": 0.2, "haze": "#ecd6b8", "seed": 82 },
-      { "type": "palms", "depth": 0.2, "items": [{ "x": 120, "y": 706, "h": 200, "lean": 0.05 }, { "x": 230, "y": 704, "h": 230, "lean": -0.04 }, { "x": 1360, "y": 706, "h": 210, "lean": 0.06 }, { "x": 1480, "y": 704, "h": 240, "lean": -0.03 }], "seed": 83 },
-      { "type": "water", "mode": "sea", "level": 742, "depth": 0.25 },
-      { "type": "ground", "depth": 0.3, "y": 790, "amp": 6, "seed": 84, "color": "#7a8a4a", "color2": "#4a5a32", "grass": true, "grassColor": "#9aa858" },
-      { "type": "palms", "depth": 0.42, "items": [{ "x": 70, "y": 860, "h": 460, "lean": 0.07 }, { "x": 1540, "y": 862, "h": 480, "lean": -0.05 }], "seed": 85, "ppu": 0.8 },
-      { "type": "dust", "box": [-1400, 100, -6000, 3000, 950, 900], "count": 1200, "size": 3, "color": "#ffe8c8", "opacity": 0.35, "wind": [8, -2, 0] }
-    ] },
-
-    { "type": "set", "show": [1, null], "dx": 6000, "layers": [
-      { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#3a2a20"], [1, "#2a1e18"]] },
-      { "type": "facade", "depth": 0.2, "x": 800, "y": 724, "w": 2400, "h": 820, "stone": "#8a6a50", "light": 0.9, "doors": [{ "x": 1250, "w": 150, "h": 230, "lit": true }] },
-      { "type": "floor", "depth": 0.21, "y": 726, "vp": [800, 520], "color": "#6a5040", "color2": "#2a2018", "lines": 12, "gloss": 0.1, "area": [-800, 720, 2400, 1350] },
-      { "type": "idol", "depth": 0.24, "x": 380, "y": 740, "h": 230, "kind": "stone", "seed": 11 },
-      { "type": "idol", "depth": 0.24, "x": 520, "y": 740, "h": 190, "kind": "clay", "seed": 12 },
-      { "type": "idol", "depth": 0.24, "x": 640, "y": 740, "h": 250, "kind": "wood", "seed": 13 },
-      { "type": "idol", "depth": 0.24, "x": 1000, "y": 740, "h": 210, "kind": "gilt", "seed": 14 },
-      { "type": "idol", "depth": 0.24, "x": 1110, "y": 740, "h": 240, "kind": "stone", "seed": 15 },
-      { "type": "brazier", "depth": 0.3, "x": 690, "y": 800, "s": 0.8 },
-      { "type": "light", "kind": "flame", "depth": 0.3, "pos": [690, 744], "h": 46, "color": "#ffb050", "glow": 1.1 },
-      { "type": "idol", "depth": 0.3, "x": 900, "y": 790, "h": 170, "kind": "stone", "seed": 16, "crown": 1 },
-      { "type": "light", "depth": 0.3, "pos": [840, 792], "h": 70, "w": 0.62, "pose": "kneel", "color": "#d89050", "glow": 0.35, "bright": 1.0, "solid": 0.6 },
-      { "type": "idol", "depth": 0.4, "x": 240, "y": 830, "h": 300, "kind": "wood", "seed": 17, "ppu": 1 },
-      { "type": "idol", "depth": 0.4, "x": 1360, "y": 830, "h": 320, "kind": "clay", "seed": 18, "ppu": 1 },
-      { "type": "light", "show": [2, null], "depth": 0.36, "pos": [960, 806], "h": 92, "color": "#fffaf0", "glow": 0.9, "bright": 1.5 },
-      { "type": "dust", "box": [-400, 200, -3000, 2000, 950, -1200], "count": 500, "size": 3, "color": "#ffe0b0", "opacity": 0.4, "wind": [4, 4, 0], "swirl": 20 }
-    ] }
+    {"type": "set", "show": [0, 1], "layers": [{"type": "heavens", "horizon": 640, "sun": {"rise": 6, "set": 18, "x0": 330, "x1": 1300, "peak": 470, "size": 34}, "tod": [5.1, 7.0, 9000]}, {"type": "ridge", "depth": 0.04, "y": 636, "amp": 24, "seed": 81, "sharp": 0.3, "color": "#8a7a7a", "haze": 0.4, "fog": 0.4}, {"type": "ziggurat", "depth": 0.1, "x": 820, "y": 652, "w": 900, "h": 470, "ppu": 0.9}, {"type": "crowd", "area": [760, 880, -9300, -8700], "y": [652, 470], "count": 90, "size": 9, "color": "#ffc078", "dim": 0.3, "glow": 0.6, "flow": [0, -1], "speed": 18, "mill": 1, "flicker": 0.2}, {"type": "town", "depth": 0.14, "y": 680, "x0": -500, "x1": 2100, "s": 0.9, "grade": "town", "lit": 0.2, "haze": "#ecd6b8", "seed": 82}, {"type": "palms", "depth": 0.2, "items": [{"x": 120, "y": 706, "h": 200, "lean": 0.05}, {"x": 230, "y": 704, "h": 230, "lean": -0.04}, {"x": 1360, "y": 706, "h": 210, "lean": 0.06}, {"x": 1480, "y": 704, "h": 240, "lean": -0.03}], "seed": 83}, {"type": "water", "mode": "sea", "level": 742, "depth": 0.25}, {"type": "ground", "depth": 0.3, "y": 790, "amp": 6, "seed": 84, "color": "#7a8a4a", "color2": "#4a5a32", "grass": true, "grassColor": "#9aa858"}, {"type": "palms", "depth": 0.42, "items": [{"x": 40, "y": 866, "h": 430, "lean": -0.06}, {"x": 150, "y": 870, "h": 360, "lean": 0.05}, {"x": 1560, "y": 864, "h": 500, "lean": -0.04}], "seed": 88, "ppu": 0.8}, {"type": "dust", "box": [-1400, 100, -6000, 3000, 950, 900], "count": 1200, "size": 3, "color": "#ffe8c8", "opacity": 0.35, "wind": [8, -2, 0]}]},
+    {"type": "set", "show": [1, null], "dx": 6000, "layers": [{"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#3a2a20"], [1, "#2a1e18"]]}, {"type": "facade", "depth": 0.2, "x": 800, "y": 724, "w": 2400, "h": 820, "stone": "#8a6a50", "light": 0.9, "doors": [{"x": 1250, "w": 150, "h": 230, "lit": true}]}, {"type": "floor", "depth": 0.21, "y": 726, "vp": [800, 520], "color": "#6a5040", "color2": "#2a2018", "lines": 12, "gloss": 0.1, "area": [-800, 720, 2400, 1350]}, {"type": "idol", "depth": 0.24, "x": 380, "y": 740, "h": 230, "kind": "stone", "seed": 11}, {"type": "idol", "depth": 0.24, "x": 520, "y": 740, "h": 190, "kind": "clay", "seed": 12}, {"type": "idol", "depth": 0.24, "x": 640, "y": 740, "h": 250, "kind": "wood", "seed": 13}, {"type": "idol", "depth": 0.24, "x": 1000, "y": 740, "h": 210, "kind": "gilt", "seed": 14}, {"type": "idol", "depth": 0.24, "x": 1110, "y": 740, "h": 240, "kind": "stone", "seed": 15}, {"type": "brazier", "depth": 0.3, "x": 690, "y": 800, "s": 0.8}, {"type": "light", "kind": "flame", "depth": 0.3, "pos": [690, 744], "h": 46, "color": "#ffb050", "glow": 1.1}, {"type": "idol", "depth": 0.3, "x": 900, "y": 790, "h": 170, "kind": "stone", "seed": 16, "crown": 1}, {"type": "light", "depth": 0.3, "pos": [840, 792], "h": 70, "w": 0.62, "pose": "kneel", "color": "#d89050", "glow": 0.35, "bright": 1.0, "solid": 0.6}, {"type": "idol", "depth": 0.4, "x": 240, "y": 830, "h": 300, "kind": "wood", "seed": 17, "ppu": 1}, {"type": "idol", "depth": 0.4, "x": 1360, "y": 830, "h": 320, "kind": "clay", "seed": 18, "ppu": 1}, {"type": "light", "show": [2, null], "depth": 0.36, "pos": [960, 806], "h": 92, "color": "#fffaf0", "glow": 0.9, "bright": 1.5}, {"type": "dust", "box": [-400, 200, -3000, 2000, 950, -1200], "count": 500, "size": 3, "color": "#ffe0b0", "opacity": 0.4, "wind": [4, 4, 0], "swirl": 20}]}
   ],
   "beats": [
-    { "dur": 9000, "ambient": ["water", "city"], "cam": { "pos": [800, 530, 1120], "look": [800, 520, -3000] },
-      "say": "Long after Thamud, in a city between great rivers, people bowed to idols of stone and wood." },
-    { "dur": 8000, "ambient": ["work", "fire"], "sfx": [{ "name": "scratch", "at": 900 }, { "name": "dig", "at": 2600 }], "world": { "fog": "#3a2c22", "light": 1.05 },
-      "cam": { "dx": 6000, "from": { "pos": [800, 540, 1150], "look": [800, 560, -3000] }, "pos": [800, 530, 960], "look": [800, 570, -3000] },
-      "say": "Ibrahim's own father, Azar, carved them with his hands." },
-    { "dur": 8000, "ambient": ["fire", "air"], "cam": { "dx": 6000, "pos": [720, 540, 760], "look": [700, 600, -3000] },
-      "say": "But Ibrahim, his son, could not bow to what hands had made." },
-    { "dur": 12000, "ambient": ["air"], "cam": { "dx": 6000, "pos": [740, 535, 740], "look": [720, 600, -3000] },
-      "pendingVerse": { "ref": "6:74", "place": "sky" } }
+    {"dur": 9000, "ambient": ["water", "city"], "cam": {"pos": [800, 530, 1120], "look": [800, 520, -3000]}, "say": "Long after Thamud, in a city between great rivers, people bowed to idols of stone and wood."},
+    {"dur": 8000, "ambient": ["work", "fire"], "sfx": [{"name": "scratch", "at": 900}, {"name": "dig", "at": 2600}], "world": {"fog": "#3a2c22", "light": 1.05}, "cam": {"dx": 6000, "from": {"pos": [800, 540, 1150], "look": [800, 560, -3000]}, "pos": [800, 530, 960], "look": [800, 570, -3000]}, "say": "Ibrahim's own father, Azar, carved them with his hands."},
+    {"dur": 8000, "ambient": ["fire", "air"], "cam": {"dx": 6000, "pos": [720, 540, 760], "look": [700, 600, -3000]}, "say": "But Ibrahim, his son, could not bow to what hands had made."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"dx": 6000, "pos": [740, 535, 740], "look": [720, 600, -3000]}, "pendingVerse": {"ref": "6:74", "place": "sky"}}
   ]
 }

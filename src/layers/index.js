@@ -8,6 +8,7 @@ import { Ark, Flood, Springs, Waves, Oven } from './flood.jsx';
 import { Animals, Ants, Ears } from './creatures.jsx';
 import { Balance } from './madyan.jsx';
 import { ClayBirds, Fruit, Table } from './isa.jsx';
+import { Colonnade, Wall } from './interiors.jsx';
 import { Basket, Boat, Chest, Reeds, Seawall, Staff, Tablets, Whale } from './musa.jsx';
 import { Dunes, Column, Iram, Monument, Floor, Facade, Platform, Brazier, Pool, Palms, Terraces, Riverbed, Cloudbank, Sandwall, Trunks, Cliffs, Works, Block } from './iram.jsx';
 import { Outcrop, SheCamel, Well } from './hijr.jsx';
@@ -71,6 +72,8 @@ export const LAYERS = {
   ants: Ants,
   balance: Balance,
   claybirds: ClayBirds,
+  wall: Wall,
+  colonnade: Colonnade,
   fruit: Fruit,
   table: Table,
   basket: Basket,

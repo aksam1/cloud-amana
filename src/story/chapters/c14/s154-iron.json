@@ -19,8 +19,8 @@
   "imagePrompt": "A dark smithy at night, a forge glowing orange, a steady light at the anvil with rings of glowing iron drawn out like thread and linked into a coat of mail that hangs shining on a frame; ink-wash and parchment texture.",
   "layers": [
     {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#141018"], [1, "#0c0a0e"]]},
-    {"type": "facade", "depth": 0.2, "x": 800, "y": 724, "w": 2400, "h": 820, "stone": "#3a3230", "light": 0.6},
-    {"type": "floor", "depth": 0.21, "y": 726, "vp": [800, 520], "color": "#3a3430", "color2": "#141210", "lines": 8, "gloss": 0.15, "area": [-800, 720, 2400, 1350]},
+    {"type": "wall", "depth": 0.2, "y": 724, "h": 820, "material": "stone", "base": "#5a4a3e", "dark": "#1e1612", "seed": 99, "beams": true, "openings": [{"x": 360, "w": 80, "h": 140, "kind": "door", "view": {"sky": "night", "land": "city", "horizon": 0.2}}]},
+    {"type": "floor", "depth": 0.21, "y": 726, "vp": [800, 520], "color": "#3a3028", "color2": "#141008", "lines": 6, "gloss": 0.1, "area": [-800, 720, 2400, 1350]},
     {"type": "brazier", "depth": 0.3, "x": 1020, "y": 790, "s": 0.9},
     {"type": "fire", "depth": 0.301, "pos": [1020, 724], "w": 54, "h": 54, "heat": 1},
     {"type": "light", "kind": "flame", "depth": 0.36, "pos": [1000, 720], "h": 50, "color": "#ffb060", "glow": 0.8},
