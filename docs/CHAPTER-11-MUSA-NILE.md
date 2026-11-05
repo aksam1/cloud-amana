@@ -28,7 +28,7 @@ are told, never shown (a light goes out). The serpent is drawn in ink. No music.
 - **Sound:** work, city → wind, work → wind, air. **Art:** Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. That the Children of Israel were forced to build for Pharaoh is from the commentaries; the Quran tells of their oppression and of his order against their sons (28:4), which is told, never shown.
 - **Image prompt:** A great Egyptian city on the Nile under a hard sun, pylon gates and obelisks; long lines of dim amber lights hauling stone as a great wall rises course by course; on a high terrace a single cold grey light watching; then dusk, the lights of the workers bowed; ink-wash and parchment texture.
 
-### 113 · The Basket on the River · التابوت في اليم (`basket`)
+### 113 · The Basket on the River · السلة على النهر (`basket`)
 - **Ayah:** 28:7. **Node:** musa.
 - **Beats.** (1) *Say:* In those days a son was born to a woman of Israel. God inspired her: nurse him, and when you fear for him, cast him into the river. (2) *Say:* So she laid him in a basket and set it on the Nile, trusting God's promise to return him to her. (3) **Verse 28:7**, placed sky.
 - **Sound:** crickets, water → water, birds → water, air. **Art:** Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. His mother and the infant appear only as soft lights. That the basket was of reeds sealed with pitch is from the commentaries; the Quran tells of the chest cast into the river (20:39, 28:7).
@@ -40,13 +40,13 @@ are told, never shown (a light goes out). The serpent is drawn in ink. No music.
 - **Sound:** water, birds → water, voices → water, air. **Art:** Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. Pharaoh's wife is named Asiya in the hadith; she appears only as a soft light, her women as dim lights.
 - **Image prompt:** The water steps of a white palace on the Nile in morning light, papyrus and palms, a small reed basket drawn in to the lowest step; a soft white light of a noblewoman bending over it among dim amber lights of her women, a cold grey light standing above on the terrace; ink-wash and parchment texture.
 
-### 115 · Returned to His Mother · رده إلى أمه (`nursed`)
+### 115 · Returned to His Mother · العودة إلى الأم (`nursed`)
 - **Ayah:** 28:13. **Node:** musa.
 - **Beats.** (1) *Say:* His sister had followed the basket along the bank, watching from a distance. (2) *Say:* In the palace, the baby would not take any nurse. His sister came forward: shall I show you a household who will care for him? (3) *Say:* So God returned him to his mother, to comfort her and to show her that His promise is true. (4) **Verse 28:13**, placed sky.
 - **Sound:** water, birds → echo, voices → echo, air → echo, air. **Art:** Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. His sister and mother appear only as soft lights; the nurses as dim lights.
 - **Image prompt:** A girl's soft light walking along the papyrus of the river bank, keeping her distance from the palace; then a lamplit hall of the palace where dim amber lights of nurses stand back and a mother's soft light holds a tiny light close; ink-wash and parchment texture.
 
-### 116 · One Blow · الوكزة (`blow`)
+### 116 · One Blow · الضربة (`blow`)
 - **Ayah:** 28:16. **Node:** musa.
 - **Beats.** (1) *Say:* Musa grew up in Pharaoh's palace, strong and wise. (2) *Say:* One day he came upon two men fighting, one of his own people and one of Pharaoh's. Musa struck the Egyptian once, and the man died. (3) *Say:* Musa was horrified at what he had done. My Lord, he prayed, I have wronged myself, so forgive me. And God forgave him. (4) **Verse 28:16**, placed sky.
 - **Sound:** city, water → wind, voices → wind → wind, air. **Art:** Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. Nothing of the fight is shown: two dim lights struggle, and one goes out.

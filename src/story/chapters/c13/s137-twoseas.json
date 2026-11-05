@@ -1,0 +1,39 @@
+{
+  "id": "twoseas",
+  "chapter": 13,
+  "order": 137,
+  "node": "musa",
+  "title": "Where the Two Seas Meet",
+  "arabic": "ملتقى البحرين",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "The companion (named Yusha' in the hadith) and the servant of God (named al-Khidr in the hadith) appear only as lights; al-Khidr as a soft green-white light. The fish slipping away is shown as a small silver light."],
+  "ambient": ["sea", "wind"],
+  "base": "#8a98a8",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#9aa8b4", "fogNear": 6000, "fogFar": 50000, "light": 1.0, "rays": 0, "bloom": 0.7, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 525, 700], "look": [800, 740, -3000]},
+  "imagePrompt": "A rock at the meeting of two bodies of water, one blue and one grey-green, at dusk; a steady light and a smaller light of his young companion resting; a small silver light leaping from a basket into the water; then a soft green-white light waiting by the rock; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 650, "tod": [16.4, 17.2, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [17.2, 17.8, 10000]}, "2": {"tod": [17.8, 18.4, 12000]}}},
+    {"type": "ridge", "depth": 0.03, "y": 650, "amp": 30, "seed": 1060, "sharp": 0.4, "color": "#6a6a7a", "haze": 0.4, "fog": 0.5},
+    {"type": "water", "depth": 0.1, "points": [[-4000, 690], [800, 706], [1400, 760]], "w0": 120, "w1": 160, "reflect": [["0", "#a8c4d8"], ["1", "#2a5a7a"]]},
+    {"type": "water", "depth": 0.1, "points": [[5600, 690], [800, 706], [200, 760]], "w0": 120, "w1": 160, "reflect": [["0", "#b8c8b8"], ["1", "#3a5a4a"]]},
+    {"type": "ground", "depth": 0.22, "y": 752, "amp": 6, "seed": 1061, "color": "#a89878", "color2": "#6a5a48"},
+    {"type": "outcrop", "depth": 0.34, "x": 640, "y": 790, "w": 306, "h": 153, "shape": "twin", "seed": 1062, "ppu": 0.9},
+    {"type": "basket", "depth": 0.42, "x": 860, "y": 814, "w": 38, "area": [820, 780, 900, 820]},
+    {"type": "light", "kind": "flame", "depth": 0.421, "h": 10, "color": "#e8f0ff", "glow": 1.2, "pos": [860, 800], "show": [0, 1], "path": [[860, 800], [960, 720], [1100, 760]], "dur": 2400, "delay": 5000},
+    {"type": "light", "depth": 0.44, "pos": [780, 808], "h": 119, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "at": {"0": {"pose": "kneel"}}},
+    {"type": "light", "depth": 0.44, "pos": [900, 810], "h": 99, "color": "#f4e0c0", "glow": 0.25, "bright": 0.95, "solid": 0.6, "pose": "kneel"},
+    {"type": "light", "depth": 0.43, "pos": [480, 802], "h": 113, "color": "#eef4f0", "glow": 0.4, "bright": 1.15, "solid": 0.5, "show": [1, null]},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.2, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["sea", "wind"], "cam": {"pos": [800, 525, 700], "look": [800, 740, -3000]}, "say": "Musa set out with a young companion to find a servant of God at the meeting of the two seas. When they rested by a rock, their fish slipped away into the sea."},
+    {"dur": 10000, "ambient": ["sea", "air"], "cam": {"pos": [660, 525, 700], "look": [640, 740, -3000]}, "say": "That was the sign they had been seeking. Returning to the rock, they found one of God's servants, to whom He had given knowledge from Himself."},
+    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [700, 520, 850], "look": [700, 690, -3000]}, "pendingVerse": {"ref": "18:65", "place": "sky"}}
+  ]
+}

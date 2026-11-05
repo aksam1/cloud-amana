@@ -44,6 +44,25 @@ const KINDS = {
     leg: 38,
     fleece: '#e2d4bc',
   },
+  // the cow of 2:69, bright yellow
+  yellowcow: {
+    body: 'M-52,-58 C-54,-70 -44,-74 -30,-72 C-10,-76 14,-76 30,-72 C38,-70 42,-66 44,-62 L44,-44 C40,-34 28,-30 14,-30 C0,-28 -20,-28 -36,-32 C-48,-36 -52,-46 -52,-58 Z',
+    head: 'M40,-68 C48,-72 56,-70 62,-64 L72,-50 C74,-44 70,-40 64,-42 L56,-48 C50,-52 44,-56 40,-60 Z',
+    detail: ['M56,-67 C58,-76 64,-79 69,-76', 'M-51,-60 C-59,-52 -60,-40 -57,-26', 'M-10,-56 C-2,-50 8,-50 16,-56'],
+    legs: [[32, -36], [24, -36], [-34, -38], [-42, -40]],
+    leg: 38,
+    fleece: '#f0c838',
+  },
+  // the calf of gold that Samiri made (20:88): a cow's shape cast in metal
+  calf: {
+    body: 'M-46,-52 C-48,-62 -40,-66 -28,-64 C-10,-68 12,-68 26,-64 C34,-62 38,-58 40,-54 L40,-40 C36,-32 26,-28 12,-28 C0,-26 -18,-26 -32,-30 C-42,-34 -46,-42 -46,-52 Z',
+    head: 'M36,-60 C44,-64 50,-62 56,-56 L64,-44 C66,-38 62,-34 56,-36 L50,-42 C46,-46 40,-50 36,-54 Z',
+    detail: ['M50,-60 C52,-68 58,-70 62,-68', 'M-45,-54 C-52,-46 -52,-36 -50,-24', 'M-20,-60 C-10,-56 4,-56 14,-60'],
+    legs: [[28, -32], [21, -32], [-30, -34], [-37, -35]],
+    leg: 32,
+    fleece: '#d8a838',
+    headFill: '#c89428',
+  },
   leancow: {
     body: 'M-50,-72 C-50,-80 -42,-82 -30,-80 C-10,-82 14,-82 30,-80 C38,-78 42,-74 42,-70 L40,-62 C34,-58 24,-60 10,-60 C-6,-58 -24,-58 -38,-62 C-46,-64 -50,-66 -50,-72 Z',
     head: 'M38,-76 C46,-80 54,-78 60,-72 L70,-58 C72,-52 68,-48 62,-50 L54,-56 C48,-60 42,-64 38,-68 Z',
@@ -72,7 +91,7 @@ function Beast({ kind, step, male }) {
         </g>
       ))}
       <path d={K.body} fill={K.fleece || INK} stroke={INK} strokeWidth="2" />
-      {K.head && <path d={K.head} fill={INK} />}
+      {K.head && <path d={K.head} fill={K.headFill || INK} stroke={K.headFill ? INK : undefined} strokeWidth={K.headFill ? 2 : undefined} />}
       {(K.detail || []).map((d, i) => (
         <path key={i} d={d} stroke={K.fleece ? INK : '#8a7a68'} strokeWidth="1.8" fill="none" strokeLinecap="round" />
       ))}

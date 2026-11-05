@@ -34,8 +34,8 @@
     {"type": "light", "kind": "flame", "depth": 0.3, "pos": [640, 724], "h": 20, "color": "#ffb050", "glow": 1.1},
     {"type": "brazier", "depth": 0.3, "x": 960, "y": 772, "s": 0.6},
     {"type": "light", "kind": "flame", "depth": 0.3, "pos": [960, 724], "h": 20, "color": "#ffb050", "glow": 1.1},
-    {"type": "light", "depth": 0.44, "pos": [720, 802], "h": 119, "color": "#fffaf0", "glow": 0.6, "bright": 1.35},
-    {"type": "light", "depth": 0.44, "pos": [660, 804], "h": 119, "color": "#f8f2e6", "glow": 0.5, "bright": 1.25}
+    {"type": "light", "depth": 0.44, "pos": [820, 802], "h": 119, "color": "#fffaf0", "glow": 0.6, "bright": 1.35},
+    {"type": "light", "depth": 0.44, "pos": [760, 804], "h": 119, "color": "#f8f2e6", "glow": 0.5, "bright": 1.25}
   ],
   "beats": [
     {"dur": 10000, "ambient": ["echo", "fire"], "cam": {"pos": [760, 530, 900], "look": [780, 760, -3000]}, "say": "Musa and Harun stood before Pharaoh: we are messengers of the Lord of the worlds. Let the Children of Israel go with us."},

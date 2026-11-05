@@ -32,7 +32,7 @@ the sea closing and the army's lights going out. Mockery is jagged strokes. No m
 - **Sound:** echo, fire → echo, jeer → echo, air. **Art:** Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. The serpent is drawn in ink as the Quran describes it (7:107); the chiefs' scorn is jagged strokes, never words.
 - **Image prompt:** The lamplit hall of Pharaoh, a great ink-drawn serpent rearing on the polished floor before the dais, a steady white light beside it flaring bright; grey lights of the chiefs recoiling and jagged dark strokes of scorn rising; ink-wash and parchment texture.
 
-### 124 · The Day of the Festival · يوم الزينة (`festival`)
+### 124 · The Day of the Festival · يوم العيد (`festival`)
 - **Ayah:** 7:117. **Node:** musa.
 - **Beats.** (1) *Say:* On the day of the festival, all Egypt gathered to watch. The magicians threw down their ropes and staffs, and by their magic these seemed to crawl like snakes. (2) *Say:* Musa felt afraid, but was told: do not fear, throw what is in your hand. His staff swallowed up all that they had faked. (3) **Verse 7:117**, placed sky.
 - **Sound:** crowd, jeer → crowd, roar → crowd, air. **Art:** Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. The magicians' ropes are drawn as small ink serpents because the Quran says they seemed to move (20:66); that they were only ropes and staffs is shown when they vanish.
@@ -44,13 +44,13 @@ the sea closing and the army's lights going out. Mockery is jagged strokes. No m
 - **Sound:** crowd, air → crowd, wind → air. **Art:** Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. Pharaoh's threat is told, not shown, and nothing of its carrying out is shown.
 - **Image prompt:** The great square in Egypt, the line of violet-grey lights of the magicians fallen in prostration on the sand and turning a clear soft white; Pharaoh's cold grey light standing high above them; the crowds silent; ink-wash and parchment texture.
 
-### 126 · The Signs over Egypt · الآيات المفصلات (`plagues`)
+### 126 · The Signs over Egypt · آيات على مصر (`plagues`)
 - **Ayah:** 7:133. **Node:** musa.
 - **Beats.** (1) *Say:* Pharaoh still refused. So God sent signs upon Egypt, one after another: a flood, (2) *Say:* locusts that stripped the fields, lice and frogs, (3) *Say:* and the river turned to blood. Each time, Pharaoh begged Musa to pray for it to end, and each time he broke his word. (4) **Verse 7:133**, placed sky.
 - **Sound:** storm, rain → wind, rustle → wind, water → wind, air. **Art:** Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. The signs are those the Quran names (7:133): flood, locusts, lice, frogs and blood. They are shown on the land and the river, never on people.
 - **Image prompt:** Egypt under a sequence of signs: a storm and a flood spreading over green fields; a dark cloud of locusts streaming over yellowing wheat; the broad river running dark red under a heavy sky while the city stands silent; ink-wash and parchment texture.
 
-### 127 · By Night · السري بعبادي (`exodus`)
+### 127 · By Night · الخروج ليلا (`exodus`)
 - **Ayah:** 26:52. **Node:** musa.
 - **Beats.** (1) *Say:* Then God told Musa: travel by night with My servants, for you will be pursued. (2) *Say:* So the Children of Israel slipped out of Egypt in the dark, a great river of people following Musa and Harun toward the sea. (3) **Verse 26:52**, placed sky.
 - **Sound:** wind, voices → wind, voices → wind, air. **Art:** Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. The Children of Israel appear as a long river of small warm lights.
