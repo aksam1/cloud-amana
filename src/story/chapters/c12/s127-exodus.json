@@ -1,0 +1,37 @@
+{
+  "id": "exodus",
+  "chapter": 12,
+  "order": 127,
+  "node": "musa",
+  "title": "By Night",
+  "arabic": "السري بعبادي",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The Children of Israel appear as a long river of small warm lights."],
+  "ambient": ["wind", "voices"],
+  "base": "#141824",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#141824", "fogNear": 6000, "fogFar": 40000, "light": 0.9, "rays": 0, "bloom": 0.8, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [900, 510, 1000], "look": [900, 600, -3000]},
+  "imagePrompt": "An Egyptian city gate under a bright moon, a long river of small warm lights flowing out through it and away across the moonlit desert toward the east, two steady white lights at their head; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 640, "tod": [22, 23, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [23, 24, 10000]}, "2": {"tod": [0, 0.8, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 620, "amp": 40, "seed": 930, "sharp": 0.4, "color": "#2e2a3a", "haze": 0.3, "fog": 0.4},
+    {"type": "town", "depth": 0.12, "y": 690, "x0": 900, "x1": 2000, "s": 0.6, "grade": "city", "night": true, "lit": 0.25, "haze": "#24202e", "seed": 931},
+    {"type": "facade", "depth": 0.16, "x": 1240, "y": 712, "w": 624, "h": 288, "gate": {"w": 120, "h": 168}, "towers": true, "stone": "#8a8070", "ppu": 0.8},
+    {"type": "dunes", "depth": 0.2, "y": 740, "amp": 10, "count": 8, "seed": 932, "lit": "#7a7088", "body": "#4a4058", "shade": "#221c30"},
+    {"type": "crowd", "area": [-400, 1240, -4200, -2800], "y": [790, 712], "count": 600, "size": 61, "color": "#ffe0b0", "dim": 0.2, "glow": 0.5, "flow": [-1, 0], "speed": 30, "mill": 2, "flicker": 0.1},
+    {"type": "light", "depth": 0.36, "pos": [320, 770], "h": 97, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "pose": "walk", "path": [[460, 772], [180, 766]], "dur": 30000},
+    {"type": "light", "depth": 0.36, "pos": [260, 772], "h": 97, "color": "#f8f2e6", "glow": 0.5, "bright": 1.25},
+    {"type": "dunes", "depth": 0.4, "y": 860, "amp": 30, "count": 5, "seed": 933, "lit": "#6a6078", "body": "#3a3048", "shade": "#1a1428"},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.14, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["wind", "voices"], "cam": {"pos": [900, 510, 1000], "look": [900, 600, -3000]}, "say": "Then God told Musa: travel by night with My servants, for you will be pursued."},
+    {"dur": 11000, "ambient": ["wind", "voices"], "cam": {"pos": [600, 515, 800], "look": [560, 640, -3000]}, "say": "So the Children of Israel slipped out of Egypt in the dark, a great river of people following Musa and Harun toward the sea."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [760, 510, 1000], "look": [760, 600, -3000]}, "pendingVerse": {"ref": "26:52", "place": "sky"}}
+  ]
+}

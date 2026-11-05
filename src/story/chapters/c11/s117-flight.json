@@ -1,0 +1,29 @@
+{
+  "id": "flight",
+  "chapter": 11,
+  "order": 117,
+  "node": "musa",
+  "title": "Flight into the Desert",
+  "arabic": "الخروج إلى مدين",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The man who warned him appears only as a dim light. The road to Madyan is imagined."],
+  "ambient": ["wind", "desert"],
+  "base": "#141824",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#141824", "fogNear": 6000, "fogFar": 40000, "light": 0.9, "rays": 0, "bloom": 0.8, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [960, 535, 500], "look": [980, 770, -3000]},
+  "imagePrompt": "A city gate at night, a dim light running to a steady light with a warning; then the steady light walking alone over vast moonlit dunes under the stars, a long trail of footprints behind, until dawn breaks over far mountains; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "set", "show": [0, 1], "layers": [{"type": "heavens", "horizon": 640, "tod": [23.4, 24, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}}, {"type": "town", "depth": 0.18, "y": 760, "x0": -200, "x1": 1800, "s": 0.9, "grade": "town", "night": true, "lit": 0.15, "haze": "#24202e", "seed": 850}, {"type": "ground", "depth": 0.2, "y": 762, "amp": 3, "seed": 851, "color": "#3a3440", "color2": "#1e1a24"}, {"type": "light", "depth": 0.42, "pos": [1400, 792], "h": 107, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6, "pose": "walk", "path": [[1500, 796], [1000, 792]], "dur": 3500}, {"type": "light", "depth": 0.42, "pos": [900, 792], "h": 113, "color": "#fffaf0", "glow": 0.6, "bright": 1.35}]},
+    {"type": "set", "show": [1, null], "dx": 6000, "layers": [{"type": "heavens", "horizon": 600, "tod": [1, 2.5, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [4.6, 6, 12000]}}}, {"type": "ridge", "depth": 0.04, "y": 600, "amp": 50, "seed": 860, "sharp": 0.5, "color": "#3a3448", "haze": 0.3, "fog": 0.4}, {"type": "dunes", "depth": 0.1, "y": 660, "amp": 30, "count": 9, "seed": 861, "lit": "#8a8098", "body": "#5a5068", "shade": "#2a2438"}, {"type": "light", "depth": 0.16, "pos": [1100, 708], "h": 43, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "pose": "walk", "path": [[1300, 712], [700, 704]], "dur": 20000}, {"type": "dunes", "depth": 0.24, "y": 780, "amp": 40, "count": 6, "seed": 862, "lit": "#7a7088", "body": "#4a4058", "shade": "#221c30"}, {"type": "dust", "box": [-1400, 300, -6000, 3000, 950, 0], "count": 400, "size": 3, "color": "#c8c0d8", "opacity": 0.25, "wind": [-30, -2, 0], "swirl": 40, "blend": "normal"}]}
+  ],
+  "beats": [
+    {"dur": 9000, "ambient": ["wind", "voices"], "sfx": "gust", "cam": {"pos": [960, 535, 500], "look": [980, 770, -3000]}, "say": "A man came running from the far side of the city: the chiefs are plotting to kill you. Leave!"},
+    {"dur": 11000, "ambient": ["wind", "desert"], "cam": {"pos": [900, 500, 1100], "look": [900, 560, -3000], "dx": 6000}, "say": "So Musa fled alone across the desert, toward the land of Madyan."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [860, 500, 1100], "look": [860, 560, -3000], "dx": 6000}, "pendingVerse": {"ref": "28:22", "place": "sky"}}
+  ]
+}

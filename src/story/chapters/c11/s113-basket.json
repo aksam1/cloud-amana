@@ -1,0 +1,43 @@
+{
+  "id": "basket",
+  "chapter": 11,
+  "order": 113,
+  "node": "musa",
+  "title": "The Basket on the River",
+  "arabic": "التابوت في اليم",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "His mother and the infant appear only as soft lights. That the basket was of reeds sealed with pitch is from the commentaries; the Quran tells of the chest cast into the river (20:39, 28:7)."],
+  "ambient": ["water", "crickets"],
+  "base": "#141824",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#141824", "fogNear": 6000, "fogFar": 40000, "light": 0.9, "rays": 0, "bloom": 0.8, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [880, 535, 500], "look": [900, 800, -3000]},
+  "imagePrompt": "A small mud-brick house by the Nile at night, one lamp in its door, a soft light of a mother holding a tiny light; then at the first grey of dawn she kneels among papyrus at the water's edge and a small reed basket drifts away on the broad river; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 640, "tod": [22, 23, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [4.8, 5.8, 12000]}, "2": {"tod": [5.8, 6.4, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 612, "amp": 30, "seed": 800, "sharp": 0.3, "color": "#b0987a", "haze": 0.4, "fog": 0.4},
+    {"type": "town", "depth": 0.1, "y": 650, "x0": -200, "x1": 1800, "s": 0.5, "grade": "city", "lit": 0.05, "haze": "#d8c8a8", "seed": 801},
+    {"type": "monument", "depth": 0.12, "x": 380, "y": 660, "kind": "obelisk", "h": 360, "hill": [80, 16]},
+    {"type": "monument", "depth": 0.12, "x": 1260, "y": 662, "kind": "obelisk", "h": 324, "hill": [80, 16]},
+    {"type": "ground", "depth": 0.14, "y": 670, "amp": 6, "seed": 802, "color": "#8a9a5a", "color2": "#5a6a3a", "grass": true, "grassColor": "#a8b468"},
+    {"type": "palms", "depth": 0.24, "items": [{"x": 220, "y": 772, "h": 324, "lean": -0.05}, {"x": 1380, "y": 772, "h": 360, "lean": 0.05}], "seed": 810},
+    {"type": "facade", "depth": 0.34, "x": 760, "y": 784, "w": 306, "h": 173, "stone": "#a08868", "light": 0.7, "doors": [{"x": 820, "w": 46, "h": 97, "lit": true}], "ppu": 0.9},
+    {"type": "ground", "depth": 0.34, "y": 788, "amp": 4, "seed": 820, "x0": -900, "x1": 2400, "color": "#5a6040", "color2": "#3a4028"},
+    {"type": "water", "depth": 0.36, "points": [[-1400, 806], [800, 812], [3000, 818]], "w0": 90, "w1": 90, "reflect": [["0", "#b8d0d8"], ["1", "#4a6a7a"]]},
+    {"type": "basket", "depth": 0.37, "x": 980, "y": 812, "w": 50, "area": [940, 780, 1020, 818], "at": {"1": {"move": {"path": [[0, 0, 0], [0, 0, 0], [560, 6, 0]], "dur": 16000, "delay": 2000}}, "2": {"move": {"path": [[560, 6, 0]], "dur": 1}}}},
+    {"type": "light", "depth": 0.372, "pos": [980, 806], "h": 25, "color": "#fffaf0", "glow": 0.7, "bright": 1.2, "pose": "babe", "w": 1, "show": [1, null], "at": {"1": {"path": [[980, 806], [980, 806], [1540, 812]], "dur": 16000, "delay": 2000}, "2": {"pos": [1540, 812], "path": null}}},
+    {"type": "light", "depth": 0.42, "pos": [900, 792], "h": 101, "color": "#fff0dc", "glow": 0.3, "bright": 1.0, "solid": 0.5, "at": {"1": {"pos": [940, 798], "pose": "kneel"}, "2": {"pos": [940, 798], "pose": "kneel"}}},
+    {"type": "light", "depth": 0.421, "pos": [920, 760], "h": 28, "color": "#fffaf0", "glow": 0.6, "bright": 1.2, "pose": "babe", "w": 1, "show": [0, 1]},
+    {"type": "reeds", "depth": 0.44, "x0": -200, "x1": 1800, "y": 870, "h": 145, "count": 14, "seed": 821},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.16, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["crickets", "water"], "cam": {"pos": [880, 535, 500], "look": [900, 800, -3000]}, "say": "In those days a son was born to a woman of Israel. God inspired her: nurse him, and when you fear for him, cast him into the river."},
+    {"dur": 13000, "ambient": ["water", "birds"], "cam": {"pos": [1100, 530, 700], "look": [1140, 760, -3000]}, "say": "So she laid him in a basket and set it on the Nile, trusting God's promise to return him to her."},
+    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [1200, 525, 800], "look": [1240, 720, -3000]}, "pendingVerse": {"ref": "28:7", "place": "sky"}}
+  ]
+}

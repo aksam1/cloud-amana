@@ -1,10 +1,20 @@
 {
   "number": 12,
-  "title": "Musa and Harun",
-  "arabic": "موسى وهارون",
-  "nodes": ["musa", "harun"],
+  "title": "Musa and Pharaoh",
+  "arabic": "موسى وفرعون",
+  "nodes": [
+    "harun"
+  ],
   "parts": [
-    { "title": "Prophet Musa", "nodes": ["musa"] },
-    { "title": "Prophet Harun", "nodes": ["harun"] }
+    {
+      "title": "The Signs",
+      "from": 122,
+      "to": 126
+    },
+    {
+      "title": "The Sea",
+      "from": 127,
+      "to": 130
+    }
   ]
 }

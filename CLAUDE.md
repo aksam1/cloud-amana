@@ -146,6 +146,10 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   standing herds give single-point paths, `fade: "none"` and an `area`, as the camels do.
 - `ears` (creatures.jsx) draws stalks of grain (`n`, `x0`, `x1`, `y`, `h`, `state` green or dry); `balance`
   (`src/layers/madyan.jsx`) a merchant's balance on a post (`h`, `w`, `tilt` degrees: 0 is a fair measure).
+- Musa's story (`src/layers/musa.jsx`): `basket` (reed basket, `w`), `reeds` (papyrus clumps `x0`–`x1` on `y`,
+  `h`), `staff` (`len`; `state: "serpent"` draws the ink serpent, `face`), `seawall` (a towering wall of water
+  `x0`–`x1` from the sea floor `y` up `h`, its sheer `face` side onto the path; part the sea with two walls
+  whose `move` slides them apart and up, as The Sea Parts does).
 - Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`
   (stepped temple tower with stairs and shrine), `tent` (goat hair, `lit` lamp inside) and `ram` (only as
   light). `numerals` can `count` plainly from one (Hajar's seven runs).

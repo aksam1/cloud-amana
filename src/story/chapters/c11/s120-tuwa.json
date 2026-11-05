@@ -1,0 +1,30 @@
+{
+  "id": "tuwa",
+  "chapter": 11,
+  "order": 120,
+  "node": "musa",
+  "title": "The Fire on the Mountain",
+  "arabic": "النار في الطور",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The fire is shown only as Musa saw it, a fire on the mountainside; God is not depicted in it or in any form. The call is told in words, never shown."],
+  "ambient": ["wind", "air"],
+  "base": "#0c0e16",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#0e1018", "fogNear": 6000, "fogFar": 40000, "light": 0.9, "rays": 0, "bloom": 0.8, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [900, 520, 800], "look": [940, 680, -3000]},
+  "imagePrompt": "A cold dark night in rocky mountains, a small family camp with a dim tent; far up the slope, among the rocks, a tree in a gentle golden fire; a steady light climbing toward it and stopping before it, kneeling, small and far away, seen from behind; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "set", "show": [0, 2], "layers": [{"type": "heavens", "horizon": 560, "tod": [1, 1.6, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [1.6, 2.2, 10000]}}}, {"type": "peak", "depth": 0.06, "x": 1040, "y": 240, "w": 900, "h": 560, "color": "#2a2a38", "lit": "#4a4a5e", "seed": 890}, {"type": "ridge", "depth": 0.1, "y": 640, "amp": 80, "seed": 891, "sharp": 0.7, "color": "#22222e", "haze": 0.2, "fog": 0.3}, {"type": "fire", "depth": 0.12, "pos": [1120, 600], "w": 72, "h": 90, "heat": 0.8}, {"type": "light", "kind": "flame", "depth": 0.121, "pos": [1120, 600], "h": 30, "color": "#ffc870", "glow": 1.6}, {"type": "ground", "depth": 0.3, "y": 800, "amp": 14, "seed": 893, "color": "#3a3a48", "color2": "#1a1a24"}, {"type": "tent", "depth": 0.38, "x": 640, "y": 820, "w": 285, "h": 114, "lit": true, "ppu": 0.9}, {"type": "light", "depth": 0.4, "pos": [820, 822], "h": 96, "color": "#f4d8b8", "glow": 0.25, "bright": 0.95, "solid": 0.6}, {"type": "light", "depth": 0.42, "pos": [920, 824], "h": 113, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "at": {"1": {"pose": "walk", "path": [[920, 824], [1180, 812]], "dur": 9000}}}, {"type": "dust", "box": [-1400, 0, -9000, 3000, 950, 0], "count": 300, "size": 3, "color": "#c8d0e8", "opacity": 0.2, "wind": [-6, 2, 0], "swirl": 40}]},
+    {"type": "set", "show": [2, null], "dx": 6000, "layers": [{"type": "heavens", "horizon": 560, "tod": [2.2, 2.8, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"2": {"tod": [2.2, 2.8, 10000]}, "3": {"tod": [2.8, 3.4, 12000]}}}, {"type": "peak", "depth": 0.06, "x": 700, "y": 200, "w": 1200, "h": 600, "color": "#2a2a38", "lit": "#4a4a5e", "seed": 894}, {"type": "ridge", "depth": 0.14, "y": 700, "amp": 60, "seed": 895, "sharp": 0.6, "color": "#2a2a36", "haze": 0.2, "fog": 0.3}, {"type": "ground", "depth": 0.26, "y": 760, "amp": 10, "seed": 896, "color": "#4a4652", "color2": "#22202a"}, {"type": "tree", "depth": 0.3, "x": 1000, "y": 780, "h": 158, "kind": "bare", "seed": 892}, {"type": "fire", "depth": 0.301, "pos": [1000, 760], "w": 117, "h": 163, "heat": 0.75}, {"type": "ground", "depth": 0.4, "y": 806, "amp": 6, "seed": 897, "color": "#5a5664", "color2": "#2a2834"}, {"type": "light", "depth": 0.43, "pos": [820, 812], "h": 116, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "at": {"3": {"pose": "kneel"}}}, {"type": "dust", "box": [-1400, 0, -6000, 3000, 950, 0], "count": 200, "size": 3, "color": "#ffd8a0", "opacity": 0.3, "wind": [2, 12, 0], "swirl": 30}]}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [900, 520, 800], "look": [940, 680, -3000]}, "say": "Years later, travelling with his family on a cold, dark night, Musa saw a fire on the side of the mountain."},
+    {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [980, 510, 900], "look": [1020, 640, -3000]}, "say": "Stay here, he told them. Perhaps I can bring you a burning brand, or find someone at the fire to guide us."},
+    {"dur": 11000, "ambient": ["air", "fire"], "world": {"bloom": 0.95}, "cam": {"pos": [860, 520, 700], "look": [900, 720, -3000], "dx": 6000}, "say": "When he came to it, a voice called to him from the tree in the blessed valley: Musa, I am God, the Lord of the worlds."},
+    {"dur": 12000, "ambient": ["air", "fire"], "world": {"bloom": 0.95}, "cam": {"pos": [860, 520, 800], "look": [900, 690, -3000], "dx": 6000}, "pendingVerse": {"ref": "28:30", "place": "sky"}}
+  ]
+}
