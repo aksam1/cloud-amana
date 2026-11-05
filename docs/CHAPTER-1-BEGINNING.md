@@ -93,49 +93,55 @@ and his light is gone.
 - **Art:** —
 - **Image prompt:** Two small figures of light descending through soft clouds toward a green, living earth far below; far in the distance, separately, a falling trail of dark smoke; the view pulling back until the earth becomes a parchment campaign map of ink rivers and mountains.
 
-### 11 · The First Home · البيت الأول (`first-home`)
+### 11 · The Covenant · العهد الأول (`covenant`)
+- **Ayah:** 7:172. **Node:** humanity.
+- **Beats.** (1) *Say:* Before any of his children were born, God brought out from Adam all the souls that would ever descend from him. (2) *Say:* He asked them: am I not your Lord? And every soul answered: yes, we bear witness. That promise, the Quran says, is written in every human heart. (3) **Verse 7:172**, placed sky.
+- **Sound:** air, wind → air → air. **Art:** God is not depicted in any form or light. That every soul of Adam's descendants was drawn out and testified is from the hadith (Ahmad, al-Tirmidhi) explaining 7:172; the souls are shown only as small lights rising like stars. Adam appears only as a steady light.
+- **Image prompt:** A wide plain under an immense night sky, a steady light kneeling alone; from him a stream of countless tiny lights rises and spreads across the heavens like a new field of stars, every one brightening together at once; ink-wash and parchment texture.
+
+### 12 · The First Home · البيت الأول (`first-home`)
 - **Beats.** (1) *Say:* On earth, Adam and Hawwa found each other again and walked together through an empty valley. (3) *Say:* Day after day they built a shelter of stone and branches. (4) *Say:* They broke the soil, and the first green came up. (5) *Say:* Then the wheat turned gold, and the first fire was lit. **Verse 2:36**
 - **Made of:** dust, ground, heavens, light, mist, ridge, shelter, water.
 - **Art:** The shelter, the first harvest and the cooking fire are imagined to show the first settled life.
 - **Image prompt:** Extreme wide shot of an empty valley just before sunrise, the sky graded from deep indigo to pale saffron, at least four layered ink-wash mountain ridges each lighter and hazier than the one in front, low mist over a winding river that mirrors the sky, dust motes drifting upward, long golden god-rays across the valley floor; two tiny figures of soft white-gold light walking side by side along the riverbank, seen from behind; a domed shelter of stone and branches, a field turning from dry earth to rippling golden wheat, a single cooking fire and a thin ribbon of grey smoke; earthy ochre, olive, warm brown and soft gold.
 
-### 12 · Children Fill the Valley · الذرية (`children`)
+### 13 · Children Fill the Valley · الذرية (`children`)
 - **Beats.** (1) *Say:* Years passed in the valley where Adam and Hawwa had made their first home. (2) *Say:* Children were born, and their children after them, and new homes rose around the first shelter. (3) *Say:* Season followed season, and the family grew. (7) *Say:* Among Adam's sons were two brothers: Habil, who kept the flocks on the hills, and Qabil, who worked the fields below. (9) **Verse 4:1**
 - **Made of:** crowd, dust, flock, ground, heavens, light, particles, peak, plots, ridge, shelter, tint, tree, water.
 - **Art:** The growing settlement, the turning seasons and the brothers' daily work are imagined to show the first generations; the Quran does not describe them.
 - **Image prompt:** Wide eye-level painting of the same valley as the first home, years later at mid-morning: layered ink-wash mountains, a winding river reflecting the sky, the first domed shelter of stone and branches now surrounded by several more, tilled plots in rows of green and gold spreading outward, several thin ribbons of cooking smoke, dozens of tiny soft figures of warm white-gold light carrying water jars from the river, herding sheep, grinding grain and children running between the homes; rolling green hills on the left with a calm white figure of light among a small flock, lowland fields across the river on the right with an amber figure of light working the soil with a wooden tool; ochre, olive green, warm brown and soft gold, parchment texture, visible brush strokes, no faces, no text or labels.
 
-### 13 · The Two Offerings · القربان (`offerings`)
+### 14 · The Two Offerings · القربان (`offerings`)
 - **Beats.** (1) *Say:* On a bare hilltop above the valley, the two brothers each brought an offering. **Verse 5:27** (2) *Say:* Habil laid down a healthy ram with a thick white fleece, gently and with care. (3) *Say:* Qabil dropped a thin bundle of poor grain without a second look. (4) *Say:* The clouds parted, and white fire came down upon Habil's offering. **Verse 5:27**
 - **Made of:** altar, beam, clouds, dust, fire, ground, heavens, light, ridge.
 - **Art:** Habil and Qabil appear only as figures of light, with no faces. That fire came down to take the accepted offering is told by the commentators.
 - **Image prompt:** A bare rocky hilltop above the valley under heavy layered storm clouds of charcoal and bronze, with a single break in the clouds directly overhead; dry grass bent flat by the wind; two rough stone altars about ten paces apart, framed symmetrically; on the left altar a large healthy ram with a thick white fleece; on the right a thin, dry bundle of poor grain with stalks fallen to the ground; a pillar of pure white fire descending from the break in the clouds onto the left altar, sparks rising in a spiral like stars, the white fire the brightest point in the frame; the right altar untouched, its grain lifted and scattered by the wind.
 
-### 14 · The Threat and the Answer · الوعيد والجواب (`threat`)
+### 15 · The Threat and the Answer · الوعيد والجواب (`threat`)
 - **Beats.** (1) *Say:* Envy burned in Qabil until his light turned red. (2) *Say:* A thread of black smoke, the same that crept through the Garden, wound around his shoulders. **Verse 5:27** (3) *Say:* Habil lowered his open hands and would not fight. **Verse 5:27** (4) *Say:* The wind rose with every word. (5) **Verse 5:28**
 - **Made of:** altar, clouds, dust, ground, heavens, light, ridge, wisp.
 - **Art:** The black smoke is the same whisper seen in the Garden; the brothers are figures of glow with no faces.
 - **Image prompt:** A tense side two-shot on a storm-lit hilltop, the horizon cutting the frame in half and the storm filling the sky; on the right a figure of deep, smouldering red light leaning forward, dark smoke rising from its shoulders, a thin snake-like wisp of black smoke coiling around it with faint unreadable script; on the left a calm, steady figure of white light with open hands lowered, palms outward, refusing to fight; two stone altars between them. No faces, only glow.
 
-### 15 · The First Murder · أول دم (`first-murder`)
+### 16 · The First Murder · أول دم (`first-murder`)
 - **Beats.** (1) *Say:* Qabil stepped forward. (4) *Say:* When the sky could be seen again, Habil's light was gone, and Qabil stood alone in the rain. **Verse 5:30** (5) *Say:* His red glow had dimmed to ash.
 - **Made of:** altar, clouds, dust, ground, heavens, inkdrop, light, lightning, ridge.
 - **Art:** No violence is shown: the moment happens off screen, marked only by a single drop of ink, and Habil's light is simply gone.
 - **Image prompt:** Two frames: a blank cream parchment filling the whole picture with a single drop of dark red ink spreading outward in thin branching veins; and a rain-soaked hilltop painted in long ink-stroke rain, nearly monochrome, where a lone figure of dull ashy-grey glow stands small and motionless beside two stone altars, a dark low shape lying in shadow on the ground. No violence, no weapon, no blood other than the ink.
 
-### 16 · The Crow · الغراب (`crow`)
+### 17 · The Crow · الغراب (`crow`)
 - **Beats.** (1) *Say:* At dusk, Qabil sat beside his brother's body, lost, not knowing what to do. (2) *Say:* A crow glided down and landed a few steps away. **Verse 5:31** (3) *Say:* It scratched at the earth, dug a small hollow, and pushed the soil back over it. (4) *Say:* Qabil fell to his knees. **Verse 5:31** (5) **Verse 5:31**
 - **Made of:** crow, dust, ground, heavens, light, mound, ridge, tree.
 - **Art:** Habil's body is never shown: it lies under a covering of earth. Qabil appears only as a dimmed figure of light.
 - **Image prompt:** A barren, cracked field at dusk, the sky a bruised purple fading to a thin line of orange on the horizon, a single leafless tree in silhouette; a dim grey figure of light hunched on the ground beside a shape covered in shadow; a black crow drawn in crisp, detailed ink strokes, standing out sharply from the soft painting, digging at the earth with beak and claws, small bursts of dirt flying; at the end, a small mound of earth beside the kneeling figure as the crow flies toward the fading sunset.
 
-### 17 · A Lesson for All Humanity · عبرة للناس (`lesson`)
+### 18 · A Lesson for All Humanity · عبرة للناس (`lesson`)
 - **Beats.** (1) *Say:* The small mound lay under a sky full of stars. (2) *Say:* Then the view rose: past the tree, above the valley, above the clouds. (3) *Say:* Across the curve of the earth, every life that would ever be came on like a lamp. (4) *Say:* One light went out, and a shadow passed over them all. **Verse 5:32** (5) **Verse 5:32**
 - **Made of:** calligraphy, clouds, dust, globe, ground, heavens, mound, ridge, tree.
 - **Art:** The lights on the earth stand for every human life; one going dark and one flaring show the verse's meaning, not a historical event.
 - **Image prompt:** One continuous rise: from a small mound of earth at night under a sky full of stars, past a bare tree, above the valley and the clouds, until the whole curved earth hangs against the stars, painted in ink-wash blues and greens, thousands of tiny points of light spread across its continents; one light gone dark with a ripple of shadow passing over the others, one light flaring with a wave of warm gold spreading across all of them; huge glowing Arabic calligraphy arching across the sky above the earth.
 
-### 18 · Adam's Final Days and Shith · شيث (`shith`)
+### 19 · Adam's Final Days and Shith · شيث (`shith`)
 - **Beats.** (1) *Say:* Adam grew old, and his children's children filled the valley. (2) *Say:* Closest to him sat his son Shith. (4) *Say:* Adam placed the guidance in Shith's hands, and every head in the room bowed. (5) *Say:* Then Adam's light faded gently and rose to join the stars.
 - **Made of:** calligraphy, crowd, dust, dwelling, light, scroll.
 - **Art:** Adam, Shith and their family appear only as figures of light. That guidance passed to Shith is told in the traditions.

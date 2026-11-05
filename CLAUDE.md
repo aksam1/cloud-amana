@@ -35,6 +35,20 @@ npm run publish             # build + deploy/index.html + the files map for the 
 npm run verses              # turn each beat's pendingVerse into its verse once the ayat are fetched
 ```
 
+## Numbering, inserting scenes, and the pages between stories
+
+- Scene `order` runs through the whole story and shows as a Roman numeral, so it must stay whole and
+  sequential. To insert a scene, give it a fractional order (e.g. `96.5`) and then renumber: the scratchpad
+  generators' `renum.py` sorts by (chapter, order), renames files `s<NN>-<id>.json`, rewrites each
+  chapter's part ranges and records id → order in `order.json` (which the generators read). If the
+  scratchpad is gone, do the same by hand: renumber, rename, and fix `parts` `from`/`to`.
+- Each chapter.json carries a `bridge` { when, where, line: [names], text: [paragraphs] }: the page between
+  stories shown before the chapter's first scene (`src/components/Bridge.jsx`) and under "Before this
+  story" on the map. Keep it plain, say which chapter it follows on from, and give Bible names in
+  passing (Musa, known as Moses). Generators must keep it (write chapter.json without dropping `bridge`).
+- Chapter 18, Stories of Wisdom (map stop `wisdom`), holds stories whose time is uncertain or that sit
+  outside the line of prophets (the Cave, Dhul-Qarnayn, the two gardens, the hundred years, Luqman).
+
 ## Reviewing scenes (do this for every beat)
 
 - `#/scene/<id>?beat=n&still` holds the end of beat n (paused, camera where the beat ends).
@@ -157,6 +171,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `count`, `s`, `wet`), `fruit` (a bowl of out-of-season fruit, `w`, `glow`) and `table` (the table sent down,
   `w`, `glow`; lower it with a `move`). A single angel is a `crowd` of `kind: "angels"` with `count` 1 in a
   tiny `area` (a column of light, never a figure).
+- `animals` kinds `dog` (lying, forelegs stretched: the sleepers' dog) and `donkey`.
 - Crowds of people read best at `glow` 0.1–0.15 and `dim` 0.4 by day: brighter, hundreds of them wash out
   into a band of white.
 - Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`

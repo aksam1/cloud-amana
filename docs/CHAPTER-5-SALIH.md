@@ -25,7 +25,7 @@ palm groves and fields on the valley floor.
 
 ## Scenes
 
-### 49 · The Valley of the Rock · وادي الحجر (`hijr`)
+### 50 · The Valley of the Rock · وادي الحجر (`hijr`)
 - **Ayah:** 89:9 (whole), following 89:6–8 that opened Chapter 4.
 - **Beats.**
   1. Out of a high, hazy dawn the camera sinks toward a plain of red rock towers.
@@ -46,7 +46,7 @@ palm groves and fields on the valley floor.
   shadows across the sand, a thin haze over the far rocks; rose red, ochre, gold and deep violet; ink-wash
   and parchment texture.
 
-### 50 · Gardens and Springs · خيرات الوادي (`plenty`)
+### 51 · Gardens and Springs · خيرات الوادي (`plenty`)
 - **Ayah:** 26:146–149 (Salih's words to them about their gardens, springs, palms and carved homes).
 - **Beats.**
   1. The valley floor: springs running between palm groves, fields of grain.
@@ -62,7 +62,7 @@ palm groves and fields on the valley floor.
   rock facades glowing rose and gold in the evening sun, warm lamplight beginning to show in their dark
   doorways; abundance and calm; emerald, gold, rose red and lamp amber; ink-wash and parchment texture.
 
-### 51 · Salih Among His People · صالح بين قومه (`salih`)
+### 52 · Salih Among His People · صالح بين قومه (`salih`)
 - **Ayah:** 11:61 (the call to worship God alone, who produced them from the earth and settled them in it).
 - **Beats.**
   1. Wide: a single steady light walks into the city from the desert road, seen from far behind.
@@ -79,7 +79,7 @@ palm groves and fields on the valley floor.
   calligraphy forming in the air above; warm afternoon light, rose and ochre stone, dust in the air;
   ink-wash and parchment texture.
 
-### 52 · Bring Us a Sign · تحدي القوم (`doubt`)
+### 53 · Bring Us a Sign · تحدي القوم (`doubt`)
 - **Ayah:** 26:153–154 (they call him bewitched, a man like them, and demand a sign).
 - **Beats.**
   1. The crowd turns on him: jagged strokes of scorn swirl around the steady light.
@@ -95,7 +95,7 @@ palm groves and fields on the valley floor.
   arms raised toward an enormous lone outcrop of red rock behind the city; tension, heat and dust; burnt
   orange, rose stone, ink black; ink-wash and parchment texture.
 
-### 53 · The She-Camel · الناقة (`camel`)
+### 54 · The She-Camel · الناقة (`camel`)
 - **Ayah:** 7:73 (the she-camel of God, a sign: let her eat on God's earth and do not touch her with harm).
 - **Beats.**
   1. Before the great lone rock, the people gather as dim lights; Salih's light stands before it.
@@ -113,7 +113,7 @@ palm groves and fields on the valley floor.
   lights drawing back; violet dawn shadows, rose stone, pearl and gold light; reverent, quiet, immense;
   ink-wash and parchment texture.
 
-### 54 · The Water Shared · قسمة الماء (`drink`)
+### 55 · The Water Shared · قسمة الماء (`drink`)
 - **Ayah:** 26:155–156 (a day to drink for her and a day for them; do not touch her with harm).
 - **Beats.**
   1. The great well of the valley: the she-camel drinks while the people keep back.
@@ -129,7 +129,7 @@ palm groves and fields on the valley floor.
   over the valley, the she-camel's light crossing the plain to graze and the herds coming to the well on
   their own days; rose stone, cool water blue, pale gold; ink-wash and parchment texture.
 
-### 55 · The Night of the Nine · ليلة التسعة (`nine`)
+### 56 · The Night of the Nine · ليلة التسعة (`nine`)
 - **Ayah:** 91:11–14 (Thamud denied; the most wretched went forth; the messenger's warning; they hamstrung her).
 - **Beats.**
   1. Night in a carved hall: nine figures like dark embers lean together; jagged strokes pass between them.
@@ -148,7 +148,7 @@ palm groves and fields on the valley floor.
   plain empty, the well and the towering rocks in moonlight, the soft light gone; deep indigo, silver,
   ember red; restrained and grave, nothing violent shown; ink-wash and parchment texture.
 
-### 56 · Three Days · المهلة (`three`)
+### 57 · Three Days · المهلة (`three`)
 - **Ayah:** 11:65 (enjoy yourselves in your homes for three days; a promise not to be denied).
 - **Beats.**
   1. From behind, Salih's light on a rise above the city, facing it.
@@ -167,7 +167,7 @@ palm groves and fields on the valley floor.
   then, by starlight, a short line of steady white lights walking out of the valley into the open desert;
   violet dusk, indigo night, rose stone; ink-wash and parchment texture.
 
-### 57 · The Blast · الفجر الأخير (`blast`)
+### 58 · The Blast · الفجر الأخير (`blast`)
 - **Ayah:** 11:67–68 (the blast seized the wrongdoers; as if they had never prospered there).
 - **Beats.**
   1. The fourth dawn: the valley still, lamps burning in every doorway.
@@ -184,7 +184,7 @@ palm groves and fields on the valley floor.
   sky; nothing violent shown, only light going out; ash grey, bone white, cold rose stone; ink-wash and
   parchment texture.
 
-### 58 · Salih Turns Away · وداع صالح (`farewell`)
+### 59 · Salih Turns Away · وداع صالح (`farewell`)
 - **Ayah:** 7:79 (he turned away: I conveyed my Lord's message and advised you, but you do not like advisors).
 - **Beats.**
   1. Far off on a ridge, from behind, Salih's light looks back at the silent valley.
