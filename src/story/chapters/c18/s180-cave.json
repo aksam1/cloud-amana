@@ -23,7 +23,7 @@
   ],
   "beats": [
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [820, 500, 1000], "look": [840, 560, -3000]}, "say": "Long ago a band of young men refused to worship their people's idols. Fleeing for their faith, they took refuge in a cave, and prayed: our Lord, grant us mercy from Yourself, and guide us rightly."},
-    {"dur": 13000, "ambient": ["wind", "air"], "world": {"cycle": {"period": 900, "min": 0.55}}, "cam": {"pos": [800, 540, 500], "look": [800, 860, -3000], "dx": 6000}, "say": "God made them sleep, with their dog stretched across the entrance; and they slept on while the sun passed the cave mouth day after day, for three hundred years and nine."},
-    {"dur": 12000, "ambient": ["air"], "world": {"cycle": {"period": 0, "min": 1}}, "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000], "dx": 6000}, "pendingVerse": {"ref": "18:10", "place": "sky"}}
+    {"dur": 13000, "ambient": ["wind", "air"], "cam": {"pos": [800, 540, 500], "look": [800, 860, -3000], "dx": 6000}, "say": "God made them sleep, with their dog stretched across the entrance; and they slept on while the sun passed the cave mouth day after day, for three hundred years and nine."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000], "dx": 6000}, "pendingVerse": {"ref": "18:10", "place": "sky"}}
   ]
 }

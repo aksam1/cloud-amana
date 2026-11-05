@@ -21,7 +21,7 @@
     {"type": "heavens", "horizon": 600, "tod": [15, 16, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [16, 17.4, 10000]}, "2": {"tod": [17.4, 18.4, 10000]}, "3": {"tod": [18.4, 19, 12000]}}},
     {"type": "peak", "depth": 0.12, "x": 260, "y": 160, "w": 760, "h": 620, "color": "#3a3440", "lit": "#6a5a60", "seed": 1630},
     {"type": "peak", "depth": 0.12, "x": 1340, "y": 150, "w": 760, "h": 630, "color": "#3a3440", "lit": "#6a5a60", "seed": 1631},
-    {"type": "masonry", "depth": 0.16, "pos": [800, 760], "w": 1200, "h": 864, "side": 0, "courses": 16, "blocks": 14, "built": 0.1, "stone": "#4a4a52", "stone2": "#5a5a64", "ink": "#1a1a20", "at": {"0": {"build": [0.1, 0.6, 10000]}, "1": {"build": [0.6, 1, 9000]}, "2": {"built": 1, "stone": "#b0683a", "stone2": "#c87a44"}, "3": {"built": 1, "stone": "#8a5a3a", "stone2": "#a06a44"}}},
+    {"type": "masonry", "depth": 0.16, "pos": [800, 760], "w": 1056, "h": 528, "side": 0, "courses": 12, "blocks": 16, "built": 0.1, "stone": "#4a4a52", "stone2": "#5a5a64", "ink": "#1a1a20", "at": {"0": {"build": [0.1, 0.6, 10000]}, "1": {"build": [0.6, 1, 9000]}, "2": {"built": 1, "stone": "#b0683a", "stone2": "#c87a44"}, "3": {"built": 1, "stone": "#8a5a3a", "stone2": "#a06a44"}}},
     {"type": "fire", "show": [1, 3], "depth": 0.2, "pos": [560, 760], "w": 120, "h": 150, "heat": 1.1},
     {"type": "fire", "show": [1, 3], "depth": 0.2, "pos": [800, 760], "w": 120, "h": 150, "heat": 1.1},
     {"type": "fire", "show": [1, 3], "depth": 0.2, "pos": [1040, 760], "w": 120, "h": 150, "heat": 1.1},

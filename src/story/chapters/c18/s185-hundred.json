@@ -31,8 +31,8 @@
   ],
   "beats": [
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [900, 520, 750], "look": [920, 700, -3000]}, "say": "A man passed by a town lying in ruins, its roofs fallen in. How, he wondered, will God ever bring this back to life after its death?"},
-    {"dur": 11000, "ambient": ["wind", "air"], "world": {"cycle": {"period": 700, "min": 0.6}}, "cam": {"pos": [900, 515, 900], "look": [920, 660, -3000]}, "say": "So God caused him to die for a hundred years."},
-    {"dur": 12000, "ambient": ["birds", "air"], "world": {"cycle": {"period": 0, "min": 1}}, "cam": {"pos": [900, 525, 650], "look": [920, 730, -3000]}, "say": "Then He raised him. How long have you stayed? A day or part of a day. No, a hundred years. Look at your food, not even spoiled; and look at your donkey, as We bring it back to life."},
+    {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [900, 515, 900], "look": [920, 660, -3000]}, "say": "So God caused him to die for a hundred years."},
+    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [900, 525, 650], "look": [920, 730, -3000]}, "say": "Then He raised him. How long have you stayed? A day or part of a day. No, a hundred years. Look at your food, not even spoiled; and look at your donkey, as We bring it back to life."},
     {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [920, 520, 800], "look": [940, 690, -3000]}, "pendingVerse": {"ref": "2:259", "place": "sky", "part": "its closing: \"I know that Allah is over all things competent\""}}
   ]
 }
