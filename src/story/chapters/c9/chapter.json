@@ -9,5 +9,14 @@
     { "title": "In Egypt", "from": 96, "to": 99 },
     { "title": "The King's Dream", "from": 100, "to": 102 },
     { "title": "The Brothers", "from": 103, "to": 105 }
-  ]
+  ],
+  "bridge": {
+    "when": "About 1900–1600 BCE",
+    "where": "Canaan, then Egypt",
+    "line": ["Ibrahim", "Ishaq", "Yaqub", "Yusuf"],
+    "text": [
+      "Yaqub, known as Jacob in the Bible, was also called Israel, and his twelve sons became the twelve tribes: the Children of Israel. Yusuf, known as Joseph, is one of the youngest.",
+      "The Quran calls this the best of stories. It begins with a boy's dream, and it explains how Yaqub's family came to live in Egypt, which is where the story of Musa will begin."
+    ]
+  }
 }

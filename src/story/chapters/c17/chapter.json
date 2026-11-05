@@ -6,5 +6,14 @@
   "parts": [
     { "title": "The Signs", "from": 174, "to": 177 },
     { "title": "Good News and Ascension", "from": 178, "to": 179 }
-  ]
+  ],
+  "bridge": {
+    "when": "About 30 years later (the early first century CE)",
+    "where": "Galilee and Jerusalem",
+    "line": ["Maryam", "Isa"],
+    "text": [
+      "The child who spoke from his mother's arms has grown up. Isa, known as Jesus, is honoured in Islam as one of the greatest messengers. He was born without a father by God's command, and he is a servant of God, not God.",
+      "His miracles, the Quran says again and again, happen by God's permission. The chapter ends as the Quran tells it: he was not killed, but raised up to God."
+    ]
+  }
 }

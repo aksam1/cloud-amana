@@ -9,5 +9,14 @@
     { "title": "Hajar and Ismail", "from": 68, "to": 71 },
     { "title": "The Sacrifice", "from": 72, "to": 73 },
     { "title": "The House", "from": 74, "to": 78 }
-  ]
+  ],
+  "bridge": {
+    "when": "About 2000 BCE",
+    "where": "Ur in Mesopotamia, then Canaan, Egypt and the valley of Makkah",
+    "line": ["Nuh", "…", "Azar", "Ibrahim"],
+    "text": [
+      "Ibrahim, known as Abraham in the Bible, is honoured by Muslims, Jews and Christians alike. He is born among idol-makers. His own father, Azar, carves idols.",
+      "This long chapter follows his whole life: his search for the truth, the fire, his journeys, his sons Ismail and Ishaq, the test of the sacrifice, and the House he raised in Makkah, the Ka'ba."
+    ]
+  }
 }

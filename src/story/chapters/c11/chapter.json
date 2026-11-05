@@ -7,5 +7,14 @@
     { "title": "Born in Egypt", "from": 115, "to": 118 },
     { "title": "Exile", "from": 119, "to": 122 },
     { "title": "The Call", "from": 123, "to": 124 }
-  ]
+  ],
+  "bridge": {
+    "when": "Several centuries after Yusuf (about 1400 BCE)",
+    "where": "Egypt, then Madyan and Mount Sinai",
+    "line": ["Yaqub", "…", "Imran", "Musa"],
+    "text": [
+      "Yusuf's family had settled in Egypt. Generations later, their descendants, the Children of Israel, have become slaves of a cruel Pharaoh.",
+      "Musa, known as Moses in the Bible, is born into this time of fear. His story fills the next three chapters."
+    ]
+  }
 }

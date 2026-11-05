@@ -6,5 +6,14 @@
   "parts": [
     { "title": "Shith and Idris", "from": 20, "to": 25 },
     { "title": "The Generations Before Nuh", "from": 26, "to": 27 }
-  ]
+  ],
+  "bridge": {
+    "when": "Long after Adam; no one knows how long",
+    "where": "The early settlements of humankind",
+    "line": ["Adam", "Shith", "…", "Idris"],
+    "text": [
+      "Adam has died, and his son Shith carries his teaching on. Over many generations Adam's children spread across the earth.",
+      "In Islam, a prophet is a person God chooses to remind people of Him. Idris, known as Enoch in the Bible, is one of the earliest. After him, people begin to make statues of their good men, and slowly forget why."
+    ]
+  }
 }

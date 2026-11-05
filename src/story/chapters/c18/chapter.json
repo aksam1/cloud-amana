@@ -7,5 +7,13 @@
     { "title": "The Cave", "from": 180, "to": 181 },
     { "title": "Dhul-Qarnayn", "from": 182, "to": 183 },
     { "title": "Parables and Lessons", "from": 184, "to": 186 }
-  ]
+  ],
+  "bridge": {
+    "when": "Uncertain: some before Isa, some after",
+    "where": "Many lands",
+    "text": [
+      "The Quran also tells stories that sit outside the line of prophets, or whose time no one can fix. They are told as lessons for those who reflect.",
+      "Here are young men who slept for centuries in a cave, a just king who travelled to the ends of the earth, a proud man and his garden, a man who slept a hundred years, and a father's advice to his son."
+    ]
+  }
 }

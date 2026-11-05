@@ -6,5 +6,14 @@
   "parts": [
     { "title": "The Pride of ʿAd", "from": 40, "to": 43 },
     { "title": "The Wind", "from": 44, "to": 49 }
-  ]
+  ],
+  "bridge": {
+    "when": "Centuries after the flood (roughly 3000–2000 BCE)",
+    "where": "The sand dunes of southern Arabia (al-Ahqaf)",
+    "line": ["Nuh", "…", "the people of 'Ad", "Hud"],
+    "text": [
+      "Nuh's descendants spread out and became nations. One of them, the tribe of 'Ad, grew rich and strong, built towering monuments and forgot God.",
+      "God sends them one of their own, Hud. The pattern of this chapter repeats through many that follow: a prophet warns, most refuse, and the believers are saved."
+    ]
+  }
 }

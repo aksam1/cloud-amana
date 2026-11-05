@@ -9,5 +9,14 @@
     { "title": "The Cow", "from": 141, "to": 142 },
     { "title": "Musa and the Servant of God", "from": 143, "to": 145 },
     { "title": "The Wandering", "from": 146, "to": 146 }
-  ]
+  ],
+  "bridge": {
+    "when": "The forty years after the crossing",
+    "where": "The Sinai desert and the lands around it",
+    "line": ["Musa · Harun", "the Children of Israel"],
+    "text": [
+      "Free at last, the Children of Israel are in the desert with Musa and Harun. God feeds and shelters them, and gives Musa the Torah on the mountain.",
+      "Yet freedom is a test too. Much of this chapter is about a people learning to trust God, and failing, and being forgiven. It also tells of Musa's own journey to learn from a servant of God."
+    ]
+  }
 }

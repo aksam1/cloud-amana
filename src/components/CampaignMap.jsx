@@ -225,6 +225,19 @@ function Dossier({ n, st, onClose, seen }) {
       <div className="caps mt-2 text-[0.6rem] text-ink-soft">{n.date}</div>
       <p className="mt-3 font-body text-[1.12rem] leading-snug text-ink">{n.summary}</p>
 
+      {planned?.bridge && (
+        <details className="mt-3 rounded-md border border-[#8a6a4e]/30 bg-[#5a3d22]/5 px-3 py-2">
+          <summary className="caps cursor-pointer text-[0.62rem] text-ink">Before this story · Chapter {roman(planned.number)}</summary>
+          {planned.bridge.where && <p className="mt-2 font-body text-[0.98rem] leading-snug text-ink-soft">{planned.bridge.where}</p>}
+          {planned.bridge.line?.length > 0 && <p className="mt-1 font-display text-[0.92rem] text-ink">{planned.bridge.line.join(' → ')}</p>}
+          {(planned.bridge.text || []).map((t, i) => (
+            <p key={i} className="mt-2 font-body text-[1rem] leading-snug text-ink">
+              {t}
+            </p>
+          ))}
+        </details>
+      )}
+
       {refs.length > 0 && (
         <div className="mt-4 space-y-3">
           {refs.map((ref) => {

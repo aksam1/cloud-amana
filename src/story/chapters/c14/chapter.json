@@ -7,5 +7,14 @@
     { "title": "Dhul-Kifl", "from": 147, "to": 147 },
     { "title": "Dawud", "from": 148, "to": 152 },
     { "title": "Sulayman", "from": 153, "to": 158 }
-  ]
+  ],
+  "bridge": {
+    "when": "About 1000–930 BCE",
+    "where": "The land of Israel; Jerusalem; and Saba, in Yemen",
+    "line": ["the Children of Israel", "…", "Dawud", "Sulayman"],
+    "text": [
+      "After Musa, the Children of Israel lived under judges and prophets. The Quran also names Dhul-Kifl, whose identity is uncertain.",
+      "When enemies threatened them, they asked God for a king. This chapter follows that king's army, the young Dawud, known as David, who becomes king and prophet, and his son Sulayman, known as Solomon, whose kingdom has no equal."
+    ]
+  }
 }

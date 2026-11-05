@@ -58,7 +58,7 @@ export function BridgeCard({ chapter, onBegin }) {
           <ol className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-1 font-display text-[0.95rem] text-ink" aria-label="Family line">
             {line.map((name, i) => (
               <li key={i} className="flex items-center gap-1.5">
-                {i > 0 && <span aria-hidden="true" className="text-gold">→</span>}
+                {i > 0 && <span aria-hidden="true" className="text-[#8a6a2e]">→</span>}
                 <span className={i === line.length - 1 ? 'font-semibold' : ''}>{name}</span>
               </li>
             ))}

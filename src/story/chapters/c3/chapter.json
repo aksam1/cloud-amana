@@ -6,5 +6,14 @@
   "parts": [
     { "title": "The Call", "from": 28, "to": 32 },
     { "title": "The Ark and the Flood", "from": 33, "to": 39 }
-  ]
+  ],
+  "bridge": {
+    "when": "Many generations after Idris (about 5,000 years ago by one reckoning)",
+    "where": "The land of Nuh's people, often placed in Mesopotamia",
+    "line": ["Adam", "…", "Idris", "…", "Nuh"],
+    "text": [
+      "The statues of the last chapter have become idols, and people now worship them. God sends Nuh, known as Noah in the Bible, to call them back.",
+      "He calls them for centuries, and only a few listen. This is the story of the ark and the great flood. Every person alive afterwards descends from those who were saved with him."
+    ]
+  }
 }
