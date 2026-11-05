@@ -1,0 +1,41 @@
+{
+  "id": "aziz",
+  "chapter": 9,
+  "order": 95,
+  "node": "yusuf",
+  "title": "The House of the Aziz",
+  "arabic": "بيت العزيز",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Yusuf appears only as a steady light; the Aziz and the people of Egypt as dim figures of light. Egypt's look is imagined."],
+  "ambient": ["city", "water"],
+  "base": "#d8c8a8",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#d8c8a8", "fogNear": 6000, "fogFar": 42000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.15, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [960, 525, 920], "look": [1000, 595, -3000]},
+  "imagePrompt": "A great city of white walls and obelisks along a broad river lined with palms, crowds of dim amber lights in a market by the water, a steady light walking beside a tall dim figure toward a palace gate; then years passing, the light grown taller; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [9, 11, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "at": {"1": {"tod": [11, 16, 10000, 4]}, "2": {"tod": [16, 17.4, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 610, "amp": 30, "seed": 500, "sharp": 0.3, "color": "#b0987a", "haze": 0.4, "fog": 0.4},
+    {"type": "town", "depth": 0.1, "y": 640, "x0": -200, "x1": 1800, "s": 0.7, "grade": "city", "lit": 0.2, "haze": "#d8c8a8", "seed": 501},
+    {"type": "monument", "depth": 0.12, "x": 380, "y": 650, "kind": "obelisk", "h": 200, "hill": [120, 30]},
+    {"type": "monument", "depth": 0.12, "x": 1260, "y": 652, "kind": "obelisk", "h": 180, "hill": [120, 30]},
+    {"type": "ground", "depth": 0.14, "y": 664, "amp": 6, "seed": 502, "color": "#8a9a5a", "color2": "#5a6a3a", "grass": true, "grassColor": "#a8b468"},
+    {"type": "water", "depth": 0.16, "points": [[-200, 690], [400, 700], [900, 712], [1800, 724]], "w0": 60, "w1": 90, "reflect": [["0", "#b8d0d8"], ["1", "#5a7a8a"]]},
+    {"type": "palms", "depth": 0.2, "items": [{"x": 140, "y": 730, "h": 230, "lean": 0.05}, {"x": 250, "y": 728, "h": 260, "lean": -0.04}, {"x": 1380, "y": 730, "h": 240, "lean": 0.06}, {"x": 1490, "y": 728, "h": 270, "lean": -0.03}], "seed": 503},
+    {"type": "facade", "depth": 0.18, "x": 1300, "y": 712, "w": 520, "h": 190, "gate": {"w": 110, "h": 120}, "towers": true, "stone": "#e0d0b0", "ppu": 0.8},
+    {"type": "crowd", "area": [200, 900, -3500, -2800], "y": [748, 730], "count": 40, "size": 26, "color": "#ffd8a0", "dim": 0.25, "glow": 0.5, "mill": 16, "speed": 0, "flicker": 0.15},
+    {"type": "light", "depth": 0.24, "pos": [920, 752], "h": 40, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "pose": "walk", "path": [[700, 760], [1080, 748]], "dur": 9000, "at": {"1": {"h": 58, "pose": "stand", "path": null, "pos": [1000, 750]}}},
+    {"type": "light", "depth": 0.24, "pos": [960, 752], "h": 62, "color": "#ecc49a", "glow": 0.3, "bright": 0.95, "solid": 0.6, "pose": "walk", "path": [[740, 760], [1120, 748]], "dur": 9000, "at": {"1": {"pose": "stand", "path": null, "pos": [1080, 750]}}},
+    {"type": "ground", "depth": 0.4, "y": 836, "amp": 10, "seed": 505, "color": "#5a6a3a", "color2": "#3a4a2a", "grass": true, "grassColor": "#7a8a4a", "wind": 1},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["city", "water"], "cam": {"pos": [960, 525, 920], "look": [1000, 595, -3000]}, "say": "In Egypt a great minister, the Aziz, bought him, and told his wife: make his stay a good one; he may be of use to us."},
+    {"dur": 10000, "ambient": ["city", "birds"], "cam": {"pos": [1020, 530, 860], "look": [1050, 605, -3000]}, "say": "Yusuf grew up in that house, and God gave him wisdom and knowledge."},
+    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [960, 515, 1080], "look": [980, 570, -3000]}, "pendingVerse": {"ref": "12:22", "place": "sky"}}
+  ]
+}

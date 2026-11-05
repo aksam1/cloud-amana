@@ -35,6 +35,21 @@ const KINDS = {
     legs: [[26, -48], [20, -48], [-24, -48], [-30, -48]],
     leg: 48,
   },
+  // the king's dream (12:43): seven well-fed cows, and seven lean ones with their ribs showing
+  cow: {
+    body: 'M-50,-44 C-52,-62 -40,-70 -20,-68 L28,-68 C36,-70 40,-74 46,-72 L58,-70 C66,-68 70,-62 68,-56 L62,-48 C58,-44 52,-44 48,-46 C42,-38 34,-34 24,-34 L-40,-34 C-48,-36 -50,-40 -50,-44 Z',
+    detail: ['M50,-72 C48,-80 54,-84 60,-82', 'M-50,-56 C-58,-52 -60,-42 -58,-30'],
+    legs: [[30, -38], [24, -38], [-34, -38], [-40, -38]],
+    leg: 38,
+    fleece: '#d8c8b0',
+  },
+  leancow: {
+    body: 'M-48,-58 C-50,-68 -40,-72 -22,-70 L26,-70 C34,-72 40,-76 46,-74 L58,-72 C66,-70 70,-64 68,-58 L62,-52 C58,-48 52,-48 48,-50 C44,-50 36,-54 26,-56 L-40,-56 C-46,-56 -48,-56 -48,-58 Z',
+    detail: ['M50,-74 C48,-82 54,-86 60,-84', 'M-48,-64 C-56,-60 -58,-50 -56,-40', 'M-20,-68 L-20,-58', 'M-8,-68 L-8,-58', 'M4,-68 L4,-58', 'M16,-68 L16,-58'],
+    legs: [[28, -54], [22, -54], [-32, -54], [-38, -54]],
+    leg: 54,
+    fleece: '#8a7a68',
+  },
   sheep: {
     body: 'M-34,-30 C-40,-38 -34,-50 -24,-50 C-20,-58 -8,-60 -2,-54 C4,-60 16,-60 20,-52 C30,-52 34,-42 30,-34 C28,-26 18,-22 8,-24 C0,-20 -14,-20 -20,-24 C-28,-22 -34,-24 -34,-30 Z',
     head: 'M24,-50 C30,-56 40,-54 42,-46 C44,-40 38,-36 32,-38 L26,-40 Z',
@@ -126,6 +141,52 @@ export function Animals({ cfg }) {
           );
         }),
       )}
+    </Svg>
+  );
+}
+
+/**
+ * Ears of grain standing in a row, drawn in ink (the king's dream): `n` stalks from `x0` to `x1` with their
+ * feet on `y`, `h` tall; `state` "green" (full, upright ears) or "dry" (thin, bent and withered).
+ */
+export function Ears({ cfg }) {
+  const { n = 7, x0 = 400, x1 = 800, y = 760, h = 220, state = 'green', seed = 3 } = cfg;
+  const dry = state === 'dry';
+  const stem = dry ? '#8a6a3a' : '#5a7a2a';
+  const kernel = dry ? '#a88a58' : '#c8b04a';
+  const rnd = (i, k) => {
+    const v = Math.sin((i + 1) * 12.9898 + (k + seed) * 78.233) * 43758.5453;
+    return v - Math.floor(v);
+  };
+  return (
+    <Svg>
+      {Array.from({ length: n }, (_, i) => {
+        const x = x0 + ((x1 - x0) * (i + 0.5)) / n;
+        const hh = h * (0.9 + rnd(i, 1) * 0.15) * (dry ? 0.85 : 1);
+        const bend = dry ? 40 + rnd(i, 2) * 30 : (rnd(i, 2) - 0.5) * 16;
+        // the stem curves over to its tip; a dry stalk droops at the top
+        const tip = [x + bend, y - hh + (dry ? 40 : 0)];
+        const ctrl = [x + bend * 0.1, y - hh * 0.6];
+        const along = (t) => [(1 - t) * (1 - t) * x + 2 * (1 - t) * t * ctrl[0] + t * t * tip[0], (1 - t) * (1 - t) * y + 2 * (1 - t) * t * ctrl[1] + t * t * tip[1]];
+        const kernels = [];
+        const rows = dry ? 6 : 9;
+        for (let k = 0; k < rows; k++) {
+          const t = 0.7 + (0.3 * k) / rows;
+          const [kx, ky] = along(t);
+          const [nx, ny] = along(Math.min(1, t + 0.02));
+          const a = (Math.atan2(ny - ky, nx - kx) * 180) / Math.PI;
+          for (const side of [-1, 1])
+            kernels.push(<ellipse key={`${k}${side}`} cx={kx} cy={ky} rx={dry ? 5 : 8} ry={dry ? 2.2 : 4.2} fill={kernel} stroke={INK} strokeWidth={0.8} transform={`rotate(${a + side * 28} ${kx} ${ky}) translate(${dry ? 4 : 6} ${side * 3})`} />);
+        }
+        const leaf = along(0.35);
+        return (
+          <g key={i}>
+            <path d={`M${x},${y} Q${ctrl[0]},${ctrl[1]} ${tip[0]},${tip[1]}`} fill="none" stroke={stem} strokeWidth={dry ? 2.2 : 3.2} strokeLinecap="round" />
+            <path d={`M${leaf[0]},${leaf[1]} q${dry ? 30 : 34},${dry ? 30 : -20} ${dry ? 50 : 64},${dry ? 70 : -10}`} fill="none" stroke={stem} strokeWidth={dry ? 1.6 : 2.4} strokeLinecap="round" />
+            {kernels}
+          </g>
+        );
+      })}
     </Svg>
   );
 }

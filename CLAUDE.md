@@ -91,8 +91,9 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `h`, `side` face receding to `horizon`, `courses`, `blocks`, `built` 0–1 or `build` [from, to, ms,
   delay], `door` {x, w, h, lift}, `robe` 0–1 black cloth with a gold band), `spring` (a pool welling up:
   `pos`, `r`, `squash`, `well` 0–1 or `rise` [from, to, ms, delay], `rim` 0–1 bank of sand), `cosmos` (the
-  beginning: `thread` of gold light, swirling `smoke`, `split` parting it, `skies` 0–7 shells of light; a
-  backdrop that eases between beats; tinted gold it is the angels' court), `globe` (the earth's curve with
+  beginning: a `point` of light, `thread` of gold light, the joined `mass`, swirling `smoke`, `split` parting
+  it with a burst ring, `skies` 0–7 shells of light, `stars`, molten `lava` below; `colors`/`gold`/`base` recolour
+  it (ember for the jinn, violet for dreams, gold for the angels' court); a backdrop that eases between beats), `globe` (the earth's curve with
   every life a light on the land: `pos`, `r`, `r0`/`zoomDur`, `phase` appear/dark/gold).
 - A card can `shatter` {delay, dur, spread, gravity, spin, floor, cols, rows} (usually set in `at` for the
   beat it breaks): it is cut into shards that fly, tumble and rest on the `floor` line; a negative `delay`
@@ -129,6 +130,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - A card's own `fade` is a number (ms); a painter's `fade` word ("none", "out") is passed to the painter.
 - Thamud's land (`src/layers/hijr.jsx`): `outcrop` (sandstone with carved `homes`, lamps `lit`, a `rift`
   of light), `shecamel` (only as light; poses stand, walk, drink, kneel) and `well` (`trough`, `frame`).
+- `animals` (`src/layers/creatures.jsx`) also draws `cow` and `leancow` (ribs showing: the king's dream); for
+  standing herds give single-point paths, `fade: "none"` and an `area`, as the camels do.
 - Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`
   (stepped temple tower with stairs and shrine), `tent` (goat hair, `lit` lamp inside) and `ram` (only as
   light). `numerals` can `count` plainly from one (Hajar's seven runs).
