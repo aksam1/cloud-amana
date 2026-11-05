@@ -4,8 +4,8 @@
   "arabic": "أيوب وشعيب",
   "nodes": ["ayyub", "shuayb"],
   "parts": [
-    { "title": "Ayyub's Patience", "from": 106, "to": 109 },
-    { "title": "Shu'ayb and Madyan", "from": 110, "to": 114 }
+    { "title": "Ayyub's Patience", "from": 107, "to": 110 },
+    { "title": "Shu'ayb and Madyan", "from": 111, "to": 115 }
   ],
   "bridge": {
     "when": "Ayyub: uncertain (about 1500 BCE by some reckonings); Shu'ayb: before Musa",

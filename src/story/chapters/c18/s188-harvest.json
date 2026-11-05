@@ -1,0 +1,43 @@
+{
+  "id": "harvest",
+  "chapter": 18,
+  "order": 188,
+  "node": "wisdom",
+  "title": "The Owners of the Garden",
+  "arabic": "أصحاب البستان",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The parable of 68:17–33. The brothers and the poor appear only as dim figures of light. What came upon the garden by night is shown as the garden going dark, nothing more; that they lived near Sana'a is from the commentaries."],
+  "ambient": ["crickets", "wind"],
+  "base": "#141824",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#141824", "fogNear": 6000, "fogFar": 40000, "light": 0.9, "rays": 0, "bloom": 0.9, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [820, 520, 800], "look": [820, 690, -3000]},
+  "imagePrompt": "A rich orchard heavy with fruit at night, a few dim figures of light whispering together under the trees; a storm of darkness passing silently over it; then grey dawn, the same orchard blackened and bare as if reaped, the brothers kneeling among the ruined trees; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 650, "tod": [22, 23, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [23, 24, 10000]}, "2": {"tod": [5.2, 6.2, 11000]}, "3": {"tod": [6.2, 7, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 640, "amp": 40, "seed": 1720, "sharp": 0.3, "color": "#3a3a48", "haze": 0.3, "fog": 0.4, "at": {"2": {"color": "#6a6870"}, "3": {"color": "#6a6870"}}},
+    {"type": "ground", "depth": 0.14, "y": 690, "amp": 10, "seed": 1721, "color": "#3a4a2a", "color2": "#1a2414", "grass": true, "grassColor": "#5a6a3a", "at": {"2": {"color": "#2a2420", "color2": "#141210", "grass": false}, "3": {"color": "#2a2420", "color2": "#141210", "grass": false}}},
+    {"type": "tree", "depth": 0.22, "x": 320, "y": 730, "h": 165, "kind": "living", "seed": 1722, "at": {"2": {"kind": "bare"}, "3": {"kind": "bare"}}},
+    {"type": "tree", "depth": 0.24, "x": 560, "y": 740, "h": 180, "kind": "living", "seed": 1723, "at": {"2": {"kind": "bare"}, "3": {"kind": "bare"}}},
+    {"type": "tree", "depth": 0.24, "x": 1080, "y": 742, "h": 180, "kind": "living", "seed": 1724, "at": {"2": {"kind": "bare"}, "3": {"kind": "bare"}}},
+    {"type": "tree", "depth": 0.26, "x": 1320, "y": 752, "h": 195, "kind": "living", "seed": 1725, "at": {"2": {"kind": "bare"}, "3": {"kind": "bare"}}},
+    {"type": "tree", "depth": 0.3, "x": 180, "y": 772, "h": 225, "kind": "living", "seed": 1726, "at": {"2": {"kind": "bare"}, "3": {"kind": "bare"}}},
+    {"type": "tree", "depth": 0.32, "x": 1460, "y": 780, "h": 240, "kind": "living", "seed": 1727, "at": {"2": {"kind": "bare"}, "3": {"kind": "bare"}}},
+    {"type": "storm", "show": [1, 2], "tone": "dark", "opacity": 0.8},
+    {"type": "light", "depth": 0.42, "pos": [700, 796], "h": 107, "color": "#ecc49a", "glow": 0.2, "bright": 0.95, "solid": 0.6, "at": {"3": {"pose": "kneel"}}},
+    {"type": "light", "depth": 0.42, "pos": [770, 796], "h": 107, "color": "#ecc49a", "glow": 0.2, "bright": 0.95, "solid": 0.6, "at": {"3": {"pose": "kneel"}}},
+    {"type": "light", "depth": 0.42, "pos": [840, 796], "h": 107, "color": "#ecc49a", "glow": 0.2, "bright": 0.95, "solid": 0.6, "at": {"3": {"pose": "kneel"}}},
+    {"type": "light", "depth": 0.42, "pos": [910, 796], "h": 107, "color": "#ecc49a", "glow": 0.2, "bright": 0.95, "solid": 0.6, "at": {"3": {"pose": "kneel"}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.12, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["crickets", "voices"], "cam": {"pos": [820, 520, 800], "look": [820, 690, -3000]}, "say": "The Quran tells of brothers who owned a fine garden. They swore that at dawn they would gather all its fruit, quietly, so that no poor person could come in and ask for a share."},
+    {"dur": 9000, "ambient": ["wind", "storm"], "cam": {"pos": [800, 505, 1100], "look": [800, 540, -3000]}, "say": "But while they slept, something from their Lord passed over the garden."},
+    {"dur": 11000, "ambient": ["wind"], "cam": {"pos": [820, 520, 800], "look": [820, 690, -3000]}, "say": "At dawn they found it black and bare, as if already reaped. We are lost, they said. The fairest of them said: did I not tell you to remember God? Glory be to our Lord, they answered; we were the wrongdoers."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [820, 520, 850], "look": [820, 680, -3000]}, "pendingVerse": {"ref": "68:29", "place": "sky"}}
+  ]
+}

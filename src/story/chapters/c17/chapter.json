@@ -4,8 +4,8 @@
   "arabic": "عيسى",
   "nodes": ["isa"],
   "parts": [
-    { "title": "The Signs", "from": 174, "to": 177 },
-    { "title": "Good News and Ascension", "from": 178, "to": 179 }
+    { "title": "The Signs", "from": 177, "to": 180 },
+    { "title": "Good News and Ascension", "from": 181, "to": 182 }
   ],
   "bridge": {
     "when": "About 30 years later (the early first century CE)",

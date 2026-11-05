@@ -1,0 +1,37 @@
+{
+  "id": "yahya",
+  "chapter": 16,
+  "order": 173,
+  "node": "yahya",
+  "title": "Yahya",
+  "arabic": "يحيى",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Prophets appear only as steady lights; Maryam and her mother as soft lights; the people as dim figures of light. Angels are columns of light, never figures. The look of the temple and the land is imagined.", "That Yahya lived simply in the wild and was gentle with animals is from the commentaries."],
+  "ambient": ["water", "birds"],
+  "base": "#c8c0b0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c8c0b0", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [900, 525, 700], "look": [920, 730, -3000]},
+  "imagePrompt": "The green valley of a river among reeds at morning, deer drinking at the water; a young steady light kneeling on the bank, absorbed in study; then the same light grown, standing among dim lights of people at the river, teaching; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [7, 8, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [8, 14, 12000, 4]}, "2": {"tod": [14, 15, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 620, "amp": 50, "seed": 1330, "sharp": 0.4, "color": "#8a8a7a", "haze": 0.35, "fog": 0.4},
+    {"type": "ground", "depth": 0.14, "y": 690, "amp": 10, "seed": 1331, "color": "#8a9a5a", "color2": "#5a6a3a", "grass": true, "grassColor": "#a8b468"},
+    {"type": "water", "depth": 0.24, "points": [[-1600, 770], [800, 774], [3200, 778]], "w0": 60, "w1": 60, "reflect": [["0", "#b8d0d8"], ["1", "#4a6a7a"]]},
+    {"type": "reeds", "depth": 0.3, "x0": -200, "x1": 500, "y": 800, "h": 99, "count": 6, "seed": 1332},
+    {"type": "animals", "depth": 0.4, "fade": "none", "area": [960, 680, 1300, 820], "pairs": [{"kind": "deer", "solo": true, "s": 0.94, "path": [[1060, 800]], "face": -1}, {"kind": "deer", "solo": true, "s": 0.94, "path": [[1180, 800]], "face": -1}]},
+    {"type": "light", "depth": 0.42, "pos": [820, 796], "h": 88, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "pose": "kneel", "at": {"1": {"h": 110, "pose": "stand"}, "2": {"h": 110, "pose": "raise"}}},
+    {"type": "crowd", "show": [1, null], "area": [300, 760, -1500, -1300], "y": [798, 786], "count": 30, "size": 105, "color": "#ffe0b0", "dim": 0.4, "glow": 0.12, "mill": 2, "speed": 0},
+    {"type": "reeds", "depth": 0.5, "x0": 1300, "x1": 2000, "y": 880, "h": 165, "count": 5, "seed": 1333},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["water", "birds"], "cam": {"pos": [900, 525, 700], "look": [920, 730, -3000]}, "say": "Yahya was born as promised. While still a child he was told: take hold of the Scripture with strength. And he was given wisdom young."},
+    {"dur": 11000, "ambient": ["water", "voices"], "cam": {"pos": [720, 525, 700], "look": [720, 730, -3000]}, "say": "He grew up gentle and pure, devoted to God and kind to his parents, never proud or rebellious; and he called his people back to God."},
+    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [800, 520, 850], "look": [820, 690, -3000]}, "pendingVerse": {"ref": "19:15", "place": "sky"}}
+  ]
+}

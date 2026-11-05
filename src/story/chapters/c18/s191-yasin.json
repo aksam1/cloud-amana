@@ -1,0 +1,39 @@
+{
+  "id": "yasin",
+  "chapter": 18,
+  "order": 191,
+  "node": "wisdom",
+  "title": "The Town of the Messengers",
+  "arabic": "المدينة والرسل",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The messengers, the townspeople and the man who came running appear only as lights. His death is shown only as his light rising; Paradise is not depicted. That he was named Habib is from the commentaries (36:13–29)."],
+  "ambient": ["crowd", "jeer"],
+  "base": "#d8c0a0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#dcc0a0", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.2, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [860, 520, 800], "look": [880, 690, -3000]},
+  "imagePrompt": "A walled town at evening, three steady lights standing in the square before a jeering crowd of dim lights; one warm light running the length of the long street from the far edge of the town; then that light rising softly into the sky; then a single white flash and every light in the town gone out, the streets silent; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [16, 17, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [17, 17.6, 10000]}, "2": {"tod": [17.6, 18.2, 10000]}, "3": {"tod": [18.2, 19, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 620, "amp": 40, "seed": 1740, "sharp": 0.3, "color": "#9a8070", "haze": 0.35, "fog": 0.4},
+    {"type": "town", "depth": 0.12, "y": 690, "x0": -100, "x1": 1700, "s": 0.6, "grade": "town", "lit": 0.35, "haze": "#c8a888", "seed": 1741, "at": {"3": {"lit": 0}}},
+    {"type": "ground", "depth": 0.2, "y": 740, "amp": 4, "seed": 1742, "color": "#c0a07a", "color2": "#9a7a58"},
+    {"type": "crowd", "area": [700, 1700, -2400, -1700], "y": [792, 760], "count": 140, "size": 92, "color": "#ffd8a0", "dim": 0.4, "glow": 0.12, "mill": 5, "speed": 0, "flicker": 0.35, "at": {"2": {"out": 1, "outDur": 2500}, "3": {"out": 1, "outDur": 1}}},
+    {"type": "jeers", "show": [0, 2], "center": [760, 520], "from": [1160, 380], "clear": [90, 110], "count": 22, "size": 32, "period": 6},
+    {"type": "light", "depth": 0.44, "pos": [560, 802], "h": 112, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "light", "depth": 0.44, "pos": [620, 802], "h": 112, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "light", "depth": 0.44, "pos": [680, 802], "h": 112, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "light", "depth": 0.43, "pos": [1500, 796], "h": 110, "color": "#fff0d8", "glow": 0.35, "bright": 1.1, "solid": 0.5, "pose": "walk", "path": [[1500, 796], [880, 800]], "dur": 7000, "delay": 300, "at": {"1": {"pose": "raise", "path": [[880, 800, -1326], [880, 800, -1326], [900, 300, -4326]], "dur": 9000, "delay": 2500}, "2": {"pose": "gone"}, "3": {"pose": "gone"}}},
+    {"type": "flash", "show": [2, 3], "color": "#fffaf0", "peak": 0.55, "delay": 300, "rise": 150, "dur": 2200}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["crowd", "jeer"], "cam": {"pos": [860, 520, 800], "look": [880, 690, -3000]}, "say": "The Quran tells of a town to which God sent two messengers, then a third to strengthen them. You are only men like us, the people said; we see an evil omen in you, and if you do not stop, we will stone you. Then a man came running from the far end of the town: my people, follow the messengers!"},
+    {"dur": 11000, "ambient": ["air"], "world": {"bloom": 0.95}, "cam": {"pos": [860, 505, 1000], "look": [880, 520, -3000]}, "say": "They killed him for his faith. Enter Paradise, he was told; and he said: if only my people knew how my Lord has forgiven me and honoured me."},
+    {"dur": 9000, "ambient": ["wind"], "sfx": [{"name": "thunder", "at": 300}], "cam": {"pos": [860, 515, 950], "look": [880, 640, -3000]}, "say": "After him, no army from heaven was needed: there was only one cry, and they were extinguished."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [860, 515, 950], "look": [880, 640, -3000]}, "pendingVerse": {"ref": "36:20", "place": "sky"}}
+  ]
+}

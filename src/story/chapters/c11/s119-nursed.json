@@ -1,0 +1,30 @@
+{
+  "id": "nursed",
+  "chapter": 11,
+  "order": 119,
+  "node": "musa",
+  "title": "Returned to His Mother",
+  "arabic": "العودة إلى الأم",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "His sister and mother appear only as soft lights; the nurses as dim lights."],
+  "ambient": ["echo", "voices"],
+  "base": "#10141e",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#2a2430", "fogNear": 4000, "fogFar": 30000, "light": 0.95, "rays": 0, "bloom": 0.75, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [900, 530, 600], "look": [920, 860, -3000]},
+  "imagePrompt": "A girl's soft light walking along the papyrus of the river bank, keeping her distance from the palace; then a lamplit hall of the palace where dim amber lights of nurses stand back and a mother's soft light holds a tiny light close; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "set", "show": [0, 1], "layers": [{"type": "heavens", "horizon": 630, "tod": [8.6, 9.8, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}}, {"type": "ridge", "depth": 0.04, "y": 612, "amp": 30, "seed": 800, "sharp": 0.3, "color": "#b0987a", "haze": 0.4, "fog": 0.4}, {"type": "town", "depth": 0.1, "y": 650, "x0": -200, "x1": 1800, "s": 0.5, "grade": "city", "lit": 0.2, "haze": "#d8c8a8", "seed": 801}, {"type": "monument", "depth": 0.12, "x": 380, "y": 660, "kind": "obelisk", "h": 360, "hill": [80, 16]}, {"type": "monument", "depth": 0.12, "x": 1260, "y": 662, "kind": "obelisk", "h": 324, "hill": [80, 16]}, {"type": "ground", "depth": 0.14, "y": 670, "amp": 6, "seed": 802, "color": "#8a9a5a", "color2": "#5a6a3a", "grass": true, "grassColor": "#a8b468"}, {"type": "facade", "depth": 0.22, "x": 1400, "y": 750, "w": 594, "h": 330, "stone": "#e8dcc0", "light": 1, "ppu": 0.8}, {"type": "water", "depth": 0.3, "points": [[-1400, 794], [800, 800], [3000, 806]], "w0": 100, "w1": 100, "reflect": [["0", "#b8d0d8"], ["1", "#4a6a7a"]]}, {"type": "light", "depth": 0.42, "pos": [700, 818], "h": 82, "color": "#fff0dc", "glow": 0.3, "bright": 1.0, "solid": 0.5, "pose": "walk", "path": [[700, 818], [1040, 814]], "dur": 10000}, {"type": "reeds", "depth": 0.44, "x0": -300, "x1": 1900, "y": 872, "h": 145, "count": 14, "seed": 840}, {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}]},
+    {"type": "set", "show": [1, null], "dx": 6000, "layers": [{"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#141a2a"], [1, "#0e121c"]]}, {"type": "facade", "depth": 0.18, "x": 800, "y": 712, "w": 2400, "h": 820, "stone": "#7a6a5a", "light": 0.85, "doors": [{"x": 1070, "w": 60, "h": 110, "lit": true}]}, {"type": "floor", "depth": 0.19, "y": 714, "vp": [800, 500], "color": "#5a5048", "color2": "#1e1a18", "lines": 14, "gloss": 0.35, "area": [-800, 708, 2400, 1350]}, {"type": "column", "depth": 0.26, "x": 420, "y": 740, "h": 600, "w": 44, "stone": "#c8a070", "lit": "#f0d0a0", "dark": "#5a3e28"}, {"type": "column", "depth": 0.26, "x": 1180, "y": 740, "h": 600, "w": 44, "stone": "#c8a070", "lit": "#f0d0a0", "dark": "#5a3e28"}, {"type": "brazier", "depth": 0.3, "x": 680, "y": 790, "s": 0.6}, {"type": "light", "kind": "flame", "depth": 0.3, "pos": [680, 742], "h": 20, "color": "#ffb050", "glow": 1.1}, {"type": "brazier", "depth": 0.3, "x": 1100, "y": 790, "s": 0.6}, {"type": "light", "kind": "flame", "depth": 0.3, "pos": [1100, 742], "h": 20, "color": "#ffb050", "glow": 1.1}, {"type": "light", "depth": 0.32, "pos": [700, 788], "h": 77, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6, "at": {"2": {"pose": "walk", "path": [[700, 788], [560, 778]], "dur": 4000}}}, {"type": "light", "depth": 0.32, "pos": [770, 788], "h": 77, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6, "at": {"2": {"pose": "walk", "path": [[770, 788], [610, 778]], "dur": 4000}}}, {"type": "light", "depth": 0.32, "pos": [840, 788], "h": 77, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6, "at": {"2": {"pose": "walk", "path": [[840, 788], [660, 778]], "dur": 4000}}}, {"type": "light", "depth": 0.32, "pos": [910, 788], "h": 77, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6, "at": {"2": {"pose": "walk", "path": [[910, 788], [710, 778]], "dur": 4000}}}, {"type": "light", "depth": 0.32, "pos": [1000, 792], "h": 62, "color": "#fff0dc", "glow": 0.3, "bright": 1.0, "solid": 0.5}, {"type": "light", "depth": 0.33, "pos": [880, 792], "h": 79, "color": "#fff0dc", "glow": 0.3, "bright": 1.0, "solid": 0.5, "show": [2, null], "pose": "kneel"}, {"type": "light", "depth": 0.331, "pos": [900, 768], "h": 22, "color": "#fffaf0", "glow": 0.6, "bright": 1.2, "pose": "babe", "w": 1}]}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["water", "birds"], "world": {"fog": "#d8c8a8", "haze": 0.15}, "cam": {"pos": [900, 530, 600], "look": [920, 860, -3000]}, "say": "His sister had followed the basket along the bank, watching from a distance."},
+    {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [880, 530, 300], "look": [900, 1150, -3000], "dx": 6000}, "say": "In the palace, the baby would not take any nurse. His sister came forward: shall I show you a household who will care for him?"},
+    {"dur": 10000, "ambient": ["echo", "air"], "cam": {"pos": [880, 530, 200], "look": [900, 1200, -3000], "dx": 6000}, "say": "So God returned him to his mother, to comfort her and to show her that His promise is true."},
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [880, 530, 300], "look": [900, 1100, -3000], "dx": 6000}, "pendingVerse": {"ref": "28:13", "place": "sky"}}
+  ]
+}

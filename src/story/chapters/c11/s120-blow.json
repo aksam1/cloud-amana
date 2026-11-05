@@ -1,0 +1,30 @@
+{
+  "id": "blow",
+  "chapter": 11,
+  "order": 120,
+  "node": "musa",
+  "title": "One Blow",
+  "arabic": "الضربة",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "Nothing of the fight is shown: two dim lights struggle, and one goes out."],
+  "ambient": ["wind", "crickets"],
+  "base": "#141824",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#141824", "fogNear": 6000, "fogFar": 40000, "light": 0.9, "rays": 0, "bloom": 0.8, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [920, 530, 600], "look": [940, 780, -3000]},
+  "imagePrompt": "Years passing over a white palace on the Nile, a steady light growing tall; then a narrow street of the city at night, two dim figures of light struggling, one amber and one grey; a steady light stepping between them, a small flash, and the grey light gone out; then the steady light kneeling alone; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "set", "show": [0, 1], "layers": [{"type": "heavens", "horizon": 630, "tod": [6, 18, 10000, 6], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}}, {"type": "ridge", "depth": 0.04, "y": 612, "amp": 30, "seed": 800, "sharp": 0.3, "color": "#b0987a", "haze": 0.4, "fog": 0.4}, {"type": "town", "depth": 0.1, "y": 650, "x0": -200, "x1": 1800, "s": 0.5, "grade": "city", "lit": 0.2, "haze": "#d8c8a8", "seed": 801}, {"type": "monument", "depth": 0.12, "x": 380, "y": 660, "kind": "obelisk", "h": 360, "hill": [80, 16]}, {"type": "monument", "depth": 0.12, "x": 1260, "y": 662, "kind": "obelisk", "h": 324, "hill": [80, 16]}, {"type": "ground", "depth": 0.14, "y": 670, "amp": 6, "seed": 802, "color": "#8a9a5a", "color2": "#5a6a3a", "grass": true, "grassColor": "#a8b468"}, {"type": "facade", "depth": 0.24, "x": 1060, "y": 752, "w": 720, "h": 288, "gate": {"w": 108, "h": 166}, "towers": true, "stone": "#e8dcc0", "light": 1, "ppu": 0.8}, {"type": "light", "depth": 0.42, "pos": [900, 794], "h": 76, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"0": {"h": 110}}}, {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}]},
+    {"type": "set", "show": [1, null], "dx": 6000, "layers": [{"type": "heavens", "horizon": 640, "tod": [22, 23, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [23, 23.6, 12000]}}}, {"type": "town", "depth": 0.18, "y": 760, "x0": -200, "x1": 1800, "s": 0.9, "grade": "town", "night": true, "lit": 0.15, "haze": "#24202e", "seed": 850}, {"type": "ground", "depth": 0.2, "y": 762, "amp": 3, "seed": 851, "color": "#3a3440", "color2": "#1e1a24"}, {"type": "light", "depth": 0.42, "pos": [960, 792], "h": 107, "color": "#e8c098", "glow": 0.25, "bright": 0.95, "solid": 0.6, "at": {"1": {"pose": "reach"}}}, {"type": "light", "depth": 0.42, "pos": [1030, 792], "h": 113, "color": "#b8b0c8", "glow": 0.2, "bright": 0.85, "solid": 0.7, "at": {"1": {"pose": "gone"}}}, {"type": "light", "depth": 0.42, "pos": [700, 792], "h": 113, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "at": {"0": {}, "1": {"pos": [990, 794], "pose": "reach"}, "2": {"pos": [900, 794], "pose": "kneel"}}}, {"type": "flash", "show": [1, 2], "color": "#fffaf0", "peak": 0.35, "delay": 1800, "rise": 120, "dur": 1600}, {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.12, "wind": [4, -2, 0], "swirl": 40}]}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["city", "water"], "world": {"fog": "#d8c8a8", "light": 1.05}, "cam": {"pos": [920, 530, 600], "look": [940, 780, -3000]}, "say": "Musa grew up in Pharaoh's palace, strong and wise."},
+    {"dur": 10000, "ambient": ["wind", "voices"], "sfx": [{"name": "drop", "at": 1900}], "cam": {"pos": [960, 535, 500], "look": [980, 770, -3000], "dx": 6000}, "say": "One day he came upon two men fighting, one of his own people and one of Pharaoh's. Musa struck the Egyptian once, and the man died."},
+    {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [920, 535, 450], "look": [920, 790, -3000], "dx": 6000}, "say": "Musa was horrified at what he had done. My Lord, he prayed, I have wronged myself, so forgive me. And God forgave him."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [920, 530, 600], "look": [930, 740, -3000], "dx": 6000}, "pendingVerse": {"ref": "28:16", "place": "sky"}}
+  ]
+}

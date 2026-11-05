@@ -1,0 +1,40 @@
+{
+  "id": "measure",
+  "chapter": 10,
+  "order": 112,
+  "node": "shuayb",
+  "title": "Give Full Measure",
+  "arabic": "الأمانة في السوق",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined.", "His words are given as the Quran gives them (26:181–183); the balance coming level stands for the fair measure he asked of them."],
+  "ambient": ["city", "voices"],
+  "base": "#d8c0a0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#dcc0a0", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.2, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [860, 540, 600], "look": [880, 760, -3000]},
+  "imagePrompt": "A sunlit market among striped awnings, a steady white light standing among dim amber lights of traders and buyers, beside him a bronze merchant's balance tipped to one side that slowly comes level; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [11, 12, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "at": {"1": {"tod": [12, 13, 10000]}, "2": {"tod": [13, 14, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 610, "amp": 70, "seed": 720, "sharp": 0.6, "color": "#8a5a4a", "haze": 0.4, "fog": 0.4},
+    {"type": "ridge", "depth": 0.07, "y": 640, "amp": 40, "seed": 721, "sharp": 0.5, "color": "#a8705a", "haze": 0.3, "fog": 0.3},
+    {"type": "town", "depth": 0.13, "y": 690, "x0": 120, "x1": 1480, "s": 0.6666666666666666, "grade": "town", "lit": 0.3, "haze": "#c8a888", "seed": 722},
+    {"type": "ground", "depth": 0.16, "y": 700, "amp": 6, "seed": 723, "color": "#c8a078", "color2": "#9a7050"},
+    {"type": "palms", "depth": 0.22, "items": [{"x": 180, "y": 726, "h": 264, "lean": 0.05}, {"x": 270, "y": 724, "h": 297, "lean": -0.04}, {"x": 1340, "y": 726, "h": 280, "lean": 0.06}, {"x": 1440, "y": 724, "h": 297, "lean": -0.03}], "seed": 724},
+    {"type": "ground", "depth": 0.3, "y": 754, "amp": 4, "seed": 725, "x0": -600, "x1": 2200, "color": "#d0a880", "color2": "#a07a58"},
+    {"type": "stalls", "depth": 0.36, "s": 1.24, "grey": 0, "items": [{"x": 330, "y": 778, "w": 120, "color": "#b8644a"}, {"x": 520, "y": 780, "w": 110, "color": "#5a7a8a"}, {"x": 1130, "y": 780, "w": 120, "color": "#8a6a3a"}, {"x": 1320, "y": 778, "w": 110, "color": "#7a4a5a"}]},
+    {"type": "crowd", "area": [220, 1380, -2100, -1650], "y": [798, 778], "count": 40, "size": 94, "color": "#ffd8a0", "dim": 0.25, "glow": 0.45, "mill": 14, "speed": 0, "flicker": 0.15},
+    {"type": "balance", "depth": 0.42, "x": 1000, "y": 792, "h": 94, "w": 63, "tilt": 12, "area": [900, 640, 1100, 800], "at": {"1": {"tilt": 0}}},
+    {"type": "light", "depth": 0.415, "pos": [1066, 792], "h": 109, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.43, "pos": [760, 796], "h": 110, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"1": {"pose": "raise"}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["city", "voices"], "cam": {"pos": [860, 540, 600], "look": [880, 760, -3000]}, "say": "God sent them one of their own, the prophet Shu'ayb."},
+    {"dur": 11000, "ambient": ["city", "voices"], "cam": {"pos": [900, 545, 480], "look": [930, 790, -3000]}, "say": "Give full measure and full weight, he told them. Do not cheat people of what is theirs, and do not spread corruption in the land."},
+    {"dur": 12000, "ambient": ["city", "air"], "cam": {"pos": [880, 530, 760], "look": [900, 700, -3000]}, "pendingVerse": {"ref": "26:181-182", "place": "sky"}}
+  ]
+}

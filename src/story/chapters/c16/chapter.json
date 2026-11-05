@@ -4,9 +4,9 @@
   "arabic": "زكريا ويحيى ومريم",
   "nodes": ["zakariya", "yahya"],
   "parts": [
-    { "title": "The Family of Imran", "from": 166, "to": 167 },
-    { "title": "Zakariya and Yahya", "from": 168, "to": 170 },
-    { "title": "Maryam", "from": 171, "to": 173 }
+    { "title": "The Family of Imran", "from": 169, "to": 170 },
+    { "title": "Zakariya and Yahya", "from": 171, "to": 173 },
+    { "title": "Maryam", "from": 174, "to": 176 }
   ],
   "bridge": {
     "when": "About eight centuries after Yunus (shortly before the Common Era)",

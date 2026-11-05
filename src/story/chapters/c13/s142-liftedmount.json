@@ -1,0 +1,37 @@
+{
+  "id": "liftedmount",
+  "chapter": 13,
+  "order": 142,
+  "node": "musa",
+  "title": "The Mountain Above Them",
+  "arabic": "رفع الجبل",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa appears only as a steady light; the Children of Israel as small warm lights. God is not depicted: only the mountain is seen, lifted like a cloud above them, as the Quran describes (7:171). That they had hesitated to accept the Torah is from the commentaries."],
+  "ambient": ["wind", "crowd"],
+  "base": "#d8c0a0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#dcc0a0", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.2, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 515, 1000], "look": [800, 600, -3000]},
+  "imagePrompt": "A great camp of small warm lights at the foot of a rocky mountain; the whole mountain lifting silently from the earth and hanging over them like a dark cloud, its shadow across the crowd; every light bowed low; a steady light before them holding two stone tablets; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [15, 16, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [16, 16.6, 11000]}, "2": {"tod": [16.6, 17.4, 11000]}, "3": {"tod": [17.4, 18, 12000]}}},
+    {"type": "ridge", "depth": 0.03, "y": 620, "amp": 40, "seed": 1700, "sharp": 0.6, "color": "#8a5a4a", "haze": 0.4, "fog": 0.4},
+    {"type": "ground", "depth": 0.12, "y": 690, "amp": 6, "seed": 1701, "color": "#c8a078", "color2": "#9a7050"},
+    {"type": "peak", "depth": 0.14, "x": 800, "y": 360, "w": 900, "h": 340, "color": "#5a4a48", "lit": "#9a7a6a", "seed": 1702, "ppu": 0.8, "at": {"1": {"move": {"path": [[0, 0, 0], [0, -40, 0], [0, -330, 0]], "dur": 7000, "delay": 600}}, "2": {"move": {"path": [[0, -330, 0]], "dur": 1}}, "3": {"move": {"path": [[0, -330, 0], [0, 0, 0]], "dur": 6000, "delay": 400}}}},
+    {"type": "tint", "show": [1, 3], "color": "#2a2026", "amount": 0.3},
+    {"type": "crowd", "area": [-200, 1800, -3200, -1700], "y": [798, 744], "count": 360, "size": 82, "color": "#ffe0b0", "dim": 0.4, "glow": 0.12, "mill": 3, "speed": 0, "at": {"1": {"bow": 1, "bowTo": 800}, "2": {"bow": 1, "bowTo": 800}}},
+    {"type": "tablets", "depth": 0.44, "x": 860, "y": 806, "h": 46, "glow": 0.5, "area": [800, 700, 920, 812]},
+    {"type": "light", "depth": 0.44, "pos": [780, 806], "h": 112, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"2": {"pose": "raise"}}},
+    {"type": "dust", "box": [-1400, 0, -9000, 3000, 600, -6000], "count": 300, "size": 20, "color": "#8a7a74", "opacity": 0.25, "wind": [0, -20, 0], "swirl": 40, "blend": "normal", "show": [1, 3]}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["wind", "crowd"], "cam": {"pos": [800, 515, 1000], "look": [800, 600, -3000]}, "say": "When Musa brought the tablets, his people hesitated to take on what was written in them."},
+    {"dur": 11000, "ambient": ["wind", "roar"], "sfx": [{"name": "rumble", "at": 600}, {"name": "rumble", "at": 3000}], "world": {"shake": 1.2}, "cam": {"pos": [800, 505, 1150], "look": [800, 470, -3000]}, "say": "Then God raised the mountain above them, as if it were a canopy of cloud, and they were sure it would fall on them."},
+    {"dur": 11000, "ambient": ["wind"], "world": {"shake": 0.3}, "cam": {"pos": [800, 510, 1100], "look": [800, 500, -3000]}, "say": "Hold firmly to what We have given you, they were told, and remember what is in it, so that you may be mindful of God. And they made their covenant."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 515, 1000], "look": [800, 600, -3000]}, "pendingVerse": {"ref": "7:171", "place": "sky"}}
+  ]
+}

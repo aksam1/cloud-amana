@@ -1,0 +1,40 @@
+{
+  "id": "saba",
+  "chapter": 14,
+  "order": 160,
+  "node": "sulayman",
+  "title": "The Queen of Saba",
+  "arabic": "ملكة سبأ",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "The queen (named Bilqis in the commentaries) appears as a soft dim light. The floor of glass is drawn as a gleaming floor like water (27:44)."],
+  "ambient": ["echo", "water"],
+  "base": "#10141e",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#2a2430", "fogNear": 4000, "fogFar": 30000, "light": 0.95, "rays": 0, "bloom": 0.75, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [820, 535, 500], "look": [820, 860, -3000]},
+  "imagePrompt": "A great palace hall with a floor of glass so clear it gleams like still water, a soft light of a queen stepping onto it, a steady light standing at its far end beside a tall throne; then the queen's light bowing; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#1a2030"], [1, "#121620"]]},
+    {"type": "facade", "depth": 0.18, "x": 800, "y": 712, "w": 2400, "h": 820, "stone": "#d8ccb8", "light": 0.85, "doors": [{"x": 800, "w": 70, "h": 120, "lit": true}]},
+    {"type": "column", "depth": 0.26, "x": 420, "y": 740, "h": 600, "w": 44, "stone": "#d8c8a8", "lit": "#f8ecd0", "dark": "#6a5a48"},
+    {"type": "column", "depth": 0.26, "x": 1180, "y": 740, "h": 600, "w": 44, "stone": "#d8c8a8", "lit": "#f8ecd0", "dark": "#6a5a48"},
+    {"type": "brazier", "depth": 0.3, "x": 640, "y": 790, "s": 0.6},
+    {"type": "light", "kind": "flame", "depth": 0.3, "pos": [640, 742], "h": 20, "color": "#ffb050", "glow": 1.1},
+    {"type": "brazier", "depth": 0.3, "x": 960, "y": 790, "s": 0.6},
+    {"type": "light", "kind": "flame", "depth": 0.3, "pos": [960, 742], "h": 20, "color": "#ffb050", "glow": 1.1},
+    {"type": "floor", "depth": 0.19, "y": 714, "vp": [800, 500], "color": "#5a7a8a", "color2": "#1a2a34", "lines": 14, "gloss": 0.9, "area": [-800, 708, 2400, 1350]},
+    {"type": "platform", "depth": 0.24, "x": 800, "y": 728, "w": 216, "steps": 4, "rise": 7, "dais": 11, "stone": "#c8a868", "lit": "#f0d898", "dark": "#5a4a28", "ppu": 1},
+    {"type": "light", "depth": 0.241, "pos": [700, 689], "h": 61, "color": "#fffaf0", "glow": 0.6, "bright": 1.35},
+    {"type": "light", "depth": 0.44, "pos": [900, 802], "h": 109, "color": "#f4dcc0", "glow": 0.35, "bright": 1.0, "solid": 0.55, "at": {"2": {"pose": "kneel"}}}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [820, 535, 500], "look": [820, 860, -3000]}, "say": "Sulayman sent the queen a letter calling her to God. She came to see him, and found her own throne already brought to his palace before her."},
+    {"dur": 10000, "ambient": ["echo", "water"], "cam": {"pos": [860, 540, 400], "look": [880, 900, -3000]}, "say": "Enter the palace, she was told. Its floor was of glass so clear she thought it was water."},
+    {"dur": 10000, "ambient": ["echo", "air"], "cam": {"pos": [840, 535, 500], "look": [860, 860, -3000]}, "say": "Then she understood. My Lord, she said, I have wronged myself; I submit with Sulayman to God, Lord of the worlds."},
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [820, 530, 700], "look": [840, 790, -3000]}, "pendingVerse": {"ref": "27:44", "place": "sky", "part": "her words, from \"My Lord, indeed I have wronged myself\""}}
+  ]
+}

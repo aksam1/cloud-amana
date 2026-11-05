@@ -1,0 +1,29 @@
+{
+  "id": "awakening",
+  "chapter": 18,
+  "order": 184,
+  "node": "wisdom",
+  "title": "The Awakening",
+  "arabic": "اليقظة",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The youths and the townspeople appear only as soft and dim lights. The silver coin is from 18:19."],
+  "ambient": ["air", "birds"],
+  "base": "#0c0a08",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#16120e", "fogNear": 3000, "fogFar": 26000, "light": 0.9, "rays": 0, "bloom": 0.85, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 540, 500], "look": [800, 860, -3000]},
+  "imagePrompt": "Morning in the cave, seven soft lights sitting up, puzzled; one of them walking down into a town he no longer knows, new domes and walls, crowds of dim lights gathering in wonder around a small glint of old silver in his hand; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "set", "show": [0, 1], "layers": [{"type": "heavens", "horizon": 760, "tod": [7, 8, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}}, {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#120e0a"], [1, "#0a0806"]]}, {"type": "facade", "depth": 0.2, "x": 800, "y": 760, "w": 2600, "h": 1100, "stone": "#4a4036", "light": 0.6, "doors": [{"x": 800, "w": 180, "h": 150, "lit": true}]}, {"type": "ground", "depth": 0.3, "y": 800, "amp": 12, "seed": 1600, "color": "#3a3228", "color2": "#18140e"}, {"type": "animals", "depth": 0.36, "fade": "none", "area": [700, 700, 900, 812], "pairs": [{"kind": "dog", "solo": true, "s": 0.9, "path": [[800, 806]], "face": -1}]}, {"type": "light", "depth": 0.43, "pos": [560, 804], "h": 110, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "kneel"}, {"type": "light", "depth": 0.43, "pos": [640, 810], "h": 110, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "kneel"}, {"type": "light", "depth": 0.43, "pos": [720, 804], "h": 110, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "kneel"}, {"type": "light", "depth": 0.43, "pos": [800, 810], "h": 110, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "kneel"}, {"type": "light", "depth": 0.43, "pos": [880, 804], "h": 110, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "kneel"}, {"type": "light", "depth": 0.43, "pos": [960, 810], "h": 110, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "kneel"}, {"type": "light", "depth": 0.43, "pos": [1040, 804], "h": 110, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "kneel"}]},
+    {"type": "set", "show": [1, null], "dx": 6000, "layers": [{"type": "heavens", "horizon": 630, "tod": [9, 10, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [10, 11, 12000]}}}, {"type": "ridge", "depth": 0.04, "y": 620, "amp": 40, "seed": 1610, "sharp": 0.3, "color": "#8a8070", "haze": 0.35, "fog": 0.4}, {"type": "town", "depth": 0.12, "y": 690, "x0": 0, "x1": 1600, "s": 0.6, "grade": "city", "lit": 0.2, "haze": "#b8a898", "seed": 1611}, {"type": "ground", "depth": 0.2, "y": 740, "amp": 4, "seed": 1612, "color": "#b0a080", "color2": "#8a7a5a"}, {"type": "crowd", "area": [200, 1400, -2400, -1600], "y": [792, 770], "count": 90, "size": 92, "color": "#ffd8a0", "dim": 0.4, "glow": 0.12, "mill": 4, "speed": 0, "at": {"2": {"area": [600, 1000, -1800, -1500]}}}, {"type": "light", "depth": 0.44, "pos": [800, 802], "h": 112, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5}, {"type": "light", "kind": "flame", "depth": 0.441, "h": 7, "color": "#e8eef8", "glow": 1.4, "pos": [826, 740]}]}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["air", "birds"], "cam": {"pos": [800, 540, 500], "look": [800, 860, -3000]}, "say": "When God woke them, they asked one another: how long have we slept? A day, or part of a day. They sent one of them to the town with a silver coin to buy food, quietly."},
+    {"dur": 11000, "ambient": ["city", "voices"], "cam": {"pos": [800, 525, 700], "look": [800, 740, -3000], "dx": 6000}, "say": "But the town had changed; centuries had passed, and the coin was ancient. The people now believed, and their story became a sign that God's promise of resurrection is true."},
+    {"dur": 12000, "ambient": ["city", "air"], "cam": {"pos": [800, 520, 850], "look": [800, 690, -3000], "dx": 6000}, "pendingVerse": {"ref": "18:21", "place": "sky", "part": "to \"and that of the Hour there is no doubt\""}}
+  ]
+}

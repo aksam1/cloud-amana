@@ -1,0 +1,39 @@
+{
+  "id": "hired",
+  "chapter": 11,
+  "order": 123,
+  "node": "musa",
+  "title": "Ten Years in Madyan",
+  "arabic": "عشر سنين في مدين",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The old man of Madyan and his daughters appear only as dim figures of light. Whether he was the prophet Shu'ayb is debated among scholars, so he is not named."],
+  "ambient": ["herd", "wind"],
+  "base": "#d8c0a0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#dcc0a0", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.2, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [880, 530, 700], "look": [900, 720, -3000]},
+  "imagePrompt": "A tent among palms at dusk, an old man's dim light seated with a steady light before him and a young woman's light at the side; then years racing past in the sky while the steady light leads a flock across red hills, through seasons of green and gold; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [17.2, 18, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [6, 18, 12000, 10]}, "2": {"tod": [16.8, 18, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 610, "amp": 70, "seed": 720, "sharp": 0.6, "color": "#8a5a4a", "haze": 0.4, "fog": 0.4},
+    {"type": "ridge", "depth": 0.08, "y": 660, "amp": 40, "seed": 880, "sharp": 0.4, "color": "#a8705a", "haze": 0.3, "fog": 0.3},
+    {"type": "ground", "depth": 0.14, "y": 700, "amp": 6, "seed": 881, "color": "#c8a078", "color2": "#9a7050"},
+    {"type": "palms", "depth": 0.24, "items": [{"x": 300, "y": 760, "h": 324, "lean": 0.05}, {"x": 1380, "y": 760, "h": 306, "lean": -0.04}], "seed": 882},
+    {"type": "tent", "depth": 0.34, "x": 700, "y": 790, "w": 459, "h": 128, "lit": true, "ppu": 0.9},
+    {"type": "light", "depth": 0.42, "pos": [820, 792], "h": 104, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6, "pose": "kneel", "show": [0, 1]},
+    {"type": "light", "depth": 0.42, "pos": [980, 792], "h": 101, "color": "#f4d8b8", "glow": 0.25, "bright": 0.95, "solid": 0.6, "show": [0, 1]},
+    {"type": "light", "depth": 0.43, "pos": [900, 796], "h": 116, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"1": {"pos": [1080, 798], "pose": "walk", "path": [[1180, 798], [700, 794], [1180, 798]], "dur": 12000}}},
+    {"type": "animals", "depth": 0.42, "fade": "none", "area": [1100, 726, 1560, 816], "pairs": [{"kind": "sheep", "solo": true, "s": 0.94, "path": [[1180, 806]], "face": 1}, {"kind": "sheep", "solo": true, "s": 0.94, "path": [[1230, 812]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.94, "path": [[1280, 806]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.94, "path": [[1330, 812]], "face": 1}, {"kind": "sheep", "solo": true, "s": 0.94, "path": [[1380, 806]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.94, "path": [[1430, 812]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.94, "path": [[1480, 806]], "face": 1}], "show": [1, null]},
+    {"type": "ground", "depth": 0.55, "y": 890, "amp": 6, "seed": 883, "color": "#b89068", "color2": "#8a6848"},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["wind", "voices"], "cam": {"pos": [880, 530, 700], "look": [900, 720, -3000]}, "say": "One of the sisters came back, walking shyly: my father invites you, to reward you. The old man offered Musa one of his daughters in marriage, for eight years of work, or ten if he chose."},
+    {"dur": 12000, "ambient": ["herd", "wind"], "cam": {"pos": [960, 525, 900], "look": [980, 680, -3000]}, "say": "Musa served the full ten years, tending the flocks across the hills of Madyan."},
+    {"dur": 12000, "ambient": ["herd", "air"], "cam": {"pos": [920, 525, 860], "look": [940, 690, -3000]}, "pendingVerse": {"ref": "28:26", "place": "sky"}}
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "tabut",
+  "chapter": 14,
+  "order": 150,
+  "node": "dawud",
+  "title": "The Chest of Tranquillity",
+  "arabic": "التابوت",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The prophet of the Children of Israel in Talut's time is named Shamwil (Samuel) in the commentaries; he and the people appear only as lights. The angels who carried the chest are columns of light (2:248). The chest's relics are not shown."],
+  "ambient": ["crowd", "wind"],
+  "base": "#c8c0b0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c8c0b0", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [820, 525, 700], "look": [820, 730, -3000]},
+  "imagePrompt": "A hill town in the land of Israel at morning, crowds of dim lights gathered before a steady light, murmuring against a tall plain figure of light chosen as king; then columns of soft golden light coming over the hill bearing a gilded chest on poles, and setting it down before the people; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [8, 9, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [9, 10, 11000]}, "2": {"tod": [10, 11, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 620, "amp": 50, "seed": 1710, "sharp": 0.3, "color": "#8a8a78", "haze": 0.35, "fog": 0.4},
+    {"type": "town", "depth": 0.12, "y": 690, "x0": 100, "x1": 1500, "s": 0.6, "grade": "town", "lit": 0.2, "haze": "#b8a898", "seed": 1711},
+    {"type": "ground", "depth": 0.2, "y": 740, "amp": 6, "seed": 1712, "color": "#8a9a5a", "color2": "#5a6a3a", "grass": true, "grassColor": "#a8b468"},
+    {"type": "crowd", "area": [-200, 1800, -2600, -1700], "y": [792, 760], "count": 180, "size": 92, "color": "#ffd8a0", "dim": 0.4, "glow": 0.12, "mill": 5, "speed": 0, "flicker": 0.3, "at": {"1": {"flicker": 0.05}, "2": {"flicker": 0.05}}},
+    {"type": "jeers", "show": [0, 1], "center": [860, 520], "from": [1160, 380], "clear": [100, 120], "count": 16, "size": 30, "period": 6},
+    {"type": "chest", "show": [1, null], "depth": 0.43, "x": 830, "y": 802, "w": 77, "glow": 0.6, "area": [700, 680, 960, 820], "at": {"1": {"move": {"path": [[260, -160, 0], [100, -60, 0], [0, 0, 0]], "dur": 8000, "delay": 400}}, "2": {"move": {"path": [[0, 0, 0]], "dur": 1}}}},
+    {"type": "crowd", "kind": "angels", "area": [760, 900, -1500, -1440], "y": [784, 784], "count": 4, "size": 150, "color": "#fff4d8", "dim": 0.05, "glow": 0.8, "mill": 0, "speed": 0, "flicker": 0.06, "show": [1, null]},
+    {"type": "light", "depth": 0.44, "pos": [620, 804], "h": 112, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"1": {"pose": "raise"}}},
+    {"type": "light", "depth": 0.44, "pos": [1040, 804], "h": 129, "color": "#ecc49a", "glow": 0.2, "bright": 0.95, "solid": 0.6}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["crowd", "jeer"], "cam": {"pos": [820, 525, 700], "look": [820, 730, -3000]}, "say": "Long after Musa, the Children of Israel asked their prophet for a king to lead them in God's cause, and God chose Talut. How can he be king over us, they objected, when he has no great wealth?"},
+    {"dur": 12000, "ambient": ["crowd", "air"], "world": {"bloom": 0.95}, "cam": {"pos": [820, 520, 800], "look": [820, 690, -3000]}, "say": "God chose him and gave him knowledge and strength, their prophet said, and here is the sign: the chest will come to you, carried by angels, bringing tranquillity from your Lord and what was left by the families of Musa and Harun."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [820, 525, 750], "look": [820, 720, -3000]}, "pendingVerse": {"ref": "2:248", "place": "sky"}}
+  ]
+}

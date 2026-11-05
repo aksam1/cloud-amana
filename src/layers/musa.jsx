@@ -255,3 +255,32 @@ Whale.bounds = (c) => {
   const { x = 800, y = 760, w = 600 } = c;
   return [x - w * 0.75, y - w * 0.2, x + w * 0.75, y + w * 0.08];
 };
+
+/**
+ * The chest (tabut) that came to the Children of Israel as the sign of Talut's kingship (2:248): a gilded
+ * wooden chest on two carrying poles, its foot on (`x`, `y`), `w` long; `glow` warms the air around it.
+ * Its relics are never shown.
+ */
+export function Chest({ cfg }) {
+  const { x = 800, y = 780, w = 90, wood = '#8a5a2a', gold = '#d8a838', glow = 0.4 } = cfg;
+  const h = w * 0.55;
+  const top = y - h;
+  return (
+    <Svg>
+      {glow > 0 && <ellipse cx={x} cy={top + h * 0.3} rx={w * 1.1} ry={h * 1.2} fill="#fff0c8" opacity={glow * 0.35} />}
+      <ellipse cx={x} cy={y + h * 0.05} rx={w * 0.6} ry={h * 0.1} fill="#000" opacity="0.18" />
+      <rect x={x - w / 2} y={top + h * 0.22} width={w} height={h * 0.78} fill={wood} stroke="#3a2410" strokeWidth={w * 0.015} />
+      <path d={`M${x - w / 2 - w * 0.03},${top + h * 0.24} L${x + w / 2 + w * 0.03},${top + h * 0.24} L${x + w * 0.44},${top} L${x - w * 0.44},${top} Z`} fill={gold} stroke="#5a3e10" strokeWidth={w * 0.012} />
+      {[0.2, 0.5, 0.8].map((k) => (
+        <rect key={k} x={x - w / 2} y={top + h * 0.22 + h * 0.78 * k - h * 0.03} width={w} height={h * 0.06} fill={gold} opacity="0.85" />
+      ))}
+      <rect x={x - w * 0.1} y={top + h * 0.42} width={w * 0.2} height={h * 0.22} rx={w * 0.02} fill={gold} stroke="#5a3e10" strokeWidth={w * 0.008} />
+      <line x1={x - w * 0.95} y1={top + h * 0.62} x2={x + w * 0.95} y2={top + h * 0.62} stroke="#6a4a24" strokeWidth={w * 0.035} strokeLinecap="round" />
+      {[-1, 1].map((s) => <circle key={s} cx={x + s * w * 0.5} cy={top + h * 0.62} r={w * 0.035} fill={gold} />)}
+    </Svg>
+  );
+}
+Chest.bounds = (c) => {
+  const { x = 800, y = 780, w = 90 } = c;
+  return [x - w * 1.2, y - w * 1.3, x + w * 1.2, y + w * 0.1];
+};

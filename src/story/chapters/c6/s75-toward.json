@@ -51,7 +51,7 @@
     { "dur": 10000, "ambient": ["wind", "air"], "cam": { "pos": [800, 540, 1100], "look": [800, 600, -3000] },
       "say": "At dawn Ibrahim walked with his guests and asked them where they were going." },
     { "dur": 10000, "ambient": ["air"], "cam": { "dx": 6000, "from": { "pos": [800, 520, 1150], "look": [800, 600, -3000] }, "pos": [800, 510, 1050], "look": [800, 600, -3000] },
-      "say": "They were going on, they said, to the people of Lut." },
+      "say": "They were going on, they said, to the people of Lut. Ibrahim pleaded for them, for he was gentle and forbearing; but the command of his Lord had come." },
     { "dur": 13000, "ambient": ["wind"], "cam": { "dx": 6000, "pos": [800, 505, 1000], "look": [800, 600, -3000] },
       "pendingVerse": { "ref": "51:31-32", "place": "sky" } }
   ]

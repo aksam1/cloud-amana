@@ -4,11 +4,11 @@
   "arabic": "موسى في التيه",
   "nodes": [],
   "parts": [
-    { "title": "Provision", "from": 136, "to": 137 },
-    { "title": "The Mountain and the Calf", "from": 138, "to": 140 },
-    { "title": "The Cow", "from": 141, "to": 142 },
-    { "title": "Musa and the Servant of God", "from": 143, "to": 145 },
-    { "title": "The Wandering", "from": 146, "to": 146 }
+    { "title": "Provision", "from": 137, "to": 138 },
+    { "title": "The Mountain and the Calf", "from": 139, "to": 142 },
+    { "title": "The Cow and Qarun", "from": 143, "to": 144 },
+    { "title": "Musa and the Servant of God", "from": 145, "to": 147 },
+    { "title": "The Wandering", "from": 148, "to": 148 }
   ],
   "bridge": {
     "when": "The forty years after the crossing",
