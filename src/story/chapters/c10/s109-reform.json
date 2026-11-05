@@ -15,7 +15,7 @@
   "pen": true,
   "dissolve": 2400,
   "world": {"fog": "#dcc0a0", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.2, "hazeY": 0.62, "shake": 0.3, "dof": 0},
-  "cam": {"pos": [860, 530, 760], "look": [880, 720, -3000]},
+  "cam": {"pos": [920, 530, 760], "look": [950, 720, -3000]},
   "imagePrompt": "A market square at late afternoon, a steady white light with a few small white lights of believers behind him, facing a crowd of dim amber lights; jagged dark strokes of mockery rising around him; ink-wash and parchment texture.",
   "layers": [
     {"type": "heavens", "horizon": 630, "tod": [15, 16, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "at": {"1": {"tod": [16, 17, 10000]}, "2": {"tod": [17, 17.8, 12000]}}},
@@ -27,15 +27,15 @@
     {"type": "ground", "depth": 0.3, "y": 754, "amp": 4, "seed": 725, "x0": -600, "x1": 2200, "color": "#d0a880", "color2": "#a07a58"},
     {"type": "stalls", "depth": 0.36, "s": 1.24, "grey": 0, "items": [{"x": 330, "y": 778, "w": 120, "color": "#b8644a"}, {"x": 520, "y": 780, "w": 110, "color": "#5a7a8a"}, {"x": 1130, "y": 780, "w": 120, "color": "#8a6a3a"}, {"x": 1320, "y": 778, "w": 110, "color": "#7a4a5a"}]},
     {"type": "crowd", "area": [900, 1500, -2000, -1500], "y": [798, 778], "count": 70, "size": 94, "color": "#ffd8a0", "dim": 0.25, "glow": 0.45, "mill": 8, "speed": 0, "flicker": 0.4},
-    {"type": "light", "depth": 0.43, "pos": [760, 796], "h": 110, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
-    {"type": "light", "depth": 0.42, "pos": [640, 792], "h": 104, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
-    {"type": "light", "depth": 0.42, "pos": [590, 792], "h": 104, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
-    {"type": "light", "depth": 0.42, "pos": [540, 792], "h": 104, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
-    {"type": "jeers", "show": [0, 2], "center": [760, 520], "from": [1180, 360], "clear": [90, 120], "count": 26, "size": 36, "period": 6},
+    {"type": "light", "depth": 0.43, "pos": [880, 796], "h": 110, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "light", "depth": 0.42, "pos": [820, 792], "h": 104, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
+    {"type": "light", "depth": 0.42, "pos": [770, 792], "h": 104, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
+    {"type": "light", "depth": 0.42, "pos": [720, 792], "h": 104, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
+    {"type": "jeers", "show": [0, 2], "center": [880, 520], "from": [1240, 360], "clear": [90, 120], "count": 26, "size": 36, "period": 6},
     {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
   ],
   "beats": [
-    {"dur": 10000, "ambient": ["crowd", "jeer"], "cam": {"pos": [860, 530, 760], "look": [880, 720, -3000]}, "say": "They mocked him: does your prayer tell you how we may run our trade?"},
+    {"dur": 10000, "ambient": ["crowd", "jeer"], "cam": {"pos": [920, 530, 760], "look": [950, 720, -3000]}, "say": "They mocked him: does your prayer tell you how we may run our trade?"},
     {"dur": 10000, "ambient": ["crowd", "jeer"], "cam": {"pos": [900, 530, 700], "look": [930, 730, -3000]}, "say": "Their chiefs threatened to drive him and those who believed out of Madyan, unless they returned to the old ways."},
     {"dur": 12000, "ambient": ["air", "wind"], "cam": {"pos": [820, 530, 760], "look": [840, 700, -3000]}, "pendingVerse": {"ref": "11:88", "place": "sky", "part": "from \"I only intend reform as much as I am able\" to the end"}}
   ]

@@ -27,15 +27,15 @@
     {"type": "ground", "depth": 0.3, "y": 754, "amp": 4, "seed": 725, "x0": -600, "x1": 2200, "color": "#d0a880", "color2": "#a07a58"},
     {"type": "stalls", "depth": 0.36, "s": 1.24, "grey": 0.6, "items": [{"x": 330, "y": 778, "w": 120, "color": "#b8644a"}, {"x": 520, "y": 780, "w": 110, "color": "#5a7a8a"}, {"x": 1130, "y": 780, "w": 120, "color": "#8a6a3a"}, {"x": 1320, "y": 778, "w": 110, "color": "#7a4a5a"}]},
     {"type": "ridge", "depth": 0.5, "y": 860, "amp": 30, "seed": 730, "sharp": 0.3, "color": "#6a4a40", "haze": 0},
-    {"type": "light", "depth": 0.52, "pos": [400, 836], "h": 133, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
-    {"type": "light", "depth": 0.52, "pos": [320, 840], "h": 129, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
-    {"type": "light", "depth": 0.52, "pos": [264, 840], "h": 129, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
-    {"type": "light", "depth": 0.52, "pos": [208, 840], "h": 129, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
+    {"type": "light", "depth": 0.52, "pos": [1160, 836], "h": 133, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "light", "depth": 0.52, "pos": [1240, 840], "h": 129, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
+    {"type": "light", "depth": 0.52, "pos": [1296, 840], "h": 129, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
+    {"type": "light", "depth": 0.52, "pos": [1352, 840], "h": 129, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
     {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.18, "wind": [4, -2, 0], "swirl": 40}
   ],
   "beats": [
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [800, 515, 1100], "look": [800, 590, -3000]}, "say": "Their houses stood empty, as if they had never lived in them."},
-    {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [560, 530, 700], "look": [520, 700, -3000]}, "say": "Shu'ayb turned away from them. He had warned them as best he could; he did not grieve for a people who refused to believe."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [700, 520, 900], "look": [680, 640, -3000]}, "pendingVerse": {"ref": "7:93", "place": "sky"}}
+    {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [1040, 540, 600], "look": [1080, 880, -3000]}, "say": "Shu'ayb turned away from them. He had warned them as best he could; he did not grieve for a people who refused to believe."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [960, 525, 820], "look": [1000, 760, -3000]}, "pendingVerse": {"ref": "7:93", "place": "sky"}}
   ]
 }
