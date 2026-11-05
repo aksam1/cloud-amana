@@ -325,11 +325,17 @@ export function Facade({ cfg }) {
           <stop offset="0.5" stopColor="#f2b860" />
           <stop offset="1" stopColor="#8a4a20" />
         </radialGradient>
+        <clipPath id={`${uid}c`}>
+          <path d={wall} clipRule="evenodd" />
+        </clipPath>
       </defs>
       <path d={wall} fill={`url(#${uid}w)`} fillRule="evenodd" />
-      {Array.from({ length: Math.floor(h / 46) }, (_, i) => (
-        <path key={i} d={`M${left},${y - i * 46} L${left + w},${y - i * 46}`} stroke="#000" strokeOpacity="0.09" strokeWidth="2" />
-      ))}
+      {/* the courses stay on the stone: a gate stays open */}
+      <g clipPath={`url(#${uid}c)`}>
+        {Array.from({ length: Math.floor(h / 46) }, (_, i) => (
+          <path key={i} d={`M${left},${y - i * 46} L${left + w},${y - i * 46}`} stroke="#000" strokeOpacity="0.09" strokeWidth="2" />
+        ))}
+      </g>
       <rect x={left - 10} y={y - h - 18} width={w + 20} height="20" fill={mixColor(stone, lit, 0.35)} />
       {doors.map((d, i) => (
         <path key={i} d={arch(d.x, d.w, d.h)} fill={d.lit ? `url(#${uid}d)` : '#1e1218'} />

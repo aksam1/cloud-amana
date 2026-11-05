@@ -23,7 +23,7 @@
     {"type": "ground", "depth": 0.14, "y": 700, "amp": 6, "seed": 1341, "color": "#8a9a5a", "color2": "#5a6a3a", "grass": true, "grassColor": "#a8b468"},
     {"type": "tree", "depth": 0.2, "x": 300, "y": 724, "h": 270, "kind": "living", "seed": 1342},
     {"type": "tree", "depth": 0.2, "x": 1320, "y": 724, "h": 240, "kind": "living", "seed": 1343},
-    {"type": "wall", "depth": 0.3, "y": 772, "h": 117, "x0": -900, "x1": 2500, "material": "stone", "base": "#d8c8a8", "seed": 1344, "openings": [{"x": 820, "w": 90, "h": 108, "kind": "arch", "view": {"sky": "dawn", "land": "hills", "horizon": 0.35}}]},
+    {"type": "wall", "ppu": 1.2, "depth": 0.3, "y": 772, "h": 117, "x0": -900, "x1": 2500, "material": "stone", "base": "#d8c8a8", "seed": 1344, "openings": [{"x": 820, "w": 90, "h": 108, "kind": "arch", "view": {"sky": "dawn", "land": "hills", "horizon": 0.35}}]},
     {"type": "ground", "depth": 0.36, "y": 790, "amp": 3, "seed": 1345, "x0": -900, "x1": 2500, "color": "#b8a888", "color2": "#8a7a62"},
     {"type": "light", "depth": 0.42, "pos": [820, 796], "h": 101, "color": "#fff4ea", "glow": 0.45, "bright": 1.15, "solid": 0.45, "pose": "kneel", "at": {"1": {"pos": [780, 794], "pose": "stand"}, "2": {"pos": [780, 794], "pose": "stand"}}},
     {"type": "crowd", "kind": "angels", "area": [992, 1008, -1470, -1430], "y": [794, 794], "count": 1, "size": 200, "color": "#fff4d8", "dim": 0.05, "glow": 0.9, "mill": 0, "speed": 0, "flicker": 0.06, "show": [1, null]},

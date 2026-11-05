@@ -19,7 +19,7 @@
   "imagePrompt": "A lamplit hall in a great Egyptian house, women's dim rose-gold lights seated on cushions in a long row, a bowl of fruit and a small knife before each; jagged strokes of gossip rising; then a steady white light entering through a doorway and every seated light flaring in astonishment; ink-wash and parchment texture.",
   "layers": [
     {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#1a1a24"], [1, "#121218"]]},
-    {"type": "wall", "depth": 0.18, "y": 712, "h": 820, "material": "plaster", "base": "#e4d0aa", "seed": 91, "dado": "#5a7a4a", "frieze": {"at": 0.6, "h": 40, "style": "lotus", "colors": ["#2a6a7a", "#c84a3a", "#3a2a1a"]}, "openings": [{"x": 1070, "w": 64, "h": 116, "kind": "door", "view": {"sky": "day", "land": "garden", "horizon": 0.4}}, {"x": 520, "w": 80, "h": 96, "kind": "window", "lift": 250, "view": {"sky": "day", "land": "garden", "horizon": 0.15}}]},
+    {"type": "wall", "depth": 0.18, "y": 712, "h": 820, "material": "plaster", "base": "#e4d0aa", "seed": 91, "dado": "#5a7a4a", "frieze": {"at": 0.6, "h": 40, "style": "lotus", "colors": ["#2a6a7a", "#c84a3a", "#3a2a1a"]}, "openings": [{"x": 1070, "w": 64, "h": 116, "kind": "door", "view": {"sky": "day", "land": "garden", "horizon": 0.4}}, {"x": 520, "w": 80, "h": 96, "kind": "window", "lift": 250, "view": {"sky": "day", "land": "garden", "horizon": 0.15}}], "ppu": 1.2},
     {"type": "floor", "depth": 0.19, "y": 714, "vp": [800, 500], "color": "#a88a68", "color2": "#4a3a2a", "lines": 10, "gloss": 0.25, "area": [-800, 708, 2400, 1350]},
     {"type": "colonnade", "depth": 0.26, "xs": [420, 1180], "y": 740, "h": 600, "w": 46, "style": "lotus"},
     {"type": "brazier", "depth": 0.3, "x": 680, "y": 790, "s": 0.6},

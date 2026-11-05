@@ -179,6 +179,14 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`
   (stepped temple tower with stairs and shrine), `tent` (goat hair, `lit` lamp inside) and `ram` (only as
   light). `numerals` can `count` plainly from one (Hajar's seven runs).
+- One setting per place: never reuse a room or landscape for a different place (the same place may look
+  the same in later scenes). Rooms (`src/layers/interiors.jsx`): `wall` (`material` plaster, mudbrick,
+  glazed, granite, cedar, marble, stone; `frieze` {at, h, style lotus/rosette/zigzag/vine/lattice, colors};
+  `dado`; `openings` [{x, w, h, kind door/window/arch, lit, view {sky, land, moon}}]; `beams`, `niches`)
+  and `colonnade` (`xs`, `y`, `h`, `w`, `style` papyrus/lotus/pier/cedar/crystal/colossus). The
+  scratchpad's `rooms.py` keeps each place's room (Namrud, al-Aziz, the king of Egypt, Yusuf's hall,
+  Yaqub's house, Pharaoh, Dawud's chamber and court, Sulayman, the smithy): `room(place)` + `front(place)`.
+  (`Pillars` is town.jsx's painter; the interiors one is `colonnade`.)
 - Arabic titles must not quote the Quran even when its ayat are not fetched yet (the checker can only catch
   phrases from fetched ayat): "يوم الزينة", "مجمع البحرين", "المن والسلوى", "سيل العرم" and "رجل يسعى" were caught by hand.
 - `world.cycle` needs a `period` above 0 (0 divides by zero and blacks out the stage), and it does nothing while

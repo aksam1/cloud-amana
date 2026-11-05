@@ -15,11 +15,11 @@
   "pen": true,
   "dissolve": 2400,
   "world": {"fog": "#2a2430", "fogNear": 4000, "fogFar": 30000, "light": 0.95, "rays": 0, "bloom": 0.75, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
-  "cam": {"pos": [860, 540, 40], "look": [880, 1250, -3000]},
+  "cam": {"pos": [860, 590, 40], "look": [880, 1020, -3000]},
   "imagePrompt": "A lamplit hall of a palace with tall columns and closed doors, a dim amber figure of light and a steady white light; the white light hurrying toward a lit doorway, the amber light behind; in the doorway a third dim figure; ink-wash and parchment texture.",
   "layers": [
     {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#1a1a24"], [1, "#121218"]]},
-    {"type": "wall", "depth": 0.18, "y": 712, "h": 820, "material": "plaster", "base": "#e4d0aa", "seed": 91, "dado": "#5a7a4a", "frieze": {"at": 0.6, "h": 40, "style": "lotus", "colors": ["#2a6a7a", "#c84a3a", "#3a2a1a"]}, "openings": [{"x": 1070, "w": 64, "h": 116, "kind": "door", "view": {"sky": "day", "land": "garden", "horizon": 0.4}}, {"x": 520, "w": 80, "h": 96, "kind": "window", "lift": 250, "view": {"sky": "day", "land": "garden", "horizon": 0.15}}]},
+    {"type": "wall", "depth": 0.18, "y": 712, "h": 820, "material": "plaster", "base": "#e4d0aa", "seed": 91, "dado": "#5a7a4a", "frieze": {"at": 0.6, "h": 40, "style": "lotus", "colors": ["#2a6a7a", "#c84a3a", "#3a2a1a"]}, "openings": [{"x": 1070, "w": 64, "h": 116, "kind": "door", "view": {"sky": "day", "land": "garden", "horizon": 0.4}}, {"x": 520, "w": 80, "h": 96, "kind": "window", "lift": 250, "view": {"sky": "day", "land": "garden", "horizon": 0.15}}], "ppu": 1.2},
     {"type": "floor", "depth": 0.19, "y": 714, "vp": [800, 500], "color": "#a88a68", "color2": "#4a3a2a", "lines": 10, "gloss": 0.25, "area": [-800, 708, 2400, 1350]},
     {"type": "colonnade", "depth": 0.26, "xs": [420, 1180], "y": 740, "h": 600, "w": 46, "style": "lotus"},
     {"type": "brazier", "depth": 0.3, "x": 680, "y": 790, "s": 0.6},
@@ -33,9 +33,9 @@
     {"type": "dust", "box": [-400, 200, -3000, 2000, 950, -1200], "count": 300, "size": 3, "color": "#ffd8a0", "opacity": 0.3, "wind": [4, -6, 0], "swirl": 20}
   ],
   "beats": [
-    {"dur": 9000, "ambient": ["echo", "fire"], "cam": {"pos": [860, 540, 40], "look": [880, 1250, -3000]}, "say": "The wife of the Aziz desired him. She closed the doors, but he refused: I seek refuge in God."},
-    {"dur": 8000, "ambient": ["echo"], "sfx": [{"name": "door", "at": 3000}], "cam": {"pos": [980, 540, 40], "look": [1020, 1250, -3000]}, "say": "He ran for the door; she caught his shirt from behind, and it tore."},
-    {"dur": 9000, "ambient": ["echo", "voices"], "cam": {"pos": [1060, 535, 40], "look": [1100, 1250, -3000]}, "say": "Her husband stood in the doorway. A witness said: if the shirt is torn at the back, he is telling the truth. It was."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [1000, 530, 40], "look": [1040, 1250, -3000]}, "pendingVerse": {"ref": "12:23", "place": "sky", "part": "his answer, from \"I seek the refuge of Allah\" to the end"}}
+    {"dur": 9000, "ambient": ["echo", "fire"], "cam": {"pos": [860, 590, 40], "look": [880, 1020, -3000]}, "say": "The wife of the Aziz desired him. She closed the doors, but he refused: I seek refuge in God."},
+    {"dur": 8000, "ambient": ["echo"], "sfx": [{"name": "door", "at": 3000}], "cam": {"pos": [980, 590, 40], "look": [1020, 1020, -3000]}, "say": "He ran for the door; she caught his shirt from behind, and it tore."},
+    {"dur": 9000, "ambient": ["echo", "voices"], "cam": {"pos": [1060, 585, 40], "look": [1100, 1020, -3000]}, "say": "Her husband stood in the doorway. A witness said: if the shirt is torn at the back, he is telling the truth. It was."},
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [1000, 580, 40], "look": [1040, 1020, -3000]}, "pendingVerse": {"ref": "12:23", "place": "sky", "part": "his answer, from \"I seek the refuge of Allah\" to the end"}}
   ]
 }

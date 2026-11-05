@@ -19,7 +19,7 @@
   "imagePrompt": "A quiet room of an Egyptian house at dusk, an oil lamp burning; an old steady light lying on a low bed, twelve figures of light kneeling close around him, one of them steady and clear; then the old light rising gently and fading through the window into the evening sky; ink-wash and parchment texture.",
   "layers": [
     {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#1a1410"], [1, "#0e0a08"]]},
-    {"type": "wall", "depth": 0.18, "y": 712, "h": 820, "material": "mudbrick", "seed": 94, "beams": true, "openings": [{"x": 1240, "w": 70, "h": 70, "kind": "window", "lift": 280, "view": {"sky": "dusk", "land": "hills", "horizon": 0.3}}], "niches": [{"x": 440, "w": 40, "h": 60, "lift": 200}]},
+    {"type": "wall", "depth": 0.18, "y": 712, "h": 820, "material": "mudbrick", "seed": 94, "beams": true, "openings": [{"x": 1240, "w": 70, "h": 70, "kind": "window", "lift": 280, "view": {"sky": "dusk", "land": "hills", "horizon": 0.3}}], "niches": [{"x": 440, "w": 40, "h": 60, "lift": 200}], "ppu": 1.2},
     {"type": "floor", "depth": 0.19, "y": 714, "vp": [800, 500], "color": "#8a6a48", "color2": "#3a2a1a", "lines": 6, "gloss": 0.05, "area": [-800, 708, 2400, 1350]},
     {"type": "light", "kind": "flame", "depth": 0.181, "pos": [440, 538], "h": 8, "color": "#ffc060", "glow": 1.4},
     {"type": "light", "kind": "flame", "depth": 0.35, "pos": [1000, 770], "h": 12, "color": "#ffc060", "glow": 1.4},
