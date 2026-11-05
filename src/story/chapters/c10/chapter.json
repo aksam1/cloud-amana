@@ -4,7 +4,7 @@
   "arabic": "أيوب وشعيب",
   "nodes": ["ayyub", "shuayb"],
   "parts": [
-    { "title": "Ayyub's Patience", "from": 103, "to": 106 },
-    { "title": "Shu'ayb and Madyan", "from": 107, "to": 111 }
+    { "title": "Ayyub's Patience", "from": 106, "to": 109 },
+    { "title": "Shu'ayb and Madyan", "from": 110, "to": 114 }
   ]
 }

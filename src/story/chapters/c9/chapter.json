@@ -4,10 +4,10 @@
   "arabic": "يعقوب ويوسف",
   "nodes": ["yaqub", "yusuf"],
   "parts": [
-    { "title": "The House of Yaqub", "from": 91, "to": 92 },
-    { "title": "The Well and the Caravan", "from": 93, "to": 94 },
-    { "title": "In Egypt", "from": 95, "to": 97 },
-    { "title": "The King's Dream", "from": 98, "to": 99 },
-    { "title": "The Brothers", "from": 100, "to": 102 }
+    { "title": "The House of Yaqub", "from": 92, "to": 93 },
+    { "title": "The Well and the Caravan", "from": 94, "to": 95 },
+    { "title": "In Egypt", "from": 96, "to": 99 },
+    { "title": "The King's Dream", "from": 100, "to": 102 },
+    { "title": "The Brothers", "from": 103, "to": 105 }
   ]
 }

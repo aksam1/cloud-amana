@@ -1,0 +1,41 @@
+{
+  "id": "termite",
+  "chapter": 14,
+  "order": 158,
+  "node": "sulayman",
+  "title": "The Staff and the Termite",
+  "arabic": "منسأة سليمان",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "Sulayman's death is shown only as his light standing still, then gently fading; the jinn as smouldering shadows still at work. That he died leaning on his staff is told in 34:14."],
+  "ambient": ["work", "wind"],
+  "base": "#c8c0b0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c8c0b0", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [820, 520, 800], "look": [840, 700, -3000]},
+  "imagePrompt": "A half-built temple of white stone, smouldering shadow figures labouring on its walls by day and night; a steady light standing still, leaning on a staff, through many days; a tiny insect at the foot of the staff; the staff gives way and the light fades; the shadows stop their work; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [9, 18, 10000, 6], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [8, 18, 12000, 10]}, "2": {"tod": [16.6, 17.8, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 620, "amp": 50, "seed": 1180, "sharp": 0.3, "color": "#8a8a78", "haze": 0.35, "fog": 0.4},
+    {"type": "ridge", "depth": 0.08, "y": 660, "amp": 40, "seed": 1181, "sharp": 0.3, "color": "#7a8064", "haze": 0.25, "fog": 0.3},
+    {"type": "ground", "depth": 0.14, "y": 690, "amp": 10, "seed": 1182, "color": "#7a8a52", "color2": "#4a5a32", "grass": true, "grassColor": "#9aaa62"},
+    {"type": "masonry", "depth": 0.13, "pos": [1080, 690], "w": 585, "h": 273, "side": 40, "courses": 18, "blocks": 26, "built": 0.5, "stone": "#e8dcc4", "stone2": "#f4ecd8", "ink": "#6a5a48", "at": {"0": {"build": [0.5, 0.75, 10000]}, "1": {"build": [0.75, 0.95, 12000]}, "2": {"built": 0.95}}},
+    {"type": "light", "depth": 0.36, "pos": [300, 760], "h": 119, "color": "#ff6a2a", "glow": 0.6, "bright": 1.4, "kind": "ember", "at": {"2": {"pose": "kneel"}}},
+    {"type": "light", "depth": 0.36, "pos": [410, 770], "h": 119, "color": "#ff6a2a", "glow": 0.6, "bright": 1.4, "kind": "ember", "at": {"2": {"pose": "kneel"}}},
+    {"type": "light", "depth": 0.36, "pos": [520, 760], "h": 119, "color": "#ff6a2a", "glow": 0.6, "bright": 1.4, "kind": "ember", "at": {"2": {"pose": "kneel"}}},
+    {"type": "light", "depth": 0.36, "pos": [630, 770], "h": 119, "color": "#ff6a2a", "glow": 0.6, "bright": 1.4, "kind": "ember", "at": {"2": {"pose": "kneel"}}},
+    {"type": "light", "depth": 0.36, "pos": [740, 760], "h": 119, "color": "#ff6a2a", "glow": 0.6, "bright": 1.4, "kind": "ember", "at": {"2": {"pose": "kneel"}}},
+    {"type": "light", "kind": "flame", "show": [0, 2], "depth": 0.441, "pos": [830, 792], "h": 4, "color": "#8a6a3a", "glow": 0.1},
+    {"type": "light", "depth": 0.44, "pos": [800, 802], "h": 112, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "pose": "kneel", "at": {"1": {"pose": "kneel"}, "2": {"pose": "gone"}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["work", "wind"], "sfx": [{"name": "hoe", "at": 2000}, {"name": "hoe", "at": 6000}], "cam": {"pos": [820, 520, 800], "look": [840, 700, -3000]}, "say": "When his time came, Sulayman died standing, leaning on his staff, while the jinn laboured on, thinking he was watching them."},
+    {"dur": 11000, "ambient": ["work", "wind"], "cam": {"pos": [800, 535, 450], "look": [800, 820, -3000]}, "say": "Only when a small creature of the earth had gnawed through his staff, and he fell, did they understand."},
+    {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [840, 520, 850], "look": [860, 690, -3000]}, "say": "Had the jinn known the unseen, they would not have stayed so long in their humiliating toil. Only God knows the unseen."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [840, 520, 850], "look": [860, 690, -3000]}, "pendingVerse": {"ref": "34:14", "place": "sky"}}
+  ]
+}

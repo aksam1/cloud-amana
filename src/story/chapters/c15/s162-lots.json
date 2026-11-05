@@ -1,0 +1,40 @@
+{
+  "id": "lots",
+  "chapter": 15,
+  "order": 162,
+  "node": "yunus",
+  "title": "The Lots",
+  "arabic": "القرعة",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "Casting lots to lighten the ship is from 37:141. Yunus going into the sea is shown only as his light slipping from the deck into the dark."],
+  "ambient": ["storm", "sea"],
+  "base": "#2a3038",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#4a5260", "fogNear": 3000, "fogFar": 30000, "light": 0.75, "rays": 0, "bloom": 0.7, "haze": 0, "hazeY": 0.6, "shake": 0.6, "dof": 0},
+  "cam": {"pos": [820, 500, 900], "look": [840, 640, -3000]},
+  "imagePrompt": "A wooden ship labouring in a black storm at sea, towering grey waves, dim lights of sailors gathered on deck around a small cast of lots; a steady light stepping to the rail and passing into the dark water; a great dark back of a whale rising beneath; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [17.6, 18, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [18, 18.4, 10000]}, "2": {"tod": [18.4, 18.8, 12000]}}},
+    {"type": "storm", "tone": "dark", "opacity": 0.75},
+    {"type": "water", "depth": 0.08, "points": [[-4000, 676], [800, 680], [6000, 684]], "w0": 120, "w1": 120, "reflect": [["0", "#5a6a78"], ["1", "#1a2430"]]},
+    {"type": "whale", "show": [1, null], "depth": 0.32, "x": 1000, "y": 858, "w": 768, "face": -1, "area": [500, 700, 1500, 880], "move": {"path": [[0, 120, 0], [0, 0, 0]], "dur": 5000, "delay": 2500}},
+    {"type": "water", "depth": 0.3, "points": [[-4000, 826], [800, 830], [6000, 834]], "w0": 160, "w1": 160, "reflect": [["0", "#4a5a68"], ["1", "#141c24"]]},
+    {"type": "boat", "depth": 0.34, "x": 800, "y": 812, "w": 816, "wood": "#5a3e28", "area": [400, 400, 1200, 830], "move": {"path": [[0, 0, 0], [0, -10, 0], [0, 6, 0], [0, -8, 0], [0, 0, 0]], "dur": 10000}},
+    {"type": "light", "depth": 0.341, "pos": [700, 760], "h": 87, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.341, "pos": [746, 760], "h": 87, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.341, "pos": [792, 760], "h": 87, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.341, "pos": [838, 760], "h": 87, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.342, "pos": [960, 760], "h": 87, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "at": {"1": {"pos": [1040, 770], "pose": "walk", "path": [[960, 760], [1080, 780], [1120, 860]], "dur": 4000, "delay": 600}, "2": {"pose": "gone"}}},
+    {"type": "dust", "box": [-1400, 0, -6000, 3000, 950, 600], "count": 800, "size": 3, "color": "#c8d0d8", "opacity": 0.45, "wind": [-30, -110, 0], "swirl": 40},
+    {"type": "lightning", "show": [0, 2], "flash": 1, "x": 1200, "seed": 6}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["storm", "sea"], "sfx": [{"name": "thunder", "at": 1500}, {"name": "wave", "at": 4000}], "cam": {"pos": [820, 500, 900], "look": [840, 640, -3000]}, "say": "A storm struck the ship. To lighten it, the sailors cast lots to choose who must go over the side, and the lot fell on Yunus."},
+    {"dur": 11000, "ambient": ["storm", "sea"], "sfx": [{"name": "wave", "at": 3600}], "world": {"shake": 1.0}, "cam": {"pos": [860, 505, 900], "look": [880, 650, -3000]}, "say": "He went into the sea, and a great whale swallowed him."},
+    {"dur": 12000, "ambient": ["sea", "wind"], "cam": {"pos": [840, 505, 950], "look": [860, 640, -3000]}, "pendingVerse": {"ref": "37:141-142", "place": "sky"}}
+  ]
+}

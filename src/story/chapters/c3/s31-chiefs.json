@@ -1,0 +1,44 @@
+{
+  "id": "chiefs",
+  "chapter": 3,
+  "order": 31,
+  "node": "nuh",
+  "title": "The Chiefs Mock",
+  "arabic": "الملأ",
+  "source": "quran",
+  "ayahs": ["11:27-28"],
+  "art": ["The terrace and the chiefs' couches are imagined; the chiefs, Nuh and those who believed appear only as figures of light."],
+  "ambient": ["crowd", "wind"],
+  "base": "#b89868",
+  "captions": "parchment",
+  "focus": 0.9,
+  "dissolve": 2000,
+  "cam": { "x": 0, "y": 0, "z": 1 },
+  "imagePrompt": "A grand Troy-style terrace of marble and bronze above a town square, tall columns hung with rich deep-red cloths; seen from behind, several large figures of dim, heavy, smoky amber light recline on couches at the balustrade, draped in glowing cloth, looking down; far below in the square a figure of steady white-gold light stands with a small group of humble white lights holding plain tools; their words drift up in heavy ornate calligraphy that drips like wax; then the reverse, a low angle from the square looking up at the terrace against the sky where the chiefs look hollow and dim, while clean steady white calligraphy rises from the figure of light below; ink-wash and parchment texture, no faces.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "show": [0, 2], "stops": [[0, "#b8c8d4"], [0.1, "#d8d0bc"], [0.13, "#c4a272"], [1, "#d6b68c"]] },
+    { "type": "town", "show": [0, 2], "depth": 0.55, "grade": "city", "y": 176, "x0": -300, "x1": 1900, "s": 0.45, "seed": 74, "grey": 0.15 },
+    { "type": "figure", "show": [0, 2], "depth": 0.6, "x": 800, "y": 320, "h": 30, "color": "#fffaf0", "glow": 1.7 },
+    { "type": "followers", "show": [0, 2], "depth": 0.6, "x": 800, "y": 324, "count": 6, "size": 24, "gap": 21, "tools": true },
+    { "type": "calligraphy", "show": [1, 2], "depth": 0.75, "ref": "11:27", "ar": [6, 10], "x": 800, "y": 250, "size": 60, "color": "#d89040", "w": 760, "dur": 3200, "drip": true },
+    { "type": "terrace", "show": [0, 2], "depth": 1, "view": "behind", "y": 430, "chiefs": [[380, 568, 1.1], [600, 592, 0.95], [1000, 592, 0.95], [1220, 568, 1.1]] },
+
+    { "type": "sky", "depth": 0.05, "show": [2, null], "stops": [[0, "#4e6e96"], [0.6, "#a4b4c4"], [1, "#d4ccbc"]] },
+    { "type": "terrace", "show": [2, null], "depth": 0.8, "view": "below", "y": 340, "marble": "#9a948a", "chiefs": [[600, 312, 0.55], [820, 302, 0.5], [1040, 308, 0.52], [1250, 314, 0.55]] },
+    { "type": "calligraphy", "show": [3, null], "depth": 0.85, "ref": "11:28", "ar": [1, 8], "x": 900, "y": 160, "size": 50, "color": "#fffaf0", "w": 700, "dur": 3600 },
+    { "type": "ground", "show": [2, null], "depth": 1, "y": 700, "amp": 2, "seed": 4, "color": "#b89a6c", "color2": "#7a5e3c" },
+    { "type": "followers", "show": [2, null], "depth": 1, "x": 560, "y": 646, "count": 6, "size": 62, "side": -1, "gap": 40, "tools": true },
+    { "type": "figure", "show": [2, null], "depth": 1, "x": 560, "y": 640, "h": 110, "color": "#fffaf0", "glow": 1.5 },
+    { "type": "particles", "depth": 0.7, "kind": "dust", "count": 40 }
+  ],
+  "beats": [
+    { "dur": 6500, "ambient": ["crowd", "wind"], "cam": { "x": 0, "y": 0, "z": 1 },
+      "say": "From their terrace, the chiefs of his people looked down on Nuh and the few who followed him." },
+    { "dur": 9000, "ambient": ["jeer", "wind"], "cam": { "z": 1.04 },
+      "verse": { "ref": "11:27", "ar": [6, 17], "place": "lower", "en": "\"We do not see you but as a man like ourselves, and we do not see you followed except by those who are the lowest of us…\"" } },
+    { "dur": 5500, "ambient": ["wind"], "cam": { "x": 0, "y": 0, "z": 1, "cut": true },
+      "say": "Nuh answered them calmly." },
+    { "dur": 9500, "ambient": ["wind", "voice"], "cam": { "y": 20, "z": 1.04 },
+      "verse": { "ref": "11:28", "ar": [1, 8], "place": "lower", "en": "\"O my people have you considered: if I should be upon clear evidence from my Lord…" } }
+  ]
+}

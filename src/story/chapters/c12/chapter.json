@@ -4,7 +4,7 @@
   "arabic": "موسى وفرعون",
   "nodes": ["harun"],
   "parts": [
-    { "title": "The Signs", "from": 122, "to": 126 },
-    { "title": "The Sea", "from": 127, "to": 130 }
+    { "title": "The Signs", "from": 125, "to": 131 },
+    { "title": "The Sea", "from": 132, "to": 135 }
   ]
 }

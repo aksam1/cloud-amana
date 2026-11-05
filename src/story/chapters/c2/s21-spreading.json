@@ -1,0 +1,57 @@
+{
+  "id": "spreading",
+  "chapter": 2,
+  "order": 21,
+  "node": "idris",
+  "title": "Humanity Spreads Across the Earth",
+  "arabic": "الانتشار",
+  "source": "quran",
+  "ayahs": ["2:213"],
+  "art": ["The lands, settlements and the slow forgetting are imagined; the verse says only that mankind was once one."],
+  "ambient": ["wind", "birds"],
+  "base": "#5a7a9a",
+  "captions": "parchment",
+  "focus": 0.9,
+  "dissolve": 2000,
+  "cam": { "x": 0, "y": 30, "z": 1 },
+  "imagePrompt": "One long panoramic matte painting read left to right: forested green highlands with a cluster of domed huts and smoke; a broad river delta of silver channels and reeds with a walled village of stone houses; a dry plateau of red rock mesas with a small walled town and a stone gateway; at the far right a larger, greyer town where figures of light, dimmer and scattered, crowd around fires while a few steady white figures kneel quietly at the edges; the palette starts warm and golden and cools to grey across the panorama; parallax layers of ink-wash hills; parchment texture, no faces.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "shift": 3000, "stops": [[0, "#5a7a9a"], [0.6, "#d8c8a0"], [1, "#f2d6a0"]], "at": { "1": { "stops": [[0, "#5e7894"], [0.6, "#cfc4a4"], [1, "#e8d2a8"]] }, "2": { "stops": [[0, "#66748a"], [0.6, "#bcb6a6"], [1, "#d6c8ae"]] }, "3": { "stops": [[0, "#6a7286"], [0.6, "#aeaaa2"], [1, "#c8beb0"]] } } },
+    { "type": "sun", "depth": 0.1, "x": 520, "y": 320, "r": 30, "color": "#fff0c8", "halo": 8 },
+    { "type": "range", "count": 3, "y": [520, 590], "amp": [60, 90], "depth": [0.2, 0.42], "colors": ["#a8a6b4", "#7a7a74"], "haze": [0.2, 0.5], "sharp": 0.3, "edge": false, "x1": 5200, "seed": 81 },
+    { "type": "range", "count": 2, "y": [600, 630], "amp": [50, 70], "depth": [0.5, 0.65], "colors": ["#6f8a5e", "#4a6440"], "haze": [0.3, 0.6], "sharp": 0.15, "edge": false, "x0": -900, "x1": 1500, "seed": 83, "sweep": 2600 },
+    { "type": "garden", "depth": 0.7, "plane": "back", "count": 10, "fruit": false, "y": 628, "x0": -300, "x1": 1300, "avoid": [9000, 9000], "seed": 5, "sweep": 2600 },
+    { "type": "ground", "depth": 0.9, "y": 660, "amp": 18, "seed": 3, "color": "#6e7f48", "color2": "#2e3a1e", "grass": 50, "grassColor": "#8aa05a", "x0": -900, "x1": 1350, "sweep": 2600 },
+    { "type": "garden", "depth": 0.9, "plane": "back", "count": 5, "fruit": false, "y": 694, "x0": -200, "x1": 1250, "avoid": [300, 800], "seed": 9, "sweep": 2600 },
+    { "type": "town", "depth": 0.9, "grade": "hut", "y": 668, "x0": 340, "x1": 720, "s": 0.9, "smoke": 2, "seed": 11, "sweep": 2600 },
+    { "type": "villagers", "depth": 0.9, "count": 8, "size": 30, "far": 660, "near": 760, "river": [800, 700], "homes": [[380, 668], [480, 668], [600, 668], [690, 668]] },
+
+    { "type": "ground", "depth": 0.9, "y": 664, "amp": 8, "seed": 13, "color": "#8a8a58", "color2": "#3e3e26", "grass": 60, "grassColor": "#a0a060", "x0": 1050, "x1": 2700, "sweep": 2600 },
+    { "type": "water", "depth": 0.9, "points": [[1700, 640], [1640, 720], [1480, 840], [1300, 1060]], "w0": 4, "w1": 150, "reflect": [[0, "#e6dcc2"], [0.4, "#a9bcc4"], [1, "#5a7488"]], "sweep": 2600 },
+    { "type": "water", "depth": 0.9, "points": [[1700, 640], [1710, 740], [1730, 880], [1740, 1060]], "w0": 4, "w1": 170, "reflect": [[0, "#e6dcc2"], [0.4, "#a9bcc4"], [1, "#5a7488"]], "sweep": 2600 },
+    { "type": "water", "depth": 0.9, "points": [[1700, 640], [1790, 720], [1960, 840], [2140, 1060]], "w0": 4, "w1": 150, "reflect": [[0, "#e6dcc2"], [0.4, "#a9bcc4"], [1, "#5a7488"]], "sweep": 2600 },
+    { "type": "town", "depth": 0.9, "grade": "village", "y": 662, "x0": 1400, "x1": 1960, "wall": { "x0": 1380, "x1": 1990, "gate": 1680, "h": 34 }, "smoke": 3, "seed": 21, "sweep": 2600 },
+    { "type": "villagers", "depth": 0.9, "count": 12, "size": 30, "far": 662, "near": 760, "river": [1660, 700], "homes": [[1450, 664], [1560, 664], [1800, 664], [1900, 664]] },
+
+    { "type": "range", "count": 2, "y": [590, 620], "amp": [90, 110], "depth": [0.55, 0.65], "colors": ["#b0603e", "#7a3e26"], "haze": [0.4, 0.8], "sharp": 0.75, "edge": false, "x0": 2100, "x1": 4800, "seed": 91, "sweep": 2600 },
+    { "type": "ground", "depth": 0.9, "y": 662, "amp": 10, "seed": 17, "color": "#a86a44", "color2": "#4a2c1c", "grass": 20, "grassColor": "#8a7a4a", "rocks": 12, "x0": 2300, "x1": 4500, "sweep": 2600 },
+    { "type": "town", "depth": 0.9, "grade": "town", "y": 664, "x0": 2650, "x1": 3250, "s": 1.05, "wall": { "x0": 2620, "x1": 3280, "gate": 2950, "h": 40 }, "smoke": 3, "seed": 31, "grey": 0.15, "sweep": 2600, "at": { "3": { "grey": 0.3 } } },
+    { "type": "town", "depth": 0.9, "grade": "town", "y": 664, "x0": 3350, "x1": 4000, "s": 1.15, "rows": 2, "smoke": 4, "seed": 37, "grey": 0.35, "sweep": 2600, "at": { "3": { "grey": 0.45 } } },
+    { "type": "throng", "depth": 0.9, "x0": 2660, "x1": 3240, "y0": 680, "y1": 760, "walkers": 8, "dim": 0.3, "seed": 67, "at": { "3": { "dim": 0.45 } } },
+    { "type": "throng", "depth": 0.9, "x0": 3120, "x1": 4080, "y0": 676, "y1": 760, "walkers": 12, "fires": [[3460, 700], [3720, 712]], "faithful": 3, "dim": 0.35, "seed": 63, "at": { "3": { "dim": 0.5 } } },
+
+    { "type": "particles", "depth": 0.6, "kind": "dust", "count": 60, "area": [-400, 200, 4400, 900] },
+    { "type": "tint", "depth": 0, "color": "#808080", "amount": 1, "blend": "saturation", "opacity": 0, "at": { "1": { "opacity": 0.15 }, "2": { "opacity": 0.35 }, "3": { "opacity": 0.5 } } },
+    { "type": "tint", "depth": 0, "color": "#6e8098", "amount": 1, "blend": "soft-light", "opacity": 0, "at": { "2": { "opacity": 0.2 }, "3": { "opacity": 0.32 } } }
+  ],
+  "beats": [
+    { "dur": 6000, "cam": { "x": 900, "ease": "linear" },
+      "say": "Generation after generation, the children of Adam spread across the earth." },
+    { "dur": 6000, "ambient": ["wind", "birds", "water", "voices"], "cam": { "x": 1900, "ease": "linear" } },
+    { "dur": 6000, "ambient": ["crowd", "wind"], "cam": { "x": 2850, "ease": "linear" },
+      "say": "Villages became towns, and in their busy streets many began to forget." },
+    { "dur": 8000, "ambient": ["crowd"], "cam": { "x": 2875, "y": 230, "z": 1.04, "ease": "out" },
+      "say": "Yet a few still remembered, kneeling quietly at the edges.",
+      "verse": { "ref": "2:213", "ar": [0, 3], "place": "lower", "en": "Mankind was [of] one religion [before their deviation]…" } }
+  ]
+}

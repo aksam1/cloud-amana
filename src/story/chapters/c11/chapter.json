@@ -4,8 +4,8 @@
   "arabic": "موسى من النيل إلى الطور",
   "nodes": ["musa"],
   "parts": [
-    { "title": "Born in Egypt", "from": 112, "to": 115 },
-    { "title": "Exile", "from": 116, "to": 119 },
-    { "title": "The Call", "from": 120, "to": 121 }
+    { "title": "Born in Egypt", "from": 115, "to": 118 },
+    { "title": "Exile", "from": 119, "to": 122 },
+    { "title": "The Call", "from": 123, "to": 124 }
   ]
 }

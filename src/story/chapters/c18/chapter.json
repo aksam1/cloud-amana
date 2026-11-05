@@ -1,7 +1,11 @@
 {
   "number": 18,
-  "title": "Prophet Isa",
-  "arabic": "عيسى",
-  "nodes": ["isa"],
-  "parts": []
+  "title": "Stories of Wisdom",
+  "arabic": "قصص وعبر",
+  "nodes": ["wisdom"],
+  "parts": [
+    { "title": "The Cave", "from": 180, "to": 181 },
+    { "title": "Dhul-Qarnayn", "from": 182, "to": 183 },
+    { "title": "Parables and Lessons", "from": 184, "to": 186 }
+  ]
 }

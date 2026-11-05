@@ -1,0 +1,60 @@
+{
+  "id": "zamzam",
+  "chapter": 6,
+  "order": 71,
+  "node": "ibrahim",
+  "title": "The Spring",
+  "arabic": "زمزم",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "Hajar's search between the hills, the angel and the spring are told in the hadith (al-Bukhari). The angel appears only as radiance; Hajar as a dim figure of light; the child only as a small light.",
+    "The two hills are Safa and Marwa, between which pilgrims still walk; the spring is Zamzam. Their look here is imagined."
+  ],
+  "ambient": ["desert", "wind"],
+  "base": "#d8c0a0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": { "fog": "#dcc4a4", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.65, "haze": 0.3, "hazeY": 0.62, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [800, 510, 1200], "look": [800, 545, -3000] },
+  "imagePrompt": "A barren valley at noon between two low rocky hills, a dim amber figure of light running back and forth along the valley floor between them, numerals one to seven glowing and fading in the air; a tiny light lying under a thorn tree; a tall figure of pure white radiance beside it, and clear water welling up from the sand in widening rings, glittering; birds of light circling above; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 600, "sun": { "rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 250, "size": 40 },
+      "tod": [12.5, 13.3, 10000], "at": { "1": { "tod": [13.3, 14.2, 10000] }, "2": { "tod": [14.2, 15, 10000] }, "3": { "tod": [15, 16.2, 13000] } } },
+    { "type": "peak", "depth": 0.06, "x": 240, "y": 310, "w": 480, "h": 360, "color": "#4a3c38", "lit": "#9a7a68", "seed": 140 },
+    { "type": "peak", "depth": 0.06, "x": 1360, "y": 290, "w": 520, "h": 380, "color": "#463834", "lit": "#947464", "seed": 141 },
+    { "type": "ridge", "depth": 0.1, "y": 612, "amp": 100, "seed": 143, "sharp": 0.7, "color": "#5a4a40", "haze": 0.25 },
+    { "type": "peak", "depth": 0.2, "x": 250, "y": 560, "w": 230, "h": 160, "color": "#6a5446", "lit": "#b08e74", "seed": 160 },
+    { "type": "peak", "depth": 0.2, "x": 1350, "y": 570, "w": 210, "h": 150, "color": "#665044", "lit": "#aa8a70", "seed": 161 },
+    { "type": "ground", "depth": 0.21, "y": 700, "amp": 6, "seed": 162, "color": "#caa878", "color2": "#9a7a58" },
+    { "type": "light", "depth": 0.22, "h": 48, "w": 0.55, "color": "#ecc8a4", "glow": 0.25, "bright": 0.9, "solid": 0.6, "pose": "walk", "path": [[840, 712], [560, 708], [330, 640], [262, 572]], "dur": 8000, "delay": 600,
+      "at": {
+        "1": { "path": [[262, 572], [430, 700], [1170, 700], [1338, 582], [1170, 700], [430, 700], [262, 572], [430, 700], [1170, 700], [1338, 582], [1170, 700], [430, 700], [262, 572], [430, 700], [1170, 700], [1338, 582], [1170, 700], [430, 700], [262, 572], [430, 700], [1170, 700], [1338, 582]], "dur": 9400, "delay": 300 },
+        "2": { "path": [[1338, 582], [1170, 700], [900, 738]], "dur": 4500, "delay": 900 },
+        "3": { "pose": "stand", "path": [[900, 738], [880, 742]], "dur": 800 }
+      } },
+    { "type": "tree", "depth": 0.24, "x": 920, "y": 732, "h": 210, "kind": "bare", "seed": 145 },
+    { "type": "light", "depth": 0.26, "pos": [720, 756], "h": 20, "w": 1.0, "pose": "babe", "color": "#fffaf0", "glow": 0.8, "bright": 1.5 },
+    { "type": "spring", "show": [2, null], "depth": 0.262, "pos": [800, 764], "r": 64, "squash": 0.26, "well": 0,
+      "at": { "2": { "rise": [0, 0.75, 6500, 1800] }, "3": { "rise": [0.75, 1, 5000], "rim": 1 } } },
+    { "type": "light", "show": [2, 3], "depth": 0.27, "pos": [864, 770], "h": 100, "w": 0.42, "color": "#ffffff", "glow": 0.45, "bright": 1.3, "solid": 0.7 },
+    { "type": "dust", "show": [2, null], "box": [700, 1430, -2900, 900, 1660, -2740], "count": 160, "size": 5, "color": "#e8f4ff", "opacity": 0.55, "wind": [0, -110, 0], "swirl": 8 },
+    { "type": "light", "kind": "bird", "show": [3, null], "depth": 0.11, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.4, "path": [[560, 280, -8000], [900, 220, -8000], [1120, 300, -8000], [820, 360, -8000], [560, 280, -8000], [900, 220, -8000]], "dur": 12500 },
+    { "type": "light", "kind": "bird", "show": [3, null], "depth": 0.11, "h": 11, "color": "#fffaf0", "glow": 0.6, "bright": 1.4, "path": [[1000, 250, -8000], [700, 300, -8000], [560, 240, -8000], [860, 200, -8000], [1000, 250, -8000], [700, 300, -8000]], "dur": 13000, "delay": 400 },
+    { "type": "ground", "depth": 0.38, "y": 830, "amp": 10, "seed": 163, "color": "#b89868", "color2": "#8a6a48" },
+    { "type": "numerals", "show": [1, 2], "count": 7, "every": 1340, "delay": 900, "size": 80, "area": [560, 210, 1040, 330], "day": "#fff4dc" },
+    { "type": "dust", "box": [-1400, 200, -9000, 3000, 900, 0], "count": 500, "size": 3, "color": "#fff4e0", "opacity": 0.3, "wind": [3, -3, 0] }
+  ],
+  "beats": [
+    { "dur": 10000, "ambient": ["desert", "wind"], "cam": { "pos": [800, 510, 1180], "look": [800, 545, -3000] },
+      "say": "When the water ran out, the child grew restless with thirst. Hajar climbed the nearest hill, Safa, to look for anyone who might help." },
+    { "dur": 10000, "ambient": ["desert"],
+      "say": "Seeing no one, she ran across the valley to the hill of Marwa, and back: seven times." },
+    { "dur": 10000, "ambient": ["spring", "air"], "sfx": [{ "name": "drop", "at": 2000 }, { "name": "drop", "at": 2500 }, { "name": "drop", "at": 3300 }], "cam": { "pos": [800, 540, 920], "look": [800, 650, -3000] },
+      "say": "Then she heard a sound. An angel stood where the child lay, and water welled up from the ground." },
+    { "dur": 13000, "ambient": ["spring", "birds"], "cam": { "pos": [800, 525, 1060], "look": [800, 610, -3000] },
+      "pendingVerse": { "ref": "2:158", "place": "sky", "part": "its opening words, on as-Safa and al-Marwah" } }
+  ]
+}

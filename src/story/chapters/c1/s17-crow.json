@@ -1,0 +1,36 @@
+{
+  "id": "crow",
+  "chapter": 1,
+  "order": 17,
+  "node": "humanity",
+  "title": "The Crow",
+  "arabic": "الغراب",
+  "source": "mixed",
+  "ayahs": ["5:31"],
+  "art": ["Habil's body is never shown: it lies under a covering of earth. Qabil appears only as a dimmed figure of light."],
+  "ambient": ["wind"],
+  "base": "#1e1426",
+  "renderer": "gl",
+  "dissolve": 2400,
+  "world": {"fog": "#3a2c40", "fogNear": 5000, "fogFar": 34000, "light": 0.9, "rays": 0, "bloom": 0.75, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [840, 520, 1050], "look": [860, 590, -3000]},
+  "imagePrompt": "A barren, cracked field at dusk, the sky a bruised purple fading to a thin line of orange on the horizon, a single leafless tree in silhouette; a dim grey figure of light hunched on the ground beside a shape covered in shadow; a black crow drawn in crisp, detailed ink strokes, standing out sharply from the soft painting, digging at the earth with beak and claws, small bursts of dirt flying; at the end, a small mound of earth beside the kneeling figure as the crow flies toward the fading sunset.",
+  "layers": [
+    {"type": "heavens", "horizon": 620, "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 32}, "tod": [18.2, 18.6, 7500], "at": {"1": {"tod": [18.6, 18.9, 7500]}, "2": {"tod": [18.9, 19.2, 7500]}, "3": {"tod": [19.2, 19.6, 10500]}, "4": {"tod": [19.6, 20, 9000]}}},
+    {"type": "ridge", "depth": 0.05, "y": 620, "amp": 70, "seed": 96, "sharp": 0.5, "color": "#3e3448", "haze": 0.35, "fog": 0.4},
+    {"type": "ground", "depth": 0.16, "y": 700, "amp": 18, "seed": 97, "color": "#4a3e44", "color2": "#2a2228"},
+    {"type": "tree", "depth": 0.2, "x": 1260, "y": 704, "h": 260, "kind": "bare", "seed": 98},
+    {"type": "mound", "depth": 0.24, "x": 860, "y": 714, "w": 130, "grow": false, "color": "#3a2c2c", "at": {"4": {"color": "#4a3a2e", "w": 140}}},
+    {"type": "light", "depth": 0.25, "pos": [760, 716], "h": 92, "color": "#8a8580", "glow": 0.3, "bright": 0.9, "solid": 0.5, "pose": "kneel", "at": {"3": {"h": 80, "glow": 0.22}}},
+    {"type": "crow", "depth": 0.25, "x": 1010, "y": 712, "act": "glide", "at": {"1": {"act": "land"}, "2": {"act": "dig"}, "3": {"act": "bury"}, "4": {"act": "fly"}}},
+    {"type": "dust", "box": [1700, 1250, -3200, 1900, 1450, -2900], "count": 50, "size": 7, "color": "#6a5444", "opacity": 0.5, "wind": [0, -30, 0], "swirl": 40, "show": [2, 4], "blend": "normal"},
+    {"type": "dust", "box": [-1400, 200, -6000, 3000, 950, 600], "count": 300, "size": 2.4, "color": "#e0d0e8", "opacity": 0.25, "wind": [3, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 7500, "cam": {"pos": [840, 520, 1050], "look": [860, 590, -3000]}, "say": "At dusk, Qabil sat beside his brother's body, lost, not knowing what to do."},
+    {"dur": 7500, "sfx": "wings", "cam": {"pos": [900, 525, 980], "look": [940, 610, -3000]}, "say": "A crow glided down and landed a few steps away.", "verse": {"ref": "5:31", "ar": [0, 10], "en": "Then Allah sent a crow searching in the ground to show him how to hide the disgrace of his brother."}},
+    {"dur": 7500, "sfx": "dig", "cam": {"pos": [940, 530, 900], "look": [990, 630, -3000]}, "say": "It scratched at the earth, dug a small hollow, and pushed the soil back over it."},
+    {"dur": 10500, "cam": {"pos": [860, 525, 960], "look": [880, 610, -3000]}, "say": "Qabil fell to his knees.", "verse": {"ref": "5:31", "ar": [13, 22], "who": "Qabil", "style": "plain", "en": "O woe to me! Have I failed to be like this crow and hide the body of my brother?"}},
+    {"dur": 9000, "sfx": "wings", "cam": {"pos": [860, 520, 1050], "look": [880, 590, -3000]}, "verse": {"ref": "5:31", "ar": [24, 26], "en": "And he became of the regretful."}}
+  ]
+}

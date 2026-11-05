@@ -5,6 +5,6 @@
   "nodes": ["earth", "jinn", "adam", "humanity"],
   "parts": [
     { "title": "From Light to the Garden", "from": 1, "to": 10 },
-    { "title": "Adam's Family on Earth", "from": 11, "to": 18 }
+    { "title": "Adam's Family on Earth", "from": 11, "to": 19 }
   ]
 }

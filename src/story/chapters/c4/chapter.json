@@ -4,7 +4,7 @@
   "arabic": "هود",
   "nodes": ["hud"],
   "parts": [
-    { "title": "The Pride of ʿAd", "from": 39, "to": 42 },
-    { "title": "The Wind", "from": 43, "to": 48 }
+    { "title": "The Pride of ʿAd", "from": 40, "to": 43 },
+    { "title": "The Wind", "from": 44, "to": 49 }
   ]
 }

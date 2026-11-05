@@ -1,0 +1,78 @@
+{
+  "id": "journey",
+  "chapter": 6,
+  "order": 68,
+  "node": "ibrahim",
+  "title": "The Journey",
+  "arabic": "الهجرة",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "The route is imagined; Ibrahim, Lut and Sarah appear only as steady lights, far away and from behind."
+  ],
+  "ambient": ["water", "air"],
+  "base": "#e0c8a8",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": { "fog": "#e8d4bc", "fogNear": 6000, "fogFar": 42000, "light": 1.0, "rays": 0, "bloom": 0.55, "haze": 0.1, "hazeY": 0.6, "shake": 0.4, "dof": 0 },
+  "cam": { "pos": [800, 520, 1200], "look": [800, 540, -3000] },
+  "imagePrompt": "A short line of three steady lights leaving a walled river city at dawn; then crossing a vast grassy steppe, fording a broad river, climbing a pass between blue mountains, the lights tiny in immense landscapes; then green hills with olive trees under a golden evening sky; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 640, "sun": { "rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 480, "size": 34 },
+      "tod": [5.2, 7.2, 9000], "at": { "1": { "tod": [9, 13, 10000] }, "2": { "tod": [13, 16.5, 10000] }, "3": { "tod": [17, 18.4, 13000] } } },
+
+    { "type": "set", "show": [0, 1], "layers": [
+      { "type": "ziggurat", "depth": 0.1, "x": 1100, "y": 652, "w": 760, "h": 400, "ppu": 0.9 },
+      { "type": "facade", "depth": 0.25, "x": 800, "y": 700, "w": 2200, "h": 280, "gate": { "w": 200, "h": 200 }, "towers": true, "stone": "#b8845a", "ppu": 0.8 },
+      { "type": "ground", "depth": 0.3, "y": 760, "amp": 6, "seed": 88, "color": "#9a8a5a", "color2": "#6a5a3a" },
+      { "type": "light", "depth": 0.4, "h": 40, "color": "#fffaf0", "glow": 0.6, "bright": 1.4, "pose": "walk", "path": [[800, 712, -3000], [790, 760, -2000], [760, 820, -1300]], "dur": 9000 },
+      { "type": "light", "depth": 0.4, "h": 37, "color": "#fff0e0", "glow": 0.5, "bright": 1.3, "pose": "walk", "path": [[800, 712, -3000], [812, 760, -2000], [830, 820, -1300]], "dur": 9000, "delay": 700 },
+      { "type": "light", "depth": 0.4, "h": 39, "color": "#fffaf0", "glow": 0.6, "bright": 1.4, "pose": "walk", "path": [[800, 712, -3000], [800, 760, -2000], [800, 820, -1300]], "dur": 9000, "delay": 1400 },
+      { "type": "palms", "depth": 0.45, "items": [{ "x": 90, "y": 860, "h": 460, "lean": 0.06 }, { "x": 1510, "y": 862, "h": 470, "lean": -0.05 }], "seed": 89, "ppu": 0.8 }
+    ] },
+
+    { "type": "set", "show": [1, 2], "dx": 6000, "layers": [
+      { "type": "ridge", "depth": 0.05, "y": 636, "amp": 40, "seed": 90, "sharp": 0.4, "color": "#7a8a9a", "haze": 0.45, "fog": 0.4 },
+      { "type": "ground", "depth": 0.1, "y": 650, "amp": 4, "seed": 91, "color": "#a8a060", "color2": "#7a7448", "grass": true, "grassColor": "#c0b470" },
+      { "type": "water", "mode": "river", "points": [[300, 660], [520, 690], [760, 740], [900, 820], [1000, 960]], "w0": 14, "w1": 260, "depth": 0.2 },
+      { "type": "light", "depth": 0.2, "h": 22, "color": "#fffaf0", "glow": 0.6, "bright": 1.4, "pose": "walk", "path": [[260, 690], [1340, 692]], "dur": 10000 },
+      { "type": "light", "depth": 0.2, "h": 20, "color": "#fff0e0", "glow": 0.5, "bright": 1.3, "pose": "walk", "path": [[230, 690], [1310, 692]], "dur": 10000, "delay": 500 },
+      { "type": "light", "depth": 0.2, "h": 21, "color": "#fffaf0", "glow": 0.6, "bright": 1.4, "pose": "walk", "path": [[200, 690], [1280, 692]], "dur": 10000, "delay": 1000 },
+      { "type": "ground", "depth": 0.35, "y": 800, "amp": 8, "seed": 92, "color": "#9a944e", "color2": "#6a6638", "grass": true, "grassColor": "#b0a860", "wind": 1 }
+    ] },
+
+    { "type": "set", "show": [2, 3], "dx": 12000, "layers": [
+      { "type": "peak", "depth": 0.08, "x": 360, "y": 260, "w": 620, "h": 420, "color": "#5a6a8a", "lit": "#a8b4cc", "seed": 93 },
+      { "type": "peak", "depth": 0.08, "x": 1240, "y": 220, "w": 680, "h": 470, "color": "#4a5a7a", "lit": "#98a6c4", "seed": 94 },
+      { "type": "ridge", "depth": 0.14, "y": 640, "amp": 160, "seed": 95, "sharp": 0.6, "color": "#6a6a7a", "haze": 0.2 },
+      { "type": "hillpath", "depth": 0.22, "points": [[820, 900], [700, 780], [860, 680], [780, 600]], "w0": 70, "w1": 12, "color": "#b8a88a", "edge": "#7a6a52", "grass": "#8a8a6a" },
+      { "type": "light", "depth": 0.5263, "h": 30, "color": "#fffaf0", "glow": 0.7, "bright": 1.4, "pose": "walk", "path": [[812, 860, -900], [760, 760, -1600], [830, 660, -3600], [790, 610, -4200]], "dur": 10000 },
+      { "type": "light", "depth": 0.5263, "h": 28, "color": "#fff0e0", "glow": 0.6, "bright": 1.3, "pose": "walk", "path": [[812, 860, -900], [760, 760, -1600], [830, 660, -3600], [790, 610, -4200]], "dur": 10000, "delay": 900 },
+      { "type": "light", "depth": 0.5263, "h": 29, "color": "#fffaf0", "glow": 0.7, "bright": 1.4, "pose": "walk", "path": [[812, 860, -900], [760, 760, -1600], [830, 660, -3600], [790, 610, -4200]], "dur": 10000, "delay": 1800 },
+      { "type": "ridge", "depth": 0.5, "y": 880, "amp": 60, "seed": 96, "sharp": 0.5, "color": "#4a4a56", "haze": 0 }
+    ] },
+
+    { "type": "set", "show": [3, null], "dx": 18000, "layers": [
+      { "type": "ridge", "depth": 0.06, "y": 630, "amp": 50, "seed": 97, "sharp": 0.3, "color": "#7a8a6a", "haze": 0.4, "fog": 0.4 },
+      { "type": "ground", "depth": 0.12, "y": 660, "amp": 20, "seed": 98, "color": "#7a9a4a", "color2": "#5a7a3a", "grass": true, "grassColor": "#9ab45a" },
+      { "type": "tree", "depth": 0.2, "x": 520, "y": 700, "kind": "living", "s": 0.9 },
+      { "type": "tree", "depth": 0.24, "x": 1150, "y": 720, "kind": "living", "s": 1.1 },
+      { "type": "light", "depth": 0.3, "pos": [740, 760], "h": 40, "pose": "kneel", "color": "#fffaf0", "glow": 0.7, "bright": 1.4 },
+      { "type": "light", "depth": 0.3, "pos": [800, 758], "h": 40, "pose": "kneel", "color": "#fff0e0", "glow": 0.6, "bright": 1.3 },
+      { "type": "light", "depth": 0.3, "pos": [860, 760], "h": 40, "pose": "kneel", "color": "#fffaf0", "glow": 0.7, "bright": 1.4 },
+      { "type": "ground", "depth": 0.4, "y": 820, "amp": 10, "seed": 99, "color": "#6a8a42", "color2": "#4a6a32", "grass": true, "grassColor": "#8aa858", "wind": 1 }
+    ] }
+  ],
+  "beats": [
+    { "dur": 9000, "ambient": ["water", "air"], "cam": { "pos": [800, 520, 1100], "look": [800, 560, -3000] },
+      "say": "Ibrahim left his people, and with him went his wife Sarah and Lut, who believed in him." },
+    { "dur": 10000, "ambient": ["wind", "desert"], "cam": { "dx": 6000, "from": { "pos": [700, 500, 1150], "look": [760, 600, -3000] }, "pos": [900, 490, 1050], "look": [860, 600, -3000] },
+      "say": "They travelled far toward the west, trusting God to guide them." },
+    { "dur": 10000, "ambient": ["wind"], "cam": { "dx": 12000, "from": { "pos": [800, 560, 1150], "look": [800, 560, -3000] }, "pos": [800, 540, 1000], "look": [800, 540, -3000] },
+      "say": "Over plains and rivers and mountain passes they went on." },
+    { "dur": 13000, "ambient": ["birds", "air"], "cam": { "dx": 18000, "from": { "pos": [800, 520, 1150], "look": [800, 360, -3000] }, "pos": [800, 520, 1000], "look": [800, 330, -3000] },
+      "pendingVerse": { "ref": "37:99", "place": "sky" } }
+  ]
+}

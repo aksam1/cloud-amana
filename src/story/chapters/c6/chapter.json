@@ -4,10 +4,10 @@
   "arabic": "إبراهيم",
   "nodes": ["ibrahim"],
   "parts": [
-    { "title": "The Search", "from": 59, "to": 61 },
-    { "title": "The Fire", "from": 62, "to": 66 },
-    { "title": "Hajar and Ismail", "from": 67, "to": 70 },
-    { "title": "The Sacrifice", "from": 71, "to": 72 },
-    { "title": "The House", "from": 73, "to": 77 }
+    { "title": "The Search", "from": 60, "to": 62 },
+    { "title": "The Fire", "from": 63, "to": 67 },
+    { "title": "Hajar and Ismail", "from": 68, "to": 71 },
+    { "title": "The Sacrifice", "from": 72, "to": 73 },
+    { "title": "The House", "from": 74, "to": 78 }
   ]
 }

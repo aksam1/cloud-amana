@@ -1,0 +1,31 @@
+{
+  "id": "reasons",
+  "chapter": 13,
+  "order": 145,
+  "node": "musa",
+  "title": "The Hidden Reasons",
+  "arabic": "الأسباب الخفية",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "The servant of God appears as a soft green-white light. The king's ships, the parents and the orphans' treasure are shown only as he explains them."],
+  "ambient": ["sea", "air"],
+  "base": "#8a98a8",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#9aa8b4", "fogNear": 6000, "fogFar": 50000, "light": 1.0, "rays": 0, "bloom": 0.7, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 515, 950], "look": [820, 660, -3000]},
+  "imagePrompt": "Three quiet scenes: a grey sea with a line of a king's dark ships taking every sound boat, while one damaged boat is left on the shore; a mother and father of light with a new small light between them; a straightened village wall with a faint gold glow of buried treasure beneath it; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "set", "show": [0, 1], "layers": [{"type": "heavens", "horizon": 650, "tod": [16, 17, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}}, {"type": "water", "depth": 0.12, "points": [[-4000, 700], [800, 704], [6000, 708]], "w0": 90, "w1": 90, "reflect": [["0", "#b8ccd8"], ["1", "#3a5a72"]]}, {"type": "boat", "depth": 0.13, "x": 300, "y": 700, "w": 176, "wood": "#3a2e28", "sail": "#6a5a5a", "area": [200, 600, 420, 706], "move": {"path": [[300, 0, 0]], "dur": 20000}}, {"type": "boat", "depth": 0.13, "x": 560, "y": 700, "w": 176, "wood": "#3a2e28", "sail": "#6a5a5a", "area": [460, 600, 680, 706], "move": {"path": [[300, 0, 0]], "dur": 20000}}, {"type": "boat", "depth": 0.13, "x": 820, "y": 700, "w": 176, "wood": "#3a2e28", "sail": "#6a5a5a", "area": [720, 600, 940, 706], "move": {"path": [[300, 0, 0]], "dur": 20000}}, {"type": "boat", "depth": 0.13, "x": 1080, "y": 700, "w": 176, "wood": "#3a2e28", "sail": "#6a5a5a", "area": [980, 600, 1200, 706], "move": {"path": [[300, 0, 0]], "dur": 20000}}, {"type": "ground", "depth": 0.24, "y": 760, "amp": 4, "seed": 1070, "color": "#a89878", "color2": "#6a5a48"}, {"type": "boat", "depth": 0.36, "x": 900, "y": 806, "w": 378, "hole": true, "area": [700, 560, 1100, 820]}]},
+    {"type": "set", "show": [1, 2], "dx": 6000, "layers": [{"type": "heavens", "horizon": 640, "tod": [18, 19, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}}, {"type": "ground", "depth": 0.2, "y": 740, "amp": 4, "seed": 1072, "color": "#b8a080", "color2": "#8a7458"}, {"type": "tent", "depth": 0.36, "x": 800, "y": 790, "w": 324, "h": 119, "lit": true, "ppu": 0.9}, {"type": "light", "depth": 0.42, "pos": [720, 796], "h": 107, "color": "#fff0dc", "glow": 0.25, "bright": 0.95, "solid": 0.6}, {"type": "light", "depth": 0.42, "pos": [880, 796], "h": 101, "color": "#fff0dc", "glow": 0.25, "bright": 0.95, "solid": 0.6}, {"type": "light", "depth": 0.421, "pos": [800, 798], "h": 32, "color": "#fffaf0", "glow": 0.6, "bright": 1.2, "pose": "babe", "w": 1}]},
+    {"type": "set", "show": [2, null], "dx": 12000, "layers": [{"type": "heavens", "horizon": 640, "tod": [18.4, 19, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [19, 19.6, 12000]}}}, {"type": "town", "depth": 0.14, "y": 720, "x0": 200, "x1": 1400, "s": 0.7, "grade": "town", "lit": 0.2, "haze": "#a89888", "seed": 1071}, {"type": "ground", "depth": 0.2, "y": 740, "amp": 4, "seed": 1072, "color": "#b8a080", "color2": "#8a7458"}, {"type": "masonry", "depth": 0.34, "pos": [900, 790], "w": 408, "h": 133, "side": 0, "courses": 8, "blocks": 12, "built": 1, "stone": "#b8a080", "stone2": "#c8b090", "ink": "#6a5a48"}, {"type": "light", "kind": "flame", "depth": 0.341, "pos": [900, 800], "h": 24, "color": "#ffd060", "glow": 1.2}, {"type": "light", "depth": 0.42, "pos": [660, 798], "h": 110, "color": "#eef4f0", "glow": 0.4, "bright": 1.15, "solid": 0.5}, {"type": "light", "depth": 0.44, "pos": [560, 806], "h": 119, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5}]}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["sea", "wind"], "cam": {"pos": [800, 515, 950], "look": [820, 660, -3000]}, "say": "Then he explained. The boat belonged to poor fishermen, and a king was seizing every sound boat; a damaged one would be left to them."},
+    {"dur": 10000, "ambient": ["air"], "cam": {"pos": [800, 530, 600], "look": [800, 780, -3000], "dx": 6000}, "say": "The boy would have brought grief and disbelief upon his believing parents; God would give them a better child, purer and more loving."},
+    {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [760, 525, 700], "look": [780, 740, -3000], "dx": 12000}, "say": "And under the wall lay a treasure belonging to two orphans, whose father had been a righteous man; it would wait for them until they came of age."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [760, 520, 850], "look": [780, 700, -3000], "dx": 12000}, "pendingVerse": {"ref": "18:82", "place": "sky", "part": "its closing: \"…as a mercy from your Lord. And I did it not of my own accord.\""}}
+  ]
+}

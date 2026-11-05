@@ -1,0 +1,52 @@
+{
+  "id": "expel",
+  "chapter": 7,
+  "order": 80,
+  "node": "lut",
+  "title": "Drive Them Out",
+  "arabic": "التهديد بالطرد",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "Lut appears only as a steady light and his household as small lights within; the people as dim lights, their mockery as jagged strokes. The house and the gate are imagined."
+  ],
+  "ambient": ["air", "crickets"],
+  "base": "#16141e",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": { "fog": "#2e2a38", "fogNear": 4000, "fogFar": 30000, "light": 0.95, "rays": 0, "bloom": 0.8, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [800, 540, 1100], "look": [800, 600, -3000] },
+  "imagePrompt": "A narrow street of dark mud-brick walls at night, one small doorway glowing with lamplight and a few small lights inside, a steady white light standing before it; then a city gate of brick with squat towers in hard daylight, a crowd of dim amber lights before it and jagged red strokes of mockery in the air; then night again, the crowd pressing at the glowing doorway; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 620, "sun": { "rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 32 },
+      "moon": { "rise": 19, "set": 7, "x0": 1250, "x1": 350, "peak": 330, "size": 22 },
+      "tod": [21, 22, 9000], "at": { "1": { "tod": [10, 11.5, 9000] }, "2": { "tod": [20, 21, 13000] } } },
+
+    { "type": "set", "show": [[0, 1], [2, null]], "layers": [
+      { "type": "facade", "depth": 0.18, "x": 800, "y": 720, "w": 2400, "h": 640, "stone": "#3a3448", "light": 0.65 },
+      { "type": "floor", "depth": 0.19, "y": 722, "vp": [800, 520], "color": "#3a3440", "color2": "#16141c", "lines": 10, "gloss": 0.1, "area": [-800, 716, 2400, 1350] },
+      { "type": "doorway", "depth": 0.22, "x": 820, "y": 760, "s": 1.0, "household": 4, "stone": "#2e2a3a" },
+      { "type": "light", "depth": 0.3, "pos": [930, 800], "h": 60, "color": "#fffaf0", "glow": 0.75, "bright": 1.5 },
+      { "type": "crowd", "show": [2, null], "area": [250, 1350, -2400, -1500], "y": [840, 790], "count": 170, "size": 24, "color": "#f0a860", "dim": 0.3, "glow": 0.6, "mill": 12, "speed": 0, "flicker": 0.55 }
+    ] },
+
+    { "type": "set", "show": [1, 2], "dx": 6000, "layers": [
+      { "type": "ridge", "depth": 0.04, "y": 600, "amp": 50, "seed": 220, "sharp": 0.5, "color": "#9a7a7a", "haze": 0.35, "fog": 0.4 },
+      { "type": "facade", "depth": 0.2, "x": 800, "y": 720, "w": 2600, "h": 480, "gate": { "w": 240, "h": 280 }, "towers": true, "stone": "#9a8270", "ppu": 0.8 },
+      { "type": "ground", "depth": 0.22, "y": 722, "amp": 4, "seed": 221, "color": "#a89070", "color2": "#7a6650" },
+      { "type": "crowd", "area": [200, 1400, -3000, -1600], "y": [840, 740], "count": 320, "size": 24, "color": "#e8a868", "dim": 0.25, "glow": 0.5, "mill": 10, "speed": 0, "flicker": 0.5 },
+      { "type": "light", "depth": 0.36, "pos": [820, 812], "h": 64, "color": "#fffaf0", "glow": 0.3, "bright": 1.0, "solid": 0.5 }
+    ] },
+    { "type": "jeers", "show": [1, null], "center": [800, 560], "from": [520, 260], "clear": [90, 110], "count": 26, "size": 36, "period": 6 }
+  ],
+  "beats": [
+    { "dur": 9000, "ambient": ["air", "crickets"], "cam": { "pos": [760, 540, 980], "look": [780, 620, -3000] },
+      "say": "Year after year Lut warned them; only his own household believed, and not all of them." },
+    { "dur": 9000, "ambient": ["crowd", "jeer"], "world": { "fog": "#c8b8a0", "light": 1.0 }, "cam": { "dx": 6000, "from": { "pos": [800, 540, 1150], "look": [800, 590, -3000] }, "pos": [800, 540, 1050], "look": [800, 600, -3000] },
+      "say": "They mocked him: bring God's punishment down on us, if you are telling the truth." },
+    { "dur": 13000, "ambient": ["jeer", "crowd"], "world": { "fog": "#2e2a38", "light": 0.95 }, "cam": { "pos": [800, 540, 1060], "look": [800, 610, -3000] },
+      "pendingVerse": { "ref": "27:56", "place": "sky" } }
+  ]
+}

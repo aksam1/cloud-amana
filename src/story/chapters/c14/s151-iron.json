@@ -1,0 +1,35 @@
+{
+  "id": "iron",
+  "chapter": 14,
+  "order": 151,
+  "node": "dawud",
+  "title": "Iron Made Soft",
+  "arabic": "الحديد اللين",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "The softened iron is shown as glowing rings of mail being linked, as the Quran tells (34:10–11)."],
+  "ambient": ["fire", "work"],
+  "base": "#10141e",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#2a2430", "fogNear": 4000, "fogFar": 30000, "light": 0.95, "rays": 0, "bloom": 0.75, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 540, 500], "look": [800, 820, -3000]},
+  "imagePrompt": "A dark smithy at night, a forge glowing orange, a steady light at the anvil with rings of glowing iron drawn out like thread and linked into a coat of mail that hangs shining on a frame; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#141018"], [1, "#0c0a0e"]]},
+    {"type": "facade", "depth": 0.2, "x": 800, "y": 724, "w": 2400, "h": 820, "stone": "#3a3230", "light": 0.6},
+    {"type": "floor", "depth": 0.21, "y": 726, "vp": [800, 520], "color": "#3a3430", "color2": "#141210", "lines": 8, "gloss": 0.15, "area": [-800, 720, 2400, 1350]},
+    {"type": "brazier", "depth": 0.3, "x": 1020, "y": 790, "s": 0.9},
+    {"type": "fire", "depth": 0.301, "pos": [1020, 724], "w": 54, "h": 54, "heat": 1},
+    {"type": "light", "kind": "flame", "depth": 0.36, "pos": [1000, 720], "h": 50, "color": "#ffb060", "glow": 0.8},
+    {"type": "dust", "box": [400, 300, -2600, 1500, 900, -1400], "count": 200, "size": 4, "color": "#ffb060", "opacity": 0.6, "wind": [4, 30, 0], "swirl": 40},
+    {"type": "light", "depth": 0.42, "pos": [820, 792], "h": 107, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "pose": "reach"}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["fire", "work"], "sfx": [{"name": "hoe", "at": 1500}, {"name": "hoe", "at": 3000}, {"name": "hoe", "at": 4500}], "cam": {"pos": [800, 540, 500], "look": [800, 820, -3000]}, "say": "God made iron soft in Dawud's hands, and taught him to make coats of mail, linking the rings in good measure."},
+    {"dur": 10000, "ambient": ["fire", "air"], "cam": {"pos": [800, 540, 400], "look": [820, 850, -3000]}, "say": "Though he was a king, he lived from the work of his own hands."},
+    {"dur": 12000, "ambient": ["fire", "air"], "cam": {"pos": [800, 535, 600], "look": [800, 780, -3000]}, "pendingVerse": {"ref": "34:11", "place": "sky", "part": "to \"and work righteousness\""}}
+  ]
+}

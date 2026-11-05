@@ -1,0 +1,48 @@
+{
+  "id": "trunks",
+  "chapter": 4,
+  "order": 48,
+  "node": "hud",
+  "title": "Hollow Trunks of Palm Trees",
+  "arabic": "جذوع خاوية",
+  "source": "quran",
+  "ayahs": ["69:7-8"],
+  "art": [
+    "The fallen, hollow palm trunks are the Quran's own image (69:7); no human figures are shown."
+  ],
+  "ambient": ["air"],
+  "base": "#d8c8b0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": { "fog": "#eae2d6", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0.25, "bloom": 0.45, "haze": 0, "shake": 0.35, "dof": 0 },
+  "cam": { "pos": [800, 560, 1100], "look": [800, 600, -3000] },
+  "imagePrompt": "Total stillness after the storm under a pale, clean sky: the city of Iram is gone, only the tops of a few broken rose-stone columns rise out of smooth, endless dunes; in the foreground fallen palm trunks lie half-buried in the sand, split and hollow, bleached bone-white by the sun; a very slow glide low over the sand, the only movement thin ribbons of sand blowing off the dune crests; bleached sand, pale blue sky, bone-white trunks, soft rose stone; no figures; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#a8c8e0"], [0.5, "#dce8ee"], [1, "#f2e6d4"]] },
+    { "type": "sun", "pos": [1180, 160, -26000], "size": 30, "color": "#fff8ec" },
+    { "type": "dunes", "depth": 0.05, "y": 560, "amp": 8, "count": 14, "seed": 111, "lit": "#f4e4c8", "body": "#e0c8a0", "shade": "#c0a8a8", "haze": 0.5, "hazeColor": "#eae2d6", "ripples": false },
+    { "type": "dunes", "depth": 0.1, "y": 575, "amp": 16, "count": 10, "seed": 112, "lit": "#f4e4c8", "body": "#e0c8a0", "shade": "#c0a8a8", "haze": 0.35, "hazeColor": "#eae2d6", "ripples": false },
+    { "type": "column", "depth": 0.16, "x": 1240, "y": 610, "h": 160, "w": 16, "broken": 0.55, "seed": 4, "sat": 0.85 },
+    { "type": "dunes", "depth": 0.18, "y": 605, "amp": 26, "count": 8, "seed": 113, "lit": "#f4e4c8", "body": "#e0c8a0", "shade": "#c0a8a8", "haze": 0.2, "hazeColor": "#eae2d6" },
+    { "type": "column", "depth": 0.24, "x": 560, "y": 650, "h": 220, "w": 22, "broken": 0.5, "seed": 6, "sat": 0.85 },
+    { "type": "column", "depth": 0.26, "x": 640, "y": 655, "h": 200, "w": 21, "broken": 0.62, "seed": 9, "sat": 0.85 },
+    { "type": "dunes", "depth": 0.3, "y": 650, "amp": 50, "count": 6, "seed": 114, "lit": "#f4e4c8", "body": "#e0c8a0", "shade": "#c0a8a8", "haze": 0.08, "hazeColor": "#eae2d6" },
+    { "type": "column", "depth": 0.38, "x": 1080, "y": 700, "h": 300, "w": 30, "broken": 0.58, "seed": 12, "sat": 0.85 },
+    { "type": "trunks", "depth": 0.48, "items": [{ "x": 400, "y": 662, "len": 300, "angle": -5, "r": 24 }, { "x": 940, "y": 676, "len": 250, "angle": 7, "r": 21 }], "ppu": 1 },
+    { "type": "dunes", "depth": 0.5, "y": 712, "amp": 26, "count": 6, "seed": 115, "lit": "#f4e4c8", "body": "#e0c8a0", "shade": "#c0a8a8" },
+    { "type": "trunks", "depth": 0.7, "items": [{ "x": 180, "y": 760, "len": 360, "angle": 4, "r": 30 }, { "x": 1150, "y": 780, "len": 320, "angle": -8, "r": 28 }], "ppu": 0.9 },
+    { "type": "dunes", "depth": 0.72, "y": 800, "amp": 22, "count": 5, "seed": 116, "lit": "#f4e4c8", "body": "#e0c8a0", "shade": "#c0a8a8" },
+    { "type": "ribbons", "lines": [[[-200, 604, -2333], [800, 598, -2333], [1800, 606, -2333]], [[-300, 690, -1000], [800, 684, -1000], [1900, 694, -1000]], [[-200, 782, -389], [800, 776, -389], [1800, 786, -389]]], "count": 1500, "wind": [1, -0.1, 0], "len": 360, "lift": 36, "color": "#fff6e8", "opacity": 0.5 },
+    { "type": "dust", "box": [-1400, 200, -3000, 3000, 1000, 1200], "count": 500, "size": 2.5, "color": "#fff4e0", "opacity": 0.35, "wind": [10, -1, 0] }
+  ],
+  "beats": [
+    { "dur": 9000, "ambient": ["air"], "cam": { "pos": [760, 590, 900], "look": [800, 620, -3000] },
+      "say": "When the wind at last fell still, Iram was gone." },
+    { "dur": 9000, "ambient": ["air", "sand"], "cam": { "pos": [880, 600, 520], "look": [880, 730, -3000] },
+      "say": "Only the tops of a few broken columns rose from the smooth sand, and fallen palm trunks lay hollow beside them." },
+    { "dur": 13000, "ambient": ["sand", "wind"], "cam": { "pos": [900, 590, 420], "look": [900, 760, -3000] },
+      "verse": { "ref": "69:7-8", "ar": [[7, 14], null], "place": "lower", "en": "…so you would see the people therein fallen as if they were hollow trunks of palm trees. Then do you see of them any remains?" } }
+  ]
+}

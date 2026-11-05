@@ -1,0 +1,58 @@
+{
+  "id": "sign",
+  "chapter": 7,
+  "order": 85,
+  "node": "lut",
+  "title": "A Clear Sign",
+  "arabic": "البحر الميت",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "That the cities lay where the Dead Sea is now is the traditional identification; the salt sea shown is the present-day one.",
+    "Lut appears only as a steady light, far away, his family as small lights; the travellers as lights."
+  ],
+  "ambient": ["wind", "water"],
+  "base": "#c8b8a8",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": { "fog": "#d8c8b8", "fogNear": 6000, "fogFar": 42000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.25, "hazeY": 0.62, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [800, 520, 1200], "look": [800, 560, -3000] },
+  "imagePrompt": "A still, heavy inland sea of milky turquoise beneath pink and ochre cliffs, white salt crusted along its shore in cracked plates and rising in pale pillars, heat haze; at dusk a few small lights of travellers passing along the shore road; then on a far hilltop at sunset a steady white light and two small amber lights looking out over the land; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 600, "sun": { "rise": 6, "set": 18, "x0": 1300, "x1": 300, "peak": 300, "size": 34 },
+      "tod": [9, 11, 10000], "at": { "1": { "tod": [16.4, 17.6, 10000] }, "2": { "tod": [17.6, 18.3, 10000] }, "3": { "tod": [18.3, 19.0, 13000] } } },
+
+    { "type": "set", "show": [0, 2], "layers": [
+      { "type": "ridge", "depth": 0.04, "y": 560, "amp": 90, "seed": 260, "sharp": 0.6, "color": "#b08a7a", "haze": 0.4, "fog": 0.4 },
+      { "type": "water", "mode": "sea", "level": 600, "depth": 0.07, "reflect": [["0", "#b4cccc"], ["1", "#4e7076"]] },
+      { "type": "outcrop", "depth": 0.13, "x": 300, "y": 690, "w": 150, "h": 150, "shape": "tower", "stone": "#d8d2c6", "lit": "#f6f2ea", "dark": "#8e8a82", "sand": false, "seed": 261 },
+      { "type": "outcrop", "depth": 0.14, "x": 1300, "y": 694, "w": 190, "h": 120, "shape": "twin", "stone": "#d4cec2", "lit": "#f2eee6", "dark": "#8a867e", "sand": false, "seed": 262 },
+      { "type": "ground", "depth": 0.18, "y": 700, "amp": 6, "seed": 263, "color": "#dcd6ca", "color2": "#aaa498", "cracks": true },
+      { "type": "crowd", "show": [1, 2], "area": [-500, 2100, -1900, -1700], "y": [792, 788], "count": 22, "size": 26, "color": "#ffd8a0", "dim": 0.15, "glow": 0.95, "flow": [1, 0], "speed": 35, "mill": 1, "flicker": 0.2 },
+      { "type": "ground", "depth": 0.4, "y": 860, "amp": 8, "seed": 264, "color": "#c8c0b0", "color2": "#9a9284", "cracks": true }
+    ] },
+
+    { "type": "set", "show": [2, null], "dx": 6000, "layers": [
+      { "type": "ridge", "depth": 0.05, "y": 610, "amp": 80, "seed": 265, "sharp": 0.5, "color": "#7a6474", "haze": 0.35, "fog": 0.4 },
+      { "type": "water", "mode": "sea", "level": 640, "depth": 0.08, "reflect": [["0", "#c8a8a8"], ["1", "#5a5060"]] },
+      { "type": "ground", "depth": 0.2, "y": 720, "amp": 22, "seed": 266, "tilt": 0.05, "color": "#8a7a62", "color2": "#5a4c40", "grass": true, "grassColor": "#8a8456" },
+      { "type": "light", "depth": 0.24, "pos": [760, 736], "h": 52, "color": "#fffaf0", "glow": 0.45, "bright": 1.2, "solid": 0.5 },
+      { "type": "light", "depth": 0.24, "pos": [700, 740], "h": 36, "w": 0.55, "color": "#f0cca8", "glow": 0.3, "bright": 0.95, "solid": 0.6 },
+      { "type": "light", "depth": 0.24, "pos": [818, 740], "h": 34, "w": 0.55, "color": "#f0cca8", "glow": 0.3, "bright": 0.95, "solid": 0.6 },
+      { "type": "ground", "depth": 0.42, "y": 862, "amp": 10, "seed": 267, "color": "#5a4c40", "color2": "#3a3028", "grass": true, "grassColor": "#6a6446", "wind": 1 }
+    ] },
+    { "type": "dust", "box": [-1400, 200, -9000, 3000, 900, 0], "count": 400, "size": 3, "color": "#fff8f0", "opacity": 0.25, "wind": [3, -2, 0] }
+  ],
+  "beats": [
+    { "dur": 10000, "ambient": ["wind", "water"], "cam": { "pos": [800, 520, 1150], "look": [800, 560, -3000] },
+      "say": "Where the cities stood, tradition says, lies a sea so heavy with salt that nothing lives in it, at the lowest place on the face of the earth." },
+    { "dur": 10000, "ambient": ["wind", "desert"], "cam": { "pos": [800, 520, 1080], "look": [800, 570, -3000] },
+      "say": "The road beside it is still travelled." },
+    { "dur": 10000, "ambient": ["wind", "air"], "cam": { "dx": 6000, "from": { "pos": [800, 520, 1150], "look": [800, 570, -3000] }, "pos": [780, 525, 1000], "look": [780, 590, -3000] },
+      "say": "Lut and those who believed with him were saved." },
+    { "dur": 13000, "ambient": ["wind"], "cam": { "dx": 6000, "pos": [780, 520, 1060], "look": [780, 585, -3000] },
+      "pendingVerse": { "ref": "29:35", "place": "sky" } }
+  ]
+}

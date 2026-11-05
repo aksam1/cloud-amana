@@ -1,0 +1,65 @@
+{
+  "id": "pilgrimage",
+  "chapter": 6,
+  "order": 77,
+  "node": "ibrahim",
+  "title": "The Call to Pilgrimage",
+  "arabic": "النداء إلى الحج",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "Ibrahim appears only as a steady light, far away and from behind; the pilgrims as lights. That he asked how his voice would reach them is told by Ibn Abbas (in the commentary of al-Tabari).",
+    "In the last shots the House stands as it does today, robed in black with a band of gold; the band's pattern is drawn as shapes, never letters."
+  ],
+  "ambient": ["wind", "air"],
+  "base": "#1a1820",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": { "fog": "#9a8a8a", "fogNear": 6000, "fogFar": 42000, "light": 1.0, "rays": 0, "bloom": 0.8, "haze": 0.08, "hazeY": 0.62, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [800, 530, 1150], "look": [800, 600, -3000] },
+  "imagePrompt": "A steady white light seen from behind on a high rocky summit at dawn, an arm raised, calling out over a valley of mountains; then streams of countless small lights pouring over every pass and down into the valley as days and nights flicker past; then at night the House at the valley's heart, robed in black with a band of gold, ringed by a vast slow whirl of white and gold lights circling it; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 610, "sun": { "rise": 6, "set": 18, "x0": 1300, "x1": 300, "peak": 300, "size": 34 },
+      "moon": { "rise": 18, "set": 6, "x0": 1250, "x1": 350, "peak": 300, "size": 22 },
+      "tod": [5, 6.2, 10000], "at": { "1": { "tod": [6.2, 19, 10000, 5] }, "2": { "tod": [19.5, 20.5, 10000] }, "3": { "tod": [20.5, 21.5, 13000] } } },
+
+    { "type": "set", "show": [0, 1], "layers": [
+      { "type": "peak", "depth": 0.05, "x": 260, "y": 330, "w": 520, "h": 360, "color": "#4a3c3a", "lit": "#a07e6a", "seed": 148 },
+      { "type": "peak", "depth": 0.05, "x": 1320, "y": 300, "w": 560, "h": 380, "color": "#463836", "lit": "#9a7866", "seed": 149 },
+      { "type": "ridge", "depth": 0.08, "y": 630, "amp": 90, "seed": 200, "sharp": 0.7, "color": "#5a4a42", "haze": 0.3 },
+      { "type": "ground", "depth": 0.1, "y": 676, "amp": 6, "seed": 201, "color": "#c4a476", "color2": "#967656" },
+      { "type": "masonry", "depth": 0.12, "pos": [860, 702], "w": 62, "h": 46, "side": 20, "courses": 7, "blocks": 5, "built": 1 },
+      { "type": "ridge", "depth": 0.36, "y": 840, "amp": 50, "seed": 202, "sharp": 0.6, "color": "#3e3430", "haze": 0 },
+      { "type": "light", "depth": 0.4, "pos": [760, 852], "h": 76, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "pose": "raise" }
+    ] },
+
+    { "type": "set", "show": [1, null], "dx": 6000, "layers": [
+      { "type": "peak", "depth": 0.05, "x": 200, "y": 320, "w": 500, "h": 360, "color": "#4a3c3a", "lit": "#a07e6a", "seed": 203 },
+      { "type": "peak", "depth": 0.05, "x": 1400, "y": 300, "w": 540, "h": 380, "color": "#463836", "lit": "#9a7866", "seed": 204 },
+      { "type": "ridge", "depth": 0.09, "y": 600, "amp": 120, "seed": 205, "sharp": 0.7, "color": "#5a4a42", "haze": 0.3 },
+      { "type": "ground", "depth": 0.14, "y": 650, "amp": 6, "seed": 206, "color": "#c4a476", "color2": "#967656" },
+      { "type": "crowd", "show": [1, 2], "area": [-700, 420, -6000, -4500], "y": [712, 676], "count": 420, "size": 12, "color": "#ffe2b0", "dim": 0.2, "glow": 0.8, "flow": [1, 0.25], "speed": 40, "mill": 2, "flicker": 0.2 },
+      { "type": "crowd", "show": [1, 2], "area": [1250, 2300, -6000, -4500], "y": [712, 676], "count": 420, "size": 12, "color": "#ffe2b0", "dim": 0.2, "glow": 0.8, "flow": [-1, 0.25], "speed": 40, "mill": 2, "flicker": 0.2 },
+      { "type": "crowd", "show": [1, 2], "area": [1060, 1260, -6000, -4400], "y": [712, 680], "count": 300, "size": 11, "color": "#ffe2b0", "dim": 0.2, "glow": 0.8, "flow": [0, 1], "speed": 60, "mill": 2, "flicker": 0.2 },
+      { "type": "crowd", "show": [2, null], "ground": -1310, "area": [-2000, 2400, -4000, -3000], "count": 900, "size": 120, "color": "#fff0d0", "dim": 0.15, "glow": 0.75, "mill": 0, "flicker": 0.15,
+        "orbit": { "center": [200, -4000], "radius": [1500, 950], "band": [0.6, 1], "speed": 0.1, "half": "back" } },
+      { "type": "masonry", "depth": 0.2, "pos": [800, 712], "w": 260, "h": 200, "side": 84, "courses": 11, "blocks": 9, "built": 1, "door": { "x": 0.8, "w": 0.14, "h": 0.34 },
+        "at": { "2": { "robe": 1, "door": { "x": 0.8, "w": 0.14, "h": 0.22, "lift": 0.3 } } } },
+      { "type": "crowd", "show": [2, null], "ground": -1310, "area": [-2000, 2400, -4000, -3000], "count": 900, "size": 120, "color": "#fff0d0", "dim": 0.15, "glow": 0.75, "mill": 0, "flicker": 0.15,
+        "orbit": { "center": [200, -4000], "radius": [1500, 950], "band": [0.6, 1], "speed": 0.1, "half": "front" } },
+      { "type": "dust", "box": [-1400, 150, -9000, 3000, 900, 0], "count": 400, "size": 2.5, "color": "#fff4e0", "opacity": 0.25, "wind": [3, -2, 0] }
+    ] }
+  ],
+  "beats": [
+    { "dur": 10000, "ambient": ["wind", "air"], "cam": { "pos": [800, 530, 1100], "look": [800, 600, -3000] },
+      "say": "Then Ibrahim was commanded to call all people to pilgrimage. How will my voice reach them, he asked; call, he was told, and it will reach them." },
+    { "dur": 10000, "ambient": ["crowd", "wind"], "cam": { "dx": 6000, "from": { "pos": [800, 480, 1300], "look": [800, 520, -3000] }, "pos": [800, 490, 1200], "look": [800, 540, -3000] },
+      "say": "And they came, on foot and on lean camels, from every distant pass, generation after generation." },
+    { "dur": 10000, "ambient": ["crowd", "voices"], "cam": { "dx": 6000, "pos": [800, 500, 1100], "look": [800, 560, -3000] },
+      "say": "To this day they circle the House that Ibrahim and Ismail raised, answering his call." },
+    { "dur": 13000, "ambient": ["crowd", "air"], "cam": { "dx": 6000, "pos": [800, 505, 1000], "look": [800, 575, -3000] },
+      "pendingVerse": { "ref": "22:27", "place": "sky" } }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "kifl",
+  "chapter": 14,
+  "order": 147,
+  "node": "dhulkifl",
+  "title": "Dhul-Kifl",
+  "arabic": "ذو الكفل",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "Who Dhul-Kifl was is debated among scholars; that he pledged to fast by day, pray by night and judge without anger is from the commentaries."],
+  "ambient": ["voices", "wind"],
+  "base": "#c8c0b0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c8c0b0", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [860, 525, 800], "look": [880, 700, -3000]},
+  "imagePrompt": "A town gate of pale stone at dusk, a steady light seated beneath its arch with dim lights of people waiting to be heard; then days and nights racing past in the sky while the light stays at his place, kneeling in prayer by night; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [16, 17.6, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [6, 18, 12000, 6]}, "2": {"tod": [18.4, 19.6, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 620, "amp": 50, "seed": 1100, "sharp": 0.3, "color": "#8a8a78", "haze": 0.35, "fog": 0.4},
+    {"type": "ridge", "depth": 0.08, "y": 660, "amp": 40, "seed": 1101, "sharp": 0.3, "color": "#7a8064", "haze": 0.25, "fog": 0.3},
+    {"type": "ground", "depth": 0.14, "y": 690, "amp": 10, "seed": 1102, "color": "#7a8a52", "color2": "#4a5a32", "grass": true, "grassColor": "#9aaa62"},
+    {"type": "town", "depth": 0.14, "y": 700, "x0": 100, "x1": 1500, "s": 0.7, "grade": "town", "lit": 0.3, "haze": "#b8a898", "seed": 1103},
+    {"type": "facade", "depth": 0.34, "x": 800, "y": 790, "w": 816, "h": 357, "gate": {"w": 184, "h": 255}, "towers": true, "stone": "#d8c8a8", "ppu": 0.8},
+    {"type": "light", "depth": 0.36, "pos": [800, 788], "h": 94, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "pose": "kneel", "at": {"2": {"color": "#fffaf0", "glow": 0.6, "bright": 1.35}}},
+    {"type": "light", "depth": 0.37, "pos": [960, 790], "h": 94, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.37, "pos": [1004, 794], "h": 94, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.37, "pos": [1048, 790], "h": 94, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.37, "pos": [1092, 794], "h": 94, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.37, "pos": [1136, 790], "h": 94, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.37, "pos": [1180, 794], "h": 94, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["voices", "wind"], "cam": {"pos": [860, 525, 800], "look": [880, 700, -3000]}, "say": "Among the prophets the Quran names is Dhul-Kifl, a man known for his patience."},
+    {"dur": 12000, "ambient": ["wind", "voices"], "cam": {"pos": [840, 520, 900], "look": [860, 680, -3000]}, "say": "It is said he promised to fast every day, to pray every night, and to judge between people without ever losing his temper; and he kept his word."},
+    {"dur": 12000, "ambient": ["crickets", "air"], "cam": {"pos": [820, 520, 900], "look": [840, 680, -3000]}, "verse": {"ref": "21:85", "ar": [0, 7], "place": "sky", "en": "And [mention] Ishmael and Idrees and Dhul-Kifl; all were of the patient."}}
+  ]
+}

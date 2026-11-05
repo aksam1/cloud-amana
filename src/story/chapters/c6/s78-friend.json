@@ -1,0 +1,62 @@
+{
+  "id": "friend",
+  "chapter": 6,
+  "order": 78,
+  "node": "ibrahim",
+  "title": "The Friend of God",
+  "arabic": "الخليل",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "Ibrahim appears only as a steady light, far away and from behind. His prayers in the valley, his thanks for Ismail and Ishaq and his prayer for a messenger from among his descendants, are told in the Quran (14:35-41 and 2:129).",
+    "The closing hill and its sky echo the night of his search; they are imagined."
+  ],
+  "ambient": ["wind", "air"],
+  "base": "#1a1822",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": { "fog": "#8a7a80", "fogNear": 6000, "fogFar": 40000, "light": 0.95, "rays": 0, "bloom": 0.75, "haze": 0.06, "hazeY": 0.62, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [860, 520, 1150], "look": [860, 565, -3000] },
+  "imagePrompt": "The plain stone walls of the House in a mountain valley at dusk, a steady white light standing before them with hands raised in prayer, a few tents and a stone-rimmed spring nearby; then night over a lone hill, the same light seen from behind beneath a sky of stars turning slowly toward dawn; indigo, rose, gold; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 610,
+      "star": { "rise": 20.2, "set": 4.6, "x0": 330, "x1": 1260, "peak": 330, "size": 8, "halo": 80 },
+      "moon": { "rise": 21, "set": 7, "x0": 1300, "x1": 300, "peak": 340, "size": 26 },
+      "sun": { "rise": 6, "set": 18, "x0": 1300, "x1": 300, "peak": 300, "size": 34 },
+      "tod": [17.4, 18.4, 10000], "at": { "1": { "tod": [18.4, 19.4, 10000] }, "2": { "tod": [2.4, 4.2, 10000] }, "3": { "tod": [4.2, 5.6, 13000] } } },
+
+    { "type": "set", "show": [0, 2], "layers": [
+      { "type": "peak", "depth": 0.06, "x": 240, "y": 310, "w": 480, "h": 360, "color": "#4a3c38", "lit": "#9a7a68", "seed": 140 },
+      { "type": "peak", "depth": 0.06, "x": 1360, "y": 290, "w": 520, "h": 380, "color": "#463834", "lit": "#947464", "seed": 141 },
+      { "type": "ridge", "depth": 0.1, "y": 612, "amp": 100, "seed": 143, "sharp": 0.7, "color": "#5a4a40", "haze": 0.25 },
+      { "type": "ground", "depth": 0.14, "y": 650, "amp": 6, "seed": 190, "color": "#c4a476", "color2": "#967656" },
+      { "type": "tent", "depth": 0.15, "x": 260, "y": 662, "w": 260, "h": 100, "lit": true, "ppu": 1 },
+      { "type": "tent", "depth": 0.15, "x": 1460, "y": 664, "w": 280, "h": 110, "lit": true, "ppu": 1 },
+      { "type": "masonry", "depth": 0.2, "pos": [920, 712], "w": 300, "h": 210, "side": 96, "courses": 11, "blocks": 9, "built": 1, "door": { "x": 0.8, "w": 0.14, "h": 0.34 } },
+      { "type": "spring", "depth": 0.2, "pos": [1310, 716], "r": 40, "squash": 0.26, "well": 1, "rim": 1 },
+      { "type": "light", "depth": 0.21, "pos": [880, 718], "h": 58, "color": "#fffaf0", "glow": 0.6, "bright": 1.4, "pose": "raise" },
+      { "type": "ground", "depth": 0.38, "y": 832, "amp": 10, "seed": 191, "color": "#a88a62", "color2": "#7a6046" }
+    ] },
+
+    { "type": "set", "show": [2, null], "dx": 6000, "layers": [
+      { "type": "ridge", "depth": 0.04, "y": 622, "amp": 46, "seed": 61, "sharp": 0.45, "color": "#5a5a6c", "haze": 0.35, "fog": 0.4 },
+      { "type": "ridge", "depth": 0.07, "y": 648, "amp": 70, "seed": 62, "sharp": 0.5, "color": "#6a5e58", "haze": 0.2, "fog": 0.5 },
+      { "type": "dunes", "depth": 0.14, "y": 690, "amp": 10, "count": 12, "seed": 63, "lit": "#c8a07a", "body": "#9a7a5e", "shade": "#4a3a48" },
+      { "type": "ridge", "depth": 0.45, "y": 760, "amp": 60, "seed": 66, "sharp": 0.3, "color": "#6a5448", "haze": 0, "x0": -400, "x1": 2000 },
+      { "type": "light", "depth": 0.45, "pos": [800, 722], "h": 54, "color": "#fffaf0", "glow": 0.9, "bright": 1.5 }
+    ] },
+    { "type": "dust", "box": [-1400, 200, -6000, 3000, 950, 900], "count": 500, "size": 2.5, "color": "#e8dcc8", "opacity": 0.25, "wind": [6, -2, 0] }
+  ],
+  "beats": [
+    { "dur": 10000, "ambient": ["wind", "voices"], "cam": { "pos": [900, 520, 1100], "look": [900, 570, -3000] },
+      "say": "In his old age Ibrahim thanked God for his two sons, Ismail and Ishaq, and prayed that he and his children would keep up the prayer." },
+    { "dur": 10000, "ambient": ["air", "crickets"], "cam": { "pos": [900, 525, 1000], "look": [900, 585, -3000] },
+      "say": "There in the valley he prayed, too, that God would one day raise a messenger from among his descendants." },
+    { "dur": 10000, "ambient": ["crickets", "air"], "cam": { "dx": 6000, "from": { "pos": [800, 590, 1250], "look": [800, 500, -4000] }, "pos": [800, 585, 1180], "look": [800, 505, -4000] },
+      "say": "God made him a leader for all people, and took him as a close friend." },
+    { "dur": 13000, "ambient": ["air", "birds"], "cam": { "dx": 6000, "pos": [800, 580, 1150], "look": [800, 510, -4000] },
+      "pendingVerse": { "ref": "4:125", "place": "sky" } }
+  ]
+}

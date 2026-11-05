@@ -1,0 +1,42 @@
+{
+  "id": "sea",
+  "chapter": 12,
+  "order": 133,
+  "node": "musa",
+  "title": "The Sea Parts",
+  "arabic": "انفلاق البحر",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The walls of water are drawn as the Quran describes them, each part like a great mountain (26:63)."],
+  "ambient": ["sea", "wind"],
+  "base": "#8a98a8",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#9aa8b4", "fogNear": 6000, "fogFar": 50000, "light": 1.0, "rays": 0, "bloom": 0.7, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 515, 1000], "look": [800, 620, -3000]},
+  "imagePrompt": "Dawn on a desert shore, a great multitude of small warm lights pressed against the sea, a dust cloud of an army on the horizon behind; a steady white light raising a staff; then the sea split from shore to far shore, two towering walls of green-blue water with streaming foam, and a dry path of wet sand running between them toward distant mountains, the river of lights flowing in; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 660, "tod": [4.8, 5.6, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [5.6, 6.2, 10000]}, "2": {"tod": [6.2, 7, 12000]}, "3": {"tod": [7, 7.6, 12000]}}},
+    {"type": "ridge", "depth": 0.03, "y": 660, "amp": 40, "seed": 940, "sharp": 0.5, "color": "#6a6478", "haze": 0.4, "fog": 0.5},
+    {"type": "water", "depth": 0.08, "points": [[-6000, 668], [800, 670], [8000, 672]], "w0": 40, "w1": 40, "reflect": [["0", "#a8bccb"], ["1", "#4a6a82"]]},
+    {"type": "ground", "show": [2, null], "depth": 0.235, "y": 742, "amp": 2, "seed": 941, "x0": 700, "x1": 900, "color": "#8a7a62", "color2": "#4a4234"},
+    {"type": "water", "show": [0, 3], "depth": 0.24, "points": [[-1600, 742], [800, 746], [3200, 750]], "w0": 70, "w1": 70, "reflect": [["0", "#b8ccd8"], ["1", "#3a5a72"]]},
+    {"type": "seawall", "show": [2, null], "depth": 0.24, "x0": -900, "x1": 760, "y": 760, "h": 792, "face": 1, "seed": 4, "ppu": 0.6, "at": {"2": {"move": {"path": [[300, 360, 0], [300, 120, 0], [0, 0, 0]], "dur": 6500, "delay": 600}}, "3": {"move": {"path": [[0, 0, 0]], "dur": 1}}}},
+    {"type": "seawall", "show": [2, null], "depth": 0.241, "x0": 840, "x1": 2500, "y": 760, "h": 792, "face": -1, "seed": 7, "ppu": 0.6, "at": {"2": {"move": {"path": [[-300, 360, 0], [-300, 120, 0], [0, 0, 0]], "dur": 6500, "delay": 600}}, "3": {"move": {"path": [[0, 0, 0]], "dur": 1}}}},
+    {"type": "crowd", "kind": "army", "show": [0, 2], "area": [1500, 2600, -9000, -7000], "y": [700, 690], "rows": 6, "cols": 30, "size": 28, "color": "#c8b8a8", "dim": 0.3, "glow": 0.3, "flow": [-1, 0], "speed": 30},
+    {"type": "dust", "box": [1600, 0, -11000, 4200, 700, -6000], "count": 400, "size": 40, "color": "#c8a888", "opacity": 0.25, "wind": [-60, -10, 0], "swirl": 40, "blend": "normal", "show": [0, 2]},
+    {"type": "ground", "depth": 0.3, "y": 760, "amp": 6, "seed": 942, "x0": -900, "x1": 2500, "color": "#c8b090", "color2": "#8a7458"},
+    {"type": "crowd", "area": [-200, 1800, -2200, -1400], "y": [802, 770], "count": 320, "size": 92, "color": "#ffe0b0", "dim": 0.45, "glow": 0.1, "mill": 4, "speed": 0, "flicker": 0.15, "at": {"3": {"area": [740, 860, -9000, -1400], "flow": [0, -1], "speed": 60, "mill": 1}}},
+    {"type": "light", "depth": 0.44, "pos": [800, 812], "h": 119, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"2": {"pose": "raise"}}},
+    {"type": "light", "depth": 0.44, "pos": [740, 814], "h": 119, "color": "#f8f2e6", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.2, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["sea", "wind"], "cam": {"pos": [800, 515, 1000], "look": [800, 620, -3000]}, "say": "At sunrise they reached the sea, and saw Pharaoh's army coming after them. We are overtaken! the people cried."},
+    {"dur": 9000, "ambient": ["sea", "crowd"], "cam": {"pos": [800, 520, 800], "look": [800, 680, -3000]}, "say": "No! said Musa. My Lord is with me; He will guide me."},
+    {"dur": 11000, "ambient": ["sea", "roar"], "sfx": [{"name": "swell", "at": 400}, {"name": "wave", "at": 2400}, {"name": "rumble", "at": 3000}], "world": {"shake": 1.0}, "cam": {"pos": [800, 470, 1250], "look": [800, 470, -3000]}, "say": "God told him: strike the sea with your staff. And the sea split apart, each side like a great mountain."},
+    {"dur": 12000, "ambient": ["sea", "voices"], "world": {"shake": 0.3}, "cam": {"pos": [800, 470, 1250], "look": [800, 470, -3000]}, "pendingVerse": {"ref": "26:63", "place": "sky"}}
+  ]
+}

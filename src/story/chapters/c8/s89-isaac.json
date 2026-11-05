@@ -1,0 +1,41 @@
+{
+  "id": "isaac",
+  "chapter": 8,
+  "order": 89,
+  "node": "ishaq",
+  "title": "The Birth of Ishaq",
+  "arabic": "مولد إسحاق",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Sarah appears only as a dim figure of light; Ibrahim and the infant Ishaq as steady lights. The camp in Canaan is imagined."],
+  "ambient": ["birds", "air"],
+  "base": "#c8c0b0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c8c0b0", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [860, 520, 1100], "look": [880, 570, -3000]},
+  "imagePrompt": "A dark goat-hair tent among olive trees and green hills at dawn, a dim amber figure of light at its door holding a tiny new light wrapped in white, an old steady white light beside them with an arm raised; soft gold light, birds of light overhead; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 640, "sun": {"rise": 6, "set": 18, "x0": 1300, "x1": 300, "peak": 300, "size": 32}, "tod": [5.2, 6.4, 10000], "at": {"1": {"tod": [6.4, 7.6, 10000]}, "2": {"tod": [7.6, 8.6, 12000]}}},
+    {"type": "ridge", "depth": 0.05, "y": 630, "amp": 50, "seed": 300, "sharp": 0.3, "color": "#7a8070", "haze": 0.35, "fog": 0.4},
+    {"type": "ground", "depth": 0.12, "y": 668, "amp": 18, "seed": 301, "color": "#6a7a4a", "color2": "#4a5a32", "grass": true, "grassColor": "#8a9a58"},
+    {"type": "tree", "depth": 0.16, "x": 250, "y": 692, "h": 250, "kind": "living", "seed": 302},
+    {"type": "tree", "depth": 0.17, "x": 1390, "y": 696, "h": 270, "kind": "living", "seed": 303},
+    {"type": "tent", "depth": 0.22, "x": 760, "y": 720, "w": 520, "h": 200, "lit": true, "ppu": 1},
+    {"type": "light", "depth": 0.235, "pos": [840, 736], "h": 50, "color": "#f0c890", "glow": 0.35, "bright": 1.0, "solid": 0.6},
+    {"type": "light", "depth": 0.235, "pos": [870, 712], "h": 18, "color": "#fffaf0", "glow": 0.9, "bright": 1.6, "w": 1.0, "pose": "babe", "show": [1, null]},
+    {"type": "light", "depth": 0.24, "pos": [960, 742], "h": 62, "color": "#fffaf0", "glow": 0.45, "bright": 1.2, "solid": 0.5, "at": {"1": {"pose": "raise"}}},
+    {"type": "brazier", "depth": 0.26, "x": 640, "y": 772, "s": 0.6},
+    {"type": "light", "kind": "flame", "depth": 0.26, "pos": [640, 734], "h": 30, "color": "#ffb050", "glow": 1.0},
+    {"type": "light", "kind": "bird", "depth": 0.1, "h": 10, "color": "#fffaf0", "glow": 0.55, "bright": 1.3, "path": [[500, 300, -9000], [900, 240, -9000], [1150, 320, -9000], [760, 380, -9000], [500, 300, -9000]], "dur": 14000},
+    {"type": "ground", "depth": 0.4, "y": 832, "amp": 10, "seed": 304, "color": "#5a6a3a", "color2": "#3a4a2a", "grass": true, "grassColor": "#7a8a4a", "wind": 1},
+    {"type": "dust", "box": [-1200, 200, -4000, 2800, 950, 900], "count": 400, "size": 2.5, "color": "#fff0d0", "opacity": 0.3, "wind": [5, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["birds", "air"], "cam": {"pos": [860, 520, 1100], "look": [880, 570, -3000]}, "say": "As the angels had promised, Sarah, old as she was, bore a son: Ishaq."},
+    {"dur": 10000, "ambient": ["birds", "sheep"], "cam": {"pos": [880, 525, 960], "look": [900, 600, -3000]}, "say": "Ibrahim thanked God, who had given him in his old age both Ismail and Ishaq."},
+    {"dur": 12000, "ambient": ["air", "birds"], "cam": {"pos": [860, 522, 1020], "look": [880, 585, -3000]}, "pendingVerse": {"ref": "37:112", "place": "sky"}}
+  ]
+}

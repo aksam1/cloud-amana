@@ -1,0 +1,37 @@
+{
+  "id": "threat",
+  "chapter": 1,
+  "order": 15,
+  "node": "humanity",
+  "title": "The Threat and the Answer",
+  "arabic": "الوعيد والجواب",
+  "source": "quran",
+  "ayahs": ["5:27-28"],
+  "art": ["The black smoke is the same whisper seen in the Garden; the brothers are figures of glow with no faces."],
+  "ambient": ["storm"],
+  "base": "#0e0e12",
+  "renderer": "gl",
+  "dissolve": 2400,
+  "world": {"fog": "#2e2c34", "fogNear": 5000, "fogFar": 34000, "light": 0.9, "rays": 0, "bloom": 0.8, "haze": 0, "hazeY": 0.6, "shake": 0.4, "dof": 0},
+  "cam": {"pos": [860, 520, 1100], "look": [860, 580, -3000]},
+  "imagePrompt": "A tense side two-shot on a storm-lit hilltop, the horizon cutting the frame in half and the storm filling the sky; on the right a figure of deep, smouldering red light leaning forward, dark smoke rising from its shoulders, a thin snake-like wisp of black smoke coiling around it with faint unreadable script; on the left a calm, steady figure of white light with open hands lowered, palms outward, refusing to fight; two stone altars between them. No faces, only glow.",
+  "layers": [
+    {"type": "heavens", "horizon": 620, "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 32}, "tod": [17.6, 18.1, 6500], "at": {"1": {"tod": [18.1, 18.6, 8000]}, "2": {"tod": [18.6, 19.1, 9000]}, "3": {"tod": [19.1, 19.4, 5000]}, "4": {"tod": [19.4, 20, 11000]}}},
+    {"type": "clouds", "depth": 0.08, "y": 200, "count": 9, "color": "#222024", "rim": "#6a4a2a", "scale": 1.5, "fog": 0.3},
+    {"type": "ridge", "depth": 0.05, "y": 620, "amp": 70, "seed": 92, "sharp": 0.5, "color": "#4a4650", "haze": 0.35, "fog": 0.4},
+    {"type": "ground", "depth": 0.16, "y": 700, "amp": 26, "seed": 93, "color": "#6a6050", "color2": "#3a342c"},
+    {"type": "altar", "depth": 0.24, "x": 760, "y": 700, "s": 0.8},
+    {"type": "altar", "depth": 0.24, "x": 940, "y": 700, "s": 0.8},
+    {"type": "light", "depth": 0.25, "pos": [640, 712], "h": 104, "color": "#fdfaf2", "glow": 0.55, "bright": 1.1, "solid": 0.4},
+    {"type": "light", "depth": 0.25, "pos": [1090, 712], "h": 108, "color": "#b8321a", "glow": 0.6, "bright": 1.1, "solid": 0.6},
+    {"type": "wisp", "depth": 0.255, "points": [[1170, 780], [1140, 720], [1100, 660]], "wrap": {"x": 1090, "y": 612, "r": 36, "turns": 1.6}, "width": 6, "script": true, "dur": 4000, "show": [1, null]},
+    {"type": "dust", "box": [-1400, 200, -6000, 3000, 950, 600], "count": 600, "size": 3, "color": "#b8b0a8", "opacity": 0.35, "wind": [30, -2, 0], "swirl": 30, "at": {"1": {"wind": [60, -4, 0]}, "2": {"wind": [90, -4, 0]}, "3": {"wind": [170, -8, 0], "opacity": 0.5}, "4": {"wind": [200, -8, 0], "opacity": 0.55}}}
+  ],
+  "beats": [
+    {"dur": 6500, "cam": {"pos": [860, 520, 1100], "look": [860, 580, -3000]}, "say": "Envy burned in Qabil until his light turned red."},
+    {"dur": 8000, "sfx": "whoosh", "cam": {"pos": [980, 525, 980], "look": [1040, 600, -3000]}, "say": "A thread of black smoke, the same that crept through the Garden, wound around his shoulders.", "verse": {"ref": "5:27", "ar": [18, 18], "who": "Qabil", "style": "qabil", "en": "I will surely kill you."}},
+    {"dur": 9000, "sfx": "whoosh", "cam": {"pos": [720, 525, 980], "look": [680, 600, -3000]}, "say": "Habil lowered his open hands and would not fight.", "verse": {"ref": "5:27", "ar": [21, 25], "who": "Habil", "style": "habil", "en": "Indeed, Allah only accepts from the righteous [who fear Him]."}},
+    {"dur": 5000, "sfx": "whoosh", "cam": {"pos": [860, 520, 1050], "look": [860, 580, -3000]}, "say": "The wind rose with every word."},
+    {"dur": 11000, "sfx": "whoosh", "cam": {"pos": [780, 522, 1040], "look": [740, 592, -3000]}, "verse": {"ref": "5:28", "ar": [0, 16], "who": "Habil", "style": "habil", "en": "If you should raise your hand against me to kill me - I shall not raise my hand against you to kill you. Indeed, I fear Allah, Lord of the worlds."}}
+  ]
+}

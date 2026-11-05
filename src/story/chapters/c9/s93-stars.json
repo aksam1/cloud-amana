@@ -1,0 +1,31 @@
+{
+  "id": "stars",
+  "chapter": 9,
+  "order": 93,
+  "node": "yusuf",
+  "title": "Eleven Stars",
+  "arabic": "حلم يوسف",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Yusuf and Yaqub appear only as steady lights. The dream's stars, sun and moon are shown as lights that bow by dipping toward him, nothing more."],
+  "ambient": ["crickets", "air"],
+  "base": "#1a1820",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#c8c0b0", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [880, 525, 1000], "look": [890, 595, -3000]},
+  "imagePrompt": "A goat-hair tent under a night sky, a small light asleep beside it; then a dream sky of deep violet smoke where eleven stars, a golden sun and a silver moon hang in an arc and slowly dip toward a small steady light below; then morning, an older steady light beside the boy; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "set", "show": [[0, 1], [3, null]], "layers": [{"type": "heavens", "horizon": 630, "tod": [22, 23, 9000], "sun": {"rise": 6, "set": 18, "x0": 1300, "x1": 300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"3": {"tod": [5.6, 7, 12000]}}}, {"type": "ridge", "depth": 0.05, "y": 630, "amp": 50, "seed": 300, "sharp": 0.3, "color": "#7a8070", "haze": 0.35, "fog": 0.4}, {"type": "ground", "depth": 0.12, "y": 668, "amp": 18, "seed": 301, "color": "#6a7a4a", "color2": "#4a5a32", "grass": true, "grassColor": "#8a9a58"}, {"type": "tree", "depth": 0.16, "x": 250, "y": 692, "h": 160, "kind": "living", "seed": 302}, {"type": "tree", "depth": 0.17, "x": 1390, "y": 696, "h": 170, "kind": "living", "seed": 303}, {"type": "tent", "depth": 0.374, "x": 676.0, "y": 710.0, "w": 561.0, "h": 153.0, "lit": true, "ppu": 1}, {"type": "light", "depth": 0.408, "pos": [914.0, 744.0], "h": 78.2, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "pose": "kneel"}, {"type": "light", "depth": 0.408, "pos": [829.0, 740.6], "h": 105.4, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "show": [3, null]}, {"type": "ground", "depth": 0.62, "y": 880, "amp": 10, "seed": 304, "color": "#5a6a3a", "color2": "#3a4a2a", "grass": true, "grassColor": "#7a8a4a", "wind": 1}]},
+    {"type": "set", "show": [1, 3], "dx": 6000, "layers": [{"type": "cosmos", "smoke": 0.55, "stars": 0, "colors": ["#3a2a6a", "#8a6ab8", "#120a24"], "gold": "#e8d8ff", "base": "#06040e"}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [1333, 307, -6000], "at": {"2": {"path": [[1333, 307, -6000], [1120, 457, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [1273, 269, -6000], "at": {"2": {"path": [[1273, 269, -6000], [1084, 419, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [1183, 236, -6000], "at": {"2": {"path": [[1183, 236, -6000], [1030, 386, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [1070, 211, -6000], "at": {"2": {"path": [[1070, 211, -6000], [962, 361, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [939, 195, -6000], "at": {"2": {"path": [[939, 195, -6000], [884, 345, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [800, 190, -6000], "at": {"2": {"path": [[800, 190, -6000], [800, 340, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [661, 195, -6000], "at": {"2": {"path": [[661, 195, -6000], [716, 345, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [530, 211, -6000], "at": {"2": {"path": [[530, 211, -6000], [638, 361, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [417, 236, -6000], "at": {"2": {"path": [[417, 236, -6000], [570, 386, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [327, 269, -6000], "at": {"2": {"path": [[327, 269, -6000], [516, 419, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 34, "color": "#e8eeff", "glow": 1.0, "pos": [267, 307, -6000], "at": {"2": {"path": [[267, 307, -6000], [480, 457, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 90, "color": "#ffd070", "glow": 1.0, "pos": [520, 200, -6000], "at": {"2": {"path": [[520, 200, -6000], [640, 380, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "kind": "flame", "h": 70, "color": "#dfe6ff", "glow": 0.9, "pos": [1080, 200, -6000], "at": {"2": {"path": [[1080, 200, -6000], [960, 380, -6000]], "dur": 6000, "delay": 600}}}, {"type": "light", "depth": 0.3, "pos": [800, 780], "h": 58, "color": "#fffaf0", "glow": 0.6, "bright": 1.35}]},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 9000, "ambient": ["crickets", "air"], "cam": {"pos": [880, 525, 1000], "look": [890, 595, -3000]}, "say": "One night the boy Yusuf had a dream."},
+    {"dur": 9000, "ambient": ["air"], "cam": {"pos": [800, 470, 1150], "look": [800, 470, -3000], "dx": 6000}, "say": "He saw eleven stars, and the sun and the moon,"},
+    {"dur": 9000, "ambient": ["air"], "sfx": "whoosh", "cam": {"pos": [800, 480, 1100], "look": [800, 490, -3000], "dx": 6000}, "say": "and they were bowing down to him. His father told him to keep the dream from his brothers."},
+    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [870, 522, 1040], "look": [880, 585, -3000]}, "pendingVerse": {"ref": "12:4", "place": "sky"}}
+  ]
+}

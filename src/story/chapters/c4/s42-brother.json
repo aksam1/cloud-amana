@@ -1,0 +1,93 @@
+{
+  "id": "brother",
+  "chapter": 4,
+  "order": 42,
+  "node": "hud",
+  "title": "Hud Among His People",
+  "arabic": "هود بين قومه",
+  "source": "quran",
+  "ayahs": ["7:65"],
+  "art": [
+    "Hud is shown only as a figure of steady white-gold light, from behind and far away; his walk down the avenue and the platform are imagined."
+  ],
+  "ambient": ["city", "crowd", "desert"],
+  "base": "#2a1a14",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2000,
+  "world": { "fog": "#f2dcc0", "fogNear": 6000, "fogFar": 40000, "light": 1.08, "rays": 0.4, "bloom": 0.55, "haze": 0.2, "hazeY": 0.55, "shake": 0.7, "dof": 0 },
+  "cam": { "pos": [800, 250, 1400], "look": [800, 520, -6000] },
+  "imagePrompt": "The great central avenue of Iram at midday, colossal columns of rose and gold stone rising on both sides like a canyon, their shadows striping the paved road; crowds of dim amber figures of light flowing in both directions; one small figure of steady white-gold light walks away from us against the flow, seen from behind and above, clear and calm amid the thick amber glow; at the far end he climbs a broad stepped platform; then, from behind him and above, the plaza beyond filled with thousands of dim lights, a soft wave of white-gold letters rolling outward over them; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#9cc0da"], [0.45, "#f0e6d4"], [0.75, "#f6d6a8"], [1, "#eeb474"]] },
+    { "type": "sun", "pos": [300, 140, -26000], "size": 30, "color": "#fff0c8" },
+    { "type": "dunes", "show": [0, 3], "depth": 0.05, "y": 520, "amp": 10, "count": 14, "seed": 41, "lit": "#f4c080", "body": "#d89a60", "shade": "#7a5070", "haze": 0.55 },
+    { "type": "iram", "show": [0, 3], "depth": 0.12, "seed": 43, "x0": -500, "x1": 2100, "area": [-600, 100, 2200, 560], "haze": "#f2dcc0",
+      "rows": [{ "y": 500, "h": 260, "n": 40, "w": 10 }, { "y": 505, "h": 340, "n": 30, "w": 15 }] },
+
+    { "type": "set", "show": [0, 3], "layers": [
+      { "type": "floor", "depth": 0.15, "y": 496, "vp": [800, 450], "color": "#dcbc98", "color2": "#c8a482", "lines": 0, "gloss": 0.1, "area": [-800, 494, 2400, 522] },
+      { "type": "platform", "depth": 0.155, "x": 800, "y": 501, "w": 250, "steps": 7, "rise": 8, "dais": 18, "taper": 0.04 },
+
+      { "type": "column", "depth": 0.17, "x": 704, "y": 504, "h": 255, "w": 15 },
+      { "type": "column", "depth": 0.17, "x": 896, "y": 504, "h": 255, "w": 15 },
+      { "type": "floor", "depth": 0.17, "y": 504, "vp": [800, 450], "color": "#dcbc98", "color2": "#c8a482", "lines": 0, "gloss": 0.1, "area": [-800, 502, 2400, 520], "shadows": [[704, 504, 980, 511, 0.3]] },
+      { "type": "column", "depth": 0.21, "x": 681, "y": 517, "h": 315, "w": 19 },
+      { "type": "column", "depth": 0.21, "x": 919, "y": 517, "h": 315, "w": 19 },
+      { "type": "floor", "depth": 0.21, "y": 517, "vp": [800, 450], "color": "#dcbc98", "color2": "#c8a482", "lines": 0, "gloss": 0.1, "area": [-800, 515, 2400, 536], "shadows": [[681, 517, 1000, 525, 0.3]] },
+      { "type": "column", "depth": 0.26, "x": 653, "y": 533, "h": 390, "w": 23 },
+      { "type": "column", "depth": 0.26, "x": 947, "y": 533, "h": 390, "w": 23 },
+      { "type": "floor", "depth": 0.26, "y": 533, "vp": [800, 450], "color": "#dcbc98", "color2": "#c8a482", "lines": 0, "gloss": 0.1, "area": [-800, 531, 2400, 559], "shadows": [[653, 533, 1030, 545, 0.3]] },
+      { "type": "column", "depth": 0.33, "x": 614, "y": 556, "h": 495, "w": 30 },
+      { "type": "column", "depth": 0.33, "x": 986, "y": 556, "h": 495, "w": 30 },
+      { "type": "floor", "depth": 0.33, "y": 556, "vp": [800, 450], "color": "#dcbc98", "color2": "#c8a482", "lines": 0, "gloss": 0.1, "area": [-800, 554, 2400, 587], "shadows": [[614, 556, 1070, 570, 0.32]] },
+      { "type": "column", "depth": 0.42, "x": 563, "y": 584, "h": 630, "w": 38 },
+      { "type": "column", "depth": 0.42, "x": 1037, "y": 584, "h": 630, "w": 38 },
+      { "type": "floor", "depth": 0.42, "y": 584, "vp": [800, 450], "color": "#dcbc98", "color2": "#c8a482", "lines": 0, "gloss": 0.1, "area": [-800, 582, 2400, 629], "shadows": [[563, 584, 1120, 605, 0.32]] },
+      { "type": "column", "depth": 0.55, "x": 489, "y": 626, "h": 825, "w": 50 },
+      { "type": "column", "depth": 0.55, "x": 1111, "y": 626, "h": 825, "w": 50 },
+      { "type": "floor", "depth": 0.55, "y": 626, "vp": [800, 450], "color": "#dcbc98", "color2": "#c8a482", "lines": 0, "gloss": 0.1, "area": [-800, 624, 2400, 693], "shadows": [[489, 626, 1200, 658, 0.34]] },
+      { "type": "column", "depth": 0.75, "x": 376, "y": 690, "h": 1125, "w": 68 },
+      { "type": "column", "depth": 0.75, "x": 1224, "y": 690, "h": 1125, "w": 68 },
+      { "type": "floor", "depth": 0.75, "y": 690, "vp": [800, 450], "color": "#dcbc98", "color2": "#c8a482", "lines": 0, "gloss": 0.1, "area": [-800, 688, 2400, 805], "shadows": [[376, 690, 1310, 746, 0.34]] },
+      { "type": "column", "depth": 1.1, "x": 178, "y": 802, "h": 1650, "w": 99, "ppu": 0.6 },
+      { "type": "column", "depth": 1.1, "x": 1422, "y": 802, "h": 1650, "w": 99, "ppu": 0.6 },
+      { "type": "floor", "depth": 1.1, "y": 802, "vp": [800, 450], "color": "#dcbc98", "color2": "#c8a482", "lines": 0, "gloss": 0.1, "area": [-800, 800, 2400, 1100], "shadows": [[178, 802, 1520, 900, 0.34]] },
+
+      { "type": "crowd", "ground": -320, "area": [-480, -110, -5200, 600], "count": 420, "size": 56, "color": "#ffc078", "dim": 0.4, "glow": 0.6, "flow": [0, 1], "speed": 38, "mill": 10, "flicker": 0.25 },
+      { "type": "crowd", "ground": -320, "area": [110, 480, -5200, 600], "count": 420, "seed": 5, "flow": [0, 1], "speed": 36, "size": 56, "color": "#ffc078", "dim": 0.4, "glow": 0.6, "mill": 10, "flicker": 0.25 },
+      { "type": "crowd", "ground": -320, "area": [300, 500, -5200, 600], "count": 160, "size": 56, "color": "#ffc078", "dim": 0.4, "glow": 0.6, "flow": [0, -1], "speed": 30, "mill": 8, "flicker": 0.25, "seed": 9 },
+      { "type": "light", "depth": 0.588, "h": 42, "color": "#fffaf0", "glow": 1.7, "bright": 1.9, "pose": "walk", "path": [[800, 638, -700], [800, 501, -5300], [800, 427, -5440]], "dur": 22000 },
+      { "type": "dust", "box": [-1400, 0, -6000, 3000, 900, 1400], "count": 2000, "size": 3, "color": "#ffe0b0", "opacity": 0.45, "wind": [10, -2, 0] }
+    ] },
+
+    { "type": "set", "show": [3, null], "dx": 6000, "layers": [
+      { "type": "iram", "depth": 0.12, "seed": 47, "x0": -600, "x1": 2200, "area": [-800, 0, 2400, 300], "haze": "#f0d8bc",
+        "rows": [{ "y": 222, "h": 110, "n": 46, "w": 6 }, { "y": 232, "h": 150, "n": 34, "w": 9 }] },
+      { "type": "floor", "depth": 0.25, "y": 225, "vp": [800, 100], "color": "#d8b890", "color2": "#a88462", "lines": 28, "gloss": 0.1, "area": [-800, 220, 2400, 1350] },
+      { "type": "column", "depth": 0.3, "x": 470, "y": 300, "h": 200, "w": 16 },
+      { "type": "column", "depth": 0.3, "x": 1130, "y": 300, "h": 200, "w": 16 },
+      { "type": "column", "depth": 0.42, "x": 360, "y": 360, "h": 280, "w": 22 },
+      { "type": "column", "depth": 0.42, "x": 1240, "y": 360, "h": 280, "w": 22 },
+      { "type": "column", "depth": 0.6, "x": 200, "y": 450, "h": 400, "w": 32 },
+      { "type": "column", "depth": 0.6, "x": 1400, "y": 450, "h": 400, "w": 32 },
+      { "type": "crowd", "area": [330, 1270, -2800, -500], "y": [440, 236], "count": 700, "size": 18, "color": "#ffc078", "dim": 0.45, "glow": 0.42, "mill": 3, "speed": 0, "flicker": 0.25 },
+      { "type": "floor", "depth": 1.05, "y": 452, "vp": [800, 100], "x0": 420, "x1": 1180, "color": "#b89a7c", "color2": "#7a6250", "gloss": 0.3, "lines": 10, "area": [380, 440, 1220, 1100] },
+      { "type": "facade", "depth": 1.04, "x": 800, "y": 460, "w": 760, "h": 12, "stone": "#c8a888" },
+      { "type": "light", "depth": 1.0, "pos": [800, 452], "h": 48, "color": "#fff6dc", "glow": 1.3, "bright": 1.6 },
+      { "type": "guidance", "from": [800, 420], "area": [260, 240, 1340, 430], "count": 28, "wave": true, "size": 30, "color": "#fff0c0" },
+      { "type": "calligraphy", "ref": "7:65", "ar": [7, 14], "x": 800, "y": 140, "size": 56, "color": "#fff4d6", "pen": true, "dur": 4200, "delay": 1200 }
+    ] }
+  ],
+  "beats": [
+    { "dur": 8000, "ambient": ["city", "crowd", "desert"], "cam": { "pos": [800, 260, 700], "look": [800, 510, -6000] },
+      "say": "Among the people of ʿAd lived one of their own, Hud, and his light was not like theirs." },
+    { "dur": 9000, "ambient": ["city", "crowd", "desert"], "world": { "dof": 0.55 }, "cam": { "pos": [800, 270, -3200], "look": [800, 500, -8000], "focus": 1300 },
+      "say": "He walked the length of their great avenue, against the crowd, calm and clear." },
+    { "dur": 7000, "ambient": ["city", "crowd"], "world": { "dof": 0 }, "cam": { "pos": [800, 300, -4000], "look": [800, 440, -6000] },
+      "say": "At its end he climbed the steps of the great platform and turned to face them." },
+    { "dur": 12000, "ambient": ["voice", "air", "desert"], "world": { "rays": 0.3 }, "cam": { "dx": 6000, "pos": [800, 440, 880], "look": [800, 440, 0], "dur": 10000 },
+      "verse": { "ref": "7:65", "ar": [1, 17], "place": "lower", "en": "And to the 'Aad [We sent] their brother Hud. He said, \"O my people, worship Allah; you have no deity other than Him. Then will you not fear Him?\"" } }
+  ]
+}

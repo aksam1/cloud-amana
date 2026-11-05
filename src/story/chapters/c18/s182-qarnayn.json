@@ -1,0 +1,29 @@
+{
+  "id": "qarnayn",
+  "chapter": 18,
+  "order": 182,
+  "node": "wisdom",
+  "title": "Dhul-Qarnayn",
+  "arabic": "ذو القرنين",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Dhul-Qarnayn, a righteous king given power on earth (18:83–84), appears only as a warm figure of light with his army of dim lights; who he was is debated. The sun is shown setting into dark water as it appeared to him (18:86)."],
+  "ambient": ["wind", "army"],
+  "base": "#d8c0a0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#dcc0a0", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.2, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [900, 505, 1000], "look": [900, 540, -3000]},
+  "imagePrompt": "A vast western shore at sunset, a great red sun sinking into a dark muddy sea, a warm figure of light with ranks of an army halted on the shore; then the far east at sunrise, a bare plain where people of dim light live with no shelter from the sun; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "set", "show": [0, 1], "layers": [{"type": "heavens", "horizon": 640, "tod": [16.6, 18, 11000], "sun": {"rise": 6, "set": 18, "x0": 1300, "x1": 820, "peak": 300, "size": 44}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}}, {"type": "water", "depth": 0.08, "points": [[-6000, 664], [800, 668], [8000, 672]], "w0": 70, "w1": 70, "reflect": [["0", "#8a5a40"], ["1", "#2a1e18"]]}, {"type": "ground", "depth": 0.2, "y": 730, "amp": 6, "seed": 1620, "color": "#6a5a48", "color2": "#3a3028"}, {"type": "crowd", "kind": "army", "area": [200, 900, -3200, -2400], "y": [786, 770], "rows": 6, "cols": 16, "size": 76, "color": "#e8d8b8", "dim": 0.3, "glow": 0.3}, {"type": "light", "depth": 0.44, "pos": [1000, 802], "h": 112, "color": "#f0d8a8", "glow": 0.35, "bright": 1.1, "solid": 0.5}]},
+    {"type": "set", "show": [1, null], "dx": 6000, "layers": [{"type": "heavens", "horizon": 650, "tod": [5.6, 7, 11000], "sun": {"rise": 6, "set": 18, "x0": 780, "x1": 300, "peak": 300, "size": 44}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [7, 8, 12000]}}}, {"type": "ground", "depth": 0.08, "y": 660, "amp": 4, "seed": 1621, "color": "#d8b888", "color2": "#a8885e"}, {"type": "ground", "depth": 0.24, "y": 752, "amp": 4, "seed": 1622, "color": "#c8a878", "color2": "#9a7a52"}, {"type": "crowd", "area": [-200, 1800, -3400, -2400], "y": [786, 760], "count": 60, "size": 71, "color": "#ffd8a0", "dim": 0.4, "glow": 0.1, "mill": 6, "speed": 0}, {"type": "light", "depth": 0.44, "pos": [1000, 802], "h": 112, "color": "#f0d8a8", "glow": 0.35, "bright": 1.1, "solid": 0.5}]}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["wind", "army"], "cam": {"pos": [900, 505, 1000], "look": [900, 540, -3000]}, "say": "The Quran tells of Dhul-Qarnayn, a king to whom God gave power and a way to reach all things. He travelled west until he saw the sun setting, as if into a dark, muddy spring."},
+    {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [900, 505, 1000], "look": [900, 540, -3000], "dx": 6000}, "say": "Then he travelled east, to where the sun rose over a people who had no shelter from it. Everywhere he went, he ruled with justice: the wrongdoer punished, the one who did good rewarded."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [900, 510, 950], "look": [900, 560, -3000], "dx": 6000}, "pendingVerse": {"ref": "18:84", "place": "sky"}}
+  ]
+}

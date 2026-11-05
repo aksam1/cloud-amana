@@ -1,0 +1,38 @@
+{
+  "id": "hundred",
+  "chapter": 18,
+  "order": 185,
+  "node": "wisdom",
+  "title": "A Hundred Years",
+  "arabic": "قرن من النوم",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["That the man was 'Uzayr (Ezra) passing ruined Jerusalem is from the commentaries on 2:259; he and the people appear only as lights. His death is shown as his light going out; the donkey is drawn back in by God's leave, nothing more."],
+  "ambient": ["wind", "air"],
+  "base": "#c8c0b0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c8c0b0", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [900, 520, 750], "look": [920, 700, -3000]},
+  "imagePrompt": "A man's steady light with his donkey and a basket of figs stopping by a ruined, empty town of fallen stone; his light going out as the sky races through a century; then dawn, the light kindled again, the figs still fresh, the donkey drawn back stroke by stroke, and the town rebuilt and alive; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [15, 16.4, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [6, 18, 12000, 60]}, "2": {"tod": [5.4, 6.8, 11000]}, "3": {"tod": [6.8, 8, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 620, "amp": 40, "seed": 1650, "sharp": 0.3, "color": "#8a8070", "haze": 0.35, "fog": 0.4},
+    {"type": "ground", "depth": 0.14, "y": 690, "amp": 10, "seed": 1651, "color": "#a89a78", "color2": "#7a6a52"},
+    {"type": "masonry", "depth": 0.2, "pos": [1060, 724], "w": 1020, "h": 360, "side": 40, "courses": 12, "blocks": 20, "built": 0.25, "stone": "#c8b898", "stone2": "#d8c8a8", "ink": "#5a5040", "at": {"2": {"build": [0.25, 1, 9000, 1500]}, "3": {"built": 1}}},
+    {"type": "basket", "depth": 0.425, "x": 860, "y": 808, "w": 38, "area": [820, 770, 900, 820]},
+    {"type": "fruit", "depth": 0.426, "x": 860, "y": 800, "w": 28, "glow": 0.3, "area": [820, 740, 900, 810]},
+    {"type": "animals", "depth": 0.42, "fade": "none", "area": [880, 680, 1080, 820], "pairs": [{"kind": "donkey", "solo": true, "s": 0.85, "path": [[980, 798]], "face": -1}], "at": {"1": {"reveal": null}, "2": {"reveal": {"dir": "up", "dur": 6000, "delay": 600}}}, "show": [[0, 1], [2, null]]},
+    {"type": "light", "depth": 0.42, "pos": [780, 800], "h": 107, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"1": {"pose": "gone"}, "2": {"pose": "stand"}, "3": {"pose": "raise"}}},
+    {"type": "flash", "show": [2, 3], "color": "#fffaf0", "peak": 0.25, "delay": 400, "rise": 300, "dur": 2000},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [900, 520, 750], "look": [920, 700, -3000]}, "say": "A man passed by a town lying in ruins, its roofs fallen in. How, he wondered, will God ever bring this back to life after its death?"},
+    {"dur": 11000, "ambient": ["wind", "air"], "world": {"cycle": {"period": 700, "min": 0.6}}, "cam": {"pos": [900, 515, 900], "look": [920, 660, -3000]}, "say": "So God caused him to die for a hundred years."},
+    {"dur": 12000, "ambient": ["birds", "air"], "world": {"cycle": {"period": 0, "min": 1}}, "cam": {"pos": [900, 525, 650], "look": [920, 730, -3000]}, "say": "Then He raised him. How long have you stayed? A day or part of a day. No, a hundred years. Look at your food, not even spoiled; and look at your donkey, as We bring it back to life."},
+    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [920, 520, 800], "look": [940, 690, -3000]}, "pendingVerse": {"ref": "2:259", "place": "sky", "part": "its closing: \"I know that Allah is over all things competent\""}}
+  ]
+}

@@ -4,8 +4,8 @@
   "arabic": "داود وسليمان",
   "nodes": ["dhulkifl", "dawud", "sulayman"],
   "parts": [
-    { "title": "Dhul-Kifl", "from": 141, "to": 141 },
-    { "title": "Dawud", "from": 142, "to": 145 },
-    { "title": "Sulayman", "from": 146, "to": 151 }
+    { "title": "Dhul-Kifl", "from": 147, "to": 147 },
+    { "title": "Dawud", "from": 148, "to": 152 },
+    { "title": "Sulayman", "from": 153, "to": 158 }
   ]
 }

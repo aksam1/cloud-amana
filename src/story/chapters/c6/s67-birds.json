@@ -1,0 +1,63 @@
+{
+  "id": "birds",
+  "chapter": 6,
+  "order": 67,
+  "node": "ibrahim",
+  "title": "The Four Birds",
+  "arabic": "الطيور الأربعة",
+  "source": "quran",
+  "ayahs": [],
+  "art": [
+    "The birds appear only as light. What was done to them is told, not shown: on screen they fly to the hills and come back.",
+    "Ibrahim appears as a steady light, far away. The hills are imagined."
+  ],
+  "ambient": ["wind", "birds"],
+  "base": "#2a2230",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": { "fog": "#8a7480", "fogNear": 5000, "fogFar": 38000, "light": 0.95, "rays": 0, "bloom": 0.8, "haze": 0.04, "hazeY": 0.6, "shake": 0.3, "dof": 0 },
+  "cam": { "pos": [800, 520, 1200], "look": [800, 560, -3000] },
+  "imagePrompt": "A lone steady white light on a grassy hilltop at dusk, an arm raised to a violet and rose sky; four birds made of white light circling down to him; then the four birds flying out to four distant summits around him and resting there as faint glows; then all four streaking back to him across the evening sky; dusk violet, rose, pale gold; ink-wash and parchment texture.",
+  "layers": [
+    { "type": "heavens", "horizon": 620, "sun": { "rise": 6, "set": 18, "x0": 1300, "x1": 300, "peak": 470, "size": 34 },
+      "moon": { "rise": 18.6, "set": 6, "x0": 1250, "x1": 350, "peak": 360, "size": 22 },
+      "tod": [16.4, 17.2, 10000], "at": { "1": { "tod": [17.2, 17.8, 9000] }, "2": { "tod": [17.8, 18.4, 10000] }, "3": { "tod": [18.4, 19.0, 13000] } } },
+    { "type": "ridge", "depth": 0.05, "y": 610, "amp": 50, "seed": 120, "sharp": 0.4, "color": "#6e6478", "haze": 0.35, "fog": 0.4 },
+    { "type": "peak", "depth": 0.09, "x": 200, "y": 540, "w": 250, "h": 170, "color": "#5a5068", "lit": "#c8a0a0", "seed": 121 },
+    { "type": "peak", "depth": 0.09, "x": 590, "y": 520, "w": 230, "h": 190, "color": "#564c64", "lit": "#c49ca0", "seed": 122 },
+    { "type": "peak", "depth": 0.09, "x": 1010, "y": 530, "w": 240, "h": 180, "color": "#5a5068", "lit": "#c8a0a0", "seed": 123 },
+    { "type": "peak", "depth": 0.09, "x": 1400, "y": 550, "w": 260, "h": 160, "color": "#564c64", "lit": "#c49ca0", "seed": 124 },
+    { "type": "ground", "depth": 0.16, "y": 700, "amp": 26, "seed": 125, "color": "#6a5e58", "color2": "#4a4048", "grass": true, "grassColor": "#8a7c6a" },
+    { "type": "ridge", "depth": 0.3, "y": 790, "amp": 26, "seed": 126, "sharp": 0.2, "color": "#5a4c46", "haze": 0 },
+    { "type": "light", "depth": 0.33, "pos": [800, 812], "h": 70, "color": "#fffaf0", "glow": 0.7, "bright": 1.4, "pose": "raise",
+      "at": { "1": { "pose": "stand" }, "3": { "pose": "raise" } } },
+
+    { "type": "light", "kind": "bird", "show": [1, 3], "depth": 0.33, "h": 34, "color": "#fffaf0", "glow": 0.65, "bright": 1.5, "path": [[560, 220, -2125], [700, 520, -2125], [748, 790, -2125]], "dur": 6500,
+      "at": { "2": { "path": [[748, 790, -2125], [500, 600, -5000], [200, 548, -10111]], "dur": 7000, "delay": 600 } } },
+    { "type": "light", "kind": "bird", "show": [1, 3], "depth": 0.33, "h": 34, "color": "#fffaf0", "glow": 0.65, "bright": 1.5, "path": [[700, 160, -2125], [760, 500, -2125], [772, 796, -2125]], "dur": 6500, "delay": 500,
+      "at": { "2": { "path": [[772, 796, -2125], [680, 610, -5000], [590, 528, -10111]], "dur": 7000, "delay": 900 } } },
+    { "type": "light", "kind": "bird", "show": [1, 3], "depth": 0.33, "h": 34, "color": "#fffaf0", "glow": 0.65, "bright": 1.5, "path": [[900, 170, -2125], [850, 500, -2125], [830, 796, -2125]], "dur": 6500, "delay": 900,
+      "at": { "2": { "path": [[830, 796, -2125], [930, 610, -5000], [1010, 538, -10111]], "dur": 7000, "delay": 1200 } } },
+    { "type": "light", "kind": "bird", "show": [1, 3], "depth": 0.33, "h": 34, "color": "#fffaf0", "glow": 0.65, "bright": 1.5, "path": [[1060, 230, -2125], [900, 520, -2125], [856, 790, -2125]], "dur": 6500, "delay": 1300,
+      "at": { "2": { "path": [[856, 790, -2125], [1150, 600, -5000], [1400, 558, -10111]], "dur": 7000, "delay": 1500 } } },
+
+    { "type": "light", "kind": "bird", "show": [3, null], "depth": 0.09, "h": 9.6, "color": "#fffaf0", "glow": 0.75, "bright": 1.6, "path": [[200, 548, -10111], [480, 560, -5000], [748, 760, -2125]], "dur": 5200, "delay": 2600 },
+    { "type": "light", "kind": "bird", "show": [3, null], "depth": 0.09, "h": 9.6, "color": "#fffaf0", "glow": 0.75, "bright": 1.6, "path": [[590, 528, -10111], [680, 560, -5000], [772, 750, -2125]], "dur": 4600, "delay": 2900 },
+    { "type": "light", "kind": "bird", "show": [3, null], "depth": 0.09, "h": 9.6, "color": "#fffaf0", "glow": 0.75, "bright": 1.6, "path": [[1010, 538, -10111], [930, 570, -5000], [830, 752, -2125]], "dur": 4800, "delay": 3100 },
+    { "type": "light", "kind": "bird", "show": [3, null], "depth": 0.09, "h": 9.6, "color": "#fffaf0", "glow": 0.75, "bright": 1.6, "path": [[1400, 558, -10111], [1120, 560, -5000], [856, 762, -2125]], "dur": 5400, "delay": 3300 },
+
+    { "type": "dust", "box": [-1400, 150, -9000, 3000, 900, 600], "count": 500, "size": 2.5, "color": "#ffe8e0", "opacity": 0.3, "wind": [5, -2, 0] }
+  ],
+  "beats": [
+    { "dur": 10000, "ambient": ["wind", "air"], "cam": { "pos": [800, 520, 1100], "look": [800, 570, -3000] },
+      "say": "Ibrahim once asked God to show him how He gives life to the dead: not from doubt, he said, but so that his heart might be at rest." },
+    { "dur": 9000, "ambient": ["birds", "air"], "sfx": [{ "name": "wings", "at": 4800 }, { "name": "wings", "at": 6200 }], "cam": { "pos": [800, 540, 880], "look": [800, 640, -3000] },
+      "say": "He was told to take four birds and keep them near him." },
+    { "dur": 10000, "ambient": ["wind"], "sfx": [{ "name": "wings", "at": 700 }, { "name": "wings", "at": 1400 }], "cam": { "pos": [800, 505, 1300], "look": [800, 530, -3000] },
+      "say": "Then to set a part of them on each of the hills around him, and to call them." },
+    { "dur": 13000, "ambient": ["wind", "birds"], "sfx": [{ "name": "wings", "at": 3200 }, { "name": "wings", "at": 4400 }, { "name": "wings", "at": 6000 }], "cam": { "pos": [800, 505, 1250], "look": [800, 540, -3000] },
+      "pendingVerse": { "ref": "2:260", "place": "sky", "part": "Ibrahim's request to be shown how the dead are given life, to his heart being at rest" } }
+  ]
+}

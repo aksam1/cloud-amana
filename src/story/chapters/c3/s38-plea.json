@@ -1,0 +1,39 @@
+{
+  "id": "plea",
+  "chapter": 3,
+  "order": 38,
+  "node": "nuh",
+  "title": "Nuh's Plea for His Son",
+  "arabic": "دعاء نوح لابنه",
+  "source": "quran",
+  "ayahs": ["11:45-47"],
+  "art": ["The answer comes only as light and words in the sky, never a figure. Nuh is a figure of light seen from behind."],
+  "ambient": ["wind", "water"],
+  "base": "#2e2a4e",
+  "captions": "parchment",
+  "focus": 0.9,
+  "dissolve": 2200,
+  "cam": { "x": 0, "y": 100, "z": 1 },
+  "imagePrompt": "The deck of the resting wooden ship at dusk, its rail along the edge and the new washed earth stretching out far below, quiet and green with a sparkling river; seen from behind, a figure of white-gold light kneels alone at the edge of the deck looking out toward where his son was lost, his glow unsteady; a soft light descends over him from above and calligraphy writes itself gently across the evening sky; the figure lowers its head and its glow becomes calm and steady again; soft violet and gold dusk, quiet green land, parchment texture, no faces.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#2e2a4e"], [0.5, "#7a5a7a"], [0.85, "#d8a070"], [1, "#f0c080"]] },
+    { "type": "range", "count": 3, "y": [410, 490], "amp": [50, 80], "depth": [0.2, 0.45], "colors": ["#6a7a74", "#3e5a48"], "haze": [0.2, 0.5], "sharp": 0.4, "edge": false, "seed": 71 },
+    { "type": "ground", "depth": 0.5, "y": 510, "amp": 10, "seed": 37, "color": "#4e7048", "color2": "#2a4228" },
+    { "type": "water", "depth": 0.5, "points": [[380, 514], [600, 538], [880, 576], [1180, 640]], "w0": 5, "w1": 54, "reflect": [[0, "#f0d0a0"], [0.5, "#b8a8b8"], [1, "#6a6a8a"]] },
+    { "type": "ark", "depth": 1, "view": "deck", "y": 640, "tone": ["#4a3a5a", 0.3] },
+    { "type": "beam", "depth": 1, "x": 640, "y": 700, "w": 150, "color": "#fff0d8", "on": false, "dur": 4500, "top": -1400, "at": { "2": { "on": true } } },
+    { "type": "figure", "depth": 1, "x": 640, "y": 700, "h": 92, "pose": "kneel", "color": "#fff4d6", "glow": 1.1, "unsteady": true,
+      "at": { "3": { "pose": "kneelLow", "unsteady": false, "glow": 1.35 } } },
+    { "type": "calligraphy", "show": [2, null], "depth": 0.3, "ref": "11:46", "ar": [1, 5], "x": 900, "y": 230, "size": 70, "color": "#ffe9b8", "w": 900, "dur": 4000 }
+  ],
+  "beats": [
+    { "dur": 6500, "ambient": ["wind", "water"], "cam": { "x": 0, "y": 100, "z": 1 },
+      "say": "At dusk, Nuh knelt at the edge of the deck, looking toward where his son was lost." },
+    { "dur": 9500, "ambient": ["wind", "water"], "cam": { "y": 120, "z": 1.03 },
+      "verse": { "ref": "11:45", "ar": [0, 8], "place": "lower", "en": "And Noah called to his Lord and said, \"My Lord, indeed my son is of my family…" } },
+    { "dur": 10000, "ambient": ["wind"], "sfx": { "name": "swell", "at": 600 }, "cam": { "y": 120, "z": 1.03 },
+      "verse": { "ref": "11:46", "ar": [0, 10], "place": "lower", "en": "He said, \"O Noah, indeed he is not of your family; indeed, he is [one whose] work was other than righteous…" } },
+    { "dur": 7000, "ambient": ["wind", "water"], "cam": { "y": 110, "z": 1.05 },
+      "say": "Nuh lowered his head, and his light grew calm and steady again." }
+  ]
+}

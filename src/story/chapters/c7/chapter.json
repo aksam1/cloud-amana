@@ -4,8 +4,8 @@
   "arabic": "لوط",
   "nodes": ["lut"],
   "parts": [
-    { "title": "The Cities of the Plain", "from": 78, "to": 79 },
-    { "title": "The Guests of Lut", "from": 80, "to": 82 },
-    { "title": "The Morning", "from": 83, "to": 84 }
+    { "title": "The Cities of the Plain", "from": 79, "to": 80 },
+    { "title": "The Guests of Lut", "from": 81, "to": 83 },
+    { "title": "The Morning", "from": 84, "to": 85 }
   ]
 }
