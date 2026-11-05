@@ -35,7 +35,7 @@
   ],
   "beats": [
     { "dur": 6500, "cam": { "z": 1.02, "y": 10 },
-      "say": "In the market square, Idris called his people to worship Allah alone." },
+      "say": "In the market square, Idris called his people to worship God alone." },
     { "dur": 7500, "cam": { "z": 1.22, "y": 80 },
       "say": "A few stopped to listen; most walked past, and some mocked him." },
     { "dur": 4500, "ambient": ["wind", "voices"], "cam": { "z": 1.18, "y": 70 } },
