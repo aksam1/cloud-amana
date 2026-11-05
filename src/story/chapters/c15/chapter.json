@@ -1,10 +1,22 @@
 {
   "number": 15,
-  "title": "Ilyas and Al-Yasaʿ",
-  "arabic": "إلياس واليسع",
-  "nodes": ["ilyas", "alyasa"],
+  "title": "Ilyas, Al-Yasa' and Yunus",
+  "arabic": "إلياس واليسع ويونس",
+  "nodes": [
+    "ilyas",
+    "alyasa",
+    "yunus"
+  ],
   "parts": [
-    { "title": "Prophet Ilyas", "nodes": ["ilyas"] },
-    { "title": "Prophet Al-Yasaʿ", "nodes": ["alyasa"] }
+    {
+      "title": "Ilyas and Al-Yasa'",
+      "from": 152,
+      "to": 153
+    },
+    {
+      "title": "Yunus",
+      "from": 154,
+      "to": 158
+    }
   ]
 }

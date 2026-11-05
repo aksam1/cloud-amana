@@ -151,7 +151,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `x0`–`x1` from the sea floor `y` up `h`, its sheer `face` side onto the path; part the sea with two walls
   whose `move` slides them apart and up, as The Sea Parts does).
   `tablets` (two stone tablets, `h`, rows of strokes for writing, `glow`) and `boat` (`w`, `hole`). `animals`
-  kinds `calf` (gold) and `yellowcow` (2:69). `ants` (creatures.jsx) is a file of ink ants (`x0`–`x1` on `y`, `count`, `s`, `home`).
+  kinds `calf` (gold) and `yellowcow` (2:69). `ants` (creatures.jsx) is a file of ink ants (`x0`–`x1` on `y`, `count`, `s`, `home`). `whale` (musa.jsx) is a
+  whale's back in ink breaking the water (`w`, `face`, `open`).
 - Crowds of people read best at `glow` 0.1–0.15 and `dim` 0.4 by day: brighter, hundreds of them wash out
   into a band of white.
 - Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`
@@ -159,6 +160,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   light). `numerals` can `count` plainly from one (Hajar's seven runs).
 - Arabic titles must not quote the Quran even when its ayat are not fetched yet (the checker can only catch
   phrases from fetched ayat): "يوم الزينة", "مجمع البحرين" and "المن والسلوى" were caught by hand.
+- A wide `seawall` or `waves` card in front of a ship in the storm scene (The Lots) blacked out the whole
+  stage in the headless renderer; a dark `water` band in front works. Check every new scene's still is not black.
 - Scene ids are unique across all chapters (`son`, `call`, `warning` were taken): `npm run check` says so.
 - Painters drawn on a live 2D canvas (`useCanvas`, such as the old `globe`) do not paint onto GL cards; a GL
   native with the same type name takes over in GL scenes (`heavens`, `globe`).

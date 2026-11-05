@@ -7,7 +7,7 @@ import { Throng, Deeds, Journeys, Followers, Refusal, Scribbles, Blooms, Jeers }
 import { Ark, Flood, Springs, Waves, Oven } from './flood.jsx';
 import { Animals, Ants, Ears } from './creatures.jsx';
 import { Balance } from './madyan.jsx';
-import { Basket, Boat, Reeds, Seawall, Staff, Tablets } from './musa.jsx';
+import { Basket, Boat, Reeds, Seawall, Staff, Tablets, Whale } from './musa.jsx';
 import { Dunes, Column, Iram, Monument, Floor, Facade, Platform, Brazier, Pool, Palms, Terraces, Riverbed, Cloudbank, Sandwall, Trunks, Cliffs, Works, Block } from './iram.jsx';
 import { Outcrop, SheCamel, Well } from './hijr.jsx';
 import { Idol, Ziggurat, Tent, Ram } from './ur.jsx';
@@ -75,6 +75,7 @@ export const LAYERS = {
   seawall: Seawall,
   tablets: Tablets,
   boat: Boat,
+  whale: Whale,
   dunes: Dunes,
   column: Column,
   iram: Iram,

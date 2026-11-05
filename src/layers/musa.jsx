@@ -229,3 +229,29 @@ Boat.bounds = (c) => {
   const { x = 800, y = 800, w = 260 } = c;
   return [x - w * 0.6, y - w * 0.9, x + w * 0.6, y + w * 0.06];
 };
+
+/**
+ * A great whale in ink, its back breaking the sea at (`x`, `y`) and `w` long, `face` 1 heading right; `open`
+ * (0–1) parts its jaw. Only its back, head and tail show above the water line.
+ */
+export function Whale({ cfg }) {
+  const { x = 800, y = 760, w = 600, face = 1, open = 0, body = '#2e3a44', belly = '#6a7a84' } = cfg;
+  const s = w / 600;
+  const jaw = open * 26;
+  return (
+    <Svg>
+      <g transform={`translate(${x} ${y}) scale(${face * s} ${s})`}>
+        <path d="M-300,0 C-250,-40 -150,-90 0,-96 C120,-100 230,-80 280,-30 L300,0 Z" fill={body} stroke="#141c22" strokeWidth="3" />
+        <path d={`M200,-20 C240,-${16 + jaw} 280,-${12 + jaw} 300,0 C260,${jaw * 0.4} 230,${jaw * 0.6} 200,-4 Z`} fill="#141c22" opacity={open > 0 ? 0.9 : 0} />
+        <path d="M-120,-60 C-60,-74 40,-78 140,-64" stroke={belly} strokeWidth="3" fill="none" opacity="0.6" />
+        <circle cx="230" cy="-50" r="4" fill="#d8e0e4" />
+        <path d="M-300,0 C-330,-30 -370,-60 -400,-56 C-380,-30 -370,-10 -360,0 C-372,10 -390,26 -404,40 C-370,38 -330,22 -300,0 Z" fill={body} stroke="#141c22" strokeWidth="3" />
+        <path d="M-260,-6 L280,-6" stroke="#eef6f8" strokeWidth="3" strokeOpacity="0.7" strokeDasharray="22 14" />
+      </g>
+    </Svg>
+  );
+}
+Whale.bounds = (c) => {
+  const { x = 800, y = 760, w = 600 } = c;
+  return [x - w * 0.75, y - w * 0.2, x + w * 0.75, y + w * 0.08];
+};
