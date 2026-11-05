@@ -62,6 +62,18 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   as a medium-sized panel. To place things by numbers: a design point (x, y) on depth d stands at
   world (800 + (x−800)/d, 450 + (y−450)/d, 1000 − 1000/d); the vertical half-view is tan⁻¹ 0.45.
 
+## Scale (keep things true to size)
+
+- A person of 1.7 m stands 255 × depth design units tall (1 m = 150 × depth): at depth 0.24 about 61, at
+  0.42 about 107. Size every prop the same way: a 1 m brazier (`s` ≈ 2 × depth), a 1.8 m well curb
+  (`w` ≈ 270 × depth, `h` ≈ 135 × depth), a 2.6 m tent, a 2 m camel's hump (`animals` `size` ≈ 3.3 × depth),
+  a sheep 0.9 m and a cow 1.4 m (per-pair `s`), a stall 2.2 m (`s` ≈ 3.44 × depth). A crowd's `size` is a
+  person's height in design units at its depth, like `h`.
+- To make a group read larger, bring the whole group nearer (higher depth) rather than enlarging one
+  thing: Chapter 9's generator does it with a `zoom(k, cx, cy, …)` helper (depth × k, sizes × k, positions
+  spread about (cx, cy) by k), which leaves the group where it was from the reference camera. Keep a near
+  grass band in front of the group's new depth.
+
 ## WebGL scenes (`"renderer": "gl"`, from Chapter 4)
 
 - Design frame 1600×900, y down. The reference camera at Z = 1000 sees it exactly. A layer at parallax
@@ -132,6 +144,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   of light), `shecamel` (only as light; poses stand, walk, drink, kneel) and `well` (`trough`, `frame`).
 - `animals` (`src/layers/creatures.jsx`) also draws `cow` and `leancow` (ribs showing: the king's dream); for
   standing herds give single-point paths, `fade: "none"` and an `area`, as the camels do.
+- `ears` (creatures.jsx) draws stalks of grain (`n`, `x0`, `x1`, `y`, `h`, `state` green or dry); `balance`
+  (`src/layers/madyan.jsx`) a merchant's balance on a post (`h`, `w`, `tilt` degrees: 0 is a fair measure).
 - Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`
   (stepped temple tower with stairs and shrine), `tent` (goat hair, `lit` lamp inside) and `ram` (only as
   light). `numerals` can `count` plainly from one (Hajar's seven runs).

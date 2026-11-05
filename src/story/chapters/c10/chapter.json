@@ -1,7 +1,21 @@
 {
   "number": 10,
-  "title": "Prophet Ayyub",
-  "arabic": "أيوب",
-  "nodes": ["ayyub"],
-  "parts": []
+  "title": "Ayyub and Shu'ayb",
+  "arabic": "أيوب وشعيب",
+  "nodes": [
+    "ayyub",
+    "shuayb"
+  ],
+  "parts": [
+    {
+      "title": "Ayyub's Patience",
+      "from": 103,
+      "to": 106
+    },
+    {
+      "title": "Shu'ayb and Madyan",
+      "from": 107,
+      "to": 111
+    }
+  ]
 }

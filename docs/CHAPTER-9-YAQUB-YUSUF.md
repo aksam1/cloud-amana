@@ -11,8 +11,12 @@ faces. The temptation is told in narration only (a run to the door); nothing of 
 the grief is shown as suffering. The dream's stars, sun and moon only dip toward Yusuf's light. Imagined
 and commentary details are labelled in each scene's `art`. No music.
 
+**Scale.** Everything stands at true size: a person of 1.7 m is 255 × depth design units tall (a 1 m
+brazier, a 1.8 m well curb, a 2 m camel's hump, a 2.6 m tent), and each scene's people and props are
+brought nearer the camera together so they read clearly.
+
 **Verses.** Every verse beat waits as `pendingVerse` (placed sky) until api.alquran.cloud can be reached;
-12:18, 12:76 and 12:100 are parts of ayat whose words are chosen by hand once fetched.
+12:18, 12:23, 12:76 and 12:100 are parts of ayat whose words are chosen by hand once fetched.
 
 ## Parts
 

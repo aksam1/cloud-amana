@@ -15,21 +15,21 @@
   "pen": true,
   "dissolve": 2400,
   "world": {"fog": "#1e1a18", "fogNear": 4000, "fogFar": 30000, "light": 0.95, "rays": 0, "bloom": 0.75, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
-  "cam": {"pos": [920, 540, 640], "look": [940, 1050, -3000]},
+  "cam": {"pos": [920, 540, 260], "look": [940, 1050, -3000]},
   "imagePrompt": "A bare stone cell, a single shaft of daylight falling from a high window, a steady white light kneeling in it and two dim amber figures of light listening; ink-wash and parchment texture.",
   "layers": [
     {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#1a1410"], [1, "#0e0a08"]]},
-    {"type": "facade", "depth": 0.2, "x": 800, "y": 724, "w": 2400, "h": 820, "stone": "#4a4038", "light": 0.6, "doors": [{"x": 1240, "w": 120, "h": 200}]},
+    {"type": "facade", "depth": 0.2, "x": 800, "y": 724, "w": 2400, "h": 820, "stone": "#4a4038", "light": 0.6, "doors": [{"x": 1240, "w": 40, "h": 66}]},
     {"type": "floor", "depth": 0.21, "y": 726, "vp": [800, 520], "color": "#3a3430", "color2": "#141210", "lines": 8, "gloss": 0.1, "area": [-800, 720, 2400, 1350]},
     {"type": "beam", "depth": 0.28, "x": 860, "y": 790, "w": 120, "color": "#fff2d0"},
-    {"type": "light", "depth": 0.3, "pos": [860, 786], "h": 56, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "pose": "kneel", "at": {"1": {"pose": "stand"}, "2": {"pose": "raise"}}},
-    {"type": "light", "depth": 0.3, "pos": [1000, 790], "h": 54, "color": "#c8a888", "glow": 0.3, "bright": 0.95, "solid": 0.6},
-    {"type": "light", "depth": 0.3, "pos": [1090, 792], "h": 52, "color": "#c8a888", "glow": 0.3, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.3, "pos": [860, 786], "h": 77, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "pose": "kneel", "at": {"1": {"pose": "stand"}, "2": {"pose": "raise"}}},
+    {"type": "light", "depth": 0.3, "pos": [1000, 790], "h": 75, "color": "#c8a888", "glow": 0.3, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.3, "pos": [1090, 792], "h": 73, "color": "#c8a888", "glow": 0.3, "bright": 0.95, "solid": 0.6},
     {"type": "dust", "box": [500, 0, -2600, 1300, 950, -2000], "count": 200, "size": 3, "color": "#fff0d0", "opacity": 0.45, "wind": [1, 6, 0], "swirl": 12}
   ],
   "beats": [
-    {"dur": 9000, "ambient": ["echo", "drips"], "cam": {"pos": [920, 540, 640], "look": [940, 1050, -3000]}, "say": "Though he had done no wrong, Yusuf was put in prison, and two young men were imprisoned with him."},
-    {"dur": 10000, "ambient": ["echo", "voice"], "cam": {"pos": [960, 540, 640], "look": [980, 1050, -3000]}, "say": "One dreamed he was pressing wine; the other, that birds ate bread from his head. Before explaining their dreams, Yusuf spoke to them of God."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [940, 535, 640], "look": [960, 1050, -3000]}, "pendingVerse": {"ref": "12:39", "place": "sky"}}
+    {"dur": 9000, "ambient": ["echo", "drips"], "cam": {"pos": [920, 540, 260], "look": [940, 1050, -3000]}, "say": "Though he had done no wrong, Yusuf was put in prison, and two young men were imprisoned with him."},
+    {"dur": 10000, "ambient": ["echo", "voice"], "cam": {"pos": [960, 540, 260], "look": [980, 1050, -3000]}, "say": "One dreamed he was pressing wine; the other, that birds ate bread from his head. Before explaining their dreams, Yusuf spoke to them of God."},
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [940, 535, 260], "look": [960, 1050, -3000]}, "pendingVerse": {"ref": "12:39", "place": "sky"}}
   ]
 }

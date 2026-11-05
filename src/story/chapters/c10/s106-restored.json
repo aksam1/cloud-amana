@@ -1,0 +1,42 @@
+{
+  "id": "restored",
+  "chapter": 10,
+  "order": 106,
+  "node": "ayyub",
+  "title": "Restored",
+  "arabic": "العطاء بعد الصبر",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Ayyub appears only as a steady light; his wife and children as dim figures of light. His wealth, herds and family before the trial are told in the commentaries; the Quran names his trial, his prayer and his patience. His illness is never shown: his light only dims.", "The Quran tells that his family was given back to him, and as many again with them (38:43); the rest is imagined."],
+  "ambient": ["sheep", "birds"],
+  "base": "#c8c0b0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c8c0b0", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [900, 520, 900], "look": [940, 640, -3000]},
+  "imagePrompt": "The hills green again at morning, olive trees in leaf, a lit goat-hair tent, a spring shining beside it, flocks and herds twice as many as before, a bright steady light and a dim amber light beside him among many small lights of children; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [7, 10, 10000, 2], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "at": {"1": {"tod": [10, 13, 10000]}, "2": {"tod": [13, 16, 10000, 2]}, "3": {"tod": [16, 17.4, 12000]}}},
+    {"type": "ridge", "depth": 0.05, "y": 630, "amp": 50, "seed": 700, "sharp": 0.3, "color": "#7a8070", "haze": 0.35, "fog": 0.4},
+    {"type": "ground", "depth": 0.12, "y": 668, "amp": 18, "seed": 701, "color": "#6a7a4a", "color2": "#4a5a32", "grass": true, "grassColor": "#8a9a58", "cracks": false},
+    {"type": "tree", "depth": 0.2, "x": 330, "y": 708, "h": 195, "kind": "living", "seed": 702},
+    {"type": "tree", "depth": 0.22, "x": 1330, "y": 716, "h": 231, "kind": "living", "seed": 703},
+    {"type": "ground", "depth": 0.3, "y": 752, "amp": 8, "seed": 705, "x0": -600, "x1": 2200, "color": "#6a7a4a", "color2": "#4a5a32", "grass": true, "grassColor": "#8a9a58", "cracks": false},
+    {"type": "tent", "depth": 0.36, "x": 560, "y": 776, "w": 540, "h": 140, "lit": true, "ppu": 0.9},
+    {"type": "spring", "depth": 0.38, "pos": [640, 774], "r": 60, "squash": 0.26, "well": 1, "rim": 1},
+    {"type": "animals", "depth": 0.3, "fade": "none", "area": [880, 680, 1560, 830], "pairs": [{"kind": "sheep", "solo": true, "s": 0.62, "path": [[960, 770]], "face": 1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1040, 778]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1120, 770]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1200, 778]], "face": 1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1280, 770]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1360, 778]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1440, 770]], "face": 1}, {"kind": "cow", "solo": true, "s": 0.82, "path": [[1010, 784]], "face": -1}, {"kind": "cow", "solo": true, "s": 0.82, "path": [[1180, 784]], "face": -1}, {"kind": "cow", "solo": true, "s": 0.82, "path": [[1350, 784]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1030, 794]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1110, 800]], "face": 1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1190, 794]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1270, 800]], "face": 1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1350, 794]], "face": -1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1430, 800]], "face": 1}, {"kind": "sheep", "solo": true, "s": 0.62, "path": [[1510, 794]], "face": -1}, {"kind": "cow", "solo": true, "s": 0.82, "path": [[1100, 806]], "face": 1}, {"kind": "cow", "solo": true, "s": 0.82, "path": [[1270, 806]], "face": 1}, {"kind": "cow", "solo": true, "s": 0.82, "path": [[1440, 806]], "face": 1}]},
+    {"type": "crowd", "area": [860, 1120, -1400, -1340], "y": 794, "count": 12, "size": 85, "color": "#f4d8b0", "dim": 0.1, "glow": 0.45, "mill": 4, "speed": 0, "flicker": 0.05, "at": {"2": {"count": 14}}},
+    {"type": "light", "depth": 0.42, "pos": [760, 792], "h": 107, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "light", "depth": 0.42, "pos": [820, 794], "h": 101, "color": "#ecc49a", "glow": 0.25, "bright": 0.95, "solid": 0.6},
+    {"type": "ground", "depth": 0.66, "y": 884, "amp": 10, "seed": 704, "color": "#5a6a3a", "color2": "#3a4a2a", "grass": true, "grassColor": "#7a8a4a", "wind": 1},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["sheep", "birds"], "cam": {"pos": [900, 520, 900], "look": [940, 640, -3000]}, "say": "God gave him back his family, and as many again with them."},
+    {"dur": 12000, "ambient": ["sheep", "air"], "cam": {"pos": [880, 525, 820], "look": [900, 690, -3000]}, "pendingVerse": {"ref": "38:43", "place": "sky"}},
+    {"dur": 10000, "ambient": ["birds", "air"], "cam": {"pos": [820, 540, 620], "look": [840, 760, -3000]}, "say": "His flocks and fields flourished again. Through everything, he had been patient, and he never stopped turning back to God."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [880, 525, 820], "look": [900, 690, -3000]}, "pendingVerse": {"ref": "38:44", "place": "sky", "part": "its closing words: \"Indeed, We found him patient, an excellent servant…\""}}
+  ]
+}

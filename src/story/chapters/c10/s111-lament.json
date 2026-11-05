@@ -1,0 +1,41 @@
+{
+  "id": "lament",
+  "chapter": 10,
+  "order": 111,
+  "node": "shuayb",
+  "title": "Shu'ayb Turns Away",
+  "arabic": "وداع مدين",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined."],
+  "ambient": ["wind", "air"],
+  "base": "#a88a78",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#dcc0a0", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.2, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 515, 1100], "look": [800, 590, -3000]},
+  "imagePrompt": "Dusk over an empty, unlit trading town below red mountains, its market awnings grey and still; on a rise in the foreground a steady white light and a few small white lights of believers look back at it before walking on; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [17.6, 18.4, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [18.4, 19.2, 10000]}, "2": {"tod": [19.2, 20, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 610, "amp": 70, "seed": 720, "sharp": 0.6, "color": "#8a5a4a", "haze": 0.4, "fog": 0.4},
+    {"type": "ridge", "depth": 0.07, "y": 640, "amp": 40, "seed": 721, "sharp": 0.5, "color": "#a8705a", "haze": 0.3, "fog": 0.3},
+    {"type": "town", "depth": 0.13, "y": 690, "x0": 120, "x1": 1480, "s": 0.6666666666666666, "grade": "town", "lit": 0, "haze": "#c8a888", "seed": 722},
+    {"type": "ground", "depth": 0.16, "y": 700, "amp": 6, "seed": 723, "color": "#c8a078", "color2": "#9a7050"},
+    {"type": "palms", "depth": 0.22, "items": [{"x": 180, "y": 726, "h": 264, "lean": 0.05}, {"x": 270, "y": 724, "h": 297, "lean": -0.04}, {"x": 1340, "y": 726, "h": 280, "lean": 0.06}, {"x": 1440, "y": 724, "h": 297, "lean": -0.03}], "seed": 724},
+    {"type": "ground", "depth": 0.3, "y": 754, "amp": 4, "seed": 725, "x0": -600, "x1": 2200, "color": "#d0a880", "color2": "#a07a58"},
+    {"type": "stalls", "depth": 0.36, "s": 1.24, "grey": 0.6, "items": [{"x": 330, "y": 778, "w": 120, "color": "#b8644a"}, {"x": 520, "y": 780, "w": 110, "color": "#5a7a8a"}, {"x": 1130, "y": 780, "w": 120, "color": "#8a6a3a"}, {"x": 1320, "y": 778, "w": 110, "color": "#7a4a5a"}]},
+    {"type": "ridge", "depth": 0.5, "y": 860, "amp": 30, "seed": 730, "sharp": 0.3, "color": "#6a4a40", "haze": 0},
+    {"type": "light", "depth": 0.52, "pos": [400, 836], "h": 133, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "light", "depth": 0.52, "pos": [320, 840], "h": 129, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
+    {"type": "light", "depth": 0.52, "pos": [264, 840], "h": 129, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
+    {"type": "light", "depth": 0.52, "pos": [208, 840], "h": 129, "color": "#fff4e0", "glow": 0.3, "bright": 1.0, "solid": 0.5},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.18, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [800, 515, 1100], "look": [800, 590, -3000]}, "say": "Their houses stood empty, as if they had never lived in them."},
+    {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [560, 530, 700], "look": [520, 700, -3000]}, "say": "Shu'ayb turned away from them. He had warned them as best he could; he did not grieve for a people who refused to believe."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [700, 520, 900], "look": [680, 640, -3000]}, "pendingVerse": {"ref": "7:93", "place": "sky"}}
+  ]
+}

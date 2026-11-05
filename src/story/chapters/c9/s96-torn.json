@@ -15,29 +15,29 @@
   "pen": true,
   "dissolve": 2400,
   "world": {"fog": "#2a2430", "fogNear": 4000, "fogFar": 30000, "light": 0.95, "rays": 0, "bloom": 0.75, "haze": 0, "hazeY": 0.6, "shake": 0.3, "dof": 0},
-  "cam": {"pos": [860, 540, 760], "look": [880, 1000, -3000]},
+  "cam": {"pos": [860, 540, 40], "look": [880, 1250, -3000]},
   "imagePrompt": "A lamplit hall of a palace with tall columns and closed doors, a dim amber figure of light and a steady white light; the white light hurrying toward a lit doorway, the amber light behind; in the doorway a third dim figure; ink-wash and parchment texture.",
   "layers": [
     {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#141a2a"], [1, "#0e121c"]]},
-    {"type": "facade", "depth": 0.18, "x": 800, "y": 712, "w": 2400, "h": 820, "stone": "#7a5a44", "light": 0.85, "doors": [{"x": 1260, "w": 150, "h": 240, "lit": true}]},
+    {"type": "facade", "depth": 0.18, "x": 800, "y": 712, "w": 2400, "h": 820, "stone": "#7a5a44", "light": 0.85, "doors": [{"x": 1260, "w": 60, "h": 110, "lit": true}]},
     {"type": "floor", "depth": 0.19, "y": 714, "vp": [800, 500], "color": "#4a4458", "color2": "#1a1a26", "lines": 14, "gloss": 0.35, "area": [-800, 708, 2400, 1350]},
     {"type": "column", "depth": 0.26, "x": 420, "y": 740, "h": 600, "w": 44, "stone": "#c8a070", "lit": "#f0d0a0", "dark": "#5a3e28"},
     {"type": "column", "depth": 0.26, "x": 1180, "y": 740, "h": 600, "w": 44, "stone": "#c8a070", "lit": "#f0d0a0", "dark": "#5a3e28"},
-    {"type": "brazier", "depth": 0.3, "x": 560, "y": 790, "s": 1},
-    {"type": "light", "kind": "flame", "depth": 0.3, "pos": [560, 718], "h": 60, "color": "#ffb050", "glow": 1.1},
-    {"type": "brazier", "depth": 0.3, "x": 1040, "y": 790, "s": 1},
-    {"type": "light", "kind": "flame", "depth": 0.3, "pos": [1040, 718], "h": 60, "color": "#ffb050", "glow": 1.1},
-    {"type": "light", "depth": 0.32, "pos": [760, 778], "h": 52, "color": "#f0b888", "glow": 0.35, "bright": 1.0, "solid": 0.6, "at": {"1": {"pose": "walk", "path": [[760, 778], [1080, 770]], "dur": 3600, "delay": 600}, "2": {"pose": "stand", "path": null, "pos": [1080, 770]}}},
-    {"type": "light", "depth": 0.32, "pos": [860, 776], "h": 62, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "at": {"1": {"pose": "walk", "path": [[860, 776], [1180, 770]], "dur": 3000}, "2": {"pose": "stand", "path": null, "pos": [1180, 770]}}},
-    {"type": "light", "depth": 0.185, "pos": [1262, 712], "h": 56, "color": "#e8c098", "glow": 0.4, "bright": 1.0, "show": [2, null], "solid": 0.6},
+    {"type": "brazier", "depth": 0.3, "x": 560, "y": 790, "s": 0.6},
+    {"type": "light", "kind": "flame", "depth": 0.3, "pos": [560, 742], "h": 20, "color": "#ffb050", "glow": 1.1},
+    {"type": "brazier", "depth": 0.3, "x": 1040, "y": 790, "s": 0.6},
+    {"type": "light", "kind": "flame", "depth": 0.3, "pos": [1040, 742], "h": 20, "color": "#ffb050", "glow": 1.1},
+    {"type": "light", "depth": 0.32, "pos": [760, 778], "h": 77, "color": "#f0b888", "glow": 0.35, "bright": 1.0, "solid": 0.6, "at": {"1": {"pose": "walk", "path": [[760, 778], [1080, 770]], "dur": 3600, "delay": 600}, "2": {"pose": "stand", "path": null, "pos": [1080, 770]}}},
+    {"type": "light", "depth": 0.32, "pos": [860, 776], "h": 82, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "at": {"1": {"pose": "walk", "path": [[860, 776], [1180, 770]], "dur": 3000}, "2": {"pose": "stand", "path": null, "pos": [1180, 770]}}},
+    {"type": "light", "depth": 0.185, "pos": [1262, 712], "h": 47, "color": "#e8c098", "glow": 0.4, "bright": 1.0, "show": [2, null], "solid": 0.6},
     {"type": "column", "depth": 0.42, "x": 200, "y": 830, "h": 900, "w": 70, "stone": "#c8a070", "lit": "#f0d0a0", "dark": "#5a3e28", "ppu": 0.9},
     {"type": "column", "depth": 0.42, "x": 1400, "y": 830, "h": 900, "w": 70, "stone": "#c8a070", "lit": "#f0d0a0", "dark": "#5a3e28", "ppu": 0.9},
     {"type": "dust", "box": [-400, 200, -3000, 2000, 950, -1200], "count": 300, "size": 3, "color": "#ffd8a0", "opacity": 0.3, "wind": [4, -6, 0], "swirl": 20}
   ],
   "beats": [
-    {"dur": 9000, "ambient": ["echo", "fire"], "cam": {"pos": [860, 540, 760], "look": [880, 1000, -3000]}, "say": "The wife of the Aziz desired him. She closed the doors, but he refused: I seek refuge in God."},
-    {"dur": 8000, "ambient": ["echo"], "sfx": [{"name": "door", "at": 3000}], "cam": {"pos": [980, 540, 760], "look": [1020, 1000, -3000]}, "say": "He ran for the door; she caught his shirt from behind, and it tore."},
-    {"dur": 9000, "ambient": ["echo", "voices"], "cam": {"pos": [1060, 535, 760], "look": [1100, 1000, -3000]}, "say": "Her husband stood in the doorway. A witness said: if the shirt is torn at the back, he is telling the truth. It was."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [1000, 530, 760], "look": [1040, 1000, -3000]}, "pendingVerse": {"ref": "12:23", "place": "sky", "part": "his answer, from \"I seek the refuge of Allah\" to the end"}}
+    {"dur": 9000, "ambient": ["echo", "fire"], "cam": {"pos": [860, 540, 40], "look": [880, 1250, -3000]}, "say": "The wife of the Aziz desired him. She closed the doors, but he refused: I seek refuge in God."},
+    {"dur": 8000, "ambient": ["echo"], "sfx": [{"name": "door", "at": 3000}], "cam": {"pos": [980, 540, 40], "look": [1020, 1250, -3000]}, "say": "He ran for the door; she caught his shirt from behind, and it tore."},
+    {"dur": 9000, "ambient": ["echo", "voices"], "cam": {"pos": [1060, 535, 40], "look": [1100, 1250, -3000]}, "say": "Her husband stood in the doorway. A witness said: if the shirt is torn at the back, he is telling the truth. It was."},
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [1000, 530, 40], "look": [1040, 1250, -3000]}, "pendingVerse": {"ref": "12:23", "place": "sky", "part": "his answer, from \"I seek the refuge of Allah\" to the end"}}
   ]
 }
