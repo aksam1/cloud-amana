@@ -26,7 +26,7 @@ brought nearer the camera together so they read clearly.
 | The Well and the Caravan | 94–95 |
 | In Egypt | 96–99 |
 | The King's Dream | 100–102 |
-| The Brothers | 103–105 |
+| The Brothers | 103–106 |
 
 ## Scenes
 
@@ -110,6 +110,12 @@ brought nearer the camera together so they read clearly.
 
 ### 105 · The Dream Fulfilled · لقاء يوسف وأبيه (`reunion`)
 - **Ayah:** 12:100. **Node:** yusuf.
-- **Beats.** (1) *Say:* At last he told them: I am Yusuf. And he forgave them: no blame on you today. (2) *Say:* He sent his shirt to his father. Laid over Yaqub's face, it gave him back his sight. (3) *Say:* The whole family came to Egypt. Yusuf seated his parents beside him, and his brothers bowed: the dream of the eleven stars, the sun and the moon had come true. (4) **Verse 12:100** (from his raising his parents to "this is the explanation of my vision of before"), placed sky.
+- **Beats.** (1) *Say:* At last he told them: I am Yusuf. And he forgave them: no blame on you today. (2) *Say:* He sent his shirt to his father. Laid over Yaqub's face, it gave him back his sight. (3) *Say:* The whole family came to Egypt. Yusuf seated his parents beside him, and his brothers bowed: the dream of the eleven stars, the sun and the moon had come true. My Lord, Yusuf prayed, let me die in submission to You, and join me with the righteous. (4) **Verse 12:100** (from his raising his parents to "this is the explanation of my vision of before"), placed sky.
 - **Sound:** echo, voices → birds, air → echo, voices → echo, air. **Art:** Yusuf and Yaqub appear only as steady lights; the family as dim figures of light. Their bowing was the greeting of their time, as the Quran tells it.
 - **Image prompt:** An old steady light seated before a tent at dawn, a shirt of white light laid over him, his glow brightening; then a lapis palace hall, a steady white light on the dais with two lights seated beside him, eleven dim amber lights bowed low before them; the dream of the eleven stars, the sun and the moon fulfilled; ink-wash and parchment texture.
+
+### 106 · Yaqub's Last Words · وصية يعقوب (`lastwords`)
+- **Ayah:** 2:133. **Node:** yaqub.
+- **Beats.** (1) *Say:* Yaqub lived out his last years in Egypt with all his family around him. When death came near, he gathered his sons and asked them: what will you worship after me? (2) *Say:* They answered: we will worship your God, the God of your fathers Ibrahim, Ismail and Ishaq: one God, and to Him we submit. (3) *Say:* So the Children of Israel came to live in Egypt. Generations later, their descendants would cry out under a Pharaoh who had forgotten Yusuf. (4) **Verse 2:133**, placed sky.
+- **Sound:** air, crickets → air → air, wind → air. **Art:** Yaqub and Yusuf appear only as steady lights; his other sons as dim figures of light. That Yaqub died in Egypt is from the commentaries; his death is shown only as his light growing still and rising.
+- **Image prompt:** A quiet room of an Egyptian house at dusk, an oil lamp burning; an old steady light lying on a low bed, twelve figures of light kneeling close around him, one of them steady and clear; then the old light rising gently and fading through the window into the evening sky; ink-wash and parchment texture.

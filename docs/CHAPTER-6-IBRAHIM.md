@@ -194,7 +194,7 @@ Ibrahim goes into the fire and is not harmed. No music.
 - **Ayah:** 51:31–32. **Engine:** radiance departing along a valley toward a dead sea.
 - **Beats.** (1) Dawn: Ibrahim's light walks with the guests to a ridge. *Say:* At dawn Ibrahim walked
   with his guests and asked them where they were going. (2) From the ridge, far below, a still sea and the
-  cities by it. *Say:* They were going on, they said, to the people of Lut. (3) The radiances descend
+  cities by it. *Say:* They were going on, they said, to the people of Lut. Ibrahim pleaded for them, for he was gentle and forbearing; but the command of his Lord had come. (3) The radiances descend
   toward the cities. **Verse 51:31–32.**
 - **Sound:** wind, air → air → wind.
 - **Image prompt:** A ridge at dawn above a deep valley, a steady white light standing with three tall

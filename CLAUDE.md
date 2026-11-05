@@ -47,7 +47,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   story" on the map. Keep it plain, say which chapter it follows on from, and give Bible names in
   passing (Musa, known as Moses). Generators must keep it (write chapter.json without dropping `bridge`).
 - Chapter 18, Stories of Wisdom (map stop `wisdom`), holds stories whose time is uncertain or that sit
-  outside the line of prophets (the Cave, Dhul-Qarnayn, the two gardens, the hundred years, Luqman).
+  outside the line of prophets (the Cave, Dhul-Qarnayn, the two gardens, the owners of the garden, Saba's dam,
+  the town of the messengers, the hundred years, Luqman).
 
 ## Reviewing scenes (do this for every beat)
 
@@ -164,7 +165,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `h`), `staff` (`len`; `state: "serpent"` draws the ink serpent, `face`), `seawall` (a towering wall of water
   `x0`–`x1` from the sea floor `y` up `h`, its sheer `face` side onto the path; part the sea with two walls
   whose `move` slides them apart and up, as The Sea Parts does).
-  `tablets` (two stone tablets, `h`, rows of strokes for writing, `glow`) and `boat` (`w`, `hole`). `animals`
+  `tablets` (two stone tablets, `h`, rows of strokes for writing, `glow`), `boat` (`w`, `hole`) and `chest` (the
+  gilded chest of 2:248 on carrying poles, `w`, `glow`). `animals`
   kinds `calf` (gold) and `yellowcow` (2:69). `ants` (creatures.jsx) is a file of ink ants (`x0`–`x1` on `y`, `count`, `s`, `home`). `whale` (musa.jsx) is a
   whale's back in ink breaking the water (`w`, `face`, `open`).
 - Maryam's and Isa's story (`src/layers/isa.jsx`): `claybirds` (birds shaped of clay on a board, `x0`–`x1`,
@@ -178,7 +180,9 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   (stepped temple tower with stairs and shrine), `tent` (goat hair, `lit` lamp inside) and `ram` (only as
   light). `numerals` can `count` plainly from one (Hajar's seven runs).
 - Arabic titles must not quote the Quran even when its ayat are not fetched yet (the checker can only catch
-  phrases from fetched ayat): "يوم الزينة", "مجمع البحرين" and "المن والسلوى" were caught by hand.
+  phrases from fetched ayat): "يوم الزينة", "مجمع البحرين", "المن والسلوى", "سيل العرم" and "رجل يسعى" were caught by hand.
+- `world.cycle` needs a `period` above 0 (0 divides by zero and blacks out the stage), and it does nothing while
+  a `heavens` sky is shown (the sky drives the light): run days past with `tod` [from, to, ms, days] instead.
 - A wide `seawall` or `waves` card in front of a ship in the storm scene (The Lots) blacked out the whole
   stage in the headless renderer; a dark `water` band in front works. Check every new scene's still is not black.
 - Scene ids are unique across all chapters (`son`, `call`, `warning` were taken): `npm run check` says so.

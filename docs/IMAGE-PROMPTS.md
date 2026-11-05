@@ -642,487 +642,523 @@ An old steady light seated before a tent at dawn, a shirt of white light laid ov
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 106. The Blessed Years (`blessed`)
+## 106. Yaqub's Last Words (`lastwords`)
+
+A quiet room of an Egyptian house at dusk, an oil lamp burning; an old steady light lying on a low bed, twelve figures of light kneeling close around him, one of them steady and clear; then the old light rising gently and fading through the window into the evening sky; ink-wash and parchment texture.
+
+> Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
+
+## 107. The Blessed Years (`blessed`)
 
 Green hills with olive trees at morning, a goat-hair tent, flocks of sheep and a few cattle grazing, a steady white light standing before the tent with a dim amber light beside him and a cluster of small amber lights of children; days passing in a time-lapse sky; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 107. The Trial (`trial`)
+## 108. The Trial (`trial`)
 
 The same green hills; the herds fade away, the olive trees wither, the grass dries to cracked earth, and the small lights of children go out one by one; then years racing past in the sky while a dimmed grey light kneels before an unlit tent with one faithful amber light beside him; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 108. Strike the Ground (`strike`)
+## 109. Strike the Ground (`strike`)
 
 Dry cracked hills at dawn, a grey dimmed light kneeling before an empty tent, a single amber light beside him; he stands, and at his feet a clear spring wells up and spreads, catching the first sun; his light grows bright and white; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 109. Restored (`restored`)
+## 110. Restored (`restored`)
 
 The hills green again at morning, olive trees in leaf, a lit goat-hair tent, a spring shining beside it, flocks and herds twice as many as before, a bright steady light and a dim amber light beside him among many small lights of children; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 110. Madyan (`madyan`)
+## 111. Madyan (`madyan`)
 
 A trading town of flat-roofed houses below red sandstone mountains, palms at its edge, a busy market of striped awnings and dim amber lights, a caravan of camels arriving; a merchant's bronze balance in the foreground tipped unfairly; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 111. Give Full Measure (`measure`)
+## 112. Give Full Measure (`measure`)
 
 A sunlit market among striped awnings, a steady white light standing among dim amber lights of traders and buyers, beside him a bronze merchant's balance tipped to one side that slowly comes level; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 112. Shu'ayb's Answer (`reform`)
+## 113. Shu'ayb's Answer (`reform`)
 
 A market square at late afternoon, a steady white light with a few small white lights of believers behind him, facing a crowd of dim amber lights; jagged dark strokes of mockery rising around him; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 113. The Day of the Canopy (`canopy`)
+## 114. The Day of the Canopy (`canopy`)
 
 A trading town shimmering in fierce heat, a line of small white lights walking away into the hills; a great dark cloud spreading over the town and crowds of dim amber lights gathering beneath its shade; then a white flash and every amber light gone out, the town still; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 114. Shu'ayb Turns Away (`lament`)
+## 115. Shu'ayb Turns Away (`lament`)
 
 Dusk over an empty, unlit trading town below red mountains, its market awnings grey and still; on a rise in the foreground a steady white light and a few small white lights of believers look back at it before walking on; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 115. Pharaoh's Egypt (`pharaoh`)
+## 116. Pharaoh's Egypt (`pharaoh`)
 
 A great Egyptian city on the Nile under a hard sun, pylon gates and obelisks; long lines of dim amber lights hauling stone as a great wall rises course by course; on a high terrace a single cold grey light watching; then dusk, the lights of the workers bowed; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 116. The Basket on the River (`basket`)
+## 117. The Basket on the River (`basket`)
 
 A small mud-brick house by the Nile at night, one lamp in its door, a soft light of a mother holding a tiny light; then at the first grey of dawn she kneels among papyrus at the water's edge and a small reed basket drifts away on the broad river; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 117. Found by the Palace (`asiya`)
+## 118. Found by the Palace (`asiya`)
 
 The water steps of a white palace on the Nile in morning light, papyrus and palms, a small reed basket drawn in to the lowest step; a soft white light of a noblewoman bending over it among dim amber lights of her women, a cold grey light standing above on the terrace; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 118. Returned to His Mother (`nursed`)
+## 119. Returned to His Mother (`nursed`)
 
 A girl's soft light walking along the papyrus of the river bank, keeping her distance from the palace; then a lamplit hall of the palace where dim amber lights of nurses stand back and a mother's soft light holds a tiny light close; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 119. One Blow (`blow`)
+## 120. One Blow (`blow`)
 
 Years passing over a white palace on the Nile, a steady light growing tall; then a narrow street of the city at night, two dim figures of light struggling, one amber and one grey; a steady light stepping between them, a small flash, and the grey light gone out; then the steady light kneeling alone; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 120. Flight into the Desert (`flight`)
+## 121. Flight into the Desert (`flight`)
 
 A city gate at night, a dim light running to a steady light with a warning; then the steady light walking alone over vast moonlit dunes under the stars, a long trail of footprints behind, until dawn breaks over far mountains; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 121. The Well of Madyan (`shepherds`)
+## 122. The Well of Madyan (`shepherds`)
 
 A stone well with a wooden frame among palms below red sandstone mountains, crowds of dim amber lights of shepherds watering their sheep; apart from them two dim lights holding back a small flock; a steady light drawing water for them, then resting in the shade of a tree; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 122. Ten Years in Madyan (`hired`)
+## 123. Ten Years in Madyan (`hired`)
 
 A tent among palms at dusk, an old man's dim light seated with a steady light before him and a young woman's light at the side; then years racing past in the sky while the steady light leads a flock across red hills, through seasons of green and gold; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 123. The Fire on the Mountain (`tuwa`)
+## 124. The Fire on the Mountain (`tuwa`)
 
 A cold dark night in rocky mountains, a small family camp with a dim tent; far up the slope, among the rocks, a tree in a gentle golden fire; a steady light climbing toward it and stopping before it, kneeling, small and far away, seen from behind; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 124. The Staff and the Hand (`signs`)
+## 125. The Staff and the Hand (`signs`)
 
 A rocky valley at night lit by a far golden glow, a steady light standing over a shepherd's staff on the ground; the staff becomes a great ink-drawn serpent rearing its head and the light steps back; then the light flares pure white; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 125. Before Pharaoh (`court`)
+## 126. Before Pharaoh (`court`)
 
 A vast lamplit hall of an Egyptian palace, a cold grey light seated on a dais between braziers with grey lights of chiefs beside it; two steady white lights standing before them, small and far, seen from behind; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 126. The Staff before Pharaoh (`sorcery`)
+## 127. The Staff before Pharaoh (`sorcery`)
 
 The lamplit hall of Pharaoh, a great ink-drawn serpent rearing on the polished floor before the dais, a steady white light beside it flaring bright; grey lights of the chiefs recoiling and jagged dark strokes of scorn rising; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 127. The Day of the Festival (`festival`)
+## 128. The Day of the Festival (`festival`)
 
 A great open square in Egypt at forenoon, crowds of dim amber lights in a wide arc, Pharaoh's grey light on a high stand; a line of violet-grey lights of magicians, and before them many small ink-drawn serpents writhing on the sand; facing them two steady white lights, and a great serpent that leaves nothing of the small ones; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 128. The Magicians Believe (`believe`)
+## 129. The Magicians Believe (`believe`)
 
 The great square in Egypt, the line of violet-grey lights of the magicians fallen in prostration on the sand and turning a clear soft white; Pharaoh's cold grey light standing high above them; the crowds silent; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 129. Haman's Tower (`tower`)
+## 130. Haman's Tower (`tower`)
 
 An Egyptian city at morning, brick kilns glowing and a tower of baked brick rising course after course toward the clouds while crowds of dim lights labour around it; then Pharaoh's hall, a single warm dim light stepping forward from among grey courtiers to speak; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 130. Asiya's Prayer (`asiyaprayer`)
+## 131. Asiya's Prayer (`asiyaprayer`)
 
 The flat roof of Pharaoh's palace at night, the city dark below and the Nile shining under the moon; a single soft light kneeling alone in prayer with her face to the sky, the stars above her slowly brightening; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 131. The Signs over Egypt (`plagues`)
+## 132. The Signs over Egypt (`plagues`)
 
 Egypt under a sequence of signs: a storm and a flood spreading over green fields; a dark cloud of locusts streaming over yellowing wheat; the broad river running dark red under a heavy sky while the city stands silent; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 132. By Night (`exodus`)
+## 133. By Night (`exodus`)
 
 An Egyptian city gate under a bright moon, a long river of small warm lights flowing out through it and away across the moonlit desert toward the east, two steady white lights at their head; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 133. The Sea Parts (`sea`)
+## 134. The Sea Parts (`sea`)
 
 Dawn on a desert shore, a great multitude of small warm lights pressed against the sea, a dust cloud of an army on the horizon behind; a steady white light raising a staff; then the sea split from shore to far shore, two towering walls of green-blue water with streaming foam, and a dry path of wet sand running between them toward distant mountains, the river of lights flowing in; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 134. The Sea Closes (`closes`)
+## 135. The Sea Closes (`closes`)
 
 The parted sea seen from the shore, two towering walls of water and a path of wet sand between them, the far end of a river of warm lights already on the far shore; ranks of grey lights of an army marching into the path; then the walls fall together in a great white crash and the grey lights are gone; then a calm sea under a pale sky; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 135. Safe on the Far Shore (`shore`)
+## 136. Safe on the Far Shore (`shore`)
 
 Morning on the far shore of a calm blue sea, the river of small warm lights resting on the sand below red mountains, two steady white lights among them, one bowed in thanks; the water quiet and shining; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 136. Manna and Quails (`manna`)
+## 137. Manna and Quails (`manna`)
 
 A camp of goat-hair tents in a red-mountained desert under soft white clouds that shade it, pale flakes like frost settling on the sand at dawn and small birds coming down among the tents; crowds of warm lights gathering, a steady light among them; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 137. Twelve Springs (`springs`)
+## 138. Twelve Springs (`springs`)
 
 A great sandstone rock in a red desert at noon, a steady white light raising a staff before it; twelve clear springs welling up in an arc around its foot, crowds of small warm lights gathering by tribe at each; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 138. The Mountain (`mountain`)
+## 139. The Mountain (`mountain`)
 
 Night high in rocky mountains, a steady white light standing on a ledge before a great peak; the peak breaking apart into dust and falling stone while the light falls to its knees; then dawn, and two stone tablets standing before the light, faintly glowing; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 139. The Golden Calf (`calf`)
+## 140. The Golden Calf (`calf`)
 
 A desert camp at night between braziers, a calf cast of gold standing on the sand, crowds of warm lights pressing around it and a cold grey light beside it; at the edge a steady light raising his arm, pleading; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 140. Musa's Return (`anger`)
+## 141. Musa's Return (`anger`)
 
 The desert camp at dawn, a steady light come down from the mountain setting two stone tablets on the sand, a second steady light close before him; the golden calf burning in a fire until it is gone and its ash blows away over the sand toward the sea; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 141. The Cow (`cow`)
+## 142. The Mountain Above Them (`liftedmount`)
+
+A great camp of small warm lights at the foot of a rocky mountain; the whole mountain lifting silently from the earth and hanging over them like a dark cloud, its shadow across the crowd; every light bowed low; a steady light before them holding two stone tablets; ink-wash and parchment texture.
+
+> Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
+
+## 143. The Cow (`cow`)
 
 A camp in the desert at morning, a herd of cattle grazing among warm lights of the people; one bright yellow cow standing apart in a pool of sunlight while the others fade; a steady light among the crowd; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 142. Qarun's Treasure (`qarun`)
+## 144. Qarun's Treasure (`qarun`)
 
 A grand house of pale stone in a desert town, its open treasury heaped with gold glinting; a richly dressed dim light parading before crowds who gaze in envy; then the ground opening silently and the whole house sinking into the earth, dust rising, the crowd's lights shrinking back; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 143. Where the Two Seas Meet (`twoseas`)
+## 145. Where the Two Seas Meet (`twoseas`)
 
 A rock at the meeting of two bodies of water, one blue and one grey-green, at dusk; a steady light and a smaller light of his young companion resting; a small silver light leaping from a basket into the water; then a soft green-white light waiting by the rock; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 144. The Boat and the Wall (`boatwall`)
+## 146. The Boat and the Wall (`boatwall`)
 
 A small wooden boat drawn up on a grey shore, a soft green-white light kneeling by its side where one plank is broken, a steady light watching in dismay; then a poor village of mud walls at dusk, a leaning wall rising straight again course by course under the soft light's hands; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 145. The Hidden Reasons (`reasons`)
+## 147. The Hidden Reasons (`reasons`)
 
 Three quiet scenes: a grey sea with a line of a king's dark ships taking every sound boat, while one damaged boat is left on the shore; a mother and father of light with a new small light between them; a straightened village wall with a faint gold glow of buried treasure beneath it; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 146. Forty Years in the Wilderness (`forty`)
+## 148. Forty Years in the Wilderness (`forty`)
 
 The edge of a green land seen across a desert from a ridge, a great camp of warm lights halted before it; then the desert under a sky racing through day and night again and again as the camp moves in slow circles across the sand; two steady lights at its head; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 147. Dhul-Kifl (`kifl`)
+## 149. Dhul-Kifl (`kifl`)
 
 A town gate of pale stone at dusk, a steady light seated beneath its arch with dim lights of people waiting to be heard; then days and nights racing past in the sky while the light stays at his place, kneeling in prayer by night; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 148. Talut's Army (`river`)
+## 150. The Chest of Tranquillity (`tabut`)
+
+A hill town in the land of Israel at morning, crowds of dim lights gathered before a steady light, murmuring against a tall plain figure of light chosen as king; then columns of soft golden light coming over the hill bearing a gilded chest on poles, and setting it down before the people; ink-wash and parchment texture.
+
+> Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
+
+## 151. Talut's Army (`river`)
 
 A wide shallow river crossing green hills at noon, ranks of an army of dim lights coming down to it; most kneel and drink deep and stay behind on the bank, while a small band of lights crosses on, a few cupping a single handful; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 149. Dawud and Jalut (`jalut`)
+## 152. Dawud and Jalut (`jalut`)
 
 Two armies of dim lights facing each other across a valley floor at morning; from the larger army a giant cold grey light strides out; from the small band a young steady light steps forward; a small arc of light, and the giant light goes out; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 150. The Mountains Sing (`psalms`)
+## 153. The Mountains Sing (`psalms`)
 
 Dawn over high green mountains, a steady light standing on a rocky shoulder, birds of light circling above him; the peaks catching the first gold one after another as if answering; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 151. Iron Made Soft (`iron`)
+## 154. Iron Made Soft (`iron`)
 
 A dark smithy at night, a forge glowing orange, a steady light at the anvil with rings of glowing iron drawn out like thread and linked into a coat of mail that hangs shining on a frame; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 152. The Two Disputants (`disputants`)
+## 155. The Two Disputants (`disputants`)
 
 Dawud's prayer chamber at night, a steady light at prayer; two dim figures of light appearing on top of the high wall and dropping inside; then a vision of their case: a great flock of ninety-nine ewes on one side and a single ewe alone on the other; then the steady light bowed low in repentance; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 153. The Judgment of the Field (`field`)
+## 156. The Judgment of the Field (`field`)
 
 A vineyard by moonlight trampled by a flock of sheep; then a lamplit court where a king's steady light sits and a younger steady light beside him speaks, two dim lights of the owners before them; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 154. The Kingdom of Sulayman (`kingdom`)
+## 157. The Kingdom of Sulayman (`kingdom`)
 
 A great city of white stone rising on hills, a vast hall being raised course by course by smouldering shadow figures, a wind streaming across the sky, birds wheeling overhead; ranks of men of dim light and shadows of jinn assembled before a steady light; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 155. The Valley of the Ants (`ants`)
+## 158. The Valley of the Ants (`ants`)
 
 A close view of dry sandy ground, a file of tiny ink-drawn ants hurrying into the dark mouth of their nest; far behind, ranks of an army of lights halting on the valley floor, and a steady light at their head smiling down; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 156. The Hoopoe's News (`hoopoe`)
+## 159. The Hoopoe's News (`hoopoe`)
 
 Sulayman's court in the open air at evening, ranks of birds of light settled on the walls; one small bird swooping in from far over the desert to land before a steady light, while far away in the south a land of gardens worships the rising sun; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 157. The Queen of Saba (`saba`)
+## 160. The Queen of Saba (`saba`)
 
 A great palace hall with a floor of glass so clear it gleams like still water, a soft light of a queen stepping onto it, a steady light standing at its far end beside a tall throne; then the queen's light bowing; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 158. The Staff and the Termite (`termite`)
+## 161. The Staff and the Termite (`termite`)
 
 A half-built temple of white stone, smouldering shadow figures labouring on its walls by day and night; a steady light standing still, leaning on a staff, through many days; a tiny insect at the foot of the staff; the staff gives way and the light fades; the shadows stop their work; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 159. Ilyas and Ba'l (`baal`)
+## 162. Ilyas and Ba'l (`baal`)
 
 A hill town of stone at dusk, crowds of dim lights gathered on a high place before a tall faceless gilded idol between braziers; a steady light standing at the edge of the crowd, calling to them; jagged dark strokes of scorn rising; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 160. Al-Yasa' (`yasa`)
+## 163. Al-Yasa' (`yasa`)
 
 A road through green hills at morning, an older steady light walking ahead and a younger steady light following; then the younger light alone, teaching a small gathering of dim lights beneath an olive tree; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 161. Yunus Leaves (`leaving`)
+## 164. Yunus Leaves (`leaving`)
 
 A great walled city on a river at evening, crowds of dim lights in its streets ignoring a steady light; then the steady light walking away alone down a road toward the sea and a harbour where a laden ship waits; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 162. The Lots (`lots`)
+## 165. The Lots (`lots`)
 
 A wooden ship labouring in a black storm at sea, towering grey waves, dim lights of sailors gathered on deck around a small cast of lots; a steady light stepping to the rail and passing into the dark water; a great dark back of a whale rising beneath; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 163. In the Darkness (`darkness`)
+## 166. In the Darkness (`darkness`)
 
 Total darkness of the deep sea at night, a faint vast shape of a whale gliding; within the dark a single small steady light kneeling in prayer, its glow slowly growing; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 164. Cast on the Shore (`gourd`)
+## 167. Cast on the Shore (`gourd`)
 
 A bare, empty shore at sunrise, a weak dimmed light lying on the sand at the water's edge, a broad-leafed gourd vine growing up to shade him; the whale's dark back sinking away offshore; the light slowly brightening; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 165. A Whole City Believes (`believed`)
+## 168. A Whole City Believes (`believed`)
 
 The great walled city at morning, its streets and squares filled with a hundred thousand warm lights turned toward a steady light returning along the road; all the lights brightening together; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 166. The Vow (`vow`)
+## 169. The Vow (`vow`)
 
 A stone house among the hills of Jerusalem under a starry sky, one window lit; a soft light kneeling in prayer on the roof; then the grey of dawn, the soft light holding a tiny new light close, the temple's walls pale on the far hill; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 167. Fruit out of Season (`mihrab`)
+## 170. Fruit out of Season (`mihrab`)
 
 A warm stone prayer chamber in the temple, an arched doorway onto falling snow; a young soft light kneeling in prayer beside a shallow bowl of summer fruit glowing gold; an old white-haired steady light entering through the door and stopping in wonder; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 168. Zakariya's Prayer (`nightprayer`)
+## 171. Zakariya's Prayer (`nightprayer`)
 
 The temple's prayer chamber deep at night, a single beam of moonlight through a high window, a small oil lamp; an old steady light kneeling, praying in a whisper, his glow white like his hair; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 169. The Good News (`tidings`)
+## 172. The Good News (`tidings`)
 
 The prayer chamber lit from within by tall columns of soft golden light standing around an old steady light at prayer; then the temple courtyard at dawn, crowds of dim lights waiting, and the old light at the top of the steps raising his arms, silent; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 170. Yahya (`yahya`)
+## 173. Yahya (`yahya`)
 
 The green valley of a river among reeds at morning, deer drinking at the water; a young steady light kneeling on the bank, absorbed in study; then the same light grown, standing among dim lights of people at the river, teaching; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 171. Maryam and the Angel (`jibril`)
+## 174. Maryam and the Angel (`jibril`)
 
 An eastern room of the temple at dawn, a hanging cloth screen stirring in the breeze, a young soft light at prayer behind it; a tall column of golden light standing before her, and the soft light drawing back; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 172. Beneath the Palm (`palm`)
+## 175. Beneath the Palm (`palm`)
 
 A lonely place at dusk, a single tall date palm, a soft light leaning against its trunk; a clear stream welling up at its foot and running away over the sand; ripe dates falling glinting gold; then a tiny new light beside her under the first stars; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 173. The Child Speaks (`cradle`)
+## 176. The Child Speaks (`cradle`)
 
 A town gate at morning, crowds of dim lights gathering around a soft light who carries a tiny light in her arms; jagged dark strokes of reproach rising, then falling silent as the tiny light flares bright and clear; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 174. Birds of Clay (`claybirds`)
+## 177. Birds of Clay (`claybirds`)
 
 A village courtyard in morning sun, a board of small birds shaped from wet clay, children's small lights crowding to watch and a steady light bending over the clay; then the clay birds gone and birds of light rising from the board, wheeling up into the sky; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 175. By God's Leave (`healing`)
+## 178. By God's Leave (`healing`)
 
 A dusty road outside a village, a line of grey, dimmed figures of light waiting, some kneeling; a steady light passing along the line, each grey light turning warm and bright as he passes; then, beside a still bier, a new light kindled where there was none; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 176. The Disciples (`helpers`)
+## 179. The Disciples (`helpers`)
 
 The shore of a wide lake in the hills at morning, small wooden fishing boats drawn up, nets drying; a steady light standing on the shingle as twelve soft lights leave their boats and gather around him; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 177. The Table from Heaven (`table`)
+## 180. The Table from Heaven (`table`)
 
 A hilltop at dusk above a lake, a steady light with arms raised among twelve soft lights; a low table spread with a white cloth, loaves and fish slowly coming down out of the darkening sky in a pool of gold light, motes drifting around it; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 178. One Who Will Come (`ahmad`)
+## 181. One Who Will Come (`ahmad`)
 
 A hilltop at first light, a steady light standing with twelve soft lights around him, his arm raised toward the far south where the sky over endless desert ranges is beginning to glow gold; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 179. Raised Up (`ascension`)
+## 182. Raised Up (`ascension`)
 
 An olive grove on a hillside at night, a steady light standing among the dark trees; a line of torches winding up the path toward him; the steady light rising slowly and silently up into the stars, leaving a faint trail of light, until the torches reach an empty grove; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 180. The Sleepers of the Cave (`cave`)
+## 183. The Sleepers of the Cave (`cave`)
 
 Night in rocky hills, seven young soft lights and a dog climbing to the dark mouth of a cave; inside, the lights lying asleep along the cave floor, the dog stretched across the threshold; the sky beyond the cave mouth flickering through countless days and nights as the years pass; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 181. The Awakening (`awakening`)
+## 184. The Awakening (`awakening`)
 
 Morning in the cave, seven soft lights sitting up, puzzled; one of them walking down into a town he no longer knows, new domes and walls, crowds of dim lights gathering in wonder around a small glint of old silver in his hand; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 182. Dhul-Qarnayn (`qarnayn`)
+## 185. Dhul-Qarnayn (`qarnayn`)
 
 A vast western shore at sunset, a great red sun sinking into a dark muddy sea, a warm figure of light with ranks of an army halted on the shore; then the far east at sunrise, a bare plain where people of dim light live with no shelter from the sun; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 183. The Wall of Iron (`ironwall`)
+## 186. The Wall of Iron (`ironwall`)
 
 A narrow pass between two towering mountains, people of dim light carrying blocks of iron and stacking them course by course between the mountain walls, great fires blown with bellows against the iron until it glows, molten copper poured over it; then a solid, shining wall closing the pass from cliff to cliff; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 184. The Two Gardens (`gardens`)
+## 187. The Two Gardens (`gardens`)
 
 Two lush walled gardens of grapevines ringed with date palms, a river running between them; a proud dim light strolling among the vines beside a humbler light; then the same gardens at dawn ruined, palms bare and vines withered, the proud light on his knees wringing his hands; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 185. A Hundred Years (`hundred`)
+## 188. The Owners of the Garden (`harvest`)
+
+A rich orchard heavy with fruit at night, a few dim figures of light whispering together under the trees; a storm of darkness passing silently over it; then grey dawn, the same orchard blackened and bare as if reaped, the brothers kneeling among the ruined trees; ink-wash and parchment texture.
+
+> Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
+
+## 189. The Flood of the Dam (`dam`)
+
+A green valley in Yemen between two great orchards of palms, a long dam of dressed stone holding back a lake at its head; the dam cracking and bursting, a brown flood pouring down the valley; then the same valley years later, its gardens gone to thorn scrub and tamarisk; ink-wash and parchment texture.
+
+> Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
+
+## 190. A Hundred Years (`hundred`)
 
 A man's steady light with his donkey and a basket of figs stopping by a ruined, empty town of fallen stone; his light going out as the sky races through a century; then dawn, the light kindled again, the figs still fresh, the donkey drawn back stroke by stroke, and the town rebuilt and alive; ink-wash and parchment texture.
 
 > Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
 
-## 186. Luqman's Advice (`luqman`)
+## 191. The Town of the Messengers (`yasin`)
+
+A walled town at evening, three steady lights standing in the square before a jeering crowd of dim lights; one warm light running the length of the long street from the far edge of the town; then that light rising softly into the sky; then a single white flash and every light in the town gone out, the streets silent; ink-wash and parchment texture.
+
+> Painterly epic matte painting in the manner of a Total War campaign cutscene: Bronze-Age grandeur (warm golds, deep reds, dramatic skies, marble and stone, heroic scale, as in Total War Saga: Troy) rendered with ink-wash and watercolour textures on aged parchment, an elegant brush-stroke border and a stylised campaign-map feel (as in Total War: Three Kingdoms). Arabic calligraphy in place of Chinese calligraphy; Islamic eight-pointed-star geometry in the border corners. Cinematic 16:9. Never depict God in any form; divine presence only as light, text or atmosphere. No faces or detailed bodies for prophets, Adam or Hawwa: only soft figures of light seen from far away or from behind, or silhouettes. Angels only as light, wings or radiance; jinn as smokeless fire; Iblis as a shadowy flame-like form, never a cartoon devil. No gore. No lettering except the calligraphy described.
+
+## 192. Luqman's Advice (`luqman`)
 
 An old soft light and a young one sitting beneath a spreading tree on a hillside at evening, the father's arm raised as he teaches; then a close view of a great grey rock with, deep in its heart, the faint glow of a single tiny mustard seed; ink-wash and parchment texture.
 
