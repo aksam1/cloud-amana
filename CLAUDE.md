@@ -153,6 +153,10 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `tablets` (two stone tablets, `h`, rows of strokes for writing, `glow`) and `boat` (`w`, `hole`). `animals`
   kinds `calf` (gold) and `yellowcow` (2:69). `ants` (creatures.jsx) is a file of ink ants (`x0`–`x1` on `y`, `count`, `s`, `home`). `whale` (musa.jsx) is a
   whale's back in ink breaking the water (`w`, `face`, `open`).
+- Maryam's and Isa's story (`src/layers/isa.jsx`): `claybirds` (birds shaped of clay on a board, `x0`–`x1`,
+  `count`, `s`, `wet`), `fruit` (a bowl of out-of-season fruit, `w`, `glow`) and `table` (the table sent down,
+  `w`, `glow`; lower it with a `move`). A single angel is a `crowd` of `kind: "angels"` with `count` 1 in a
+  tiny `area` (a column of light, never a figure).
 - Crowds of people read best at `glow` 0.1–0.15 and `dim` 0.4 by day: brighter, hundreds of them wash out
   into a band of white.
 - Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`
