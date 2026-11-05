@@ -56,7 +56,7 @@ out, nothing more. Mockery is jagged strokes. Commentary details are labelled in
 - **Sound:** city, herd → city, voices → city, air. **Art:** Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined. Their cheating with measure and weight is told in the Quran (7:85, 11:84); it is shown only as a tipped balance.
 - **Image prompt:** A trading town of flat-roofed houses below red sandstone mountains, palms at its edge, a busy market of striped awnings and dim amber lights, a caravan of camels arriving; a merchant's bronze balance in the foreground tipped unfairly; ink-wash and parchment texture.
 
-### 108 · Give Full Measure · الكيل والميزان (`measure`)
+### 108 · Give Full Measure · الأمانة في السوق (`measure`)
 - **Ayah:** 26:181-182. **Node:** shuayb.
 - **Beats.** (1) *Say:* God sent them one of their own, the prophet Shu'ayb. (2) *Say:* Give full measure and full weight, he told them. Do not cheat people of what is theirs, and do not spread corruption in the land. (3) **Verse 26:181-182**, placed sky.
 - **Sound:** city, voices → city, voices → city, air. **Art:** Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined. His words are given as the Quran gives them (26:181–183); the balance coming level stands for the fair measure he asked of them.
@@ -68,7 +68,7 @@ out, nothing more. Mockery is jagged strokes. Commentary details are labelled in
 - **Sound:** crowd, jeer → crowd, jeer → air, wind. **Art:** Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined. Their mockery is drawn as jagged strokes, never words.
 - **Image prompt:** A market square at late afternoon, a steady white light with a few small white lights of believers behind him, facing a crowd of dim amber lights; jagged dark strokes of mockery rising around him; ink-wash and parchment texture.
 
-### 110 · The Day of the Canopy · يوم الظلة (`canopy`)
+### 110 · The Day of the Canopy · السحابة السوداء (`canopy`)
 - **Ayah:** 26:189. **Node:** shuayb.
 - **Beats.** (1) *Say:* Shu'ayb and those who believed left the town, saved by God's mercy. (2) *Say:* Then came a day of burning heat. A dark cloud appeared, and the people ran to its shade. (3) *Say:* Then a mighty blast seized them, and their lights went out. (4) **Verse 26:189**, placed sky.
 - **Sound:** desert, wind → wind, crowd → wind → wind, air. **Art:** Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined. The Quran calls it the punishment of the day of the black cloud (26:189); that the people ran to its shade in the heat is from the commentaries. No one is shown harmed: their lights simply go out.

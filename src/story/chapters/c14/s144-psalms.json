@@ -1,0 +1,43 @@
+{
+  "id": "psalms",
+  "chapter": 14,
+  "order": 144,
+  "node": "dawud",
+  "title": "The Mountains Sing",
+  "arabic": "تسبيح الجبال",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "Dawud's recitation of the Zabur is heard as a wordless voice; no music. The mountains' and birds' praise is shown as light on the peaks and birds circling, as the Quran tells (34:10, 21:79)."],
+  "ambient": ["chant", "birds"],
+  "base": "#c8c0b0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c8c0b0", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.05, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 500, 1000], "look": [800, 540, -3000]},
+  "imagePrompt": "Dawn over high green mountains, a steady light standing on a rocky shoulder, birds of light circling above him; the peaks catching the first gold one after another as if answering; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 600, "tod": [4.8, 5.8, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [5.8, 6.6, 10000]}, "2": {"tod": [6.6, 7.4, 12000]}}},
+    {"type": "peak", "depth": 0.05, "x": 400, "y": 280, "w": 800, "h": 380, "color": "#5a6070", "lit": "#d8b890", "seed": 1130},
+    {"type": "peak", "depth": 0.05, "x": 1250, "y": 250, "w": 900, "h": 420, "color": "#5a6070", "lit": "#e8c8a0", "seed": 1131},
+    {"type": "ridge", "depth": 0.1, "y": 660, "amp": 70, "seed": 1132, "sharp": 0.5, "color": "#6a7464", "haze": 0.2, "fog": 0.3},
+    {"type": "light", "kind": "bird", "depth": 0.2, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "delay": 0, "path": [[600, 300, -4000], [900, 260, -4000], [1100, 340, -4000], [800, 300, -4000]], "dur": 9000},
+    {"type": "light", "kind": "bird", "depth": 0.2, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "delay": 300, "path": [[660, 300, -4000], [980, 270, -4000], [1060, 340, -4000], [830, 300, -4000]], "dur": 9000},
+    {"type": "light", "kind": "bird", "depth": 0.2, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "delay": 600, "path": [[720, 300, -4000], [1060, 280, -4000], [1020, 340, -4000], [860, 300, -4000]], "dur": 9000},
+    {"type": "light", "kind": "bird", "depth": 0.2, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "delay": 900, "path": [[780, 300, -4000], [900, 290, -4000], [980, 340, -4000], [890, 300, -4000]], "dur": 9000},
+    {"type": "light", "kind": "bird", "depth": 0.2, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "delay": 1200, "path": [[840, 300, -4000], [980, 300, -4000], [940, 340, -4000], [920, 300, -4000]], "dur": 9000},
+    {"type": "light", "kind": "bird", "depth": 0.2, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "delay": 1500, "path": [[900, 300, -4000], [1060, 310, -4000], [900, 340, -4000], [950, 300, -4000]], "dur": 9000},
+    {"type": "light", "kind": "bird", "depth": 0.2, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "delay": 1800, "path": [[960, 300, -4000], [900, 320, -4000], [860, 340, -4000], [980, 300, -4000]], "dur": 9000},
+    {"type": "light", "kind": "bird", "depth": 0.2, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "delay": 2100, "path": [[1020, 300, -4000], [980, 330, -4000], [820, 340, -4000], [1010, 300, -4000]], "dur": 9000},
+    {"type": "light", "kind": "bird", "depth": 0.2, "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "delay": 2400, "path": [[1080, 300, -4000], [1060, 340, -4000], [780, 340, -4000], [1040, 300, -4000]], "dur": 9000},
+    {"type": "ground", "depth": 0.36, "y": 800, "amp": 18, "seed": 1133, "color": "#6a7454", "color2": "#3a4434", "grass": true, "grassColor": "#8a9a5a"},
+    {"type": "light", "depth": 0.4, "pos": [800, 800], "h": 102, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"1": {"pose": "raise"}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["chant", "wind"], "cam": {"pos": [800, 500, 1000], "look": [800, 540, -3000]}, "say": "God made Dawud king and prophet, and gave him the Zabur, the Psalms."},
+    {"dur": 11000, "ambient": ["chant", "birds"], "cam": {"pos": [800, 490, 1100], "look": [800, 480, -3000]}, "say": "When he glorified God, the mountains and the birds joined in his praise."},
+    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [800, 495, 1050], "look": [800, 500, -3000]}, "pendingVerse": {"ref": "34:10", "place": "sky"}}
+  ]
+}

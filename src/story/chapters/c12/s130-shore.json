@@ -23,7 +23,7 @@
     {"type": "water", "depth": 0.12, "points": [[-4000, 690], [800, 694], [6000, 698]], "w0": 70, "w1": 70, "reflect": [["0", "#c8dae4"], ["1", "#4a7a92"]]},
     {"type": "ground", "depth": 0.2, "y": 730, "amp": 4, "seed": 951, "color": "#d8c0a0", "color2": "#a88a6a"},
     {"type": "peak", "depth": 0.22, "x": 1500, "y": 420, "w": 700, "h": 360, "color": "#8a5a4a", "lit": "#c08a6a", "seed": 952},
-    {"type": "crowd", "area": [-300, 1900, -3200, -1500], "y": [796, 744], "count": 500, "size": 84, "color": "#ffe0b0", "dim": 0.3, "glow": 0.2, "mill": 8, "speed": 0, "flicker": 0.1},
+    {"type": "crowd", "area": [-300, 1900, -3200, -1500], "y": [796, 744], "count": 300, "size": 84, "color": "#ffe0b0", "dim": 0.45, "glow": 0.1, "mill": 8, "speed": 0, "flicker": 0.1},
     {"type": "light", "depth": 0.44, "pos": [800, 806], "h": 119, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"1": {"pose": "bow", "w": 1}}},
     {"type": "light", "depth": 0.44, "pos": [740, 808], "h": 119, "color": "#f8f2e6", "glow": 0.35, "bright": 1.1, "solid": 0.5},
     {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.2, "wind": [4, -2, 0], "swirl": 40}

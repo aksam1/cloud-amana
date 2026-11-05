@@ -41,8 +41,8 @@
     {"type": "staff", "show": [0, 1], "depth": 0.42, "x": 1020, "y": 818, "len": 57, "state": "serpent", "face": -1, "area": [950, 722, 1090, 826]},
     {"type": "staff", "show": [0, 1], "depth": 0.42, "x": 1160, "y": 806, "len": 57, "state": "serpent", "face": 1, "area": [1090, 722, 1230, 826]},
     {"type": "staff", "depth": 0.428, "x": 760, "y": 816, "len": 101, "area": [600, 652, 1000, 832], "at": {"1": {"state": "serpent", "len": 189}}},
-    {"type": "light", "depth": 0.43, "pos": [640, 800], "h": 116, "color": "#fffaf0", "glow": 0.6, "bright": 1.35},
-    {"type": "light", "depth": 0.43, "pos": [580, 802], "h": 116, "color": "#f8f2e6", "glow": 0.5, "bright": 1.25},
+    {"type": "light", "depth": 0.43, "pos": [640, 800], "h": 116, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "light", "depth": 0.43, "pos": [580, 802], "h": 116, "color": "#f8f2e6", "glow": 0.35, "bright": 1.1, "solid": 0.5},
     {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
   ],
   "beats": [

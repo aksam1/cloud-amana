@@ -28,9 +28,9 @@
     {"type": "crowd", "kind": "army", "show": [0, 2], "area": [1500, 2600, -9000, -7000], "y": [700, 690], "rows": 6, "cols": 30, "size": 28, "color": "#c8b8a8", "dim": 0.3, "glow": 0.3, "flow": [-1, 0], "speed": 30},
     {"type": "dust", "box": [1600, 0, -11000, 4200, 700, -6000], "count": 400, "size": 40, "color": "#c8a888", "opacity": 0.25, "wind": [-60, -10, 0], "swirl": 40, "blend": "normal", "show": [0, 2]},
     {"type": "ground", "depth": 0.3, "y": 760, "amp": 6, "seed": 942, "x0": -900, "x1": 2500, "color": "#c8b090", "color2": "#8a7458"},
-    {"type": "crowd", "area": [-200, 1800, -2200, -1400], "y": [802, 770], "count": 500, "size": 92, "color": "#ffe0b0", "dim": 0.3, "glow": 0.2, "mill": 4, "speed": 0, "flicker": 0.15, "at": {"3": {"area": [740, 860, -9000, -1400], "flow": [0, -1], "speed": 60, "mill": 1}}},
-    {"type": "light", "depth": 0.44, "pos": [800, 812], "h": 119, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "at": {"2": {"pose": "raise"}}},
-    {"type": "light", "depth": 0.44, "pos": [740, 814], "h": 119, "color": "#f8f2e6", "glow": 0.5, "bright": 1.25},
+    {"type": "crowd", "area": [-200, 1800, -2200, -1400], "y": [802, 770], "count": 320, "size": 92, "color": "#ffe0b0", "dim": 0.45, "glow": 0.1, "mill": 4, "speed": 0, "flicker": 0.15, "at": {"3": {"area": [740, 860, -9000, -1400], "flow": [0, -1], "speed": 60, "mill": 1}}},
+    {"type": "light", "depth": 0.44, "pos": [800, 812], "h": 119, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"2": {"pose": "raise"}}},
+    {"type": "light", "depth": 0.44, "pos": [740, 814], "h": 119, "color": "#f8f2e6", "glow": 0.35, "bright": 1.1, "solid": 0.5},
     {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.2, "wind": [4, -2, 0], "swirl": 40}
   ],
   "beats": [

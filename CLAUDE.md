@@ -151,7 +151,9 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `x0`–`x1` from the sea floor `y` up `h`, its sheer `face` side onto the path; part the sea with two walls
   whose `move` slides them apart and up, as The Sea Parts does).
   `tablets` (two stone tablets, `h`, rows of strokes for writing, `glow`) and `boat` (`w`, `hole`). `animals`
-  kinds `calf` (gold) and `yellowcow` (2:69).
+  kinds `calf` (gold) and `yellowcow` (2:69). `ants` (creatures.jsx) is a file of ink ants (`x0`–`x1` on `y`, `count`, `s`, `home`).
+- Crowds of people read best at `glow` 0.1–0.15 and `dim` 0.4 by day: brighter, hundreds of them wash out
+  into a band of white.
 - Ibrahim's land (`src/layers/ur.jsx`): `idol` (faceless; `kind` stone, wood, gilt, clay), `ziggurat`
   (stepped temple tower with stairs and shrine), `tent` (goat hair, `lit` lamp inside) and `ram` (only as
   light). `numerals` can `count` plainly from one (Hajar's seven runs).

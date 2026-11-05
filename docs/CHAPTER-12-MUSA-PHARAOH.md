@@ -50,7 +50,7 @@ the sea closing and the army's lights going out. Mockery is jagged strokes. No m
 - **Sound:** storm, rain → wind, rustle → wind, water → wind, air. **Art:** Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. The signs are those the Quran names (7:133): flood, locusts, lice, frogs and blood. They are shown on the land and the river, never on people.
 - **Image prompt:** Egypt under a sequence of signs: a storm and a flood spreading over green fields; a dark cloud of locusts streaming over yellowing wheat; the broad river running dark red under a heavy sky while the city stands silent; ink-wash and parchment texture.
 
-### 127 · By Night · الخروج ليلا (`exodus`)
+### 127 · By Night · الرحيل ليلا (`exodus`)
 - **Ayah:** 26:52. **Node:** musa.
 - **Beats.** (1) *Say:* Then God told Musa: travel by night with My servants, for you will be pursued. (2) *Say:* So the Children of Israel slipped out of Egypt in the dark, a great river of people following Musa and Harun toward the sea. (3) **Verse 26:52**, placed sky.
 - **Sound:** wind, voices → wind, voices → wind, air. **Art:** Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined. The Children of Israel appear as a long river of small warm lights.

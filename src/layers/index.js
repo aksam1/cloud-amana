@@ -5,7 +5,7 @@ import { Plots, Villagers, Haze } from './life.jsx';
 import { Town, Lane, Room, Stalls, Statues, Terrace, Doorway, Pillars } from './town.jsx';
 import { Throng, Deeds, Journeys, Followers, Refusal, Scribbles, Blooms, Jeers } from './folk.jsx';
 import { Ark, Flood, Springs, Waves, Oven } from './flood.jsx';
-import { Animals, Ears } from './creatures.jsx';
+import { Animals, Ants, Ears } from './creatures.jsx';
 import { Balance } from './madyan.jsx';
 import { Basket, Boat, Reeds, Seawall, Staff, Tablets } from './musa.jsx';
 import { Dunes, Column, Iram, Monument, Floor, Facade, Platform, Brazier, Pool, Palms, Terraces, Riverbed, Cloudbank, Sandwall, Trunks, Cliffs, Works, Block } from './iram.jsx';
@@ -67,6 +67,7 @@ export const LAYERS = {
   oven: Oven,
   animals: Animals,
   ears: Ears,
+  ants: Ants,
   balance: Balance,
   basket: Basket,
   reeds: Reeds,

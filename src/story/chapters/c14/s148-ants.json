@@ -1,0 +1,35 @@
+{
+  "id": "ants",
+  "chapter": 14,
+  "order": 148,
+  "node": "sulayman",
+  "title": "The Valley of the Ants",
+  "arabic": "النملة والجيش",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "The ant's warning is told as the Quran tells it (27:18); the ants are drawn in ink."],
+  "ambient": ["army", "wind"],
+  "base": "#d8c0a0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#dcc0a0", "fogNear": 6000, "fogFar": 40000, "light": 1.05, "rays": 0, "bloom": 0.6, "haze": 0.2, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 560, 900], "look": [800, 900, -3000]},
+  "imagePrompt": "A close view of dry sandy ground, a file of tiny ink-drawn ants hurrying into the dark mouth of their nest; far behind, ranks of an army of lights halting on the valley floor, and a steady light at their head smiling down; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [15, 16, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [16, 16.8, 10000]}, "2": {"tod": [16.8, 17.6, 12000]}}},
+    {"type": "ridge", "depth": 0.04, "y": 620, "amp": 50, "seed": 1160, "sharp": 0.4, "color": "#a08070", "haze": 0.4, "fog": 0.4},
+    {"type": "ground", "depth": 0.12, "y": 680, "amp": 6, "seed": 1161, "color": "#c8a880", "color2": "#9a7a58"},
+    {"type": "crowd", "kind": "army", "area": [-200, 1800, -6000, -4200], "y": [780, 730], "rows": 8, "cols": 30, "size": 66, "color": "#c8b8a8", "dim": 0.3, "glow": 0.3, "at": {"1": {"speed": 0}}},
+    {"type": "light", "depth": 0.17, "pos": [800, 700], "h": 43, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
+    {"type": "ground", "depth": 0.8, "y": 860, "amp": 4, "seed": 1162, "color": "#d0b088", "color2": "#a08060"},
+    {"type": "ants", "depth": 0.85, "x0": 200, "x1": 1100, "y": 900, "count": 46, "s": 9, "home": [1140, 904], "area": [100, 850, 1220, 940], "move": {"path": [[180, 0, 0]], "dur": 20000}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 10000, "ambient": ["army", "wind"], "cam": {"pos": [800, 560, 900], "look": [800, 900, -3000]}, "say": "Once, as Sulayman's army came to a valley, an ant called out: ants, go into your homes, or Sulayman and his soldiers may crush you without knowing."},
+    {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [800, 520, 1000], "look": [800, 640, -3000]}, "say": "Sulayman heard her and smiled, and he thanked God for His favour."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 520, 1000], "look": [800, 640, -3000]}, "pendingVerse": {"ref": "27:19", "place": "sky", "part": "his prayer, from \"My Lord, enable me to be grateful\""}}
+  ]
+}

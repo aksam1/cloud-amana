@@ -22,7 +22,7 @@
     {"type": "ridge", "depth": 0.03, "y": 640, "amp": 20, "seed": 1080, "sharp": 0.2, "color": "#7a8a6a", "haze": 0.4, "fog": 0.5},
     {"type": "ground", "depth": 0.06, "y": 660, "amp": 10, "seed": 1081, "color": "#7a9a5a", "color2": "#5a7a42", "grass": true, "grassColor": "#9aae68"},
     {"type": "dunes", "depth": 0.12, "y": 700, "amp": 20, "count": 9, "seed": 1082, "lit": "#f0c890", "body": "#c8925e", "shade": "#7a4a40"},
-    {"type": "crowd", "area": [-200, 1800, -4000, -2400], "y": [770, 720], "count": 400, "size": 71, "color": "#ffe0b0", "dim": 0.2, "glow": 0.35, "mill": 6, "speed": 0, "flicker": 0.1, "at": {"1": {"flow": [1, 0.3], "speed": 50, "mill": 3}}},
+    {"type": "crowd", "area": [-200, 1800, -4000, -2400], "y": [770, 720], "count": 300, "size": 71, "color": "#ffe0b0", "dim": 0.4, "glow": 0.12, "mill": 6, "speed": 0, "flicker": 0.1, "at": {"1": {"flow": [1, 0.3], "speed": 50, "mill": 3}}},
     {"type": "dunes", "depth": 0.3, "y": 800, "amp": 30, "count": 6, "seed": 1083, "lit": "#e8b880", "body": "#b8824e", "shade": "#6a3e34"},
     {"type": "light", "depth": 0.44, "pos": [860, 812], "h": 119, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5},
     {"type": "light", "depth": 0.44, "pos": [800, 814], "h": 119, "color": "#f8f2e6", "glow": 0.3, "bright": 1.05, "solid": 0.5},

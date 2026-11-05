@@ -35,7 +35,7 @@
     {"type": "spring", "depth": 0.38, "pos": [1052, 791], "r": 49, "squash": 0.26, "well": 0, "at": {"1": {"rise": [0, 1, 4000, 2740], "rim": 1}, "2": {"well": 1, "rim": 1}}},
     {"type": "spring", "depth": 0.36, "pos": [1124, 800], "r": 49, "squash": 0.26, "well": 0, "at": {"1": {"rise": [0, 1, 4000, 3000], "rim": 1}, "2": {"well": 1, "rim": 1}}},
     {"type": "spring", "depth": 0.38, "pos": [1196, 812], "r": 49, "squash": 0.26, "well": 0, "at": {"1": {"rise": [0, 1, 4000, 3260], "rim": 1}, "2": {"well": 1, "rim": 1}}},
-    {"type": "crowd", "area": [-300, 1900, -2900, -1700], "y": [798, 760], "count": 260, "size": 92, "color": "#ffe0b0", "dim": 0.2, "glow": 0.35, "mill": 8, "speed": 0, "flicker": 0.1, "at": {"2": {"mill": 3}}},
+    {"type": "crowd", "area": [-300, 1900, -2900, -1700], "y": [798, 760], "count": 260, "size": 92, "color": "#ffe0b0", "dim": 0.4, "glow": 0.12, "mill": 8, "speed": 0, "flicker": 0.1, "at": {"2": {"mill": 3}}},
     {"type": "light", "depth": 0.44, "pos": [800, 814], "h": 119, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"1": {"pose": "raise"}}},
     {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.28, "wind": [4, -2, 0], "swirl": 40}
   ],

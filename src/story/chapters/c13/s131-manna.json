@@ -27,7 +27,7 @@
     {"type": "tent", "depth": 0.21, "x": 1300, "y": 736, "w": 252, "h": 76, "lit": true, "ppu": 0.9},
     {"type": "tent", "depth": 0.26, "x": 520, "y": 760, "w": 312, "h": 94, "lit": true, "ppu": 0.9},
     {"type": "tent", "depth": 0.27, "x": 1120, "y": 764, "w": 324, "h": 97, "lit": false, "ppu": 0.9},
-    {"type": "crowd", "area": [-200, 1800, -2600, -1500], "y": [798, 760], "count": 240, "size": 92, "color": "#ffe0b0", "dim": 0.2, "glow": 0.35, "mill": 8, "speed": 0, "flicker": 0.1},
+    {"type": "crowd", "area": [-200, 1800, -2600, -1500], "y": [798, 760], "count": 240, "size": 92, "color": "#ffe0b0", "dim": 0.4, "glow": 0.12, "mill": 8, "speed": 0, "flicker": 0.1},
     {"type": "light", "kind": "bird", "depth": 0.2, "h": 10, "color": "#f4e8d0", "glow": 0.4, "bright": 1.1, "delay": 0, "path": [[200, 260, -4000], [500, 420, -4000], [700, 700, -4000]], "dur": 7000},
     {"type": "light", "kind": "bird", "depth": 0.2, "h": 10, "color": "#f4e8d0", "glow": 0.4, "bright": 1.1, "delay": 500, "path": [[340, 290, -4000], [610, 420, -4000], [780, 700, -4000]], "dur": 7000},
     {"type": "light", "kind": "bird", "depth": 0.2, "h": 10, "color": "#f4e8d0", "glow": 0.4, "bright": 1.1, "delay": 1000, "path": [[480, 320, -4000], [720, 420, -4000], [860, 700, -4000]], "dur": 7000},

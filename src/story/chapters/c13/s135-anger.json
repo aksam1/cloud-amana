@@ -29,7 +29,7 @@
     {"type": "animals", "depth": 0.36, "fade": "none", "area": [740, 680, 880, 800], "pairs": [{"kind": "calf", "solo": true, "s": 1.01, "path": [[810, 776]]}], "show": [0, 2]},
     {"type": "fire", "show": [2, null], "depth": 0.361, "pos": [810, 780], "w": 130, "h": 162, "heat": 1, "at": {"3": {"cool": 1, "coolDur": 3000}}},
     {"type": "dust", "box": [-200, 300, -2600, 2400, 900, -1800], "count": 600, "size": 5, "color": "#3a3434", "opacity": 0.5, "wind": [120, 6, 0], "swirl": 40, "blend": "normal", "show": [2, null]},
-    {"type": "crowd", "area": [200, 1500, -2600, -1700], "y": [798, 760], "count": 200, "size": 92, "color": "#ffe0b0", "dim": 0.35, "glow": 0.35, "mill": 8, "speed": 0, "flicker": 0.1},
+    {"type": "crowd", "area": [200, 1500, -2600, -1700], "y": [798, 760], "count": 200, "size": 92, "color": "#ffe0b0", "dim": 0.35, "glow": 0.12, "mill": 8, "speed": 0, "flicker": 0.1},
     {"type": "tablets", "depth": 0.44, "x": 560, "y": 816, "h": 46, "area": [500, 700, 620, 820]},
     {"type": "light", "depth": 0.44, "pos": [640, 808], "h": 119, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "at": {"1": {"pos": [700, 808]}, "2": {"pos": [700, 808], "pose": "kneel"}, "3": {"pos": [700, 808], "pose": "kneel"}}},
     {"type": "light", "depth": 0.44, "pos": [760, 808], "h": 119, "color": "#f8f2e6", "glow": 0.5, "bright": 1.25, "at": {"2": {"pose": "kneel"}, "3": {"pose": "kneel"}}},

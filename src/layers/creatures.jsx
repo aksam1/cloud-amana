@@ -211,3 +211,41 @@ export function Ears({ cfg }) {
     </Svg>
   );
 }
+
+/**
+ * A file of ants in ink hurrying along the ground from `x0` to `x1` on the line `y` (the valley of the ants,
+ * 27:18): `count` of them, each `s` long; `home` [x, y] draws the dark mouth of their nest.
+ */
+export function Ants({ cfg }) {
+  const { x0 = 300, x1 = 1300, y = 800, count = 40, s = 6, seed = 5, home } = cfg;
+  const ants = useMemo(() => {
+    const out = [];
+    for (let i = 0; i < count; i++) {
+      const u = i / Math.max(1, count - 1);
+      const v = Math.sin((i + seed) * 12.9898) * 43758.5453;
+      const j = v - Math.floor(v);
+      out.push({ x: x0 + (x1 - x0) * u + (j - 0.5) * s * 3, y: y + Math.sin(u * 9 + seed) * s * 1.5 + (j - 0.5) * s, a: (j - 0.5) * 30 });
+    }
+    return out;
+  }, [x0, x1, y, count, s, seed]);
+  return (
+    <Svg>
+      {home && <ellipse cx={home[0]} cy={home[1]} rx={s * 3} ry={s * 1.1} fill="#1a120c" />}
+      {ants.map((a, i) => (
+        <g key={i} transform={`translate(${a.x} ${a.y}) rotate(${a.a}) scale(${s / 10})`}>
+          <ellipse cx="-5" cy="0" rx="3.2" ry="2.2" fill={INK} />
+          <ellipse cx="0" cy="0" rx="1.8" ry="1.4" fill={INK} />
+          <circle cx="3.6" cy="-0.4" r="1.7" fill={INK} />
+          {[-2, 0, 2].map((k) => (
+            <path key={k} d={`M${k * 0.6},0 l${k * 0.8 - 1},-3 M${k * 0.6},0 l${k * 0.8 - 1},3`} stroke={INK} strokeWidth="0.6" />
+          ))}
+          <path d="M4.6,-1.2 l2,-2.2 M4.6,-0.6 l2.4,-1" stroke={INK} strokeWidth="0.5" />
+        </g>
+      ))}
+    </Svg>
+  );
+}
+Ants.bounds = (c) => {
+  const { x0 = 300, x1 = 1300, y = 800, s = 6 } = c;
+  return [x0 - s * 6, y - s * 6, x1 + s * 6, y + s * 6];
+};
