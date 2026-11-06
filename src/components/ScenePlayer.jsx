@@ -10,6 +10,8 @@ import { cameraAt, chapterByNumber, chapterScenes, nextNodeId, nextScene, nodeBy
 import { captionHoldMs } from '../lib/pacing.js';
 import { ambience } from '../lib/audio.js';
 import { lightNode, markSeen, setLast, setPref, useStore } from '../lib/store.js';
+import { inMode, useMode } from '../lib/words.js';
+import { lessonAfter, lessonKey, watchForAt } from '../lib/lessons.js';
 import { go } from '../lib/router.js';
 import { roman } from '../lib/geo.js';
 
@@ -18,8 +20,9 @@ const GLStage = lazy(() => import('../gl/GLStage.jsx'));
 
 const EASE = { inOut: [0.45, 0, 0.25, 1], out: [0.15, 0.6, 0.3, 1], in: [0.6, 0, 0.9, 0.5], linear: 'linear' };
 const TITLE_MS = 2800;
+const WATCH_MS = 6500; // long enough to read the question to watch for
 
-export default function ScenePlayer({ id, beat, still = false, moment }) {
+export default function ScenePlayer({ id, beat, still = false, moment, back }) {
   const scene = sceneById[id];
   if (!scene) {
     return (
@@ -35,7 +38,7 @@ export default function ScenePlayer({ id, beat, still = false, moment }) {
     );
   }
   const start = Math.min(scene.beats.length - 1, Math.max(0, parseInt(beat, 10) || 0));
-  return <Player scene={scene} start={start} still={still} moment={moment} />;
+  return <Player scene={scene} start={start} still={still} moment={moment} back={back} />;
 }
 
 /*
@@ -50,7 +53,7 @@ export default function ScenePlayer({ id, beat, still = false, moment }) {
  * `still` (#/scene/<id>?beat=n&still) holds one moment for review: paused, no title card, the camera
  * already where that beat ends; `moment` (&t=0–1) holds a WebGL scene's walks and moves part way through.
  */
-function Player({ scene, start = 0, still = false, moment }) {
+function Player({ scene, start = 0, still = false, moment, back }) {
   const prefs = useStore((s) => s.prefs);
   const reduced = useReducedMotion();
   const cam = useCamera();
@@ -81,6 +84,9 @@ function Player({ scene, start = 0, still = false, moment }) {
     return () => clearTimeout(t);
   }, [next, still]);
   const prev = prevScene(scene.id);
+  // a part that has a lesson opens with the question to watch for (on the bridge page for a chapter's first part)
+  const watchFor = still || start !== 0 ? null : watchForAt(scene);
+  const learned = useStore((s) => s.learned);
 
   const durations = useMemo(
     () => beats.map((bt) => Math.max(bt.dur ?? 6000, captionHoldMs({ en: bt.verse?.en || '', ar: bt.verse ? verseArabic(bt.verse) : '', say: bt.say || '' }))),
@@ -96,9 +102,9 @@ function Player({ scene, start = 0, still = false, moment }) {
     setLast(scene.id);
     lightNode(scene.node);
     if (bridge) return undefined;
-    const t = setTimeout(() => setTitleCard(false), TITLE_MS);
+    const t = setTimeout(() => setTitleCard(false), watchFor ? WATCH_MS : TITLE_MS);
     return () => clearTimeout(t);
-  }, [scene, cam, start, still, bridge]);
+  }, [scene, cam, start, still, bridge, watchFor]);
 
   // Camera: each beat glides (or cuts) to its framing; skipping ahead interrupts and re-aims.
   useEffect(() => {
@@ -138,12 +144,15 @@ function Player({ scene, start = 0, still = false, moment }) {
 
   const continueOn = useCallback(() => {
     markSeen(scene.id);
+    // a moment replayed from a lesson question goes back to that lesson
+    if (back) return go(back);
     const crossesNode = !next || next.node !== scene.node;
-    if (scene.then === 'map' || !next) {
-      const to = crossesNode && next ? next.node : nextNodeId(scene.node);
-      go(`/map?from=${scene.node}&arrive=${to}`);
-    } else go(`/scene/${next.id}`);
-  }, [scene, next]);
+    const target = scene.then === 'map' || !next ? `/map?from=${scene.node}&arrive=${crossesNode && next ? next.node : nextNodeId(scene.node)}` : `/scene/${next.id}`;
+    // the end of a part with a lesson goes to the lesson first; the lesson then continues to `target`
+    const part = lessonAfter(scene);
+    if (part !== null && !learned[lessonKey(scene.chapter, part)]) go(`/lesson/${scene.chapter}/${part}?then=${encodeURIComponent(target)}`);
+    else go(target);
+  }, [scene, next, back, learned]);
 
   // A part's last scene flows straight into the map ("the camera pulls back into the campaign map")
   // when the viewer is watching hands-free; in manual mode the Continue button waits for them.
@@ -233,7 +242,8 @@ function Player({ scene, start = 0, still = false, moment }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [goNext, goPrev, help, ayahOpen, prefs.chronicle, toggleSound]);
 
-  const lines = useMemo(() => beats.slice(0, beat + 1).filter((bt) => bt.say).map((bt) => bt.say), [beats, beat]);
+  const { mode } = useMode();
+  const lines = useMemo(() => beats.slice(0, beat + 1).filter((bt) => bt.say).map((bt) => inMode(bt.say, mode)), [beats, beat, mode]);
   const frozen = !playing || ayahOpen || help || bridge;
   const nextLabel = scene.then === 'map' || !next ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `${roman(next.order)}. ${next.title}`;
 
@@ -269,7 +279,7 @@ function Player({ scene, start = 0, still = false, moment }) {
         aria-hidden="true"
       />
 
-      <AnimatePresence>{bridge && <BridgeCard chapter={chapter} onBegin={() => setBridge(false)} />}</AnimatePresence>
+      <AnimatePresence>{bridge && <BridgeCard chapter={chapter} watchFor={watchFor} onBegin={() => setBridge(false)} />}</AnimatePresence>
 
       <AnimatePresence>
         {titleCard && !bridge && (
@@ -287,6 +297,12 @@ function Player({ scene, start = 0, still = false, moment }) {
                 <SourceBadge source={scene.source} />
               </div>
               {scene.source === 'tradition' && <p className="mt-2 font-body text-[1rem] italic text-ivory/80">Based on hadith and classical narrations, not the Quran.</p>}
+              {watchFor && (
+                <p className="mx-auto mt-5 max-w-[46ch] font-body text-[1.1rem] leading-snug text-ivory">
+                  <span className="caps mr-2 text-[0.62rem] text-gold-hi">Watch for</span>
+                  {inMode(watchFor, mode)}
+                </p>
+              )}
             </div>
           </motion.div>
         )}

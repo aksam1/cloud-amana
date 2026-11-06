@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { roman } from '../lib/geo.js';
+import { useMode } from '../lib/words.js';
 
 /**
  * The page between stories: before a chapter's first scene, a parchment card tells the reader where and
  * when they are, how this story follows from the last, and the family line that joins them. The scene
  * holds (paused) until the reader begins. `bridge` in chapter.json: { when, where, line: [names], text: [paragraphs] }.
  */
-export function BridgeCard({ chapter, onBegin }) {
+export function BridgeCard({ chapter, watchFor, onBegin }) {
   const { when, where, line = [], text = [] } = chapter.bridge;
+  const { say } = useMode();
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
@@ -66,9 +68,15 @@ export function BridgeCard({ chapter, onBegin }) {
         )}
         <div className="mt-3 space-y-2 font-body text-[1.02rem] leading-relaxed text-ink">
           {text.map((p, i) => (
-            <p key={i}>{p}</p>
+            <p key={i}>{say(p)}</p>
           ))}
         </div>
+        {watchFor && (
+          <div className="mt-4 rounded-md border border-[#8a6a2e]/40 bg-[#5a3d22]/5 px-3 py-2">
+            <div className="caps text-[0.6rem] text-ink-soft">Watch for</div>
+            <p className="font-body text-[1.02rem] leading-snug text-ink">{say(watchFor)}</p>
+          </div>
+        )}
         <div className="mt-4 flex justify-end">
           <button type="button" className="hud-btn" onClick={onBegin} autoFocus>
             Begin

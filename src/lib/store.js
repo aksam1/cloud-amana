@@ -7,7 +7,10 @@ const DEFAULTS = {
   seen: {}, // sceneId → true once its last beat has played
   lit: { earth: true }, // map nodes the story has reached
   last: null, // last scene opened
-  prefs: { sound: false, auto: true, chronicle: true },
+  learned: {}, // "chapter:part" → true once that part's lesson is finished
+  answers: {}, // "chapter:part:question" → true once answered right (for review on the next visit)
+  journal: {}, // "chapter:part" → the reader's own reflection; never leaves this browser
+  prefs: { sound: false, auto: true, chronicle: true, mode: null }, // mode: 'muslim' | 'curious' | null (not chosen)
 };
 
 function load() {
@@ -51,4 +54,8 @@ export const setPref = (k, v) => update((s) => void (s.prefs[k] = v));
 export const markSeen = (id) => update((s) => void (s.seen[id] = true));
 export const lightNode = (id) => update((s) => void (s.lit[id] = true));
 export const setLast = (id) => update((s) => void (s.last = id));
-export const resetProgress = () => update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs }));
+export const markLearned = (key) => update((s) => void (s.learned[key] = true));
+export const markAnswered = (key) => update((s) => void (s.answers[key] = true));
+export const saveJournal = (key, text) => update((s) => void (s.journal[key] = text));
+// Starting again keeps preferences and the reader's private journal; only progress is cleared.
+export const resetProgress = () => update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs, journal: s.journal }));

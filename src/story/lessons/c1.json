@@ -1,0 +1,40 @@
+{
+  "chapter": 1,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Iblis goes wrong, and so do Adam and Hawwa. Watch what each one does next.",
+      "questions": [
+        {
+          "q": "What did God create the jinn from?",
+          "options": ["Clay", "Light", "A smokeless flame of fire", "Water"],
+          "answer": 2,
+          "replay": { "scene": "jinn", "beat": 1 }
+        },
+        {
+          "q": "Why did Iblis refuse to bow to Adam?",
+          "options": ["He did not hear the command", "He thought he was better than Adam", "He was afraid of Adam", "He was away from the heavens"],
+          "answer": 1,
+          "replay": { "scene": "refusal", "beat": 3 }
+        },
+        {
+          "q": "What did Adam and Hawwa do after they ate from the tree?",
+          "options": ["Blamed Iblis", "Blamed each other", "Hid in the Garden", "Turned back to their Lord and asked forgiveness"],
+          "answer": 3,
+          "replay": { "scene": "repentance", "beat": 1 }
+        }
+      ],
+      "lesson": {
+        "text": "Everyone slips. Pride makes excuses, as Iblis did; repentance turns back, as Adam and Hawwa did. God accepts those who turn back.",
+        "curious": "Muslims learn from this that every person makes mistakes, and that what matters is turning back to God rather than blaming others.",
+        "ref": "2:37"
+      },
+      "carry": { "title": "Adam and Hawwa's prayer for forgiveness", "ref": "7:23" },
+      "reflect": {
+        "muslim": "Think of a time you were wrong. Did you make excuses, or did you turn back?",
+        "curious": "Why do you think the story shows two different responses to a mistake?"
+      },
+      "act": "When you're wrong, admit it before you explain."
+    }
+  ]
+}

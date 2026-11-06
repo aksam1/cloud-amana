@@ -9,6 +9,7 @@ import Title from './components/Title.jsx';
 const ScenePlayer = lazy(() => import('./components/ScenePlayer.jsx'));
 const CampaignMap = lazy(() => import('./components/CampaignMap.jsx'));
 const Sheet = lazy(() => import('./components/Sheet.jsx'));
+const Lesson = lazy(() => import('./components/Lesson.jsx'));
 
 /** Shown until the calligraphy fonts arrive (capped, so a slow network never blocks the story). */
 function Loader() {
@@ -51,7 +52,9 @@ export default function App() {
       <motion.div key={route.key} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75, ease: 'easeInOut' }}>
         <Suspense fallback={<Loader />}>
           {route.name === 'scene' ? (
-            <ScenePlayer id={route.id} beat={route.query.beat} still={'still' in route.query} moment={route.query.t} />
+            <ScenePlayer id={route.id} beat={route.query.beat} still={'still' in route.query} moment={route.query.t} back={route.query.back} />
+          ) : route.name === 'lesson' ? (
+            <Lesson chapter={+route.id} part={+route.part} then={route.query.then} />
           ) : route.name === 'sheet' ? (
             <Sheet id={route.id} device={route.query.device} />
           ) : route.name === 'map' ? (

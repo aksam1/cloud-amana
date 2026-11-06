@@ -5,7 +5,7 @@ Read this first, then `CLAUDE.md` (the rules and engine notes), then `.claude/sk
 ## 1. What this is
 - An Islamic story app: the prophets' stories from the Quran as painted, animated WebGL scenes.
 - Vite + React 19 + three/R3F. Each scene is one JSON file in `src/story/chapters/c<N>/s<NN>-<id>.json`.
-- Live app (private artifact, version 18): https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq
+- Live app (public artifact, version 19: Muslim/Exploring views and the first lesson): https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq
 - Repo: `aksam1/cloud-amana`, working branch `claude/hopeful-volta-f4sesq`.
 
 ## 2. How the user likes to work

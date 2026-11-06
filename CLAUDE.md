@@ -1,8 +1,8 @@
 # Amanah: working notes for Claude
 
 An Islamic story app (Vite 8, React 19, motion, Tailwind 4, three/R3F). Each scene is a JSON file in
-`src/story/chapters/c<N>/`; the campaign map is the main navigation. It is published as a private
-artifact at https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq. Chapters arrive as pasted briefs; the
+`src/story/chapters/c<N>/`; the campaign map is the main navigation. It is published as an
+artifact (shared publicly: anyone with the link can open it) at https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq. Chapters arrive as pasted briefs; the
 `chapter` skill (`.claude/skills/chapter/SKILL.md`) is the step-by-step workflow for turning one into scenes.
 
 ## Content rules (never break these)
@@ -49,6 +49,21 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Chapter 18, Stories of Wisdom (map stop `wisdom`), holds stories whose time is uncertain or that sit
   outside the line of prophets (the Cave, Dhul-Qarnayn, the two gardens, the owners of the garden, Saba's dam,
   the town of the messengers, the hundred years, Luqman).
+
+## Two views and lessons
+
+- The reader picks a view on the title screen (`prefs.mode`: `muslim` or `curious`, switchable any time;
+  labels live in `src/lib/words.js` `MODES`). Scenes and verses are identical in both. The Muslim view shows
+  "Allah" where narration uses "God" as His name (`inMode`, case-sensitive, leaves "the God of Musa", "your
+  God", "god", "gods" alone), adds the dua step and the weekly action. Keep writing "God" in `say`.
+- Lessons are data in `src/story/lessons/c<N>.json` (not chapter.json: the generators rewrite that), one per
+  part: `watchFor`, `questions` [{q, options, answer, replay {scene, beat}}], `lesson` {text, curious, ref},
+  `carry` {title, ref}, `reflect` {muslim, curious}, `act`. Verses by `ref` only, never typed; write "God".
+  `npm run check` validates them. `src/lib/lessons.js` loads them; `src/components/Lesson.jsx` is
+  `#/lesson/<chapter>/<part>?then=<route>`, opened automatically at the end of a part not yet learned.
+  "See the moment again" plays `#/scene/<id>?beat=n&back=<lesson>` and returns to the lesson.
+- Progress: `learned`, `answers` and the private `journal` in `src/lib/store.js` (localStorage only).
+  Chapter 1 part 0 is the pilot lesson; part 1 and other chapters are still to write.
 
 ## Reviewing scenes (do this for every beat)
 

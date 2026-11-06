@@ -5,6 +5,7 @@ import { go } from '../lib/router.js';
 import { ambience } from '../lib/audio.js';
 import { roman } from '../lib/geo.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
+import { ModePicker } from './ModePicker.jsx';
 
 /*
  * The concept story in one screen: the Trust was offered to the heavens, the earth and the
@@ -12,6 +13,7 @@ import { GeoField, Icon, Rule } from './Ornaments.jsx';
  */
 export default function Title() {
   const { last, seen, prefs } = useStore();
+  const chosen = !!prefs.mode;
   const resume = last && sceneById[last];
   const started = Object.keys(seen).length > 0 || !!resume;
   const first = sceneList[0];
@@ -48,6 +50,13 @@ export default function Title() {
           <figcaption className="caps mt-2 text-[0.6rem] text-gold/75">Quran 33:72</figcaption>
         </motion.figure>
 
+        {!chosen && (
+          <motion.div className="mt-8 flex w-full flex-col items-center gap-3" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.4, duration: 0.9 }}>
+            <p className="caps text-[0.66rem] text-gold/85">How would you like to explore? You can switch any time.</p>
+            <ModePicker full />
+          </motion.div>
+        )}
+
         <motion.div className="mt-8 flex flex-col items-center gap-3 sm:flex-row" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.6, duration: 0.9 }}>
           {resume ? (
             <button type="button" className="btn-gold" onClick={() => go(`/scene/${resume.id}`)} autoFocus>
@@ -55,7 +64,7 @@ export default function Title() {
               <span className="max-w-[70vw] truncate">Continue · {roman(resume.order)}. {resume.title}</span>
             </button>
           ) : (
-            <button type="button" className="btn-gold" onClick={() => go(`/scene/${first.id}`)} autoFocus>
+            <button type="button" className="btn-gold" onClick={() => go(`/scene/${first.id}`)} autoFocus={chosen}>
               <Icon name="play" className="h-4 w-4" />
               Begin the chronicle
             </button>
@@ -71,6 +80,7 @@ export default function Title() {
             <Icon name={prefs.sound ? 'soundOn' : 'soundOff'} className="h-4 w-4" />
             {prefs.sound ? 'Ambient sound on' : 'Ambient sound off'} <span className="text-ivory/50">· wind, fire, water; no music</span>
           </button>
+          {chosen && <ModePicker />}
           {started && (
             <button type="button" className="min-h-[44px] font-body text-[1rem] text-ivory/55 underline-offset-4 hover:text-ivory hover:underline" onClick={() => resetProgress()}>
               Start again from the beginning

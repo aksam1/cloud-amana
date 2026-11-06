@@ -90,7 +90,45 @@ for (const s of scenes) {
   });
 }
 
+// ── Lessons (src/story/lessons/c<N>.json): one per part, verses by ref only ──
+const lessonDir = join(root, 'src/story/lessons');
+const chapterFiles = walk(join(root, 'src/story/chapters')).filter((f) => f.endsWith('chapter.json')).map((f) => JSON.parse(readFileSync(f, 'utf8')));
+const sceneIds = new Map(scenes.map((s) => [s.id, s]));
+let lessonCount = 0;
+for (const f of readdirSync(lessonDir).filter((f) => f.endsWith('.json'))) {
+  const where = `src/story/lessons/${f}`;
+  const L = JSON.parse(readFileSync(join(lessonDir, f), 'utf8'));
+  const ch = chapterFiles.find((c) => c.number === L.chapter);
+  if (!ch) { errors.push(`${where}: no chapter ${L.chapter}`); continue; }
+  for (const p of L.parts || []) {
+    const at = `${where} part ${p.part}`;
+    lessonCount++;
+    if (!ch.parts?.[p.part]) errors.push(`${at}: chapter ${L.chapter} has no part ${p.part}`);
+    if (!p.watchFor) warns.push(`${at}: no watchFor question`);
+    if (!p.questions?.length) errors.push(`${at}: needs at least one question`);
+    (p.questions || []).forEach((q, i) => {
+      if (!q.q || !Array.isArray(q.options) || q.options.length < 2) errors.push(`${at} question ${i}: needs q and 2+ options`);
+      if (!(q.answer >= 0 && q.answer < (q.options || []).length)) errors.push(`${at} question ${i}: answer ${q.answer} is not one of the options`);
+      if (new Set(q.options).size !== (q.options || []).length) errors.push(`${at} question ${i}: two options are the same`);
+      if (q.replay) {
+        const sc = sceneIds.get(q.replay.scene);
+        if (!sc) errors.push(`${at} question ${i}: replay scene "${q.replay.scene}" does not exist`);
+        else if (!(q.replay.beat >= 0 && q.replay.beat < sc.beats.length)) errors.push(`${at} question ${i}: scene "${sc.id}" has no beat ${q.replay.beat}`);
+      } else warns.push(`${at} question ${i}: no replay moment`);
+    });
+    if (!p.lesson?.text) errors.push(`${at}: needs lesson.text`);
+    if (!p.reflect?.muslim || !p.reflect?.curious) errors.push(`${at}: needs reflect.muslim and reflect.curious`);
+    // verses are shown from ayahs.json by ref; the lesson file must never carry Quran text itself
+    for (const [k, ref] of [['lesson', p.lesson?.ref], ['carry', p.carry?.ref]]) {
+      if (ref && !ayahs[ref]) warns.push(`${at}: ${k} verse ${ref} not fetched yet (shown once it is)`);
+    }
+    const all = JSON.stringify(p);
+    if (/[؀-ۿ]/.test(all)) errors.push(`${at}: Arabic typed into a lesson; give a verse ref instead`);
+    if (/\bAllah\b/.test(all)) errors.push(`${at}: write "God" in lessons; the Muslim view shows Allah automatically`);
+  }
+}
+
 warns.forEach((w) => console.warn('warn ', w));
 errors.forEach((e) => console.error('ERROR', e));
-console.log(`${scenes.length} scenes · ${scenes.reduce((n, s) => n + s.beats.filter((b) => b.verse).length, 0)} verse captions · ${errors.length} errors · ${warns.length} warnings`);
+console.log(`${scenes.length} scenes · ${scenes.reduce((n, s) => n + s.beats.filter((b) => b.verse).length, 0)} verse captions · ${lessonCount} lessons · ${errors.length} errors · ${warns.length} warnings`);
 process.exit(errors.length ? 1 : 0);
