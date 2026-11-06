@@ -8,6 +8,16 @@ Read this first, then `CLAUDE.md` (the rules and engine notes), then `.claude/sk
 - Live app (public artifact, version 19: Muslim/Exploring views and the first lesson): https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq
 - Repo: `aksam1/cloud-amana`, working branch `claude/hopeful-volta-f4sesq`.
 
+## 1b. The bigger vision (from the user)
+The web app is meant to have two parts:
+1. **The story (built):** visual storytelling of the history of our ancestors, the prophets, so we can learn from it.
+2. **A faith check (not started):** lets someone reflect on where their faith stands. The user first described it
+   as "check your faith rank and where it may land you in the afterlife".
+   - Care needed: in Islam only God knows and judges anyone's final place, so the app should never tell a
+     person they are headed to Paradise or Hell. Frame it as private self-reflection and growth (prayer,
+     Quran, character, charity, kindness), with encouragement from Quran and authentic hadith and next
+     steps to improve. Agree the framing with the user before building it.
+
 ## 2. How the user likes to work
 - They find it hard to conceptualise things: give every report as **ordered, numbered steps**.
 - They want **ambitious visuals**. Keep going without waiting unless a decision is truly theirs.
