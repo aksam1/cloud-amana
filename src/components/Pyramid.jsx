@@ -8,6 +8,12 @@ import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import Monument from './Monument.jsx';
 import Nav from './Nav.jsx';
+import imgHeavens from '../assets/previews/heavens.webp';
+import imgSearch from '../assets/previews/search.webp';
+import imgStars from '../assets/previews/stars.webp';
+import imgRestored from '../assets/previews/restored.webp';
+import imgSea from '../assets/previews/sea.webp';
+import imgGourd from '../assets/previews/gourd.webp';
 
 /*
  * The Pyramid of Righteousness (hadith of Jibril: Islam, Iman, Ihsan). One component, four views:
@@ -28,10 +34,9 @@ export default function Pyramid({ view = 'landing' }) {
 
 function Shell({ children, back, title, stars = false, here }) {
   return (
-    <div className="parchment-night thin-scroll relative h-full w-full overflow-y-auto">
-      <GeoField opacity={0.05} size={140} />
+    <div className="thin-scroll relative h-full w-full overflow-y-auto" style={{ background: NIGHT }}>
       {stars && <Stars />}
-      <div className="relative z-10 mx-auto flex min-h-full max-w-[600px] flex-col px-5 pb-6 pt-3">
+      <div className="relative z-10 mx-auto flex min-h-full max-w-[600px] flex-col px-5 pb-28 pt-3 sm:pb-6">
         {here && (
           <div className="mb-3">
             <Nav here={here} />
@@ -44,7 +49,7 @@ function Shell({ children, back, title, stars = false, here }) {
                 <Icon name="prev" className="h-4 w-4" />
               </button>
             )}
-            {title && <div className="caps text-[0.66rem] text-gold/85">{title}</div>}
+            {title && <div className="font-body text-[1.1rem] italic text-gold/85">{title}</div>}
           </header>
         )}
         {children}
@@ -53,11 +58,14 @@ function Shell({ children, back, title, stars = false, here }) {
   );
 }
 
+// The same night as the home page's sky, without the dusk: the pages after it feel like one place.
+const NIGHT = 'linear-gradient(180deg, #070a1a 0%, #0e1530 34%, #171427 70%, #0b0a0e 100%) fixed';
+
 // A sparse field of stars over the night sky (fixed positions, so it never shifts between renders).
 const STARS = Array.from({ length: 46 }, (_, i) => ({ x: (i * 37.7) % 100, y: (i * 23.3) % 46, r: i % 7 === 0 ? 1.4 : 0.8, o: 0.25 + ((i * 13) % 50) / 100 }));
 function Stars() {
   return (
-    <svg className="pointer-events-none absolute inset-x-0 top-0 h-[60vh] w-full" preserveAspectRatio="none" viewBox="0 0 100 50" aria-hidden="true">
+    <svg className="pointer-events-none absolute inset-x-0 top-0 h-[46%] w-full" preserveAspectRatio="none" viewBox="0 0 100 50" aria-hidden="true">
       {STARS.map((s, i) => (
         <circle key={i} cx={s.x} cy={s.y} r={s.r * 0.12} fill="#f3e7cc" opacity={s.o} />
       ))}
@@ -108,6 +116,12 @@ function suggestion(state, current) {
   return order.find((u) => playable(u.id) && !completed(state, u.id))?.id || PLAYABLE[0];
 }
 
+/** A unit's or level's plain-English words as the current view reads them (Allah in the Muslim view). */
+const useSay = () => {
+  const { mode } = useMode();
+  return (t) => inMode(t, mode);
+};
+
 // Messengers is the chronicle: its stone goes straight back into the story, not to a second home page.
 export const unitHref = (id) => (unitStatus(id) === 'history' ? '/stories' : `/unit/${id}`);
 
@@ -122,160 +136,222 @@ const STEP_NAME = { story: 'the story', choice: 'the choice', teaching: 'the tea
 
 function UnitChip({ id }) {
   const u = unitById[id];
+  const say = useSay();
   return (
     <button type="button" onClick={() => go(unitHref(id))} className="rounded-full border border-gold/35 bg-black/25 px-3 py-1.5 font-body text-[1rem] text-ivory hover:border-gold-hi">
-      {u.title} <span className="text-ivory/60">· {u.english}</span>
+      {u.title} <span className="ml-1 text-ivory/60">{say(u.english)}</span>
     </button>
   );
 }
 
 // ── Landing ───────────────────────────────────────────────
 
+// Stills from the chronicle, in story order (captured from the scenes themselves; about 48 KB together).
+const STORIES = [
+  { id: 'heavens', img: imgHeavens, title: 'The heavens and the earth are created', who: 'Creation, chapter 1' },
+  { id: 'search', img: imgSearch, title: 'The star, the moon and the sun', who: 'Ibrahim, chapter 6' },
+  { id: 'stars', img: imgStars, title: 'Eleven stars', who: 'Yusuf, chapter 9' },
+  { id: 'restored', img: imgRestored, title: 'Restored', who: 'Ayyub, chapter 10' },
+  { id: 'sea', img: imgSea, title: 'The sea parts', who: 'Musa, chapter 12' },
+  { id: 'gourd', img: imgGourd, title: 'Cast on the shore', who: 'Yunus, chapter 15' },
+];
+
+/*
+ * The home page. One bold element: the monument at dusk, lit by the last sun, its levels carved in Arabic.
+ * Everything around it stays quiet: a headline, one sentence, one main button for where this person is.
+ */
 function Landing() {
   const { mode } = useMode();
   const c = useClimb();
   const [selected, setSelected] = useState(null);
   const placed = !!c.state.placement;
   const next = suggestion(c.state, c.current);
-  const level = levelById[c.current];
-  const idx = LEVELS.findIndex((l) => l.id === c.current);
-  const above = LEVELS[idx + 1];
   const resume = resumePoint(c.state);
   const stale = placed && Date.now() - new Date(c.state.placement.at || 0).getTime() > 30 * DAY;
 
-  return (
-    <Shell stars here="pyramid">
-      <div className="caps text-center text-[0.62rem] text-gold/80">From the hadith of Jibril · Islam, Iman, Ihsan</div>
-      <motion.h1 className="mt-1 text-center font-display text-[1.7rem] font-semibold leading-tight text-gold-hi sm:text-[2.1rem]" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
-        The Pyramid of Righteousness
-      </motion.h1>
-      <p className="mt-1 text-center font-body text-[1.25rem] italic text-ivory/85">Where do you stand on the path?</p>
+  // The one main action for this visitor, and the line under it.
+  const resumeUnit = resume?.kind === 'unit' && unitById[resume.id];
+  const cta = resume
+    ? {
+        label: resumeUnit ? `Continue ${resumeUnit.title}` : 'Continue the story',
+        href: resumeUnit ? `/unit/${resume.id}` : `/scene/${resume.id}`,
+        note: resumeUnit ? `${inMode(resumeUnit.english, mode)}: you were on ${STEP_NAME[resume.step] || 'the lesson'}.` : `You were at “${resume.title}”.`,
+        region: true,
+      }
+    : placed
+      ? {
+          label: unitStatus(next) === 'history' ? 'Continue the stories' : `Begin ${unitById[next].title}`,
+          href: unitHref(next),
+          note: unitStatus(next) === 'history' ? 'Next on your climb: the stories of the prophets.' : `Next on your climb: ${inMode(unitById[next].english, mode).toLowerCase()}.`,
+        }
+      : { label: 'Begin your journey', href: '/pyramid/placement', note: 'A few private questions first. About 3 minutes, and never a grade.' };
+  const secondary = placed ? { label: 'Your progress', href: '/pyramid/progress' } : { label: 'Watch the stories first', href: '/stories' };
 
-      <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3, duration: 1.1 }}>
-        <Monument
-          className="mx-auto mt-2 w-full max-w-[520px]"
-          meters={c.meters}
-          done={c.done}
-          lit={c.lit}
-          peak={c.peak}
-          start={placed ? c.current : undefined}
-          recommended={placed ? next : undefined}
-          selected={selected}
-          onSelect={(id) => setSelected((s) => (s === id ? null : id))}
-        />
-      </motion.div>
-      <p className="-mt-1 text-center font-body text-[0.95rem] text-ivory/55">
-        Tap any stone. {PLAYABLE.length} of {UNITS.length} are ready to explore today; the rest are being written.
-      </p>
-
-      <AnimatePresence>{selected && <UnitCard key={selected} id={selected} meter={c.meters[selected]} done={c.done[selected]} onClose={() => setSelected(null)} />}</AnimatePresence>
-
-      {!placed && <HowItWorks />}
-
-      {!mode ? (
-        <section className="mt-5 flex flex-col items-center gap-3">
-          <h2 className="text-center font-display text-[1.1rem] text-gold-hi">First, how would you like to explore?</h2>
-          <ModePicker full />
-        </section>
-      ) : !placed ? (
-        <section className="mt-5 flex flex-col items-center gap-3 text-center">
-          <p className="max-w-[42ch] font-body text-[1.1rem] leading-snug text-ivory/85">
-            {mode === 'muslim'
-              ? inMode('A few short reflection questions will find where to begin your climb. It is not a grade, and only you will see your answers.', mode)
-              : 'A few short questions about your own values and curiosity will suggest where to begin. It is not a grade, and only you will see your answers.'}
-          </p>
-          <button type="button" className="btn-gold" onClick={() => go('/pyramid/placement')} autoFocus>
-            <Icon name="play" className="h-4 w-4" />
-            Begin your reflection
-          </button>
-          <p className="font-body text-[0.95rem] text-ivory/55">{placementQuestions(pathOf(mode)).length} questions · about 3 minutes</p>
-          <button type="button" className="font-body text-[1rem] text-ivory/70 underline-offset-4 hover:text-ivory hover:underline" onClick={() => go('/stories')}>
-            Or start with the stories of the prophets
-          </button>
-        </section>
-      ) : (
-        <>
-          {resume && <ResumeCard point={resume} />}
-          <section className="mt-4 rounded-xl border border-gold/25 bg-black/30 p-4">
-            <div className="caps text-[0.6rem] text-gold/80">{c.peak ? 'Every stone is lit' : 'Where you are on the climb'}</div>
-            <div className="mt-1 flex items-baseline justify-between gap-3">
-              <div className="font-display text-[1.5rem] font-semibold text-gold-hi">{level.title}</div>
-              <div lang="ar" dir="rtl" className="font-quran text-[1.5rem] text-gold/80">
-                {level.arabic}
-              </div>
-            </div>
-            <p className="font-body text-[1rem] text-ivory/70">{level.meaning}</p>
-            <div className="mt-3">
-              <Meter value={c.currentProgress} label={above && !c.peak ? `Toward ${above.title}` : `${level.title} progress`} />
-            </div>
-            <p className="mt-2 font-body text-[0.95rem] text-ivory/55">Overall understanding {c.overall}%</p>
-            {next && next !== resume?.id && (
-              <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-                <button type="button" className={resume ? 'hud-btn' : 'btn-gold'} onClick={() => go(unitHref(next))} autoFocus={!resume}>
-                  <Icon name="play" className="h-4 w-4" />
-                  {unitStatus(next) === 'history' ? 'Next: the stories of the prophets' : `Next: ${unitById[next].title} · ${unitById[next].english}`}
-                </button>
-              </div>
-            )}
-            {stale && (
-              <p className="mt-3 font-body text-[1rem] text-ivory/75">
-                It has been a while since you last reflected.{' '}
-                <button type="button" className="text-gold-hi underline underline-offset-4" onClick={() => go('/pyramid/placement')}>
-                  Reflect again
-                </button>
-              </p>
-            )}
-          </section>
-        </>
-      )}
-
-      {mode && (
-        <div className="mt-4 flex justify-center">
-          <ModePicker />
-        </div>
-      )}
-      <Disclaimer />
-    </Shell>
-  );
-}
-
-/** First visit: what this is and how it works, in three steps. */
-function HowItWorks() {
-  const steps = [
-    ['Reflect', 'A few private questions find where to begin. Not a grade.'],
-    ['Learn', 'Short lessons and the stories of the prophets, with the Quran and Sunnah.'],
-    ['Climb', 'Each lesson you finish lights a stone of the pyramid.'],
-  ];
-  return (
-    <ol className="mt-4 grid gap-2 sm:grid-cols-3" aria-label="How it works">
-      {steps.map(([t, d], i) => (
-        <li key={t} className="flex gap-3 rounded-xl border border-gold/20 bg-black/25 px-3 py-2.5 sm:flex-col sm:gap-1">
-          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-gold/50 font-display text-[0.85rem] text-gold-hi" aria-hidden="true">
-            {i + 1}
-          </span>
-          <span>
-            <span className="block font-display text-[0.95rem] text-gold-hi">{t}</span>
-            <span className="block font-body text-[1rem] leading-snug text-ivory/75">{d}</span>
-          </span>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-/** Return visit: one clear way back to exactly where the person stopped. */
-function ResumeCard({ point }) {
-  const u = point.kind === 'unit' && unitById[point.id];
-  const href = u ? `/unit/${point.id}` : `/scene/${point.id}`;
-  return (
-    <section className="mt-5 rounded-xl border border-gold-hi/50 bg-[#3c2a12]/60 p-4" aria-label="Continue where you left off">
-      <div className="caps text-[0.6rem] text-gold/85">Continue where you left off</div>
-      <div className="mt-1 font-display text-[1.15rem] text-gold-hi">{u ? `${u.title} · ${u.english}` : point.title}</div>
-      <p className="font-body text-[1rem] text-ivory/70">{u ? `You were on ${STEP_NAME[point.step] || 'the lesson'}.` : 'In the stories of the prophets.'}</p>
-      <button type="button" className="btn-gold mt-3" onClick={() => go(href)} autoFocus>
+  const Cta = (
+    <div className="flex flex-col items-center gap-2 lg:items-start" role={cta.region ? 'region' : undefined} aria-label={cta.region ? 'Continue where you left off' : undefined}>
+      <button type="button" className="btn-gold" onClick={() => go(cta.href)}>
         <Icon name="play" className="h-4 w-4" />
-        Continue
+        {cta.label}
       </button>
+      <p className="max-w-[34ch] text-center font-body text-[1.05rem] italic leading-snug text-ivory/70 lg:text-left">{cta.note}</p>
+      <button type="button" className="min-h-[44px] font-body text-[1.08rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4 hover:decoration-gold-hi" onClick={() => go(secondary.href)}>
+        {secondary.label}
+      </button>
+    </div>
+  );
+
+  return (
+    <div className="thin-scroll relative h-full w-full overflow-y-auto overflow-x-hidden bg-night">
+      {/* ── The hero: dusk over the desert, the monument standing in the last light ── */}
+      <section className="relative isolate overflow-hidden lg:[--glow-x:74%]" style={{ background: SKY }}>
+        <Stars />
+        <div className="relative mx-auto max-w-[1120px] px-5 pt-4 sm:px-8">
+          <header className="flex min-h-[52px] items-center justify-between gap-6">
+            <a href="#/" className="flex items-baseline gap-2.5" aria-label="Amanah, home">
+              <span lang="ar" className="font-ruqaa text-[1.75rem] leading-none text-gold-hi">
+                الأمانة
+              </span>
+              <span className="font-display text-[0.95rem] tracking-[0.16em] text-ivory/80">Amanah</span>
+            </a>
+            <div className="sm:w-[470px]">
+              <Nav here="pyramid" />
+            </div>
+          </header>
+
+          <div className="grid items-end pt-7 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12 lg:pt-12">
+            <motion.div className="text-center lg:pb-28 lg:text-left" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
+              <h1 className="bg-gradient-to-b from-[#fbe7b0] via-[#f2d28b] to-[#c9933f] bg-clip-text font-display text-[clamp(2.05rem,8.4vw,3.7rem)] font-semibold leading-[1.06] tracking-[0.01em] text-transparent [filter:drop-shadow(0_2px_14px_rgba(233,140,70,0.32))]">
+                The Pyramid of Righteousness
+              </h1>
+              <p className="mx-auto mt-3 max-w-[30ch] font-body text-[clamp(1.2rem,4.6vw,1.45rem)] leading-[1.42] text-ivory/90 lg:mx-0">
+                Learn Islam through the stories of the prophets, and watch your understanding rise, stone by stone.
+              </p>
+              <div className="mt-8 hidden lg:block">{Cta}</div>
+            </motion.div>
+
+            <motion.div className="relative z-10 -mx-3 -mb-4 sm:-mb-7 lg:mx-0" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 1.2, ease: 'easeOut' }}>
+              <Monument
+                className="mx-auto mt-4 w-full max-w-[560px] lg:mt-0"
+                scenery={false}
+                meters={c.meters}
+                done={c.done}
+                lit={c.lit}
+                peak={c.peak}
+                start={placed ? c.current : undefined}
+                recommended={placed ? next : undefined}
+                selected={selected}
+                onSelect={(id) => setSelected((s) => (s === id ? null : id))}
+              />
+            </motion.div>
+          </div>
+        </div>
+        <Dunes />
+      </section>
+
+      {/* ── On the sand: the action, what the stones mean, the selected stone ── */}
+      <section className="bg-gradient-to-b from-[#1d140d] to-night px-5 pb-2 pt-5 sm:px-8">
+        <div className="mx-auto max-w-[1120px]">
+          <div className="lg:hidden">{Cta}</div>
+          <p className="mx-auto mt-6 max-w-[52ch] text-center font-body text-[1.02rem] leading-snug text-ivory/60 lg:mt-1">
+            Three levels from the hadith of Jibril: Islam, Iman and Ihsan. Stones with a gold edge are ready to explore; the rest are still being carved. Tap any stone.
+          </p>
+          <div className="mx-auto max-w-[600px]">
+            <AnimatePresence>{selected && <UnitCard key={selected} id={selected} meter={c.meters[selected]} done={c.done[selected]} onClose={() => setSelected(null)} />}</AnimatePresence>
+            {placed && <ClimbCard c={c} stale={stale} />}
+          </div>
+        </div>
+      </section>
+
+      <StoriesStrip />
+
+      <footer className="mx-auto max-w-[640px] px-5 pb-32 pt-12 text-center sm:pb-12">
+        {mode && (
+          <div className="flex justify-center">
+            <ModePicker />
+          </div>
+        )}
+        <Disclaimer />
+        <p className="mx-auto mt-2 max-w-[52ch] font-body text-[0.95rem] leading-snug text-ivory/45">
+          Quran in Uthmani script with the Sahih International translation. Hadith and scholars' words are marked until a scholar has reviewed them.
+        </p>
+      </footer>
+    </div>
+  );
+}
+
+// Night overhead, the last light low behind the monument (further right on wide screens, where it stands).
+const SKY =
+  'radial-gradient(115% 62% at var(--glow-x, 50%) 100%, rgba(240,150,82,0.58) 0%, rgba(184,92,52,0.3) 32%, rgba(59,42,74,0) 64%), linear-gradient(180deg, #070a1a 0%, #0e1530 30%, #251f43 55%, #4f2f47 74%, #8d4533 90%, #b85a33 100%)';
+
+function Dunes() {
+  return (
+    <svg className="pointer-events-none absolute inset-x-0 bottom-0 h-[64px] w-full sm:h-[92px]" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 52 C170 26 330 50 520 38 C700 26 860 52 1020 36 C1100 28 1160 34 1200 38 V100 H0z" fill="#4a2c1b" opacity="0.85" />
+      <path d="M0 70 C220 52 420 78 640 62 C840 50 1000 74 1200 60 V100 H0z" fill="#2c1b11" />
+      <path d="M0 88 C300 80 600 92 900 84 C1050 80 1150 86 1200 84 V100 H0z" fill="#1d140d" />
+    </svg>
+  );
+}
+
+function StoriesStrip() {
+  return (
+    <section className="mx-auto max-w-[1120px] px-5 pt-12 sm:px-8" aria-labelledby="stories-heading">
+      <h2 id="stories-heading" className="font-body text-[1.7rem] font-semibold leading-tight text-gold-hi">
+        Walk through the stories
+      </h2>
+      <p className="mt-1 max-w-[56ch] font-body text-[1.12rem] leading-[1.45] text-ivory/75">
+        192 painted scenes, from the creation of the heavens to the prophets of old, with verses of the Quran in Arabic and English. Allah is never depicted, and the prophets appear only as distant light.
+      </p>
+      <ul className="-mx-5 mt-5 flex snap-x snap-mandatory scroll-pl-5 gap-4 overflow-x-auto px-5 pb-3 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0">
+        {STORIES.map((s) => (
+          <li key={s.id} className="w-[76vw] max-w-[340px] shrink-0 snap-start sm:w-auto sm:max-w-none">
+            <a
+              href={`#/scene/${s.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                go(`/scene/${s.id}`);
+              }}
+              className="group block rounded-lg outline-none"
+            >
+              <img src={s.img} alt="" loading="lazy" width="800" height="450" className="aspect-video w-full rounded-lg object-cover ring-1 ring-gold/20 transition-shadow group-hover:ring-gold/60 group-focus-visible:ring-2 group-focus-visible:ring-gold-hi" />
+              <span className="mt-2 block font-body text-[1.15rem] leading-snug text-ivory">{s.title}</span>
+              <span className="block font-body text-[1rem] italic text-ivory/60">{s.who}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/** For someone who has placed themselves: where they are on the climb. */
+function ClimbCard({ c, stale }) {
+  const level = levelById[c.current];
+  const idx = LEVELS.findIndex((l) => l.id === c.current);
+  const above = LEVELS[idx + 1];
+  return (
+    <section className="mt-6 rounded-xl border border-gold/20 bg-black/25 p-4" aria-label="Your climb">
+      <div className="flex items-baseline justify-between gap-3">
+        <div>
+          <div className="font-body text-[1.05rem] italic text-ivory/65">{c.peak ? 'Every stone is lit' : 'You are climbing'}</div>
+          <div className="font-display text-[1.45rem] font-semibold text-gold-hi">{level.title}</div>
+        </div>
+        <div lang="ar" dir="rtl" className="font-ruqaa text-[1.6rem] text-gold/80">
+          {level.arabic}
+        </div>
+      </div>
+      <div className="mt-3">
+        <Meter value={c.currentProgress} label={above && !c.peak ? `Toward ${above.title}` : `${level.title} progress`} />
+      </div>
+      <p className="mt-2 font-body text-[0.98rem] text-ivory/55">Overall understanding {c.overall}%</p>
+      {stale && (
+        <p className="mt-3 font-body text-[1.02rem] text-ivory/75">
+          It has been a while since you last reflected.{' '}
+          <button type="button" className="text-gold-hi underline underline-offset-4" onClick={() => go('/pyramid/placement')}>
+            Reflect again
+          </button>
+        </p>
+      )}
     </section>
   );
 }
@@ -285,6 +361,7 @@ function UnitCard({ id, meter, done, onClose }) {
   const status = unitStatus(id);
   const learned = useStore((s) => Object.keys(s.learned).length);
   const seen = useStore((s) => s.seen);
+  const say = useSay();
   return (
     <motion.section
       className="parchment cartouche relative mt-3 px-5 pb-4 pt-4"
@@ -296,14 +373,14 @@ function UnitCard({ id, meter, done, onClose }) {
       <button type="button" className="absolute right-2 top-2 grid h-11 w-11 place-items-center text-ink-soft hover:text-ink" onClick={onClose} aria-label="Close">
         <Icon name="close" className="h-4 w-4" />
       </button>
-      <div className="caps text-[0.58rem] text-ink-soft">{levelById[u.level].title}</div>
+      <div className="font-body text-[1rem] italic text-ink-soft">{levelById[u.level].title}</div>
       <div className="flex items-baseline gap-3 pr-10">
         <h2 className="font-display text-[1.3rem] font-semibold text-ink">{u.title}</h2>
         <span lang="ar" dir="rtl" className="font-quran text-[1.35rem] text-ink-soft">
           {u.arabic}
         </span>
       </div>
-      <p className="font-body text-[1.05rem] text-ink-soft">{u.english}</p>
+      <p className="font-body text-[1.05rem] text-ink-soft">{say(u.english)}</p>
       <div className="mt-2">
         <Meter value={meter} label={done ? 'Completed' : 'Your meter'} tone="parchment" />
       </div>
@@ -336,7 +413,7 @@ function UnitCard({ id, meter, done, onClose }) {
           <div className="mt-2 flex flex-wrap gap-2">
             {PLAYABLE.map((pid) => (
               <button key={pid} type="button" className="btn-ink" onClick={() => go(unitHref(pid))}>
-                {unitStatus(pid) === 'history' ? 'The stories of the prophets' : `${unitById[pid].title} · ${unitById[pid].english}`}
+                {unitStatus(pid) === 'history' ? 'The stories of the prophets' : `${unitById[pid].title}, ${say(unitById[pid].english).toLowerCase()}`}
               </button>
             ))}
           </div>
@@ -359,8 +436,9 @@ function Placement() {
   if (!mode) {
     return (
       <Shell back="/" title="Reflection">
-        <h1 className="mt-4 font-display text-[1.3rem] text-gold-hi">First, how would you like to explore?</h1>
-        <div className="mt-4">
+        <h1 className="mt-6 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">First, how would you like to explore?</h1>
+        <p className="mt-1 font-body text-[1.1rem] text-ivory/70">This changes the wording around the stories, not the stories themselves. You can switch at any time.</p>
+        <div className="mt-5">
           <ModePicker full />
         </div>
       </Shell>
@@ -416,8 +494,8 @@ function Placement() {
       </div>
       <AnimatePresence mode="wait">
         <motion.section key={q.id} className="mt-6 flex flex-1 flex-col" initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }} transition={{ duration: 0.28 }}>
-          <p className="caps text-[0.6rem] text-gold/80">
-            {levelById[q.level].title} · {i + 1} of {questions.length}
+          <p className="font-body text-[1.08rem] italic text-gold/85">
+            Question {i + 1} of {questions.length}
           </p>
           <h1 className="mt-2 font-body text-[1.45rem] leading-snug text-ivory">{inMode(q.text, mode)}</h1>
           <div className="mt-5 grid gap-2.5" role="radiogroup" aria-label={inMode(q.text, mode)}>
@@ -474,9 +552,9 @@ function Result() {
     <Shell here="pyramid">
       <Monument className="mx-auto w-full max-w-[460px]" meters={c.meters} done={c.done} lit={c.lit} peak={c.peak} start={r.start} recommended={r.recommended} />
       <motion.section initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}>
-        <p className="caps text-center text-[0.62rem] text-gold/80">Begin your climb at</p>
+        <p className="text-center font-body text-[1.08rem] italic text-gold/85">Begin your climb at</p>
         <h1 className="text-center font-display text-[2rem] font-semibold text-gold-hi">{level.title}</h1>
-        <p className="text-center font-body text-[1.05rem] text-ivory/75">{level.meaning}</p>
+        <p className="text-center font-body text-[1.05rem] text-ivory/75">{inMode(level.meaning, mode)}</p>
         {!r.startReady && rec && (
           <p className="mx-auto mt-2 max-w-[44ch] text-center font-body text-[1rem] italic text-ivory/65">
             The lessons for {level.title} are still being written, so for now we suggest {unitStatus(rec.id) === 'history' ? 'the stories of the prophets' : rec.english.toLowerCase()} below.
@@ -484,7 +562,7 @@ function Result() {
         )}
         <Rule className="mx-auto my-4 h-3 w-44 text-gold/60" />
 
-        <h2 className="caps text-[0.62rem] text-gold/80">Where you feel strong</h2>
+        <h2 className="font-body text-[1.08rem] italic text-gold/85">Where you feel strong</h2>
         <div className="mt-2 flex flex-wrap gap-2">
           {r.strongest.map((id) => (
             <UnitChip key={id} id={id} />
@@ -492,7 +570,7 @@ function Result() {
         </div>
         {r.growing.length > 0 && (
           <>
-            <h2 className="caps mt-4 text-[0.62rem] text-gold/80">Where you can grow</h2>
+            <h2 className="mt-4 font-body text-[1.08rem] italic text-gold/85">Where you can grow</h2>
             <div className="mt-2 flex flex-wrap gap-2">
               {r.growing.map((id) => (
                 <UnitChip key={id} id={id} />
@@ -503,14 +581,14 @@ function Result() {
 
         {rec && (
           <div className="parchment cartouche mt-5 px-5 py-4">
-            <div className="caps text-[0.58rem] text-ink-soft">A good first step</div>
+            <div className="font-body text-[1.05rem] italic text-ink-soft">A good first step</div>
             <div className="flex items-baseline gap-3">
               <h2 className="font-display text-[1.25rem] font-semibold text-ink">{rec.title}</h2>
               <span lang="ar" dir="rtl" className="font-quran text-[1.3rem] text-ink-soft">
                 {rec.arabic}
               </span>
             </div>
-            <p className="font-body text-[1.05rem] text-ink-soft">{rec.english}</p>
+            <p className="font-body text-[1.05rem] text-ink-soft">{inMode(rec.english, mode)}</p>
             <button type="button" className="btn-gold mt-3" onClick={() => go(unitHref(rec.id))} autoFocus>
               <Icon name="play" className="h-4 w-4" />
               {unitStatus(rec.id) === 'history' ? 'Begin the stories' : `Begin ${rec.title}`}
@@ -545,11 +623,11 @@ function Progress() {
   return (
     <Shell here="progress">
       <section className="rounded-xl border border-gold/25 bg-black/30 p-4">
-        <div className="caps text-[0.6rem] text-gold/80">Where you are on the climb</div>
+        <div className="font-body text-[1.08rem] italic text-gold/85">You are climbing</div>
         <div className="font-display text-[1.6rem] font-semibold text-gold-hi">{levelById[c.current].title}</div>
         <div className="mt-3 space-y-3">
           {c.levels.map((l) => (
-            <Meter key={l.id} value={l.progress} label={`${l.title} · ${l.done} of ${l.total} units${l.lit ? ' · lit' : ''}`} />
+            <Meter key={l.id} value={l.progress} label={`${l.title}: ${l.done} of ${l.total} units${l.lit ? ', lit' : ''}`} />
           ))}
         </div>
         <p className="mt-3 font-body text-[1rem] text-ivory/60">Overall understanding {c.overall}%</p>
@@ -557,7 +635,7 @@ function Progress() {
 
       {LEVELS.map((l) => (
         <section key={l.id} className="mt-5">
-          <h2 className="caps text-[0.62rem] text-gold/80">{l.title}</h2>
+          <h2 className="font-display text-[1rem] text-gold-hi">{l.title}</h2>
           <ul className="mt-2 divide-y divide-gold/10">
             {l.units.map((u) => {
               const status = unitStatus(u.id);

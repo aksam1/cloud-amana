@@ -20,6 +20,11 @@ mkdirSync(join(root, 'deploy'), { recursive: true });
 writeFileSync(
   join(root, 'deploy/index.html'),
   [
+    '<!DOCTYPE html>',
+    '<meta charset="UTF-8" />',
+    '<meta name="viewport" content="width=device-width, initial-scale=1" />',
+    '<meta name="theme-color" content="#0e1530" />',
+    '<meta name="description" content="Learn Islam through the stories of the prophets, and watch your understanding rise, stone by stone." />',
     '<title>Amanah</title>',
     '<link rel="preconnect" href="https://fonts.googleapis.com" />',
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',

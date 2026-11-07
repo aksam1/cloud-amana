@@ -2,99 +2,99 @@ import { motion, useReducedMotion } from 'motion/react';
 import { LEVELS, unitStatus } from '../lib/pyramid.js';
 
 /*
- * The Pyramid of Righteousness as a stepped stone monument: Islam the base, Iman the middle, Ihsan the
- * peak, every unit one stone. A stone fills with gold as its meter rises and glows once the unit is
- * completed; a level's ledge lights when all its stones are done, and the capstone when all three are.
+ * The Pyramid of Righteousness as a stepped monument of sunlit sandstone: Islam the base, Iman the middle,
+ * Ihsan the peak, each level's name carved in Arabic on its frieze, every unit one stone. Stones that can be
+ * explored today carry a gold edge; a stone fills with gold leaf as its meter rises and glows once the unit
+ * is completed; a level's frieze is gilded when all its stones are done, and the capstone at the peak.
  *
  * Props: meters {unitId: 0–100}, done {unitId: bool}, lit {levelId: bool}, peak, start (levelId to glow),
- * recommended (unitId), selected (unitId), onSelect(unitId) — omit onSelect for a still picture.
+ * recommended (unitId), selected (unitId), onSelect(unitId) — omit onSelect for a still picture —
+ * scenery (default true): its own glow and sand, for pages without the home page's dusk sky behind it.
  */
 
-// Tier geometry in a 360 × 320 frame, base first. rows = how many courses of stones the tier has.
+// Tier geometry in a 360 × 316 frame, base first: frieze band on top, then `rows` courses of stones.
 const TIERS = [
-  { x0: 18, x1: 342, y0: 222, y1: 290, rows: 1 },
-  { x0: 64, x1: 296, y0: 148, y1: 222, rows: 2 },
-  { x0: 106, x1: 254, y0: 64, y1: 148, rows: 3 },
+  { x0: 14, x1: 346, y0: 218, y1: 300, rows: 1 },
+  { x0: 58, x1: 302, y0: 130, y1: 218, rows: 2 },
+  { x0: 100, x1: 260, y0: 44, y1: 130, rows: 3 },
 ];
+const FRIEZE = 17;
 const GAP = 3;
 
 function stones(level, tier) {
   const n = level.units.length;
   const perRow = Math.ceil(n / tier.rows);
-  const rowH = (tier.y1 - tier.y0 - 6) / tier.rows; // 6 = the ledge on top of the tier
+  const rowH = (tier.y1 - tier.y0 - FRIEZE - 4) / tier.rows;
   return level.units.map((u, i) => {
-    const row = Math.floor(i / perRow); // from the top course down
+    const row = Math.floor(i / perRow);
     const inRow = Math.min(perRow, n - row * perRow);
-    const w = (tier.x1 - tier.x0 - 8 - GAP * (inRow - 1)) / inRow;
-    const x = tier.x0 + 4 + (i - row * perRow) * (w + GAP);
-    const y = tier.y0 + 6 + row * rowH + GAP / 2;
+    const w = (tier.x1 - tier.x0 - 10 - GAP * (inRow - 1)) / inRow;
+    const x = tier.x0 + 5 + (i - row * perRow) * (w + GAP);
+    const y = tier.y0 + FRIEZE + 2 + row * rowH + GAP / 2;
     return { unit: u, x, y, w, h: rowH - GAP };
   });
 }
 
-export default function Monument({ meters = {}, done = {}, lit = {}, peak = false, start, recommended, selected, onSelect, className = '' }) {
+export default function Monument({ meters = {}, done = {}, lit = {}, peak = false, start, recommended, selected, onSelect, scenery = true, className = '' }) {
   const still = useReducedMotion();
   const pulse = still ? {} : { animate: { opacity: [0.35, 1, 0.35] }, transition: { duration: 2.6, repeat: Infinity, ease: 'easeInOut' } };
   return (
-    <svg viewBox="0 0 360 320" className={className} role="group" aria-label="The pyramid: Islam at the base, Iman in the middle, Ihsan at the peak">
+    <svg viewBox="0 0 360 316" className={className} role="group" aria-label="The pyramid: Islam at the base, Iman in the middle, Ihsan at the peak">
       <defs>
         <linearGradient id="mn-stone" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#7a6242" />
-          <stop offset="1" stopColor="#4d3c27" />
+          <stop offset="0" stopColor="#ead0a0" />
+          <stop offset="0.5" stopColor="#cba872" />
+          <stop offset="1" stopColor="#9c7a4a" />
         </linearGradient>
-        <linearGradient id="mn-ledge" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#a68b5e" />
-          <stop offset="1" stopColor="#6e5838" />
+        <linearGradient id="mn-stone-dim" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#bfa27a" />
+          <stop offset="1" stopColor="#866846" />
+        </linearGradient>
+        <linearGradient id="mn-frieze" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#e4c58e" />
+          <stop offset="1" stopColor="#a8834f" />
         </linearGradient>
         <linearGradient id="mn-gold" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#f7e0a3" />
-          <stop offset="1" stopColor="#c99a45" />
+          <stop offset="0" stopColor="#fbe7b0" />
+          <stop offset="1" stopColor="#d4a24c" />
         </linearGradient>
-        <radialGradient id="mn-sky" cx="0.5" cy="0.86" r="0.62">
-          <stop offset="0" stopColor="#e0662c" stopOpacity="0.62" />
-          <stop offset="0.38" stopColor="#a5772f" stopOpacity="0.3" />
+        {/* the far side of each tier falls into shade: the sun is low, ahead and to the left */}
+        <linearGradient id="mn-shade" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0.55" stopColor="#1a0f06" stopOpacity="0" />
+          <stop offset="1" stopColor="#1a0f06" stopOpacity="0.3" />
+        </linearGradient>
+        <radialGradient id="mn-glow-bg" cx="0.5" cy="0.9" r="0.6">
+          <stop offset="0" stopColor="#e98c46" stopOpacity="0.55" />
+          <stop offset="0.5" stopColor="#a5582f" stopOpacity="0.18" />
           <stop offset="1" stopColor="#1c2748" stopOpacity="0" />
         </radialGradient>
-        <linearGradient id="mn-dune" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#5a4128" />
-          <stop offset="0.55" stopColor="#2e2217" stopOpacity="0.9" />
-          <stop offset="1" stopColor="#2e2217" stopOpacity="0" />
-        </linearGradient>
-        <linearGradient id="mn-far" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#6b4a2a" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#3b2a1a" stopOpacity="0" />
-        </linearGradient>
-        <radialGradient id="mn-vign" cx="0.5" cy="0.6" r="0.6">
-          <stop offset="0.55" stopColor="#fff" />
-          <stop offset="1" stopColor="#000" />
-        </radialGradient>
-        <mask id="mn-fade">
-          <rect x="0" y="0" width="360" height="320" fill="url(#mn-vign)" />
-        </mask>
         <filter id="mn-glow" x="-40%" y="-60%" width="180%" height="220%">
           <feGaussianBlur stdDeviation="4" />
         </filter>
-        <pattern id="mn-grain" width="6" height="6" patternUnits="userSpaceOnUse">
-          <path d="M0 5h2M3 2h2M4 6h1" stroke="#2a2016" strokeOpacity="0.35" strokeWidth="0.6" />
+        <pattern id="mn-grain" width="7" height="7" patternUnits="userSpaceOnUse">
+          <path d="M0 6h2M3 2h2M5 5h1M1 3h1" stroke="#3a2614" strokeOpacity="0.16" strokeWidth="0.6" />
         </pattern>
       </defs>
 
-      {/* the sky's glow behind the monument, and the desert floor */}
-      <g mask="url(#mn-fade)">
-      <rect x="0" y="0" width="360" height="320" fill="url(#mn-sky)" />
-      <path d="M0 262 Q50 246 104 258 T214 252 T360 256 V320 H0z" fill="url(#mn-far)" />
-      <path d="M0 296 Q70 282 150 290 T300 286 Q336 284 360 292 V320 H0z" fill="url(#mn-dune)" />
-      </g>
-      <ellipse cx="180" cy="292" rx="172" ry="6" fill="#000" opacity="0.4" />
+      {scenery && (
+        <>
+          <rect x="0" y="0" width="360" height="316" fill="url(#mn-glow-bg)" />
+        </>
+      )}
+      {/* the shadow the monument throws onto the sand */}
+      <ellipse cx="186" cy="301" rx="178" ry="6" fill="#0d0805" opacity="0.55" />
 
-      {/* capstone: lights only at the peak */}
+      {/* capstone */}
       <g>
-        <polygon points="180,20 226,64 134,64" fill="url(#mn-stone)" stroke="#2a2016" strokeWidth="1" />
-        <polygon points="180,20 226,64 134,64" fill="url(#mn-grain)" />
+        <polygon points="180,8 226,44 134,44" fill="url(#mn-stone)" stroke="#3a2614" strokeWidth="0.8" />
+        <polygon points="180,8 226,44 180,44" fill="#1a0f06" opacity="0.32" />
+        <polygon points="180,8 226,44 134,44" fill="url(#mn-grain)" />
+        <polygon points="180,8 191.5,17 168.5,17" fill="url(#mn-gold)" />
+        <polygon points="180,8 191.5,17 180,17" fill="#8a5e1c" opacity="0.35" />
         {peak && (
           <>
-            <polygon points="180,20 226,64 134,64" fill="#f7e0a3" filter="url(#mn-glow)" opacity="0.9" />
-            <polygon points="180,20 226,64 134,64" fill="url(#mn-gold)" />
+            <polygon points="180,8 226,44 134,44" fill="#fbe7b0" filter="url(#mn-glow)" opacity="0.9" />
+            <polygon points="180,8 226,44 134,44" fill="url(#mn-gold)" />
           </>
         )}
       </g>
@@ -102,18 +102,29 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
       {LEVELS.map((level, li) => {
         const t = TIERS[li];
         const isStart = start === level.id;
+        const gilded = lit[level.id];
         return (
           <g key={level.id}>
-            {/* the tier's body and the ledge (step) on top of it */}
-            <rect x={t.x0} y={t.y0} width={t.x1 - t.x0} height={t.y1 - t.y0} fill="#2a2016" />
-            <rect x={t.x0 - 2} y={t.y0} width={t.x1 - t.x0 + 4} height={6} fill={lit[level.id] ? 'url(#mn-gold)' : 'url(#mn-ledge)'} />
-            {lit[level.id] && <rect x={t.x0 - 2} y={t.y0 - 2} width={t.x1 - t.x0 + 4} height={10} fill="#f7e0a3" filter="url(#mn-glow)" opacity="0.8" />}
+            {/* the tier's mortar body and its carved frieze */}
+            <rect x={t.x0} y={t.y0} width={t.x1 - t.x0} height={t.y1 - t.y0} fill="#2a1a0c" />
+            <rect x={t.x0 - 3} y={t.y0} width={t.x1 - t.x0 + 6} height={FRIEZE} fill={gilded ? 'url(#mn-gold)' : 'url(#mn-frieze)'} />
+            <rect x={t.x0 - 3} y={t.y0} width={t.x1 - t.x0 + 6} height="1.4" fill="#fff6dc" opacity="0.55" />
+            {gilded && <rect x={t.x0 - 3} y={t.y0 - 2} width={t.x1 - t.x0 + 6} height={FRIEZE + 4} fill="#fbe7b0" filter="url(#mn-glow)" opacity="0.6" />}
+            {/* the level's name, carved: a light lip under a dark cut */}
+            <text x={(t.x0 + t.x1) / 2} y={t.y0 + 13.2} textAnchor="middle" fontFamily="'Aref Ruqaa', 'Amiri Quran', serif" fontSize="12.5" fontWeight="700" fill="#fff3d6" opacity="0.5" aria-hidden="true">
+              {level.arabic}
+            </text>
+            <text x={(t.x0 + t.x1) / 2} y={t.y0 + 12.4} textAnchor="middle" fontFamily="'Aref Ruqaa', 'Amiri Quran', serif" fontSize="12.5" fontWeight="700" fill="#4a2f16" aria-hidden="true">
+              {level.arabic}
+            </text>
 
             {stones(level, t).map(({ unit, x, y, w, h }) => {
               const m = meters[unit.id] || 0;
               const status = unitStatus(unit.id);
-              const label = `${unit.title}, ${unit.english}: ${m}%${done[unit.id] ? ', completed' : ''}${status === 'soon' ? ', coming soon' : ''}`;
+              const ready = status !== 'soon';
+              const label = `${unit.title}, ${unit.english}: ${m}%${done[unit.id] ? ', completed' : ''}${ready ? '' : ', still being written'}`;
               const interactive = !!onSelect;
+              const fs = h < 26 ? 9.5 : w < 66 ? 10 : 10.5;
               return (
                 <g
                   key={unit.id}
@@ -124,48 +135,50 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
                   onClick={interactive ? () => onSelect(unit.id) : undefined}
                   onKeyDown={interactive ? (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onSelect(unit.id)) : undefined}
                   className={interactive ? 'cursor-pointer outline-none [&:focus-visible>rect.sel]:opacity-100' : ''}
-                  opacity={status === 'soon' ? 0.6 : 1}
                 >
-                  {done[unit.id] && <rect x={x - 1} y={y - 1} width={w + 2} height={h + 2} fill="#f7e0a3" filter="url(#mn-glow)" opacity="0.75" />}
-                  <rect x={x} y={y} width={w} height={h} rx="1.5" fill="url(#mn-stone)" stroke="#2a2016" strokeWidth="0.8" />
-                  <rect x={x} y={y} width={w} height={h} rx="1.5" fill="url(#mn-grain)" />
-                  {/* gold rises from the bottom of the stone with its meter */}
+                  {done[unit.id] && <rect x={x - 1} y={y - 1} width={w + 2} height={h + 2} fill="#fbe7b0" filter="url(#mn-glow)" opacity="0.8" />}
+                  <rect x={x} y={y} width={w} height={h} rx="1.2" fill={ready ? 'url(#mn-stone)' : 'url(#mn-stone-dim)'} />
+                  <rect x={x} y={y} width={w} height={h} rx="1.2" fill="url(#mn-grain)" />
                   {m > 0 && (
                     <motion.rect
                       x={x}
                       width={w}
-                      rx="1.5"
+                      rx="1.2"
                       fill="url(#mn-gold)"
-                      opacity={done[unit.id] ? 1 : 0.85}
+                      opacity={done[unit.id] ? 1 : 0.9}
                       initial={still ? false : { y: y + h, height: 0 }}
                       animate={{ y: y + h * (1 - m / 100), height: (h * m) / 100 }}
-                      transition={{ duration: 1.4, delay: 0.4, ease: 'easeOut' }}
+                      transition={{ duration: 1.4, delay: 0.5, ease: 'easeOut' }}
                     />
                   )}
-                  <rect x={x + 1} y={y + 1} width={w - 2} height={1.2} fill="#fff" opacity="0.12" />
+                  <rect x={x} y={y} width={w} height="1.2" fill="#fff6dc" opacity="0.5" />
+                  {/* a gold edge marks a stone that can be explored today */}
+                  {ready && <rect x={x + 1} y={y + 1} width={w - 2} height={h - 2} rx="1" fill="none" stroke="#f5cf73" strokeWidth="1.7" />}
                   <text
                     x={x + w / 2}
                     y={y + h / 2}
                     textAnchor="middle"
                     dominantBaseline="central"
                     fontFamily="Cinzel, serif"
-                    fontSize={w < 64 ? 9.5 : 10.5}
-                    fontWeight="600"
-                    fill={m >= 55 ? '#2a1c0e' : status === 'soon' ? 'rgba(243,231,204,0.55)' : '#f3e7cc'}
+                    fontSize={fs}
+                    fontWeight="700"
+                    fill="#2a1a0b"
+                    opacity={ready ? 1 : 0.68}
                   >
                     {unit.title}
                   </text>
-                  {/* selection and keyboard focus ring */}
-                  <rect className="sel" x={x - 1.5} y={y - 1.5} width={w + 3} height={h + 3} rx="2.5" fill="none" stroke="#f7e0a3" strokeWidth="1.6" opacity={selected === unit.id ? 1 : 0} />
+                  <rect className="sel" x={x - 1.8} y={y - 1.8} width={w + 3.6} height={h + 3.6} rx="2.5" fill="none" stroke="#fff3d6" strokeWidth="1.8" opacity={selected === unit.id ? 1 : 0} />
                   {recommended === unit.id && selected !== unit.id && (
-                    <motion.rect x={x - 2} y={y - 2} width={w + 4} height={h + 4} rx="3" fill="none" stroke="#f7e0a3" strokeWidth="1.4" strokeDasharray="4 3" {...pulse} />
+                    <motion.rect x={x - 2.2} y={y - 2.2} width={w + 4.4} height={h + 4.4} rx="3" fill="none" stroke="#fff3d6" strokeWidth="1.4" strokeDasharray="4 3" {...pulse} />
                   )}
                 </g>
               );
             })}
 
-            {/* the starting point from placement glows around the whole tier */}
-            {isStart && <motion.rect x={t.x0 - 5} y={t.y0 - 4} width={t.x1 - t.x0 + 10} height={t.y1 - t.y0 + 7} rx="4" fill="none" stroke="#e2bb68" strokeWidth="2" pointerEvents="none" {...pulse} />}
+            {/* the far side of the tier in shade, over everything but the labels' legibility */}
+            <rect x={t.x0 - 3} y={t.y0} width={t.x1 - t.x0 + 6} height={t.y1 - t.y0} fill="url(#mn-shade)" pointerEvents="none" />
+
+            {isStart && <motion.rect x={t.x0 - 7} y={t.y0 - 5} width={t.x1 - t.x0 + 14} height={t.y1 - t.y0 + 8} rx="4" fill="none" stroke="#fbe7b0" strokeWidth="2" pointerEvents="none" {...pulse} />}
           </g>
         );
       })}

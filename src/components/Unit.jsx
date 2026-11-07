@@ -6,7 +6,7 @@ import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { climb, CONFIG, completed, levelById, unitById, unitContent, unitMeter, unitStatus, UNITS } from '../lib/pyramid.js';
 import hadithData from '../data/hadith.json';
-import { GeoField, Icon, Rule } from './Ornaments.jsx';
+import { Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import { Disclaimer, Meter } from './Pyramid.jsx';
 import Monument from './Monument.jsx';
@@ -97,7 +97,7 @@ export default function Unit({ id, step: startStep }) {
         {STEPS.map((s, i) => (
           <li key={s} aria-current={i === at ? 'step' : undefined}>
             <div className={`h-1.5 rounded-full ${i <= at ? 'bg-[#a5772f]' : 'bg-[#a5772f]/25'}`} />
-            <div className={`caps mt-1 text-center text-[0.5rem] ${i === at ? 'text-ink' : 'hidden text-ink-soft/70 sm:block'}`}>{LABEL[s]}</div>
+            <div className={`mt-1 hidden text-center font-body text-[0.92rem] sm:block ${i === at ? 'text-ink' : 'text-ink-soft/75'}`}>{LABEL[s]}</div>
           </li>
         ))}
       </ol>
@@ -122,8 +122,7 @@ export default function Unit({ id, step: startStep }) {
 
 function Frame({ children }) {
   return (
-    <div className="parchment-night thin-scroll relative h-full w-full overflow-y-auto px-4 pb-6 pt-3">
-      <GeoField opacity={0.06} size={140} />
+    <div className="thin-scroll relative h-full w-full overflow-y-auto px-4 pb-28 pt-3 sm:pb-6" style={{ background: 'linear-gradient(180deg, #070a1a 0%, #0e1530 34%, #171427 70%, #0b0a0e 100%) fixed' }}>
       <div className="relative z-10 mx-auto w-full max-w-[620px]">
         <div className="mb-3">
           <Nav here="pyramid" />
@@ -135,12 +134,13 @@ function Frame({ children }) {
 }
 
 function Title({ u }) {
+  const { mode } = useMode();
   return (
     <header>
-      <div className="caps text-[0.6rem] text-ink-soft">{levelById[u.level].title} · lesson path</div>
+      <div className="font-body text-[0.98rem] italic text-ink-soft">{levelById[u.level].title}</div>
       <div className="flex items-baseline gap-3">
         <h1 className="font-display text-[1.45rem] font-semibold leading-tight text-ink">
-          {u.title} <span className="font-body text-[1.1rem] font-normal italic text-ink-soft">· {u.english}</span>
+          {u.title} <span className="ml-1 font-body text-[1.1rem] font-normal italic text-ink-soft">{inMode(u.english, mode)}</span>
         </h1>
         <span lang="ar" dir="rtl" className="ml-auto font-quran text-[1.45rem] text-ink-soft">
           {u.arabic}
@@ -179,8 +179,7 @@ function Story({ id, data, v, onNext }) {
             {watched ? 'Watch it again' : `Watch: ${first.title}`}
           </button>
           <span className="font-body text-[0.95rem] text-ink-soft">
-            From the chronicle, chapter {s.chapter} · {s.length}
-            {watched ? ' · watched' : ''}
+            Chapter {s.chapter} of the chronicle: {s.length}.{watched ? " You've watched it." : ''}
           </span>
         </div>
       )}
@@ -241,8 +240,8 @@ function Teaching({ data, v, say, onNext }) {
   return (
     <section>
       <H>{t.heading[v]}</H>
-      <div className="caps mt-1 text-[0.58rem] text-ink-soft">
-        {page.title} · {p + 1} of {pages.length}
+      <div className="mt-1 font-body text-[0.98rem] italic text-ink-soft">
+        {page.title}, {p + 1} of {pages.length}
       </div>
       <div className="mt-2 space-y-3">
         {page.key === 'quran' && t.quran.map((q) => <VerseCard key={q.ref} refId={q.ref} about={say(q.about)} />)}
@@ -252,9 +251,9 @@ function Teaching({ data, v, say, onNext }) {
             <figure key={x.text} className="rounded-md border border-[#8a6a4e]/35 bg-[#5a3d22]/5 p-3">
               <p className="font-body text-[1.08rem] leading-snug text-ink">{say(x.text)}</p>
               <figcaption className="mt-1 flex flex-wrap items-center gap-2">
-                <span className="caps text-[0.56rem] text-ink-soft">
+                <span className="font-body text-[0.98rem] italic text-ink-soft">
                   {x.who}
-                  {x.work ? ` · ${x.work}` : ''}
+                  {x.work ? `, ${x.work}` : ''}
                 </span>
                 {x.status !== 'reviewed' && <Draft />}
               </figcaption>
@@ -297,9 +296,9 @@ function VerseCard({ refId, about }) {
       ) : (
         <p className="mt-2 font-body text-[0.92rem] text-ink-soft/80">The verse's Arabic and English appear here once it is fetched from the verified source.</p>
       )}
-      <figcaption className="caps mt-1 text-[0.56rem] text-ink-soft">
+      <figcaption className="mt-1 font-body text-[0.98rem] italic text-ink-soft">
         Quran {refId}
-        {surah ? ` · ${surah}` : ''}
+        {surah ? `, ${surah}` : ''}
       </figcaption>
     </figure>
   );
@@ -319,9 +318,9 @@ function HadithCard({ id, about }) {
       )}
       <blockquote className="mt-1 font-body text-[1.08rem] leading-snug text-ink">“{h.en}”</blockquote>
       <figcaption className="mt-1 flex flex-wrap items-center gap-2">
-        <span className="caps text-[0.56rem] text-ink-soft">
+        <span className="font-body text-[0.98rem] italic text-ink-soft">
           {h.collection} {h.number}
-          {h.also ? ` · also ${h.also}` : ''} · narrated by {h.narrator}
+          {h.also ? `, also ${h.also}` : ''}, narrated by {h.narrator}
         </span>
         {h.status !== 'reviewed' && <Draft />}
       </figcaption>
@@ -348,7 +347,7 @@ function Check({ data, say, firsts, setFirsts, onNext }) {
   return (
     <section>
       <H>Check your understanding</H>
-      <div className="caps mt-1 text-[0.58rem] text-ink-soft">
+      <div className="mt-1 font-body text-[0.98rem] italic text-ink-soft">
         {i + 1} of {data.check.length}
       </div>
       <p className="mt-2 font-body text-[1.2rem] leading-snug text-ink">{say(q.q)}</p>
@@ -413,7 +412,7 @@ function Reflection({ id, data, v, say, setReflected, onFinish }) {
           onFinish();
         }}
       >
-        I've reflected · finish
+        I've reflected
       </Next>
     </section>
   );
@@ -439,7 +438,7 @@ function Done({ u, result, mode }) {
         selected={u.id}
       />
       <div className="mt-3 text-center">
-        <div className="caps text-[0.6rem] text-ink-soft">Your {u.title} stone</div>
+        <div className="font-body text-[1.05rem] italic text-ink-soft">Your {u.title} stone</div>
         <motion.div className="font-display text-[3rem] font-semibold text-[#8a5e1c]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.7 }}>
           {best}%
         </motion.div>

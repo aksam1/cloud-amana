@@ -37,7 +37,8 @@ export function ModePicker({ full = false, tone = 'night' }) {
       className={`flex min-h-[44px] items-center gap-2 font-body text-[1rem] ${ink ? 'text-ink-soft hover:text-ink' : 'text-ivory/75 hover:text-ivory'}`}
       aria-label={`Viewing as: ${MODES[mode].short}. Switch to ${MODES[other].short}`}
     >
-      {MODES[mode].short} <span className={ink ? 'text-ink-soft/70' : 'text-ivory/50'}>· switch</span>
+      {MODES[mode].short}
+      <span className={`underline underline-offset-4 ${ink ? 'text-ink-soft/80 decoration-[#8a6a4e]/50' : 'text-gold-hi/80 decoration-gold/40'}`}>Switch</span>
     </button>
   );
 }

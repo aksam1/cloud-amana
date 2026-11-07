@@ -1,8 +1,9 @@
 // The journeys a real person takes, start to finish. Each test starts from a fresh browser (no saved data).
 import { expect, test } from '@playwright/test';
 
-async function reflect(page, pick = 2) {
-  await page.getByRole('button', { name: /Begin your reflection/ }).click();
+async function reflect(page, pick = 2, view = /I'm Muslim/) {
+  await page.getByRole('button', { name: /Begin your journey/ }).click();
+  await page.getByRole('button', { name: view }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   // answer every question; the flow moves on by itself after each answer
   for (;;) {
@@ -17,9 +18,10 @@ async function reflect(page, pick = 2) {
 
 test('a first-time visitor understands the app, reflects, and reaches a lesson that exists', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('list', { name: 'How it works' })).toBeVisible();
-  await expect(page.getByText(/only Allah knows the state of anyone's heart/i)).toBeVisible();
-  await page.getByRole('button', { name: /I'm Muslim/ }).click();
+  await expect(page.getByRole('heading', { name: 'The Pyramid of Righteousness' })).toBeVisible();
+  await expect(page.getByText(/Learn Islam through the stories of the prophets/)).toBeVisible();
+  await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeInViewport();
+  await expect(page.getByText(/only Allah knows the state of anyone's heart/i)).toBeAttached();
   await reflect(page, 2); // "Sometimes" to everything: the case that once led to an empty page
   await expect(page.getByText('Begin your climb at')).toBeVisible();
   await expect(page.getByText(/only Allah knows/i)).toBeVisible();
@@ -29,7 +31,6 @@ test('a first-time visitor understands the app, reflects, and reaches a lesson t
 
 test('someone who leaves a unit half way comes back to exactly where they were', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: /I'm Muslim/ }).click();
   await reflect(page, 3);
   await page.goto('/#/unit/sabr');
   await page.getByRole('button', { name: /I know this story/ }).click();
@@ -64,7 +65,7 @@ test('finishing a unit lights its stone, and progress can be deleted', async ({ 
   await page.getByRole('button', { name: 'Delete everything' }).click();
   await expect(page.getByText(/has been deleted/)).toBeVisible();
   await page.goto('/');
-  await expect(page.getByRole('list', { name: 'How it works' })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeVisible();
 });
 
 test('every part of the app has a way home', async ({ page }) => {

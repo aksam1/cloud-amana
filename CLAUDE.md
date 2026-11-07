@@ -97,6 +97,22 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   test + build). GitHub Actions runs all of it on every push (`.github/workflows/ci.yml`). Add a journey
   test whenever a new flow ships.
 
+## The look (first impression)
+
+- Home page = one bold element: the sandstone monument at dusk (`Monument.jsx`: frieze per level with its Arabic
+  name carved in Aref Ruqaa, gold edge = a stone that can be explored today, gold leaf = its meter, gilded
+  capstone tip). Sky and dunes live on the page (`SKY`, `Dunes` in Pyramid.jsx); other pages pass
+  `scenery` (default) for the monument's own glow. Pages after the home page share the night gradient.
+- Type: Cinzel only for the headline and stone names; Cormorant Garamond for everything else in sentence
+  case. No tracked-caps eyebrows or "A · B" strings in new UI: use an italic Cormorant label or a comma.
+- One main button per visitor state on the home page (new: Begin your journey; placed: next unit; returning:
+  Continue …). The view choice is the first step of the reflection, not on the home page.
+- Phones get the menu as a bottom tab bar (`Nav.jsx`, fixed): every page using it needs `pb-28 sm:pb-6`.
+- Story stills (`src/assets/previews/*.webp`, 800×450) are captured from the scenes: canvas-only screenshot of
+  `#/scene/<id>?beat=n&still` in headless Chrome (hide everything but canvas). 2D scenes (chapters 2–3) come out
+  black that way; use GL scenes.
+- The published page (`scripts/publish.mjs` → deploy/index.html) must start with `<!DOCTYPE html>`.
+
 ## Reviewing scenes (do this for every beat)
 
 - `#/scene/<id>?beat=n&still` holds the end of beat n (paused, camera where the beat ends).
