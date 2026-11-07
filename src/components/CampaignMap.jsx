@@ -478,7 +478,7 @@ export default function CampaignMap({ query = {} }) {
       else if (e.key === 'Escape') {
         if (listOpen) setListOpen(false);
         else if (selected) setSelected(null);
-        else go('/chronicle');
+        else go('/');
       }
     };
     window.addEventListener('keydown', onKey);
@@ -552,11 +552,9 @@ export default function CampaignMap({ query = {} }) {
 
       {/* Top bar */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between gap-3 p-3 sm:p-5">
-        <button type="button" className="hud-btn pointer-events-auto" onClick={() => go('/chronicle')} aria-label="Title screen">
-          <svg viewBox="-50 -50 100 100" className="h-5 w-5" aria-hidden="true">
-            <path d={starPath(44, 0.72)} fill="none" stroke="currentColor" strokeWidth="7" />
-          </svg>
-          <span className="hidden sm:inline">Amanah</span>
+        <button type="button" className="hud-btn pointer-events-auto" onClick={() => go('/')} aria-label="Home: the pyramid">
+          <Icon name="pyramid" className="h-5 w-5" />
+          <span className="hidden sm:inline">Pyramid</span>
         </button>
         <div className="parchment cartouche pointer-events-none hidden px-6 py-2 text-center md:block">
           <div className="caps text-[0.58rem] text-ink-soft">The campaign map</div>

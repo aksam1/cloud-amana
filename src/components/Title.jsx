@@ -6,6 +6,7 @@ import { ambience } from '../lib/audio.js';
 import { roman } from '../lib/geo.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
+import Nav from './Nav.jsx';
 
 /*
  * The concept story in one screen: the Trust was offered to the heavens, the earth and the
@@ -30,7 +31,10 @@ export default function Title() {
       <motion.div className="pointer-events-none absolute -left-1/4 top-[12%] h-[38vh] w-[90vw] rounded-full opacity-25" style={{ background: 'radial-gradient(ellipse, #3a2c1e, transparent 70%)', filter: 'blur(30px)' }} animate={{ x: ['-4%', '6%'] }} transition={{ duration: 26, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }} />
       <motion.div className="pointer-events-none absolute -right-1/4 bottom-[8%] h-[32vh] w-[80vw] rounded-full opacity-25" style={{ background: 'radial-gradient(ellipse, #2b2018, transparent 70%)', filter: 'blur(30px)' }} animate={{ x: ['5%', '-5%'] }} transition={{ duration: 31, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }} />
 
-      <main className="relative z-10 mx-auto flex w-full max-w-[760px] flex-1 flex-col items-center justify-center py-10 text-center">
+      <div className="relative z-20 mx-auto w-full max-w-[600px] pt-3">
+        <Nav here="stories" />
+      </div>
+      <main className="relative z-10 mx-auto flex w-full max-w-[760px] flex-1 flex-col items-center justify-center py-8 text-center">
         <div lang="ar" className="quran ink-reveal gold-text text-[clamp(64px,13vw,150px)] leading-[1.25]" style={{ '--dur': '2.6s', textShadow: 'none' }}>
           {arabicWords('33:72', [2, 2])}
         </div>
@@ -72,9 +76,6 @@ export default function Title() {
           <button type="button" className="hud-btn" onClick={() => go('/map')}>
             <Icon name="map" className="h-4 w-4" />
             Campaign map
-          </button>
-          <button type="button" className="hud-btn" onClick={() => go('/')}>
-            The pyramid
           </button>
         </motion.div>
 

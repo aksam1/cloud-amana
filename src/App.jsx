@@ -1,11 +1,13 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { Component, lazy, Suspense, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useRoute } from './lib/router.js';
 import { getState } from './lib/store.js';
 import { ambience } from './lib/audio.js';
 import { GeoField, starPath } from './components/Ornaments.jsx';
-import Title from './components/Title.jsx';
 
+// Every page loads on demand, so the home page never waits for the whole story (about 1 MB) to download.
+const Title = lazy(() => import('./components/Title.jsx'));
+const Stories = lazy(() => import('./components/Stories.jsx'));
 const ScenePlayer = lazy(() => import('./components/ScenePlayer.jsx'));
 const CampaignMap = lazy(() => import('./components/CampaignMap.jsx'));
 const Sheet = lazy(() => import('./components/Sheet.jsx'));
@@ -24,6 +26,43 @@ function Loader() {
       </svg>
     </div>
   );
+}
+
+/**
+ * If any page crashes (a device without WebGL, a bad scene file), show a calm way out instead of a blank
+ * screen. Nothing is lost: progress lives in the browser's storage, not in the page.
+ */
+class Recover extends Component {
+  state = { error: null };
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  componentDidCatch(error, info) {
+    console.error('[amanah] page crashed', error, info?.componentStack);
+  }
+  componentDidUpdate(prev) {
+    if (prev.routeKey !== this.props.routeKey && this.state.error) this.setState({ error: null });
+  }
+  render() {
+    if (!this.state.error) return this.props.children;
+    return (
+      <div className="parchment-night grid h-full place-items-center px-6" role="alert">
+        <GeoField opacity={0.06} />
+        <div className="parchment cartouche relative z-10 max-w-[440px] px-6 py-6 text-center">
+          <h1 className="font-display text-[1.3rem] font-semibold text-ink">Something went wrong on this page</h1>
+          <p className="mt-2 font-body text-[1.08rem] leading-snug text-ink-soft">Your progress is safe. You can go back to the pyramid, or reload and try again.</p>
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
+            <button type="button" className="btn-gold" onClick={() => (window.location.hash = '/')}>
+              Back to the pyramid
+            </button>
+            <button type="button" className="btn-ink" onClick={() => window.location.reload()}>
+              Reload
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default function App() {
@@ -52,6 +91,7 @@ export default function App() {
   return (
     <AnimatePresence mode="wait">
       <motion.div key={route.key} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75, ease: 'easeInOut' }}>
+        <Recover routeKey={route.key}>
         <Suspense fallback={<Loader />}>
           {route.name === 'scene' ? (
             <ScenePlayer id={route.id} beat={route.query.beat} still={'still' in route.query} moment={route.query.t} back={route.query.back} until={route.query.until} />
@@ -59,6 +99,8 @@ export default function App() {
             <Lesson chapter={+route.id} part={+route.part} then={route.query.then} />
           ) : route.name === 'sheet' ? (
             <Sheet id={route.id} device={route.query.device} />
+          ) : route.name === 'stories' ? (
+            <Stories />
           ) : route.name === 'pyramid' ? (
             <Pyramid view={route.view} />
           ) : route.name === 'unit' ? (
@@ -69,6 +111,7 @@ export default function App() {
             <Title />
           )}
         </Suspense>
+        </Recover>
       </motion.div>
     </AnimatePresence>
   );

@@ -124,12 +124,24 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
                   onClick={interactive ? () => onSelect(unit.id) : undefined}
                   onKeyDown={interactive ? (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onSelect(unit.id)) : undefined}
                   className={interactive ? 'cursor-pointer outline-none [&:focus-visible>rect.sel]:opacity-100' : ''}
+                  opacity={status === 'soon' ? 0.6 : 1}
                 >
                   {done[unit.id] && <rect x={x - 1} y={y - 1} width={w + 2} height={h + 2} fill="#f7e0a3" filter="url(#mn-glow)" opacity="0.75" />}
                   <rect x={x} y={y} width={w} height={h} rx="1.5" fill="url(#mn-stone)" stroke="#2a2016" strokeWidth="0.8" />
                   <rect x={x} y={y} width={w} height={h} rx="1.5" fill="url(#mn-grain)" />
                   {/* gold rises from the bottom of the stone with its meter */}
-                  {m > 0 && <rect x={x} y={y + h * (1 - m / 100)} width={w} height={(h * m) / 100} rx="1.5" fill="url(#mn-gold)" opacity={done[unit.id] ? 1 : 0.85} />}
+                  {m > 0 && (
+                    <motion.rect
+                      x={x}
+                      width={w}
+                      rx="1.5"
+                      fill="url(#mn-gold)"
+                      opacity={done[unit.id] ? 1 : 0.85}
+                      initial={still ? false : { y: y + h, height: 0 }}
+                      animate={{ y: y + h * (1 - m / 100), height: (h * m) / 100 }}
+                      transition={{ duration: 1.4, delay: 0.4, ease: 'easeOut' }}
+                    />
+                  )}
                   <rect x={x + 1} y={y + 1} width={w - 2} height={1.2} fill="#fff" opacity="0.12" />
                   <text
                     x={x + w / 2}

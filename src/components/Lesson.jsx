@@ -253,6 +253,7 @@ function Reflect({ data, mode, lessonKey: key, onDone }) {
         className="mt-3 w-full rounded-lg border border-[#8a6a4e]/45 bg-[#fffaf0]/60 p-3 font-body text-[1.05rem] text-ink placeholder:text-ink-soft/60 focus:border-[#a5772f] focus:outline-none"
       />
       <p className="mt-1 font-body text-[0.9rem] italic text-ink-soft">Only you can see this. It stays on this device.</p>
+      <p className="mt-2 font-body text-[0.95rem] text-ink-soft">Finishing this lesson lights more of the Messengers stone on your pyramid.</p>
       {mode === 'muslim' && data.act && (
         <div className="mt-4 rounded-md border border-[#a5772f]/50 bg-[#a5772f]/8 px-3 py-2">
           <div className="caps text-[0.6rem] text-ink-soft">This week</div>

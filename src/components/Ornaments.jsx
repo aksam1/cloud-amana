@@ -61,6 +61,8 @@ export function SourceBadge({ source = 'quran', className = '' }) {
 }
 
 const ICONS = {
+  pyramid: 'M12 3.5L3 19.5h18zM7 12.5h10M5 16h14',
+  bars: 'M5 20v-7M12 20V5M19 20v-10',
   map: 'M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14',
   play: 'M7 4.5v15l12-7.5z',
   pause: 'M7 4h3.5v16H7zM13.5 4H17v16h-3.5z',

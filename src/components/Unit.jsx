@@ -1,14 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ayah, expandRef, sceneById } from '../lib/story.js';
-import { saveJournal, saveUnit, useStore } from '../lib/store.js';
+import { getState, saveDraft, saveJournal, saveUnit, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
-import { CONFIG, completed, levelById, unitById, unitContent, unitMeter, unitStatus } from '../lib/pyramid.js';
+import { climb, CONFIG, completed, levelById, unitById, unitContent, unitMeter, unitStatus, UNITS } from '../lib/pyramid.js';
 import hadithData from '../data/hadith.json';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import { Disclaimer, Meter } from './Pyramid.jsx';
+import Monument from './Monument.jsx';
+import Nav from './Nav.jsx';
 
 /*
  * One unit of the pyramid, in five steps, one per screen:
@@ -27,15 +29,22 @@ export default function Unit({ id, step: startStep }) {
   const data = unitContent[id];
   const status = u ? unitStatus(id) : null;
   const { mode } = useMode();
-  const [step, setStep] = useState(STEPS.includes(startStep) ? startStep : 'story');
-  const [choice, setChoice] = useState(null); // option index
-  const [firsts, setFirsts] = useState({}); // question index → first option picked
+  // An unfinished attempt picks up exactly where it was left (choice, first answers, step).
+  const [draft] = useState(() => getState().drafts?.[id] || null);
+  const [step, setStep] = useState(STEPS.includes(startStep) ? startStep : draft?.step || 'story');
+  const [choice, setChoice] = useState(draft?.choice ?? null); // option index
+  const [firsts, setFirsts] = useState(draft?.firsts || {}); // question index → first option picked
   const [reflected, setReflected] = useState(false);
   const [result, setResult] = useState(null);
 
   useEffect(() => {
-    if (status === 'history') go('/chronicle');
+    if (status === 'history') go('/stories');
   }, [status]);
+  // Save the attempt as it goes, once it has begun (opening the story step alone is not an attempt).
+  useEffect(() => {
+    if (!data || result || (step === 'story' && choice === null && !draft)) return;
+    saveDraft(id, { step, choice, firsts }, u?.title);
+  }, [id, data, u, step, choice, firsts, result, draft]);
 
   if (!u) return <Frame id={id}>{<p className="font-body text-lg text-ink">There is no unit called “{id}”.</p>}</Frame>;
   if (!data) {
@@ -104,7 +113,7 @@ export default function Unit({ id, step: startStep }) {
       <div className="mt-5 flex items-center justify-between gap-3 border-t border-[#8a6a4e]/25 pt-3">
         <ModePicker tone="parchment" />
         <button type="button" className="font-body text-[0.95rem] text-ink-soft underline-offset-4 hover:underline" onClick={() => go('/')}>
-          Leave for now
+          Save and leave
         </button>
       </div>
     </Frame>
@@ -113,13 +122,12 @@ export default function Unit({ id, step: startStep }) {
 
 function Frame({ children }) {
   return (
-    <div className="parchment-night thin-scroll relative h-full w-full overflow-y-auto px-4 py-6">
+    <div className="parchment-night thin-scroll relative h-full w-full overflow-y-auto px-4 pb-6 pt-3">
       <GeoField opacity={0.06} size={140} />
       <div className="relative z-10 mx-auto w-full max-w-[620px]">
-        <button type="button" className="hud-btn mb-3" onClick={() => go('/')}>
-          <Icon name="prev" className="h-4 w-4" />
-          The pyramid
-        </button>
+        <div className="mb-3">
+          <Nav here="pyramid" />
+        </div>
         <article className="parchment ruled cartouche relative px-5 pb-5 pt-5 shadow-[0_30px_70px_-20px_rgba(0,0,0,.9)] sm:px-8">{children}</article>
       </div>
     </div>
@@ -417,10 +425,20 @@ function Done({ u, result, mode }) {
   const best = Math.max(state.units[u.id]?.meter ?? 0, result.meter);
   const earlierBest = best > result.meter;
   const levelDone = useMemo(() => levelById[u.level].units.every((x) => completed(state, x.id)), [state, u]);
+  const c = useMemo(() => climb(state), [state]);
+  const done = useMemo(() => Object.fromEntries(UNITS.map((x) => [x.id, completed(state, x.id)])), [state]);
   return (
     <Frame>
       <Title u={u} />
-      <div className="mt-4 text-center">
+      <Monument
+        className="mx-auto mt-2 w-full max-w-[340px] rounded-lg bg-[#1a140e]"
+        meters={c.meters}
+        done={done}
+        lit={Object.fromEntries(c.levels.map((l) => [l.id, l.lit]))}
+        peak={c.peak}
+        selected={u.id}
+      />
+      <div className="mt-3 text-center">
         <div className="caps text-[0.6rem] text-ink-soft">Your {u.title} stone</div>
         <motion.div className="font-display text-[3rem] font-semibold text-[#8a5e1c]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.7 }}>
           {best}%

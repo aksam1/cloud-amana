@@ -10,7 +10,8 @@
 import structure from '../pyramid/units.json';
 import placementData from '../pyramid/placement.json';
 import config from '../pyramid/config.json';
-import { chapters } from './story.js';
+// Only the chapter files (a few KB), not the whole story: the home page must stay light.
+const chapters = Object.values(import.meta.glob('../story/chapters/*/chapter.json', { eager: true, import: 'default' }));
 
 const unitFiles = import.meta.glob('../pyramid/units/*.json', { eager: true, import: 'default' });
 export const unitContent = Object.fromEntries(Object.values(unitFiles).map((u) => [u.id, u]));
@@ -30,6 +31,9 @@ export function unitStatus(id) {
   if (unitById[id]?.history) return 'history';
   return unitContent[id] ? 'ready' : 'soon';
 }
+/** Can a person actually start this unit today? (Never send anyone to a page that is still being written.) */
+export const playable = (id) => unitStatus(id) !== 'soon';
+export const PLAYABLE = UNITS.filter((u) => playable(u.id)).map((u) => u.id);
 
 /** The unit a history chapter links to at its end, if any. */
 export const unitForChapter = (n) => {
@@ -68,11 +72,15 @@ export function placementResult(path, answers) {
   const ranked = Object.entries(unitShare).sort((a, b) => b[1] - a[1]);
   const strongest = ranked.slice(0, 2).map(([id]) => id);
   const growing = ranked.slice(-2).reverse().map(([id]) => id).filter((id) => !strongest.includes(id));
-  const inStart = ranked.filter(([id]) => unitById[id]?.level === start).reverse();
-  const recommended =
-    (inStart.find(([id]) => unitStatus(id) === 'ready') || inStart.find(([id]) => unitStatus(id) === 'history') || inStart[0] || [])[0] ||
-    UNITS.find((u) => unitStatus(u.id) === 'ready')?.id;
-  return { start, unitShare, levelShare, strongest, growing, recommended };
+  // The recommended first unit is always one that can be started today: the gentlest-scoring playable unit
+  // in the starting level, else the nearest level above it that has one, else any playable unit.
+  const share = (id) => unitShare[id] ?? 0.5;
+  const startIdx = LEVELS.findIndex((l) => l.id === start);
+  const byLevel = (lv) => PLAYABLE.filter((id) => unitById[id].level === lv).sort((a, b) => share(a) - share(b));
+  const ordered = [...LEVELS.slice(startIdx), ...LEVELS.slice(0, startIdx)].map((l) => l.id);
+  const recommended = ordered.map(byLevel).find((ids) => ids.length)?.[0] || PLAYABLE[0];
+  const startReady = byLevel(start).length > 0; // false: the starting level's lessons are still being written
+  return { start, unitShare, levelShare, strongest, growing, recommended, startReady };
 }
 
 // ── Unit meters and the climb ─────────────────────────────

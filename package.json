@@ -13,7 +13,10 @@
     "words": "node scripts/words.mjs",
     "scene": "node scripts/new-scene.mjs",
     "publish": "node scripts/publish.mjs",
-    "verses": "node scripts/fill-verses.mjs"
+    "verses": "node scripts/fill-verses.mjs",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "verify": "npm run check && npm test && npm run build"
   },
   "dependencies": {
     "@react-three/fiber": "^9.8.2",
@@ -25,9 +28,11 @@
     "three": "^0.186.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.0",
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-react": "^6.1.2",
     "tailwindcss": "^4.3.3",
-    "vite": "^8.3.5"
+    "vite": "^8.3.5",
+    "vitest": "^3.2.7"
   }
 }

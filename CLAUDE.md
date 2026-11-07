@@ -83,6 +83,20 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   Messengers' meter = history lessons learned ÷ all 55 parts. A unit retaken keeps its best meter.
 - Story steps play chronicle scenes with `?back=<unit>&until=<last scene>` and return to the unit.
 
+## The journey and its safety nets
+
+- One menu everywhere (`src/components/Nav.jsx`: Pyramid · Stories · Map · Progress). `#/stories` drops the
+  reader back into the story where they left it (no second home page). The map's home button is the pyramid.
+- Never send anyone to an unwritten unit: `playable()` in pyramid.js; placement recommends playable units
+  only (`startReady` false → the result explains). Unfinished units keep a draft (`drafts` in store.js) and
+  the home page shows "Continue where you left off" (`recent`). A crash shows a recovery card (App.jsx).
+- Pages load on demand; the home page must not import `src/lib/story.js` (about 1 MB): pyramid.js reads
+  only the chapter files. Measured: 140 KB compressed JS on first load (was 319 KB).
+- `npm test` (vitest: engine, placement never dead-ends, wording), `npm run e2e` (Playwright journeys on
+  phone and desktop; locally `CHROME_PATH=/usr/bin/google-chrome npm run e2e`), `npm run verify` (check +
+  test + build). GitHub Actions runs all of it on every push (`.github/workflows/ci.yml`). Add a journey
+  test whenever a new flow ships.
+
 ## Reviewing scenes (do this for every beat)
 
 - `#/scene/<id>?beat=n&still` holds the end of beat n (paused, camera where the beat ends).

@@ -100,7 +100,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
     cam.y.set(c0.y);
     cam.z.set(c0.z);
     cam.r.set(c0.r);
-    setLast(scene.id);
+    if (!back) setLast(scene.id, scene.title); // a scene replayed from a lesson is not where the reader left the story
     lightNode(scene.node);
     if (bridge) return undefined;
     const t = setTimeout(() => setTitleCard(false), watchFor ? WATCH_MS : TITLE_MS);

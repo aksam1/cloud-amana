@@ -3,10 +3,11 @@ import { AnimatePresence, motion } from 'motion/react';
 import { deleteAllData, savePlacement, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
-import { climb, completed, DISCLAIMER, levelById, LEVELS, pathOf, placementQuestions, placementResult, SCALE, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
+import { climb, completed, DISCLAIMER, levelById, LEVELS, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import Monument from './Monument.jsx';
+import Nav from './Nav.jsx';
 
 /*
  * The Pyramid of Righteousness (hadith of Jibril: Islam, Iman, Ihsan). One component, four views:
@@ -25,12 +26,17 @@ export default function Pyramid({ view = 'landing' }) {
 
 // ── Shared pieces ─────────────────────────────────────────
 
-function Shell({ children, back, title, stars = false }) {
+function Shell({ children, back, title, stars = false, here }) {
   return (
     <div className="parchment-night thin-scroll relative h-full w-full overflow-y-auto">
       <GeoField opacity={0.05} size={140} />
       {stars && <Stars />}
-      <div className="relative z-10 mx-auto flex min-h-full max-w-[600px] flex-col px-5 pb-6 pt-4">
+      <div className="relative z-10 mx-auto flex min-h-full max-w-[600px] flex-col px-5 pb-6 pt-3">
+        {here && (
+          <div className="mb-3">
+            <Nav here={here} />
+          </div>
+        )}
         {(back || title) && (
           <header className="mb-2 flex min-h-[48px] items-center gap-3">
             {back && (
@@ -99,10 +105,20 @@ function suggestion(state, current) {
   const rec = state.placement && placementResult(state.placement.path, state.placement.answers).recommended;
   if (rec && !completed(state, rec)) return rec;
   const order = [...UNITS.filter((u) => u.level === current), ...UNITS];
-  return order.find((u) => unitStatus(u.id) === 'ready' && !completed(state, u.id))?.id || null;
+  return order.find((u) => playable(u.id) && !completed(state, u.id))?.id || PLAYABLE[0];
 }
 
-const unitHref = (id) => (unitStatus(id) === 'history' ? '/chronicle' : `/unit/${id}`);
+// Messengers is the chronicle: its stone goes straight back into the story, not to a second home page.
+export const unitHref = (id) => (unitStatus(id) === 'history' ? '/stories' : `/unit/${id}`);
+
+const DAY = 864e5;
+/** "Continue where you left off": the most recent unfinished unit or story scene, if any. */
+function resumePoint(state) {
+  const drafts = Object.entries(state.drafts || {}).map(([id, d]) => ({ kind: 'unit', id, at: d.at, step: d.step }));
+  const scene = state.recent?.kind === 'scene' && !state.seen[state.recent.id] ? [{ kind: 'scene', id: state.recent.id, title: state.recent.title, at: state.recent.at }] : [];
+  return [...drafts, ...scene].sort((a, b) => (b.at || '').localeCompare(a.at || ''))[0] || null;
+}
+const STEP_NAME = { story: 'the story', choice: 'the choice', teaching: 'the teaching', check: 'the understanding check', reflection: 'the reflection' };
 
 function UnitChip({ id }) {
   const u = unitById[id];
@@ -124,15 +140,12 @@ function Landing() {
   const level = levelById[c.current];
   const idx = LEVELS.findIndex((l) => l.id === c.current);
   const above = LEVELS[idx + 1];
+  const resume = resumePoint(c.state);
+  const stale = placed && Date.now() - new Date(c.state.placement.at || 0).getTime() > 30 * DAY;
 
   return (
-    <Shell stars>
-      <div className="flex items-center justify-between">
-        <div className="caps text-[0.62rem] text-gold/80">The hadith of Jibril</div>
-        <button type="button" className="flex min-h-[44px] items-center gap-2 font-body text-[1rem] text-ivory/75 hover:text-ivory" onClick={() => go('/chronicle')}>
-          <Icon name="book" className="h-4 w-4" /> The chronicle
-        </button>
-      </div>
+    <Shell stars here="pyramid">
+      <div className="caps text-center text-[0.62rem] text-gold/80">From the hadith of Jibril · Islam, Iman, Ihsan</div>
       <motion.h1 className="mt-1 text-center font-display text-[1.7rem] font-semibold leading-tight text-gold-hi sm:text-[2.1rem]" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
         The Pyramid of Righteousness
       </motion.h1>
@@ -151,9 +164,13 @@ function Landing() {
           onSelect={(id) => setSelected((s) => (s === id ? null : id))}
         />
       </motion.div>
-      <p className="-mt-1 text-center font-body text-[0.95rem] text-ivory/55">Tap any stone to see its lesson.</p>
+      <p className="-mt-1 text-center font-body text-[0.95rem] text-ivory/55">
+        Tap any stone. {PLAYABLE.length} of {UNITS.length} are ready to explore today; the rest are being written.
+      </p>
 
       <AnimatePresence>{selected && <UnitCard key={selected} id={selected} meter={c.meters[selected]} done={c.done[selected]} onClose={() => setSelected(null)} />}</AnimatePresence>
+
+      {!placed && <HowItWorks />}
 
       {!mode ? (
         <section className="mt-5 flex flex-col items-center gap-3">
@@ -172,33 +189,44 @@ function Landing() {
             Begin your reflection
           </button>
           <p className="font-body text-[0.95rem] text-ivory/55">{placementQuestions(pathOf(mode)).length} questions · about 3 minutes</p>
+          <button type="button" className="font-body text-[1rem] text-ivory/70 underline-offset-4 hover:text-ivory hover:underline" onClick={() => go('/stories')}>
+            Or start with the stories of the prophets
+          </button>
         </section>
       ) : (
-        <section className="mt-5 rounded-xl border border-gold/25 bg-black/30 p-4">
-          <div className="caps text-[0.6rem] text-gold/80">{c.peak ? 'Every stone is lit' : 'Where you are on the climb'}</div>
-          <div className="mt-1 flex items-baseline justify-between gap-3">
-            <div className="font-display text-[1.5rem] font-semibold text-gold-hi">{level.title}</div>
-            <div lang="ar" dir="rtl" className="font-quran text-[1.5rem] text-gold/80">
-              {level.arabic}
+        <>
+          {resume && <ResumeCard point={resume} />}
+          <section className="mt-4 rounded-xl border border-gold/25 bg-black/30 p-4">
+            <div className="caps text-[0.6rem] text-gold/80">{c.peak ? 'Every stone is lit' : 'Where you are on the climb'}</div>
+            <div className="mt-1 flex items-baseline justify-between gap-3">
+              <div className="font-display text-[1.5rem] font-semibold text-gold-hi">{level.title}</div>
+              <div lang="ar" dir="rtl" className="font-quran text-[1.5rem] text-gold/80">
+                {level.arabic}
+              </div>
             </div>
-          </div>
-          <p className="font-body text-[1rem] text-ivory/70">{level.meaning}</p>
-          <div className="mt-3">
-            <Meter value={c.currentProgress} label={above && !c.peak ? `Toward ${above.title}` : `${level.title} progress`} />
-          </div>
-          <p className="mt-2 font-body text-[0.95rem] text-ivory/55">Overall understanding {c.overall}%</p>
-          <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-            {next && (
-              <button type="button" className="btn-gold" onClick={() => go(unitHref(next))} autoFocus>
-                <Icon name="play" className="h-4 w-4" />
-                Next: {unitById[next].title} · {unitById[next].english}
-              </button>
+            <p className="font-body text-[1rem] text-ivory/70">{level.meaning}</p>
+            <div className="mt-3">
+              <Meter value={c.currentProgress} label={above && !c.peak ? `Toward ${above.title}` : `${level.title} progress`} />
+            </div>
+            <p className="mt-2 font-body text-[0.95rem] text-ivory/55">Overall understanding {c.overall}%</p>
+            {next && next !== resume?.id && (
+              <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                <button type="button" className={resume ? 'hud-btn' : 'btn-gold'} onClick={() => go(unitHref(next))} autoFocus={!resume}>
+                  <Icon name="play" className="h-4 w-4" />
+                  {unitStatus(next) === 'history' ? 'Next: the stories of the prophets' : `Next: ${unitById[next].title} · ${unitById[next].english}`}
+                </button>
+              </div>
             )}
-            <button type="button" className="hud-btn" onClick={() => go('/pyramid/progress')}>
-              Your progress
-            </button>
-          </div>
-        </section>
+            {stale && (
+              <p className="mt-3 font-body text-[1rem] text-ivory/75">
+                It has been a while since you last reflected.{' '}
+                <button type="button" className="text-gold-hi underline underline-offset-4" onClick={() => go('/pyramid/placement')}>
+                  Reflect again
+                </button>
+              </p>
+            )}
+          </section>
+        </>
       )}
 
       {mode && (
@@ -211,10 +239,52 @@ function Landing() {
   );
 }
 
+/** First visit: what this is and how it works, in three steps. */
+function HowItWorks() {
+  const steps = [
+    ['Reflect', 'A few private questions find where to begin. Not a grade.'],
+    ['Learn', 'Short lessons and the stories of the prophets, with the Quran and Sunnah.'],
+    ['Climb', 'Each lesson you finish lights a stone of the pyramid.'],
+  ];
+  return (
+    <ol className="mt-4 grid gap-2 sm:grid-cols-3" aria-label="How it works">
+      {steps.map(([t, d], i) => (
+        <li key={t} className="flex gap-3 rounded-xl border border-gold/20 bg-black/25 px-3 py-2.5 sm:flex-col sm:gap-1">
+          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-gold/50 font-display text-[0.85rem] text-gold-hi" aria-hidden="true">
+            {i + 1}
+          </span>
+          <span>
+            <span className="block font-display text-[0.95rem] text-gold-hi">{t}</span>
+            <span className="block font-body text-[1rem] leading-snug text-ivory/75">{d}</span>
+          </span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/** Return visit: one clear way back to exactly where the person stopped. */
+function ResumeCard({ point }) {
+  const u = point.kind === 'unit' && unitById[point.id];
+  const href = u ? `/unit/${point.id}` : `/scene/${point.id}`;
+  return (
+    <section className="mt-5 rounded-xl border border-gold-hi/50 bg-[#3c2a12]/60 p-4" aria-label="Continue where you left off">
+      <div className="caps text-[0.6rem] text-gold/85">Continue where you left off</div>
+      <div className="mt-1 font-display text-[1.15rem] text-gold-hi">{u ? `${u.title} · ${u.english}` : point.title}</div>
+      <p className="font-body text-[1rem] text-ivory/70">{u ? `You were on ${STEP_NAME[point.step] || 'the lesson'}.` : 'In the stories of the prophets.'}</p>
+      <button type="button" className="btn-gold mt-3" onClick={() => go(href)} autoFocus>
+        <Icon name="play" className="h-4 w-4" />
+        Continue
+      </button>
+    </section>
+  );
+}
+
 function UnitCard({ id, meter, done, onClose }) {
   const u = unitById[id];
   const status = unitStatus(id);
   const learned = useStore((s) => Object.keys(s.learned).length);
+  const seen = useStore((s) => s.seen);
   return (
     <motion.section
       className="parchment cartouche relative mt-3 px-5 pb-4 pt-4"
@@ -248,13 +318,30 @@ function UnitCard({ id, meter, done, onClose }) {
           <p className="mt-2 font-body text-[1rem] leading-snug text-ink-soft">
             The stories of the prophets live here. This stone fills as you finish the story's lessons ({learned} so far).
           </p>
-          <button type="button" className="btn-gold mt-3" onClick={() => go('/chronicle')}>
-            <Icon name="book" className="h-4 w-4" />
-            Enter the chronicle
-          </button>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button type="button" className="btn-gold" onClick={() => go('/stories')}>
+              <Icon name="book" className="h-4 w-4" />
+              {learned || Object.keys(seen).length ? 'Continue the stories' : 'Begin the stories'}
+            </button>
+            <button type="button" className="btn-ink" onClick={() => go('/map')}>
+              <Icon name="map" className="h-4 w-4" />
+              Map
+            </button>
+          </div>
         </>
       )}
-      {status === 'soon' && <p className="mt-2 font-body text-[1rem] italic text-ink-soft">This lesson path is still being written.</p>}
+      {status === 'soon' && (
+        <>
+          <p className="mt-2 font-body text-[1rem] italic text-ink-soft">This lesson path is still being written. Meanwhile, you can explore:</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {PLAYABLE.map((pid) => (
+              <button key={pid} type="button" className="btn-ink" onClick={() => go(unitHref(pid))}>
+                {unitStatus(pid) === 'history' ? 'The stories of the prophets' : `${unitById[pid].title} · ${unitById[pid].english}`}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </motion.section>
   );
 }
@@ -384,12 +471,17 @@ function Result() {
   const level = levelById[r.start];
   const rec = r.recommended && unitById[r.recommended];
   return (
-    <Shell back="/" title="Your starting point">
+    <Shell here="pyramid">
       <Monument className="mx-auto w-full max-w-[460px]" meters={c.meters} done={c.done} lit={c.lit} peak={c.peak} start={r.start} recommended={r.recommended} />
       <motion.section initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}>
         <p className="caps text-center text-[0.62rem] text-gold/80">Begin your climb at</p>
         <h1 className="text-center font-display text-[2rem] font-semibold text-gold-hi">{level.title}</h1>
         <p className="text-center font-body text-[1.05rem] text-ivory/75">{level.meaning}</p>
+        {!r.startReady && rec && (
+          <p className="mx-auto mt-2 max-w-[44ch] text-center font-body text-[1rem] italic text-ivory/65">
+            The lessons for {level.title} are still being written, so for now we suggest {unitStatus(rec.id) === 'history' ? 'the stories of the prophets' : rec.english.toLowerCase()} below.
+          </p>
+        )}
         <Rule className="mx-auto my-4 h-3 w-44 text-gold/60" />
 
         <h2 className="caps text-[0.62rem] text-gold/80">Where you feel strong</h2>
@@ -421,7 +513,7 @@ function Result() {
             <p className="font-body text-[1.05rem] text-ink-soft">{rec.english}</p>
             <button type="button" className="btn-gold mt-3" onClick={() => go(unitHref(rec.id))} autoFocus>
               <Icon name="play" className="h-4 w-4" />
-              {unitStatus(rec.id) === 'history' ? 'Enter the chronicle' : `Begin ${rec.title}`}
+              {unitStatus(rec.id) === 'history' ? 'Begin the stories' : `Begin ${rec.title}`}
             </button>
           </div>
         )}
@@ -451,7 +543,7 @@ function Progress() {
   const [confirm, setConfirm] = useState(false);
   const [gone, setGone] = useState(false);
   return (
-    <Shell back="/" title="Your progress">
+    <Shell here="progress">
       <section className="rounded-xl border border-gold/25 bg-black/30 p-4">
         <div className="caps text-[0.6rem] text-gold/80">Where you are on the climb</div>
         <div className="font-display text-[1.6rem] font-semibold text-gold-hi">{levelById[c.current].title}</div>
@@ -471,7 +563,7 @@ function Progress() {
               const status = unitStatus(u.id);
               return (
                 <li key={u.id}>
-                  <button type="button" className="flex min-h-[52px] w-full items-center gap-3 py-2 text-left" onClick={() => go(unitHref(u.id))} disabled={status === 'soon'}>
+                  <button type="button" className="flex min-h-[52px] w-full items-center gap-3 py-2 text-left disabled:opacity-55" onClick={() => go(unitHref(u.id))} disabled={status === 'soon'}>
                     <span className="w-28 shrink-0 font-display text-[0.95rem] text-ivory">{u.title}</span>
                     <span className="flex-1">
                       <Meter value={c.meters[u.id]} />

@@ -13,6 +13,8 @@ const DEFAULTS = {
   // The pyramid (src/lib/pyramid.js): placement answers and result, and each unit's best meter.
   placement: null, // { path, answers: {questionId: points}, at: ISO date, start: levelId }
   units: {}, // unitId → { meter, check, choice, reflection, attempts, at }
+  drafts: {}, // unitId → an unfinished attempt { step, choice, firsts, at }, so leaving never loses a place
+  recent: null, // the last thing opened, for "Continue where you left off": { kind: 'unit'|'scene', id, title, at }
   prefs: { sound: false, auto: true, chronicle: true, mode: null }, // mode: 'muslim' | 'curious' | null (not chosen)
 };
 
@@ -56,7 +58,17 @@ export function useStore(select = (s) => s) {
 export const setPref = (k, v) => update((s) => void (s.prefs[k] = v));
 export const markSeen = (id) => update((s) => void (s.seen[id] = true));
 export const lightNode = (id) => update((s) => void (s.lit[id] = true));
-export const setLast = (id) => update((s) => void (s.last = id));
+export const setLast = (id, title) =>
+  update((s) => {
+    s.last = id;
+    s.recent = { kind: 'scene', id, title: title || id, at: new Date().toISOString() };
+  });
+export const saveDraft = (unitId, draft, title) =>
+  update((s) => {
+    s.drafts[unitId] = { ...draft, at: new Date().toISOString() };
+    s.recent = { kind: 'unit', id: unitId, title: title || unitId, at: new Date().toISOString() };
+  });
+export const clearDraft = (unitId) => update((s) => void delete s.drafts[unitId]);
 export const markLearned = (key) => update((s) => void (s.learned[key] = true));
 export const markAnswered = (key) => update((s) => void (s.answers[key] = true));
 export const saveJournal = (key, text) => update((s) => void (s.journal[key] = text));
@@ -66,6 +78,7 @@ export const saveUnit = (id, r) =>
   update((s) => {
     const prev = s.units[id];
     s.units[id] = prev && prev.meter > r.meter ? { ...prev, attempts: prev.attempts + 1 } : { ...r, attempts: (prev?.attempts || 0) + 1 };
+    delete s.drafts[id];
   });
 /** "Delete my data": everything this app stored in this browser, preferences and journal included. */
 export function deleteAllData() {
@@ -79,4 +92,4 @@ export function deleteAllData() {
 }
 // Starting again keeps preferences and the reader's private journal; only progress is cleared.
 // (The pyramid's placement and unit meters are kept too: this restarts the chronicle only.)
-export const resetProgress = () => update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs, journal: s.journal, placement: s.placement, units: s.units }));
+export const resetProgress = () => update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs, journal: s.journal, placement: s.placement, units: s.units, drafts: s.drafts }));
