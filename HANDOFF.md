@@ -5,7 +5,7 @@ Read this first, then `CLAUDE.md` (the rules and engine notes), then `.claude/sk
 ## 1. What this is
 - An Islamic story app: the prophets' stories from the Quran as painted, animated WebGL scenes.
 - Vite + React 19 + three/R3F. Each scene is one JSON file in `src/story/chapters/c<N>/s<NN>-<id>.json`.
-- Live app (public artifact, version 19: Muslim/Exploring views and the first lesson): https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq
+- Live app (public artifact, version 20: the Pyramid of Righteousness is now the home page; blueprint in docs/PYRAMID-BLUEPRINT.md): https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq
 - Repo: `aksam1/cloud-amana`, working branch `claude/hopeful-volta-f4sesq`.
 
 ## 1b. The bigger vision (from the user)

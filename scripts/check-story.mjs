@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ayahs = JSON.parse(readFileSync(join(root, 'src/data/ayahs.json'), 'utf8'));
+
 const timeline = JSON.parse(readFileSync(join(root, 'src/story/timeline.json'), 'utf8'));
 const registry = readFileSync(join(root, 'src/layers/index.js'), 'utf8');
 const layerTypes = new Set([...registry.matchAll(/^\s+(\w+):\s*\w+,?$/gm)].map((m) => m[1]).concat('range'));
@@ -128,7 +129,77 @@ for (const f of readdirSync(lessonDir).filter((f) => f.endsWith('.json'))) {
   }
 }
 
+// ── The pyramid (src/pyramid/): units, placement questions, unit lesson paths; hadith by id ──
+const pyr = (f) => JSON.parse(readFileSync(join(root, 'src/pyramid', f), 'utf8'));
+const structure = pyr('units.json');
+const placement = pyr('placement.json');
+const hadith = JSON.parse(readFileSync(join(root, 'src/data/hadith.json'), 'utf8'));
+const pyUnits = new Map(structure.levels.flatMap((l) => l.units.map((u) => [u.id, l.id])));
+const NEVER = /\b(test|tests|exam|exams|quiz)\b/i; // the blueprint: never call any part of it a test or exam
+const noteless = (o) => JSON.stringify(o, (k, v) => (k.startsWith('_') ? undefined : v));
+if (pyUnits.size !== structure.levels.reduce((n, l) => n + l.units.length, 0)) errors.push('src/pyramid/units.json: a unit id is used twice');
+for (const [ch, id] of Object.entries(structure.chapterUnits || {})) {
+  if (ch.startsWith('_')) continue;
+  if (!pyUnits.has(id)) errors.push(`src/pyramid/units.json chapterUnits: chapter ${ch} → unknown unit "${id}"`);
+  if (!chapterFiles.some((c) => String(c.number) === ch)) errors.push(`src/pyramid/units.json chapterUnits: no chapter ${ch}`);
+}
+for (const path of ['muslim', 'nonmuslim']) {
+  const n = placement.questions.filter((q) => q.path === path).length;
+  if (n < 10 || n > 15) warns.push(`src/pyramid/placement.json: ${n} ${path} questions (the blueprint asks for 10 to 15)`);
+}
+const qids = new Set();
+for (const q of placement.questions) {
+  const at = `src/pyramid/placement.json ${q.id}`;
+  if (qids.has(q.id)) errors.push(`${at}: id used twice`);
+  qids.add(q.id);
+  if (!['muslim', 'nonmuslim'].includes(q.path)) errors.push(`${at}: path must be muslim or nonmuslim`);
+  if (pyUnits.get(q.unit) !== q.level) errors.push(`${at}: unit "${q.unit}" is not in level "${q.level}"`);
+  if (q.type === 'scenario') {
+    if (!(q.options?.length >= 3 && q.options.length <= 4)) errors.push(`${at}: a scenario needs 3 or 4 options`);
+    if (q.options?.some((o) => !(o.points >= 0 && o.points <= 4))) errors.push(`${at}: option points run 0 to 4`);
+  } else if (q.type !== 'scale') errors.push(`${at}: type must be scale or scenario`);
+  if (NEVER.test(q.text)) errors.push(`${at}: never call any part of it a test or exam`);
+}
+const pyUnitDir = join(root, 'src/pyramid/units');
+let unitCount = 0;
+for (const f of readdirSync(pyUnitDir).filter((f) => f.endsWith('.json'))) {
+  const at = `src/pyramid/units/${f}`;
+  const u = JSON.parse(readFileSync(join(pyUnitDir, f), 'utf8'));
+  unitCount++;
+  if (!pyUnits.has(u.id)) errors.push(`${at}: "${u.id}" is not a unit in units.json`);
+  for (const id of [u.story?.from, u.story?.until].filter(Boolean)) if (!sceneIds.has(id)) errors.push(`${at}: story scene "${id}" does not exist`);
+  for (const v of ['muslim', 'curious']) {
+    if (!u.story?.intro?.[v]) errors.push(`${at}: needs story.intro.${v}`);
+    if (!u.choice?.[v]?.options?.length) errors.push(`${at}: needs choice.${v} with options`);
+    if (!u.reflection?.[v]) errors.push(`${at}: needs reflection.${v}`);
+    if (!u.teaching?.heading?.[v]) errors.push(`${at}: needs teaching.heading.${v}`);
+  }
+  for (const q of u.teaching?.quran || []) {
+    const missing = expand(q.ref).filter((r) => !ayahs[r]);
+    if (missing.length) warns.push(`${at}: verse ${q.ref} not fetched yet (shown once it is)`);
+  }
+  for (const h of u.teaching?.hadith || []) {
+    if (!hadith[h.id]) errors.push(`${at}: hadith "${h.id}" is not in src/data/hadith.json`);
+  }
+  for (const x of u.teaching?.insights || []) if (x.status !== 'reviewed') warns.push(`${at}: insight from "${x.who}" awaits scholar review`);
+  const n = u.check?.length || 0;
+  if (n < 3 || n > 5) errors.push(`${at}: the understanding check needs 3 to 5 questions (has ${n})`);
+  (u.check || []).forEach((q, i) => {
+    if (!(q.answer >= 0 && q.answer < q.options.length)) errors.push(`${at} check ${i}: answer is not one of the options`);
+    if (!q.why) warns.push(`${at} check ${i}: no "why" explanation`);
+  });
+  const text = noteless(u);
+  if (/[؀-ۿ]/.test(text)) errors.push(`${at}: Arabic typed into a unit; give a verse ref or a hadith id instead`);
+  if (/\bAllah\b/.test(text)) errors.push(`${at}: write "God"; the Muslim view shows Allah automatically`);
+  if (NEVER.test(text)) errors.push(`${at}: never call any part of it a test or exam`);
+}
+for (const [id, h] of Object.entries(hadith)) {
+  if (id.startsWith('_')) continue;
+  if (!h.collection || !h.number || !h.en) errors.push(`src/data/hadith.json ${id}: needs collection, number and en`);
+  if (h.status !== 'reviewed') warns.push(`src/data/hadith.json ${id}: wording awaits review against a verified translation and by a scholar`);
+}
+
 warns.forEach((w) => console.warn('warn ', w));
 errors.forEach((e) => console.error('ERROR', e));
-console.log(`${scenes.length} scenes · ${scenes.reduce((n, s) => n + s.beats.filter((b) => b.verse).length, 0)} verse captions · ${lessonCount} lessons · ${errors.length} errors · ${warns.length} warnings`);
+console.log(`${scenes.length} scenes · ${scenes.reduce((n, s) => n + s.beats.filter((b) => b.verse).length, 0)} verse captions · ${lessonCount} lessons · ${unitCount} pyramid units · ${errors.length} errors · ${warns.length} warnings`);
 process.exit(errors.length ? 1 : 0);

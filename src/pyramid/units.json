@@ -1,0 +1,69 @@
+{
+  "levels": [
+    {
+      "id": "islam",
+      "title": "Islam",
+      "arabic": "الإسلام",
+      "meaning": "Submission: the five pillars, the base of the monument",
+      "units": [
+        { "id": "shahadah", "title": "Shahadah", "arabic": "الشهادة", "english": "The declaration of faith" },
+        { "id": "salah", "title": "Salah", "arabic": "الصلاة", "english": "Prayer" },
+        { "id": "zakat", "title": "Zakat", "arabic": "الزكاة", "english": "Giving" },
+        { "id": "sawm", "title": "Sawm", "arabic": "الصوم", "english": "Fasting" },
+        { "id": "hajj", "title": "Hajj", "arabic": "الحج", "english": "Pilgrimage" }
+      ]
+    },
+    {
+      "id": "iman",
+      "title": "Iman",
+      "arabic": "الإيمان",
+      "meaning": "Faith: the six beliefs, the middle of the monument",
+      "units": [
+        { "id": "allah", "title": "Allah", "arabic": "الله", "english": "Belief in God" },
+        { "id": "angels", "title": "Angels", "arabic": "الملائكة", "english": "Belief in the angels" },
+        { "id": "books", "title": "Books", "arabic": "الكتب", "english": "Belief in the revealed books" },
+        { "id": "messengers", "title": "Messengers", "arabic": "الرسل", "english": "Belief in the messengers", "history": true },
+        { "id": "lastday", "title": "Last Day", "arabic": "اليوم الآخر", "english": "Belief in the Last Day" },
+        { "id": "qadr", "title": "Qadr", "arabic": "القدر", "english": "Belief in God's decree" }
+      ]
+    },
+    {
+      "id": "ihsan",
+      "title": "Ihsan",
+      "arabic": "الإحسان",
+      "meaning": "Excellence: worshipping God as though you see Him, the peak of the monument",
+      "units": [
+        { "id": "ikhlas", "title": "Ikhlas", "arabic": "الإخلاص", "english": "Sincerity" },
+        { "id": "sabr", "title": "Sabr", "arabic": "الصبر", "english": "Patience" },
+        { "id": "shukr", "title": "Shukr", "arabic": "الشكر", "english": "Gratitude" },
+        { "id": "tawakkul", "title": "Tawakkul", "arabic": "التوكل", "english": "Trust in God" },
+        { "id": "humility", "title": "Tawadu'", "arabic": "التواضع", "english": "Humility" },
+        { "id": "character", "title": "Akhlaq", "arabic": "حسن الخلق", "english": "Good character" }
+      ]
+    }
+  ],
+  "chapterUnits": {
+    "_note": "DEFAULT: the unit each history chapter links to at its end. Change freely; ids must exist above.",
+    "1": "humility",
+    "2": "ikhlas",
+    "3": "sabr",
+    "4": "humility",
+    "5": "shukr",
+    "6": "tawakkul",
+    "7": "character",
+    "8": "ikhlas",
+    "9": "sabr",
+    "10": "sabr",
+    "11": "tawakkul",
+    "12": "tawakkul",
+    "13": "shukr",
+    "14": "shukr",
+    "15": "sabr",
+    "16": "ikhlas",
+    "17": "books",
+    "18": "humility",
+    "19": "messengers",
+    "20": "lastday",
+    "21": "lastday"
+  }
+}

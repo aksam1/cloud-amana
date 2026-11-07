@@ -65,6 +65,24 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Progress: `learned`, `answers` and the private `journal` in `src/lib/store.js` (localStorage only).
   Chapter 1 part 0 is the pilot lesson; part 1 and other chapters are still to write.
 
+## The Pyramid of Righteousness (the home page)
+
+- Built from the owner's blueprint (hadith of Jibril: Islam base, Iman middle, Ihsan peak). `#/` is the
+  pyramid; the chronicle's title page moved to `#/chronicle` and lives inside the Messengers unit. Routes:
+  `#/pyramid/placement`, `#/pyramid/result`, `#/pyramid/progress`, `#/unit/<id>?step=`.
+- Data only, no code changes to add content: `src/pyramid/units.json` (levels, units, `chapterUnits` =
+  the unit each chapter's last scene links to), `placement.json` (10–15 reflection questions per path,
+  `muslim`/`nonmuslim`; scale 0–4 or scenarios), `units/<id>.json` (one lesson path: story → choice →
+  teaching → check → reflection; `sabr.json` is the prototype, using Ayyub's scenes), `config.json` (DEFAULT
+  weights 70/15/15, placement threshold, the disclaimer). Hadith come only from `src/data/hadith.json` by
+  id, like verses from ayahs.json; `status: "draft"` shows "Awaiting scholar review" until checked.
+- Never: a "test"/"exam" (the checker rejects the words in pyramid data), predicting anyone's afterlife,
+  leaderboards or comparisons, shaming copy. The disclaimer shows on the landing, placement, result,
+  progress and unit-result screens. Scores are private (localStorage); Progress has "Delete my data".
+- Engine: `src/lib/pyramid.js` (placement result, unit meters, level progress, overall, current level).
+  Messengers' meter = history lessons learned ÷ all 55 parts. A unit retaken keeps its best meter.
+- Story steps play chronicle scenes with `?back=<unit>&until=<last scene>` and return to the unit.
+
 ## Reviewing scenes (do this for every beat)
 
 - `#/scene/<id>?beat=n&still` holds the end of beat n (paused, camera where the beat ends).

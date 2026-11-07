@@ -1,0 +1,78 @@
+{
+  "_note": "Reflection questions that find a starting point. Not a grade. type 'scale' uses the shared scale below; type 'scenario' lists its own options with points (0 to 4). Write 'God' in text: the Muslim view shows 'Allah'.",
+  "scale": [
+    { "label": "Never", "points": 0 },
+    { "label": "Rarely", "points": 1 },
+    { "label": "Sometimes", "points": 2 },
+    { "label": "Often", "points": 3 },
+    { "label": "Always", "points": 4 }
+  ],
+  "questions": [
+    { "id": "m-shahadah", "path": "muslim", "level": "islam", "unit": "shahadah", "type": "scale", "text": "I understand what the shahadah means, and I could explain it to someone else." },
+    { "id": "m-salah", "path": "muslim", "level": "islam", "unit": "salah", "type": "scale", "text": "I pray the five daily prayers on time." },
+    { "id": "m-zakat", "path": "muslim", "level": "islam", "unit": "zakat", "type": "scale", "text": "I give from what I have to people in need, through zakat or sadaqah." },
+    { "id": "m-sawm", "path": "muslim", "level": "islam", "unit": "sawm", "type": "scale", "text": "I fast in Ramadan, and I understand why we fast." },
+    { "id": "m-allah", "path": "muslim", "level": "iman", "unit": "allah", "type": "scale", "text": "I think about God's names, like the Most Merciful, and what they mean in my life." },
+    { "id": "m-books", "path": "muslim", "level": "iman", "unit": "books", "type": "scale", "text": "I read or listen to the Quran with its meaning." },
+    { "id": "m-messengers", "path": "muslim", "level": "iman", "unit": "messengers", "type": "scale", "text": "I know the stories of the prophets and what they teach." },
+    { "id": "m-lastday", "path": "muslim", "level": "iman", "unit": "lastday", "type": "scale", "text": "Remembering the Last Day changes how I act." },
+    {
+      "id": "m-qadr", "path": "muslim", "level": "iman", "unit": "qadr", "type": "scenario",
+      "text": "You worked hard for something, and it didn't happen. What is closest to how you usually react?",
+      "options": [
+        { "label": "It feels unfair, and I wonder why I bother.", "points": 0 },
+        { "label": "I try not to think about it.", "points": 1 },
+        { "label": "I'm upset, but I keep trying.", "points": 3 },
+        { "label": "I'm upset, but I trust God's plan and look for the good in it.", "points": 4 }
+      ]
+    },
+    { "id": "m-ikhlas", "path": "muslim", "level": "ihsan", "unit": "ikhlas", "type": "scale", "text": "I do good deeds even when no one will ever know about them." },
+    {
+      "id": "m-sabr", "path": "muslim", "level": "ihsan", "unit": "sabr", "type": "scenario",
+      "text": "Something painful happens that you can't change. What do you usually do first?",
+      "options": [
+        { "label": "Complain to everyone around me.", "points": 1 },
+        { "label": "Keep it inside and shut people out.", "points": 1 },
+        { "label": "Make dua, tell God how I feel, and keep doing what I can.", "points": 4 },
+        { "label": "Pretend nothing happened.", "points": 0 }
+      ]
+    },
+    { "id": "m-shukr", "path": "muslim", "level": "ihsan", "unit": "shukr", "type": "scale", "text": "I notice small blessings during the day and thank God for them." },
+    { "id": "m-tawakkul", "path": "muslim", "level": "ihsan", "unit": "tawakkul", "type": "scale", "text": "When I worry about the future, I do my part and leave the rest to God." },
+    { "id": "m-humility", "path": "muslim", "level": "ihsan", "unit": "humility", "type": "scale", "text": "I admit when I'm wrong, even to someone younger than me." },
+    { "id": "m-character", "path": "muslim", "level": "ihsan", "unit": "character", "type": "scale", "text": "I stay kind to people even when they are unkind to me." },
+
+    { "id": "c-shahadah", "path": "nonmuslim", "level": "islam", "unit": "shahadah", "type": "scale", "text": "I know what Muslims believe about God in one sentence." },
+    { "id": "c-salah", "path": "nonmuslim", "level": "islam", "unit": "salah", "type": "scale", "text": "I set aside regular time in my day for quiet reflection." },
+    { "id": "c-zakat", "path": "nonmuslim", "level": "islam", "unit": "zakat", "type": "scale", "text": "I give some of what I have to people in need." },
+    { "id": "c-sawm", "path": "nonmuslim", "level": "islam", "unit": "sawm", "type": "scale", "text": "I've gone without something on purpose, to build self-control." },
+    { "id": "c-allah", "path": "nonmuslim", "level": "iman", "unit": "allah", "type": "scale", "text": "I wonder whether there is a Creator behind the universe." },
+    { "id": "c-books", "path": "nonmuslim", "level": "iman", "unit": "books", "type": "scale", "text": "I've read parts of the Quran or another scripture." },
+    { "id": "c-messengers", "path": "nonmuslim", "level": "iman", "unit": "messengers", "type": "scale", "text": "I know stories of the prophets, like Abraham, Moses or Jesus." },
+    { "id": "c-lastday", "path": "nonmuslim", "level": "iman", "unit": "lastday", "type": "scale", "text": "I think about what happens after we die." },
+    {
+      "id": "c-qadr", "path": "nonmuslim", "level": "iman", "unit": "qadr", "type": "scenario",
+      "text": "Something goes wrong that you couldn't control. What is closest to how you usually react?",
+      "options": [
+        { "label": "I feel it's unfair, and I find it hard to move on.", "points": 0 },
+        { "label": "I try not to think about it.", "points": 1 },
+        { "label": "I'm upset, but I pick myself up and keep going.", "points": 3 },
+        { "label": "I look for what it might teach me, or the good that could come from it.", "points": 4 }
+      ]
+    },
+    { "id": "c-ikhlas", "path": "nonmuslim", "level": "ihsan", "unit": "ikhlas", "type": "scale", "text": "I do good things even when no one will notice." },
+    {
+      "id": "c-sabr", "path": "nonmuslim", "level": "ihsan", "unit": "sabr", "type": "scenario",
+      "text": "Something painful happens that you can't change. What do you usually do first?",
+      "options": [
+        { "label": "Let it out on the people around me.", "points": 1 },
+        { "label": "Keep it inside and shut people out.", "points": 1 },
+        { "label": "Talk it through honestly, and keep doing what I can.", "points": 4 },
+        { "label": "Pretend nothing happened.", "points": 0 }
+      ]
+    },
+    { "id": "c-shukr", "path": "nonmuslim", "level": "ihsan", "unit": "shukr", "type": "scale", "text": "I take time to feel grateful for what I have." },
+    { "id": "c-humility", "path": "nonmuslim", "level": "ihsan", "unit": "humility", "type": "scale", "text": "I can admit when I'm wrong." },
+    { "id": "c-character", "path": "nonmuslim", "level": "ihsan", "unit": "character", "type": "scale", "text": "I try to stay kind to people who are unkind to me." }
+  ]
+}

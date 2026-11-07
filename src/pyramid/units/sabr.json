@@ -1,0 +1,100 @@
+{
+  "id": "sabr",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "Ayyub had land, herds, children and good health, and he was grateful for all of it. Then he lost almost everything, and was ill for years. Watch what he did.",
+      "curious": "Ayyub, known in the Bible as Job, had land, herds, children and good health. Then he lost almost everything, and was ill for years. Watch what he did."
+    },
+    "chapter": 10,
+    "part": 0,
+    "from": "blessed",
+    "until": "restored",
+    "length": "4 scenes, about 3 minutes"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "You've been unwell for weeks. You can't go out with friends or keep up with your studies. A friend asks, \"Why would God let this happen to you?\"",
+      "prompt": "What would you do?",
+      "options": [
+        { "label": "Agree with them. It does feel unfair.", "points": 0, "feedback": "That feeling is human, and God knows it. Ayyub felt real pain too. Let's look at what he did with it." },
+        { "label": "Say nothing, and stop answering messages.", "points": 1, "feedback": "Pulling away is understandable, but carrying it all alone is heavy. Ayyub's story shows another way." },
+        { "label": "Tell God how hard it is in dua, and keep doing the small things you can.", "points": 2, "feedback": "That's very close to what Ayyub did: he told his Lord about his pain, and kept turning back to Him." },
+        { "label": "Tell everyone you're fine and keep it hidden.", "points": 1, "feedback": "Hiding pain isn't the same as patience. The teaching next explains the difference." }
+      ]
+    },
+    "curious": {
+      "situation": "You've been unwell for weeks. You can't go out with friends or keep up with your studies. A friend asks, \"Why do bad things happen to good people?\"",
+      "prompt": "What would you do?",
+      "options": [
+        { "label": "Agree with them. It does feel unfair.", "points": 0, "feedback": "That feeling is very human. Ayyub felt real pain too. Let's look at what Islam says he did with it." },
+        { "label": "Say nothing, and stop answering messages.", "points": 1, "feedback": "Pulling away is understandable. Ayyub's story shows another way to carry it." },
+        { "label": "Talk honestly about how hard it is, and keep doing the small things you can.", "points": 2, "feedback": "That's close to what Islam teaches: name the pain honestly, keep going, and, for a believer, take it to God." },
+        { "label": "Tell everyone you're fine and keep it hidden.", "points": 1, "feedback": "Islam treats hiding pain and patience as different things. The next step explains why." }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": { "muslim": "What God teaches about patience", "curious": "What Islam teaches about patience" },
+    "quran": [
+      { "ref": "21:83", "about": "Ayyub tells his Lord about the harm that has touched him, and calls on Him as the most merciful of all." },
+      { "ref": "21:84", "about": "God answers him, lifts his hardship and gives him back his family, as a mercy and a reminder for all who worship." },
+      { "ref": "38:44", "about": "God describes Ayyub as patient, and as an excellent servant who always turned back to Him." },
+      { "ref": "2:155-157", "about": "God tells us people will be tried with fear, hunger and loss, and gives good news to the patient, who meet loss by remembering that they belong to God and will return to Him." },
+      { "ref": "39:10", "about": "God promises the patient a reward beyond any measure." }
+    ],
+    "hadith": [
+      { "id": "muslim-2999", "about": "For a believer, both good times and hard times can be good: thankfulness in one, patience in the other." },
+      { "id": "bukhari-1283", "about": "Patience means most at the moment hardship first hits, not only once the shock has passed." }
+    ],
+    "insights": [
+      {
+        "who": "Ibn al-Qayyim",
+        "work": "ʿUddat al-Ṣābirīn",
+        "text": "Scholars describe three kinds of patience: patience in doing what God commands, patience in keeping away from what He forbids, and patience with what He decrees, the things you cannot change.",
+        "status": "draft"
+      },
+      {
+        "who": "From the verses",
+        "text": "Telling God about your pain is not impatience. Ayyub did it (21:83), and Yaqub said he took his grief to God alone (12:86). What patience rules out is complaining about God, not crying out to Him.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "When Ayyub called to his Lord, what did he do?",
+      "options": ["Complained about God to the people around him", "Told his Lord about his pain and called on His mercy", "Stopped praying until he was well", "Blamed his wife"],
+      "answer": 1,
+      "why": "In 21:83 Ayyub speaks to his Lord directly: he names the harm, and appeals to His mercy."
+    },
+    {
+      "q": "How did God answer Ayyub?",
+      "options": ["He told him to leave his land and travel", "He told him to strike the ground, and a spring of water healed him", "He told him to stop asking", "He took away his memory of the pain"],
+      "answer": 1,
+      "why": "A cool spring welled up where Ayyub struck the ground; he washed and drank, and his health returned (38:42)."
+    },
+    {
+      "q": "According to the hadith, when does patience count most?",
+      "options": ["Once everything has been fixed", "At the first strike of a hardship", "Only during Ramadan", "Once other people have noticed"],
+      "answer": 1,
+      "why": "The Prophet ﷺ said patience is at the first strike of a calamity: the moment it hits."
+    },
+    {
+      "q": "Does telling God about your pain go against patience?",
+      "options": ["Yes: a patient person never speaks of pain", "No: patience rules out complaining about God, not telling Him your pain", "Only if you cry", "Only if other people can hear"],
+      "answer": 1,
+      "why": "Ayyub and Yaqub both told God of their pain, and God called Ayyub patient."
+    },
+    {
+      "q": "Which of these is not one of the three kinds of patience the scholars describe?",
+      "options": ["Patience in doing what God commands", "Patience in keeping away from what He forbids", "Patience with what He decrees", "Patience in waiting for others to say sorry first"],
+      "answer": 3,
+      "why": "The three kinds are patience in obeying God, in keeping away from sin, and with what you cannot change."
+    }
+  ],
+  "reflection": {
+    "muslim": "Think of something hard you're carrying right now. What would it look like to tell God about it, the way Ayyub did?",
+    "curious": "Think of a hard time you've been through. What helped you carry it, and what does Ayyub's story add?"
+  }
+}

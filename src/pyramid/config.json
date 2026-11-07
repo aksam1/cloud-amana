@@ -1,0 +1,14 @@
+{
+  "_note": "Every value here is a DEFAULT the owner can change without touching code.",
+  "weights": {
+    "check": 0.7,
+    "choice": 0.15,
+    "reflection": 0.15
+  },
+  "placement": {
+    "_note": "A level counts as 'firm' when the answers about it average at least this share of the top answer. Placement starts at the lowest level that is not yet firm.",
+    "firm": 0.7
+  },
+  "levelsOpen": true,
+  "disclaimer": "This is a tool for learning and self-reflection. Only Allah knows the state of anyone's heart."
+}

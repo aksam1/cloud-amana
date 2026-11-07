@@ -1,0 +1,21 @@
+{
+  "_note": "Every hadith shown in the app comes from this file by id, never typed into a unit (like verses from ayahs.json). status 'draft' means the English wording has not yet been checked word for word against a verified translation and by a scholar: the app labels it as awaiting review, and npm run check warns. Set status to 'reviewed' (and fill reviewedBy) only after that check. Arabic is added only from a verified source.",
+  "muslim-2999": {
+    "collection": "Sahih Muslim",
+    "number": "2999",
+    "narrator": "Suhayb",
+    "en": "How wonderful is the affair of the believer, for all of it is good, and that is for no one except the believer. If something good happens to him, he is thankful, and that is good for him. If something harmful befalls him, he is patient, and that is good for him.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-1283": {
+    "collection": "Sahih al-Bukhari",
+    "number": "1283",
+    "also": "Sahih Muslim 926",
+    "narrator": "Anas ibn Malik",
+    "context": "The Prophet ﷺ passed a woman weeping at a grave and told her to be patient. She did not recognise him and turned him away; when she later came to apologise, he said:",
+    "en": "Patience is at the first strike of a calamity.",
+    "status": "draft",
+    "reviewedBy": null
+  }
+}

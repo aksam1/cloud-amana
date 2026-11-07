@@ -73,6 +73,9 @@ export default function Title() {
             <Icon name="map" className="h-4 w-4" />
             Campaign map
           </button>
+          <button type="button" className="hud-btn" onClick={() => go('/')}>
+            The pyramid
+          </button>
         </motion.div>
 
         <motion.div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3, duration: 1 }}>

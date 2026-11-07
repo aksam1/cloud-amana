@@ -9,7 +9,10 @@ const DEFAULTS = {
   last: null, // last scene opened
   learned: {}, // "chapter:part" → true once that part's lesson is finished
   answers: {}, // "chapter:part:question" → true once answered right (for review on the next visit)
-  journal: {}, // "chapter:part" → the reader's own reflection; never leaves this browser
+  journal: {}, // "chapter:part" or "unit:<id>" → the reader's own reflection; never leaves this browser
+  // The pyramid (src/lib/pyramid.js): placement answers and result, and each unit's best meter.
+  placement: null, // { path, answers: {questionId: points}, at: ISO date, start: levelId }
+  units: {}, // unitId → { meter, check, choice, reflection, attempts, at }
   prefs: { sound: false, auto: true, chronicle: true, mode: null }, // mode: 'muslim' | 'curious' | null (not chosen)
 };
 
@@ -57,5 +60,23 @@ export const setLast = (id) => update((s) => void (s.last = id));
 export const markLearned = (key) => update((s) => void (s.learned[key] = true));
 export const markAnswered = (key) => update((s) => void (s.answers[key] = true));
 export const saveJournal = (key, text) => update((s) => void (s.journal[key] = text));
+export const savePlacement = (p) => update((s) => void (s.placement = p));
+// A retaken unit only ever raises its meter: the best attempt is kept, and attempts are counted.
+export const saveUnit = (id, r) =>
+  update((s) => {
+    const prev = s.units[id];
+    s.units[id] = prev && prev.meter > r.meter ? { ...prev, attempts: prev.attempts + 1 } : { ...r, attempts: (prev?.attempts || 0) + 1 };
+  });
+/** "Delete my data": everything this app stored in this browser, preferences and journal included. */
+export function deleteAllData() {
+  try {
+    localStorage.removeItem(KEY);
+  } catch {
+    /* nothing stored */
+  }
+  state = structuredClone(DEFAULTS);
+  subs.forEach((f) => f());
+}
 // Starting again keeps preferences and the reader's private journal; only progress is cleared.
-export const resetProgress = () => update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs, journal: s.journal }));
+// (The pyramid's placement and unit meters are kept too: this restarts the chronicle only.)
+export const resetProgress = () => update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs, journal: s.journal, placement: s.placement, units: s.units }));
