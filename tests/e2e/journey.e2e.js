@@ -77,3 +77,13 @@ test('every part of the app has a way home', async ({ page }) => {
   await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Stories' }).click();
   await expect(page).toHaveURL(/#\/scene\//);
 });
+
+test('tapping a level of the pyramid looks closer, and the whole pyramid comes back', async ({ page }) => {
+  await page.goto('/#/pyramid');
+  await page.getByRole('button', { name: 'Look closer at Iman' }).dispatchEvent('click');
+  await expect(page.getByRole('heading', { name: /^Iman/ })).toBeVisible();
+  await page.getByRole('button', { name: 'Up to Ihsan' }).click();
+  await expect(page.getByRole('heading', { name: /^Ihsan/ })).toBeVisible();
+  await page.getByRole('button', { name: 'Whole pyramid' }).click();
+  await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeVisible();
+});

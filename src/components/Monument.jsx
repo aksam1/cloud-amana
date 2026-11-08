@@ -38,15 +38,31 @@ function seals(level, band) {
     const row = Math.floor(i / per);
     const inRow = Math.min(per, n - row * per);
     const f = band.rows[row];
-    const span = halfAt(f) * 2 * (inRow > 3 ? 0.78 : 0.62);
+    const span = halfAt(f) * 2 * (inRow > 3 ? 0.78 : band.rows.length > 1 ? 0.74 : 0.62);
     const step = inRow > 1 ? span / (inRow - 1) : 0;
     const x = 200 - span / 2 + (i - row * per) * step;
-    const r = band.rows.length > 1 ? 7.2 : n > 5 ? 9.5 : 11;
-    return { unit: u, x: r1(x), y: r1(yAt(f)), r };
+    const r = band.rows.length > 1 ? 6.2 : n > 5 ? 9.5 : 11;
+    return { unit: u, x: r1(x), y: r1(yAt(f)), r, row };
   });
 }
 
-export default function Monument({ meters = {}, done = {}, lit = {}, peak = false, start, recommended, selected, onSelect, scenery = true, className = '' }) {
+// The part of the picture to show when one level is looked at closely (kept at the frame's 4:3).
+function viewOf(focus) {
+  const li = LEVELS.findIndex((l) => l.id === focus);
+  if (li < 0) return [0, 0, W, 300];
+  const b = BANDS[li];
+  const w = halfAt(b.from) * 2 + 24;
+  const h = yAt(b.from) - yAt(b.to) + 36;
+  const vw = Math.max(w, (h * 4) / 3);
+  const vh = (vw * 3) / 4;
+  const cy = (yAt(b.from) + yAt(b.to)) / 2;
+  return [200 - vw / 2, cy - vh / 2, vw, vh].map(r1);
+}
+
+// Unit names under (or, every other one, above) their seals when a level is looked at closely.
+const LABEL = [9, 7.5, 4.4];
+
+export default function Monument({ meters = {}, done = {}, lit = {}, peak = false, start, recommended, selected, onSelect, focus, onFocus, scenery = true, className = '' }) {
   const still = useReducedMotion();
   const pulse = still ? {} : { animate: { opacity: [0.25, 1, 0.25] }, transition: { duration: 2.4, repeat: Infinity, ease: 'easeInOut' } };
   const tri = `${APEX[0]},${APEX[1]} ${200 + HALF},${BASE} ${200 - HALF},${BASE}`;
@@ -54,7 +70,14 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
   const capY = yAt(CAP);
   const capH = halfAt(CAP);
   return (
-    <svg viewBox={`0 0 ${W} 300`} className={className} role="group" aria-label="The pyramid: Islam at the base, Iman in the middle, Ihsan at the peak">
+    <motion.svg
+      viewBox={`0 0 ${W} 300`}
+      animate={{ viewBox: viewOf(focus).join(' ') }}
+      transition={{ duration: still ? 0 : 0.9, ease: [0.65, 0, 0.35, 1] }}
+      className={className}
+      role="group"
+      aria-label="The pyramid: Islam at the base, Iman in the middle, Ihsan at the peak"
+    >
       <defs>
         <linearGradient id="mn-face" x1="0" y1="0" x2="1" y2="0.35">
           <stop offset="0" stopColor="#f3d9a6" />
@@ -152,9 +175,33 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
         <circle cx={APEX[0]} cy={APEX[1]} r="9" fill="#fff4cf" opacity="0.45" filter="url(#mn-blur)" />
       </g>
 
+      {/* each level is one wide button: tap it to look closer; the other levels fall into shade */}
+      {LEVELS.map((level, li) => {
+        const b = BANDS[li];
+        const pts = `${200 - halfAt(b.to)},${yAt(b.to)} ${200 + halfAt(b.to)},${yAt(b.to)} ${200 + halfAt(b.from)},${yAt(b.from)} ${200 - halfAt(b.from)},${yAt(b.from)}`;
+        return (
+          <g key={level.id}>
+            <motion.polygon points={pts} fill="#0b0712" pointerEvents="none" initial={false} animate={{ opacity: focus && focus !== level.id ? 0.7 : 0 }} transition={{ duration: 0.6 }} />
+            {onFocus && (
+              <polygon
+                points={pts}
+                fill="transparent"
+                role="button"
+                tabIndex={0}
+                aria-label={focus === level.id ? `${level.title}: shown up close` : `Look closer at ${level.title}`}
+                aria-pressed={focus === level.id}
+                className="cursor-pointer outline-none focus-visible:fill-white/10"
+                onClick={() => onFocus(level.id)}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onFocus(level.id))}
+              />
+            )}
+          </g>
+        );
+      })}
+
       {/* the seals: one per unit */}
       {LEVELS.map((level, li) =>
-        seals(level, BANDS[li]).map(({ unit, x, y, r }) => {
+        seals(level, BANDS[li]).map(({ unit, x, y, r, row }, i) => {
           const m = meters[unit.id] || 0;
           const ready = unitStatus(unit.id) !== 'soon';
           const isDone = !!done[unit.id];
@@ -201,10 +248,33 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
               {selected === unit.id && <circle cx={x} cy={y} r={ring + 2.4} fill="none" stroke="#ffffff" strokeWidth="1.6" />}
               {recommended === unit.id && selected !== unit.id && <motion.circle cx={x} cy={y} r={ring + 2.4} fill="none" stroke="#fff3d6" strokeWidth="1.3" strokeDasharray="3 2.5" {...pulse} />}
               {interactive && <circle cx={x} cy={y} r={ring + 2.4} fill="none" stroke="#ffffff" strokeWidth="1.6" className="opacity-0 group-focus-visible:opacity-100" />}
+              {focus === level.id && (
+                <motion.text
+                  x={x}
+                  y={(BANDS[li].rows.length === 1 ? i % 2 === 1 : row === 1) ? y - r - 5 : y + r + 4 + LABEL[li]}
+                  textAnchor="middle"
+                  fontFamily="Cinzel, serif"
+                  fontWeight="700"
+                  fontSize={LABEL[li]}
+                  fill="#fff4dc"
+                  stroke="#2a1608"
+                  strokeWidth={LABEL[li] * 0.22}
+                  strokeLinejoin="round"
+                  paintOrder="stroke"
+                  opacity={ready ? 1 : 0.55}
+                  pointerEvents="none"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: ready ? 1 : 0.55 }}
+                  transition={{ delay: still ? 0 : 0.6, duration: 0.5 }}
+                  aria-hidden="true"
+                >
+                  {unit.title}
+                </motion.text>
+              )}
             </g>
           );
         }),
       )}
-    </svg>
+    </motion.svg>
   );
 }
