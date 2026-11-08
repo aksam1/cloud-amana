@@ -103,9 +103,6 @@ const Terrain = memo(function Terrain() {
           <text x={g.cx} y={130} fontFamily="Cinzel, serif" fontSize="40" letterSpacing="10" fill="#3b2a18" opacity="0.8">
             {g.title.toUpperCase()}
           </text>
-          <text x={g.cx} y={190} fontFamily={ARABIC_FONT} fontSize="40" fill="#6b4a22" opacity="0.75">
-            {g.arabic}
-          </text>
         </g>
       ))}
 
@@ -177,9 +174,6 @@ function MapNode({ n, st, selected, igniting, onSelect }) {
         {st.complete && <path d="M-7,0 L-2,5 L8,-6" stroke="#2a1d12" strokeWidth="2.6" fill="none" strokeLinecap="round" />}
         {st.lit && !st.complete && <circle r="5" fill={st.ready ? '#f3d48b' : '#cdb98f'} />}
       </motion.g>
-      <text y="-54" textAnchor="middle" fontFamily={ARABIC_FONT} fontSize="27" fill="#3b2a18">
-        {n.arabic}
-      </text>
       <text y="68" textAnchor="middle" fontFamily="Cinzel, serif" fontSize="17" letterSpacing="2.5" fill="#24180e" fontWeight="600">
         {n.short.toUpperCase()}
       </text>
@@ -216,10 +210,6 @@ function Dossier({ n, st, onClose, seen }) {
         <Icon name="close" className="h-4 w-4" />
       </button>
       <div className="caps text-[0.6rem] text-ink-soft">{era?.title}</div>
-      <div lang="ar" className="ruqaa mt-1 text-right text-[2.4rem] leading-tight text-[#6b4a22]">
-        {n.arabic}
-        {n.prophet && <span className="mr-2 align-middle text-[1rem] text-ink-soft">عليه السلام</span>}
-      </div>
       <h2 className="font-display text-[1.35rem] font-semibold leading-tight text-ink">{n.title}</h2>
       {n.alt && <div className="font-body text-[1.05rem] italic text-ink-soft">{n.alt}</div>}
       <div className="caps mt-2 text-[0.6rem] text-ink-soft">{n.date}</div>

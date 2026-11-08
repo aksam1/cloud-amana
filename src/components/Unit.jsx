@@ -142,9 +142,6 @@ function Title({ u }) {
         <h1 className="font-display text-[1.45rem] font-semibold leading-tight text-ink">
           {u.title} <span className="ml-1 font-body text-[1.1rem] font-normal italic text-ink-soft">{inMode(u.english, mode)}</span>
         </h1>
-        <span lang="ar" dir="rtl" className="ml-auto font-quran text-[1.45rem] text-ink-soft">
-          {u.arabic}
-        </span>
       </div>
     </header>
   );

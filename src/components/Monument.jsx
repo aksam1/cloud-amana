@@ -21,9 +21,9 @@ const H = BASE - APEX[1];
 
 // Heights as fractions of the pyramid, base up. Seals sit on rows within each band.
 const BANDS = [
-  { from: 0, to: 0.36, name: 0.075, rows: [0.215] },
-  { from: 0.36, to: 0.64, name: 0.425, rows: [0.545] },
-  { from: 0.64, to: 0.885, name: 0.68, rows: [0.755, 0.83] },
+  { from: 0, to: 0.36, name: 0.075, rows: [0.18] },
+  { from: 0.36, to: 0.64, name: 0.425, rows: [0.5] },
+  { from: 0.64, to: 0.885, name: 0.68, rows: [0.725, 0.8] },
 ];
 const CAP = 0.885;
 
@@ -122,8 +122,6 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
         const top = b.to;
         const gilded = lit[level.id];
         const isStart = start === level.id;
-        const nameY = yAt(b.name);
-        const fs = li === 2 ? 12 : li === 1 ? 15 : 18;
         return (
           <g key={level.id} pointerEvents="none">
             <polygon
@@ -141,12 +139,6 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
                 {...pulse}
               />
             )}
-            <text x="200" y={nameY + 0.8} textAnchor="middle" fontFamily="'Aref Ruqaa', 'Amiri Quran', serif" fontSize={fs} fontWeight="700" fill="#fff6e0" opacity="0.45" aria-hidden="true">
-              {level.arabic}
-            </text>
-            <text x="200" y={nameY} textAnchor="middle" fontFamily="'Aref Ruqaa', 'Amiri Quran', serif" fontSize={fs} fontWeight="700" fill="#5a3615" opacity="0.85" aria-hidden="true">
-              {level.arabic}
-            </text>
           </g>
         );
       })}

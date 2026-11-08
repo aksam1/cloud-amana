@@ -296,9 +296,6 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
                 Chapter {roman(chapter?.number || 1)} · {chapter?.title}
               </div>
               <div className="caps mt-2 text-[0.8rem] text-gold-hi">Scene {roman(scene.order)}</div>
-              <div lang="ar" className="ruqaa ink-reveal gold-text mt-1 text-[clamp(40px,6.4vw,92px)] leading-[1.35]" style={{ '--dur': '2s' }}>
-                {scene.arabic}
-              </div>
               <h1 className="font-display text-[clamp(20px,2.7vw,36px)] leading-tight text-ivory">{scene.title}</h1>
               <div className="mt-4 flex justify-center">
                 <SourceBadge source={scene.source} />

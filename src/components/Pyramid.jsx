@@ -180,9 +180,7 @@ function Home() {
 
       <div className="relative z-10 mx-auto flex h-full max-w-[1100px] flex-col px-6 pb-28 pt-5 sm:px-10 sm:pb-12">
         <header className="flex items-center justify-between gap-6">
-          <span lang="ar" className="font-ruqaa text-[1.8rem] leading-none text-gold-hi" aria-hidden="true">
-            الأمانة
-          </span>
+          <span className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">Amanah</span>
           <div className="sm:w-[580px]">
             <Nav here="home" />
           </div>
@@ -280,9 +278,7 @@ function Landing() {
         <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-col px-5 pt-5 sm:px-10">
           <header className="flex items-center justify-between gap-6">
             <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home">
-              <span lang="ar" className="font-ruqaa text-[1.8rem] leading-none text-gold-hi">
-                الأمانة
-              </span>
+              <span className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">Amanah</span>
             </a>
             <div className="sm:w-[580px]">
               <Nav here="pyramid" />
@@ -348,9 +344,6 @@ function Landing() {
                       <h3 className="font-display text-[1.5rem] font-semibold leading-tight text-gold-hi">{level.title}</h3>
                       <p className="mt-1 max-w-[46ch] font-body text-[1.05rem] leading-snug text-ivory/70">{say(level.meaning.split(':')[0])}</p>
                     </div>
-                    <span lang="ar" dir="rtl" className="shrink-0 font-ruqaa text-[2.4rem] leading-none text-gold/80 sm:text-[3rem]">
-                      {level.arabic}
-                    </span>
                   </div>
                   <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
                     {level.units.map((u) => {
@@ -458,9 +451,6 @@ function ClimbCard({ c, stale }) {
           <div className="font-body text-[1.05rem] italic text-ivory/65">{c.peak ? 'Every stone is lit' : 'You are climbing'}</div>
           <div className="font-display text-[1.45rem] font-semibold text-gold-hi">{level.title}</div>
         </div>
-        <div lang="ar" dir="rtl" className="font-ruqaa text-[1.6rem] text-gold/80">
-          {level.arabic}
-        </div>
       </div>
       <div className="mt-3">
         <Meter value={c.currentProgress} label={above && !c.peak ? `Toward ${above.title}` : `${level.title} progress`} />
@@ -503,9 +493,6 @@ function UnitCard({ id, meter, done, onClose }) {
       <div className="font-body text-[1rem] italic text-ink-soft">{levelById[u.level].title}</div>
       <div className="flex items-baseline gap-3 pr-10">
         <h2 className="font-display text-[1.3rem] font-semibold text-ink">{u.title}</h2>
-        <span lang="ar" dir="rtl" className="font-quran text-[1.35rem] text-ink-soft">
-          {u.arabic}
-        </span>
       </div>
       <p className="font-body text-[1.05rem] text-ink-soft">{say(u.english)}</p>
       <div className="mt-2">
@@ -711,9 +698,6 @@ function Result() {
             <div className="font-body text-[1.05rem] italic text-ink-soft">A good first step</div>
             <div className="flex items-baseline gap-3">
               <h2 className="font-display text-[1.25rem] font-semibold text-ink">{rec.title}</h2>
-              <span lang="ar" dir="rtl" className="font-quran text-[1.3rem] text-ink-soft">
-                {rec.arabic}
-              </span>
             </div>
             <p className="font-body text-[1.05rem] text-ink-soft">{inMode(rec.english, mode)}</p>
             <button type="button" className="btn-gold mt-3" onClick={() => go(unitHref(rec.id))} autoFocus>
