@@ -1,0 +1,129 @@
+{
+  "chapter": 15,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Ilyas finds his people worshipping an idol. Watch what he asks them.",
+      "questions": [
+        {
+          "q": "What idol were Ilyas's people worshipping?",
+          "options": [
+            "The sun",
+            "Ba'l",
+            "A golden calf",
+            "Five statues"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "baal",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Ilyas ask his people?",
+          "options": [
+            "Who made this idol?",
+            "Will you call on Ba'l and abandon the best of creators?",
+            "Where is your king?",
+            "Why are you poor?"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "baal",
+            "beat": 1
+          }
+        },
+        {
+          "q": "How does the Quran describe Al-Yasa'?",
+          "options": [
+            "As a king",
+            "Among the best of people",
+            "As a warrior",
+            "It doesn't mention him"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "yasa",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Ilyas asked one clear question: why call on an idol and abandon the best of creators? Al-Yasa' carried the call on after him. God honours His prophets even when little of their story is told.",
+        "curious": "Ilyas and Al-Yasa' are known in the Bible as Elijah and Elisha. The Quran honours them briefly, as part of the long line of prophets.",
+        "ref": "37:125"
+      },
+      "carry": {
+        "title": "A prayer for forgiveness and mercy",
+        "ref": "23:118"
+      },
+      "reflect": {
+        "muslim": "What do you turn to before God when things go wrong?",
+        "curious": "What do people today rely on that can't really help them?"
+      },
+      "act": "When something goes wrong this week, make dua before you reach for anything else."
+    },
+    {
+      "part": 1,
+      "watchFor": "Yunus leaves his people in anger. Watch what he says in the darkest place on earth.",
+      "questions": [
+        {
+          "q": "Why did Yunus leave his city?",
+          "options": [
+            "He was banished",
+            "They would not listen, and he left in anger before God gave him leave",
+            "To trade by sea",
+            "To find a wife"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "leaving",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Yunus call out in the darkness?",
+          "options": [
+            "Save me, sailors!",
+            "There is no god but You. Glory be to You! I have been one of the wrongdoers",
+            "Why me?",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "darkness",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What happened to the city Yunus had left?",
+          "options": [
+            "It was destroyed",
+            "Everyone in it turned to God and believed",
+            "It was empty",
+            "It forgot him"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "believed",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Yunus left too soon, and in the darkness of the whale he admitted it. God answered his call and saved him, and the whole city he had given up on believed. It's never too late to turn back to God, and never right to give up on people.",
+        "curious": "Yunus is the biblical Jonah. Muslims treasure his prayer from inside the whale, and his city, the only one in the Quran that believed before punishment came.",
+        "ref": "21:88"
+      },
+      "carry": {
+        "title": "Yunus's prayer from the darkness",
+        "ref": "21:87"
+      },
+      "reflect": {
+        "muslim": "Who have you given up on? What would turning back toward them look like?",
+        "curious": "Have you ever walked away from something too soon? What happened?"
+      },
+      "act": "Say Yunus's prayer whenever you feel stuck or low this week."
+    }
+  ]
+}

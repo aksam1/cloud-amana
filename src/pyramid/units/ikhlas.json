@@ -1,0 +1,180 @@
+{
+  "id": "ikhlas",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "Adam's two sons each brought an offering to God. One gave his best, with care; the other gave the least he could. Only one was accepted. Watch why.",
+      "curious": "Adam's two sons, known in the Bible as Abel and Cain, each brought an offering to God. One gave his best, with care; the other gave the least he could. Watch which was accepted, and why."
+    },
+    "chapter": 1,
+    "part": 1,
+    "from": "offerings",
+    "until": "threat",
+    "length": "2 scenes, about 1 minute"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "You volunteer at a food drive. Someone is taking photos for social media, and you notice you work harder whenever the camera points your way.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Make sure you're in as many photos as possible.",
+          "points": 0,
+          "feedback": "It's natural to want to be seen. But Habil's offering was accepted for something else. Let's see what."
+        },
+        {
+          "label": "Notice it, quietly renew your intention for God, and keep working the same either way.",
+          "points": 2,
+          "feedback": "That's sincerity: catching yourself and turning your heart back to God, whoever is watching."
+        },
+        {
+          "label": "Stop volunteering: if your intention isn't perfect, why bother?",
+          "points": 0,
+          "feedback": "Scholars warn that quitting good deeds for fear of showing off is a trap too. Fix the intention, keep the deed."
+        },
+        {
+          "label": "Ask not to be photographed.",
+          "points": 1,
+          "feedback": "That can help. The deeper fix is in the heart, as the teaching explains."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "You volunteer at a food drive. Someone is taking photos for social media, and you notice you work harder whenever the camera points your way.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Make sure you're in as many photos as possible.",
+          "points": 0,
+          "feedback": "Wanting to be seen is natural. See what Islam teaches makes a good deed count."
+        },
+        {
+          "label": "Notice it, and keep working the same whether or not anyone's watching.",
+          "points": 2,
+          "feedback": "That's what Islam calls sincerity: doing good for its own sake, for God, not for the camera."
+        },
+        {
+          "label": "Stop volunteering: if your motives aren't pure, what's the point?",
+          "points": 0,
+          "feedback": "Giving up good deeds isn't the answer. Islam says: fix the intention, keep the deed."
+        },
+        {
+          "label": "Ask not to be photographed.",
+          "points": 1,
+          "feedback": "That can help, though the real change is inside. The next step explains."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about sincerity",
+      "curious": "What Islam teaches about sincerity"
+    },
+    "quran": [
+      {
+        "ref": "5:27",
+        "about": "God accepts only from those who are mindful of Him."
+      },
+      {
+        "ref": "98:5",
+        "about": "People were commanded only to worship God, making their devotion sincerely His."
+      },
+      {
+        "ref": "6:162-163",
+        "about": "My prayer, my sacrifice, my living and my dying are for God, Lord of the worlds."
+      },
+      {
+        "ref": "76:9",
+        "about": "The righteous feed others for the sake of God alone, wanting neither reward nor thanks."
+      },
+      {
+        "ref": "107:4-6",
+        "about": "A warning for those who pray only to be seen."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "bukhari-1",
+        "about": "Every deed counts by the intention behind it."
+      },
+      {
+        "id": "muslim-2564",
+        "about": "God looks at hearts and deeds, not appearances or wealth."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Habil's offering was accepted because of what was in his heart, not its size (5:27). Sincerity means doing a deed for God alone, not for praise, money or image.",
+        "status": "draft"
+      },
+      {
+        "who": "From the hadith",
+        "text": "Intention can turn ordinary things into worship: eating to stay strong, sleeping to rise for prayer, working to support a family, when done with God in mind (Bukhari 1).",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "How did Habil prepare his offering?",
+      "options": [
+        "He gave the least he could",
+        "He brought a healthy ram, gently and with care",
+        "He bought it from someone else",
+        "He didn't bring one"
+      ],
+      "answer": 1,
+      "why": "Habil laid down a healthy ram with care; Qabil dropped a bundle of poor grain without a second look."
+    },
+    {
+      "q": "From whom does God accept, according to 5:27?",
+      "options": [
+        "From the richest",
+        "From those who are mindful of Him",
+        "From everyone equally",
+        "From those who give the most"
+      ],
+      "answer": 1,
+      "why": "God accepts only from those who are mindful of Him."
+    },
+    {
+      "q": "What does the hadith say deeds are judged by?",
+      "options": [
+        "Their size",
+        "The intention behind them",
+        "Who saw them",
+        "How long they took"
+      ],
+      "answer": 1,
+      "why": "Actions are only by intentions."
+    },
+    {
+      "q": "What does God look at, according to Muslim 2564?",
+      "options": [
+        "Appearance and wealth",
+        "Hearts and deeds",
+        "Family and tribe",
+        "Clothes and homes"
+      ],
+      "answer": 1,
+      "why": "God does not look at your appearance or wealth, but at your hearts and deeds."
+    },
+    {
+      "q": "What do the righteous want when they feed others, in 76:9?",
+      "options": [
+        "Thanks and praise",
+        "Nothing but God's pleasure",
+        "Payment later",
+        "To be remembered"
+      ],
+      "answer": 1,
+      "why": "We feed you only for the sake of God; we want no reward or thanks."
+    }
+  ],
+  "reflection": {
+    "muslim": "Pick one thing you'll do tomorrow anyway: a meal, a chore, a kindness. Before it, say quietly whom it's for.",
+    "curious": "Think of something good you did recently. Would you have done it if nobody ever found out?"
+  }
+}

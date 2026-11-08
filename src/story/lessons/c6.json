@@ -1,0 +1,315 @@
+{
+  "chapter": 6,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Watch how Ibrahim thinks his way to God, and how he speaks to his angry father.",
+      "questions": [
+        {
+          "q": "Why could Ibrahim not bow to the idols?",
+          "options": [
+            "They were too small",
+            "They were made by human hands",
+            "His father forbade it",
+            "They were in another city"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "ur",
+            "beat": 2
+          }
+        },
+        {
+          "q": "What did Ibrahim say when the star set?",
+          "options": [
+            "It will rise again",
+            "I do not love things that set",
+            "It is my lord",
+            "Let us follow the moon"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "search",
+            "beat": 0
+          }
+        },
+        {
+          "q": "How did Ibrahim speak to his father about the idols?",
+          "options": [
+            "Angrily",
+            "Gently, asking why he worshipped what could not hear or see",
+            "Through his friends",
+            "He never spoke of it"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "father",
+            "beat": 0
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Ibrahim used his mind: anything that rises and sets cannot be God. Then he spoke gently, even to a father who drove him away. Seek the truth with your mind, and share it with kindness.",
+        "curious": "Muslims honour Ibrahim, known in the Bible as Abraham, for reasoning his way to one God, and for speaking gently even to his angry father.",
+        "ref": "19:47"
+      },
+      "carry": {
+        "title": "Ibrahim's turning to God, said at the start of prayer",
+        "ref": "6:79"
+      },
+      "reflect": {
+        "muslim": "Who in your family do you disagree with about faith? How could you speak to them as gently as Ibrahim did?",
+        "curious": "Have you ever changed your mind by thinking something through? What helped?"
+      },
+      "act": "Speak gently to someone in your family you disagree with."
+    },
+    {
+      "part": 1,
+      "watchFor": "Ibrahim breaks the idols and is thrown into a fire. Watch what the fire does.",
+      "questions": [
+        {
+          "q": "Which idol did Ibrahim leave unbroken?",
+          "options": [
+            "The smallest",
+            "The largest",
+            "The oldest",
+            "None"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "broken",
+            "beat": 2
+          }
+        },
+        {
+          "q": "What did the fire do to Ibrahim?",
+          "options": [
+            "It burned him badly",
+            "It did not burn him",
+            "It went out before he reached it",
+            "It spread to the city"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "fire",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Ibrahim tell the king who claimed to give life and death?",
+          "options": [
+            "Show me your army",
+            "My Lord brings the sun up from the east; bring it up from the west",
+            "Give me gold",
+            "Let us both pray"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "king",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Ibrahim stood for the truth alone against a whole city, and God told the fire to be cool and safe for him. Speak for what is true, and trust that God is in control.",
+        "curious": "In the Quran's telling, God made the fire cool and safe for Ibrahim. Muslims see in it courage for the truth, and trust in God when everything seems against you.",
+        "ref": "21:69"
+      },
+      "carry": {
+        "title": "\"God is enough for us\"",
+        "ref": "3:173"
+      },
+      "reflect": {
+        "muslim": "Where do you need courage to stand for what's right right now?",
+        "curious": "When have you had to stand alone for something you believed? What did it cost?"
+      },
+      "act": "When you feel afraid this week, say: God is enough for me, and He is the best to rely on."
+    },
+    {
+      "part": 2,
+      "watchFor": "Hajar is left in a barren valley with her baby. Watch what she says, and what she does.",
+      "questions": [
+        {
+          "q": "What did Hajar ask Ibrahim as he turned to go?",
+          "options": [
+            "Where are you going?",
+            "Did God command you this?",
+            "When will you return?",
+            "Who will bring us food?"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "valley",
+            "beat": 1
+          }
+        },
+        {
+          "q": "How many times did Hajar run between Safa and Marwa?",
+          "options": [
+            "Three",
+            "Five",
+            "Seven",
+            "Forty"
+          ],
+          "answer": 2,
+          "replay": {
+            "scene": "zamzam",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What welled up from the ground where Ismail lay?",
+          "options": [
+            "Oil",
+            "Water",
+            "Sand",
+            "Milk"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "zamzam",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Hajar trusted God completely: then He will not abandon us. And still she ran, seven times, looking for help. Trust and effort go together, and God answered her with the spring of Zamzam.",
+        "curious": "Muslims honour Hajar, known in the Bible as Hagar, for her trust in God and her tireless effort. Pilgrims still walk between Safa and Marwa as she ran.",
+        "ref": "2:158"
+      },
+      "carry": {
+        "title": "Ibrahim's prayer to keep up the prayer",
+        "ref": "14:40"
+      },
+      "reflect": {
+        "muslim": "What are you worried about right now? What would Hajar's trust, and Hajar's running, look like for it?",
+        "curious": "When things look hopeless, do you tend to wait or to act? What does Hajar's story suggest?"
+      },
+      "act": "Do your part fully on something you're anxious about, then leave the outcome to God."
+    },
+    {
+      "part": 3,
+      "watchFor": "Ibrahim sees a dream about his son. Watch how both father and son answer God's command.",
+      "questions": [
+        {
+          "q": "What did Ibrahim do after his dream?",
+          "options": [
+            "Kept it secret",
+            "Told Ismail and asked what he thought",
+            "Left the valley",
+            "Asked the tribe for advice"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "dream",
+            "beat": 2
+          }
+        },
+        {
+          "q": "What did Ibrahim drive Satan off with on the way?",
+          "options": [
+            "His staff",
+            "Stones",
+            "Fire",
+            "Water"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "ransom",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What stood in the boy's place?",
+          "options": [
+            "An angel",
+            "A great ram",
+            "A camel",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "ransom",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Ibrahim and Ismail were both ready to give God what they loved most, and God ransomed Ismail with a great ram. What God wanted was their surrender, and they gave it. Muslims remember this every Eid al-Adha.",
+        "curious": "Muslims remember this story every year at Eid al-Adha: Ibrahim's readiness to obey, Ismail's willingness, and God's mercy in ransoming him.",
+        "ref": "37:102"
+      },
+      "carry": {
+        "title": "Ibrahim's prayer for a righteous child",
+        "ref": "37:100"
+      },
+      "reflect": {
+        "muslim": "What do you love so much that it would be hard to give up for God? Ask Him to keep it in its right place in your heart.",
+        "curious": "What would you find hardest to give up for something you believed in?"
+      },
+      "act": "Give up one thing you love this week for God's sake, even something small."
+    },
+    {
+      "part": 4,
+      "watchFor": "Three guests arrive at Ibrahim's tent. Watch how he welcomes them, and what he builds.",
+      "questions": [
+        {
+          "q": "What did Ibrahim bring his guests?",
+          "options": [
+            "Bread and water",
+            "A roasted calf",
+            "Dates",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "guests",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Ismail do while his father built the House?",
+          "options": [
+            "Kept watch",
+            "Brought the stones",
+            "Called the people",
+            "Dug a well"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "house",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What is the stone Ibrahim stood on called?",
+          "options": [
+            "The Black Stone",
+            "The Station of Ibrahim",
+            "The Stone of Safa",
+            "The Corner Stone"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "house",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Ibrahim welcomed guests generously, pleaded gently even for people facing punishment, and built God's House with his son, praying that God would accept it. God took him as a close friend.",
+        "curious": "Muslims call Ibrahim the Friend of God. They remember his generosity to guests and the House he built with Ismail, the Kaaba in Makkah.",
+        "ref": "4:125"
+      },
+      "carry": {
+        "title": "Ibrahim and Ismail's prayer as they built",
+        "ref": "2:127"
+      },
+      "reflect": {
+        "muslim": "When you finish something good, do you ask God to accept it, as Ibrahim did?",
+        "curious": "Who do you know that is generous the way Ibrahim was with his guests? What makes them that way?"
+      },
+      "act": "Welcome a guest or a newcomer this week the way Ibrahim did: quickly and generously."
+    }
+  ]
+}

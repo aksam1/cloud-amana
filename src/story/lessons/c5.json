@@ -1,0 +1,129 @@
+{
+  "chapter": 5,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Thamud carve their homes into mountains. Watch what their plenty makes them believe.",
+      "questions": [
+        {
+          "q": "What did Thamud carve their homes into?",
+          "options": [
+            "Trees",
+            "The mountains",
+            "Ice",
+            "Clay bricks"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "hijr",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What were they sure of, living among gardens and springs?",
+          "options": [
+            "That it would always be so",
+            "That a flood was coming",
+            "That they must move",
+            "That they were poor"
+          ],
+          "answer": 0,
+          "replay": {
+            "scene": "plenty",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the chiefs demand of Salih?",
+          "options": [
+            "Gold",
+            "A sign, if he was telling the truth",
+            "That he leave",
+            "That he become king"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "doubt",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Thamud had gardens, springs and homes cut into the rock, and felt safe forever. Blessings are meant to bring people closer to God in thanks, not to make them feel they no longer need Him.",
+        "curious": "Muslims learn from Thamud that comfort can make people forget God, and that blessings call for gratitude, not pride.",
+        "ref": "7:74"
+      },
+      "carry": {
+        "title": "A prayer to be grateful",
+        "ref": "46:15"
+      },
+      "reflect": {
+        "muslim": "Which blessing in your life do you take most for granted?",
+        "curious": "What do you have that you assume will always be there?"
+      },
+      "act": "Thank God out loud for one blessing you usually forget, every day this week."
+    },
+    {
+      "part": 1,
+      "watchFor": "God sends a she-camel as a sign, with one simple rule. Watch who keeps it, and who doesn't.",
+      "questions": [
+        {
+          "q": "How was the valley's water shared?",
+          "options": [
+            "The people drank first",
+            "One day the she-camel drank, the next the people",
+            "The camel drank only at night",
+            "It wasn't shared"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "drink",
+            "beat": 0
+          }
+        },
+        {
+          "q": "Who went out against the she-camel?",
+          "options": [
+            "Salih",
+            "The most wretched of the nine corrupt men",
+            "A stranger",
+            "The whole town together"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "nine",
+            "beat": 1
+          }
+        },
+        {
+          "q": "How many days did Salih tell them to enjoy their homes?",
+          "options": [
+            "One",
+            "Three",
+            "Seven",
+            "Forty"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "three",
+            "beat": 0
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The sign came with a simple rule: share the water and leave her be. A few men broke it, and the people went along. Respecting God's limits, and refusing to go along with wrong, protects everyone.",
+        "curious": "Muslims learn from Thamud that a whole community can share in a wrong it allows, and that keeping simple limits protects people.",
+        "ref": "7:73"
+      },
+      "carry": {
+        "title": "A prayer for pardon",
+        "ref": "2:286"
+      },
+      "reflect": {
+        "muslim": "Is there a wrong around you that everyone goes along with? What small step could you take not to?",
+        "curious": "Have you ever gone along with something you knew was wrong because everyone else did?"
+      },
+      "act": "This week, say something kind and clear when people around you mock or mistreat someone."
+    }
+  ]
+}

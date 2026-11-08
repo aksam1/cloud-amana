@@ -1,0 +1,315 @@
+{
+  "chapter": 9,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Yusuf has a dream. Watch what his father tells him to do with it.",
+      "questions": [
+        {
+          "q": "Which of his sons did Yaqub love most?",
+          "options": [
+            "The eldest",
+            "Yusuf and Binyamin, the two youngest",
+            "All equally",
+            "None of them"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "household",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Yusuf see in his dream?",
+          "options": [
+            "Seven cows",
+            "Eleven stars, the sun and the moon",
+            "A great flood",
+            "A burning bush"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "stars",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did his father tell him to do?",
+          "options": [
+            "Tell everyone",
+            "Keep the dream from his brothers",
+            "Forget it",
+            "Write it down"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "stars",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Yaqub saw the envy among his sons and told Yusuf to keep his dream private. Not every blessing needs to be shared with everyone: wisdom protects hearts, your own and others'.",
+        "curious": "Muslims learn from Yaqub (Jacob) that some good news is best kept private where it might stir envy.",
+        "ref": "12:5"
+      },
+      "carry": {
+        "title": "A prayer for your parents",
+        "ref": "14:41"
+      },
+      "reflect": {
+        "muslim": "Is there something you share online that might stir envy, or that you'd be wiser to keep private?",
+        "curious": "Why might it be wise to keep some good news to yourself?"
+      },
+      "act": "Keep one good thing private this week, and thank God for it quietly."
+    },
+    {
+      "part": 1,
+      "watchFor": "Yusuf's brothers throw him into a well. Watch who is with him in the dark.",
+      "questions": [
+        {
+          "q": "Why did the brothers throw Yusuf into the well?",
+          "options": [
+            "He had stolen from them",
+            "They were jealous",
+            "Their father told them to",
+            "By accident"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "well",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What was Yusuf inspired with, alone in the well?",
+          "options": [
+            "That he would die there",
+            "That one day he would tell them what they had done",
+            "That he should forget his family",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "well",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What happened to Yusuf in Egypt?",
+          "options": [
+            "He became king at once",
+            "He was sold cheaply, for a few coins",
+            "He was set free",
+            "He was sent home"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "caravan",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Alone in the dark of the well, Yusuf was not alone: God told him this was not the end. Your lowest moment can be the start of something God is building.",
+        "curious": "In the Quran's telling, Yusuf (Joseph) was comforted in the well by God's promise that his story was not over. Muslims take hope from it in their own dark moments.",
+        "ref": "12:15"
+      },
+      "carry": {
+        "title": "Yaqub's words of beautiful patience",
+        "ref": "12:18"
+      },
+      "reflect": {
+        "muslim": "What's the darkest moment you've been through? Can you see now anything God was building in it?",
+        "curious": "Has a low point in your life ever led somewhere good?"
+      },
+      "act": "When something goes wrong this week, say: beautiful patience, and God is the one whose help is sought."
+    },
+    {
+      "part": 2,
+      "watchFor": "In Egypt, Yusuf is tempted and wronged. Watch what he chooses each time.",
+      "questions": [
+        {
+          "q": "What did Yusuf say when the doors were closed on him?",
+          "options": [
+            "I will do as you say",
+            "I seek refuge in God",
+            "I will tell your husband",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "torn",
+            "beat": 0
+          }
+        },
+        {
+          "q": "How did the torn shirt show Yusuf was telling the truth?",
+          "options": [
+            "It was torn at the front",
+            "It was torn at the back",
+            "It wasn't torn",
+            "It was burned"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "torn",
+            "beat": 2
+          }
+        },
+        {
+          "q": "What did Yusuf do before explaining the prisoners' dreams?",
+          "options": [
+            "Asked for payment",
+            "Spoke to them about God",
+            "Asked to be freed",
+            "Refused to explain"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "prison",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Yusuf chose prison over doing wrong, and even in prison he spoke to others about God. Self-control and faith go with you into any room.",
+        "curious": "Yusuf's story in the Quran shows him choosing prison over wrongdoing, and still caring for others while unjustly locked up.",
+        "ref": "12:23"
+      },
+      "carry": {
+        "title": "Yusuf's prayer when tempted",
+        "ref": "12:33"
+      },
+      "reflect": {
+        "muslim": "Where are you most tempted? What's your way of saying \"I seek refuge in God\" there?",
+        "curious": "What helps you say no when everyone around you is saying yes?"
+      },
+      "act": "When you're tempted this week, say a'udhu billah (I seek refuge in God) and walk away."
+    },
+    {
+      "part": 3,
+      "watchFor": "The king has a dream nobody can explain. Watch what Yusuf asks for before he leaves prison.",
+      "questions": [
+        {
+          "q": "What did the king dream of?",
+          "options": [
+            "Eleven stars",
+            "Seven fat cows eaten by seven lean ones",
+            "A flood",
+            "A burning city"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "cows",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Why did Yusuf at first refuse to leave prison?",
+          "options": [
+            "He liked it there",
+            "He wanted his name cleared first",
+            "He was afraid of the king",
+            "He was ill"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "innocence",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Yusuf ask to be put in charge of?",
+          "options": [
+            "The army",
+            "The land's grain",
+            "The palace",
+            "The temple"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "storehouses",
+            "beat": 0
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Yusuf made sure his name was cleared, then used his knowledge to save a whole land from famine. Plan in good times for hard ones, and use your skills to serve others.",
+        "curious": "Yusuf's plan of storing grain in good years for the famine is remembered in Islam, as in the Bible, as wisdom put to the service of others.",
+        "ref": "12:55"
+      },
+      "carry": {
+        "title": "Entrusting your affairs to God",
+        "ref": "40:44"
+      },
+      "reflect": {
+        "muslim": "Which skill has God given you that you could use to serve others?",
+        "curious": "What are you good at that could help other people?"
+      },
+      "act": "Use a skill you have to help someone this week, without being asked."
+    },
+    {
+      "part": 4,
+      "watchFor": "The brothers stand before Yusuf, not knowing who he is. Watch what he does with his power.",
+      "questions": [
+        {
+          "q": "What did Yaqub never give up, even in his grief?",
+          "options": [
+            "His wealth",
+            "Hope in God's mercy",
+            "His anger at his sons",
+            "His house"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "grief",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Yusuf say to his brothers?",
+          "options": [
+            "You will be punished",
+            "No blame on you today",
+            "Go back to Canaan",
+            "I will never forgive you"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "reunion",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Yaqub ask his sons before he died?",
+          "options": [
+            "Who will rule after me?",
+            "What will you worship after me?",
+            "Where will you live?",
+            "Did you love Yusuf?"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "lastwords",
+            "beat": 0
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Yaqub never lost hope in God's mercy. Yusuf forgave the brothers who had thrown him in a well, and the dream came true. Never despair of God's mercy, and forgive when you have the power not to.",
+        "curious": "The story ends with forgiveness: Yusuf pardons his brothers and the family is reunited. Muslims learn never to despair of God's mercy.",
+        "ref": "12:87"
+      },
+      "carry": {
+        "title": "Yusuf's prayer at the end of his story",
+        "ref": "12:101"
+      },
+      "reflect": {
+        "muslim": "Who do you need to forgive? Who do you need to ask forgiveness from?",
+        "curious": "Is there someone you could forgive, even partly? What would it free in you?"
+      },
+      "act": "Forgive one person this week, out loud or in your heart, and pray for them."
+    }
+  ]
+}

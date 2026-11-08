@@ -1,0 +1,176 @@
+{
+  "id": "lastday",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "A man passed a ruined town and wondered how God could ever bring it back to life. So God showed him: He caused him to die for a hundred years, then raised him. Watch what he saw when he woke.",
+      "curious": "A man passed a ruined town and wondered how it could ever be brought back to life. In the Quran's telling, God caused him to die for a hundred years, then raised him. Watch what he saw when he woke."
+    },
+    "chapter": 18,
+    "part": 2,
+    "from": "hundred",
+    "until": "hundred",
+    "length": "1 scene, about 1 minute"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "You find a wallet with cash in it, and no one saw you pick it up.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Keep the cash and drop the wallet.",
+          "points": 0,
+          "feedback": "No one saw. Muslims believe every deed, even an atom's weight, will be seen again. The teaching explains."
+        },
+        {
+          "label": "Hand it in or track down the owner, cash and all.",
+          "points": 2,
+          "feedback": "That's what belief in the Last Day looks like day to day: acting as if every deed counts, because it does."
+        },
+        {
+          "label": "Keep a small reward and return the rest.",
+          "points": 0,
+          "feedback": "Helping yourself to part of it is still taking it. See what the Quran says about even small deeds."
+        },
+        {
+          "label": "Leave it where it was: not your problem.",
+          "points": 1,
+          "feedback": "At least you didn't take it. But someone has lost their money, and you could help."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "You find a wallet with cash in it, and no one saw you pick it up.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Keep the cash and drop the wallet.",
+          "points": 0,
+          "feedback": "No one saw. Muslims believe every deed, however small, will be seen again one day."
+        },
+        {
+          "label": "Find the owner or hand it in, cash and all.",
+          "points": 2,
+          "feedback": "Acting as if every deed counts: that's how Muslims say belief in the Last Day should show."
+        },
+        {
+          "label": "Keep a little as a reward.",
+          "points": 0,
+          "feedback": "It's still taking what isn't yours. See what Islam says about small deeds."
+        },
+        {
+          "label": "Leave it where it was.",
+          "points": 1,
+          "feedback": "You didn't take it. But someone has lost their money, and you could help."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about the Last Day",
+      "curious": "What Islam teaches about the Last Day"
+    },
+    "quran": [
+      {
+        "ref": "2:259",
+        "about": "The man is caused to die for a hundred years and raised; his food is unspoiled, and he watches his donkey brought back to life, bone by bone."
+      },
+      {
+        "ref": "36:78-79",
+        "about": "Someone asks who will give life to bones once they have crumbled; the answer: the One who made them the first time."
+      },
+      {
+        "ref": "22:7",
+        "about": "The Hour is coming, there is no doubt of it, and God will raise those in the graves."
+      },
+      {
+        "ref": "99:7-8",
+        "about": "Whoever does an atom's weight of good will see it, and whoever does an atom's weight of evil will see it."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "muslim-8-iman",
+        "about": "Belief in the Last Day is one of the six pillars of faith."
+      },
+      {
+        "id": "bukhari-6018",
+        "about": "Believing in the Last Day shows in how you speak and how you treat neighbours and guests."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Muslims believe this life will end, every person will be raised, and everyone will see what they did, down to an atom's weight (99:7-8). Only God knows when, and only He judges anyone's end.",
+        "status": "draft"
+      },
+      {
+        "who": "From the hadith",
+        "text": "The Prophet ﷺ tied belief in the Last Day to everyday things: saying good or staying silent, and honouring neighbours and guests (Bukhari 6018). Belief in the Last Day is meant to change today.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What did the man wonder as he passed the ruined town?",
+      "options": [
+        "Who had lived there",
+        "How God would bring it back to life after its death",
+        "Where he could find food",
+        "Why it was abandoned"
+      ],
+      "answer": 1,
+      "why": "He wondered how God would ever bring the town back to life after its death (2:259)."
+    },
+    {
+      "q": "How long did the man stay dead?",
+      "options": [
+        "A day",
+        "Seven years",
+        "A hundred years",
+        "Forty nights"
+      ],
+      "answer": 2,
+      "why": "God caused him to die for a hundred years, then raised him."
+    },
+    {
+      "q": "What did he see happen to his donkey?",
+      "options": [
+        "It had run away",
+        "It was brought back to life before his eyes",
+        "It was still eating",
+        "It had turned to stone"
+      ],
+      "answer": 1,
+      "why": "He watched his donkey brought back to life."
+    },
+    {
+      "q": "Who will give life to crumbled bones, according to 36:79?",
+      "options": [
+        "No one",
+        "The One who made them the first time",
+        "The angels alone",
+        "Time"
+      ],
+      "answer": 1,
+      "why": "The One who created them the first time will give them life again."
+    },
+    {
+      "q": "What does 99:7-8 teach about small deeds?",
+      "options": [
+        "They don't count",
+        "Even an atom's weight of good or evil will be seen",
+        "Only big deeds are recorded",
+        "They are forgotten after a year"
+      ],
+      "answer": 1,
+      "why": "Whoever does an atom's weight of good will see it, and likewise evil."
+    }
+  ],
+  "reflection": {
+    "muslim": "If you knew today's smallest kindness would be shown to you again one day, what kindness would you do today?",
+    "curious": "Does believing that every deed matters change how you'd live? Which of your small habits would you want to see again?"
+  }
+}

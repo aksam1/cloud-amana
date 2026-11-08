@@ -1,0 +1,129 @@
+{
+  "chapter": 4,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "ʿAd were the strongest people on earth. Watch what their strength does to them.",
+      "questions": [
+        {
+          "q": "What did ʿAd build on every high place?",
+          "options": [
+            "Wells for travellers",
+            "Monuments, just to be seen",
+            "Places of prayer",
+            "Watchtowers against floods"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "might",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Who was Hud to the people of ʿAd?",
+          "options": [
+            "A stranger from far away",
+            "One of their own",
+            "A king",
+            "A merchant"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "brother",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did the chiefs ask, proud of their strength?",
+          "options": [
+            "Who will feed us?",
+            "Who is greater than us in strength?",
+            "Where is the rain?",
+            "Who is your Lord?"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "strength",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "ʿAd built to be seen and to last forever, and asked who could be stronger than them. They forgot that the One who created them is greater in strength. Strength and success are gifts, not reasons for pride.",
+        "curious": "Muslims learn from ʿAd that power and success can make people forget where they came from, and that pride in strength is a trap.",
+        "ref": "41:15"
+      },
+      "carry": {
+        "title": "A prayer to keep a guided heart",
+        "ref": "3:8"
+      },
+      "reflect": {
+        "muslim": "What are you proud of? How would it change if you saw it as a gift?",
+        "curious": "Can success make people worse? Have you seen it happen?"
+      },
+      "act": "When you're praised this week, quietly say alhamdulillah and pass the credit to God."
+    },
+    {
+      "part": 1,
+      "watchFor": "A dark cloud is coming. Watch what the people think it brings.",
+      "questions": [
+        {
+          "q": "What did the people of ʿAd think the dark cloud would bring?",
+          "options": [
+            "A storm of sand",
+            "Rain",
+            "An army",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "cloud",
+            "beat": 1
+          }
+        },
+        {
+          "q": "How long did the wind blow?",
+          "options": [
+            "One night",
+            "Seven nights and eight days",
+            "Forty days",
+            "A year"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "wind",
+            "beat": 2
+          }
+        },
+        {
+          "q": "Where were Hud and the believers when the wind came?",
+          "options": [
+            "In the city",
+            "In a hidden green valley beside a spring",
+            "On a ship",
+            "In the palace"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "saved",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Hud told ʿAd to ask forgiveness and turn back, and the rain would come. They refused, and mistook the very thing they had been warned of for the rain they wanted. Turning back to God in time is the way out of hardship.",
+        "curious": "In the Quran's story, Hud told his people to seek forgiveness so rain would return. Muslims learn to answer hard times by turning back to God, not by turning away.",
+        "ref": "11:52"
+      },
+      "carry": {
+        "title": "Hud's words of trust in God",
+        "ref": "11:56"
+      },
+      "reflect": {
+        "muslim": "When something goes wrong in your life, is your first reaction to turn to God or away from Him?",
+        "curious": "When things go wrong, do you tend to look inward or blame others? What does Hud's advice suggest?"
+      },
+      "act": "Say astaghfirullah (I ask God's forgiveness) a hundred times one day this week."
+    }
+  ]
+}

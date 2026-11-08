@@ -1,0 +1,180 @@
+{
+  "id": "tawakkul",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "Musa led the Children of Israel out of Egypt by night. At sunrise they reached the sea, with Pharaoh's army closing in behind them. The people cried: we are caught! Watch what Musa said.",
+      "curious": "Musa, known in the Bible as Moses, led his people out of Egypt by night. At sunrise they reached the sea, with Pharaoh's army closing in behind. The people cried: we are caught! Watch what Musa said."
+    },
+    "chapter": 12,
+    "part": 1,
+    "from": "exodus",
+    "until": "sea",
+    "length": "2 scenes, about 1 minute"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "You have a big assessment at school tomorrow and you're anxious.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Don't revise: whatever God wills will happen.",
+          "points": 0,
+          "feedback": "Trust without effort isn't what Islam teaches. The Prophet ﷺ said: tie your camel, then trust."
+        },
+        {
+          "label": "Prepare as well as you can, make dua, then rest and leave the result to God.",
+          "points": 2,
+          "feedback": "That's tawakkul: tie the camel, then trust. Do your part fully, and leave the outcome to Him."
+        },
+        {
+          "label": "Stay up all night panicking over every possible outcome.",
+          "points": 0,
+          "feedback": "Worry doesn't change the result. Musa's words at the sea show another way."
+        },
+        {
+          "label": "Prepare, but keep worrying anyway.",
+          "points": 1,
+          "feedback": "The preparation is right. The next step is to let the result go to God."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "You have something big tomorrow, an interview or an important presentation, and you're anxious.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Don't prepare: whatever happens, happens.",
+          "points": 0,
+          "feedback": "Islam teaches the opposite: \"tie your camel, then trust\"."
+        },
+        {
+          "label": "Prepare as well as you can, then rest and let go of the result.",
+          "points": 2,
+          "feedback": "That's close to tawakkul: do your part fully, then leave the outcome to God."
+        },
+        {
+          "label": "Stay up all night worrying about every outcome.",
+          "points": 0,
+          "feedback": "Worry doesn't change the result. Musa's words at the sea show another way."
+        },
+        {
+          "label": "Prepare, but keep worrying anyway.",
+          "points": 1,
+          "feedback": "The preparation is right. Tawakkul is the next step: letting the result go."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about trusting Him",
+      "curious": "What Islam teaches about trust in God"
+    },
+    "quran": [
+      {
+        "ref": "26:61-62",
+        "about": "When the people cry that they are overtaken, Musa answers: no, my Lord is with me, He will guide me."
+      },
+      {
+        "ref": "26:63",
+        "about": "God tells Musa to strike the sea with his staff, and it parts."
+      },
+      {
+        "ref": "65:3",
+        "about": "Whoever relies on God, He is enough for them."
+      },
+      {
+        "ref": "3:159",
+        "about": "Once you have decided, rely on God; God loves those who rely on Him."
+      },
+      {
+        "ref": "12:67",
+        "about": "Yaqub advises his sons to enter the city by different gates, then says: upon Him I rely. He takes precautions and trusts God."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "tirmidhi-2517",
+        "about": "Tie your camel, then rely on God: effort and trust go together."
+      },
+      {
+        "id": "tirmidhi-2344",
+        "about": "God provides for those who truly rely on Him, as He provides for the birds."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Musa still had to walk to the sea and strike it with his staff (26:63). Trust in God is not sitting still; it is doing your part, then relying on Him for the result.",
+        "status": "draft"
+      },
+      {
+        "who": "From the hadith",
+        "text": "The birds in the hadith (Tirmidhi 2344) don't stay in their nests: they go out hungry in the morning. God provides for them through their going out.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What did the people cry when they saw Pharaoh's army?",
+      "options": [
+        "Let us fight!",
+        "We are overtaken!",
+        "Let us go back",
+        "Pray for us"
+      ],
+      "answer": 1,
+      "why": "They cried that they were overtaken (26:61)."
+    },
+    {
+      "q": "What did Musa answer?",
+      "options": [
+        "We must surrender",
+        "No! My Lord is with me; He will guide me",
+        "Let us hide",
+        "I don't know"
+      ],
+      "answer": 1,
+      "why": "My Lord is with me; He will guide me (26:62)."
+    },
+    {
+      "q": "What did God tell Musa to do?",
+      "options": [
+        "Wait for the army",
+        "Strike the sea with his staff",
+        "Build boats",
+        "Turn back"
+      ],
+      "answer": 1,
+      "why": "Strike the sea with your staff, and it parted (26:63)."
+    },
+    {
+      "q": "What did the Prophet ﷺ tell the man asking about his camel?",
+      "options": [
+        "Leave it untied and trust God",
+        "Tie it, and rely on God",
+        "Sell it",
+        "Ask someone else"
+      ],
+      "answer": 1,
+      "why": "Tie it, and rely upon God: effort and trust together."
+    },
+    {
+      "q": "What does 65:3 promise to those who rely on God?",
+      "options": [
+        "Wealth",
+        "He is enough for them",
+        "No problems ever",
+        "A long journey"
+      ],
+      "answer": 1,
+      "why": "Whoever relies upon God, He is sufficient for them."
+    }
+  ],
+  "reflection": {
+    "muslim": "What are you worried about this week? Write down what's in your hands, do it, then hand the rest to God in dua.",
+    "curious": "What's worrying you this week? Which part of it is in your hands, and which part could you let go?"
+  }
+}

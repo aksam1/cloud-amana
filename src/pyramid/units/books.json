@@ -1,0 +1,180 @@
+{
+  "id": "books",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "Musa climbed the mountain for forty nights and came down with tablets of guidance for his people. But while he was gone, they had made a golden calf. Watch how God's book was received.",
+      "curious": "Musa, known in the Bible as Moses, climbed the mountain for forty nights and came down with tablets of guidance. But while he was gone, his people had made a golden calf. Watch what happened."
+    },
+    "chapter": 13,
+    "part": 1,
+    "from": "mountain",
+    "until": "anger",
+    "length": "3 scenes, about 2 minutes"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "You've decided to read the Quran every day, but it's been a week and you've skipped most days. A friend shares a funny video instead.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Watch videos and give up on the reading: it's not for you.",
+          "points": 0,
+          "feedback": "Musa's people turned to something shiny while guidance was on its way. Let's see what God says about His books."
+        },
+        {
+          "label": "Read one page with its meaning before anything else each day.",
+          "points": 2,
+          "feedback": "Small and steady. God sent His books to be lived with, not just owned."
+        },
+        {
+          "label": "Decide to read a lot on the weekend to make up for it.",
+          "points": 1,
+          "feedback": "Better than nothing, but a little every day lasts longer."
+        },
+        {
+          "label": "Keep the Quran on the shelf where people can see it.",
+          "points": 0,
+          "feedback": "A book on a shelf guides no one. The teaching explains what the books are for."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "You've decided to read something meaningful every day, but after a week you've skipped most days. A friend sends you a funny video instead.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Watch the video and drop the reading.",
+          "points": 0,
+          "feedback": "It's easy to choose the shiny thing. See what Muslims believe God's books are for."
+        },
+        {
+          "label": "Read one page before anything else each day.",
+          "points": 2,
+          "feedback": "Small and steady: that's how Muslims are taught to keep company with scripture."
+        },
+        {
+          "label": "Catch up with a big read at the weekend.",
+          "points": 1,
+          "feedback": "Better than nothing, though a little each day tends to last."
+        },
+        {
+          "label": "Keep the book where people can see it.",
+          "points": 0,
+          "feedback": "A book on a shelf guides no one. The next step explains what scripture is for."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about His books",
+      "curious": "What Islam teaches about the revealed books"
+    },
+    "quran": [
+      {
+        "ref": "7:145",
+        "about": "God wrote for Musa on the tablets guidance and an explanation of everything, and told him to hold to it firmly."
+      },
+      {
+        "ref": "4:163",
+        "about": "God sent revelation to Nuh and the prophets after him, and gave Dawud the Psalms."
+      },
+      {
+        "ref": "5:46",
+        "about": "God gave Isa the Gospel, with guidance and light, confirming the Torah before it."
+      },
+      {
+        "ref": "5:48",
+        "about": "God sent down the Quran with the truth, confirming the scriptures before it and watching over them."
+      },
+      {
+        "ref": "15:9",
+        "about": "God sent down the Reminder, and He will guard it."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "muslim-8-iman",
+        "about": "Belief in God's books is one of the six pillars of faith."
+      },
+      {
+        "id": "bukhari-3443",
+        "about": "All the prophets brought one religion."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Muslims believe in every book God revealed: the scrolls of Ibrahim and Musa (87:18-19), the Torah of Musa, the Psalms of Dawud, the Gospel of Isa, and the Quran sent to Muhammad ﷺ, the last of them, which God promised to preserve (15:9).",
+        "status": "draft"
+      },
+      {
+        "who": "From the verses",
+        "text": "The books were sent to be followed. Musa was told to hold the tablets firmly (7:145): guidance is something you take hold of, not just keep.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What did Musa bring down from the mountain?",
+      "options": [
+        "A golden staff",
+        "Tablets written with guidance",
+        "A crown",
+        "A map of the land"
+      ],
+      "answer": 1,
+      "why": "He was given the tablets, written with guidance for his people (7:145)."
+    },
+    {
+      "q": "What had the people done while Musa was away?",
+      "options": [
+        "Built a city",
+        "Made a golden calf and worshipped it",
+        "Left for Egypt",
+        "Fasted for forty days"
+      ],
+      "answer": 1,
+      "why": "The Samiri cast a calf from their gold, and many worshipped it."
+    },
+    {
+      "q": "Which book was given to Dawud?",
+      "options": [
+        "The Torah",
+        "The Psalms (Zabur)",
+        "The Gospel",
+        "The Quran"
+      ],
+      "answer": 1,
+      "why": "God gave Dawud the Psalms (4:163)."
+    },
+    {
+      "q": "What does 15:9 promise about the Quran?",
+      "options": [
+        "It will be replaced",
+        "God will guard it",
+        "It will be hidden",
+        "It is only for Arabs"
+      ],
+      "answer": 1,
+      "why": "God sent down the Reminder and will guard it (15:9)."
+    },
+    {
+      "q": "How does 5:48 describe the Quran's relation to earlier scriptures?",
+      "options": [
+        "It cancels them as lies",
+        "It confirms them and watches over them",
+        "It has nothing to do with them",
+        "It copies them exactly"
+      ],
+      "answer": 1,
+      "why": "The Quran confirms what came before and stands guard over it (5:48)."
+    }
+  ],
+  "reflection": {
+    "muslim": "Which verse of the Quran has stayed with you most? Read it again today, slowly, with its meaning.",
+    "curious": "Is there a book that has shaped how you live? What made it more than words on a page?"
+  }
+}

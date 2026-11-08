@@ -1,0 +1,129 @@
+{
+  "chapter": 2,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Watch how Idris's light stays steady when the lamps around him flicker.",
+      "questions": [
+        {
+          "q": "What did Shith do for the children of Adam by the river?",
+          "options": [
+            "Built them a city",
+            "Taught them the guidance",
+            "Led them into battle",
+            "Gave them gold"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "shith-guidance",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What do many scholars relate Idris was among the first to do?",
+          "options": [
+            "Sail the seas",
+            "Write with the pen",
+            "Build a pyramid",
+            "Ride a horse"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "pen",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Idris do when most people walked past or mocked him?",
+          "options": [
+            "He gave up",
+            "He moved away",
+            "He kept calling, season after season, with patience",
+            "He mocked them back"
+          ],
+          "answer": 2,
+          "replay": {
+            "scene": "call",
+            "beat": 4
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Idris was a man of truth who kept calling people to God with patience, and God raised him to a high station. Steady, truthful effort is never lost with God.",
+        "curious": "Muslims honour Idris, often identified with the biblical Enoch, as a truthful prophet who kept calling people to God patiently, and was raised to a high station.",
+        "ref": "19:56"
+      },
+      "carry": {
+        "title": "A prayer for knowledge",
+        "ref": "20:114"
+      },
+      "reflect": {
+        "muslim": "Which good habit do you keep only when people are watching? How could you make it steady?",
+        "curious": "What does it take to keep doing something right when most people ignore it?"
+      },
+      "act": "Keep one good habit going all week, even when no one notices."
+    },
+    {
+      "part": 1,
+      "watchFor": "Watch how a good intention turns into something wrong, one generation at a time.",
+      "questions": [
+        {
+          "q": "Why did the people first carve the five statues?",
+          "options": [
+            "To decorate the square",
+            "To remember the righteous men",
+            "To scare their enemies",
+            "To sell them"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "statues",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What happened to the statues as generations passed?",
+          "options": [
+            "They were broken",
+            "The reason was forgotten and they were worshipped",
+            "They were buried",
+            "They were moved to the hills"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "statues",
+            "beat": 3
+          }
+        },
+        {
+          "q": "Who stood apart on a hill and watched?",
+          "options": [
+            "Idris",
+            "Shith",
+            "Nuh",
+            "Hud"
+          ],
+          "answer": 2,
+          "replay": {
+            "scene": "statues",
+            "beat": 5
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The statues began as a way to remember good men. Generations later, people worshipped them. Small steps away from worshipping God alone can look harmless at first, so guard what you give your heart to.",
+        "curious": "Muslims see in this story how honouring good people can, over generations, slide into worshipping them, and why Islam keeps worship for God alone.",
+        "ref": "71:23"
+      },
+      "carry": {
+        "title": "Ibrahim's prayer to be kept from idols",
+        "ref": "14:35"
+      },
+      "reflect": {
+        "muslim": "Is there anything you give so much of your heart to that it competes with God?",
+        "curious": "Can you think of a tradition whose original reason has been forgotten? What took its place?"
+      },
+      "act": "When you remember someone good, pray for them, rather than only praising them."
+    }
+  ]
+}

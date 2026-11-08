@@ -1,0 +1,180 @@
+{
+  "id": "salah",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "On a cold, dark night, Musa saw a fire on a mountain and went towards it. There, in a blessed valley, his Lord called to him. Among the first things he was told was: worship Me, and establish prayer for My remembrance.",
+      "curious": "On a cold, dark night, Musa, known in the Bible as Moses, saw a fire on a mountain and went towards it. There God called to him. In the Quran's telling, among the first things he was told was to pray, to remember God."
+    },
+    "chapter": 11,
+    "part": 2,
+    "from": "tuwa",
+    "until": "signs",
+    "length": "2 scenes, about 1 minute"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "It's a busy Saturday. You're out with friends, the afternoon prayer time is ending soon, and nobody else is going to pray.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Skip it today and make up for it some other time.",
+          "points": 0,
+          "feedback": "Busy days are exactly when prayer slips. Next you'll see why it was given fixed times."
+        },
+        {
+          "label": "Find a quiet corner, pray quickly, and rejoin them.",
+          "points": 2,
+          "feedback": "That's the heart of it: a few minutes for God in the middle of a full day, at its time."
+        },
+        {
+          "label": "Pray once you're home, even though the time will have passed.",
+          "points": 1,
+          "feedback": "Better than leaving it, but prayers have their times for a reason. The teaching explains."
+        },
+        {
+          "label": "Feel guilty about it all evening but do nothing.",
+          "points": 0,
+          "feedback": "Guilt without action helps no one. Even a short prayer in a quiet corner counts."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "You've promised yourself ten quiet minutes each day: no phone, just stopping to think. It's a busy Saturday, you're out with friends, and the day is nearly over.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Skip it today: there'll be time tomorrow.",
+          "points": 0,
+          "feedback": "That's how most good habits fade. See why Islam fixes prayer to times of day."
+        },
+        {
+          "label": "Step aside for a few minutes now, then rejoin them.",
+          "points": 2,
+          "feedback": "A short pause in a full day: that's close to how Muslims treat prayer."
+        },
+        {
+          "label": "Do it tonight, however late.",
+          "points": 1,
+          "feedback": "Better than nothing, but Islam fixes prayer to set times. The next step explains why."
+        },
+        {
+          "label": "Feel bad about it but do nothing.",
+          "points": 0,
+          "feedback": "Feeling bad doesn't build anything. A few minutes now would."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about prayer",
+      "curious": "What Islam teaches about prayer"
+    },
+    "quran": [
+      {
+        "ref": "20:14",
+        "about": "At the valley, God tells Musa that He is God, there is no god but Him, so worship Him and establish prayer to remember Him."
+      },
+      {
+        "ref": "4:103",
+        "about": "Prayer has been prescribed for the believers at set times."
+      },
+      {
+        "ref": "2:45",
+        "about": "Seek help through patience and prayer, which is hard except for the humble."
+      },
+      {
+        "ref": "29:45",
+        "about": "Prayer keeps a person away from shameful and wrong deeds, and remembering God is greater still."
+      },
+      {
+        "ref": "23:1-2",
+        "about": "The believers who succeed are those who are humble and attentive in their prayer."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "bukhari-528",
+        "about": "Praying five times a day washes a person clean, like bathing five times a day in a river."
+      },
+      {
+        "id": "bukhari-6464",
+        "about": "What God loves most is what is done regularly, even if it is small."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "There are five daily prayers: at dawn (Fajr), midday (Dhuhr), afternoon (Asr), sunset (Maghrib) and night (Isha). Their times follow the sun, so the day is never long without a return to God.",
+        "status": "draft"
+      },
+      {
+        "who": "From the verses",
+        "text": "Prayer is not only a duty but a help (2:45): something to lean on in hardship, not just one more task.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What was Musa told to do at the valley, according to 20:14?",
+      "options": [
+        "Build a temple there",
+        "Worship God and establish prayer for His remembrance",
+        "Return to Egypt immediately",
+        "Fast for forty days"
+      ],
+      "answer": 1,
+      "why": "In 20:14 God tells Musa that He is God, so worship Him and establish prayer for His remembrance."
+    },
+    {
+      "q": "How many daily prayers do Muslims pray?",
+      "options": [
+        "Three",
+        "Five",
+        "Seven",
+        "One"
+      ],
+      "answer": 1,
+      "why": "Five: Fajr, Dhuhr, Asr, Maghrib and Isha."
+    },
+    {
+      "q": "What does 4:103 say about the timing of prayer?",
+      "options": [
+        "Any time of the day is the same",
+        "It has been prescribed at set times",
+        "Only at night",
+        "Only on Fridays"
+      ],
+      "answer": 1,
+      "why": "Prayer has been prescribed for believers at set times (4:103)."
+    },
+    {
+      "q": "In the hadith, what are the five prayers compared to?",
+      "options": [
+        "Five meals",
+        "Bathing five times a day in a river",
+        "Five steps of a ladder",
+        "Five lamps"
+      ],
+      "answer": 1,
+      "why": "Like bathing in a river five times a day, the five prayers wash away sins."
+    },
+    {
+      "q": "According to 2:45, what should we seek help through?",
+      "options": [
+        "Wealth and friends",
+        "Patience and prayer",
+        "Silence and sleep",
+        "Travel"
+      ],
+      "answer": 1,
+      "why": "Seek help through patience and prayer (2:45)."
+    }
+  ],
+  "reflection": {
+    "muslim": "Which of the five prayers is hardest for you to keep? What one small change would help you keep it this week?",
+    "curious": "What would change in your day if you stopped five times to remember what matters most?"
+  }
+}

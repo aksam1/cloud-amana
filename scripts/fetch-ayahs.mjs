@@ -34,6 +34,16 @@ function collectRefs() {
     (data.beats || []).forEach((b) => b.verse && expandRef(b.verse.ref).forEach((x) => refs.add(x)));
     (data.layers || []).forEach((l) => l.ref && refs.add(l.ref));
     (data.nodes || []).forEach((n) => (n.ayahs || []).forEach((r) => expandRef(r).forEach((x) => refs.add(x))));
+    (data.parts || []).forEach((p) => [p.lesson?.ref, p.carry?.ref].filter(Boolean).forEach((r) => expandRef(r).forEach((x) => refs.add(x))));
+    (data.beats || []).forEach((b) => b.pendingVerse?.ref && expandRef(b.pendingVerse.ref).forEach((x) => refs.add(x)));
+  }
+  // The pyramid's lesson paths cite verses by ref too (teaching.quran).
+  const unitDir = join(root, 'src/pyramid/units');
+  if (existsSync(unitDir)) {
+    for (const file of walk(unitDir)) {
+      const u = JSON.parse(readFileSync(file, 'utf8'));
+      (u.teaching?.quran || []).forEach((q) => expandRef(q.ref).forEach((x) => refs.add(x)));
+    }
   }
   return [...refs].sort((a, b) => {
     const [s1, a1] = a.split(':').map(Number);

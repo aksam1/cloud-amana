@@ -1,0 +1,180 @@
+{
+  "id": "shahadah",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "A band of young men lived in a city that worshipped idols. They believed in the One God, and when saying so became dangerous, they stood up and said it anyway. Watch what it cost them, and what God did for them.",
+      "curious": "A band of young men, remembered in Christian tradition as the Sleepers of Ephesus, lived in a city that worshipped idols. They believed in the One God, and said so openly, even when it became dangerous. Watch what happened."
+    },
+    "chapter": 18,
+    "part": 0,
+    "from": "cave",
+    "until": "awakening",
+    "length": "2 scenes, about 1 minute"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "Your classmates are joking about religion, and one turns to you: \"You don't actually believe all that, do you?\" Everyone is waiting for your answer.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Laugh along and say no, it's just something my family does.",
+          "points": 0,
+          "feedback": "It's a hard moment, and the pull to fit in is real. The young men of the cave felt it too, with far more at stake. Let's see what they said."
+        },
+        {
+          "label": "Change the subject quickly.",
+          "points": 1,
+          "feedback": "Sometimes stepping out of an argument is wise. But the declaration of faith is something a Muslim is meant to own, calmly. The teaching explains what it actually says."
+        },
+        {
+          "label": "Say calmly, \"Yes, I do. I believe there's one God,\" and leave it there if they keep joking.",
+          "points": 2,
+          "feedback": "That's the spirit of the young men in the cave: a clear, calm word, without picking a fight."
+        },
+        {
+          "label": "Get angry and tell them they'll regret mocking it.",
+          "points": 0,
+          "feedback": "Defending faith with anger usually pushes people away. The young men stood firm, but their words were about their Lord, not about the mockers."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "Your friends are joking about religion, and one turns to you: \"You don't actually believe in anything, do you?\" Everyone is waiting for your answer.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Laugh along and say no, it's not for me.",
+          "points": 0,
+          "feedback": "Fitting in matters, and that's human. Let's see what these young men did when the pressure was far greater."
+        },
+        {
+          "label": "Change the subject quickly.",
+          "points": 1,
+          "feedback": "Stepping out of an argument can be wise. Next you'll see what Muslims mean when they declare their faith, and why they're asked to stand by it."
+        },
+        {
+          "label": "Say calmly what you really believe, whatever it is, and leave it there.",
+          "points": 2,
+          "feedback": "Honesty without hostility: that's close to what the young men in the cave did."
+        },
+        {
+          "label": "Get angry and tell them they're being disrespectful.",
+          "points": 0,
+          "feedback": "Anger rarely persuades anyone. The young men stood firm, but they spoke about what they believed, not against the mockers."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about the declaration of faith",
+      "curious": "What Islam teaches about the declaration of faith"
+    },
+    "quran": [
+      {
+        "ref": "18:13-14",
+        "about": "The young men believed in their Lord, and He strengthened their hearts, so they stood up and declared that their Lord is the Lord of the heavens and the earth, and that they would never call on any god besides Him."
+      },
+      {
+        "ref": "3:18",
+        "about": "God Himself bears witness that there is no god but Him, and so do the angels and those who have knowledge."
+      },
+      {
+        "ref": "47:19",
+        "about": "God tells His Messenger to know that there is no god but God, and to ask forgiveness for himself and the believers."
+      },
+      {
+        "ref": "48:29",
+        "about": "Muhammad is named as the Messenger of God."
+      },
+      {
+        "ref": "2:256",
+        "about": "There is no compulsion in religion: faith is a choice of the heart, not something forced."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "bukhari-8",
+        "about": "The declaration of faith is the first of the five pillars Islam is built on."
+      },
+      {
+        "id": "muslim-8-islam",
+        "about": "When the angel Jibril asked about Islam, the declaration came first."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "The declaration has two halves. \"There is no god but God\" first clears the heart of everything else people worship, then affirms the One God. \"Muhammad is the Messenger of God\" means taking guidance on how to worship Him from the Prophet's example.",
+        "status": "draft"
+      },
+      {
+        "who": "Scholars of creed",
+        "text": "Scholars teach that the words count when they come with knowledge of what they mean, certainty, sincerity, truthfulness and love, and are lived by, not only spoken.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What did the young men of the cave declare?",
+      "options": [
+        "That their city's idols were gods too",
+        "That their Lord is the Lord of the heavens and the earth, and they would call on no other god",
+        "That they would leave the city and never speak of God again",
+        "That they were better than their people"
+      ],
+      "answer": 1,
+      "why": "In 18:14 they stood up and declared that their Lord is the Lord of the heavens and the earth, and that they would never call on any god besides Him."
+    },
+    {
+      "q": "What are the two parts of the declaration of faith?",
+      "options": [
+        "There is no god but God, and Muhammad is the Messenger of God",
+        "God is great, and prayer is better than sleep",
+        "Pray five times, and fast in Ramadan",
+        "Believe in the angels, and believe in the books"
+      ],
+      "answer": 0,
+      "why": "The shahadah is two testimonies: that there is no god but God, and that Muhammad is His Messenger."
+    },
+    {
+      "q": "Where does the declaration of faith come among the five pillars?",
+      "options": [
+        "Last",
+        "First",
+        "Third",
+        "It is not one of the pillars"
+      ],
+      "answer": 1,
+      "why": "In the hadith of the five pillars, and when Jibril asked about Islam, the declaration of faith comes first."
+    },
+    {
+      "q": "What does 2:256 teach about faith?",
+      "options": [
+        "It can be forced on others",
+        "There is no compulsion in religion",
+        "Only adults may believe",
+        "It must be kept secret"
+      ],
+      "answer": 1,
+      "why": "There is no compulsion in religion: the declaration means something only when it is chosen freely."
+    },
+    {
+      "q": "When the young men woke, what had their long sleep become for the town?",
+      "options": [
+        "A reason to fear them",
+        "A sign that God's promise of resurrection is true",
+        "A story nobody believed",
+        "A reason to build new idols"
+      ],
+      "answer": 1,
+      "why": "Their awakening became a sign that God's promise is true and the Hour will come (18:21)."
+    }
+  ],
+  "reflection": {
+    "muslim": "What is one thing in your day that competes with God for first place in your heart? What would putting Him first look like tomorrow?",
+    "curious": "What is the one thing you'd stand up for even if it cost you? What does the declaration of faith ask Muslims to stand up for?"
+  }
+}

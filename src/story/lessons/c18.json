@@ -1,0 +1,191 @@
+{
+  "chapter": 18,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Young men flee to a cave to keep their faith. Watch how long they sleep.",
+      "questions": [
+        {
+          "q": "What did the young men pray in the cave?",
+          "options": [
+            "Take us home",
+            "Our Lord, grant us mercy from Yourself and guide us rightly",
+            "Punish our people",
+            "Let us sleep"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "cave",
+            "beat": 0
+          }
+        },
+        {
+          "q": "How long did they sleep?",
+          "options": [
+            "A night",
+            "Forty years",
+            "Three hundred years and nine",
+            "A thousand years"
+          ],
+          "answer": 2,
+          "replay": {
+            "scene": "cave",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did their story become for the town?",
+          "options": [
+            "A reason to fear them",
+            "A sign that God's promise of resurrection is true",
+            "A forgotten tale",
+            "A reason to build idols"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "awakening",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The young men left everything to keep their faith, and asked God for mercy and guidance. He protected them for centuries, and turned their story into a sign. When you give something up for God, He gives back more.",
+        "curious": "This story, known in Christian tradition as the Sleepers of Ephesus, is told in the Quran's eighteenth chapter, which many Muslims read every Friday.",
+        "ref": "18:13"
+      },
+      "carry": {
+        "title": "The prayer of the young men in the cave",
+        "ref": "18:10"
+      },
+      "reflect": {
+        "muslim": "What might you need to leave behind to keep your faith strong? Who are your companions in the cave?",
+        "curious": "Who are the friends who help you stay true to yourself?"
+      },
+      "act": "Spend time this week with a friend who helps your faith grow."
+    },
+    {
+      "part": 1,
+      "watchFor": "A king is given power to reach the ends of the earth. Watch how he uses it.",
+      "questions": [
+        {
+          "q": "How did Dhul-Qarnayn rule wherever he went?",
+          "options": [
+            "Harshly",
+            "With justice",
+            "Through fear",
+            "He didn't rule"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "qarnayn",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did he say when the people offered to pay him?",
+          "options": [
+            "Pay me double",
+            "What my Lord has given me is better; help me only with your strength",
+            "No, leave me alone",
+            "Pay me later"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "ironwall",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did he pour over the glowing iron?",
+          "options": [
+            "Water",
+            "Molten copper",
+            "Sand",
+            "Gold"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "ironwall",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Dhul-Qarnayn had power everywhere and used it for justice. Offered payment, he said what God had given him was better, and asked only for help. Then he gave the credit to God: this is a mercy from my Lord.",
+        "curious": "Dhul-Qarnayn, \"the one of the two horns\", is a just king in the Quran whose identity is debated. Muslims see in him a model of power used for others.",
+        "ref": "18:98"
+      },
+      "carry": {
+        "title": "Musa's promise to use God's favour well",
+        "ref": "28:17"
+      },
+      "reflect": {
+        "muslim": "What has God given you that you could use to protect or help others, without wanting anything back?",
+        "curious": "What would you do with power if no one could stop you? What does that say about you?"
+      },
+      "act": "Help someone with something this week and refuse any payment."
+    },
+    {
+      "part": 2,
+      "watchFor": "Six short stories, one thread. Watch what happens to those who forget where their blessings come from, and to those who remember.",
+      "questions": [
+        {
+          "q": "What did the friend tell the boasting garden owner to say?",
+          "options": [
+            "My garden will last forever",
+            "What God wills; there is no power except with God",
+            "Let us sell it",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "gardens",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the people of Saba do with their gardens?",
+          "options": [
+            "Gave thanks",
+            "Turned away",
+            "Shared them",
+            "Sold them"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "dam",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Luqman say God will bring out, even if hidden inside a rock?",
+          "options": [
+            "Treasure",
+            "A deed the weight of a mustard seed",
+            "Water",
+            "A lost animal"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "luqman",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The two gardens, the harvest and the dam were all lost when their owners forgot God. The man raised after a hundred years, the man who ran to support the messengers, and Luqman's advice to his son all point the other way: remember God, be grateful, and know that even a mustard seed of good is seen.",
+        "curious": "These short stories from the Quran share one message: blessings taken for granted are lost, and nothing good, however small, goes unseen by God.",
+        "ref": "31:16"
+      },
+      "carry": {
+        "title": "The prayer of those who admit their wrong",
+        "ref": "7:23"
+      },
+      "reflect": {
+        "muslim": "Which of these six stories speaks to you most right now, and why?",
+        "curious": "Which of these stories stays with you most? What is it saying to you?"
+      },
+      "act": "Pick one piece of Luqman's advice and live by it all week."
+    }
+  ]
+}

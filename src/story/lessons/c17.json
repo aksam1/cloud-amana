@@ -1,0 +1,129 @@
+{
+  "chapter": 17,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Isa shows his people sign after sign. Watch whose power he says they come from.",
+      "questions": [
+        {
+          "q": "How did the birds of clay come to life?",
+          "options": [
+            "By magic",
+            "Isa breathed into them, by God's permission",
+            "They were real birds",
+            "The disciples did it"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "claybirds",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the disciples answer when Isa asked who would help him?",
+          "options": [
+            "We are afraid",
+            "We are God's helpers",
+            "We will think about it",
+            "Only if you pay us"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "helpers",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the disciples ask Isa to pray for?",
+          "options": [
+            "Rain",
+            "A table spread with food from heaven",
+            "Gold",
+            "An army"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "table",
+            "beat": 0
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Every miracle of Isa came with the same words: by God's permission. He never claimed the power as his own. And his disciples answered his call: we are God's helpers.",
+        "curious": "Muslims honour Isa, Jesus, as one of the greatest prophets and as the Messiah. They believe he worked miracles by God's permission, and that he is a servant and messenger of God rather than God or His son.",
+        "ref": "3:49"
+      },
+      "carry": {
+        "title": "The disciples' prayer",
+        "ref": "3:53"
+      },
+      "reflect": {
+        "muslim": "Is there a gift or success you've been treating as all your own? How could you give God the credit?",
+        "curious": "When you do something well, how much of it is really down to you alone?"
+      },
+      "act": "Help with something good this week that you won't get any credit for."
+    },
+    {
+      "part": 1,
+      "watchFor": "Isa brings good news of a messenger to come. Watch what happens when his enemies plot against him.",
+      "questions": [
+        {
+          "q": "Which scripture did Isa say he was confirming?",
+          "options": [
+            "The Psalms",
+            "The Torah",
+            "The Quran",
+            "None"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "ahmad",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What name did Isa give for the messenger to come after him?",
+          "options": [
+            "Yahya",
+            "Ahmad",
+            "Musa",
+            "Dawud"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "ahmad",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What does the Quran say happened to Isa?",
+          "options": [
+            "He was killed",
+            "He was not killed or crucified; God raised him up to Himself",
+            "He left for another land",
+            "He hid in a cave"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "ascension",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Isa confirmed the Torah before him and gave good news of a messenger after him, Ahmad. His enemies plotted, but God is the best of planners, and raised him up to Himself.",
+        "curious": "Muslims believe Jesus was not crucified but raised up to God, and that he foretold the coming of the Prophet Muhammad, also named Ahmad.",
+        "ref": "61:6"
+      },
+      "carry": {
+        "title": "The prayer of those who answer God's call",
+        "ref": "3:193"
+      },
+      "reflect": {
+        "muslim": "How well do you know the messenger Isa gave good news of? What's one thing you could learn about him this week?",
+        "curious": "What do you know about how Islam sees Jesus? What surprised you?"
+      },
+      "act": "Learn one new thing this week about the life of the Prophet Muhammad ﷺ."
+    }
+  ]
+}

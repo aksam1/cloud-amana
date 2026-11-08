@@ -1,0 +1,315 @@
+{
+  "chapter": 13,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "In the desert, God feeds His people and gives them water. Watch how they respond.",
+      "questions": [
+        {
+          "q": "What did God send down for them to eat?",
+          "options": [
+            "Bread and fish",
+            "Manna and quails",
+            "Dates and milk",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "manna",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did many of them long for?",
+          "options": [
+            "The holy land",
+            "The onions and lentils of Egypt",
+            "Gold",
+            "Rain"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "manna",
+            "beat": 1
+          }
+        },
+        {
+          "q": "How many springs gushed from the rock?",
+          "options": [
+            "One",
+            "Seven",
+            "Twelve",
+            "Forty"
+          ],
+          "answer": 2,
+          "replay": {
+            "scene": "springs",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "God shaded them, fed them and gave them water from a rock, and still many complained. Gratitude means seeing what you're given, not what you've left behind.",
+        "curious": "The manna, the quails and the twelve springs appear in the Quran as in the Bible. Muslims read them as a lesson in gratitude.",
+        "ref": "2:57"
+      },
+      "carry": {
+        "title": "Musa's prayer for good in this world and the next",
+        "ref": "7:156"
+      },
+      "reflect": {
+        "muslim": "What blessing are you overlooking because you're focused on something you don't have?",
+        "curious": "Do you tend to notice what you have, or what you're missing?"
+      },
+      "act": "Go one whole day without complaining. Each time you're about to, name a blessing instead."
+    },
+    {
+      "part": 1,
+      "watchFor": "Musa goes up the mountain for forty nights. Watch what his people do while he's gone.",
+      "questions": [
+        {
+          "q": "What happened when God appeared to the mountain?",
+          "options": [
+            "It grew taller",
+            "It crumbled to dust",
+            "It caught fire",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "mountain",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Who made the golden calf?",
+          "options": [
+            "Harun",
+            "The Samiri",
+            "Pharaoh",
+            "Musa"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "calf",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Musa pray when he came back?",
+          "options": [
+            "Punish them all",
+            "My Lord, forgive me and my brother, and take us into Your mercy",
+            "Let us return to Egypt",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "anger",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "While Musa received God's guidance, his people turned to a calf made of their own gold. It takes only a short absence to forget. Harun spoke up, and Musa turned to God for forgiveness and mercy.",
+        "curious": "The golden calf appears in both the Quran and the Bible. In the Quran, Harun (Aaron) tries to stop the people, and Musa asks forgiveness for himself and his brother.",
+        "ref": "7:143"
+      },
+      "carry": {
+        "title": "Musa's prayer for forgiveness and mercy",
+        "ref": "7:151"
+      },
+      "reflect": {
+        "muslim": "What \"golden calves\" pull your attention from God: money, approval, a screen?",
+        "curious": "What do people today give the devotion that once went to idols?"
+      },
+      "act": "Notice one thing that crowds God out of your day, and put it away for a set time."
+    },
+    {
+      "part": 2,
+      "watchFor": "The people are given a simple command, and a rich man shows off. Watch what each does with what they're given.",
+      "questions": [
+        {
+          "q": "What were the people told to do?",
+          "options": [
+            "Build an altar",
+            "Slaughter a cow",
+            "Fast for a day",
+            "Leave the town"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "cow",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did they do instead of obeying at once?",
+          "options": [
+            "Ran away",
+            "Kept asking questions until it could only be one cow",
+            "Refused completely",
+            "Asked Harun"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "cow",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Where did Qarun say his treasure came from?",
+          "options": [
+            "From God's favour",
+            "From his own knowledge",
+            "From Pharaoh",
+            "From his father"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "qarun",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The people turned an easy command into a hard one with endless questions. Qarun thought his wealth came from his own cleverness, and lost it all. Obey simply, and remember that everything you have is from God.",
+        "curious": "Muslims learn from these two stories to avoid making simple duties complicated, and from Qarun (often linked with the biblical Korah) that wealth is a trust, not a personal achievement.",
+        "ref": "28:83"
+      },
+      "carry": {
+        "title": "\"What God wills: there is no power except with God\"",
+        "ref": "18:39"
+      },
+      "reflect": {
+        "muslim": "Is there something simple God asks of you that you've made complicated?",
+        "curious": "Do you think success is mostly earned, mostly given, or both?"
+      },
+      "act": "When you're praised or gain something this week, say: what God wills; there is no power except with God."
+    },
+    {
+      "part": 3,
+      "watchFor": "Musa travels far to learn from a servant of God. Watch what he can't stay quiet about.",
+      "questions": [
+        {
+          "q": "What was the sign that they had reached the right place?",
+          "options": [
+            "A rainbow",
+            "Their fish slipped away into the sea",
+            "A voice called them",
+            "A star fell"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "twoseas",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did the servant of God do to the boat?",
+          "options": [
+            "Sailed it away",
+            "Broke a plank in its side",
+            "Painted it",
+            "Sold it"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "boatwall",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What lay under the wall he rebuilt?",
+          "options": [
+            "Nothing",
+            "Treasure belonging to two orphans",
+            "A secret door",
+            "Water"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "reasons",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Musa, a great prophet, travelled far to learn, and still met things he couldn't understand until they were explained. There is wisdom behind what God decrees, even when we can't see it yet.",
+        "curious": "The servant of God in this story is known in Muslim tradition as al-Khidr. Muslims learn from it humility in learning, and trust that God's decree has reasons we may not see.",
+        "ref": "18:82"
+      },
+      "carry": {
+        "title": "A prayer to be guided closer to what is right",
+        "ref": "18:24"
+      },
+      "reflect": {
+        "muslim": "What is happening in your life that you don't understand yet? Can you trust there is wisdom in it?",
+        "curious": "Has something that seemed bad ever turned out to protect you?"
+      },
+      "act": "Learn one new thing about your faith this week from someone who knows more than you."
+    },
+    {
+      "part": 4,
+      "watchFor": "Musa brings his people to the edge of the promised land. Watch what fear does.",
+      "questions": [
+        {
+          "q": "Why did the people refuse to enter the land?",
+          "options": [
+            "It was too hot",
+            "They were afraid of the people there",
+            "Musa told them not to",
+            "They wanted to go home"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "forty",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did they tell Musa?",
+          "options": [
+            "We will follow you",
+            "Go, you and your Lord, and fight; we will sit here",
+            "Let us pray first",
+            "Send spies"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "forty",
+            "beat": 0
+          }
+        },
+        {
+          "q": "How long did they wander in the desert?",
+          "options": [
+            "Forty days",
+            "Seven years",
+            "Forty years",
+            "A hundred years"
+          ],
+          "answer": 2,
+          "replay": {
+            "scene": "forty",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Fear made them refuse what God had promised, and a whole generation spent forty years wandering. Courage that trusts God opens doors that fear keeps shut.",
+        "curious": "The forty years in the wilderness appear in both the Quran and the Bible. Muslims read it as a warning about letting fear outweigh trust in God.",
+        "ref": "5:23"
+      },
+      "carry": {
+        "title": "A prayer for steady feet",
+        "ref": "3:147"
+      },
+      "reflect": {
+        "muslim": "What is fear keeping you from right now?",
+        "curious": "What has fear stopped you from doing that you later wished you'd done?"
+      },
+      "act": "Do one thing this week that you've been avoiding out of fear."
+    }
+  ]
+}

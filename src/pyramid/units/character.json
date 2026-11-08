@@ -1,0 +1,184 @@
+{
+  "id": "character",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "Yusuf's brothers threw him into a well when he was a boy. Years later, they stood before him in Egypt, hungry, not knowing who he was, and now he had all the power. Watch what he did with it.",
+      "curious": "Yusuf, known in the Bible as Joseph, was thrown into a well by his own brothers. Years later they stood before him in Egypt, hungry, not knowing who he was, and now he had all the power. Watch what he did."
+    },
+    "chapter": 9,
+    "part": 4,
+    "from": "cup",
+    "until": "reunion",
+    "length": "3 scenes, about 2 minutes"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "Someone who spread a hurtful rumour about you last year now needs your help with something only you can do.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Refuse, and tell everyone why.",
+          "points": 0,
+          "feedback": "They hurt you, and that's real. But Yusuf had far more reason, and far more power. See what he chose."
+        },
+        {
+          "label": "Help them, and let the past go.",
+          "points": 2,
+          "feedback": "That's what Yusuf did: \"No blame on you today.\" Good character is most visible when you could do otherwise."
+        },
+        {
+          "label": "Help them, but remind them of what they did at every chance.",
+          "points": 0,
+          "feedback": "Helping is good; rubbing it in undoes much of it. See how Yusuf spoke."
+        },
+        {
+          "label": "Help them, and quietly keep your distance afterwards.",
+          "points": 1,
+          "feedback": "Forgiving doesn't mean trusting blindly. Yusuf's way is still the higher one: no blame."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "Someone who spread a hurtful rumour about you last year now needs your help with something only you can do.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Refuse, and tell everyone why.",
+          "points": 0,
+          "feedback": "The hurt is real. But Yusuf had far more reason, and more power. See what he chose."
+        },
+        {
+          "label": "Help them, and let the past go.",
+          "points": 2,
+          "feedback": "That's what Yusuf did: \"No blame on you today.\""
+        },
+        {
+          "label": "Help them, but remind them of what they did.",
+          "points": 0,
+          "feedback": "Helping is good; rubbing it in undoes much of it. See how Yusuf spoke."
+        },
+        {
+          "label": "Help them, and keep a careful distance afterwards.",
+          "points": 1,
+          "feedback": "Forgiving doesn't mean trusting blindly. Still, Yusuf's way goes further."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about good character",
+      "curious": "What Islam teaches about good character"
+    },
+    "quran": [
+      {
+        "ref": "12:92",
+        "about": "Yusuf tells his brothers there is no blame on them today, and prays that God forgive them."
+      },
+      {
+        "ref": "68:4",
+        "about": "God describes the Prophet ﷺ as being of a great moral character."
+      },
+      {
+        "ref": "3:134",
+        "about": "The righteous restrain their anger and pardon people; God loves those who do good."
+      },
+      {
+        "ref": "41:34",
+        "about": "Good and evil are not equal: repel evil with what is better, and an enemy may become a close friend."
+      },
+      {
+        "ref": "49:11-12",
+        "about": "Do not mock, insult or call one another names; avoid suspicion, spying and backbiting."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "bukhari-6035",
+        "about": "The best people are those best in character."
+      },
+      {
+        "id": "muslim-2553",
+        "about": "Righteousness is good character."
+      },
+      {
+        "id": "bukhari-6114",
+        "about": "Real strength is controlling yourself when angry."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Yusuf forgave at the moment he could have taken revenge (12:92). Good character shows most when you have the power to act otherwise.",
+        "status": "draft"
+      },
+      {
+        "who": "From the hadith",
+        "text": "The Prophet ﷺ tied good character to faith itself: the best of you are the best in character (Bukhari 6035), and righteousness is good character (Muslim 2553).",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What did Yusuf say to his brothers when he revealed who he was?",
+      "options": [
+        "You will pay for this",
+        "No blame on you today",
+        "Leave Egypt at once",
+        "I will tell our father"
+      ],
+      "answer": 1,
+      "why": "No blame will there be upon you today; may God forgive you (12:92)."
+    },
+    {
+      "q": "Why was Binyamin held back in Egypt?",
+      "options": [
+        "He wanted to stay",
+        "The king's cup was found in his pack",
+        "He was ill",
+        "He was arrested for stealing grain"
+      ],
+      "answer": 1,
+      "why": "The king's cup was found in Binyamin's pack, and by the law of the land he stayed."
+    },
+    {
+      "q": "How does 41:34 say to respond to evil?",
+      "options": [
+        "With something worse",
+        "With what is better",
+        "By ignoring it forever",
+        "By telling everyone"
+      ],
+      "answer": 1,
+      "why": "Repel evil with what is better, and an enemy may become a close friend."
+    },
+    {
+      "q": "Who is strong, according to the hadith?",
+      "options": [
+        "The one who wins every fight",
+        "The one who controls himself when angry",
+        "The one with the most friends",
+        "The richest"
+      ],
+      "answer": 1,
+      "why": "The strong one is the one who controls himself when angry."
+    },
+    {
+      "q": "Who are the best people, according to Bukhari 6035?",
+      "options": [
+        "The richest",
+        "Those best in character",
+        "The most famous",
+        "The oldest"
+      ],
+      "answer": 1,
+      "why": "The best of you are those who are best in character."
+    }
+  ],
+  "reflection": {
+    "muslim": "Is there someone you're still holding something against? What would \"no blame on you today\" look like with them?",
+    "curious": "Is there someone you could forgive, even partly? What would it cost you, and what might it free?"
+  }
+}

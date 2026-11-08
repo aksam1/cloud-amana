@@ -1,0 +1,191 @@
+{
+  "chapter": 14,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Dhul-Kifl is remembered for one quality above all. Watch for it.",
+      "questions": [
+        {
+          "q": "What is Dhul-Kifl known for?",
+          "options": [
+            "His wealth",
+            "His patience",
+            "His army",
+            "His travels"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "kifl",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What is he said to have promised, and kept?",
+          "options": [
+            "To build a city",
+            "To fast every day, pray every night and judge without losing his temper",
+            "To never speak",
+            "To travel to every land"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "kifl",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Which prophets does the Quran name with him among the patient?",
+          "options": [
+            "Musa and Harun",
+            "Ismail and Idris",
+            "Nuh and Hud",
+            "Yusuf and Yaqub"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "kifl",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Dhul-Kifl is remembered for keeping his word and for his patience. Small promises kept faithfully are a kind of greatness.",
+        "curious": "Little is told of Dhul-Kifl, sometimes linked with the biblical Ezekiel, but the Quran names him among the patient. Muslim tradition remembers him for keeping his word.",
+        "ref": "21:85"
+      },
+      "carry": {
+        "title": "A prayer for patience",
+        "ref": "7:126"
+      },
+      "reflect": {
+        "muslim": "What small promise to God could you keep every day this week?",
+        "curious": "Which small promise could you keep every day this week?"
+      },
+      "act": "Make one small promise to yourself for the week, and keep it every day."
+    },
+    {
+      "part": 1,
+      "watchFor": "A small army faces a giant. Watch who God gives victory to, and what kind of king Dawud becomes.",
+      "questions": [
+        {
+          "q": "What did Talut tell his army at the river?",
+          "options": [
+            "Drink as much as you like",
+            "Whoever drinks his fill is not with me, except a single handful",
+            "Don't touch the water",
+            "Swim across"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "river",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Who brought down Jalut?",
+          "options": [
+            "Talut",
+            "A young man named Dawud",
+            "An angel",
+            "The whole army together"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "jalut",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Dawud do when he realised the dispute was about him?",
+          "options": [
+            "Punished the two men",
+            "Asked his Lord's forgiveness and bowed down",
+            "Ignored it",
+            "Left the palace"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "disputants",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The few who held back at the river were the ones who stood firm, and young Dawud brought down the giant. As king, Dawud lived from the work of his hands, and when he slipped in judgement, he turned back to God at once.",
+        "curious": "Dawud is the biblical David, who defeated Goliath. Muslims honour him as a prophet and king who praised God, worked with his hands, and repented quickly.",
+        "ref": "2:249"
+      },
+      "carry": {
+        "title": "The prayer of Talut's small army",
+        "ref": "2:250"
+      },
+      "reflect": {
+        "muslim": "What's the giant in front of you? What would holding back at the river, self-control, look like first?",
+        "curious": "When have a few determined people achieved more than a crowd?"
+      },
+      "act": "Make or earn something with your own hands this week, as Dawud did."
+    },
+    {
+      "part": 2,
+      "watchFor": "Sulayman is given a kingdom like no other. Watch what he does with it.",
+      "questions": [
+        {
+          "q": "What did Sulayman do when he heard the ant?",
+          "options": [
+            "Ordered his army to march on",
+            "Smiled and thanked God for His favour",
+            "Laughed at her",
+            "Changed the route in anger"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "ants",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the queen of Saba say at last?",
+          "options": [
+            "I will fight you",
+            "I submit with Sulayman to God, Lord of the worlds",
+            "Give back my throne",
+            "I will go home"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "saba",
+            "beat": 2
+          }
+        },
+        {
+          "q": "How did the jinn finally learn that Sulayman had died?",
+          "options": [
+            "An angel told them",
+            "A small creature gnawed through his staff and he fell",
+            "The queen told them",
+            "They knew all along"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "termite",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Sulayman had more power than anyone, and used it with gratitude, justice and gentleness, even toward an ant. The queen of Saba saw the truth and submitted to God. And only God knows the unseen: not even the jinn.",
+        "curious": "Sulayman is the biblical Solomon, and the queen of Saba the Queen of Sheba. In the Quran, his power is matched by his gratitude to God.",
+        "ref": "27:40"
+      },
+      "carry": {
+        "title": "Sulayman's prayer to be grateful",
+        "ref": "27:19"
+      },
+      "reflect": {
+        "muslim": "What power do you have over others: younger siblings, friends, money, a screen? Are you using it gratefully and gently?",
+        "curious": "What would you do with great power? What would keep you humble?"
+      },
+      "act": "Use something you have power over this week gently, the way Sulayman did."
+    }
+  ]
+}

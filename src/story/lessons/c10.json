@@ -1,0 +1,129 @@
+{
+  "chapter": 10,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Ayyub has everything, then loses almost everything. Watch what stays the same.",
+      "questions": [
+        {
+          "q": "What did Ayyub do with his wealth in the good years?",
+          "options": [
+            "Kept it all",
+            "Gave freely to the poor and to travellers",
+            "Built a palace",
+            "Hid it"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "blessed",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Who stayed with Ayyub and cared for him when he was ill?",
+          "options": [
+            "His sons",
+            "His wife",
+            "The townspeople",
+            "No one"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "trial",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What happened when Ayyub struck the ground with his foot?",
+          "options": [
+            "The earth shook",
+            "A cool spring welled up and healed him",
+            "Gold appeared",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "strike",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Ayyub was grateful in good times and patient in hard ones, and through both he kept turning back to God. God called him an excellent servant.",
+        "curious": "Muslims honour Ayyub, known in the Bible as Job, as a model of patience who never stopped turning back to God.",
+        "ref": "38:44"
+      },
+      "carry": {
+        "title": "Ayyub's prayer",
+        "ref": "21:83"
+      },
+      "reflect": {
+        "muslim": "What hardship are you carrying now? Have you told God about it, the way Ayyub did?",
+        "curious": "What helps you stay steady when things fall apart?"
+      },
+      "act": "Visit or message someone who is ill or going through a hard time."
+    },
+    {
+      "part": 1,
+      "watchFor": "Madyan's traders cheat. Watch how they answer the prophet who tells them to stop.",
+      "questions": [
+        {
+          "q": "How did Madyan's traders cheat?",
+          "options": [
+            "They sold stolen goods",
+            "They gave short measure and short weight",
+            "They charged no tax",
+            "They closed their shops"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "madyan",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the people mock Shu'ayb with?",
+          "options": [
+            "Does your prayer tell you how we may run our trade?",
+            "Where is your gold?",
+            "Who sent you?",
+            "Why do you live alone?"
+          ],
+          "answer": 0,
+          "replay": {
+            "scene": "reform",
+            "beat": 0
+          }
+        },
+        {
+          "q": "Where did the people run on the day of burning heat?",
+          "options": [
+            "To the river",
+            "To the shade of a dark cloud",
+            "Into their houses",
+            "To the mountains"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "canopy",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Shu'ayb taught that faith reaches into business: full measure, fair weight, no cheating. Madyan thought prayer had nothing to do with trade. Honesty at work is part of worship.",
+        "curious": "Muslims honour Shu'ayb, often identified with the biblical Jethro, for teaching that honesty in trade is part of faith.",
+        "ref": "11:85"
+      },
+      "carry": {
+        "title": "Shu'ayb's words of reliance on God",
+        "ref": "11:88"
+      },
+      "reflect": {
+        "muslim": "Where in your work or studies are you tempted to cut corners? What would full measure look like there?",
+        "curious": "Do you think faith should affect how people do business? Why or why not?"
+      },
+      "act": "Be completely honest in one deal, trade or piece of work this week, even where no one would notice."
+    }
+  ]
+}

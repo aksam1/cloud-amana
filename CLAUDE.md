@@ -63,7 +63,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `#/lesson/<chapter>/<part>?then=<route>`, opened automatically at the end of a part not yet learned.
   "See the moment again" plays `#/scene/<id>?beat=n&back=<lesson>` and returns to the lesson.
 - Progress: `learned`, `answers` and the private `journal` in `src/lib/store.js` (localStorage only).
-  Chapter 1 part 0 is the pilot lesson; part 1 and other chapters are still to write.
+  Every part with scenes (chapters 1–18, 50 parts) has a lesson; each `carry` is a short Quranic dua, by ref.
 
 ## The Pyramid of Righteousness (the home page)
 
@@ -73,9 +73,14 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Data only, no code changes to add content: `src/pyramid/units.json` (levels, units, `chapterUnits` =
   the unit each chapter's last scene links to), `placement.json` (10–15 reflection questions per path,
   `muslim`/`nonmuslim`; scale 0–4 or scenarios), `units/<id>.json` (one lesson path: story → choice →
-  teaching → check → reflection; `sabr.json` is the prototype, using Ayyub's scenes), `config.json` (DEFAULT
+  teaching → check → reflection; `sabr.json` was the prototype; all 16 written units each play a chronicle story: allah = Ibrahim's search,
+  shahadah = the cave, salah = Tuwa, zakat = the owners of the garden, sawm = Maryam, hajj = raising the House,
+  angels = the khalifah, books = the tablets, lastday = the hundred years, qadr = Musa and al-Khidr, ikhlas = the
+  two offerings, shukr = the ant, tawakkul = the sea, humility = Iblis's refusal, character = Yusuf forgives;
+  Messengers is the chronicle itself), `config.json` (DEFAULT
   weights 70/15/15, placement threshold, the disclaimer). Hadith come only from `src/data/hadith.json` by
-  id, like verses from ayahs.json; `status: "draft"` shows "Awaiting scholar review" until checked.
+  id, like verses from ayahs.json; `status: "draft"` shows "Awaiting scholar review" until checked. All 29 are
+  drafts typed from well-known translations: check each against a verified translation before marking reviewed.
 - Never: a "test"/"exam" (the checker rejects the words in pyramid data), predicting anyone's afterlife,
   leaderboards or comparisons, shaming copy. The disclaimer shows on the landing, placement, result,
   progress and unit-result screens. Scores are private (localStorage); Progress has "Delete my data".
@@ -255,6 +260,10 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   scratchpad's `rooms.py` keeps each place's room (Namrud, al-Aziz, the king of Egypt, Yusuf's hall,
   Yaqub's house, Pharaoh, Dawud's chamber and court, Sulayman, the smithy): `room(place)` + `front(place)`.
   (`Pillars` is town.jsx's painter; the interiors one is `colonnade`.)
+- api.alquran.cloud is not on this workspace's network allowlist: about 300 cited ayat (scene pendingVerses,
+  lesson and unit refs) wait for it. `npm run ayahs` now collects refs from lessons and units too; once the
+  host is allowed, run `npm run ayahs` then `npm run verses`. Copies on npm/GitHub (quran-json, fawazahmed0)
+  drop closing punctuation from Sahih International, so never fill ayahs.json from them.
 - Arabic titles must not quote the Quran even when its ayat are not fetched yet (the checker can only catch
   phrases from fetched ayat): "يوم الزينة", "مجمع البحرين", "المن والسلوى", "سيل العرم" and "رجل يسعى" were caught by hand.
 - `world.cycle` needs a `period` above 0 (0 divides by zero and blacks out the stage), and it does nothing while

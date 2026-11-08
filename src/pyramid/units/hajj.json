@@ -1,0 +1,180 @@
+{
+  "id": "hajj",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "Years after Hajar and the baby Ismail were left in the barren valley, Ibrahim came back. Together, father and son raised the House of God, and Ibrahim was told to call all people to pilgrimage. Watch how the call has been answered ever since.",
+      "curious": "Years after Hajar and her baby Ismail were left in a barren valley, Ibrahim, known in the Bible as Abraham, came back. Father and son built the Kaaba, the House of God, and Ibrahim was told to call all people to pilgrimage. Watch how the call has been answered ever since."
+    },
+    "chapter": 6,
+    "part": 4,
+    "from": "house",
+    "until": "pilgrimage",
+    "length": "2 scenes, about 1 minute"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "You've finally saved enough to go on Hajj. A relative says, \"Why spend all that? Go when you're older, there's no rush.\"",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Agree and put it off for a few more years.",
+          "points": 0,
+          "feedback": "Life changes fast, and being able to go is a blessing. The teaching explains why scholars urge not to delay."
+        },
+        {
+          "label": "Go, and prepare by learning its rites and settling your debts first.",
+          "points": 2,
+          "feedback": "That's the way: go when you are able, prepared in body, wallet and heart."
+        },
+        {
+          "label": "Go, but mostly to post about it.",
+          "points": 0,
+          "feedback": "The pilgrimage is a journey of the heart. Going to be seen empties it."
+        },
+        {
+          "label": "Go, but don't bother learning what to do there.",
+          "points": 1,
+          "feedback": "Going is good, but Hajj has rites that Ibrahim, Hajar and the Prophet ﷺ shaped. Learning them is part of it."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "A Muslim friend has saved for years to go on Hajj, the pilgrimage to Makkah. Someone says, \"Why spend all that on one trip? Go when you're older.\" Your friend asks what you think.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Agree: put it off a few years.",
+          "points": 0,
+          "feedback": "For Muslims, being able to go is a blessing they're encouraged not to delay. The next step explains."
+        },
+        {
+          "label": "Go, after learning its rites and settling any debts.",
+          "points": 2,
+          "feedback": "That's how Muslims are taught to approach Hajj: prepared in body, money and heart."
+        },
+        {
+          "label": "Go, mostly for the photos.",
+          "points": 0,
+          "feedback": "Hajj is meant as a journey of the heart. Going to be seen misses its point."
+        },
+        {
+          "label": "Go, and work it out once there.",
+          "points": 1,
+          "feedback": "Going is good, but Hajj has rites rooted in Ibrahim and Hajar's story. Learning them is part of it."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about the pilgrimage",
+      "curious": "What Islam teaches about the pilgrimage"
+    },
+    "quran": [
+      {
+        "ref": "2:127",
+        "about": "Ibrahim and Ismail raise the foundations of the House and pray: our Lord, accept this from us."
+      },
+      {
+        "ref": "22:27",
+        "about": "Ibrahim is told to call people to pilgrimage, and they come on foot and on every lean camel from every distant pass."
+      },
+      {
+        "ref": "3:97",
+        "about": "Pilgrimage to the House is a duty owed to God by those who are able to make the journey."
+      },
+      {
+        "ref": "2:158",
+        "about": "Safa and Marwa, the two hills Hajar ran between, are among the symbols of God."
+      },
+      {
+        "ref": "2:197",
+        "about": "During Hajj there is to be no obscenity, no wrongdoing and no quarrelling; and the best provision is mindfulness of God."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "bukhari-1521",
+        "about": "A pilgrimage done for God, without obscenity or wrongdoing, leaves a person as clean as a newborn."
+      },
+      {
+        "id": "bukhari-8",
+        "about": "Hajj is one of the five pillars Islam is built on."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Hajj is due once in a lifetime from every adult Muslim who is able, in health and means (3:97). It happens in the month of Dhul-Hijjah, and its rites retrace Ibrahim, Hajar and Ismail: circling the House, walking between Safa and Marwa as Hajar ran, and standing at Arafat.",
+        "status": "draft"
+      },
+      {
+        "who": "From the verses",
+        "text": "On Hajj, millions dress alike in simple white cloth. King and labourer stand side by side, a picture of everyone being equal before God.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "Who raised the House in the story?",
+      "options": [
+        "Musa and Harun",
+        "Ibrahim and Ismail",
+        "Nuh and his sons",
+        "Dawud and Sulayman"
+      ],
+      "answer": 1,
+      "why": "Ibrahim set the stones while Ismail brought them (2:127)."
+    },
+    {
+      "q": "What did Ibrahim ask when he was told to call people to pilgrimage?",
+      "options": [
+        "Why only once a year?",
+        "How will my voice reach them?",
+        "Who will feed them?",
+        "Can Ismail call instead?"
+      ],
+      "answer": 1,
+      "why": "He asked how his voice would reach them; call, he was told, and it will reach them."
+    },
+    {
+      "q": "Who is Hajj a duty for?",
+      "options": [
+        "Every person every year",
+        "Every adult Muslim once in a lifetime, if able",
+        "Only people living in Makkah",
+        "Only scholars"
+      ],
+      "answer": 1,
+      "why": "Hajj is due once in a lifetime from those able to make the journey (3:97)."
+    },
+    {
+      "q": "What do the hills of Safa and Marwa recall?",
+      "options": [
+        "Ibrahim's sacrifice",
+        "Hajar running between them searching for water",
+        "Where Nuh's ark landed",
+        "Where the Quran was first revealed"
+      ],
+      "answer": 1,
+      "why": "Hajar ran between Safa and Marwa searching for water for Ismail; 2:158 names them among God's symbols."
+    },
+    {
+      "q": "What does 2:197 call the best provision for the journey?",
+      "options": [
+        "Gold",
+        "Mindfulness of God",
+        "Fine clothes",
+        "A large group"
+      ],
+      "answer": 1,
+      "why": "Take provision, and the best provision is mindfulness of God (2:197)."
+    }
+  ],
+  "reflection": {
+    "muslim": "If you could stand at Arafat tomorrow, what would you ask God for? Is there anything stopping you from asking Him today?",
+    "curious": "What does it say about people that millions answer a call made thousands of years ago? What would you travel that far for?"
+  }
+}

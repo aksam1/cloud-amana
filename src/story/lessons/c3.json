@@ -1,0 +1,129 @@
+{
+  "chapter": 3,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Nuh calls his people for nine hundred and fifty years. Watch how many listen, and whether he gives up.",
+      "questions": [
+        {
+          "q": "How long did Nuh stay among his people, calling them?",
+          "options": [
+            "Forty years",
+            "A hundred years",
+            "Nine hundred and fifty years",
+            "Seven years"
+          ],
+          "answer": 2,
+          "replay": {
+            "scene": "centuries",
+            "beat": 0
+          }
+        },
+        {
+          "q": "How did Nuh call his people?",
+          "options": [
+            "Only once, loudly",
+            "Openly by day and in secret by night",
+            "Only through letters",
+            "Only to the chiefs"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "openly-secretly",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the chiefs say about Nuh's followers?",
+          "options": [
+            "They were the wisest",
+            "Only the lowest of them followed him",
+            "They were too many",
+            "They were strangers"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "chiefs",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Nuh called his people openly and in secret, by day and by night, for centuries, and few followed. His success was his faithfulness, not his numbers. Keep calling to good with patience, whatever the response.",
+        "curious": "Muslims honour Nuh, known in the Bible as Noah, for calling his people patiently for centuries. In Islam a messenger's success is faithfulness, not how many follow.",
+        "ref": "71:5"
+      },
+      "carry": {
+        "title": "Nuh's prayer for his family and the believers",
+        "ref": "71:28"
+      },
+      "reflect": {
+        "muslim": "Is there someone you've stopped inviting to good because they said no? What would patient, gentle asking look like?",
+        "curious": "What keeps a person going when almost nobody listens?"
+      },
+      "act": "Gently invite someone to something good this week, even if they've said no before."
+    },
+    {
+      "part": 1,
+      "watchFor": "Watch who boards the ship, and who stays behind.",
+      "questions": [
+        {
+          "q": "What was the sign that the flood was beginning?",
+          "options": [
+            "A rainbow",
+            "Water welling up from a clay oven",
+            "An earthquake",
+            "A comet"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "boarding",
+            "beat": 0
+          }
+        },
+        {
+          "q": "Where did Nuh's son say he would go to escape the water?",
+          "options": [
+            "Into the ship",
+            "To a mountain",
+            "Into a cave",
+            "Across the sea"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "son",
+            "beat": 2
+          }
+        },
+        {
+          "q": "What was Nuh told when the ship came to rest?",
+          "options": [
+            "Stay on the ship",
+            "Go down in peace, with blessings",
+            "Build a city at once",
+            "Return to the old town"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "descend",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Nuh built a ship on dry land because God told him to, while people laughed. His own son trusted a mountain instead. Being saved depended on faith, not family. Obey God even when it looks strange; His promise holds.",
+        "curious": "In the Quran's telling of the flood, even Nuh's son was not saved by family ties: what mattered was faith. Muslims learn to trust God's command even when others mock it.",
+        "ref": "11:43"
+      },
+      "carry": {
+        "title": "Nuh's prayer for forgiveness",
+        "ref": "11:47"
+      },
+      "reflect": {
+        "muslim": "Is there something God has asked of you that others laugh at? How can you keep building anyway?",
+        "curious": "Have you ever done the right thing while others laughed? What kept you going?"
+      },
+      "act": "When you don't know what's best, ask God for what is best, rather than demanding what you want."
+    }
+  ]
+}

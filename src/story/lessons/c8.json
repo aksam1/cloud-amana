@@ -1,0 +1,129 @@
+{
+  "chapter": 8,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Ismail grows up in the valley. Watch what he's known for.",
+      "questions": [
+        {
+          "q": "What was Ismail known for?",
+          "options": [
+            "His wealth",
+            "Keeping his word",
+            "His strength in battle",
+            "His beautiful voice"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "promise",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What message did Ibrahim leave for Ismail with the wife who complained?",
+          "options": [
+            "Keep your threshold",
+            "Change the threshold of your door",
+            "Move to Canaan",
+            "Come and visit me"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "threshold",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Who did God raise ages later from Ismail's line?",
+          "options": [
+            "Musa",
+            "The messenger Ibrahim had prayed for",
+            "Dawud",
+            "No one"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "lineage",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Ismail kept his word and taught his family prayer. Gratitude at home matters: the wife who thanked God for what they had was the one Ibrahim told him to keep.",
+        "curious": "Muslims honour Ismail, Ishmael in the Bible, as a prophet who kept his promises. Muslims trace the Prophet Muhammad's line back to him.",
+        "ref": "19:54"
+      },
+      "carry": {
+        "title": "Ibrahim's prayer for a messenger from his line",
+        "ref": "2:129"
+      },
+      "reflect": {
+        "muslim": "Is there a promise you've let slide? What would it take to keep it this week?",
+        "curious": "How much does keeping your word matter to the people around you?"
+      },
+      "act": "Keep every promise you make this week, however small."
+    },
+    {
+      "part": 1,
+      "watchFor": "Ibrahim, old now, is given a second son. Watch how one family carries one message.",
+      "questions": [
+        {
+          "q": "Who bore Ishaq, as the angels had promised?",
+          "options": [
+            "Hajar",
+            "Sarah, old as she was",
+            "Ismail's wife",
+            "No one"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "isaac",
+            "beat": 0
+          }
+        },
+        {
+          "q": "Who was Ishaq's son?",
+          "options": [
+            "Yusuf",
+            "Yaqub",
+            "Ismail",
+            "Lut"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "grandson",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What message did both of Ibrahim's lines carry?",
+          "options": [
+            "That they should rule the land",
+            "That God alone is to be worshipped",
+            "That they should travel west",
+            "That idols could help"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "servants",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "From Ibrahim came two lines, Ismail's and Ishaq's, and both carried one message: worship God alone. And God gives in His own time: Sarah bore Ishaq when she was old.",
+        "curious": "Ibrahim's two sons, Ismail and Ishaq (Isaac), are honoured as prophets in Islam. Muslims see Jews, Christians and Muslims as sharing Ibrahim as a father in faith.",
+        "ref": "38:45"
+      },
+      "carry": {
+        "title": "A prayer for your family",
+        "ref": "25:74"
+      },
+      "reflect": {
+        "muslim": "What do you hope your family will carry on from you?",
+        "curious": "What has your family passed down to you that you'd want to keep?"
+      },
+      "act": "Ask an older relative about your family's story, and what they hope you'll carry on."
+    }
+  ]
+}

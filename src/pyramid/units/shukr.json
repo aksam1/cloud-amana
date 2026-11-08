@@ -1,0 +1,184 @@
+{
+  "id": "shukr",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "God gave Sulayman a kingdom like no other: the wind obeyed him, and he understood the speech of birds. One day, marching through a valley, he heard a tiny ant warning the others. Watch what he did.",
+      "curious": "Sulayman, known in the Bible as Solomon, was given a kingdom like no other: the wind obeyed him, and he understood the speech of birds. One day, marching through a valley, he heard a tiny ant warning the others. Watch what he did."
+    },
+    "chapter": 14,
+    "part": 2,
+    "from": "kingdom",
+    "until": "ants",
+    "length": "2 scenes, about 1 minute"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "You just got a new phone. A day later, your friend shows off a newer, better one.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Feel your phone is suddenly not good enough.",
+          "points": 0,
+          "feedback": "Very common. The Prophet ﷺ gave advice for exactly this feeling, and you'll see it soon."
+        },
+        {
+          "label": "Say alhamdulillah for yours, and be happy for your friend.",
+          "points": 2,
+          "feedback": "That's gratitude: seeing what you've been given, not what you're missing."
+        },
+        {
+          "label": "Start saving for theirs straight away.",
+          "points": 0,
+          "feedback": "There'll always be a newer one. The teaching shows a way off that treadmill."
+        },
+        {
+          "label": "Say nothing, but feel a bit jealous.",
+          "points": 1,
+          "feedback": "Honest. Gratitude grows with practice, starting with naming what you already have."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "You just got a new phone. A day later, your friend shows off a newer, better one.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Feel your phone is suddenly not good enough.",
+          "points": 0,
+          "feedback": "Very common. Islam has advice for exactly this feeling; you'll see it soon."
+        },
+        {
+          "label": "Feel glad for what you have, and happy for your friend.",
+          "points": 2,
+          "feedback": "That's gratitude: seeing what you have, not what you're missing."
+        },
+        {
+          "label": "Start saving for theirs straight away.",
+          "points": 0,
+          "feedback": "There'll always be a newer one. The teaching suggests a way off that treadmill."
+        },
+        {
+          "label": "Say nothing, but feel a bit jealous.",
+          "points": 1,
+          "feedback": "Honest. Gratitude grows with practice, by naming what you already have."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about gratitude",
+      "curious": "What Islam teaches about gratitude"
+    },
+    "quran": [
+      {
+        "ref": "27:19",
+        "about": "Sulayman smiles at the ant's words and prays to be enabled to be grateful for the favour God gave him and his parents."
+      },
+      {
+        "ref": "14:7",
+        "about": "If you are grateful, God will give you more."
+      },
+      {
+        "ref": "16:18",
+        "about": "If you tried to count God's blessings, you could never number them."
+      },
+      {
+        "ref": "31:12",
+        "about": "Whoever is grateful is grateful for their own good."
+      },
+      {
+        "ref": "34:13",
+        "about": "Few of God's servants are truly grateful."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "muslim-2999",
+        "about": "A believer's life is good either way: thankful in ease, patient in hardship."
+      },
+      {
+        "id": "muslim-2963",
+        "about": "Look at those who have less than you, so you don't belittle what you have."
+      },
+      {
+        "id": "abudawud-4811",
+        "about": "Thanking people is part of thanking God."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Gratitude has three parts: knowing in the heart that a blessing is from God, saying it with the tongue (alhamdulillah), and using the blessing in ways that please Him. Sulayman, the richest of kings, asked God to help him be grateful (27:19).",
+        "status": "draft"
+      },
+      {
+        "who": "From the hadith",
+        "text": "Looking at those with less, not more (Muslim 2963), is a simple habit that guards a heart against envy.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What did the ant say when Sulayman's army came?",
+      "options": [
+        "Attack them!",
+        "Ants, go into your homes, or Sulayman and his soldiers may crush you without knowing",
+        "Welcome, Sulayman",
+        "Run to the mountains"
+      ],
+      "answer": 1,
+      "why": "She warned the others to go home, so they wouldn't be crushed without the army knowing (27:18)."
+    },
+    {
+      "q": "What did Sulayman do when he heard the ant?",
+      "options": [
+        "He ordered the valley cleared",
+        "He smiled and thanked God for His favour",
+        "He ignored it",
+        "He changed his route in anger"
+      ],
+      "answer": 1,
+      "why": "He smiled, and prayed to be grateful for God's favour (27:19)."
+    },
+    {
+      "q": "What does God promise the grateful in 14:7?",
+      "options": [
+        "Nothing",
+        "More",
+        "A long life",
+        "Fame"
+      ],
+      "answer": 1,
+      "why": "If you are grateful, I will surely increase you."
+    },
+    {
+      "q": "Which way should you look, according to the hadith, to stay grateful?",
+      "options": [
+        "At those who have more",
+        "At those who have less",
+        "At no one",
+        "Only at celebrities"
+      ],
+      "answer": 1,
+      "why": "Look at those below you, so you don't belittle God's blessings on you."
+    },
+    {
+      "q": "What does the hadith say about thanking people?",
+      "options": [
+        "It doesn't matter",
+        "Whoever doesn't thank people hasn't thanked God",
+        "Only thank family",
+        "Thank only once a year"
+      ],
+      "answer": 1,
+      "why": "Whoever does not thank people has not thanked God."
+    }
+  ],
+  "reflection": {
+    "muslim": "Write down three things you were given today that you didn't earn. Thank God for each, and thank one person too.",
+    "curious": "List three things you have that you didn't earn. Who could you thank for one of them today?"
+  }
+}

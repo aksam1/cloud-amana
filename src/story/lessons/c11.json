@@ -1,0 +1,191 @@
+{
+  "chapter": 11,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "A mother sets her baby on a river. Watch how God keeps His promise to her.",
+      "questions": [
+        {
+          "q": "What was Musa's mother inspired to do when she feared for him?",
+          "options": [
+            "Hide him in the desert",
+            "Cast him into the river in a basket",
+            "Give him to a neighbour",
+            "Take him to Pharaoh"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "basket",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Pharaoh's wife say when she saw the baby?",
+          "options": [
+            "Throw him back",
+            "A comfort for my eyes and yours; do not kill him",
+            "Give him to the guards",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "asiya",
+            "beat": 1
+          }
+        },
+        {
+          "q": "How did Musa come back to his mother?",
+          "options": [
+            "She came to the palace as a guest",
+            "He would take no other nurse, and his sister offered a household",
+            "Pharaoh sent him home",
+            "He ran away"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "nursed",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Musa's mother did the hardest thing, trusting God's promise, and God brought her son back to her, raised in the very palace of the man who wanted him dead. God's plans work in ways no one expects.",
+        "curious": "In the Quran, as in the Bible, the baby Moses is set on the river and raised in Pharaoh's palace. The Quran adds that God returned him to his own mother to nurse.",
+        "ref": "28:13"
+      },
+      "carry": {
+        "title": "A prayer for your parents",
+        "ref": "17:24"
+      },
+      "reflect": {
+        "muslim": "What promise of God do you find hardest to trust right now?",
+        "curious": "Have you ever had to let go of something you loved, trusting it would be all right?"
+      },
+      "act": "Thank your mother, or whoever raised you, for one specific thing this week."
+    },
+    {
+      "part": 1,
+      "watchFor": "Musa makes a terrible mistake and has to flee. Watch what he does next.",
+      "questions": [
+        {
+          "q": "What did Musa pray after the man died?",
+          "options": [
+            "Nothing",
+            "My Lord, I have wronged myself, so forgive me",
+            "It was not my fault",
+            "Hide me"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "blow",
+            "beat": 2
+          }
+        },
+        {
+          "q": "Why did Musa flee Egypt?",
+          "options": [
+            "He was banished by his mother",
+            "The chiefs were plotting to kill him",
+            "He wanted to travel",
+            "There was a famine"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "flight",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Musa do at the well of Madyan?",
+          "options": [
+            "Rested in the shade only",
+            "Watered the two women's flock for them",
+            "Asked for food",
+            "Fought the shepherds"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "shepherds",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Musa owned his mistake and asked forgiveness at once. Then, a stranger with nothing, he helped two women at a well and turned to God: I am in need of whatever good You send me. God sent him a home, a family and work.",
+        "curious": "Muslims learn from Musa (Moses) to own mistakes and ask God's forgiveness straight away, and to keep doing good even when life falls apart.",
+        "ref": "28:16"
+      },
+      "carry": {
+        "title": "Musa's prayer at the well",
+        "ref": "28:24"
+      },
+      "reflect": {
+        "muslim": "Is there a mistake you haven't yet owned before God? What stops you?",
+        "curious": "What do you do after a serious mistake: hide it, or face it?"
+      },
+      "act": "Help someone this week without being asked, then ask God for what you need."
+    },
+    {
+      "part": 2,
+      "watchFor": "On a cold night, Musa sees a fire on a mountain. Watch what he finds there.",
+      "questions": [
+        {
+          "q": "Why did Musa go towards the fire?",
+          "options": [
+            "To warm himself only",
+            "To bring back a burning brand, or find someone to guide them",
+            "To hide from Pharaoh",
+            "To pray alone"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "tuwa",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Musa's staff become when he threw it down?",
+          "options": [
+            "A tree",
+            "A living serpent",
+            "A sword",
+            "Gold"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "signs",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Musa ask for before going to Pharaoh?",
+          "options": [
+            "An army",
+            "An open heart, an easy task, clear speech, and his brother Harun to help",
+            "Gold and horses",
+            "To stay in Madyan"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "signs",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Musa went looking for a little fire and found his calling. Given a huge task, he didn't pretend to be ready: he asked God for courage, ease, clear speech and a helper.",
+        "curious": "In the Quran, Moses meets God at the burning bush and, overwhelmed, asks for courage, clear speech and his brother's help. Muslims say his prayer before hard tasks.",
+        "ref": "28:30"
+      },
+      "carry": {
+        "title": "Musa's prayer before a hard task",
+        "ref": "20:25"
+      },
+      "reflect": {
+        "muslim": "What hard task is ahead of you? Have you asked God for what you'll need for it?",
+        "curious": "When you face something hard, who do you ask for help?"
+      },
+      "act": "Before something hard this week, say Musa's prayer: my Lord, open my heart and make my task easy."
+    }
+  ]
+}

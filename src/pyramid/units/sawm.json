@@ -1,0 +1,176 @@
+{
+  "id": "sawm",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "Maryam was given news of a son without a father. When she brought the baby to her people, she was told to fast from speech that day and let the child speak. Watch how God answered for her.",
+      "curious": "Maryam, known in the Bible as Mary, was given news of a son without a father. When she brought the baby to her people, she kept a vow of silence, a kind of fast, and let the child speak for her. Watch what happened."
+    },
+    "chapter": 16,
+    "part": 2,
+    "from": "jibril",
+    "until": "cradle",
+    "length": "3 scenes, about 2 minutes"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "It's Ramadan and you're fasting. A friend says something cutting about you in front of everyone, and you're hungry and tired.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Snap back with something sharper.",
+          "points": 0,
+          "feedback": "Hunger makes tempers short. But a fast is meant to hold back the tongue as well as the stomach. The teaching shows how."
+        },
+        {
+          "label": "Say, \"I'm fasting,\" and let it go.",
+          "points": 2,
+          "feedback": "That's exactly what the Prophet ﷺ taught: if someone provokes you while you fast, say, \"I am fasting.\""
+        },
+        {
+          "label": "Say nothing, but complain about them to others later.",
+          "points": 0,
+          "feedback": "Backbiting while fasting empties the fast of its point. The hadith next explains."
+        },
+        {
+          "label": "Walk away and calm down first.",
+          "points": 1,
+          "feedback": "Walking away is wise. The fast also teaches a word you can say: \"I'm fasting.\""
+        }
+      ]
+    },
+    "curious": {
+      "situation": "You've decided to try fasting for a day with a Muslim friend. In the afternoon, someone says something cutting about you in front of everyone, and you're hungry and tired.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Snap back with something sharper.",
+          "points": 0,
+          "feedback": "Hunger makes tempers short. In Islam a fast is meant to hold back the tongue too."
+        },
+        {
+          "label": "Say, \"I'm fasting today,\" and let it go.",
+          "points": 2,
+          "feedback": "That's what Muslims are taught to say when provoked during a fast."
+        },
+        {
+          "label": "Say nothing, but complain about them later.",
+          "points": 0,
+          "feedback": "In Islam, harsh words and gossip empty a fast of its point. The next step explains."
+        },
+        {
+          "label": "Walk away and calm down first.",
+          "points": 1,
+          "feedback": "Wise. The fast also gives a short answer you can use: \"I'm fasting.\""
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about fasting",
+      "curious": "What Islam teaches about fasting"
+    },
+    "quran": [
+      {
+        "ref": "2:183",
+        "about": "Fasting was prescribed for the believers as it was for those before them, so that they may become mindful of God."
+      },
+      {
+        "ref": "2:184",
+        "about": "Those who are ill or travelling may make up the days later; God wants what is possible for people."
+      },
+      {
+        "ref": "2:185",
+        "about": "Ramadan is the month in which the Quran was sent down; God wants ease for you, not hardship."
+      },
+      {
+        "ref": "19:26",
+        "about": "Maryam is told to eat, drink and be comforted, and to tell anyone she meets that she has vowed a fast of silence to the Most Merciful."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "bukhari-38",
+        "about": "Fasting Ramadan with faith and hope of reward wipes away past sins."
+      },
+      {
+        "id": "bukhari-1903",
+        "about": "A fast without self-control in speech and action misses its point."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "In Ramadan, Muslims fast from dawn until sunset: no food, no drink and no marital relations, and they guard their words and actions too. Children, the ill, travellers and others for whom it would be hard are excused or make it up later (2:184).",
+        "status": "draft"
+      },
+      {
+        "who": "From the verses",
+        "text": "The aim is named in 2:183: to become mindful of God. Giving up even what is normally allowed, for His sake, trains a person to give up what is wrong.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What did Maryam do when she brought her baby to her people?",
+      "options": [
+        "She explained everything at length",
+        "She kept her vow of silence and pointed to the child",
+        "She left the town",
+        "She asked the elders to judge"
+      ],
+      "answer": 1,
+      "why": "She had vowed a fast of silence (19:26), so she pointed to the child, and he spoke."
+    },
+    {
+      "q": "From when to when do Muslims fast in Ramadan?",
+      "options": [
+        "From noon until midnight",
+        "From dawn until sunset",
+        "For three days only",
+        "From sunset until dawn"
+      ],
+      "answer": 1,
+      "why": "The fast runs from dawn until sunset."
+    },
+    {
+      "q": "According to 2:183, what is fasting for?",
+      "options": [
+        "To lose weight",
+        "To become mindful of God",
+        "To save money",
+        "To prove strength"
+      ],
+      "answer": 1,
+      "why": "Fasting was prescribed so that people may become mindful of God (2:183)."
+    },
+    {
+      "q": "Who may make up missed fasting days later, according to 2:184?",
+      "options": [
+        "Nobody",
+        "Those who are ill or travelling",
+        "Only scholars",
+        "Only the elderly in cities"
+      ],
+      "answer": 1,
+      "why": "The ill and travellers may make up the days later: God wants what is possible for people."
+    },
+    {
+      "q": "What does the hadith say about a fast with lying and wrong actions?",
+      "options": [
+        "It counts double",
+        "God has no need of such a person giving up food and drink",
+        "It doesn't matter",
+        "It must be repeated twice"
+      ],
+      "answer": 1,
+      "why": "Whoever doesn't give up false speech and acting on it, God has no need of their giving up food and drink."
+    }
+  ],
+  "reflection": {
+    "muslim": "Besides food and drink, what is one thing you could fast from this week: a word, a habit, a screen?",
+    "curious": "What would be hardest for you to give up for a day, and what might going without it teach you?"
+  }
+}

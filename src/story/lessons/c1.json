@@ -7,21 +7,45 @@
       "questions": [
         {
           "q": "What did God create the jinn from?",
-          "options": ["Clay", "Light", "A smokeless flame of fire", "Water"],
+          "options": [
+            "Clay",
+            "Light",
+            "A smokeless flame of fire",
+            "Water"
+          ],
           "answer": 2,
-          "replay": { "scene": "jinn", "beat": 1 }
+          "replay": {
+            "scene": "jinn",
+            "beat": 1
+          }
         },
         {
           "q": "Why did Iblis refuse to bow to Adam?",
-          "options": ["He did not hear the command", "He thought he was better than Adam", "He was afraid of Adam", "He was away from the heavens"],
+          "options": [
+            "He did not hear the command",
+            "He thought he was better than Adam",
+            "He was afraid of Adam",
+            "He was away from the heavens"
+          ],
           "answer": 1,
-          "replay": { "scene": "refusal", "beat": 3 }
+          "replay": {
+            "scene": "refusal",
+            "beat": 3
+          }
         },
         {
           "q": "What did Adam and Hawwa do after they ate from the tree?",
-          "options": ["Blamed Iblis", "Blamed each other", "Hid in the Garden", "Turned back to their Lord and asked forgiveness"],
+          "options": [
+            "Blamed Iblis",
+            "Blamed each other",
+            "Hid in the Garden",
+            "Turned back to their Lord and asked forgiveness"
+          ],
           "answer": 3,
-          "replay": { "scene": "repentance", "beat": 1 }
+          "replay": {
+            "scene": "repentance",
+            "beat": 1
+          }
         }
       ],
       "lesson": {
@@ -29,12 +53,77 @@
         "curious": "Muslims learn from this that every person makes mistakes, and that what matters is turning back to God rather than blaming others.",
         "ref": "2:37"
       },
-      "carry": { "title": "Adam and Hawwa's prayer for forgiveness", "ref": "7:23" },
+      "carry": {
+        "title": "Adam and Hawwa's prayer for forgiveness",
+        "ref": "7:23"
+      },
       "reflect": {
         "muslim": "Think of a time you were wrong. Did you make excuses, or did you turn back?",
         "curious": "Why do you think the story shows two different responses to a mistake?"
       },
       "act": "When you're wrong, admit it before you explain."
+    },
+    {
+      "part": 1,
+      "watchFor": "Two brothers bring offerings to God. Watch what envy does to one of them, and how the other answers.",
+      "questions": [
+        {
+          "q": "When every soul was asked, \"Am I not your Lord?\", what did they answer?",
+          "options": [
+            "Nothing",
+            "Yes, we bear witness",
+            "We do not know",
+            "Only Adam answered"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "covenant",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Habil do when his brother threatened him?",
+          "options": [
+            "He ran away",
+            "He fought back",
+            "He lowered his hands and would not fight",
+            "He called for Adam"
+          ],
+          "answer": 2,
+          "replay": {
+            "scene": "threat",
+            "beat": 2
+          }
+        },
+        {
+          "q": "What did the crow show Qabil?",
+          "options": [
+            "The way home",
+            "How to bury his brother",
+            "Where water was",
+            "That he was forgiven"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "crow",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Envy took Qabil from a refused offering to the first murder, and then to bitter regret. Habil refused to raise his hand. Every single life matters as much as all of humanity.",
+        "curious": "Muslims learn from this story that envy, left unchecked, can grow into terrible harm, and that one human life is as precious as all of humanity.",
+        "ref": "5:32"
+      },
+      "carry": {
+        "title": "Habil's answer to his brother",
+        "ref": "5:28"
+      },
+      "reflect": {
+        "muslim": "When did you last feel envy? What did it make you want to do?",
+        "curious": "Why do you think the Quran says killing one person is like killing all of humanity?"
+      },
+      "act": "When you feel envy, make a dua for the person you envy."
     }
   ]
 }

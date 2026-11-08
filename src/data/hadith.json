@@ -17,5 +17,242 @@
     "en": "Patience is at the first strike of a calamity.",
     "status": "draft",
     "reviewedBy": null
+  },
+  "muslim-8-islam": {
+    "collection": "Sahih Muslim",
+    "number": "8",
+    "narrator": "Umar ibn al-Khattab",
+    "context": "Jibril came to the Prophet ﷺ in the form of a man, sat before him and asked him about Islam, faith and excellence, while the companions watched. Asked about Islam, he said:",
+    "en": "Islam is to testify that there is no god but Allah and that Muhammad is the Messenger of Allah, to establish the prayer, to give the zakat, to fast in Ramadan, and to make the pilgrimage to the House if you are able to find a way.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "muslim-8-iman": {
+    "collection": "Sahih Muslim",
+    "number": "8",
+    "narrator": "Umar ibn al-Khattab",
+    "context": "Jibril came to the Prophet ﷺ in the form of a man, sat before him and asked him about Islam, faith and excellence, while the companions watched. Asked about faith (iman), he said:",
+    "en": "It is to believe in Allah, His angels, His books, His messengers and the Last Day, and to believe in the decree, its good and its bad.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "muslim-8-ihsan": {
+    "collection": "Sahih Muslim",
+    "number": "8",
+    "narrator": "Umar ibn al-Khattab",
+    "context": "Jibril came to the Prophet ﷺ in the form of a man, sat before him and asked him about Islam, faith and excellence, while the companions watched. Asked about excellence (ihsan), he said:",
+    "en": "It is to worship Allah as though you see Him, and though you do not see Him, He sees you.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-8": {
+    "collection": "Sahih al-Bukhari",
+    "number": "8",
+    "also": "Sahih Muslim 16",
+    "narrator": "Abdullah ibn Umar",
+    "en": "Islam is built upon five: testifying that there is no god but Allah and that Muhammad is the Messenger of Allah, establishing the prayer, giving the zakat, the pilgrimage, and fasting in Ramadan.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-1": {
+    "collection": "Sahih al-Bukhari",
+    "number": "1",
+    "also": "Sahih Muslim 1907",
+    "narrator": "Umar ibn al-Khattab",
+    "en": "Actions are only by intentions, and every person will have only what they intended.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "muslim-2564": {
+    "collection": "Sahih Muslim",
+    "number": "2564",
+    "narrator": "Abu Hurayrah",
+    "en": "Allah does not look at your appearance or your wealth, but He looks at your hearts and your deeds.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-528": {
+    "collection": "Sahih al-Bukhari",
+    "number": "528",
+    "also": "Sahih Muslim 667",
+    "narrator": "Abu Hurayrah",
+    "en": "Tell me, if there were a river at the door of one of you and he bathed in it five times every day, would any dirt remain on him? They said: No dirt would remain on him. He said: That is the likeness of the five prayers; by them Allah wipes away sins.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-6464": {
+    "collection": "Sahih al-Bukhari",
+    "number": "6464",
+    "also": "Sahih Muslim 783",
+    "narrator": "Aisha",
+    "en": "The most beloved of deeds to Allah are those done consistently, even if they are few.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "muslim-2588": {
+    "collection": "Sahih Muslim",
+    "number": "2588",
+    "narrator": "Abu Hurayrah",
+    "en": "Charity does not decrease wealth. Allah increases a servant in honour when he forgives, and no one humbles himself for the sake of Allah except that Allah raises him.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-38": {
+    "collection": "Sahih al-Bukhari",
+    "number": "38",
+    "also": "Sahih Muslim 760",
+    "narrator": "Abu Hurayrah",
+    "en": "Whoever fasts Ramadan out of faith and hoping for its reward, his past sins are forgiven.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-1903": {
+    "collection": "Sahih al-Bukhari",
+    "number": "1903",
+    "narrator": "Abu Hurayrah",
+    "en": "Whoever does not give up false speech and acting upon it, Allah has no need of his giving up his food and drink.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-1521": {
+    "collection": "Sahih al-Bukhari",
+    "number": "1521",
+    "also": "Sahih Muslim 1350",
+    "narrator": "Abu Hurayrah",
+    "en": "Whoever performs the pilgrimage for Allah and does not speak obscenely or do wrong returns like the day his mother gave birth to him.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-2856": {
+    "collection": "Sahih al-Bukhari",
+    "number": "2856",
+    "also": "Sahih Muslim 30",
+    "narrator": "Mu'adh ibn Jabal",
+    "context": "Mu'adh was riding behind the Prophet ﷺ on a donkey when he asked him:",
+    "en": "Do you know what Allah's right over His servants is? It is that they worship Him and associate nothing with Him.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "muslim-2996": {
+    "collection": "Sahih Muslim",
+    "number": "2996",
+    "narrator": "Aisha",
+    "en": "The angels were created from light, the jinn were created from a smokeless flame of fire, and Adam was created from what has been described to you.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-3443": {
+    "collection": "Sahih al-Bukhari",
+    "number": "3443",
+    "also": "Sahih Muslim 2365",
+    "narrator": "Abu Hurayrah",
+    "en": "The prophets are brothers from one father: their mothers are different, and their religion is one.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-6018": {
+    "collection": "Sahih al-Bukhari",
+    "number": "6018",
+    "also": "Sahih Muslim 47",
+    "narrator": "Abu Hurayrah",
+    "en": "Whoever believes in Allah and the Last Day, let him say what is good or keep silent. Whoever believes in Allah and the Last Day, let him not harm his neighbour. Whoever believes in Allah and the Last Day, let him honour his guest.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "muslim-2664": {
+    "collection": "Sahih Muslim",
+    "number": "2664",
+    "narrator": "Abu Hurayrah",
+    "en": "The strong believer is better and more beloved to Allah than the weak believer, and in both there is good. Strive for what benefits you, seek help from Allah, and do not give up. If something befalls you, do not say, 'If only I had done such and such,' but say, 'Allah has decreed, and what He wills He does,' for 'if only' opens the door to the work of Satan.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "tirmidhi-2516": {
+    "collection": "Jami' al-Tirmidhi",
+    "number": "2516",
+    "narrator": "Abdullah ibn Abbas",
+    "context": "The Prophet ﷺ said to Ibn Abbas, then a boy riding behind him:",
+    "en": "Know that if the whole nation gathered together to benefit you with something, they would not benefit you except with what Allah had already written for you; and if they gathered together to harm you with something, they would not harm you except with what Allah had already written against you. The pens have been lifted and the pages have dried.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "tirmidhi-2344": {
+    "collection": "Jami' al-Tirmidhi",
+    "number": "2344",
+    "also": "Sunan Ibn Majah 4164",
+    "narrator": "Umar ibn al-Khattab",
+    "en": "If you relied upon Allah as He truly should be relied upon, He would provide for you as He provides for the birds: they go out hungry in the morning and return full in the evening.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "tirmidhi-2517": {
+    "collection": "Jami' al-Tirmidhi",
+    "number": "2517",
+    "narrator": "Anas ibn Malik",
+    "context": "A man asked the Prophet ﷺ whether he should tie his camel and rely upon Allah, or leave it untied and rely upon Allah. He said:",
+    "en": "Tie it, and rely upon Allah.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "muslim-2963": {
+    "collection": "Sahih Muslim",
+    "number": "2963",
+    "also": "Sahih al-Bukhari 6490",
+    "narrator": "Abu Hurayrah",
+    "en": "Look at those who are below you and do not look at those who are above you, for that is more fitting, so that you do not belittle the blessings of Allah upon you.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "abudawud-4811": {
+    "collection": "Sunan Abi Dawud",
+    "number": "4811",
+    "also": "Jami' al-Tirmidhi 1954",
+    "narrator": "Abu Hurayrah",
+    "en": "Whoever does not thank people has not thanked Allah.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "muslim-2865": {
+    "collection": "Sahih Muslim",
+    "number": "2865",
+    "narrator": "Iyad ibn Himar",
+    "en": "Allah has revealed to me that you should be humble, so that no one boasts over another and no one wrongs another.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-6035": {
+    "collection": "Sahih al-Bukhari",
+    "number": "6035",
+    "also": "Sahih Muslim 2321",
+    "narrator": "Abdullah ibn Amr",
+    "en": "The best of you are those who are best in character.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "muslim-2553": {
+    "collection": "Sahih Muslim",
+    "number": "2553",
+    "narrator": "al-Nawwas ibn Sam'an",
+    "en": "Righteousness is good character, and sin is what wavers in your heart and you would dislike people to find out about.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-6114": {
+    "collection": "Sahih al-Bukhari",
+    "number": "6114",
+    "also": "Sahih Muslim 2609",
+    "narrator": "Abu Hurayrah",
+    "en": "The strong one is not the one who overpowers others in wrestling; the strong one is the one who controls himself when angry.",
+    "status": "draft",
+    "reviewedBy": null
+  },
+  "bukhari-13": {
+    "collection": "Sahih al-Bukhari",
+    "number": "13",
+    "also": "Sahih Muslim 45",
+    "narrator": "Anas ibn Malik",
+    "en": "None of you truly believes until he loves for his brother what he loves for himself.",
+    "status": "draft",
+    "reviewedBy": null
   }
 }

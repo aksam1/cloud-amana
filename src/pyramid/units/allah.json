@@ -1,0 +1,176 @@
+{
+  "id": "allah",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "Ibrahim grew up in a city of idols, carved by his own father. One night he watched the star, the moon and the sun rise and set, and he reasoned his way to the One who never sets. Watch his search.",
+      "curious": "Ibrahim, known in the Bible as Abraham, grew up in a city of idols carved by his own father. One night he watched the star, the moon and the sun rise and set, and he reasoned his way to one God. Watch his search."
+    },
+    "chapter": 6,
+    "part": 0,
+    "from": "ur",
+    "until": "father",
+    "length": "3 scenes, about 2 minutes"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "A friend says, \"Why do you need God? You can just be a good person.\" You're not sure how to answer.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Say you don't really know, and drop it.",
+          "points": 1,
+          "feedback": "Honest, and that's fine. Ibrahim started with questions too. Watch how he thought it through."
+        },
+        {
+          "label": "Tell them they're wrong and walk off.",
+          "points": 0,
+          "feedback": "Ibrahim spoke gently, even to his angry father. Let's see how he argued."
+        },
+        {
+          "label": "Talk it through: who made the world, who we owe thanks to, and why goodness matters at all.",
+          "points": 2,
+          "feedback": "That's very like Ibrahim: reasoning from what he saw to the One who made it."
+        },
+        {
+          "label": "Agree with them so things don't get awkward.",
+          "points": 0,
+          "feedback": "Keeping the peace is kind, but this is a real question. Ibrahim's search shows how to think about it."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "A friend says, \"Why would anyone need God? You can just be a good person.\" What do you think?",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Agree: being good is enough.",
+          "points": 1,
+          "feedback": "Many people feel that. Ibrahim's story shows a different way of thinking it through."
+        },
+        {
+          "label": "Argue hard that they're wrong.",
+          "points": 0,
+          "feedback": "Ibrahim reasoned gently, even with his angry father. See how he did it."
+        },
+        {
+          "label": "Talk it through: where the world came from, and why goodness matters at all.",
+          "points": 2,
+          "feedback": "That's very like Ibrahim's search: reasoning from what he saw to the One behind it."
+        },
+        {
+          "label": "Change the subject.",
+          "points": 0,
+          "feedback": "It's a real question, worth thinking through. Ibrahim's search is one way in."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about Himself",
+      "curious": "What Islam teaches about God"
+    },
+    "quran": [
+      {
+        "ref": "6:76-79",
+        "about": "Ibrahim watches the star, the moon and the sun set, and turns his face to the One who created the heavens and the earth."
+      },
+      {
+        "ref": "112:1-4",
+        "about": "God is One. He is the Eternal Refuge. He neither begets nor was born, and there is none like Him."
+      },
+      {
+        "ref": "42:11",
+        "about": "There is nothing like Him, and He is the All-Hearing, the All-Seeing."
+      },
+      {
+        "ref": "2:255",
+        "about": "God is the Ever-Living, who neither sleeps nor tires, and whose knowledge and care cover the heavens and the earth."
+      },
+      {
+        "ref": "59:22-24",
+        "about": "Some of God's most beautiful names: the Most Merciful, the King, the Holy, the Source of Peace, the Creator."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "bukhari-2856",
+        "about": "What God asks of people above all is to worship Him alone."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Belief in God means believing He alone created and runs everything, that He alone deserves worship, and that His names and attributes are perfect and like no one else's (42:11).",
+        "status": "draft"
+      },
+      {
+        "who": "From the verses",
+        "text": "Ibrahim did not stop at what his city believed. The Quran repeatedly invites people to look at the world and think (6:76-79).",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "Why did Ibrahim turn away from the star, the moon and the sun?",
+      "options": [
+        "They were too far away",
+        "They all set, and he did not love things that set",
+        "His father told him to",
+        "They were too bright"
+      ],
+      "answer": 1,
+      "why": "Each one rose and set, and Ibrahim said he did not love things that set (6:76)."
+    },
+    {
+      "q": "What does Surah al-Ikhlas (112) say about God?",
+      "options": [
+        "He has many partners",
+        "He is One, the Eternal Refuge, with none like Him",
+        "He lives in the sky like a star",
+        "He was born at the beginning of time"
+      ],
+      "answer": 1,
+      "why": "God is One, the Eternal Refuge; He neither begets nor was born, and there is none like Him."
+    },
+    {
+      "q": "What does 42:11 teach?",
+      "options": [
+        "God looks like a king",
+        "There is nothing like Him",
+        "God sleeps at night",
+        "God needs helpers"
+      ],
+      "answer": 1,
+      "why": "There is nothing like Him, and He is the All-Hearing, the All-Seeing."
+    },
+    {
+      "q": "How did Ibrahim speak to his father?",
+      "options": [
+        "Harshly",
+        "Gently, asking why he worshipped what could not hear or see",
+        "He did not speak to him",
+        "Through a messenger"
+      ],
+      "answer": 1,
+      "why": "He asked gently, \"My father, why do you worship what can neither hear nor see?\""
+    },
+    {
+      "q": "In the hadith, what is God's right over His servants?",
+      "options": [
+        "That they build Him temples",
+        "That they worship Him and associate nothing with Him",
+        "That they never ask Him for anything",
+        "That they live alone"
+      ],
+      "answer": 1,
+      "why": "God's right is that they worship Him and associate nothing with Him."
+    }
+  ],
+  "reflection": {
+    "muslim": "Which of God's names do you need most right now: the Most Merciful, the Provider, the Healer? Call on Him by it today.",
+    "curious": "What things in your life rise and set, coming and going? What, if anything, never sets?"
+  }
+}

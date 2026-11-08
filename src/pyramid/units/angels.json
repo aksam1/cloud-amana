@@ -1,0 +1,180 @@
+{
+  "id": "angels",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "Before Adam, there were the angels: beings of light who praise God without tiring. God told them He would place a successor on the earth. Watch what they asked, what they learned, and how they obeyed.",
+      "curious": "Before the first human, the Quran describes angels: beings of light who praise God without tiring. God told them He would place a successor on the earth. Watch what they asked, and how they obeyed."
+    },
+    "chapter": 1,
+    "part": 0,
+    "from": "khalifah",
+    "until": "refusal",
+    "length": "3 scenes, about 2 minutes"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "You're alone in your room and nobody will ever know if you do something you know is wrong.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Do it: nobody is watching.",
+          "points": 0,
+          "feedback": "Muslims believe someone always is. The teaching explains who the angels are and what they do."
+        },
+        {
+          "label": "Hold back, remembering God sees and the angels record.",
+          "points": 2,
+          "feedback": "That's what belief in the angels does: it makes you the same person in private as in public."
+        },
+        {
+          "label": "Do it, and tell yourself you'll make up for it later.",
+          "points": 0,
+          "feedback": "Planning to apologise doesn't change what's being done. Let's look at how the angels are described."
+        },
+        {
+          "label": "Get busy with something else so the urge passes.",
+          "points": 1,
+          "feedback": "A wise move. Belief in the angels adds a reason that lasts beyond the moment."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "You're alone, and nobody will ever know if you do something you know is wrong.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Do it: nobody will know.",
+          "points": 0,
+          "feedback": "Muslims believe nothing is truly unseen. See what Islam teaches about the angels."
+        },
+        {
+          "label": "Hold back: you'd know, and that matters.",
+          "points": 2,
+          "feedback": "Being the same person in private as in public: that's what Muslims link with belief in the angels."
+        },
+        {
+          "label": "Do it, and plan to make up for it later.",
+          "points": 0,
+          "feedback": "Planning to make up for it doesn't change what's being done. See how Islam describes the angels."
+        },
+        {
+          "label": "Distract yourself until it passes.",
+          "points": 1,
+          "feedback": "A wise move. Muslims add a deeper reason: someone is always aware."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about the angels",
+      "curious": "What Islam teaches about the angels"
+    },
+    "quran": [
+      {
+        "ref": "2:30",
+        "about": "God tells the angels He will place a successor on the earth, and they ask how one who may spread corruption could be chosen, while they praise Him."
+      },
+      {
+        "ref": "2:31-32",
+        "about": "God teaches Adam the names of things, and the angels admit they know only what God has taught them."
+      },
+      {
+        "ref": "2:34",
+        "about": "The angels bow to Adam at God's command, all except Iblis, who was not one of them."
+      },
+      {
+        "ref": "66:6",
+        "about": "Angels never disobey what God commands them, and do what they are told."
+      },
+      {
+        "ref": "82:10-12",
+        "about": "Over every person are noble angels who record, and they know what people do."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "muslim-2996",
+        "about": "The angels were created from light, the jinn from fire, and Adam from earth."
+      },
+      {
+        "id": "muslim-8-iman",
+        "about": "Belief in the angels is one of the six pillars of faith."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Angels are created from light (Muslim 2996) and never disobey God (66:6). Some are named in the Quran: Jibril, who brought revelation (2:97), and Mika'il (2:98). Others take souls at death (32:11) or record what people do (82:10-12).",
+        "status": "draft"
+      },
+      {
+        "who": "From the verses",
+        "text": "Iblis was not an angel but a jinn (18:50). That's why he could refuse; the angels, by nature, obey.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What did the angels ask when told about a successor on earth?",
+      "options": [
+        "When he would arrive",
+        "How one who might spread corruption could be chosen, while they praised God",
+        "Whether they could rule instead",
+        "What he would look like"
+      ],
+      "answer": 1,
+      "why": "They asked how one who might spread corruption and shed blood could be chosen (2:30)."
+    },
+    {
+      "q": "What did the angels say when Adam knew the names?",
+      "options": [
+        "They were jealous",
+        "They knew only what God had taught them",
+        "They refused to listen",
+        "They knew more than Adam"
+      ],
+      "answer": 1,
+      "why": "Glory be to You; we have no knowledge except what You have taught us (2:32)."
+    },
+    {
+      "q": "What are angels created from, according to the hadith?",
+      "options": [
+        "Clay",
+        "Fire",
+        "Light",
+        "Water"
+      ],
+      "answer": 2,
+      "why": "The angels were created from light, the jinn from smokeless fire, and Adam from clay."
+    },
+    {
+      "q": "Was Iblis an angel?",
+      "options": [
+        "Yes, the greatest of them",
+        "No, he was a jinn",
+        "He was a human",
+        "No one knows"
+      ],
+      "answer": 1,
+      "why": "18:50 says Iblis was one of the jinn, which is why he could disobey."
+    },
+    {
+      "q": "What does 82:10-12 say some angels do?",
+      "options": [
+        "Bring rain only",
+        "Record what people do",
+        "Guard the stars",
+        "Nothing on earth"
+      ],
+      "answer": 1,
+      "why": "Noble angels record, and they know what people do."
+    }
+  ],
+  "reflection": {
+    "muslim": "If you remembered the angels recording beside you all day tomorrow, what would you say or do differently?",
+    "curious": "Would you act differently if you knew everything you did was being written down? What does that say about you?"
+  }
+}

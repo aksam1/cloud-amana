@@ -1,0 +1,180 @@
+{
+  "id": "zakat",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "The Quran tells of brothers who owned a fine garden. Their father used to share its harvest with the poor. They planned to pick it all at dawn, quietly, so no one in need could ask for a share. Watch what they found.",
+      "curious": "The Quran tells of brothers who owned a fine garden. They planned to pick it all at dawn, quietly, so no one in need could ask for a share. Watch what they found."
+    },
+    "chapter": 18,
+    "part": 2,
+    "from": "harvest",
+    "until": "harvest",
+    "length": "1 scene, about 1 minute"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "You've saved money from a part-time job for a year. A charity at your mosque is raising funds for families who can't afford food this winter.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Give nothing: you worked hard for it.",
+          "points": 0,
+          "feedback": "You did work hard. The brothers in the garden thought the same way. Next you'll see what Islam says about whose wealth it really is."
+        },
+        {
+          "label": "Give a little, only if people will see it.",
+          "points": 0,
+          "feedback": "Giving to be seen loses what giving is for. The teaching explains."
+        },
+        {
+          "label": "Work out the zakat due on your savings and give it, quietly.",
+          "points": 2,
+          "feedback": "That's exactly the pillar: a set share of savings, given to those in need, without fuss."
+        },
+        {
+          "label": "Give something now, and promise yourself to give properly later.",
+          "points": 1,
+          "feedback": "A good start. Zakat isn't left to mood, though: it's a fixed share, due each year."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "You've saved money from a part-time job for a year. A local food bank is asking for help for families who can't afford food this winter.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Give nothing: you worked hard for it.",
+          "points": 0,
+          "feedback": "That's a common feeling. The brothers in the garden felt the same. Next you'll see what Islam teaches about wealth."
+        },
+        {
+          "label": "Give a little, mainly so people see it.",
+          "points": 0,
+          "feedback": "Islam treats giving to be seen as giving that loses its point. The teaching explains."
+        },
+        {
+          "label": "Give a fair share of your savings, quietly.",
+          "points": 2,
+          "feedback": "That's the idea behind zakat: a set share of savings given each year to those in need."
+        },
+        {
+          "label": "Give something now and promise more later.",
+          "points": 1,
+          "feedback": "A good start. In Islam this giving is a fixed duty each year, not left to mood."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about zakat",
+      "curious": "What Islam teaches about zakat"
+    },
+    "quran": [
+      {
+        "ref": "68:17-20",
+        "about": "God tells how the garden's owners swore to reap it in the morning without leaving a share, and how something from their Lord passed over it while they slept."
+      },
+      {
+        "ref": "68:29-30",
+        "about": "They admitted they had done wrong, and turned to blaming one another."
+      },
+      {
+        "ref": "9:103",
+        "about": "Charity taken from people's wealth purifies them and helps them grow."
+      },
+      {
+        "ref": "9:60",
+        "about": "God names who zakat is for: the poor, the needy, those in debt, the traveller in need, and others."
+      },
+      {
+        "ref": "2:261",
+        "about": "Spending in God's way is like a seed that grows seven ears, with a hundred grains in each."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "muslim-2588",
+        "about": "Charity does not make wealth less."
+      },
+      {
+        "id": "bukhari-8",
+        "about": "Zakat is one of the five pillars Islam is built on."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Zakat is not the same as general charity. It is a fixed share, usually one-fortieth (2.5%) of savings that stay above a threshold for a whole lunar year, given to the groups named in 9:60. Sadaqah, voluntary charity, can be given any time, in any amount.",
+        "status": "draft"
+      },
+      {
+        "who": "From the verses",
+        "text": "The word zakat carries the meaning of purifying and growing (9:103): giving cleans the heart of greed, and blessing grows in what remains.",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "What did the owners of the garden plan to do?",
+      "options": [
+        "Share the harvest with the whole town",
+        "Pick everything at dawn so no poor person could ask for a share",
+        "Sell the garden",
+        "Plant a new orchard"
+      ],
+      "answer": 1,
+      "why": "They swore to reap it at dawn, quietly, so that no one in need could come in (68:17-24)."
+    },
+    {
+      "q": "What did they find when they reached the garden?",
+      "options": [
+        "A bigger harvest than ever",
+        "The garden black and bare, as if already reaped",
+        "Thieves already there",
+        "The poor waiting at the gate"
+      ],
+      "answer": 1,
+      "why": "Something from their Lord passed over it while they slept, and it was black and bare by dawn."
+    },
+    {
+      "q": "How much zakat is usually due on savings held for a year above the threshold?",
+      "options": [
+        "One-tenth (10%)",
+        "One-fortieth (2.5%)",
+        "Half",
+        "Whatever you feel like"
+      ],
+      "answer": 1,
+      "why": "Zakat on savings is usually one-fortieth, 2.5%, once they have stayed above the threshold for a lunar year."
+    },
+    {
+      "q": "What does 9:103 say charity does for the giver?",
+      "options": [
+        "Makes them famous",
+        "Purifies them and helps them grow",
+        "Guarantees them more money",
+        "Nothing"
+      ],
+      "answer": 1,
+      "why": "Charity purifies people and helps them grow (9:103)."
+    },
+    {
+      "q": "According to the hadith, what does charity do to wealth?",
+      "options": [
+        "It decreases it",
+        "It does not decrease it",
+        "It doubles it at once",
+        "It makes it disappear"
+      ],
+      "answer": 1,
+      "why": "The Prophet ﷺ said charity does not decrease wealth."
+    }
+  ],
+  "reflection": {
+    "muslim": "Look at what you have this month. Who is the person near you who needs a share of it, and how will you give it quietly?",
+    "curious": "If one-fortieth of what you have were given away every year, how would it change you, and the people around you?"
+  }
+}

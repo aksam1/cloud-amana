@@ -1,0 +1,191 @@
+{
+  "chapter": 16,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "A mother gives her unborn child to God. Watch how God accepts the gift.",
+      "questions": [
+        {
+          "q": "What did the wife of Imran vow?",
+          "options": [
+            "To build a temple",
+            "That her child would be given to God's service",
+            "To move to Egypt",
+            "To fast for a year"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "vow",
+            "beat": 0
+          }
+        },
+        {
+          "q": "Who was chosen to care for Maryam?",
+          "options": [
+            "Imran",
+            "The prophet Zakariya",
+            "The king",
+            "Yahya"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "mihrab",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Maryam say about the fruit out of season?",
+          "options": [
+            "A traveller brought it",
+            "It is from God; He provides for whom He wills without measure",
+            "She grew it herself",
+            "She didn't know"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "mihrab",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Maryam's mother gave her child to God before she was born, and God accepted her, raised her in goodness and provided for her in the depth of winter. What is given to God is never lost.",
+        "curious": "Maryam is Mary, the mother of Jesus. The Quran names a whole chapter after her and honours her above all women. Her mother is remembered as the wife of Imran.",
+        "ref": "3:37"
+      },
+      "carry": {
+        "title": "The prayer of Imran's wife",
+        "ref": "3:35"
+      },
+      "reflect": {
+        "muslim": "What could you give to God this week: time, a habit, a talent?",
+        "curious": "What would you give your whole life to, if you could choose?"
+      },
+      "act": "Dedicate one ordinary thing you do tomorrow to God, with a clear intention."
+    },
+    {
+      "part": 1,
+      "watchFor": "Zakariya is old and has no child. Watch how he prays.",
+      "questions": [
+        {
+          "q": "How did Zakariya call to his Lord?",
+          "options": [
+            "Loudly in the market",
+            "Quietly, in secret, in the night",
+            "Through the temple scholars",
+            "He didn't"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "nightprayer",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What sign was Zakariya given?",
+          "options": [
+            "A star",
+            "He would not speak to anyone for three nights",
+            "A dove",
+            "Rain"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "tidings",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What was Yahya like as he grew up?",
+          "options": [
+            "Proud and rebellious",
+            "Gentle and pure, kind to his parents",
+            "Rich and powerful",
+            "Quiet and alone"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "yahya",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Zakariya was old, and his wife had never had a child, yet he still asked, quietly, at night. Seeing God's provision for Maryam gave him hope. Never think anything is too great to ask of God.",
+        "curious": "Zakariya and Yahya are known in the Bible as Zechariah and John the Baptist. Muslims see in Zakariya's prayer how to keep asking God, however unlikely the answer seems.",
+        "ref": "19:4"
+      },
+      "carry": {
+        "title": "Zakariya's prayer for a child",
+        "ref": "3:38"
+      },
+      "reflect": {
+        "muslim": "What have you stopped asking God for because it seems impossible?",
+        "curious": "Is there something you've stopped hoping for? Why?"
+      },
+      "act": "Ask God this week for something you had stopped asking for."
+    },
+    {
+      "part": 2,
+      "watchFor": "Maryam is given news no one will believe. Watch how God provides for her, and speaks for her.",
+      "questions": [
+        {
+          "q": "What did Maryam say when the angel appeared?",
+          "options": [
+            "Who are you?",
+            "I seek refuge in the Most Merciful from you",
+            "Welcome",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "jibril",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What was Maryam told beneath the palm tree?",
+          "options": [
+            "Run to the city",
+            "Shake the trunk and ripe dates will fall; a stream is beneath you",
+            "Wait for Zakariya",
+            "Climb the tree"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "palm",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Who spoke for Maryam when her people accused her?",
+          "options": [
+            "Zakariya",
+            "Her baby, from the cradle",
+            "An angel",
+            "Her mother"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "cradle",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Alone and in pain, Maryam was given water, dates and comfort, and when her people accused her, God made her baby speak for her. God takes care of those who trust Him, even when no one else understands.",
+        "curious": "In the Quran, Mary gives birth alone beneath a palm tree, and the infant Jesus speaks from the cradle to defend her. Muslims believe in his miraculous birth to a virgin mother.",
+        "ref": "19:24"
+      },
+      "carry": {
+        "title": "\"God is enough for me\"",
+        "ref": "9:129"
+      },
+      "reflect": {
+        "muslim": "When have you felt misunderstood? Did you leave your defence to God, or fight for it yourself?",
+        "curious": "When have you been misjudged? What helped you get through it?"
+      },
+      "act": "When someone misjudges you this week, stay calm, and let the truth speak for you."
+    }
+  ]
+}

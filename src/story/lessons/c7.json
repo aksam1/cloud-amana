@@ -1,0 +1,191 @@
+{
+  "chapter": 7,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Lut is sent to cities that rob travellers and do shameful things openly. Watch how they answer him.",
+      "questions": [
+        {
+          "q": "Who was Lut to Ibrahim?",
+          "options": [
+            "His brother",
+            "His nephew",
+            "His son",
+            "A stranger"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "plain",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did the people of the cities do?",
+          "options": [
+            "They farmed and traded fairly",
+            "They robbed travellers and did shameful things openly",
+            "They built a great temple",
+            "They lived in the mountains"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "plain",
+            "beat": 1
+          }
+        },
+        {
+          "q": "How did they answer Lut's warnings?",
+          "options": [
+            "They repented",
+            "They mocked him: bring God's punishment, if you are truthful",
+            "They made him their king",
+            "They stayed silent"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "expel",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Lut kept warning his people for years, even though almost no one listened. When wrongdoing becomes open and proud, a believer still speaks up, calmly and clearly, and keeps himself apart from it.",
+        "curious": "Muslims honour Lut, known in the Bible as Lot, for warning his people patiently even when almost no one listened.",
+        "ref": "29:28"
+      },
+      "carry": {
+        "title": "Lut's prayer for his family",
+        "ref": "26:169"
+      },
+      "reflect": {
+        "muslim": "Is there something wrong that has become normal around you? How can you keep apart from it without looking down on anyone?",
+        "curious": "What does it take to keep speaking up when almost no one listens?"
+      },
+      "act": "Stay apart from one thing your friends do that you know is wrong, without lecturing them."
+    },
+    {
+      "part": 1,
+      "watchFor": "Lut receives guests his people mean to harm. Watch how he protects them.",
+      "questions": [
+        {
+          "q": "Who were Lut's visitors?",
+          "options": [
+            "Merchants",
+            "Angels in the form of young men",
+            "His relatives",
+            "Soldiers"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "visitors",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Lut say to the crowd at his door?",
+          "options": [
+            "Come in",
+            "Fear God, and do not disgrace me before my guests",
+            "Take whatever you want",
+            "Nothing"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "door",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What were Lut and his family told as they left by night?",
+          "options": [
+            "Run as fast as you can",
+            "Let none of you look back",
+            "Take everything with you",
+            "Wait until sunrise"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "night",
+            "beat": 0
+          }
+        }
+      ],
+      "lesson": {
+        "text": "Lut stood at his door to protect his guests, alone, and help came from God. His own wife stayed behind, because her heart was with her people: being close to a prophet saves no one whose heart is elsewhere.",
+        "curious": "In this story Lut protects his guests at great risk. Muslims also learn from his wife that family ties alone do not save anyone; what is in the heart does.",
+        "ref": "11:81"
+      },
+      "carry": {
+        "title": "Lut's prayer for help",
+        "ref": "29:30"
+      },
+      "reflect": {
+        "muslim": "Where is your heart, really? Is anything pulling it back toward what you've left behind?",
+        "curious": "What would you risk to protect someone who trusted you?"
+      },
+      "act": "Look out for someone who's new or alone this week, and make them feel safe."
+    },
+    {
+      "part": 2,
+      "watchFor": "Morning comes to the cities of the plain. Watch what remains.",
+      "questions": [
+        {
+          "q": "What happened to the cities at sunrise?",
+          "options": [
+            "A flood covered them",
+            "A mighty blast seized them and they were overturned",
+            "An army came",
+            "Nothing at all"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "morning",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What lies where the cities stood, according to tradition?",
+          "options": [
+            "A forest",
+            "A sea so salty nothing lives in it",
+            "A new city",
+            "A desert of white sand"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "sign",
+            "beat": 0
+          }
+        },
+        {
+          "q": "Who was saved?",
+          "options": [
+            "Everyone",
+            "Lut and those who believed with him",
+            "No one",
+            "Only the travellers"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "sign",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The cities were overturned, and their place became a sign for people who think. Lut and those who believed were saved. God's patience is long, but ruins remind us it is not endless.",
+        "curious": "Muslims read the stories of destroyed cities as reminders: people are given time to change, and those who listen are saved.",
+        "ref": "29:35"
+      },
+      "carry": {
+        "title": "A prayer for good in this life and the next",
+        "ref": "2:201"
+      },
+      "reflect": {
+        "muslim": "Which reminders around you have you stopped noticing?",
+        "curious": "Why do you think the Quran points to ruins as reminders?"
+      },
+      "act": "Remember someone who has passed away and pray for them this week."
+    }
+  ]
+}

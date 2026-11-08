@@ -1,0 +1,180 @@
+{
+  "id": "humility",
+  "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
+  "story": {
+    "intro": {
+      "muslim": "When God commanded the angels to bow before Adam, every one of them bowed, except Iblis. He said: I am better than him. Watch what pride cost him.",
+      "curious": "In the Quran's story of the first human, God commanded the angels to bow before Adam. Iblis, the one Muslims know as Satan, refused, saying: I am better than him. Watch what pride cost him."
+    },
+    "chapter": 1,
+    "part": 0,
+    "from": "refusal",
+    "until": "banished",
+    "length": "2 scenes, about 1 minute"
+  },
+  "choice": {
+    "muslim": {
+      "situation": "A new student joins your class. They're struggling with things you find easy, and some people are laughing.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Laugh along: you're clearly better at this.",
+          "points": 0,
+          "feedback": "\"I am better than him\" were Iblis's words. Let's see where they led."
+        },
+        {
+          "label": "Offer to help, without making a show of it.",
+          "points": 2,
+          "feedback": "That's humility: knowing that whatever you're good at is a gift, and using it to lift others."
+        },
+        {
+          "label": "Ignore it: it's not your business.",
+          "points": 1,
+          "feedback": "At least you didn't join in. Humility goes a step further."
+        },
+        {
+          "label": "Help them, but make sure everyone sees how much you know.",
+          "points": 0,
+          "feedback": "Help given to show off is pride in disguise. The teaching explains."
+        }
+      ]
+    },
+    "curious": {
+      "situation": "A new person joins your team at work or school. They're struggling with things you find easy, and some people are laughing.",
+      "prompt": "What would you do?",
+      "options": [
+        {
+          "label": "Laugh along: you're clearly better at this.",
+          "points": 0,
+          "feedback": "\"I am better than him\" was Iblis's line. See where it led."
+        },
+        {
+          "label": "Quietly offer to help.",
+          "points": 2,
+          "feedback": "That's humility: treating what you're good at as a gift, and using it to lift others."
+        },
+        {
+          "label": "Ignore it: not your business.",
+          "points": 1,
+          "feedback": "You didn't join in, which matters. Humility goes a step further."
+        },
+        {
+          "label": "Help, but make sure everyone sees how much you know.",
+          "points": 0,
+          "feedback": "Help given to show off is pride in disguise. The next step explains."
+        }
+      ]
+    }
+  },
+  "teaching": {
+    "heading": {
+      "muslim": "What God teaches about humility",
+      "curious": "What Islam teaches about humility"
+    },
+    "quran": [
+      {
+        "ref": "7:12",
+        "about": "Asked why he did not bow, Iblis says he is better than Adam: made of fire, while Adam is made of clay."
+      },
+      {
+        "ref": "7:13",
+        "about": "Iblis is told to descend: it is not for him to be arrogant there."
+      },
+      {
+        "ref": "25:63",
+        "about": "The servants of the Most Merciful walk on the earth gently, and answer the ignorant with peace."
+      },
+      {
+        "ref": "31:18-19",
+        "about": "Luqman tells his son not to turn his cheek away from people in contempt, nor walk proudly, and to lower his voice."
+      },
+      {
+        "ref": "28:83",
+        "about": "The home of the Hereafter is for those who do not seek to be high and mighty on the earth."
+      }
+    ],
+    "hadith": [
+      {
+        "id": "muslim-2865",
+        "about": "Be humble, so that no one boasts over another or wrongs another."
+      },
+      {
+        "id": "muslim-2588",
+        "about": "No one humbles himself for God's sake except that God raises him."
+      }
+    ],
+    "insights": [
+      {
+        "who": "From the verses",
+        "text": "Iblis compared materials, fire against clay, and missed what mattered: God's command and His choice (7:12). Pride starts with \"I am better\"; humility starts with \"everything I have is from God\".",
+        "status": "draft"
+      },
+      {
+        "who": "From the hadith",
+        "text": "Humility is not thinking little of yourself; it is not looking down on anyone else (Muslim 2865), and God raises those who lower themselves for Him (Muslim 2588).",
+        "status": "draft"
+      }
+    ]
+  },
+  "check": [
+    {
+      "q": "Why did Iblis refuse to bow?",
+      "options": [
+        "He didn't hear the command",
+        "He said he was better than Adam",
+        "He was afraid",
+        "He was away"
+      ],
+      "answer": 1,
+      "why": "\"I am better than him: You created me from fire and him from clay\" (7:12)."
+    },
+    {
+      "q": "What happened to Iblis after his refusal?",
+      "options": [
+        "He was made a king",
+        "He was cast out of the heavens",
+        "He was forgiven at once",
+        "Nothing"
+      ],
+      "answer": 1,
+      "why": "He was told to descend; it was not for him to be arrogant there (7:13)."
+    },
+    {
+      "q": "How do the servants of the Most Merciful walk, in 25:63?",
+      "options": [
+        "Proudly",
+        "Gently on the earth",
+        "Quickly",
+        "Alone"
+      ],
+      "answer": 1,
+      "why": "They walk on the earth gently, and answer the ignorant with peace."
+    },
+    {
+      "q": "What does God do for those who humble themselves for Him, according to the hadith?",
+      "options": [
+        "Ignores them",
+        "Raises them",
+        "Forgets them",
+        "Makes them poor"
+      ],
+      "answer": 1,
+      "why": "No one humbles himself for God's sake except that God raises him."
+    },
+    {
+      "q": "What did Luqman tell his son?",
+      "options": [
+        "Speak loudly so all can hear",
+        "Do not turn your cheek from people in contempt, nor walk proudly",
+        "Always win every argument",
+        "Avoid other people"
+      ],
+      "answer": 1,
+      "why": "Don't turn your cheek away in contempt or walk proudly; be moderate and lower your voice (31:18-19)."
+    }
+  ],
+  "reflection": {
+    "muslim": "Who do you secretly feel better than? Do one kind thing for them this week, without telling anyone.",
+    "curious": "When did you last think \"I'm better than them\"? What might they see in you that you can't?"
+  }
+}

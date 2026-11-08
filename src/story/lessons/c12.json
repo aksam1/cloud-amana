@@ -1,0 +1,129 @@
+{
+  "chapter": 12,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "Musa stands before Pharaoh. Watch who believes, and who refuses no matter what.",
+      "questions": [
+        {
+          "q": "What happened to the magicians' ropes and staffs?",
+          "options": [
+            "They turned into gold",
+            "Musa's staff swallowed them up",
+            "They flew away",
+            "Pharaoh burned them"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "festival",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the magicians do when they saw it?",
+          "options": [
+            "Ran away",
+            "Fell down in prostration and believed",
+            "Asked for more gold",
+            "Attacked Musa"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "believe",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Asiya, Pharaoh's wife, pray for?",
+          "options": [
+            "Riches",
+            "A house near God in Paradise, and to be saved from Pharaoh",
+            "A long life",
+            "A son"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "asiyaprayer",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The magicians saw the truth and believed in a moment, whatever Pharaoh threatened. Asiya believed inside Pharaoh's own palace. Pharaoh saw sign after sign and broke his word each time. Faith means choosing the truth when you see it.",
+        "curious": "Muslims honour the magicians who believed and Asiya, Pharaoh's wife, who chose faith despite Pharaoh's power. Pharaoh is the warning: he saw the signs and refused.",
+        "ref": "7:121"
+      },
+      "carry": {
+        "title": "Asiya's prayer",
+        "ref": "66:11"
+      },
+      "reflect": {
+        "muslim": "When did you last see the truth about something and not act on it?",
+        "curious": "What makes it hard to admit you were wrong, especially in front of others?"
+      },
+      "act": "When you realise you were wrong about something this week, say so straight away."
+    },
+    {
+      "part": 1,
+      "watchFor": "Pharaoh's army chases them to the sea. Watch what Musa says when everyone panics.",
+      "questions": [
+        {
+          "q": "What did the people cry when they saw the army?",
+          "options": [
+            "Let us fight!",
+            "We are overtaken!",
+            "Let us pray",
+            "Go back!"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "sea",
+            "beat": 0
+          }
+        },
+        {
+          "q": "What did Musa answer?",
+          "options": [
+            "Surrender",
+            "No! My Lord is with me; He will guide me",
+            "Swim for it",
+            "I don't know"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "sea",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did Musa do on the far shore?",
+          "options": [
+            "Built a city",
+            "Bowed down in thanks to the One who saved them",
+            "Went back to Egypt",
+            "Slept"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "shore",
+            "beat": 1
+          }
+        }
+      ],
+      "lesson": {
+        "text": "With the sea ahead and an army behind, Musa said: my Lord is with me; He will guide me. Trust, then do what you're told: strike the sea. And belief must come in time: Pharaoh's came too late.",
+        "curious": "The crossing of the sea is told in the Quran and the Bible. Muslims draw from Musa's words a model of trust when there seems to be no way out.",
+        "ref": "26:62"
+      },
+      "carry": {
+        "title": "The believers' prayer of trust",
+        "ref": "10:85"
+      },
+      "reflect": {
+        "muslim": "What feels like a sea in front of you right now? What is your staff, the thing you can do?",
+        "curious": "When have you felt trapped with no way out? What helped?"
+      },
+      "act": "Next time you panic, stop and say: my Lord is with me; He will guide me."
+    }
+  ]
+}
