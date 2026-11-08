@@ -17,7 +17,7 @@ function parse(hash) {
   if (parts[0] === 'unit' && parts[1]) return { name: 'unit', id: parts[1], query, key: `unit:${parts[1]}:${query.step ?? ''}:${query.again ?? ''}` };
   if (parts[0] === 'lesson' && parts[1]) return { name: 'lesson', id: parts[1], part: parts[2] ?? '0', query, key: `lesson:${parts[1]}:${parts[2] ?? 0}` };
   if (parts[0] === 'sheet' && parts[1]) return { name: 'sheet', id: parts[1], query, key: `sheet:${parts[1]}:${query.device ?? ''}` };
-  return { name: 'pyramid', view: 'landing', query, key: 'pyramid:' };
+  return { name: 'pyramid', view: 'home', query, key: 'home' };
 }
 
 export function useRoute() {

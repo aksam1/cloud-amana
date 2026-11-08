@@ -53,7 +53,7 @@ export default function Unit({ id, step: startStep }) {
         <Title u={u} />
         <p className="mt-3 font-body text-[1.1rem] italic text-ink-soft">This lesson path is still being written. Its stone will light once it is ready.</p>
         <div className="mt-4 flex justify-end">
-          <button type="button" className="btn-ink" onClick={() => go('/')}>
+          <button type="button" className="btn-ink" onClick={() => go('/pyramid')}>
             Back to the pyramid
           </button>
         </div>
@@ -112,7 +112,7 @@ export default function Unit({ id, step: startStep }) {
       </AnimatePresence>
       <div className="mt-5 flex items-center justify-between gap-3 border-t border-[#8a6a4e]/25 pt-3">
         <ModePicker tone="parchment" />
-        <button type="button" className="font-body text-[0.95rem] text-ink-soft underline-offset-4 hover:underline" onClick={() => go('/')}>
+        <button type="button" className="font-body text-[0.95rem] text-ink-soft underline-offset-4 hover:underline" onClick={() => go('/pyramid')}>
           Save and leave
         </button>
       </div>
@@ -458,7 +458,7 @@ function Done({ u, result, mode }) {
         <button type="button" className="btn-ink" onClick={() => go(`/unit/${u.id}?again=${Date.now()}`)}>
           Take it again
         </button>
-        <button type="button" className="btn-gold" onClick={() => go('/')} autoFocus>
+        <button type="button" className="btn-gold" onClick={() => go('/pyramid')} autoFocus>
           Back to the pyramid
         </button>
       </div>

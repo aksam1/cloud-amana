@@ -18,8 +18,7 @@ async function reflect(page, pick = 2, view = /I'm Muslim/) {
 
 test('a first-time visitor understands the app, reflects, and reaches a lesson that exists', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'The Pyramid of Righteousness' })).toBeVisible();
-  await expect(page.getByText(/Learn Islam through the stories of the prophets/)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();
   await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeInViewport();
   await expect(page.getByText(/only Allah knows the state of anyone's heart/i)).toBeAttached();
   await reflect(page, 2); // "Sometimes" to everything: the case that once led to an empty page
@@ -58,6 +57,7 @@ test('finishing a unit lights its stone, and progress can be deleted', async ({ 
   await page.getByRole('button', { name: /I've reflected/ }).click();
   await expect(page.getByText('Your Sabr stone')).toBeVisible();
   await page.getByRole('button', { name: 'Back to the pyramid' }).click();
+  await expect(page).toHaveURL(/#\/pyramid/);
   await expect(page.getByRole('button', { name: /^Sabr, Patience: \d+%, completed/ })).toBeVisible();
 
   await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Progress' }).click();
@@ -70,7 +70,9 @@ test('finishing a unit lights its stone, and progress can be deleted', async ({ 
 
 test('every part of the app has a way home', async ({ page }) => {
   await page.goto('/#/map');
-  await page.getByRole('button', { name: 'Home: the pyramid' }).click();
+  await page.getByRole('button', { name: 'Home' }).click();
+  await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();
+  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Pyramid' }).click();
   await expect(page.getByRole('heading', { name: 'The Pyramid of Righteousness' })).toBeVisible();
   await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Stories' }).click();
   await expect(page).toHaveURL(/#\/scene\//);

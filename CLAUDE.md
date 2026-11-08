@@ -99,7 +99,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## The look (first impression)
 
-- Home page = one bold element: the sandstone monument at dusk (`Monument.jsx`: frieze per level with its Arabic
+- `#/` is a cinematic start screen (`Home` in Pyramid.jsx: Yusuf's eleven stars full screen, "Amanah", one button). The pyramid page is `#/pyramid`: the sandstone monument at dusk (`Monument.jsx`: frieze per level with its Arabic
   name carved in Aref Ruqaa, gold edge = a stone that can be explored today, gold leaf = its meter, gilded
   capstone tip). Sky and dunes live on the page (`SKY`, `Dunes` in Pyramid.jsx); other pages pass
   `scenery` (default) for the monument's own glow. Pages after the home page share the night gradient.

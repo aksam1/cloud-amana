@@ -8,6 +8,7 @@ import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import Monument from './Monument.jsx';
 import Nav from './Nav.jsx';
+import heroStars from '../assets/hero-stars.webp';
 import imgHeavens from '../assets/previews/heavens.webp';
 import imgSearch from '../assets/previews/search.webp';
 import imgStars from '../assets/previews/stars.webp';
@@ -27,6 +28,7 @@ export default function Pyramid({ view = 'landing' }) {
   if (view === 'placement') return <Placement />;
   if (view === 'result') return <Result />;
   if (view === 'progress') return <Progress />;
+  if (view === 'home') return <Home />;
   return <Landing />;
 }
 
@@ -146,6 +148,71 @@ function UnitChip({ id }) {
 
 // ── Landing ───────────────────────────────────────────────
 
+/*
+ * The start screen: one painting from the chronicle, full screen (Yusuf's eleven stars), the name, one line,
+ * one button. Like a game's title screen. The pyramid lives on its own page (#/pyramid).
+ */
+function Home() {
+  const { mode } = useMode();
+  const c = useClimb();
+  const placed = !!c.state.placement;
+  const resume = resumePoint(c.state);
+  const resumeUnit = resume?.kind === 'unit' && unitById[resume.id];
+  const next = placed ? suggestion(c.state, c.current) : null;
+  const cta = resume
+    ? { label: 'Continue', href: resumeUnit ? `/unit/${resume.id}` : `/scene/${resume.id}`, note: resumeUnit ? `${resumeUnit.title}: you were on ${STEP_NAME[resume.step] || 'the lesson'}.` : `You were at “${resume.title}”.` }
+    : placed
+      ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
+      : { label: 'Begin your journey', href: '/pyramid/placement', note: 'A few private questions, then your first story. About 3 minutes.' };
+
+  return (
+    <div className="relative h-full w-full overflow-hidden bg-[#05060d]">
+      <motion.img
+        src={heroStars}
+        alt=""
+        className="absolute inset-x-0 top-0 h-[64%] w-full object-cover object-[50%_75%] [mask-image:linear-gradient(180deg,#000_70%,transparent)] sm:h-full sm:[mask-image:none]"
+        initial={{ opacity: 0, scale: 1.06 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2.4, ease: 'easeOut' }}
+      />
+      {/* darken top and bottom so the words read; keep the stars in the middle */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,6,13,0.75)_0%,rgba(5,6,13,0)_30%,rgba(5,6,13,0)_55%,rgba(5,6,13,0.92)_100%)]" />
+
+      <div className="relative z-10 mx-auto flex h-full max-w-[1100px] flex-col px-6 pb-28 pt-5 sm:px-10 sm:pb-12">
+        <header className="flex items-center justify-between gap-6">
+          <span lang="ar" className="font-ruqaa text-[1.8rem] leading-none text-gold-hi" aria-hidden="true">
+            الأمانة
+          </span>
+          <div className="sm:w-[580px]">
+            <Nav here="home" />
+          </div>
+        </header>
+
+        <motion.main className="mt-auto flex flex-col items-center text-center" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 1.2 }}>
+          <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(3rem,15vw,6.5rem)] font-semibold leading-none tracking-[0.06em] text-transparent [filter:drop-shadow(0_4px_24px_rgba(0,0,0,0.6))]">
+            Amanah
+          </h1>
+          <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90">The stories of the prophets, told in light.</p>
+          <button type="button" className="btn-gold mt-8" onClick={() => go(cta.href)} autoFocus>
+            <Icon name="play" className="h-4 w-4" />
+            {cta.label}
+          </button>
+          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65">{cta.note}</p>
+          <div className="mt-4 flex gap-6 font-body text-[1.08rem]">
+            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/stories')}>
+              Watch the stories
+            </button>
+            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/pyramid')}>
+              See the pyramid
+            </button>
+          </div>
+          <p className="mt-6 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45">{DISCLAIMER}</p>
+        </motion.main>
+      </div>
+    </div>
+  );
+}
+
 // Stills from the chronicle, in story order (captured from the scenes themselves; about 48 KB together).
 const STORIES = [
   { id: 'heavens', img: imgHeavens, title: 'The heavens and the earth are created', who: 'Creation, chapter 1' },
@@ -207,13 +274,13 @@ function Landing() {
         <Stars />
         <div className="relative mx-auto max-w-[1120px] px-5 pt-4 sm:px-8">
           <header className="flex min-h-[52px] items-center justify-between gap-6">
-            <a href="#/" className="flex items-baseline gap-2.5" aria-label="Amanah, home">
+            <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} className="flex items-baseline gap-2.5" aria-label="Amanah, home">
               <span lang="ar" className="font-ruqaa text-[1.75rem] leading-none text-gold-hi">
                 الأمانة
               </span>
               <span className="font-display text-[0.95rem] tracking-[0.16em] text-ivory/80">Amanah</span>
             </a>
-            <div className="sm:w-[470px]">
+            <div className="sm:w-[580px]">
               <Nav here="pyramid" />
             </div>
           </header>
@@ -601,7 +668,7 @@ function Result() {
             : 'This is only a suggestion of where to start. Every level is open to you.'}
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
-          <button type="button" className="hud-btn" onClick={() => go('/')}>
+          <button type="button" className="hud-btn" onClick={() => go('/pyramid')}>
             See the whole pyramid
           </button>
           <button type="button" className="hud-btn" onClick={() => go('/pyramid/placement')}>

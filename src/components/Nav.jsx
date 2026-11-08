@@ -2,7 +2,8 @@ import { go } from '../lib/router.js';
 import { Icon } from './Ornaments.jsx';
 
 const ITEMS = [
-  { id: 'pyramid', label: 'Pyramid', icon: 'pyramid', to: '/' },
+  { id: 'home', label: 'Home', icon: 'home', to: '/' },
+  { id: 'pyramid', label: 'Pyramid', icon: 'pyramid', to: '/pyramid' },
   { id: 'stories', label: 'Stories', icon: 'book', to: '/stories' },
   { id: 'map', label: 'Map', icon: 'map', to: '/map' },
   { id: 'progress', label: 'Progress', icon: 'bars', to: '/pyramid/progress' },

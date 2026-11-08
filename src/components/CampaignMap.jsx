@@ -552,7 +552,7 @@ export default function CampaignMap({ query = {} }) {
 
       {/* Top bar */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between gap-3 p-3 sm:p-5">
-        <button type="button" className="hud-btn pointer-events-auto" onClick={() => go('/')} aria-label="Home: the pyramid">
+        <button type="button" className="hud-btn pointer-events-auto" onClick={() => go('/')} aria-label="Home">
           <Icon name="pyramid" className="h-5 w-5" />
           <span className="hidden sm:inline">Pyramid</span>
         </button>
