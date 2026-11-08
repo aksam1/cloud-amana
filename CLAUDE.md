@@ -103,6 +103,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   name carved in Aref Ruqaa, gold edge = a stone that can be explored today, gold leaf = its meter, gilded
   capstone tip). Sky and dunes live on the page (`SKY`, `Dunes` in Pyramid.jsx); other pages pass
   `scenery` (default) for the monument's own glow. Pages after the home page share the night gradient.
+- Arabic appears only in references (a verse or hadith being quoted, e.g. the title page's word from 33:72).
+  No decorative Arabic in the UI: no Arabic logo, level, unit, scene or map titles (the data keeps `arabic`).
 - Type: Cinzel only for the headline and stone names; Cormorant Garamond for everything else in sentence
   case. No tracked-caps eyebrows or "A · B" strings in new UI: use an italic Cormorant label or a comma.
 - One main button per visitor state on the home page (new: Begin your journey; placed: next unit; returning:
