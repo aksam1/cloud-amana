@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { deleteAllData, savePlacement, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
@@ -255,12 +255,12 @@ function Landing() {
   const secondary = placed ? { label: 'Your progress', href: '/pyramid/progress' } : { label: 'Watch the stories first', href: '/stories' };
 
   const Cta = (
-    <div className="flex flex-col items-center gap-2 lg:items-start" role={cta.region ? 'region' : undefined} aria-label={cta.region ? 'Continue where you left off' : undefined}>
+    <div className="flex flex-col items-center gap-2" role={cta.region ? 'region' : undefined} aria-label={cta.region ? 'Continue where you left off' : undefined}>
       <button type="button" className="btn-gold" onClick={() => go(cta.href)}>
         <Icon name="play" className="h-4 w-4" />
         {cta.label}
       </button>
-      <p className="max-w-[34ch] text-center font-body text-[1.05rem] italic leading-snug text-ivory/70 lg:text-left">{cta.note}</p>
+      <p className="max-w-[34ch] text-center font-body text-[1.05rem] italic leading-snug text-ivory/70">{cta.note}</p>
       <button type="button" className="min-h-[44px] font-body text-[1.08rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4 hover:decoration-gold-hi" onClick={() => go(secondary.href)}>
         {secondary.label}
       </button>
@@ -269,78 +269,69 @@ function Landing() {
 
   return (
     <div className="thin-scroll relative h-full w-full overflow-y-auto overflow-x-hidden bg-night">
-      {/* ── The hero: dusk over the desert, the monument standing in the last light ── */}
-      <section className="relative isolate overflow-hidden lg:[--glow-x:74%]" style={{ background: SKY }}>
+      {/* ── One scene, one screen: dusk over the desert, the monument in the last light, one button ── */}
+      <section className="relative isolate flex min-h-full flex-col overflow-hidden" style={{ background: SKY }}>
         <Stars />
-        <div className="relative mx-auto max-w-[1120px] px-5 pt-4 sm:px-8">
-          <header className="flex min-h-[52px] items-center justify-between gap-6">
-            <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} className="flex items-baseline gap-2.5" aria-label="Amanah, home">
-              <span lang="ar" className="font-ruqaa text-[1.75rem] leading-none text-gold-hi">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-1 flex-col px-5 pt-5 sm:px-10">
+          <header className="flex items-center justify-between gap-6">
+            <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home">
+              <span lang="ar" className="font-ruqaa text-[1.8rem] leading-none text-gold-hi">
                 الأمانة
               </span>
-              <span className="font-display text-[0.95rem] tracking-[0.16em] text-ivory/80">Amanah</span>
             </a>
             <div className="sm:w-[580px]">
               <Nav here="pyramid" />
             </div>
           </header>
 
-          <div className="grid items-end pt-7 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12 lg:pt-12">
-            <motion.div className="text-center lg:pb-28 lg:text-left" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
-              <h1 className="bg-gradient-to-b from-[#fbe7b0] via-[#f2d28b] to-[#c9933f] bg-clip-text font-display text-[clamp(2.05rem,8.4vw,3.7rem)] font-semibold leading-[1.06] tracking-[0.01em] text-transparent [filter:drop-shadow(0_2px_14px_rgba(233,140,70,0.32))]">
-                The Pyramid of Righteousness
-              </h1>
-              <p className="mx-auto mt-3 max-w-[30ch] font-body text-[clamp(1.2rem,4.6vw,1.45rem)] leading-[1.42] text-ivory/90 lg:mx-0">
-                Learn Islam through the stories of the prophets, and watch your understanding rise, stone by stone.
-              </p>
-              <div className="mt-8 hidden lg:block">{Cta}</div>
-            </motion.div>
+          <motion.div className="mt-6 text-center sm:mt-8" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
+            <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(2rem,9vw,3.6rem)] font-semibold leading-none tracking-[0.04em] text-transparent [filter:drop-shadow(0_3px_18px_rgba(0,0,0,0.55))]">
+              The Pyramid
+            </h1>
+            <p className="mx-auto mt-3 max-w-[34ch] font-body text-[clamp(1.1rem,4.2vw,1.35rem)] leading-snug text-ivory/85">Islam, Iman and Ihsan: climb them one stone at a time.</p>
+          </motion.div>
 
-            <motion.div className="relative z-10 -mx-3 -mb-4 sm:-mb-7 lg:mx-0" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 1.2, ease: 'easeOut' }}>
-              <Monument
-                className="mx-auto mt-4 w-full max-w-[560px] lg:mt-0"
-                scenery={false}
-                meters={c.meters}
-                done={c.done}
-                lit={c.lit}
-                peak={c.peak}
-                start={placed ? c.current : undefined}
-                recommended={placed ? next : undefined}
-                selected={selected}
-                onSelect={(id) => setSelected((s) => (s === id ? null : id))}
-              />
-            </motion.div>
-          </div>
+          <motion.div className="relative mx-auto mt-auto w-full max-w-[max(320px,min(620px,calc((100svh-500px)*1.14)))] pt-4" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1.3, ease: 'easeOut' }}>
+            <Monument
+              className="relative z-10 -mb-5 w-full sm:-mb-8"
+              scenery={false}
+              meters={c.meters}
+              done={c.done}
+              lit={c.lit}
+              peak={c.peak}
+              start={placed ? c.current : undefined}
+              recommended={placed ? next : undefined}
+              selected={selected}
+              onSelect={(id) => setSelected((s) => (s === id ? null : id))}
+            />
+          </motion.div>
         </div>
-        <Dunes />
+        <div className="relative">
+          <Dunes />
+          <div className="h-[64px] sm:h-[92px]" />
+        </div>
+        <div className="relative bg-[#1d140d] px-5 pb-28 pt-2 sm:pb-10">
+          {Cta}
+          <p className="mx-auto mt-4 max-w-[40ch] text-center font-body text-[1rem] italic text-ivory/55">Gold-edged stones are ready. Tap one to open it.</p>
+        </div>
       </section>
 
-      {/* ── On the sand: the action, what the stones mean, the selected stone ── */}
-      <section className="bg-gradient-to-b from-[#1d140d] to-night px-5 pb-2 pt-5 sm:px-8">
-        <div className="mx-auto max-w-[1120px]">
-          <div className="lg:hidden">{Cta}</div>
-          <p className="mx-auto mt-6 max-w-[52ch] text-center font-body text-[1.02rem] leading-snug text-ivory/60 lg:mt-1">
-            Three levels from the hadith of Jibril: Islam, Iman and Ihsan. Stones with a gold edge are ready to explore; the rest are still being carved. Tap any stone.
-          </p>
+      {(selected || placed) && (
+        <section className="bg-gradient-to-b from-[#1d140d] to-night px-5 pb-4 sm:px-8">
           <div className="mx-auto max-w-[600px]">
             <AnimatePresence>{selected && <UnitCard key={selected} id={selected} meter={c.meters[selected]} done={c.done[selected]} onClose={() => setSelected(null)} />}</AnimatePresence>
             {placed && <ClimbCard c={c} stale={stale} />}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <StoriesStrip />
-
-      <footer className="mx-auto max-w-[640px] px-5 pb-32 pt-12 text-center sm:pb-12">
+      <footer className="mx-auto max-w-[640px] px-5 pb-32 pt-10 text-center sm:pb-12">
         {mode && (
           <div className="flex justify-center">
             <ModePicker />
           </div>
         )}
         <Disclaimer />
-        <p className="mx-auto mt-2 max-w-[52ch] font-body text-[0.95rem] leading-snug text-ivory/45">
-          Quran in Uthmani script with the Sahih International translation. Hadith and scholars' words are marked until a scholar has reviewed them.
-        </p>
       </footer>
     </div>
   );
@@ -424,6 +415,10 @@ function ClimbCard({ c, stale }) {
 }
 
 function UnitCard({ id, meter, done, onClose }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    ref.current?.scrollIntoView?.({ behavior: 'smooth', block: 'nearest' });
+  }, [id]);
   const u = unitById[id];
   const status = unitStatus(id);
   const learned = useStore((s) => Object.keys(s.learned).length);
@@ -431,7 +426,8 @@ function UnitCard({ id, meter, done, onClose }) {
   const say = useSay();
   return (
     <motion.section
-      className="parchment cartouche relative mt-3 px-5 pb-4 pt-4"
+      ref={ref}
+      className="parchment cartouche relative mt-3 scroll-mb-28 px-5 pb-4 pt-4"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 6 }}
