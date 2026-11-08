@@ -1,4 +1,4 @@
-// Hash routes: #/ (the pyramid: #/pyramid/placement|result|progress, #/unit/:id?step=) · #/chronicle (the
+// Hash routes: #/ (the start screen) · #/pyramid (the pyramid: #/pyramid/placement|result|progress, #/unit/:id?step=) · #/chronicle (the
 // chronicle's title page) · #/stories (back into the story where the reader left it) · #/map?arrive=&from= · #/scene/:id (?beat=n opens at a moment, &still holds it,
 // &t=0.5 holds it halfway through its timed motions)
 // · #/lesson/:chapter/:part?then=<route> (the lesson after a part; ?then is where it continues)

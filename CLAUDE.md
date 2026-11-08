@@ -96,9 +96,11 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   only (`startReady` false → the result explains). Unfinished units keep a draft (`drafts` in store.js) and
   the home page shows "Continue where you left off" (`recent`). A crash shows a recovery card (App.jsx).
 - Pages load on demand; the home page must not import `src/lib/story.js` (about 1 MB): pyramid.js reads
-  only the chapter files. Measured: 140 KB compressed JS on first load (was 319 KB).
+  only the chapter files, and only the *names* of the unit files (a lazy glob); Unit.jsx loads their content.
+  Measured: 144 KB compressed JS on first load with all 16 units written (was 319 KB).
 - `npm test` (vitest: engine, placement never dead-ends, wording), `npm run e2e` (Playwright journeys on
-  phone and desktop; locally `CHROME_PATH=/usr/bin/google-chrome npm run e2e`), `npm run verify` (check +
+  phone and desktop, including one that walks all 15 new units to the end; locally
+  `CHROME_PATH=/usr/bin/google-chrome npm run e2e`), `npm run verify` (check +
   test + build). GitHub Actions runs all of it on every push (`.github/workflows/ci.yml`). Add a journey
   test whenever a new flow ships.
 
@@ -117,6 +119,11 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   case. No tracked-caps eyebrows or "A · B" strings in new UI: use an italic Cormorant label or a comma.
 - One main button per visitor state on the home page (new: Begin your journey; placed: next unit; returning:
   Continue …). The view choice is the first step of the reflection, not on the home page.
+- Every page after the start screen shares one header: "Amanah" (home) left, the menu right (`Shell` in
+  Pyramid.jsx, `Frame` in Unit.jsx). Progress shows the monument, a card per level (rows open their unit), the
+  story-lesson count, and "Your private notes" (the `journal`, hidden until asked, each with an Open link).
+  An axe-core WCAG 2 A/AA scan of home, pyramid (and its pop-up), placement, result, progress, a unit and a lesson
+  came back clean; keep it that way (decorative meters are aria-hidden, tap targets 44 px).
 - Phones get the menu as a bottom tab bar (`Nav.jsx`, fixed): every page using it needs `pb-28 sm:pb-6`.
 - Story stills (`src/assets/previews/*.webp`, 800×450) are captured from the scenes: canvas-only screenshot of
   `#/scene/<id>?beat=n&still` in headless Chrome (hide everything but canvas). 2D scenes (chapters 2–3) come out

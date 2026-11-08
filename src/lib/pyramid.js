@@ -13,8 +13,10 @@ import config from '../pyramid/config.json';
 // Only the chapter files (a few KB), not the whole story: the home page must stay light.
 const chapters = Object.values(import.meta.glob('../story/chapters/*/chapter.json', { eager: true, import: 'default' }));
 
-const unitFiles = import.meta.glob('../pyramid/units/*.json', { eager: true, import: 'default' });
-export const unitContent = Object.fromEntries(Object.values(unitFiles).map((u) => [u.id, u]));
+// Which units have a written lesson path: only the file names, so the home page doesn't download every lesson
+// (the Unit page loads the content itself).
+const unitFiles = import.meta.glob('../pyramid/units/*.json');
+const WRITTEN = new Set(Object.keys(unitFiles).map((p) => p.split('/').pop().replace(/\.json$/, '')));
 
 export const LEVELS = structure.levels;
 export const UNITS = LEVELS.flatMap((l) => l.units.map((u) => ({ ...u, level: l.id })));
@@ -29,7 +31,7 @@ export const pathOf = (mode) => (mode === 'curious' ? 'nonmuslim' : 'muslim');
 /** Is there a lesson path to take for this unit yet? ('history' for Messengers, which is the chronicle.) */
 export function unitStatus(id) {
   if (unitById[id]?.history) return 'history';
-  return unitContent[id] ? 'ready' : 'soon';
+  return WRITTEN.has(id) ? 'ready' : 'soon';
 }
 /** Can a person actually start this unit today? (Never send anyone to a page that is still being written.) */
 export const playable = (id) => unitStatus(id) !== 'soon';
@@ -96,7 +98,14 @@ export function unitMeter({ check, choice, reflection }) {
 
 // The history chronicle is the Messengers unit: its meter grows with every part of the story whose lesson is
 // finished, out of every part in the chronicle (so it fills as lessons are written and learned).
-const HISTORY_PARTS = chapters.reduce((n, c) => n + (c.parts?.length || 0), 0);
+export const HISTORY_PARTS = chapters.reduce((n, c) => n + (c.parts?.length || 0), 0);
+/** "Chapter title: part title" for a story lesson's journal key "chapter:part". */
+export function partName(key) {
+  const [n, i] = key.split(':').map(Number);
+  const ch = chapters.find((c) => c.number === n);
+  const part = ch?.parts?.[i];
+  return ch ? (part?.title && part.title !== ch.title ? `${ch.title}: ${part.title}` : ch.title) : key;
+}
 const historyMeter = (learned) => Math.round((100 * Object.keys(learned || {}).length) / Math.max(1, HISTORY_PARTS));
 
 /** Every unit's meter from saved state. */

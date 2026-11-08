@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { deleteAllData, savePlacement, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
-import { climb, completed, DISCLAIMER, levelById, LEVELS, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
+import { climb, completed, DISCLAIMER, HISTORY_PARTS, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import Monument from './Monument.jsx';
@@ -34,25 +34,31 @@ export default function Pyramid({ view = 'landing' }) {
 
 // ── Shared pieces ─────────────────────────────────────────
 
-function Shell({ children, back, title, stars = false, here }) {
+function Shell({ children, back, title, stars = false, here, wide = false }) {
   return (
     <div className="thin-scroll relative h-full w-full overflow-y-auto" style={{ background: NIGHT }}>
       {stars && <Stars />}
-      <div className="relative z-10 mx-auto flex min-h-full max-w-[600px] flex-col px-5 pb-28 pt-3 sm:pb-6">
+      {/* the same header as the pyramid page: the name home, the menu (a tab bar on phones) */}
+      <header className="relative z-20 mx-auto flex w-full max-w-[1100px] items-center justify-between gap-6 px-5 pt-5 sm:px-10">
+        <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home" className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">
+          Amanah
+        </a>
         {here && (
-          <div className="mb-3">
+          <div className="sm:w-[580px]">
             <Nav here={here} />
           </div>
         )}
+      </header>
+      <div className={`relative z-10 mx-auto flex min-h-full ${wide ? 'max-w-[860px]' : 'max-w-[600px]'} flex-col px-5 pb-28 pt-3 sm:pb-10`}>
         {(back || title) && (
-          <header className="mb-2 flex min-h-[48px] items-center gap-3">
+          <div className="mb-2 flex min-h-[48px] items-center gap-3">
             {back && (
               <button type="button" className="hud-btn icon" onClick={() => go(back)} aria-label="Back">
                 <Icon name="prev" className="h-4 w-4" />
               </button>
             )}
             {title && <div className="font-body text-[1.1rem] italic text-gold/85">{title}</div>}
-          </header>
+          </div>
         )}
         {children}
       </div>
@@ -92,7 +98,7 @@ export function Meter({ value, label, tone = 'night' }) {
           <span>{value}%</span>
         </div>
       )}
-      <div className={`h-2 overflow-hidden rounded-full ${tone === 'night' ? 'bg-ivory/12' : 'bg-[#5a3d22]/15'}`} role="meter" aria-valuemin={0} aria-valuemax={100} aria-valuenow={value} aria-label={label}>
+      <div className={`h-2 overflow-hidden rounded-full ${tone === 'night' ? 'bg-ivory/12' : 'bg-[#5a3d22]/15'}`} {...(label ? { role: 'meter', 'aria-valuemin': 0, 'aria-valuemax': 100, 'aria-valuenow': value, 'aria-label': label } : { 'aria-hidden': true })}>
         <motion.div className="h-full rounded-full bg-gradient-to-r from-[#c99a45] to-[#f7e0a3]" initial={{ width: 0 }} animate={{ width: `${value}%` }} transition={{ duration: 1.1, ease: 'easeOut' }} />
       </div>
     </div>
@@ -232,7 +238,7 @@ function Brief({ focus, unit, c, say, onLevel, onUnit, onClose }) {
   const start = u ? (ready ? unitHref(u.id) : null) : firstOpen ? unitHref(firstOpen.id) : null;
   const more = u && ready ? (status === 'history' ? '/map' : `/unit/${u.id}?step=teaching`) : null;
   const ref = useRef(null);
-  useEffect(() => ref.current?.focus(), [focus, unit]);
+  useEffect(() => ref.current?.focus({ preventScroll: true }), [focus, unit]);
   return (
     <motion.div
       ref={ref}
@@ -247,24 +253,24 @@ function Brief({ focus, unit, c, say, onLevel, onUnit, onClose }) {
     >
       <div className="flex items-center gap-1">
         {u ? (
-          <button type="button" onClick={() => onLevel(focus)} className="-ml-2 flex min-h-[40px] items-center gap-1 px-2 font-body text-[1rem] text-gold-hi/85 hover:text-gold-hi">
+          <button type="button" onClick={() => onLevel(focus)} className="-ml-2 flex min-h-[44px] items-center gap-1 px-2 font-body text-[1rem] text-gold-hi/85 hover:text-gold-hi">
             ‹ {level.title}
           </button>
         ) : (
           <>
             {fi < LEVELS.length - 1 && (
-              <button type="button" onClick={() => onLevel(LEVELS[fi + 1].id)} aria-label={`Up to ${LEVELS[fi + 1].title}`} className="min-h-[40px] rounded-full border border-gold/25 px-3 font-body text-[0.98rem] text-ivory/75 hover:border-gold-hi/60">
+              <button type="button" onClick={() => onLevel(LEVELS[fi + 1].id)} aria-label={`Up to ${LEVELS[fi + 1].title}`} className="min-h-[44px] rounded-full border border-gold/25 px-3 font-body text-[0.98rem] text-ivory/75 hover:border-gold-hi/60">
                 ↑ {LEVELS[fi + 1].title}
               </button>
             )}
             {fi > 0 && (
-              <button type="button" onClick={() => onLevel(LEVELS[fi - 1].id)} aria-label={`Down to ${LEVELS[fi - 1].title}`} className="min-h-[40px] rounded-full border border-gold/25 px-3 font-body text-[0.98rem] text-ivory/75 hover:border-gold-hi/60">
+              <button type="button" onClick={() => onLevel(LEVELS[fi - 1].id)} aria-label={`Down to ${LEVELS[fi - 1].title}`} className="min-h-[44px] rounded-full border border-gold/25 px-3 font-body text-[0.98rem] text-ivory/75 hover:border-gold-hi/60">
                 ↓ {LEVELS[fi - 1].title}
               </button>
             )}
           </>
         )}
-        <button type="button" onClick={onClose} aria-label="Close and see the whole pyramid" className="-mr-2 ml-auto grid h-10 w-10 place-items-center rounded-full text-ivory/70 hover:bg-white/5 hover:text-ivory">
+        <button type="button" onClick={onClose} aria-label="Close and see the whole pyramid" className="-mr-2 ml-auto grid h-11 w-11 place-items-center rounded-full text-ivory/70 hover:bg-white/5 hover:text-ivory">
           <Icon name="close" className="h-4 w-4" />
         </button>
       </div>
@@ -303,7 +309,7 @@ function Brief({ focus, unit, c, say, onLevel, onUnit, onClose }) {
                   key={x.id}
                   type="button"
                   onClick={() => onUnit(x.id)}
-                  className={`flex min-h-[38px] items-center gap-2 rounded-full border px-3 font-body text-[1rem] ${open ? 'border-gold/50 text-ivory hover:bg-gold/10' : 'border-white/10 text-ivory/45 hover:border-white/25'}`}
+                  className={`flex min-h-[44px] items-center gap-2 rounded-full border px-3 font-body text-[1rem] ${open ? 'border-gold/50 text-ivory hover:bg-gold/10' : 'border-white/10 text-ivory/45 hover:border-white/25'}`}
                 >
                   <span className={`h-2.5 w-2.5 rounded-full ${open ? 'bg-[#f0c768] shadow-[0_0_8px_#f0c768]' : 'bg-[#5a3d1f]'}`} />
                   {x.title}
@@ -407,8 +413,11 @@ function Landing() {
     setFocus(levelId);
   };
   const back = () => {
+    const was = focus;
     setFocus(null);
     setSelected(null);
+    // keyboard focus returns to the level that was open, not to the top of the page
+    requestAnimationFrame(() => document.querySelector(`[data-level="${was}"]`)?.focus({ preventScroll: true }));
   };
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && focus && back();
@@ -798,7 +807,7 @@ function Result() {
               <h2 className="font-display text-[1.25rem] font-semibold text-ink">{rec.title}</h2>
             </div>
             <p className="font-body text-[1.05rem] text-ink-soft">{inMode(rec.english, mode)}</p>
-            <button type="button" className="btn-gold mt-3" onClick={() => go(unitHref(rec.id))} autoFocus>
+            <button type="button" className="btn-gold mt-3" onClick={() => go(unitHref(rec.id))} ref={(el) => el?.focus({ preventScroll: true })}>
               <Icon name="play" className="h-4 w-4" />
               {unitStatus(rec.id) === 'history' ? 'Begin the stories' : `Begin ${rec.title}`}
             </button>
@@ -827,50 +836,141 @@ function Result() {
 
 function Progress() {
   const c = useClimb();
+  const say = useSay();
   const [confirm, setConfirm] = useState(false);
   const [gone, setGone] = useState(false);
+  const [showNotes, setShowNotes] = useState(false);
+  const learned = Object.keys(c.state.learned || {}).length;
+  const here = levelById[c.current];
+  // The reader's private reflections, in the pyramid's order, then the story's.
+  const notes = Object.entries(c.state.journal || {})
+    .filter(([, text]) => text && text.trim())
+    .map(([key, text]) => {
+      const unit = key.startsWith('unit:') && unitById[key.slice(5)];
+      return unit
+        ? { key, text, label: unit.title, sub: say(unit.english), href: `/unit/${unit.id}?step=reflection`, order: UNITS.indexOf(unit) }
+        : { key, text, label: partName(key), sub: 'Story lesson', href: `/lesson/${key.split(':')[0]}/${key.split(':')[1]}`, order: 100 + Number(key.split(':')[0]) * 10 + Number(key.split(':')[1]) };
+    })
+    .sort((a, b) => a.order - b.order);
+  const levelsTopDown = [...LEVELS].reverse();
   return (
-    <Shell here="progress">
-      <section className="rounded-xl border border-gold/25 bg-black/30 p-4">
-        <div className="font-body text-[1.08rem] italic text-gold/85">You are climbing</div>
-        <div className="font-display text-[1.6rem] font-semibold text-gold-hi">{levelById[c.current].title}</div>
-        <div className="mt-3 space-y-3">
-          {c.levels.map((l) => (
-            <Meter key={l.id} value={l.progress} label={`${l.title}: ${l.done} of ${l.total} units${l.lit ? ', lit' : ''}`} />
-          ))}
+    <Shell here="progress" stars wide>
+      <motion.header className="mt-4 text-center" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+        <p className="font-body text-[1.1rem] italic text-gold-hi/80">Your climb, private to you</p>
+        <h1 className="mt-1 bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(2rem,8vw,3rem)] font-semibold leading-none tracking-[0.03em] text-transparent">Progress</h1>
+      </motion.header>
+
+      <div className="mt-6 grid items-center gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+        <Monument className="mx-auto w-full max-w-[380px]" meters={c.meters} done={c.done} lit={c.lit} peak={c.peak} start={c.state.placement ? c.current : undefined} />
+        <section className="rounded-2xl border border-gold/25 bg-black/30 p-5" aria-label="Where you are">
+          <div className="font-body text-[1.05rem] italic text-ivory/60">{c.peak ? 'Every stone is lit' : 'You are climbing'}</div>
+          <div className="font-display text-[1.7rem] font-semibold leading-tight text-gold-hi">{here.title}</div>
+          <p className="font-body text-[1.02rem] leading-snug text-ivory/65">{say(here.meaning.split(':')[0])}</p>
+          <div className="mt-4 space-y-3">
+            {[...c.levels].reverse().map((l) => (
+              <Meter key={l.id} value={l.progress} label={`${l.title}: ${l.done} of ${l.total} lessons${l.lit ? ', lit' : ''}`} />
+            ))}
+          </div>
+          <p className="mt-4 border-t border-gold/15 pt-3 font-body text-[1.02rem] text-ivory/70">
+            Overall understanding <span className="text-gold-hi">{c.overall}%</span>
+            <span className="mx-2 text-ivory/30">|</span>
+            Story lessons <span className="text-gold-hi">{learned} of {HISTORY_PARTS}</span>
+          </p>
+        </section>
+      </div>
+
+      <div className="mt-8 space-y-5">
+        {levelsTopDown.map((l) => (
+          <section key={l.id} className="rounded-2xl border border-gold/20 bg-[linear-gradient(160deg,rgba(255,226,160,0.07),rgba(255,226,160,0.015))] p-4 sm:p-5" aria-labelledby={`lv-${l.id}`}>
+            <div className="flex items-baseline justify-between gap-3 border-b border-gold/15 pb-2">
+              <h2 id={`lv-${l.id}`} className="font-display text-[1.25rem] font-semibold text-gold-hi">
+                {l.title}
+              </h2>
+              <span className="font-body text-[1rem] italic text-ivory/55">{say(l.meaning.split(':')[0])}</span>
+            </div>
+            <ul className="mt-1 divide-y divide-gold/10">
+              {l.units.map((u) => {
+                const status = unitStatus(u.id);
+                const m = c.meters[u.id] || 0;
+                const done = c.done[u.id];
+                return (
+                  <li key={u.id}>
+                    <button
+                      type="button"
+                      className="group flex min-h-[60px] w-full items-center gap-3 py-2 text-left disabled:opacity-55"
+                      onClick={() => go(unitHref(u.id))}
+                      disabled={status === 'soon'}
+                      aria-label={`${u.title}, ${say(u.english)}: ${m}%${done ? ', completed' : ''}. Open`}
+                    >
+                      <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-full ${status !== 'soon' ? 'bg-[radial-gradient(circle_at_35%_30%,#fff4cf,#e9b95a_55%,#a8711f)]' : 'bg-[#5a3d1f]/70'} ${done ? 'shadow-[0_0_14px_rgba(255,224,138,0.7)]' : ''}`}>
+                        {done && <Icon name="check" className="h-3.5 w-3.5 text-[#3a2208]" />}
+                      </span>
+                      <span className="w-[42%] min-w-0 shrink-0 sm:w-[34%]">
+                        <span className="block font-display text-[0.98rem] font-semibold leading-tight text-ivory group-hover:text-gold-hi">{u.title}</span>
+                        <span className="block truncate font-body text-[0.95rem] leading-tight text-ivory/55">
+                          {u.history ? `${learned} of ${HISTORY_PARTS} story lessons` : say(u.english)}
+                        </span>
+                      </span>
+                      <span className="flex-1">
+                        <Meter value={m} />
+                      </span>
+                      <span className="w-11 shrink-0 text-right font-body text-[0.98rem] text-ivory/65">{m}%</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))}
+      </div>
+
+      <section className="mt-6 rounded-2xl border border-gold/20 bg-black/25 p-5" aria-labelledby="notes-h">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 id="notes-h" className="font-display text-[1.15rem] font-semibold text-gold-hi">
+            Your private notes
+          </h2>
+          <span className="font-body text-[1rem] italic text-ivory/55">{notes.length ? `${notes.length} written` : 'None yet'}</span>
         </div>
-        <p className="mt-3 font-body text-[1rem] text-ivory/60">Overall understanding {c.overall}%</p>
+        <p className="mt-1 font-body text-[1.02rem] leading-snug text-ivory/65">
+          {notes.length
+            ? 'The reflections you wrote after lessons. They are kept only in this browser.'
+            : 'When you write a reflection after a lesson, it will be kept here, only in this browser.'}
+        </p>
+        {notes.length > 0 && (
+          <button type="button" className="hud-btn mt-3" onClick={() => setShowNotes((v) => !v)} aria-expanded={showNotes}>
+            {showNotes ? 'Hide my notes' : 'Show my notes'}
+          </button>
+        )}
+        <AnimatePresence initial={false}>
+          {showNotes && (
+            <motion.ul className="mt-4 space-y-3" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}>
+              {notes.map((n) => (
+                <li key={n.key} className="rounded-xl border border-gold/15 bg-white/[0.03] p-3">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <span className="font-display text-[0.98rem] font-semibold text-ivory">{n.label}</span>
+                    <button type="button" className="shrink-0 font-body text-[1rem] text-gold-hi/85 underline decoration-gold/40 underline-offset-4" onClick={() => go(n.href)}>
+                      Open
+                    </button>
+                  </div>
+                  <div className="font-body text-[0.95rem] italic text-ivory/50">{n.sub}</div>
+                  <p className="mt-1 whitespace-pre-wrap font-body text-[1.05rem] leading-snug text-ivory/85">{n.text}</p>
+                </li>
+              ))}
+            </motion.ul>
+          )}
+        </AnimatePresence>
       </section>
 
-      {LEVELS.map((l) => (
-        <section key={l.id} className="mt-5">
-          <h2 className="font-display text-[1rem] text-gold-hi">{l.title}</h2>
-          <ul className="mt-2 divide-y divide-gold/10">
-            {l.units.map((u) => {
-              const status = unitStatus(u.id);
-              return (
-                <li key={u.id}>
-                  <button type="button" className="flex min-h-[52px] w-full items-center gap-3 py-2 text-left disabled:opacity-55" onClick={() => go(unitHref(u.id))} disabled={status === 'soon'}>
-                    <span className="w-28 shrink-0 font-display text-[0.95rem] text-ivory">{u.title}</span>
-                    <span className="flex-1">
-                      <Meter value={c.meters[u.id]} />
-                    </span>
-                    <span className="w-16 shrink-0 text-right font-body text-[0.95rem] text-ivory/60">{status === 'soon' ? 'soon' : `${c.meters[u.id]}%`}</span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      ))}
-
-      <section className="mt-6 flex flex-wrap gap-2">
+      <section className="mt-6 flex flex-wrap items-center gap-3">
         <button type="button" className="hud-btn" onClick={() => go('/pyramid/placement')}>
           Reflect again
         </button>
+        <button type="button" className="hud-btn" onClick={() => go('/pyramid')}>
+          Back to the pyramid
+        </button>
       </section>
 
-      <section className="mt-6 rounded-xl border border-blood/40 bg-black/30 p-4" aria-live="polite">
+      <section className="mt-6 rounded-2xl border border-blood/40 bg-black/30 p-5" aria-live="polite">
         <h2 className="font-display text-[1.05rem] text-ivory">Your data</h2>
         <p className="mt-1 font-body text-[1rem] leading-snug text-ivory/70">
           Everything here is stored only in this browser. Nothing is sent anywhere, and no one else can see your answers or notes.

@@ -4,7 +4,11 @@ import { ayah, expandRef, sceneById } from '../lib/story.js';
 import { getState, saveDraft, saveJournal, saveUnit, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
-import { climb, CONFIG, completed, levelById, unitById, unitContent, unitMeter, unitStatus, UNITS } from '../lib/pyramid.js';
+import { climb, CONFIG, completed, levelById, unitById, unitMeter, unitStatus, UNITS } from '../lib/pyramid.js';
+
+// The lesson paths themselves load with this page only (the home page knows just which ones exist).
+const unitFiles = import.meta.glob('../pyramid/units/*.json', { eager: true, import: 'default' });
+const unitContent = Object.fromEntries(Object.values(unitFiles).map((u) => [u.id, u]));
 import hadithData from '../data/hadith.json';
 import { Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
@@ -122,11 +126,17 @@ export default function Unit({ id, step: startStep }) {
 
 function Frame({ children }) {
   return (
-    <div className="thin-scroll relative h-full w-full overflow-y-auto px-4 pb-28 pt-3 sm:pb-6" style={{ background: 'linear-gradient(180deg, #070a1a 0%, #0e1530 34%, #171427 70%, #0b0a0e 100%) fixed' }}>
-      <div className="relative z-10 mx-auto w-full max-w-[620px]">
-        <div className="mb-3">
+    <div className="thin-scroll relative h-full w-full overflow-y-auto pb-28 sm:pb-10" style={{ background: 'linear-gradient(180deg, #070a1a 0%, #0e1530 34%, #171427 70%, #0b0a0e 100%) fixed' }}>
+      {/* the same header as every pyramid page: the name home, the menu (a tab bar on phones) */}
+      <header className="relative z-20 mx-auto flex w-full max-w-[1100px] items-center justify-between gap-6 px-5 pt-5 sm:px-10">
+        <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home" className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">
+          Amanah
+        </a>
+        <div className="sm:w-[580px]">
           <Nav here="pyramid" />
         </div>
+      </header>
+      <div className="relative z-10 mx-auto mt-4 w-full max-w-[620px] px-4">
         <article className="parchment ruled cartouche relative px-5 pb-5 pt-5 shadow-[0_30px_70px_-20px_rgba(0,0,0,.9)] sm:px-8">{children}</article>
       </div>
     </div>

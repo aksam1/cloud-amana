@@ -87,3 +87,41 @@ test('tapping a level of the pyramid looks closer, and the whole pyramid comes b
   await page.getByRole('button', { name: 'Close and see the whole pyramid' }).click();
   await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeVisible();
 });
+
+test('a lesson chosen from the pyramid pop-up starts straight away', async ({ page }) => {
+  await page.goto('/#/pyramid');
+  await page.getByRole('button', { name: 'Look closer at Islam' }).dispatchEvent('click');
+  const brief = page.getByRole('dialog');
+  await brief.getByRole('button', { name: 'Zakat', exact: true }).click();
+  await expect(brief.getByRole('heading', { name: 'Zakat' })).toBeVisible();
+  await brief.getByRole('button', { name: 'Start', exact: true }).click();
+  await expect(page).toHaveURL(/#\/unit\/zakat/);
+  await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
+  await expect(page.getByText(/owned a fine garden/)).toBeVisible();
+});
+
+test('every pyramid lesson can be walked to its end', async ({ page }) => {
+  test.setTimeout(240000);
+  const ids = ['shahadah', 'salah', 'zakat', 'sawm', 'hajj', 'allah', 'angels', 'books', 'lastday', 'qadr', 'ikhlas', 'shukr', 'tawakkul', 'humility', 'character'];
+  for (const [i, id] of ids.entries()) {
+    await page.goto(`/#/unit/${id}`);
+    if (i === 0) await page.getByRole('button', { name: /I'm Muslim/ }).click();
+    await page.getByRole('button', { name: /I know this story/ }).click();
+    await page.getByRole('radio').nth(2).click();
+    await page.getByRole('button', { name: /See what is taught/ }).click();
+    for (let k = 0; k < 3; k++) await page.getByRole('button', { name: /^(Next|Check your understanding)$/ }).click();
+    for (let k = 0; k < 5; k++) {
+      await page.locator('section button').nth(1).click();
+      await page.getByRole('button', { name: /^(Next|On to reflection)$/ }).click();
+    }
+    await page.getByRole('button', { name: /I've reflected/ }).click();
+    await expect(page.getByText(/^Your .+ stone$/)).toBeVisible();
+  }
+});
+
+test('the lesson after a story part asks about what was just watched', async ({ page }) => {
+  await page.goto('/#/lesson/6/2');
+  await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
+  await page.getByRole('button', { name: /Did God command you this/ }).click();
+  await expect(page.getByRole('button', { name: /Next question/ })).toBeVisible();
+});

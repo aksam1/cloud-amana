@@ -186,6 +186,7 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
               <polygon
                 points={pts}
                 fill="transparent"
+                data-level={level.id}
                 role="button"
                 tabIndex={0}
                 aria-label={focus === level.id ? `${level.title}: shown up close` : `Look closer at ${level.title}`}
