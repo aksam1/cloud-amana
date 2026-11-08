@@ -84,6 +84,6 @@ test('tapping a level of the pyramid looks closer, and the whole pyramid comes b
   await expect(page.getByRole('heading', { name: /^Iman/ })).toBeVisible();
   await page.getByRole('button', { name: 'Up to Ihsan' }).click();
   await expect(page.getByRole('heading', { name: /^Ihsan/ })).toBeVisible();
-  await page.getByRole('button', { name: 'Whole pyramid' }).click();
+  await page.getByRole('button', { name: 'Close and see the whole pyramid' }).click();
   await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeVisible();
 });

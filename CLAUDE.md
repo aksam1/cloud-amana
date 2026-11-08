@@ -101,8 +101,10 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 - `#/` is a cinematic start screen (`Home` in Pyramid.jsx: Yusuf's eleven stars full screen, "Amanah", one button). The pyramid page is `#/pyramid`: one smooth sandstone pyramid at dusk (`Monument.jsx`: gilded courses split
   the three levels, each unit a round seal: gold = can be opened today, a gold ring = its meter). Tapping a level
-  zooms into it (`focus`, the SVG's viewBox animates; seals get their names; the other levels shade) and a panel
-  under it shows that level and its lessons, with Up/Down and Whole pyramid (Escape too). Sky and dunes live on the page (`SKY`, `Dunes` in Pyramid.jsx); other pages pass
+  zooms into it (`focus`, the SVG's viewBox animates; seals get their names; the other levels shade) and a pop-up
+  brief (`Brief` in Pyramid.jsx, no scrolling) shows the level and its lessons as chips, or one lesson (its `brief`
+  line in units.json) with Start and Learn more (the unit's teaching step; the map for Messengers). Close or Escape
+  zooms out. Below 1024px the title steps aside while it is open so the pop-up never covers the level. Sky and dunes live on the page (`SKY`, `Dunes` in Pyramid.jsx); other pages pass
   `scenery` (default) for the monument's own glow. Pages after the home page share the night gradient.
 - Arabic appears only in references (a verse or hadith being quoted, e.g. the title page's word from 33:72).
   No decorative Arabic in the UI: no Arabic logo, level, unit, scene or map titles (the data keeps `arabic`).

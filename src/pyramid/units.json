@@ -6,11 +6,41 @@
       "arabic": "الإسلام",
       "meaning": "Submission: the five pillars, the base of the monument",
       "units": [
-        { "id": "shahadah", "title": "Shahadah", "arabic": "الشهادة", "english": "The declaration of faith" },
-        { "id": "salah", "title": "Salah", "arabic": "الصلاة", "english": "Prayer" },
-        { "id": "zakat", "title": "Zakat", "arabic": "الزكاة", "english": "Giving" },
-        { "id": "sawm", "title": "Sawm", "arabic": "الصوم", "english": "Fasting" },
-        { "id": "hajj", "title": "Hajj", "arabic": "الحج", "english": "Pilgrimage" }
+        {
+          "id": "shahadah",
+          "title": "Shahadah",
+          "arabic": "الشهادة",
+          "english": "The declaration of faith",
+          "brief": "The declaration of faith: there is no god but God, and Muhammad is His messenger. The door into Islam."
+        },
+        {
+          "id": "salah",
+          "title": "Salah",
+          "arabic": "الصلاة",
+          "english": "Prayer",
+          "brief": "The five daily prayers: a meeting with God at fixed times through the day."
+        },
+        {
+          "id": "zakat",
+          "title": "Zakat",
+          "arabic": "الزكاة",
+          "english": "Giving",
+          "brief": "A share of what you have, given each year to those in need, which purifies the rest."
+        },
+        {
+          "id": "sawm",
+          "title": "Sawm",
+          "arabic": "الصوم",
+          "english": "Fasting",
+          "brief": "Fasting from dawn to sunset in Ramadan: learning restraint, and feeling what the hungry feel."
+        },
+        {
+          "id": "hajj",
+          "title": "Hajj",
+          "arabic": "الحج",
+          "english": "Pilgrimage",
+          "brief": "The pilgrimage to Makkah, once in a lifetime for those who are able, in the footsteps of Ibrahim."
+        }
       ]
     },
     {
@@ -19,12 +49,49 @@
       "arabic": "الإيمان",
       "meaning": "Faith: the six beliefs, the middle of the monument",
       "units": [
-        { "id": "allah", "title": "Allah", "arabic": "الله", "english": "Belief in God" },
-        { "id": "angels", "title": "Angels", "arabic": "الملائكة", "english": "Belief in the angels" },
-        { "id": "books", "title": "Books", "arabic": "الكتب", "english": "Belief in the revealed books" },
-        { "id": "messengers", "title": "Messengers", "arabic": "الرسل", "english": "Belief in the messengers", "history": true },
-        { "id": "lastday", "title": "Last Day", "arabic": "اليوم الآخر", "english": "Belief in the Last Day" },
-        { "id": "qadr", "title": "Qadr", "arabic": "القدر", "english": "Belief in God's decree" }
+        {
+          "id": "allah",
+          "title": "Allah",
+          "arabic": "الله",
+          "english": "Belief in God",
+          "brief": "Belief in the One God, who has no partner, no equal and no likeness."
+        },
+        {
+          "id": "angels",
+          "title": "Angels",
+          "arabic": "الملائكة",
+          "english": "Belief in the angels",
+          "brief": "Belief in the angels: beings of light who carry out what God commands."
+        },
+        {
+          "id": "books",
+          "title": "Books",
+          "arabic": "الكتب",
+          "english": "Belief in the revealed books",
+          "brief": "Belief in the books God revealed: the scrolls of Ibrahim, the Torah, the Psalms, the Gospel and the Quran."
+        },
+        {
+          "id": "messengers",
+          "title": "Messengers",
+          "arabic": "الرسل",
+          "english": "Belief in the messengers",
+          "history": true,
+          "brief": "Belief in the messengers sent to every people, from Adam to Muhammad. Their stories live here."
+        },
+        {
+          "id": "lastday",
+          "title": "Last Day",
+          "arabic": "اليوم الآخر",
+          "english": "Belief in the Last Day",
+          "brief": "Belief in the Last Day, when every person will stand before God and every deed will be weighed."
+        },
+        {
+          "id": "qadr",
+          "title": "Qadr",
+          "arabic": "القدر",
+          "english": "Belief in God's decree",
+          "brief": "Belief in God's decree: nothing happens outside His knowledge, and every choice still matters."
+        }
       ]
     },
     {
@@ -33,12 +100,48 @@
       "arabic": "الإحسان",
       "meaning": "Excellence: worshipping God as though you see Him, the peak of the monument",
       "units": [
-        { "id": "ikhlas", "title": "Ikhlas", "arabic": "الإخلاص", "english": "Sincerity" },
-        { "id": "sabr", "title": "Sabr", "arabic": "الصبر", "english": "Patience" },
-        { "id": "shukr", "title": "Shukr", "arabic": "الشكر", "english": "Gratitude" },
-        { "id": "tawakkul", "title": "Tawakkul", "arabic": "التوكل", "english": "Trust in God" },
-        { "id": "humility", "title": "Tawadu'", "arabic": "التواضع", "english": "Humility" },
-        { "id": "character", "title": "Akhlaq", "arabic": "حسن الخلق", "english": "Good character" }
+        {
+          "id": "ikhlas",
+          "title": "Ikhlas",
+          "arabic": "الإخلاص",
+          "english": "Sincerity",
+          "brief": "Sincerity: doing good for God alone, not to be seen or praised."
+        },
+        {
+          "id": "sabr",
+          "title": "Sabr",
+          "arabic": "الصبر",
+          "english": "Patience",
+          "brief": "Patience: holding firm through hardship and trusting that it has a purpose. Told through the story of Ayyub."
+        },
+        {
+          "id": "shukr",
+          "title": "Shukr",
+          "arabic": "الشكر",
+          "english": "Gratitude",
+          "brief": "Gratitude: noticing what you have been given, and thanking God with your words and your actions."
+        },
+        {
+          "id": "tawakkul",
+          "title": "Tawakkul",
+          "arabic": "التوكل",
+          "english": "Trust in God",
+          "brief": "Trust in God: doing your part fully, then leaving the outcome to Him."
+        },
+        {
+          "id": "humility",
+          "title": "Tawadu'",
+          "arabic": "التواضع",
+          "english": "Humility",
+          "brief": "Humility: knowing your worth comes from God, and never looking down on anyone."
+        },
+        {
+          "id": "character",
+          "title": "Akhlaq",
+          "arabic": "حسن الخلق",
+          "english": "Good character",
+          "brief": "Good character: honesty, gentleness and kindness, the way faith shows in everyday life."
+        }
       ]
     }
   ],
