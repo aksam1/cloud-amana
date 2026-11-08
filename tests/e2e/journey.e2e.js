@@ -73,7 +73,7 @@ test('every part of the app has a way home', async ({ page }) => {
   await page.getByRole('button', { name: 'Home' }).click();
   await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();
   await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Pyramid' }).click();
-  await expect(page.getByRole('heading', { name: 'The Pyramid of Righteousness' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'The Pyramid', exact: true })).toBeVisible();
   await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Stories' }).click();
   await expect(page).toHaveURL(/#\/scene\//);
 });

@@ -229,6 +229,7 @@ const STORIES = [
  */
 function Landing() {
   const { mode } = useMode();
+  const say = useSay();
   const c = useClimb();
   const [selected, setSelected] = useState(null);
   const placed = !!c.state.placement;
@@ -267,12 +268,16 @@ function Landing() {
     </div>
   );
 
+  const levelsTopDown = [...LEVELS].reverse();
+  const PLACE = { islam: 'The base', iman: 'The middle', ihsan: 'The peak' };
+  const pick = (id) => setSelected((s) => (s === id ? null : id));
+
   return (
     <div className="thin-scroll relative h-full w-full overflow-y-auto overflow-x-hidden bg-night">
-      {/* ── One scene, one screen: dusk over the desert, the monument in the last light, one button ── */}
-      <section className="relative isolate flex min-h-full flex-col overflow-hidden" style={{ background: SKY }}>
+      {/* ── The monument at dusk: title, the pyramid, one button ── */}
+      <section className="relative isolate overflow-hidden" style={{ background: SKY }}>
         <Stars />
-        <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-1 flex-col px-5 pt-5 sm:px-10">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-col px-5 pt-5 sm:px-10">
           <header className="flex items-center justify-between gap-6">
             <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home">
               <span lang="ar" className="font-ruqaa text-[1.8rem] leading-none text-gold-hi">
@@ -284,16 +289,19 @@ function Landing() {
             </div>
           </header>
 
-          <motion.div className="mt-6 text-center sm:mt-8" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
-            <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(2rem,9vw,3.6rem)] font-semibold leading-none tracking-[0.04em] text-transparent [filter:drop-shadow(0_3px_18px_rgba(0,0,0,0.55))]">
+          <motion.div className="mt-8 text-center sm:mt-12" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
+            <p className="font-body text-[1.15rem] italic text-gold-hi/80">Islam, Iman and Ihsan</p>
+            <h1 className="mt-1 bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(2.4rem,10vw,4.2rem)] font-semibold leading-none tracking-[0.04em] text-transparent [filter:drop-shadow(0_3px_18px_rgba(0,0,0,0.55))]">
               The Pyramid
             </h1>
-            <p className="mx-auto mt-3 max-w-[34ch] font-body text-[clamp(1.1rem,4.2vw,1.35rem)] leading-snug text-ivory/85">Islam, Iman and Ihsan: climb them one stone at a time.</p>
+            <p className="mx-auto mt-4 max-w-[36ch] font-body text-[clamp(1.1rem,4.2vw,1.35rem)] leading-snug text-ivory/85">
+              Three levels of faith. Each gold seal is a lesson you can open.
+            </p>
           </motion.div>
 
-          <motion.div className="relative mx-auto mt-auto w-full max-w-[max(320px,min(620px,calc((100svh-500px)*1.14)))] pt-4" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1.3, ease: 'easeOut' }}>
+          <motion.div className="relative mx-auto mt-6 w-full max-w-[max(300px,min(640px,calc((100svh-440px)*1.33)))]" initial={{ opacity: 0, y: 24, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.25, duration: 1.4, ease: 'easeOut' }}>
             <Monument
-              className="relative z-10 -mb-5 w-full sm:-mb-8"
+              className="relative z-10 -mb-6 w-full sm:-mb-10"
               scenery={false}
               meters={c.meters}
               done={c.done}
@@ -302,7 +310,7 @@ function Landing() {
               start={placed ? c.current : undefined}
               recommended={placed ? next : undefined}
               selected={selected}
-              onSelect={(id) => setSelected((s) => (s === id ? null : id))}
+              onSelect={pick}
             />
           </motion.div>
         </div>
@@ -310,20 +318,76 @@ function Landing() {
           <Dunes />
           <div className="h-[64px] sm:h-[92px]" />
         </div>
-        <div className="relative bg-[#1d140d] px-5 pb-28 pt-2 sm:pb-10">
-          {Cta}
-          <p className="mx-auto mt-4 max-w-[40ch] text-center font-body text-[1rem] italic text-ivory/55">Gold-edged stones are ready. Tap one to open it.</p>
-        </div>
+        <div className="relative bg-[#1d140d] px-5 pb-12 pt-3">{Cta}</div>
       </section>
 
-      {(selected || placed) && (
-        <section className="bg-gradient-to-b from-[#1d140d] to-night px-5 pb-4 sm:px-8">
+      {placed && (
+        <section className="bg-[#1d140d] px-5 pb-6 sm:px-8">
           <div className="mx-auto max-w-[600px]">
-            <AnimatePresence>{selected && <UnitCard key={selected} id={selected} meter={c.meters[selected]} done={c.done[selected]} onClose={() => setSelected(null)} />}</AnimatePresence>
-            {placed && <ClimbCard c={c} stale={stale} />}
+            <ClimbCard c={c} stale={stale} />
           </div>
         </section>
       )}
+
+      {/* ── The three levels, peak first, every lesson named ── */}
+      <section className="bg-gradient-to-b from-[#1d140d] to-night px-5 pb-6 pt-6 sm:px-8" aria-labelledby="levels-heading">
+        <div className="mx-auto max-w-[900px]">
+          <h2 id="levels-heading" className="text-center font-display text-[1.6rem] font-semibold text-gold-hi">
+            What is inside
+          </h2>
+          <p className="mx-auto mt-1 max-w-[42ch] text-center font-body text-[1.1rem] italic text-ivory/65">Choose any lesson that is open. There is no order you must keep.</p>
+
+          <div className="mt-8 flex flex-col gap-6">
+            {levelsTopDown.map((level) => {
+              const inLevel = level.units.some((u) => u.id === selected);
+              return (
+                <article key={level.id} className="rounded-2xl border border-gold/20 bg-[linear-gradient(160deg,rgba(255,226,160,0.07),rgba(255,226,160,0.015))] p-5 sm:p-7">
+                  <div className="flex items-end justify-between gap-4 border-b border-gold/15 pb-4">
+                    <div>
+                      <div className="font-body text-[1rem] italic text-ivory/55">{PLACE[level.id]}</div>
+                      <h3 className="font-display text-[1.5rem] font-semibold leading-tight text-gold-hi">{level.title}</h3>
+                      <p className="mt-1 max-w-[46ch] font-body text-[1.05rem] leading-snug text-ivory/70">{say(level.meaning.split(':')[0])}</p>
+                    </div>
+                    <span lang="ar" dir="rtl" className="shrink-0 font-ruqaa text-[2.4rem] leading-none text-gold/80 sm:text-[3rem]">
+                      {level.arabic}
+                    </span>
+                  </div>
+                  <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+                    {level.units.map((u) => {
+                      const ready = unitStatus(u.id) !== 'soon';
+                      const m = c.meters[u.id] || 0;
+                      const on = selected === u.id;
+                      return (
+                        <li key={u.id}>
+                          <button
+                            type="button"
+                            onClick={() => pick(u.id)}
+                            aria-expanded={on}
+                            className={`flex min-h-[64px] w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition-colors ${
+                              on ? 'border-gold-hi bg-gold/15' : ready ? 'border-gold/35 bg-white/[0.03] hover:border-gold-hi/70 hover:bg-gold/10' : 'border-white/10 bg-transparent hover:border-white/25'
+                            }`}
+                          >
+                            <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-full ${ready ? 'bg-[radial-gradient(circle_at_35%_30%,#fff4cf,#e9b95a_55%,#a8711f)] shadow-[0_0_12px_rgba(240,199,104,0.45)]' : 'bg-[#5a3d1f]/70'}`}>
+                              {c.done[u.id] && <Icon name="check" className="h-3.5 w-3.5 text-[#3a2208]" />}
+                            </span>
+                            <span className="min-w-0">
+                              <span className={`block font-display text-[1rem] font-semibold leading-tight ${ready ? 'text-ivory' : 'text-ivory/50'}`}>{u.title}</span>
+                              <span className={`block font-body text-[0.98rem] leading-tight ${ready ? 'text-ivory/65' : 'text-ivory/40'}`}>
+                                {ready ? (m > 0 ? `${say(u.english)}, ${m}%` : say(u.english)) : 'Being written'}
+                              </span>
+                            </span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <AnimatePresence>{inLevel && <UnitCard key={selected} id={selected} meter={c.meters[selected]} done={c.done[selected]} onClose={() => setSelected(null)} />}</AnimatePresence>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <footer className="mx-auto max-w-[640px] px-5 pb-32 pt-10 text-center sm:pb-12">
         {mode && (
