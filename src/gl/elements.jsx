@@ -360,7 +360,7 @@ export function Card({ layer, beat, env, dissolve }) {
     u.haze.value = cfg.fog ?? 1;
     u.focus.value = e.focus;
     u.dof.value = cfg.focus === false ? 0 : e.dof;
-    u.light.value = e.light * (cfg.light ?? 1);
+    u.light.value = e.light * (typeof cfg.light === 'number' ? cfg.light : 1);
     u.sat.value = cfg.sat ?? 1;
     if (cfg.tint) {
       u.tint.value.set(cfg.tint[0]);

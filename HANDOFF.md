@@ -36,7 +36,9 @@ The web app is meant to have two parts:
 
 - Chapters 19–21 are placeholders on the map.
 - Each chapter has a "Between the stories" bridge page (`bridge` in chapter.json).
-- Latest change (v18): every distinct place has its own setting (`src/layers/interiors.jsx`, `tools/generators/rooms.py`).
+- Every distinct place has its own setting (`src/layers/interiors.jsx`, `tools/generators/rooms.py`); the same place may
+  look the same in later scenes. Since v31 all 192 scenes run on the WebGL stage: chapters 2–3 were rebuilt from their 2D
+  originals by `tools/generators/c2_3.py` (the originals are kept in `tools/generators/legacy2d/`).
 
 ## 4. Waiting on the user (do not decide these yourself)
 1. **How the Prophet Muhammad ﷺ is shown.** Recommendation given: never shown in any form. Chapter 19 is paused until they answer.
@@ -44,7 +46,7 @@ The web app is meant to have two parts:
 3. Deliberately left out (content rules), ask before adding: the Sabbath-breakers, the Companions of the Ditch, Ayyub's oath, Isa's return.
 
 ## 5. How to make changes
-1. Most chapters are written by Python generators in `tools/generators/` (`c8.py`–`c17.py`, `extras*.py`, `wisdom.py`, `s*.py` for Ch1–7). Edit the generator, not the JSON, or your edit is overwritten next run.
+1. Most chapters are written by Python generators in `tools/generators/` (`s*.py` for Ch1, `c2_3.py` for Ch2–3, `c8.py`–`c17.py`, `extras*.py`, `wisdom.py`; Ch4–7 have no generator here, so edit their JSON). Edit the generator, not the JSON, or your edit is overwritten next run.
 2. Run it from that folder: `python3 c10.py`, then **always** `python3 renum.py` (keeps scene numbers whole and part ranges right).
 3. Shared helpers: `base.py` (P(d, m) true scale, scene(), O()), `rooms.py` (one room per place), `bridges.py` (bridge pages), `chdoc.py N` (docs/CHAPTER-N).
 4. `npm run check` must show 0 errors.

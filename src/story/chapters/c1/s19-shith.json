@@ -21,8 +21,7 @@
     {"type": "light", "depth": 0.35, "pos": [690, 708], "h": 80, "color": "#fff1c8", "glow": 1.0, "bright": 1.5, "pose": "kneel"},
     {"type": "scroll", "depth": 0.35, "from": {"x": 780, "y": 612}, "to": {"x": 708, "y": 620}, "show": [2, null], "at": {"3": {"pass": true, "bright": true}}},
     {"type": "crowd", "ground": -726, "area": [-2000, 2000, -3000, -1000], "count": 34, "size": 110, "color": "#ffd8a0", "dim": 0.3, "glow": 0.6, "mill": 0, "speed": 0, "flicker": 0.15, "at": {"3": {"dim": 0.62}}, "orbit": {"center": [0, -1857], "radius": [1150, 420], "band": [0.5, 1], "speed": 0, "half": "front"}},
-    {"type": "dust", "box": [-1000, 300, -2600, 2600, 950, -1000], "count": 260, "size": 3, "color": "#ffd8a0", "opacity": 0.3, "wind": [2, -6, 0], "swirl": 40},
-    {"type": "calligraphy", "text": "شيث", "font": "ruqaa", "x": 690, "y": 540, "size": 54, "color": "#ffe8b0", "w": 200, "dur": 2200, "show": [1, null]}
+    {"type": "dust", "box": [-1000, 300, -2600, 2600, 950, -1000], "count": 260, "size": 3, "color": "#ffd8a0", "opacity": 0.3, "wind": [2, -6, 0], "swirl": 40}
   ],
   "beats": [
     {"dur": 7500, "cam": {"pos": [800, 520, 1100], "look": [800, 580, -3000]}, "say": "Adam grew old, and his children's children filled the valley."},

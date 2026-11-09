@@ -141,7 +141,7 @@ o18 = load('s18-shith.json')
 scroll = orig('s18-shith.json', 'scroll', depth=0.35)
 scroll['at'] = {k: {kk: vv for kk, vv in v.items() if kk != 'flood'} for k, v in scroll.get('at', {}).items()}
 scroll['at'] = {k: v for k, v in scroll['at'].items() if v}
-name = orig('s18-shith.json', 'calligraphy', depth=None)
+# (the name in calligraphy is left out: Arabic appears only when a verse is quoted)
 ground18 = round((450 - 704) * (1000 / 0.35) / 1000)
 fam = {'type': 'crowd', 'ground': ground18, 'area': [-2000, 2000, -3000, -1000], 'count': 34, 'size': 110, 'color': '#ffd8a0', 'dim': 0.3, 'glow': 0.6, 'mill': 0, 'speed': 0, 'flicker': 0.15,
        'at': {'3': {'dim': 0.62}}}
@@ -158,7 +158,6 @@ build('s18-shith.json',
     scroll,
     {**fam, 'orbit': {**ring, 'half': 'front'}},
     dust(box=(-1000, 300, -2600, 2600, 950, -1000), count=260, size=3, color='#ffd8a0', opacity=0.3, wind=(2, -6, 0)),
-    name,
   ],
   cams=[cam([800, 520, 1100], [800, 580, -3000]), cam([740, 525, 950], [720, 600, -3000]), cam([780, 525, 920], [760, 600, -3000]),
         cam([800, 520, 1000], [800, 590, -3000]), cam([800, 515, 1050], [800, 570, -3000]), cam([800, 500, 1100], [800, 500, -3000])])

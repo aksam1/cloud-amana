@@ -203,8 +203,10 @@ scene('luqman', 172.7, C, 'wisdom', "Luqman's Advice", 'وصية لقمان',
   layers=[
     {'type': 'set', 'show': [[0, 2], [3, None]], 'layers': [
       heav([[16.6, 17.4, 10000], [17.4, 18, 10000], None, [18, 18.8, 12000]]),
-      {'type': 'ridge', 'depth': 0.04, 'y': 620, 'amp': 40, 'seed': 1660, 'sharp': 0.3, 'color': '#8a8a7a', 'haze': 0.35, 'fog': 0.4},
-      {'type': 'ground', 'depth': 0.14, 'y': 690, 'amp': 10, 'seed': 1661, 'color': '#8a9a5a', 'color2': '#5a6a3a', 'grass': True, 'grassColor': '#a8b468'},
+      # Luqman's hillside: dry upland grass under far flat-topped hills (its own place, not the green hills of Galilee)
+      {'type': 'ridge', 'depth': 0.04, 'y': 610, 'amp': 60, 'seed': 1660, 'sharp': 0.12, 'color': '#9a8478', 'haze': 0.35, 'fog': 0.4},
+      {'type': 'ridge', 'depth': 0.08, 'y': 660, 'amp': 26, 'seed': 1664, 'sharp': 0.2, 'color': '#a8946a', 'haze': 0.25, 'fog': 0.3},
+      {'type': 'ground', 'depth': 0.14, 'y': 690, 'amp': 10, 'seed': 1661, 'color': '#aa9a62', 'color2': '#6e5e3a', 'grass': True, 'grassColor': '#c8b878'},
       {'type': 'tree', 'depth': 0.34, 'x': 940, 'y': 796, 'h': P(0.34, 8), 'kind': 'living', 'seed': 1662},
       light([840, FEET + 8], P(D, 1.65), depth=D, color='#fff0dc', glow=0.35, bright=1.1, solid=0.5, pose='kneel', at={'1': {'pose': 'raise'}}),
       light([960, FEET + 10], P(D, 1.3), depth=D, **dim, pose='kneel'),

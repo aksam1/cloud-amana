@@ -48,10 +48,12 @@ def heav(tods, sun=SUN, moon=MOON, horizon=630):
 
 
 def sinai(seed=1000):
+    # the wilderness of Sinai: bare granite ranges (grey-violet, sharp) over a pale gravel plain, kept apart from
+    # Madyan's red-brown hills (chapters 10-11)
     return [
-        {'type': 'ridge', 'depth': 0.04, 'y': 610, 'amp': 80, 'seed': seed, 'sharp': 0.7, 'color': '#8a5a4a', 'haze': 0.4, 'fog': 0.4},
-        {'type': 'ridge', 'depth': 0.08, 'y': 660, 'amp': 50, 'seed': seed + 1, 'sharp': 0.6, 'color': '#a8705a', 'haze': 0.3, 'fog': 0.3},
-        {'type': 'ground', 'depth': 0.14, 'y': 700, 'amp': 6, 'seed': seed + 2, 'color': '#c8a078', 'color2': '#9a7050'},
+        {'type': 'ridge', 'depth': 0.04, 'y': 600, 'amp': 96, 'seed': seed, 'sharp': 0.8, 'color': '#6e6274', 'haze': 0.4, 'fog': 0.4},
+        {'type': 'ridge', 'depth': 0.08, 'y': 660, 'amp': 50, 'seed': seed + 1, 'sharp': 0.65, 'color': '#9a8486', 'haze': 0.3, 'fog': 0.3},
+        {'type': 'ground', 'depth': 0.14, 'y': 700, 'amp': 6, 'seed': seed + 2, 'color': '#d8c8a8', 'color2': '#a8987a', 'rocks': 8},
     ]
 
 

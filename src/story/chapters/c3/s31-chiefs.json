@@ -11,34 +11,21 @@
   "ambient": ["crowd", "wind"],
   "base": "#b89868",
   "captions": "parchment",
-  "focus": 0.9,
-  "dissolve": 2000,
-  "cam": { "x": 0, "y": 0, "z": 1 },
+  "renderer": "gl",
+  "dissolve": 2400,
+  "world": {"fog": "#d8c8a8", "fogNear": 6000, "fogFar": 40000, "light": 1.0, "rays": 0, "bloom": 0.65, "haze": 0.04, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 450, 1050], "look": [800, 450, -3000]},
   "imagePrompt": "A grand Troy-style terrace of marble and bronze above a town square, tall columns hung with rich deep-red cloths; seen from behind, several large figures of dim, heavy, smoky amber light recline on couches at the balustrade, draped in glowing cloth, looking down; far below in the square a figure of steady white-gold light stands with a small group of humble white lights holding plain tools; their words drift up in heavy ornate calligraphy that drips like wax; then the reverse, a low angle from the square looking up at the terrace against the sky where the chiefs look hollow and dim, while clean steady white calligraphy rises from the figure of light below; ink-wash and parchment texture, no faces.",
   "layers": [
-    { "type": "sky", "depth": 0.05, "show": [0, 2], "stops": [[0, "#b8c8d4"], [0.1, "#d8d0bc"], [0.13, "#c4a272"], [1, "#d6b68c"]] },
-    { "type": "town", "show": [0, 2], "depth": 0.55, "grade": "city", "y": 176, "x0": -300, "x1": 1900, "s": 0.45, "seed": 74, "grey": 0.15 },
-    { "type": "figure", "show": [0, 2], "depth": 0.6, "x": 800, "y": 320, "h": 30, "color": "#fffaf0", "glow": 1.7 },
-    { "type": "followers", "show": [0, 2], "depth": 0.6, "x": 800, "y": 324, "count": 6, "size": 24, "gap": 21, "tools": true },
-    { "type": "calligraphy", "show": [1, 2], "depth": 0.75, "ref": "11:27", "ar": [6, 10], "x": 800, "y": 250, "size": 60, "color": "#d89040", "w": 760, "dur": 3200, "drip": true },
-    { "type": "terrace", "show": [0, 2], "depth": 1, "view": "behind", "y": 430, "chiefs": [[380, 568, 1.1], [600, 592, 0.95], [1000, 592, 0.95], [1220, 568, 1.1]] },
-
-    { "type": "sky", "depth": 0.05, "show": [2, null], "stops": [[0, "#4e6e96"], [0.6, "#a4b4c4"], [1, "#d4ccbc"]] },
-    { "type": "terrace", "show": [2, null], "depth": 0.8, "view": "below", "y": 340, "marble": "#9a948a", "chiefs": [[600, 312, 0.55], [820, 302, 0.5], [1040, 308, 0.52], [1250, 314, 0.55]] },
-    { "type": "calligraphy", "show": [3, null], "depth": 0.85, "ref": "11:28", "ar": [1, 8], "x": 900, "y": 160, "size": 50, "color": "#fffaf0", "w": 700, "dur": 3600 },
-    { "type": "ground", "show": [2, null], "depth": 1, "y": 700, "amp": 2, "seed": 4, "color": "#b89a6c", "color2": "#7a5e3c" },
-    { "type": "followers", "show": [2, null], "depth": 1, "x": 560, "y": 646, "count": 6, "size": 62, "side": -1, "gap": 40, "tools": true },
-    { "type": "figure", "show": [2, null], "depth": 1, "x": 560, "y": 640, "h": 110, "color": "#fffaf0", "glow": 1.5 },
-    { "type": "particles", "depth": 0.7, "kind": "dust", "count": 40 }
+    {"type": "set", "show": [0, 2], "layers": [{"type": "heavens", "horizon": 120, "tod": [10, 10.5, 6500], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 260, "size": 34}, "at": {"1": {"tod": [10.5, 11.2, 9000]}}}, {"type": "ground", "depth": 0.16, "y": 176, "amp": 2, "seed": 74, "x0": -900, "x1": 2500, "color": "#b89a6c", "color2": "#8a6e4a", "area": [-800, 116, 2400, 2600]}, {"type": "town", "depth": 0.161, "grade": "city", "y": 176, "x0": -300, "x1": 1900, "s": 0.45, "seed": 74, "grey": 0.15}, {"type": "crowd", "area": [-100, 1700, -4882, -4263], "y": [380, 300], "count": 30, "size": 46, "mill": 14, "speed": 0, "color": "#ffd8a0", "glow": 0.12, "dim": 0.35, "flicker": 0.15, "seed": 31}, {"type": "light", "depth": 0.18, "pos": [800, 330], "h": 30, "color": "#fffaf0", "glow": 0.6, "bright": 1.3, "solid": 0.5}, {"type": "light", "depth": 0.18, "pos": [778, 334], "h": 24, "color": "#ffeed4", "glow": 0.3, "bright": 1.0, "solid": 0.5}, {"type": "light", "depth": 0.18, "pos": [758, 334], "h": 24, "color": "#ffeed4", "glow": 0.3, "bright": 1.0, "solid": 0.5}, {"type": "light", "depth": 0.18, "pos": [738, 334], "h": 24, "color": "#ffeed4", "glow": 0.3, "bright": 1.0, "solid": 0.5}, {"type": "light", "depth": 0.18, "pos": [822, 334], "h": 24, "color": "#ffeed4", "glow": 0.3, "bright": 1.0, "solid": 0.5}, {"type": "light", "depth": 0.18, "pos": [842, 334], "h": 24, "color": "#ffeed4", "glow": 0.3, "bright": 1.0, "solid": 0.5}, {"type": "light", "depth": 0.18, "pos": [862, 334], "h": 24, "color": "#ffeed4", "glow": 0.3, "bright": 1.0, "solid": 0.5}, {"type": "terrace", "depth": 0.5, "view": "behind", "y": 430, "chiefs": [[380, 568, 1.1], [600, 592, 0.95], [1000, 592, 0.95], [1220, 568, 1.1]], "ppu": 0.9}, {"type": "dust", "box": [-1400, -400, -6000, 3000, 950, 600], "count": 200, "size": 2.4, "color": "#fff0d8", "opacity": 0.22, "wind": [3, -1, 0], "swirl": 40}]},
+    {"type": "set", "show": [2, null], "dx": 9000, "layers": [{"type": "heavens", "horizon": 650, "tod": [11.2, 11.6, 5500], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 260, "size": 34}, "at": {"3": {"tod": [11.6, 12.4, 9500]}}}, {"type": "terrace", "depth": 0.2, "view": "below", "y": 340, "marble": "#9a948a", "chiefs": [[600, 312, 0.55], [820, 302, 0.5], [1040, 308, 0.52], [1250, 314, 0.55]], "ppu": 0.9}, {"type": "ground", "depth": 0.48, "y": 700, "amp": 2, "seed": 4, "x0": -900, "x1": 2500, "color": "#b89a6c", "color2": "#7a5e3c", "area": [-800, 640, 2400, 2600]}, {"type": "light", "depth": 0.5, "pos": [520, 708], "h": 128, "color": "#ffeed4", "glow": 0.12, "bright": 0.9, "solid": 0.55}, {"type": "light", "depth": 0.49, "pos": [470, 704], "h": 125, "color": "#ffeed4", "glow": 0.12, "bright": 0.9, "solid": 0.55}, {"type": "light", "depth": 0.495, "pos": [425, 706], "h": 126, "color": "#ffeed4", "glow": 0.12, "bright": 0.9, "solid": 0.55}, {"type": "light", "depth": 0.485, "pos": [380, 702], "h": 124, "color": "#ffeed4", "glow": 0.12, "bright": 0.9, "solid": 0.55}, {"type": "light", "depth": 0.49, "pos": [340, 704], "h": 125, "color": "#ffeed4", "glow": 0.12, "bright": 0.9, "solid": 0.55}, {"type": "light", "depth": 0.48, "pos": [300, 700], "h": 122, "color": "#ffeed4", "glow": 0.12, "bright": 0.9, "solid": 0.55}, {"type": "light", "depth": 0.5, "pos": [600, 708], "h": 128, "color": "#fffaf0", "glow": 0.2, "bright": 1.0, "solid": 0.5}, {"type": "dust", "box": [-1400, -400, -6000, 3000, 950, 600], "count": 200, "size": 2.4, "color": "#fff0d8", "opacity": 0.22, "wind": [3, -1, 0], "swirl": 40}]},
+    {"type": "calligraphy", "show": [1, 2], "ref": "11:27", "ar": [6, 10], "x": 800, "y": 250, "size": 60, "color": "#d89040", "w": 760, "dur": 3200, "drip": true},
+    {"type": "calligraphy", "show": [3, null], "ref": "11:28", "ar": [1, 8], "x": 900, "y": 160, "size": 50, "color": "#fffaf0", "w": 700, "dur": 3600}
   ],
   "beats": [
-    { "dur": 6500, "ambient": ["crowd", "wind"], "cam": { "x": 0, "y": 0, "z": 1 },
-      "say": "From their terrace, the chiefs of his people looked down on Nuh and the few who followed him." },
-    { "dur": 9000, "ambient": ["jeer", "wind"], "cam": { "z": 1.04 },
-      "verse": { "ref": "11:27", "ar": [6, 17], "place": "lower", "en": "\"We do not see you but as a man like ourselves, and we do not see you followed except by those who are the lowest of us…\"" } },
-    { "dur": 5500, "ambient": ["wind"], "cam": { "x": 0, "y": 0, "z": 1, "cut": true },
-      "say": "Nuh answered them calmly." },
-    { "dur": 9500, "ambient": ["wind", "voice"], "cam": { "y": 20, "z": 1.04 },
-      "verse": { "ref": "11:28", "ar": [1, 8], "place": "lower", "en": "\"O my people have you considered: if I should be upon clear evidence from my Lord…" } }
+    {"dur": 6500, "ambient": ["crowd", "wind"], "cam": {"pos": [800, 450, 1000], "look": [800, 450, -3000]}, "say": "From their terrace, the chiefs of his people looked down on Nuh and the few who followed him."},
+    {"dur": 9000, "ambient": ["jeer", "wind"], "cam": {"pos": [800, 445, 900], "look": [800, 440, -3000]}, "verse": {"ref": "11:27", "ar": [6, 17], "place": "lower", "en": "\"We do not see you but as a man like ourselves, and we do not see you followed except by those who are the lowest of us…\""}},
+    {"dur": 5500, "ambient": ["wind"], "cam": {"pos": [760, 520, 700], "look": [680, 684, -1000.0], "dx": 9000, "cut": true}, "say": "Nuh answered them calmly."},
+    {"dur": 9500, "ambient": ["wind", "voice"], "cam": {"pos": [760, 520, 660], "look": [675, 706, -1000.0], "dx": 9000}, "verse": {"ref": "11:28", "ar": [1, 8], "place": "lower", "en": "\"O my people have you considered: if I should be upon clear evidence from my Lord…"}}
   ]
 }

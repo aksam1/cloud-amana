@@ -11,28 +11,26 @@
   "ambient": ["water", "air"],
   "base": "#cfdce4",
   "captions": "parchment",
-  "focus": 0.9,
-  "dissolve": 2200,
-  "cam": { "x": 0, "y": 0, "z": 1 },
+  "renderer": "gl",
+  "dissolve": 2400,
+  "world": {"fog": "#d8e0e4", "fogNear": 6000, "fogFar": 46000, "light": 1.0, "rays": 0, "bloom": 0.7, "haze": 0, "hazeY": 0.6, "shake": 0.2, "dof": 0},
+  "cam": {"pos": [800, 450, 1150], "look": [1000, 753, -9000.0]},
   "imagePrompt": "Total stillness after the storm: a soft pale morning sky over a vast flat sea that reflects it like a mirror, a small wooden ship floating alone; then the water slowly sinks away, mountain tops appearing above the surface, then ridges, then valleys, until the ship comes to rest gently on a high mountain; a wide view of the ship on the summit framed by clouds clearing in layered ink-wash strokes, a single bird flying out from it across the sky; soft pale blue, silver and white turning to warm green returning to the land, parchment texture.",
   "layers": [
-    { "type": "sky", "depth": 0.05, "shift": 4000, "stops": [[0, "#9ab8d0"], [0.6, "#dce6ea"], [1, "#f4ecdc"]], "at": { "2": { "stops": [[0, "#86b2d8"], [0.6, "#e2ecdc"], [1, "#f8ecd0"]] } } },
-    { "type": "clouds", "depth": 0.15, "y": 150, "count": 8, "color": "#eef2f4", "scale": 1.6, "spanY": 160, "seed": 61, "at": { "2": { "part": true, "partDelay": 600 } } },
-    { "type": "range", "count": 3, "y": [560, 650], "amp": [80, 120], "depth": [0.3, 0.6], "colors": ["#7a9488", "#4a6a54"], "haze": [0.2, 0.5], "sharp": 0.5, "edge": false, "seed": 67 },
-    { "type": "ground", "depth": 0.85, "y": 770, "amp": 14, "seed": 31, "x1": 3200, "color": "#5a7a4a", "color2": "#2e4a2a", "grass": 30, "grassColor": "#7a9a5a" },
-    { "type": "peak", "depth": 0.75, "x": 820, "y": 470, "w": 520, "h": 420, "color": "#3e5048", "lit": "#9ab0a0", "seed": 7 },
-    { "type": "flood", "depth": 0.75, "level": 360, "from": 360, "calm": true, "color": "#c8d6de", "deep": "#8aa0ae", "ark": { "x": 820, "floor": 470, "s": 0.4, "tone": ["#cfdce4", 0.12] },
-      "at": { "1": { "level": 1000, "dur": 9500 } } },
-    { "type": "animals", "show": [2, null], "depth": 0.6, "fade": "none",
-      "pairs": [{ "kind": "bird", "solo": true, "path": [[820, 400, 0.7], [1000, 300, 0.7], [1300, 190, 0.6], [1800, 130, 0.5]], "dur": 7000, "delay": 1400 }] },
-    { "type": "tint", "depth": 0, "show": [2, null], "color": "#a8d090", "amount": 0.1, "blend": "soft-light" }
+    {"type": "heavens", "horizon": 640, "tod": [6.6, 7.2, 6500], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 260, "size": 34}, "at": {"1": {"tod": [7.2, 8.4, 10500]}, "2": {"tod": [8.4, 9.4, 8500]}}},
+    {"type": "clouds", "depth": 0.05, "y": 150, "count": 8, "color": "#eef2f4", "scale": 1.6, "spanY": 160, "seed": 61, "at": {"2": {"part": true, "partDelay": 600}}},
+    {"type": "range", "count": 3, "y": [560, 650], "amp": [80, 120], "depth": [0.04, 0.08], "colors": ["#7a9488", "#4a6a54"], "haze": [0.2, 0.5], "sharp": 0.5, "edge": false, "seed": 67},
+    {"type": "ground", "depth": 0.09, "y": 700, "amp": 14, "seed": 31, "x0": -900, "x1": 2500, "color": "#5a7a4a", "color2": "#2e4a2a", "grass": 30, "grassColor": "#7a9a5a", "area": [-800, 640, 2400, 2600]},
+    {"type": "peak", "depth": 0.1, "x": 820, "y": 470, "w": 520, "h": 420, "color": "#3e5048", "lit": "#9ab0a0", "seed": 7},
+    {"type": "flood", "depth": 0.10400000000000001, "level": 360, "from": 360, "calm": true, "color": "#c8d6de", "deep": "#8aa0ae", "x0": -900, "x1": 2500, "area": [-800, 320, 2400, 1800], "at": {"1": {"move": {"path": [[0, 1000, 0]], "dur": 9500}}, "2": {"move": {"path": [[0, 1000, 0]], "dur": 1}}}},
+    {"type": "ark", "depth": 0.10600000000000001, "x": 820, "y": 384, "s": 0.4, "built": 3, "tone": ["#cfdce4", 0.12], "ppu": 1.2, "at": {"1": {"move": {"path": [[0, 86, 0]], "dur": 1900}}, "2": {"move": {"path": [[0, 86, 0]], "dur": 1}}}},
+    {"type": "light", "kind": "bird", "show": [2, null], "h": 12, "color": "#fffaf0", "glow": 0.6, "bright": 1.4, "dur": 7000, "delay": 1400, "path": [[820, 440, -8434], [1000, 320, -9000], [1300, 200, -10111], [1800, 130, -11500]]},
+    {"type": "dust", "box": [-1400, -200, -9000, 3000, 950, 600], "count": 260, "size": 2.4, "color": "#ffffff", "opacity": 0.22, "wind": [3, -1, 0], "swirl": 40},
+    {"type": "tint", "show": [2, null], "color": "#a8d090", "amount": 0.1, "blend": "soft-light"}
   ],
   "beats": [
-    { "dur": 6500, "ambient": ["water", "air"], "cam": { "x": 0, "y": 0, "z": 1 },
-      "say": "Then the storm was gone, and the sea lay still as a mirror." },
-    { "dur": 10500, "ambient": ["water", "air"], "cam": { "x": 0, "y": 40, "z": 1 },
-      "verse": { "ref": "11:44", "ar": [0, 12], "place": "lower", "en": "And it was said, \"O earth, swallow your water, and O sky, withhold [your rain].\" And the water subsided, and the matter was accomplished, and the ship came to rest on the [mountain of] Judiyy…" } },
-    { "dur": 8500, "ambient": ["birds", "air"], "sfx": { "name": "call", "at": 1600 }, "cam": { "x": 0, "y": 30, "z": 0.96 },
-      "say": "A single bird flew out from the ship across the clearing sky." }
+    {"dur": 6500, "ambient": ["water", "air"], "cam": {"pos": [800, 450, 1050], "look": [1000, 749, -9000.0]}, "say": "Then the storm was gone, and the sea lay still as a mirror."},
+    {"dur": 10500, "ambient": ["water", "air"], "cam": {"pos": [800, 450, 1000], "look": [1000, 1554, -9000.0]}, "verse": {"ref": "11:44", "ar": [0, 12], "place": "lower", "en": "And it was said, \"O earth, swallow your water, and O sky, withhold [your rain].\" And the water subsided, and the matter was accomplished, and the ship came to rest on the [mountain of] Judiyy…"}},
+    {"dur": 8500, "ambient": ["birds", "air"], "sfx": {"name": "call", "at": 1600}, "world": {"rays": 0.35}, "cam": {"pos": [800, 450, 1100], "look": [1598, 861, -9000.0]}, "say": "A single bird flew out from the ship across the clearing sky."}
   ]
 }

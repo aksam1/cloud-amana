@@ -33,11 +33,14 @@ dim = dict(color='#ecc49a', glow=0.3, bright=0.95, solid=0.6)
 
 
 def canaan(lit=True):
+    # Yaqub's camp: upland pasture under a long saw-edged ridge, rolling nearer hills, a few trees
+    # (its own place: not Ibrahim's camp of chapter 8, which keeps the 300-seed hills)
     return [
-        {'type': 'ridge', 'depth': 0.05, 'y': 630, 'amp': 50, 'seed': 300, 'sharp': 0.3, 'color': '#7a8070', 'haze': 0.35, 'fog': 0.4},
-        {'type': 'ground', 'depth': 0.12, 'y': 668, 'amp': 18, 'seed': 301, 'color': '#6a7a4a', 'color2': '#4a5a32', 'grass': True, 'grassColor': '#8a9a58'},
-        {'type': 'tree', 'depth': 0.16, 'x': 250, 'y': 692, 'h': 160, 'kind': 'living', 'seed': 302},
-        {'type': 'tree', 'depth': 0.17, 'x': 1390, 'y': 696, 'h': 170, 'kind': 'living', 'seed': 303},
+        {'type': 'ridge', 'depth': 0.045, 'y': 612, 'amp': 84, 'seed': 320, 'sharp': 0.55, 'color': '#76786c', 'haze': 0.35, 'fog': 0.4},
+        {'type': 'ridge', 'depth': 0.08, 'y': 648, 'amp': 36, 'seed': 321, 'sharp': 0.2, 'color': '#8a8a60', 'haze': 0.2, 'fog': 0.25},
+        {'type': 'ground', 'depth': 0.12, 'y': 668, 'amp': 18, 'seed': 322, 'color': '#7a8048', 'color2': '#4e5630', 'grass': True, 'grassColor': '#9aa262'},
+        {'type': 'tree', 'depth': 0.16, 'x': 470, 'y': 692, 'h': 150, 'kind': 'living', 'seed': 323},
+        {'type': 'tree', 'depth': 0.165, 'x': 1560, 'y': 694, 'h': 190, 'kind': 'living', 'seed': 324},
     ]
 
 

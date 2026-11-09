@@ -19,9 +19,9 @@
   "imagePrompt": "A desert camp at night between braziers, a calf cast of gold standing on the sand, crowds of warm lights pressing around it and a cold grey light beside it; at the edge a steady light raising his arm, pleading; ink-wash and parchment texture.",
   "layers": [
     {"type": "heavens", "horizon": 640, "tod": [21, 22, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [22, 23, 10000]}, "2": {"tod": [23, 23.6, 10000]}, "3": {"tod": [23.6, 24, 12000]}}},
-    {"type": "ridge", "depth": 0.04, "y": 610, "amp": 80, "seed": 1040, "sharp": 0.7, "color": "#8a5a4a", "haze": 0.4, "fog": 0.4},
-    {"type": "ridge", "depth": 0.08, "y": 660, "amp": 50, "seed": 1041, "sharp": 0.6, "color": "#a8705a", "haze": 0.3, "fog": 0.3},
-    {"type": "ground", "depth": 0.14, "y": 700, "amp": 6, "seed": 1042, "color": "#c8a078", "color2": "#9a7050"},
+    {"type": "ridge", "depth": 0.04, "y": 600, "amp": 96, "seed": 1040, "sharp": 0.8, "color": "#6e6274", "haze": 0.4, "fog": 0.4},
+    {"type": "ridge", "depth": 0.08, "y": 660, "amp": 50, "seed": 1041, "sharp": 0.65, "color": "#9a8486", "haze": 0.3, "fog": 0.3},
+    {"type": "ground", "depth": 0.14, "y": 700, "amp": 6, "seed": 1042, "color": "#d8c8a8", "color2": "#a8987a", "rocks": 8},
     {"type": "tent", "depth": 0.2, "x": 300, "y": 732, "w": 240, "h": 72, "lit": false, "ppu": 0.9},
     {"type": "tent", "depth": 0.21, "x": 1300, "y": 736, "w": 252, "h": 76, "lit": true, "ppu": 0.9},
     {"type": "tent", "depth": 0.26, "x": 520, "y": 760, "w": 312, "h": 94, "lit": true, "ppu": 0.9},

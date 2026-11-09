@@ -29,6 +29,9 @@ ColorManagement.enabled = false;
 const NATIVE = { light: Light, crowd: Crowd, dust: Dust, ribbons: Ribbons, cloth: Cloth, storm: Storm, heavens: Heavens, fire: Fire, masonry: Masonry, spring: Spring, cosmos: Cosmos, globe: Globe };
 // Layers that stay flat on the screen above the 3D world: writing, flashes, colour washes.
 const OVERLAY = new Set(['calligraphy', 'lightning', 'tint', 'particles', 'inkdrop', 'guidance', 'jeers', 'numerals', 'flash']);
+// Drawn flat on screen above the world, live: the overlay types, and any 2D painter marked `flat` (a
+// full-frame close-up whose own animation is the point: a pen writing, a needle stitching, an oven welling).
+const onScreen = (l) => OVERLAY.has(l.type) || l.flat === true;
 
 /** The world for a beat: the scene's `world`, with each beat's `world` changes applied in turn. */
 function worldAt(scene, beat) {
@@ -220,15 +223,15 @@ function Composer({ rays, sun, target, env }) {
  * can appear the moment it is reached instead of waiting on a blank stage.
  */
 export function prepaint(scene, beat = 0) {
-  const cards = expandLayers(scene.layers).filter((l) => !OVERLAY.has(l.type) && !GL_TYPES.includes(l.type) && visibleAt(l, beat));
+  const cards = expandLayers(scene.layers).filter((l) => !onScreen(l) && !GL_TYPES.includes(l.type) && visibleAt(l, beat));
   return Promise.all(cards.map((l) => captureLayer(resolveLayer(l, beat), areaOf(l), l.ppu ?? 0.7)));
 }
 
 export default function GLStage({ scene, beat, start = beat, still = false, moment = 1, reduced = false, durations }) {
   const layers = useMemo(() => expandLayers(scene.layers), [scene]);
-  const cards = useMemo(() => layers.filter((l) => !OVERLAY.has(l.type) && !GL_TYPES.includes(l.type)), [layers]);
+  const cards = useMemo(() => layers.filter((l) => !onScreen(l) && !GL_TYPES.includes(l.type)), [layers]);
   const native = useMemo(() => layers.filter((l) => GL_TYPES.includes(l.type)), [layers]);
-  const overlay = useMemo(() => ({ ...scene, base: 'transparent', layers: layers.filter((l) => OVERLAY.has(l.type)) }), [scene, layers]);
+  const overlay = useMemo(() => ({ ...scene, base: 'transparent', layers: layers.filter(onScreen) }), [scene, layers]);
   // one light source streams god-rays at a time: the sun of the shot on screen
   const [shown, setShown] = useState(beat);
   const sunLayer = native.find((l) => l.type === 'sun' && visibleAt(l, shown)) ?? native.find((l) => l.type === 'sun');

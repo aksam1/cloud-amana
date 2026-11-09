@@ -126,8 +126,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   came back clean; keep it that way (decorative meters are aria-hidden, tap targets 44 px).
 - Phones get the menu as a bottom tab bar (`Nav.jsx`, fixed): every page using it needs `pb-28 sm:pb-6`.
 - Story stills (`src/assets/previews/*.webp`, 800×450) are captured from the scenes: canvas-only screenshot of
-  `#/scene/<id>?beat=n&still` in headless Chrome (hide everything but canvas). 2D scenes (chapters 2–3) come out
-  black that way; use GL scenes.
+  `#/scene/<id>?beat=n&still` in headless Chrome (hide everything but canvas). Every scene is a GL scene now.
 - The published page (`scripts/publish.mjs` → deploy/index.html) must start with `<!DOCTYPE html>`.
 
 ## Reviewing scenes (do this for every beat)
@@ -210,7 +209,9 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   give the later beats its end state (`path: [[end]]`, `dur: 1`), as The Morning does.
 - Overlays stay flat on screen above the 3D world: calligraphy, guidance, jeers, numerals, lightning,
   tint, particles, inkdrop, flash (`OVERLAY` in `src/gl/GLStage.jsx`). Position them where the subject appears
-  for that beat's camera, and keep the camera still while they play.
+  for that beat's camera, and keep the camera still while they play. Any 2D painter marked `"flat": true` is
+  drawn there too, live: a full-frame close-up whose own animation is the point (the pen writing, the needle
+  stitching, the woodwork, the oven welling in chapters 2–3).
 - Montage: a `set` layer groups a shot's layers, composed as if from the reference camera, and stands
   them `dx` across / `dz` along; a beat's `cam` with the same `dx`/`dz` frames it. Give each set a `show`
   range ending where the next set begins. Changing set dissolves: the stage waits (up to 3 s) until the
@@ -234,7 +235,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   beat (a scene with god-rays in any beat keeps them, at weight 0 where a beat has none).
 - A camera's `look` (and `pos`) y is not scaled by depth: to aim at something standing at design y on a
   card at depth d (z = 1000 − 1000/d), look at y' = 450 + (y − 450) × (1000 − z) / 1000.
-- A card's own `fade` is a number (ms); a painter's `fade` word ("none", "out") is passed to the painter.
+- A card's own `fade` is a number (ms); a painter's `fade` word ("none", "out") is passed to the painter. The same
+  for `light`: a number is the card's light, a word (a town's "left", the waves' highlight colour) the painter's.
 - Thamud's land (`src/layers/hijr.jsx`): `outcrop` (sandstone with carved `homes`, lamps `lit`, a `rift`
   of light), `shecamel` (only as light; poses stand, walk, drink, kneel) and `well` (`trough`, `frame`).
 - `animals` (`src/layers/creatures.jsx`) also draws `cow` and `leancow` (ribs showing: the king's dream); for
@@ -283,7 +285,11 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - A shader's clock (`clock.elapsedTime`) can be very large in a still or after long play: never let it push
   a threshold that should settle (the globe's lights once switched off for good as it turned).
 - Chapter 1 was rebuilt for the GL stage keeping each scene's words, verses and timing; its old 2D
-  compositions are in git history.
+  compositions are in git history. Chapters 2–3 likewise: `tools/generators/c2_3.py` reads the 2D originals kept in
+  `tools/generators/legacy2d/` and composes each scene anew in true scale (`W`, `frame`, `at` in that file place
+  cameras and overlays by numbers). Their places: Adam's valley (scene 20, as chapter 1's), the lands of scene 21,
+  Idris's street, room, market and summit, the town of the five and the statues (26–30, one square), the hill
+  above it, the chiefs' terrace, the plain of the ark, the flood, the sea, al-Judi, the new earth.
 - A `dust` box is in world units ([x − 800, 450 − y, z], not scaled by depth): to fill the air over a far
   city (depth 0.1, z −9000) its x and y spans must be ten times wider, and `size` large (points shrink with
   distance).
