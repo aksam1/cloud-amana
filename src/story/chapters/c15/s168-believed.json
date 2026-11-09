@@ -21,7 +21,7 @@
     {"type": "heavens", "horizon": 630, "tod": [7, 8.4, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [8.4, 9.6, 10000]}, "2": {"tod": [9.6, 10.6, 12000]}}},
     {"type": "ridge", "depth": 0.04, "y": 620, "amp": 30, "seed": 1220, "sharp": 0.3, "color": "#9a8a7a", "haze": 0.4, "fog": 0.4},
     {"type": "town", "depth": 0.12, "y": 690, "x0": 0, "x1": 1600, "s": 0.6, "grade": "city", "lit": 0.4, "haze": "#b8a898", "seed": 1221},
-    {"type": "facade", "depth": 0.18, "x": 800, "y": 720, "w": 1620, "h": 270, "gate": {"w": 108, "h": 162}, "towers": true, "stone": "#c8b498", "ppu": 0.8},
+    {"type": "facade", "depth": 0.18, "x": 800, "y": 720, "w": 1620, "h": 270, "gate": {"w": 108, "h": 162}, "towers": true, "stone": "#a87c5c", "ppu": 0.8},
     {"type": "ground", "depth": 0.22, "y": 742, "amp": 4, "seed": 1222, "color": "#a89878", "color2": "#7a6a52"},
     {"type": "crowd", "area": [-400, 2000, -3600, -1700], "y": [792, 744], "count": 700, "size": 76, "color": "#ffe0b0", "dim": 0.5, "glow": 0.08, "mill": 4, "speed": 0, "flicker": 0.05, "at": {"1": {"dim": 0.25, "glow": 0.15}, "2": {"dim": 0.2, "glow": 0.18}}},
     {"type": "light", "depth": 0.44, "pos": [800, 806], "h": 112, "color": "#fffaf0", "glow": 0.35, "bright": 1.1, "solid": 0.5, "pose": "walk", "path": [[600, 810], [800, 806]], "dur": 8000},

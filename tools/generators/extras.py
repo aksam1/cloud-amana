@@ -225,7 +225,10 @@ scene('qarun', 136.5, 13, 'musa', "Qarun's Treasure", 'كنوز قارون',
     heav([[10, 11, 10000], [11, 12, 10000], [12, 12.6, 10000], [12.6, 13.4, 12000]]),
     {'type': 'ridge', 'depth': 0.04, 'y': 610, 'amp': 70, 'seed': 1520, 'sharp': 0.6, 'color': '#8a5a4a', 'haze': 0.4, 'fog': 0.4},
     {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 100, 'x1': 1500, 's': P(0.12, 1) / 30, 'grade': 'town', 'lit': 0.2, 'haze': '#c8a888', 'seed': 1521},
-    {'type': 'facade', 'depth': 0.28, 'x': 980, 'y': 776, 'w': P(0.28, 18), 'h': P(0.28, 9), 'gate': {'w': P(0.28, 3.2), 'h': P(0.28, 4.4)}, 'towers': True, 'stone': '#f0e0c0', 'ppu': 0.8,
+    # Qarun's house: a long, low mansion of gilded stone with lit arched doorways (not a town gate: Pharaoh's towered
+    # palace and Dhul-Kifl's gate are other places)
+    {'type': 'facade', 'depth': 0.28, 'x': 980, 'y': 776, 'w': P(0.28, 22), 'h': P(0.28, 6.5), 'stone': '#e8c890', 'ppu': 0.8,
+     'doors': [{'x': x, 'w': P(0.28, 1.6), 'h': P(0.28, 3.2), 'lit': True} for x in (720, 850, 980, 1110, 1240)],
      'at': {'2': {'move': {'path': [[0, 0, 0], [0, 30, 0], [0, 700, 0]], 'dur': 6000, 'delay': 800}}, '3': {'move': {'path': [[0, 700, 0]], 'dur': 1}}}},
     *gold,
     {'type': 'ground', 'depth': 0.29, 'y': 780, 'amp': 4, 'seed': 1522, 'x0': -900, 'x1': 2500, 'color': '#c8a078', 'color2': '#9a7050'},

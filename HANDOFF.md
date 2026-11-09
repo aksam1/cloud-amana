@@ -47,6 +47,7 @@ The web app is meant to have two parts:
 
 ## 5. How to make changes
 1. Most chapters are written by Python generators in `tools/generators/` (`s*.py` for Ch1, `c2_3.py` for Ch2–3, `c8.py`–`c17.py`, `extras*.py`, `wisdom.py`; Ch4–7 have no generator here, so edit their JSON). Edit the generator, not the JSON, or your edit is overwritten next run.
+   Scene 1 (`s01-heavens.json`) was refined by hand after its generator: do not re-run `s01_06.py` over it.
 2. Run it from that folder: `python3 c10.py`, then **always** `python3 renum.py` (keeps scene numbers whole and part ranges right).
 3. Shared helpers: `base.py` (P(d, m) true scale, scene(), O()), `rooms.py` (one room per place), `bridges.py` (bridge pages), `chdoc.py N` (docs/CHAPTER-N).
 4. `npm run check` must show 0 errors.

@@ -88,7 +88,9 @@ scene('kifl', 141, 'dhulkifl', 'Dhul-Kifl', 'ذو الكفل',
     heav([[16, 17.6, 10000], [6, 18, 12000, 6], [18.4, 19.6, 12000]]),
     *judea(1100),
     {'type': 'town', 'depth': 0.14, 'y': 700, 'x0': 100, 'x1': 1500, 's': P(0.14, 1) / 30, 'grade': 'town', 'lit': 0.3, 'haze': '#b8a898', 'seed': 1103},
-    {'type': 'facade', 'depth': 0.34, 'x': 800, 'y': 790, 'w': P(0.34, 16), 'h': P(0.34, 7), 'gate': {'w': P(0.34, 3.6), 'h': P(0.34, 5)}, 'towers': True, 'stone': '#d8c8a8', 'ppu': 0.8},
+    # the town gate where he sat to judge: a plain gateway in a wall of grey limestone, no towers (Pharaoh's palace and
+    # Qarun's house are other places)
+    {'type': 'facade', 'depth': 0.34, 'x': 800, 'y': 790, 'w': P(0.34, 20), 'h': P(0.34, 5.5), 'gate': {'w': P(0.34, 3.6), 'h': P(0.34, 4.4)}, 'stone': '#b4aa98', 'ppu': 0.8},
     light([800, 788], P(0.36, 1.75), depth=0.36, **prophet_d, pose='kneel', at={'2': {'color': '#fffaf0', 'glow': 0.6, 'bright': 1.35}}),
     *[light([960 + i * 44, 790 + (i % 2) * 4], P(0.37), depth=0.37, **dim) for i in range(6)],
     motes(),
