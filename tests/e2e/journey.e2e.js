@@ -2,7 +2,7 @@
 import { expect, test } from '@playwright/test';
 
 async function reflect(page, pick = 2, view = /I'm Muslim/) {
-  await page.getByRole('button', { name: /Begin your journey/ }).click();
+  await page.goto('/#/pyramid/placement'); // the reflection is an offer now (story first), reached from the pyramid or after the first story
   await page.getByRole('button', { name: view }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
   // answer every question; the flow moves on by itself after each answer
@@ -164,4 +164,44 @@ test('a verse still waiting for its text shows its reference and a way to read i
   const waiting = page.getByRole('link', { name: /Read this verse at quran\.com/ });
   if (await waiting.count()) await expect(waiting.first()).toHaveAttribute('href', /^https:\/\/quran\.com\/\d+\/\d+/);
   await expect(page.getByText(/appear here once it is fetched/)).toHaveCount(0);
+});
+
+test('story first: a new visitor chooses a view and the first scene plays, with no questions before it', async ({ page }) => {
+  test.setTimeout(150000); // it waits for a scene's last moment to play out
+  await page.goto('/');
+  await page.getByRole('button', { name: /Begin your journey/ }).click();
+  await expect(page.getByRole('heading', { name: /how would you like to explore/ })).toBeVisible();
+  await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
+  await expect(page).toHaveURL(/#\/scene\/heavens\?first=1/);
+  await expect(page.getByRole('radio')).toHaveCount(0);
+  // the end of that first scene leads to the choice of where to go, not straight into more
+  await page.goto('/#/scene/heavens?first=1&beat=7');
+  const on = page.locator('button.btn-gold', { hasText: 'Continue' }); // the transport's skip button is also labelled Continue
+  await on.waitFor({ timeout: 90000 });
+  await on.click();
+  await expect(page.getByRole('heading', { name: 'That was the first minute' })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Keep watching/ })).toBeVisible();
+  await page.getByRole('button', { name: /Find where to begin on the pyramid/ }).click();
+  await expect(page.getByRole('heading', { name: 'Before you climb' })).toBeVisible();
+});
+
+test('a path lists its stops, plays one and comes back with it marked as watched', async ({ page }) => {
+  test.setTimeout(150000);
+  await page.goto('/#/paths');
+  await expect(page.getByRole('heading', { name: 'Choose a path' })).toBeVisible();
+  await page.getByRole('link', { name: /Dreams and what they meant/ }).click();
+  await expect(page.getByRole('heading', { name: 'Dreams and what they meant' })).toBeVisible();
+  await expect(page.getByText('0 of 5 watched')).toBeVisible();
+  await page.getByRole('link', { name: /Yusuf's dream/ }).click();
+  await expect(page).toHaveURL(/#\/scene\/stars\?back=/);
+  await page.goto(`/#/scene/stars?back=${encodeURIComponent('/path/dreams')}&beat=3`);
+  const back = page.getByRole('button', { name: 'Back to the path' });
+  await back.waitFor({ timeout: 90000 });
+  await back.click();
+  await expect(page.getByText('1 of 5 watched')).toBeVisible();
+});
+
+test('the sky on Progress shows a star for every lesson and lights none for a new visitor', async ({ page }) => {
+  await page.goto('/#/pyramid/progress');
+  await expect(page.getByRole('img', { name: /Your sky: 0 of 67 stars lit/ })).toBeVisible();
 });

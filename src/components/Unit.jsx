@@ -334,6 +334,7 @@ function HadithCard({ id, about }) {
         <span className="font-body text-[0.98rem] italic text-ink-soft">
           {h.collection} {h.number}
           {h.also ? `, also ${h.also}` : ''}, narrated by {h.narrator}
+          {h.gradedBy ? `. Graded sahih by ${h.gradedBy}` : ''}
         </span>
         {h.status !== 'reviewed' && <Draft />}
       </figcaption>

@@ -79,7 +79,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   two offerings, shukr = the ant, tawakkul = the sea, humility = Iblis's refusal, character = Yusuf forgives;
   Messengers is the chronicle itself), `config.json` (DEFAULT
   weights 70/15/15, placement threshold, the disclaimer). Hadith come only from `src/data/hadith.json` by
-  id, like verses from ayahs.json; `status: "draft"` shows "Awaiting scholar review" until checked. All 29 are
+  id, like verses from ayahs.json; `status: "draft"` shows "Awaiting scholar review" until checked. All 28 are
   drafts typed from well-known translations: check each against a verified translation before marking reviewed.
 - Never: a "test"/"exam" (the checker rejects the words in pyramid data), predicting anyone's afterlife,
   leaderboards or comparisons, shaming copy. The disclaimer shows on the landing, placement, result,
@@ -121,6 +121,24 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - `Stage.jsx` is not dead code: `GLStage` draws overlays and `flat` painters through it, and the painters make the cards.
 - Sharing lives on a unit's end screen, Progress and About (not in the scene player: it covered the chronicle on phones).
 
+## Story first, paths and the sky (10 Nov 2026)
+
+- Story first: the start screen's "Begin your journey" goes to `#/begin` (choose a view; then `#/scene/heavens?first=1`
+  plays at once; `FIRST_STORY` in site.js). That first scene ends at `#/begin/next` (`Begun` in Pyramid.jsx): Keep
+  watching, or the reflection questions as an offer, a path, or the pyramid. The reflection is never forced first; the
+  pyramid page still offers it.
+- Paths (`src/data/paths.json`, `Paths.jsx`, `#/paths`, `#/path/<id>`): new doors into existing scenes (women,
+  creatures, dreams, prayers). A stop plays `from`..`to` with `?back=/path/<id>&until=<to>` and is "watched" when the
+  story's own `seen` has its scenes. Lines only restate what those scenes' narration says. Add a path as data only.
+- The sky (`Sky.jsx`, on Progress): one star per story lesson (`STORY_PARTS`) and per pyramid lesson, lit when finished.
+  It counts no days and has no streak: the owner does not want a daily tracker. Keep any new "score" of this kind
+  (what has been understood, never when or how often).
+- Hadith: only sahih (the owner's rule). `hadith.json` entries carry `grade` (must begin "Sahih"; the checker and a
+  unit test enforce it) and, outside Bukhari and Muslim, `gradedBy`. Look the grade up before adding one; a hasan
+  hadith is not used (Tirmidhi 2517, "tie it and rely upon Allah", was removed and the tawakkul lesson rewritten
+  around the hadith of the birds).
+- `tiny:` is a Tailwind variant for a small phone held upright (under 700 px tall); the start screen uses it.
+
 ## The look (first impression)
 
 - `#/` is a cinematic start screen (`Home` in Pyramid.jsx: Yusuf's eleven stars full screen, "Amanah", one button). The pyramid page is `#/pyramid`: one smooth sandstone pyramid at dusk (`Monument.jsx`: gilded courses split
@@ -134,8 +152,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   No decorative Arabic in the UI: no Arabic logo, level, unit, scene or map titles (the data keeps `arabic`).
 - Type: Cinzel only for the headline and stone names; Cormorant Garamond for everything else in sentence
   case. No tracked-caps eyebrows or "A · B" strings in new UI: use an italic Cormorant label or a comma.
-- One main button per visitor state on the home page (new: Begin your journey; placed: next unit; returning:
-  Continue …). The view choice is the first step of the reflection, not on the home page.
+- One main button per visitor state on the home page (new: Begin your journey, which starts the first story;
+  placed: next unit; returning: Continue …). The view choice is the first step after it, not on the home page.
 - Every page after the start screen shares one header: "Amanah" (home) left, the menu right (`Shell` in
   Pyramid.jsx, `Frame` in Unit.jsx). Progress shows the monument, a card per level (rows open their unit), the
   story-lesson count, and "Your private notes" (the `journal`, hidden until asked, each with an Open link).

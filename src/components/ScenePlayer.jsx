@@ -24,7 +24,7 @@ const TITLE_MS = 2800;
 const WATCH_MS = 6500; // long enough to read the question to watch for
 const PENDING_MS = 6000; // a verse moment still waiting for its text holds only this long, not the verse's reading time
 
-export default function ScenePlayer({ id, beat, still = false, moment, back, until }) {
+export default function ScenePlayer({ id, beat, still = false, moment, back, until, first = false }) {
   const scene = sceneById[id];
   if (!scene) {
     return (
@@ -40,7 +40,7 @@ export default function ScenePlayer({ id, beat, still = false, moment, back, unt
     );
   }
   const start = Math.min(scene.beats.length - 1, Math.max(0, parseInt(beat, 10) || 0));
-  return <Player scene={scene} start={start} still={still} moment={moment} back={back} until={until} />;
+  return <Player scene={scene} start={start} still={still} moment={moment} back={back} until={until} first={first} />;
 }
 
 /*
@@ -55,7 +55,7 @@ export default function ScenePlayer({ id, beat, still = false, moment, back, unt
  * `still` (#/scene/<id>?beat=n&still) holds one moment for review: paused, no title card, the camera
  * already where that beat ends; `moment` (&t=0–1) holds a WebGL scene's walks and moves part way through.
  */
-function Player({ scene, start = 0, still = false, moment, back, until }) {
+function Player({ scene, start = 0, still = false, moment, back, until, first = false }) {
   const prefs = useStore((s) => s.prefs);
   const reduced = useReducedMotion();
   const cam = useCamera();
@@ -155,6 +155,8 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
     markSeen(scene.id);
     // played from a lesson or a pyramid unit: go back there, at once or (with ?until=<scene>) once that
     // scene has played, carrying the way back along through the scenes between
+    // a new visitor's first scene (story first): afterwards they choose where to go
+    if (first) return go('/begin/next');
     if (back) {
       if (!until || scene.id === until || !next) return go(back);
       return go(`/scene/${next.id}?back=${encodeURIComponent(back)}&until=${until}`);
@@ -165,7 +167,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
     const part = lessonAfter(scene);
     if (part !== null && !learned[lessonKey(scene.chapter, part)]) go(`/lesson/${scene.chapter}/${part}?then=${encodeURIComponent(target)}`);
     else go(target);
-  }, [scene, next, back, until, learned]);
+  }, [scene, next, back, until, learned, first]);
 
   // A part's last scene flows straight into the map ("the camera pulls back into the campaign map")
   // when the viewer is watching hands-free; in manual mode the Continue button waits for them.
@@ -260,7 +262,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
   const frozen = !playing || ayahOpen || help || bridge;
   const relatedUnit = !back && (!next || next.chapter !== scene.chapter) ? unitForChapter(scene.chapter) : null;
   const related = relatedUnit && unitStatus(relatedUnit.id) === 'ready' ? relatedUnit : null; // only units with a lesson path yet
-  const nextLabel = back ? (until && scene.id !== until && next ? `${roman(next.order)}. ${next.title}` : 'Back to the lesson') : scene.then === 'map' || !next ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `${roman(next.order)}. ${next.title}`;
+  const nextLabel = first ? 'Continue' : back ? (until && scene.id !== until && next ? `${roman(next.order)}. ${next.title}` : back.startsWith('/path') ? 'Back to the path' : 'Back to the lesson') : scene.then === 'map' || !next ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `${roman(next.order)}. ${next.title}`;
 
   return (
     <div className="relative h-full w-full select-none overflow-hidden bg-night">

@@ -15,6 +15,7 @@ const Lesson = lazy(() => import('./components/Lesson.jsx'));
 const Pyramid = lazy(() => import('./components/Pyramid.jsx'));
 const Unit = lazy(() => import('./components/Unit.jsx'));
 const About = lazy(() => import('./components/About.jsx'));
+const Paths = lazy(() => import('./components/Paths.jsx'));
 
 /** Shown until the calligraphy fonts arrive (capped, so a slow network never blocks the story). */
 function Loader() {
@@ -95,7 +96,7 @@ export default function App() {
         <Recover routeKey={route.key}>
         <Suspense fallback={<Loader />}>
           {route.name === 'scene' ? (
-            <ScenePlayer id={route.id} beat={route.query.beat} still={'still' in route.query} moment={route.query.t} back={route.query.back} until={route.query.until} />
+            <ScenePlayer id={route.id} beat={route.query.beat} still={'still' in route.query} moment={route.query.t} back={route.query.back} until={route.query.until} first={'first' in route.query} />
           ) : route.name === 'lesson' ? (
             <Lesson chapter={+route.id} part={+route.part} then={route.query.then} />
           ) : route.name === 'sheet' ? (
@@ -106,6 +107,8 @@ export default function App() {
             <Pyramid view={route.view} />
           ) : route.name === 'unit' ? (
             <Unit id={route.id} step={route.query.step} />
+          ) : route.name === 'paths' ? (
+            <Paths id={route.id} />
           ) : route.name === 'about' || route.name === 'missing' ? (
             <About missing={route.name === 'missing'} />
           ) : route.name === 'map' ? (

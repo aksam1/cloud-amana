@@ -199,6 +199,9 @@ for (const f of readdirSync(pyUnitDir).filter((f) => f.endsWith('.json'))) {
 for (const [id, h] of Object.entries(hadith)) {
   if (id.startsWith('_')) continue;
   if (!h.collection || !h.number || !h.en) errors.push(`src/data/hadith.json ${id}: needs collection, number and en`);
+  // the owner's rule: only sahih hadith. Outside Bukhari and Muslim, say who graded it sahih.
+  if (!/^Sahih\b/.test(h.grade || '')) errors.push(`src/data/hadith.json ${id}: only sahih hadith may be used (grade is "${h.grade ?? 'missing'}")`);
+  else if (!/Bukhari|Muslim/.test(h.collection) && !h.gradedBy) errors.push(`src/data/hadith.json ${id}: say who graded it sahih (gradedBy)`);
   if (h.status !== 'reviewed') warns.push(`src/data/hadith.json ${id}: wording awaits review against a verified translation and by a scholar`);
 }
 

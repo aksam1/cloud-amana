@@ -1,0 +1,66 @@
+{
+  "_note": "Paths are new doors into scenes that already exist: nothing here adds to the story. Each stop plays the scenes from `from` to `to` (story order; `to` may be left out for one scene) and returns to the path. Lines describe only what those scenes already tell, in the narration's own plain words; write \"God\" (the Muslim view shows Allah). npm test checks every id.",
+  "paths": [
+    {
+      "id": "women",
+      "title": "Women the Quran remembers",
+      "blurb": "Mothers, a queen and believers whose stories the Quran tells.",
+      "stops": [
+        { "title": "Hawwa", "line": "Beside Adam in the Garden, in the mistake, and in the turning back to God.", "from": "garden", "to": "repentance" },
+        { "title": "Hajar", "line": "Left in a barren valley with her infant, she says: then God will not abandon us.", "from": "valley", "to": "zamzam" },
+        { "title": "Sarah", "line": "In her old age she is given the son the angels promised.", "from": "isaac" },
+        { "title": "The mother of Musa", "line": "She sets her baby on the river, trusting God's promise to return him.", "from": "basket", "to": "nursed" },
+        { "title": "Asiya, the wife of Pharaoh", "line": "In Pharaoh's own palace she believes, and asks for a house near God.", "from": "asiyaprayer" },
+        { "title": "The Queen of Saba", "line": "She ruled a land that bowed to the sun. Then she came to Sulayman's palace.", "from": "hoopoe", "to": "saba" },
+        { "title": "The mother of Maryam", "line": "A mother's vow, and a girl provided for from where no one expected.", "from": "vow", "to": "mihrab" },
+        { "title": "Maryam", "line": "The angel's news, the palm tree, and the child who speaks for her.", "from": "jibril", "to": "cradle" }
+      ]
+    },
+    {
+      "id": "creatures",
+      "title": "Creatures in the stories",
+      "blurb": "A crow, an ant, a whale, a dog: the animals that carry a lesson.",
+      "stops": [
+        { "title": "The crow", "line": "A crow scratches at the earth, and a man learns from it.", "from": "crow" },
+        { "title": "The she-camel", "line": "A sign that came out of the rock, and the water she shared with a people.", "from": "camel", "to": "drink" },
+        { "title": "The four birds", "line": "Ibrahim asks to be shown how God gives life to the dead.", "from": "birds" },
+        { "title": "The ram", "line": "A father and a son both obey, and a ram stands in the boy's place.", "from": "dream", "to": "ransom" },
+        { "title": "The seven cows", "line": "A king's dream that no one at his court can explain.", "from": "cows" },
+        { "title": "The yellow cow", "line": "A people who answer one simple command with question after question.", "from": "cow" },
+        { "title": "The ant and the hoopoe", "line": "An ant warns her valley, and a bird brings news of a distant queen.", "from": "ants", "to": "hoopoe" },
+        { "title": "The small creature of the earth", "line": "It gnaws through a staff, and the jinn learn they never knew the unseen.", "from": "termite" },
+        { "title": "The whale", "line": "Yunus in the darkness, calling on God.", "from": "lots", "to": "gourd" },
+        { "title": "The birds of clay", "line": "Isa shapes birds from clay and they fly, by God's permission.", "from": "claybirds" },
+        { "title": "The dog of the cave", "line": "Young men asleep for three centuries, their dog stretched across the entrance.", "from": "cave", "to": "awakening" },
+        { "title": "The donkey", "line": "A man, his food and his donkey, after a hundred years.", "from": "hundred" }
+      ]
+    },
+    {
+      "id": "dreams",
+      "title": "Dreams and what they meant",
+      "blurb": "Five dreams, and how each one came true.",
+      "stops": [
+        { "title": "Ibrahim's dream", "line": "He sees himself sacrificing his son, and asks the boy what he thinks.", "from": "dream", "to": "ransom" },
+        { "title": "Yusuf's dream", "line": "Eleven stars, the sun and the moon, and a father's advice to keep it from his brothers.", "from": "stars" },
+        { "title": "The prisoners' dreams", "line": "Before he explains their dreams, Yusuf speaks to them of God.", "from": "prison" },
+        { "title": "The king's dream", "line": "Seven fat cows eaten by seven lean ones, and a court with no answer.", "from": "cows" },
+        { "title": "The dream comes true", "line": "Years later the family bows before Yusuf, and he forgives.", "from": "reunion" }
+      ]
+    },
+    {
+      "id": "prayers",
+      "title": "When they called on God",
+      "blurb": "Prayers made in the hardest moments, and how they were answered.",
+      "stops": [
+        { "title": "Adam and Hawwa", "line": "After the mistake they blame no one. They turn back to their Lord.", "from": "repentance" },
+        { "title": "Ayyub", "line": "Years of loss and illness, then one call to his Lord.", "from": "trial", "to": "restored" },
+        { "title": "Musa at the well", "line": "A stranger with nothing, sitting in the shade: my Lord, I am in need of whatever good You send me.", "from": "shepherds" },
+        { "title": "Asiya", "line": "My Lord, build for me a house near You in Paradise.", "from": "asiyaprayer" },
+        { "title": "Sulayman", "line": "He hears an ant, smiles, and thanks God for His favour.", "from": "ants" },
+        { "title": "Yunus", "line": "From inside the whale: there is no god but You.", "from": "darkness", "to": "gourd" },
+        { "title": "Zakariya", "line": "An old man asks quietly, in the night, for an heir.", "from": "nightprayer", "to": "tidings" },
+        { "title": "The young men of the cave", "line": "Our Lord, grant us mercy from Yourself, and guide us rightly.", "from": "cave" }
+      ]
+    }
+  ]
+}

@@ -20,12 +20,12 @@
         {
           "label": "Don't revise: whatever God wills will happen.",
           "points": 0,
-          "feedback": "Trust without effort isn't what Islam teaches. The Prophet ﷺ said: tie your camel, then trust."
+          "feedback": "Trust without effort isn't what Islam teaches. Musa was told to strike the sea with his staff: he had to act."
         },
         {
           "label": "Prepare as well as you can, make dua, then rest and leave the result to God.",
           "points": 2,
-          "feedback": "That's tawakkul: tie the camel, then trust. Do your part fully, and leave the outcome to Him."
+          "feedback": "That's tawakkul. Do your part fully, like the birds that go out each morning, and leave the outcome to Him."
         },
         {
           "label": "Stay up all night panicking over every possible outcome.",
@@ -46,7 +46,7 @@
         {
           "label": "Don't prepare: whatever happens, happens.",
           "points": 0,
-          "feedback": "Islam teaches the opposite: \"tie your camel, then trust\"."
+          "feedback": "Islam teaches the opposite: do your part, then trust. Even the birds go out each morning to find their food."
         },
         {
           "label": "Prepare as well as you can, then rest and let go of the result.",
@@ -95,12 +95,8 @@
     ],
     "hadith": [
       {
-        "id": "tirmidhi-2517",
-        "about": "Tie your camel, then rely on God: effort and trust go together."
-      },
-      {
         "id": "tirmidhi-2344",
-        "about": "God provides for those who truly rely on Him, as He provides for the birds."
+        "about": "God provides for those who truly rely on Him, as He provides for the birds. Notice that the birds still go out each morning: effort and trust go together."
       }
     ],
     "insights": [
@@ -151,15 +147,15 @@
       "why": "Strike the sea with your staff, and it parted (26:63)."
     },
     {
-      "q": "What did the Prophet ﷺ tell the man asking about his camel?",
+      "q": "In the saying about the birds, what do the birds do each morning?",
       "options": [
-        "Leave it untied and trust God",
-        "Tie it, and rely on God",
-        "Sell it",
-        "Ask someone else"
+        "Wait in the nest to be fed",
+        "Go out hungry to seek their food",
+        "Store up food for the year",
+        "Follow other birds"
       ],
       "answer": 1,
-      "why": "Tie it, and rely upon God: effort and trust together."
+      "why": "They go out hungry in the morning and return full in the evening: effort and trust together."
     },
     {
       "q": "What does 65:3 promise to those who rely on God?",

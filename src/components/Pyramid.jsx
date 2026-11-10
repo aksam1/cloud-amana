@@ -3,12 +3,13 @@ import { AnimatePresence, motion } from 'motion/react';
 import { deleteAllData, savePlacement, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
-import { download, share, shareMessage } from '../lib/site.js';
+import { download, FIRST_STORY, share, shareMessage } from '../lib/site.js';
 import { climb, completed, DISCLAIMER, HISTORY_PARTS, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import Monument from './Monument.jsx';
 import Nav from './Nav.jsx';
+import Sky from './Sky.jsx';
 import heroStars from '../assets/hero-stars.webp';
 import imgHeavens from '../assets/previews/heavens.webp';
 import imgSearch from '../assets/previews/search.webp';
@@ -30,6 +31,8 @@ export default function Pyramid({ view = 'landing' }) {
   if (view === 'result') return <Result />;
   if (view === 'progress') return <Progress />;
   if (view === 'home') return <Home />;
+  if (view === 'begin') return <Begin />;
+  if (view === 'begun') return <Begun />;
   return <Landing />;
 }
 
@@ -170,7 +173,7 @@ function Home() {
     ? { label: 'Continue', href: resumeUnit ? `/unit/${resume.id}` : `/scene/${resume.id}`, note: resumeUnit ? `${resumeUnit.title}: you were on ${STEP_NAME[resume.step] || 'the lesson'}.` : `You were at “${resume.title}”.` }
     : placed
       ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
-      : { label: 'Begin your journey', href: '/pyramid/placement', note: 'A few private questions, then your first story. About 3 minutes.' };
+      : { label: 'Begin your journey', href: '/begin', note: 'Your first story starts straight away. About one minute.' };
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-[#05060d]">
@@ -187,26 +190,29 @@ function Home() {
 
       <div className="relative z-10 mx-auto flex h-full max-w-[1100px] flex-col px-6 pb-28 pt-5 sm:px-10 sm:pb-12 short:pb-3 short:pt-3">
         <header className="flex items-center justify-between gap-6">
-          <span className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">Amanah</span>
+          <span className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi tiny:invisible">Amanah</span>
           <div className="sm:w-[580px]">
             <Nav here="home" />
           </div>
         </header>
 
         <motion.main className="mt-auto flex flex-col items-center text-center" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 1.2 }}>
-          <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(3rem,15vw,6.5rem)] font-semibold leading-none tracking-[0.06em] text-transparent [filter:drop-shadow(0_4px_24px_rgba(0,0,0,0.6))] short:text-[2.6rem]">
+          <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(3rem,15vw,6.5rem)] font-semibold leading-none tracking-[0.06em] text-transparent [filter:drop-shadow(0_4px_24px_rgba(0,0,0,0.6))] short:text-[2.6rem] tiny:text-[2.5rem]">
             Amanah
           </h1>
-          <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90 short:mt-1 short:max-w-none short:text-[1.15rem]">The stories of the prophets, told in light.</p>
-          <p className="mt-2 max-w-[34ch] font-body text-[clamp(1.02rem,3.9vw,1.15rem)] leading-snug text-ivory/75 short:mt-0 short:max-w-none">Learn Islam one story at a time. Free, private, no account.</p>
-          <button type="button" className="btn-gold mt-6 short:mt-2" onClick={() => go(cta.href)} autoFocus>
+          <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90 short:mt-1 short:max-w-none short:text-[1.15rem] tiny:mt-2 tiny:text-[1.15rem]">The stories of the prophets, told in light.</p>
+          <p className="mt-2 max-w-[34ch] font-body text-[clamp(1.02rem,3.9vw,1.15rem)] leading-snug text-ivory/75 short:mt-0 short:max-w-none tiny:mt-1">Learn Islam one story at a time. Free, private, no account.</p>
+          <button type="button" className="btn-gold mt-6 short:mt-2 tiny:mt-3" onClick={() => go(cta.href)} autoFocus>
             <Icon name="play" className="h-4 w-4" />
             {cta.label}
           </button>
-          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none">{cta.note}</p>
-          <div className="mt-3 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0">
+          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none tiny:hidden">{cta.note}</p>
+          <div className="mt-3 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0 tiny:mt-1 tiny:gap-x-4 tiny:text-[1rem]">
             <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/stories')}>
               Watch the stories
+            </button>
+            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/paths')}>
+              Paths
             </button>
             <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/pyramid')}>
               See the pyramid
@@ -215,10 +221,64 @@ function Home() {
               About
             </button>
           </div>
-          <p className="mt-4 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45 short:mt-0 short:max-w-none">{DISCLAIMER}</p>
+          <p className="mt-4 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45 short:mt-0 short:max-w-none tiny:mt-0 tiny:text-[0.84rem] tiny:leading-tight">{DISCLAIMER}</p>
         </motion.main>
       </div>
     </div>
+  );
+}
+
+/**
+ * Story first. A new visitor chooses a view, and the first scene of the story plays at once: no questions
+ * stand between them and it. (#/begin)
+ */
+function Begin() {
+  const { mode } = useMode();
+  useEffect(() => {
+    if (mode) window.location.replace(`#/scene/${FIRST_STORY}?first=1`);
+  }, [mode]);
+  if (mode) return null;
+  return (
+    <Shell back="/" title="Begin">
+      <h1 className="mt-6 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">First, how would you like to explore?</h1>
+      <p className="mt-1 font-body text-[1.1rem] text-ivory/70">This changes the wording around the stories, not the stories themselves. You can switch at any time. Your first story starts as soon as you choose.</p>
+      <div className="mt-5">
+        <ModePicker full />
+      </div>
+    </Shell>
+  );
+}
+
+/** After that first scene: keep watching, or take one of the other ways in. The questions are an offer now. (#/begin/next) */
+function Begun() {
+  const { mode } = useMode();
+  const n = placementQuestions(pathOf(mode)).length;
+  const way = 'w-full rounded-xl border border-gold/35 bg-black/30 px-4 py-3 text-left transition-colors hover:border-gold-hi';
+  return (
+    <Shell here="home" back="/" title="Your first story">
+      <h1 className="mt-4 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">That was the first minute</h1>
+      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">The story runs on from here: the first people, then the prophets, one short scene at a time. Where would you like to go?</p>
+      <button type="button" className="btn-gold mt-5 self-start" onClick={() => go('/stories')} autoFocus>
+        <Icon name="play" className="h-4 w-4" />
+        Keep watching
+      </button>
+      <p className="mt-6 font-body text-[1.05rem] italic text-ivory/60">Or take another way in</p>
+      <div className="mt-2 grid gap-3">
+        <button type="button" className={way} onClick={() => go('/pyramid/placement')}>
+          <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">Find where to begin on the pyramid</span>
+          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">{n} private questions about where you are today. It is not a grade. About 3 minutes.</span>
+        </button>
+        <button type="button" className={way} onClick={() => go('/paths')}>
+          <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">Follow a path</span>
+          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">Women the Quran remembers, creatures, dreams, and prayers in hard moments.</span>
+        </button>
+        <button type="button" className={way} onClick={() => go('/pyramid')}>
+          <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">See the pyramid</span>
+          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">Three levels of faith, and a lesson for each part of them.</span>
+        </button>
+      </div>
+      <Disclaimer />
+    </Shell>
   );
 }
 
@@ -890,6 +950,16 @@ function Progress() {
           </p>
         </section>
       </div>
+
+      <section className="mt-8" aria-labelledby="sky-h">
+        <h2 id="sky-h" className="font-body text-[1.35rem] font-semibold text-gold-hi">
+          Your sky
+        </h2>
+        <Sky className="mt-2" learned={c.state.learned} done={c.done} />
+        <a href="#/paths" className="mt-2 inline-flex min-h-[44px] items-center font-body text-[1.05rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4">
+          Paths through the stories
+        </a>
+      </section>
 
       <div className="mt-8 space-y-5">
         {levelsTopDown.map((l) => (

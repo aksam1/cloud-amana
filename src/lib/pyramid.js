@@ -108,6 +108,10 @@ export function partName(key) {
   const part = ch?.parts?.[i];
   return ch ? (part?.title && part.title !== ch.title ? `${ch.title}: ${part.title}` : ch.title) : key;
 }
+/** Every story part that has scenes, in story order: its lesson key and its name (for the Progress page's sky). */
+export const STORY_PARTS = [...chapters]
+  .sort((a, b) => a.number - b.number)
+  .flatMap((c) => (c.parts || []).map((p, i) => ({ p, i })).filter(({ p }) => p.from !== undefined).map(({ i }) => ({ key: `${c.number}:${i}`, chapter: c.number, title: partName(`${c.number}:${i}`) })));
 const historyMeter = (learned) => Math.round((100 * Object.keys(learned || {}).length) / Math.max(1, HISTORY_PARTS));
 
 /** Every unit's meter from saved state. */

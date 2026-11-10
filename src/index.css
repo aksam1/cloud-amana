@@ -2,6 +2,8 @@
 
 /* A phone turned sideways: wide but very short. Pages tighten up so the picture stays in view. */
 @custom-variant short (@media (orientation: landscape) and (max-height: 500px));
+/* A small, old phone held upright (iPhone SE size): the start screen drops what it can spare. */
+@custom-variant tiny (@media (orientation: portrait) and (max-height: 700px));
 
 @theme {
   --font-display: "Cinzel", "Times New Roman", serif;

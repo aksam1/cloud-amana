@@ -4,6 +4,8 @@ export const SITE_URL = import.meta.env?.VITE_SITE_URL || 'https://claude.ai/art
 // Shown on the About page once the owner fills them in (left empty, the page simply leaves those lines out).
 export const MAKER = ''; // e.g. 'Made by …' or 'A volunteer project'
 export const CONTACT = ''; // an address for "Report a mistake": 'mailto:…' or a form's link
+// The scene a new visitor is shown first, before any questions (a unit test keeps it the story's first scene).
+export const FIRST_STORY = 'heavens';
 export const SITE_LINE = 'Learn Islam through the stories of the prophets. Free, private, no account.';
 
 /**

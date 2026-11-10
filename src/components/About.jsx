@@ -56,6 +56,7 @@ export default function About({ missing = false }) {
           . The English is the Sahih International translation.
         </li>
         <li>Verses are placed from a checked file by their reference, word for word. They are never typed in by hand, and where only part of a verse is shown, an ellipsis (…) marks what was left out.</li>
+        <li>Only sayings of the Prophet ﷺ graded sahih (authentic) are used: from the collections of al-Bukhari and Muslim, or graded sahih by named scholars of hadith.</li>
         <li>Sayings of the Prophet ﷺ carry the label “Awaiting scholar review” until a qualified reviewer has checked the wording. Today every saying still carries that label.</li>
         <li>Scenes marked “Tradition” draw on hadith and classical narrations, not the Quran. Each scene lists its sources, and says which details of the picture are imagined.</li>
       </ul>
