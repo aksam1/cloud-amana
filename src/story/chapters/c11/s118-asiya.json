@@ -6,7 +6,7 @@
   "title": "Found by the Palace",
   "arabic": "في بيت فرعون",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:9"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "Pharaoh's wife is named Asiya in the hadith; she appears only as a soft light, her women as dim lights."],
   "ambient": ["water", "birds"],
   "base": "#d8c8a8",
@@ -44,6 +44,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["water", "birds"], "cam": {"pos": [1000, 530, 500], "look": [1000, 820, -3000]}, "say": "The river carried the basket to Pharaoh's palace, and his household drew it from the water."},
     {"dur": 11000, "ambient": ["water", "voices"], "cam": {"pos": [980, 540, 300], "look": [980, 900, -3000]}, "say": "Pharaoh's wife looked at the child and said: a comfort for my eyes and yours. Do not kill him; perhaps he will be of use to us, or we will take him as a son."},
-    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [1000, 530, 600], "look": [1000, 800, -3000]}, "pendingVerse": {"ref": "28:9", "place": "sky"}}
+    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [1000, 530, 600], "look": [1000, 800, -3000]}, "verse": { "ref": "28:9", "place": "sky", "en": "And the wife of Pharaoh said, \"[He will be] a comfort of the eye for me and for you. Do not kill him; perhaps he may benefit us, or we may adopt him as a son.\" And they perceived not." }}
   ]
 }

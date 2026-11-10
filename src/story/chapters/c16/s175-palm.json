@@ -6,7 +6,7 @@
   "title": "Beneath the Palm",
   "arabic": "تحت النخلة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["19:25"],
   "art": ["Prophets appear only as steady lights; Maryam and her mother as soft lights; the people as dim figures of light. Angels are columns of light, never figures. The look of the temple and the land is imagined.", "Her pain is never shown: her light only leans at the trunk. The stream and the ripe dates are as 19:24–25 tell."],
   "ambient": ["wind", "air"],
   "base": "#d8c0a0",
@@ -33,6 +33,6 @@
     {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [860, 520, 700], "look": [860, 700, -3000]}, "say": "When her time came, Maryam went far away, and the pains drove her to the trunk of a palm tree. If only I had died before this and been forgotten, she said."},
     {"dur": 11000, "ambient": ["spring", "air"], "sfx": [{"name": "swell", "at": 600}], "cam": {"pos": [880, 530, 550], "look": [880, 760, -3000]}, "say": "A voice called to her from below: do not grieve. Your Lord has made a stream beneath you. Shake the trunk of the palm, and ripe dates will fall to you."},
     {"dur": 11000, "ambient": ["spring", "crickets"], "cam": {"pos": [870, 530, 500], "look": [870, 780, -3000]}, "say": "So she ate and drank and was comforted; and the child was born, her son Isa."},
-    {"dur": 12000, "ambient": ["spring", "air"], "cam": {"pos": [860, 520, 700], "look": [860, 700, -3000]}, "pendingVerse": {"ref": "19:25", "place": "sky"}}
+    {"dur": 12000, "ambient": ["spring", "air"], "cam": {"pos": [860, 520, 700], "look": [860, 700, -3000]}, "verse": { "ref": "19:25", "place": "sky", "en": "And shake toward you the trunk of the palm tree; it will drop upon you ripe, fresh dates." }}
   ]
 }

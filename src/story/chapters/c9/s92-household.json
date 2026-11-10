@@ -6,7 +6,7 @@
   "title": "The House of Yaqub",
   "arabic": "بيت يعقوب",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:132"],
   "art": ["Yaqub and the young Yusuf appear only as steady lights, the brothers as dim figures of light. That Yusuf and Binyamin were the sons of Rahil is told in the commentaries."],
   "ambient": ["sheep", "air"],
   "base": "#c8c0b0",
@@ -46,6 +46,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["sheep", "air"], "cam": {"pos": [980, 520, 1100], "look": [1000, 570, -3000]}, "say": "Ibrahim's grandson Yaqub, also called Israel, lived in the land of Canaan with his twelve sons."},
     {"dur": 10000, "ambient": ["crickets", "fire"], "cam": {"pos": [920, 525, 960], "look": [930, 600, -3000]}, "say": "He loved the two youngest most, Yusuf and Binyamin, and the older brothers saw it."},
-    {"dur": 12000, "ambient": ["crickets", "air"], "cam": {"pos": [960, 522, 1040], "look": [980, 588, -3000]}, "pendingVerse": {"ref": "2:132", "place": "sky"}}
+    {"dur": 12000, "ambient": ["crickets", "air"], "cam": {"pos": [960, 522, 1040], "look": [980, 588, -3000]}, "verse": { "ref": "2:132", "place": "sky", "en": "And Abraham instructed his sons [to do the same] and [so did] Jacob, [saying], \"O my sons, indeed Allah has chosen for you this religion, so do not die except while you are Muslims.\"" }}
   ]
 }

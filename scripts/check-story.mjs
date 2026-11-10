@@ -78,10 +78,13 @@ for (const s of scenes) {
     const missing = refs.filter((r) => !ayahs[r]);
     if (missing.length) return errors.push(`${where} beat ${i}: ayah ${missing.join(', ')} not fetched`);
     const ranges = refs.length > 1 ? v.ar ?? refs.map(() => null) : [v.ar];
+    // one whole ayah may leave `ar` out (as `npm run verses` writes it): then its English must be the whole ayah too
+    const whole = refs.length === 1 && v.ar === undefined;
+    if (whole && norm(v.en) !== norm(ayahs[refs[0]].en)) errors.push(`${where} beat ${i}: ${v.ref} has no Arabic range, so its English must be the whole ayah`);
     refs.forEach((r, k) => {
       const words = ayahs[r].ar.split(/\s+/).length;
       const range = ranges[k];
-      if (refs.length > 1 && range === null) return;
+      if (whole || (refs.length > 1 && range === null)) return;
       if (!range || range[0] < 0 || range[1] >= words || range[0] > range[1]) errors.push(`${where} beat ${i}: Arabic range ${JSON.stringify(range)} invalid for ${r} (${words} words)`);
     });
     const full = norm(refs.map((r) => ayahs[r].en).join(' '));

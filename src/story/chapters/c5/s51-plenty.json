@@ -6,7 +6,7 @@
   "title": "Gardens and Springs",
   "arabic": "خيرات الوادي",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["26:146-149"],
   "art": [
     "The groves, fields, springs and herds of the valley are imagined from Salih's words to his people (26:146–149); the people appear only as dim lights."
   ],
@@ -82,6 +82,6 @@
       "say": "Their herds grew, and they lived secure, sure that it would always be so." },
     { "dur": 12000, "ambient": ["crickets", "city"], "world": { "light": 0.85, "fog": "#d0a08a", "rays": 0.25, "bloom": 0.75 },
       "cam": { "dx": 12000, "from": { "pos": [800, 470, 1150], "look": [800, 520, -3000] }, "pos": [800, 450, 1000], "look": [800, 500, -3000] },
-      "pendingVerse": { "ref": "26:146-149", "place": "lower" } }
+      "verse": { "ref": "26:146-149", "place": "lower", "en": "Will you be left in what is here, secure [from death], Within gardens and springs And fields of crops and palm trees with softened fruit? And you carve out of the mountains, homes, with skill." } }
   ]
 }

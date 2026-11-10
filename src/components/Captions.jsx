@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { verseArabic, verseAyah } from '../lib/story.js';
 import { quranLink } from '../lib/site.js';
@@ -15,6 +16,8 @@ const VOICES = {
   plain: { ar: 'text-[#f3e3bd]', en: 'text-[#efe3c8]', shadow: '0 2px 14px rgb(0 0 0 / .7)' },
 };
 
+const FIT_MIN = 0.66; // a long verse on a phone is never set smaller than this share of its usual size
+
 const PLACE = {
   sky: 'top-[13%] sm:top-[11%] short:top-[3%]',
   center: 'top-1/2 -translate-y-1/2',
@@ -28,10 +31,11 @@ const PLACE = {
 /**
  * `tone: "parchment"` (scene-level) sets captions on parchment, for bright scenes where light text would vanish.
  * `dock` is how far up the screen the chronicle reaches (px), for verses placed in the lower third.
+ * `onCrowded` is called when, on a phone, the verse cannot fit above the chronicle even at its smallest size.
  * `pen` (scene-level) writes the Arabic word by word, right to left, each word inked thick and settling
  * thin, and fades the English in word by word beneath it.
  */
-export function VerseCaption({ verse, tone, dock, pen = false }) {
+export function VerseCaption({ verse, tone, dock, pen = false, onCrowded }) {
   const a = verseAyah(verse);
   if (!a) return null;
   const v = VOICES[verse.style || 'divine'] || VOICES.divine;
@@ -43,8 +47,36 @@ export function VerseCaption({ verse, tone, dock, pen = false }) {
   const enWords = verse.en.split(' ');
   const enStart = (revealMs / 1000) * 0.55;
 
+  // On a phone the verse sits above the chronicle. A long verse is set smaller, step by step, until all of it
+  // shows in that room: no part of a verse may hide behind the chronicle.
+  const box = useRef(null);
+  const [fit, setFit] = useState(1);
+  const asked = useRef(false);
+  const seen = useRef(dock || 0);
+  useLayoutEffect(() => {
+    const el = box.current;
+    if (!el || window.innerWidth >= 640) return;
+    // the chronicle has stepped aside (see below): set the verse afresh in the room it now has
+    if ((dock || 0) < seen.current - 40) {
+      seen.current = dock || 0;
+      setFit(1);
+      return;
+    }
+    seen.current = dock || 0;
+    const room = window.innerHeight - (dock || 0) - 10 - el.offsetTop;
+    if (el.offsetHeight <= room) return;
+    if (fit > FIT_MIN) setFit((f) => Math.max(FIT_MIN, f * Math.min(0.94, Math.max(0.8, Math.sqrt(room / el.offsetHeight)))));
+    // still too tall at its smallest (a small phone): ask the chronicle to fold away for this moment
+    else if (!asked.current && onCrowded) {
+      asked.current = true;
+      onCrowded();
+    }
+  }, [dock, fit, onCrowded]);
+  const arSize = place === 'lower' ? 'clamp(22px,2.4vw,40px)' : 'clamp(24px,3.2vw,50px)';
+
   return (
     <motion.figure
+      ref={box}
       className={`pointer-events-none absolute inset-x-0 z-20 mx-auto w-[min(92vw,880px)] px-4 text-center ${PLACE[place] || PLACE.sky}`}
       style={dock ? { '--dock': `${dock}px` } : undefined}
       initial={{ opacity: 0, y: 10 }}
@@ -52,7 +84,7 @@ export function VerseCaption({ verse, tone, dock, pen = false }) {
       exit={{ opacity: 0, y: -8, transition: { duration: 0.6 } }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
-      <div className={lower ? 'parchment ruled cartouche px-6 py-5 sm:px-10' : 'relative'}>
+      <div className={lower ? `parchment ruled cartouche px-6 sm:px-10 ${fit < 1 ? 'py-3' : 'py-5'}` : 'relative'}>
         {!lower && <div className="absolute -inset-x-20 -inset-y-12 -z-10" style={{ background: 'radial-gradient(ellipse at center, rgb(6 5 4 / .74) 0%, rgb(6 5 4 / .5) 42%, transparent 72%)' }} />}
         {verse.who && (
           <figcaption className={`caps mb-2 text-[0.66rem] ${lower ? 'text-ink-soft' : 'text-[#e9d5a6]/85'}`}>
@@ -67,7 +99,7 @@ export function VerseCaption({ verse, tone, dock, pen = false }) {
               dir={pen ? 'rtl' : undefined}
               // docked in the lower third, the verse sets smaller so it keeps to one line and the scene above stays clear
               className={`quran ${pen ? '' : 'ink-reveal'} ${place === 'lower' ? 'text-[clamp(22px,2.4vw,40px)]' : 'text-[clamp(24px,3.2vw,50px)]'} ${lower ? 'text-ink' : v.ar}`}
-              style={{ '--dur': `${revealMs}ms`, textShadow: lower ? 'none' : v.shadow }}
+              style={{ '--dur': `${revealMs}ms`, textShadow: lower ? 'none' : v.shadow, ...(fit < 1 ? { fontSize: `calc(${arSize} * ${fit})`, lineHeight: 1.85 } : null) }}
             >
               {pen
                 ? arWords.map((w, i) => (
@@ -84,7 +116,7 @@ export function VerseCaption({ verse, tone, dock, pen = false }) {
         )}
         <motion.blockquote
           className={`mx-auto mt-1 max-w-[60ch] font-body text-[clamp(17px,1.55vw,24px)] leading-snug ${lower ? 'text-ink' : v.en}`}
-          style={{ textShadow: lower ? 'none' : '0 1px 10px rgb(0 0 0 / .85)' }}
+          style={{ textShadow: lower ? 'none' : '0 1px 10px rgb(0 0 0 / .85)', ...(fit < 1 ? { fontSize: `calc(clamp(17px,1.55vw,24px) * ${Math.max(fit, 0.84)})` } : null) }}
           initial={pen ? false : { opacity: 0, y: 6 }}
           animate={pen ? undefined : { opacity: 1, y: 0 }}
           transition={{ delay: enStart, duration: 1.1 }}

@@ -6,7 +6,7 @@
   "title": "Madyan",
   "arabic": "مدين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["11:84"],
   "art": ["Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined.", "Their cheating with measure and weight is told in the Quran (7:85, 11:84); it is shown only as a tipped balance."],
   "ambient": ["city", "desert"],
   "base": "#d8c0a0",
@@ -35,6 +35,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["city", "herd"], "cam": {"pos": [800, 515, 1100], "look": [820, 600, -3000]}, "say": "Madyan was a rich trading town where the caravan roads met."},
     {"dur": 10000, "ambient": ["city", "voices"], "cam": {"pos": [960, 540, 560], "look": [1000, 760, -3000]}, "say": "But its traders cheated. They gave short measure and short weight, and robbed travellers on the roads."},
-    {"dur": 12000, "ambient": ["city", "air"], "cam": {"pos": [860, 522, 900], "look": [880, 660, -3000]}, "pendingVerse": {"ref": "11:84", "place": "sky", "part": "its opening: \"And to Madyan [We sent] their brother Shu'ayb…\""}}
+    {"dur": 12000, "ambient": ["city", "air"], "cam": {"pos": [860, 522, 900], "look": [880, 660, -3000]}, "verse": { "ref": "11:84", "ar": [1,14], "place": "sky", "en": "And to Madyan [We sent] their brother Shu'ayb. He said, \"O my people, worship Allah; you have no deity other than Him…" }}
   ]
 }

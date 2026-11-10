@@ -6,7 +6,7 @@
   "title": "A Hundred Years",
   "arabic": "قرن من النوم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:259"],
   "art": ["That the man was 'Uzayr (Ezra) passing ruined Jerusalem is from the commentaries on 2:259; he and the people appear only as lights. His death is shown as his light going out; the donkey is drawn back in by God's leave, nothing more."],
   "ambient": ["wind", "air"],
   "base": "#c8c0b0",
@@ -33,6 +33,6 @@
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [900, 520, 750], "look": [920, 700, -3000]}, "say": "A man passed by a town lying in ruins, its roofs fallen in. How, he wondered, will God ever bring this back to life after its death?"},
     {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [900, 515, 900], "look": [920, 660, -3000]}, "say": "So God caused him to die for a hundred years."},
     {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [900, 525, 650], "look": [920, 730, -3000]}, "say": "Then He raised him. How long have you stayed? A day or part of a day. No, a hundred years. Look at your food, not even spoiled; and look at your donkey, as We bring it back to life."},
-    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [920, 520, 800], "look": [940, 690, -3000]}, "pendingVerse": {"ref": "2:259", "place": "sky", "part": "its closing: \"I know that Allah is over all things competent\""}}
+    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [920, 520, 800], "look": [940, 690, -3000]}, "verse": { "ref": "2:259", "ar": [63,73], "place": "sky", "en": "…And when it became clear to him, he said, \"I know that Allah is over all things competent.\"" }}
   ]
 }

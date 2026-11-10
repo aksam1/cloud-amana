@@ -6,7 +6,7 @@
   "title": "The Two Gardens",
   "arabic": "صاحب الجنتين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["18:42"],
   "art": ["The parable of 18:32–44. The two men appear only as dim figures of light. The ruin of the gardens is shown as the vines and palms withering overnight."],
   "ambient": ["water", "birds"],
   "base": "#c8c0b0",
@@ -32,6 +32,6 @@
     {"dur": 10000, "ambient": ["water", "birds"], "cam": {"pos": [760, 520, 800], "look": [760, 690, -3000]}, "say": "The Quran tells a parable of two men. To one, God gave two gardens of grapevines, ringed with date palms, with a river running between them."},
     {"dur": 11000, "ambient": ["water", "voices"], "cam": {"pos": [640, 530, 600], "look": [640, 760, -3000]}, "say": "I have more wealth than you, he boasted to his friend; I do not think this will ever perish, nor that the Hour will come. His friend said: say rather, what God wills; there is no power except with God."},
     {"dur": 11000, "ambient": ["wind"], "cam": {"pos": [760, 520, 800], "look": [760, 690, -3000]}, "say": "By morning his fruit was destroyed, the vines fallen on their trellises. He wrung his hands over all he had spent: if only I had not set anything beside my Lord."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [760, 520, 850], "look": [760, 680, -3000]}, "pendingVerse": {"ref": "18:42", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [760, 520, 850], "look": [760, 680, -3000]}, "verse": { "ref": "18:42", "place": "sky", "en": "And his fruits were encompassed [by ruin], so he began to turn his hands about [in dismay] over what he had spent on it, while it had collapsed upon its trellises, and said, \"Oh, I wish I had not associated with my Lord anyone.\"" }}
   ]
 }

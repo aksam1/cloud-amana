@@ -6,7 +6,7 @@
   "title": "The City of Idols",
   "arabic": "مدينة الأصنام",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["6:74"],
   "art": ["The city and its temple tower are imagined after the ziggurats of Mesopotamia; the people and Azar appear as dim lights, and Ibrahim as a steady light. The idols have blank faces."],
   "ambient": ["water", "city"],
   "base": "#e8c8a0",
@@ -25,6 +25,6 @@
     {"dur": 9000, "ambient": ["water", "city"], "cam": {"pos": [800, 530, 1120], "look": [800, 520, -3000]}, "say": "Long after Thamud, in a city between great rivers, people bowed to idols of stone and wood."},
     {"dur": 8000, "ambient": ["work", "fire"], "sfx": [{"name": "scratch", "at": 900}, {"name": "dig", "at": 2600}], "world": {"fog": "#3a2c22", "light": 1.05}, "cam": {"dx": 6000, "from": {"pos": [800, 540, 1150], "look": [800, 560, -3000]}, "pos": [800, 530, 960], "look": [800, 570, -3000]}, "say": "Ibrahim's own father, Azar, carved them with his hands."},
     {"dur": 8000, "ambient": ["fire", "air"], "cam": {"dx": 6000, "pos": [720, 540, 760], "look": [700, 600, -3000]}, "say": "But Ibrahim, his son, could not bow to what hands had made."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"dx": 6000, "pos": [740, 535, 740], "look": [720, 600, -3000]}, "pendingVerse": {"ref": "6:74", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"dx": 6000, "pos": [740, 535, 740], "look": [720, 600, -3000]}, "verse": { "ref": "6:74", "place": "sky", "en": "And [mention, O Muhammad], when Abraham said to his father Azar, \"Do you take idols as deities? Indeed, I see you and your people to be in manifest error.\"" }}
   ]
 }

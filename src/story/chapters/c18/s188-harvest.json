@@ -6,7 +6,7 @@
   "title": "The Owners of the Garden",
   "arabic": "أصحاب البستان",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["68:29"],
   "art": ["The parable of 68:17–33. The brothers and the poor appear only as dim figures of light. What came upon the garden by night is shown as the garden going dark, nothing more; that they lived near Sana'a is from the commentaries."],
   "ambient": ["crickets", "wind"],
   "base": "#141824",
@@ -38,6 +38,6 @@
     {"dur": 10000, "ambient": ["crickets", "voices"], "cam": {"pos": [820, 520, 800], "look": [820, 690, -3000]}, "say": "The Quran tells of brothers who owned a fine garden. They swore that at dawn they would gather all its fruit, quietly, so that no poor person could come in and ask for a share."},
     {"dur": 9000, "ambient": ["wind", "storm"], "cam": {"pos": [800, 505, 1100], "look": [800, 540, -3000]}, "say": "But while they slept, something from their Lord passed over the garden."},
     {"dur": 11000, "ambient": ["wind"], "cam": {"pos": [820, 520, 800], "look": [820, 690, -3000]}, "say": "At dawn they found it black and bare, as if already reaped. We are lost, they said. The fairest of them said: did I not tell you to remember God? Glory be to our Lord, they answered; we were the wrongdoers."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [820, 520, 850], "look": [820, 680, -3000]}, "pendingVerse": {"ref": "68:29", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [820, 520, 850], "look": [820, 680, -3000]}, "verse": { "ref": "68:29", "place": "sky", "en": "They said, \"Exalted is our Lord! Indeed, we were wrongdoers.\"" }}
   ]
 }

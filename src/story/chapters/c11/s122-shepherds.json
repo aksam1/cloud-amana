@@ -6,7 +6,7 @@
   "title": "The Well of Madyan",
   "arabic": "بئر مدين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:24"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The shepherds and the two sisters appear only as dim figures of light."],
   "ambient": ["herd", "voices"],
   "base": "#d8c0a0",
@@ -40,6 +40,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["herd", "voices"], "cam": {"pos": [880, 525, 800], "look": [900, 690, -3000]}, "say": "At the well of Madyan, a crowd of shepherds was watering their flocks, while two young women held their sheep back and waited."},
     {"dur": 11000, "ambient": ["herd", "water"], "cam": {"pos": [820, 530, 600], "look": [820, 760, -3000]}, "say": "Musa watered their flock for them. Then he went to sit in the shade, and prayed: my Lord, I am in need of whatever good You send me."},
-    {"dur": 12000, "ambient": ["air", "herd"], "cam": {"pos": [880, 525, 800], "look": [880, 700, -3000]}, "pendingVerse": {"ref": "28:24", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air", "herd"], "cam": {"pos": [880, 525, 800], "look": [880, 700, -3000]}, "verse": { "ref": "28:24", "place": "sky", "en": "So he watered [their flocks] for them; then he went back to the shade and said, \"My Lord, indeed I am, for whatever good You would send down to me, in need.\"" }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "Iron Made Soft",
   "arabic": "الحديد اللين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["34:11"],
   "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "The softened iron is shown as glowing rings of mail being linked, as the Quran tells (34:10–11)."],
   "ambient": ["fire", "work"],
   "base": "#10141e",
@@ -30,6 +30,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["fire", "work"], "sfx": [{"name": "hoe", "at": 1500}, {"name": "hoe", "at": 3000}, {"name": "hoe", "at": 4500}], "cam": {"pos": [800, 540, 500], "look": [800, 820, -3000]}, "say": "God made iron soft in Dawud's hands, and taught him to make coats of mail, linking the rings in good measure."},
     {"dur": 10000, "ambient": ["fire", "air"], "cam": {"pos": [800, 540, 400], "look": [820, 850, -3000]}, "say": "Though he was a king, he lived from the work of his own hands."},
-    {"dur": 12000, "ambient": ["fire", "air"], "cam": {"pos": [800, 535, 600], "look": [800, 780, -3000]}, "pendingVerse": {"ref": "34:11", "place": "sky", "part": "to \"and work righteousness\""}}
+    {"dur": 12000, "ambient": ["fire", "air"], "cam": {"pos": [800, 535, 600], "look": [800, 780, -3000]}, "verse": { "ref": "34:11", "ar": [0,8], "place": "sky", "en": "[Commanding him], \"Make full coats of mail and calculate [precisely] the links, and work [all of you] righteousness.…" }}
   ]
 }

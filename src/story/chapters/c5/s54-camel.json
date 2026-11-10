@@ -6,7 +6,7 @@
   "title": "The She-Camel",
   "arabic": "الناقة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:73"],
   "art": [
     "That the she-camel came out of the rock is from the commentaries (tradition), not from the Quran's words; she is drawn as a creature of soft light.",
     "Salih appears only as a steady light seen from behind; the people as dim lights."
@@ -47,6 +47,6 @@
       "cam": { "pos": [800, 540, 420], "look": [800, 480, -4000] },
       "say": "Then, as they watched, a she-camel came out to them: a sign that no one could deny." },
     { "dur": 12000, "ambient": ["air"], "world": { "rays": 0.6, "bloom": 0.65 }, "cam": { "pos": [820, 520, 320], "look": [790, 480, -4000] },
-      "pendingVerse": { "ref": "7:73", "place": "lower" } }
+      "verse": { "ref": "7:73", "place": "lower", "en": "And to the Thamud [We sent] their brother Salih. He said, \"O my people, worship Allah; you have no deity other than Him. There has come to you clear evidence from your Lord. This is the she-camel of Allah [sent] to you as a sign. So leave her to eat within Allah 's land and do not touch her with harm, lest there seize you a painful punishment." } }
   ]
 }

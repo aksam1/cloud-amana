@@ -6,7 +6,7 @@
   "title": "The Women of the City",
   "arabic": "مجلس نساء المدينة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:33"],
   "art": ["Yusuf appears only as a steady light; the women as dim figures of light. Their cut hands are told in words, never shown.", "The banquet's look is imagined."],
   "ambient": ["echo", "voices"],
   "base": "#10141e",
@@ -50,6 +50,6 @@
     {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [880, 540, 450], "look": [900, 880, -3000]}, "say": "Soon the women of the city were gossiping: the Aziz's wife has fallen for her young servant! So she invited them to a banquet, and gave each a knife to cut her fruit."},
     {"dur": 11000, "ambient": ["echo"], "cam": {"pos": [920, 535, 550], "look": [940, 840, -3000]}, "say": "Then she called Yusuf in. When they saw him, they were so astonished that they cut their own hands without noticing, and said: this is no mortal man, this is a noble angel!"},
     {"dur": 10000, "ambient": ["echo", "air"], "cam": {"pos": [900, 540, 450], "look": [920, 880, -3000]}, "say": "Still she threatened him with prison if he would not obey her. Yusuf prayed: my Lord, prison is dearer to me than what they call me to."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [900, 535, 600], "look": [920, 820, -3000]}, "pendingVerse": {"ref": "12:33", "place": "sky"}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [900, 535, 600], "look": [920, 820, -3000]}, "verse": { "ref": "12:33", "place": "sky", "en": "He said, \"My Lord, prison is more to my liking than that to which they invite me. And if You do not avert from me their plan, I might incline toward them and [thus] be of the ignorant.\"" }}
   ]
 }

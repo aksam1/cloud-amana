@@ -6,7 +6,7 @@
   "title": "The Mountain Above Them",
   "arabic": "رفع الجبل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:171"],
   "art": ["Musa appears only as a steady light; the Children of Israel as small warm lights. God is not depicted: only the mountain is seen, lifted like a cloud above them, as the Quran describes (7:171). That they had hesitated to accept the Torah is from the commentaries."],
   "ambient": ["wind", "crowd"],
   "base": "#d8c0a0",
@@ -32,6 +32,6 @@
     {"dur": 10000, "ambient": ["wind", "crowd"], "cam": {"pos": [800, 515, 1000], "look": [800, 600, -3000]}, "say": "When Musa brought the tablets, his people hesitated to take on what was written in them."},
     {"dur": 11000, "ambient": ["wind", "roar"], "sfx": [{"name": "rumble", "at": 600}, {"name": "rumble", "at": 3000}], "world": {"shake": 1.2}, "cam": {"pos": [800, 505, 1150], "look": [800, 470, -3000]}, "say": "Then God raised the mountain above them, as if it were a canopy of cloud, and they were sure it would fall on them."},
     {"dur": 11000, "ambient": ["wind"], "world": {"shake": 0.3}, "cam": {"pos": [800, 510, 1100], "look": [800, 500, -3000]}, "say": "Hold firmly to what We have given you, they were told, and remember what is in it, so that you may be mindful of God. And they made their covenant."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 515, 1000], "look": [800, 600, -3000]}, "pendingVerse": {"ref": "7:171", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 515, 1000], "look": [800, 600, -3000]}, "verse": { "ref": "7:171", "place": "sky", "en": "And [mention] when We raised the mountain above them as if it was a dark cloud and they were certain that it would fall upon them, [and Allah said], \"Take what We have given you with determination and remember what is in it that you might fear Allah.\"" }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Torn Shirt",
   "arabic": "القميص الممزق",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:23"],
   "art": ["Yusuf appears only as a steady light; the Aziz, his wife and the witness as dim figures of light. Nothing more than the run to the door is shown; the shirt is told, not shown."],
   "ambient": ["echo", "fire"],
   "base": "#10141e",
@@ -36,6 +36,6 @@
     {"dur": 9000, "ambient": ["echo", "fire"], "cam": {"pos": [860, 590, 40], "look": [880, 1020, -3000]}, "say": "The wife of the Aziz desired him. She closed the doors, but he refused: I seek refuge in God."},
     {"dur": 8000, "ambient": ["echo"], "sfx": [{"name": "door", "at": 3000}], "cam": {"pos": [980, 590, 40], "look": [1020, 1020, -3000]}, "say": "He ran for the door; she caught his shirt from behind, and it tore."},
     {"dur": 9000, "ambient": ["echo", "voices"], "cam": {"pos": [1060, 585, 40], "look": [1100, 1020, -3000]}, "say": "Her husband stood in the doorway. A witness said: if the shirt is torn at the back, he is telling the truth. It was."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [1000, 580, 40], "look": [1040, 1020, -3000]}, "pendingVerse": {"ref": "12:23", "place": "sky", "part": "his answer, from \"I seek the refuge of Allah\" to the end"}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [1000, 580, 40], "look": [1040, 1020, -3000]}, "verse": { "ref": "12:23", "ar": [13,25], "place": "sky", "en": "…He said, \"[I seek] the refuge of Allah. Indeed, he is my master, who has made good my residence. Indeed, wrongdoers will not succeed.\"" }}
   ]
 }

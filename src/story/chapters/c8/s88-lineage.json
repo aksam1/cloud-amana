@@ -6,7 +6,7 @@
   "title": "The Line of Ismail",
   "arabic": "ذرية إسماعيل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:129"],
   "art": ["Ismail and his sons appear only as lights. That the final messenger came from Ismail's line is the teaching of the Quran's prayer (2:129) and the hadith; he is not shown.", "The growing town and the caravans are imagined."],
   "ambient": ["desert", "voices"],
   "base": "#d8c0a0",
@@ -46,6 +46,6 @@
     {"dur": 10000, "ambient": ["desert", "voices"], "cam": {"pos": [980, 518, 1000], "look": [1000, 580, -3000]}, "say": "Ismail's sons grew into tribes that spread across Arabia."},
     {"dur": 10000, "ambient": ["crowd", "wind"], "cam": {"pos": [880, 505, 1250], "look": [880, 545, -3000]}, "say": "Generation after generation, they kept the House their fathers had raised."},
     {"dur": 10000, "ambient": ["wind", "birds"], "cam": {"pos": [880, 510, 1200], "look": [880, 550, -3000]}, "say": "Ages later, from Ismail's line, God raised the messenger Ibrahim had prayed for."},
-    {"dur": 13000, "ambient": ["air", "birds"], "cam": {"pos": [900, 512, 1150], "look": [900, 560, -3000]}, "pendingVerse": {"ref": "2:129", "place": "sky", "part": "Ibrahim's prayer for a messenger from among them"}}
+    {"dur": 13000, "ambient": ["air", "birds"], "cam": {"pos": [900, 512, 1150], "look": [900, 560, -3000]}, "verse": { "ref": "2:129", "ar": [0,11], "place": "sky", "en": "Our Lord, and send among them a messenger from themselves who will recite to them Your verses and teach them the Book and wisdom and purify them.…" }}
   ]
 }

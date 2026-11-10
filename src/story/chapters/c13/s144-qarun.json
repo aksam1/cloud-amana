@@ -6,7 +6,7 @@
   "title": "Qarun's Treasure",
   "arabic": "كنوز قارون",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:81"],
   "art": ["Qarun and the people appear only as dim figures of light. The earth swallowing his house is shown as the house sinking into the ground; no one is shown harmed.", "The look of his house and treasure is imagined."],
   "ambient": ["crowd", "city"],
   "base": "#d8c0a0",
@@ -53,6 +53,6 @@
     {"dur": 10000, "ambient": ["crowd", "city"], "cam": {"pos": [920, 520, 800], "look": [940, 690, -3000]}, "say": "Qarun was one of Musa's own people, given such treasures that the keys alone were a burden for a band of strong men. Do not exult, his people warned him; God does not love the boastful."},
     {"dur": 10000, "ambient": ["crowd", "voices"], "cam": {"pos": [900, 525, 700], "look": [920, 720, -3000]}, "say": "I was given it because of my own knowledge, he said. When he paraded in his finery, some longed for what he had; those with knowledge said: God's reward is better."},
     {"dur": 10000, "ambient": ["wind"], "sfx": [{"name": "rumble", "at": 600}], "world": {"shake": 1.6}, "cam": {"pos": [920, 515, 950], "look": [940, 660, -3000]}, "say": "So God caused the earth to swallow him and his house, and no one could help him."},
-    {"dur": 12000, "ambient": ["wind", "air"], "world": {"shake": 0.3}, "cam": {"pos": [920, 515, 950], "look": [940, 660, -3000]}, "pendingVerse": {"ref": "28:81", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "world": {"shake": 0.3}, "cam": {"pos": [920, 515, 950], "look": [940, 660, -3000]}, "verse": { "ref": "28:81", "place": "sky", "en": "And We caused the earth to swallow him and his home. And there was for him no company to aid him other than Allah, nor was he of those who [could] defend themselves." }}
   ]
 }

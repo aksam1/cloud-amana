@@ -6,7 +6,7 @@
   "title": "Bring Us a Sign",
   "arabic": "تحدي القوم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["26:153-154"],
   "art": [
     "The crowd's scorn is drawn as jagged strokes, never words; the chiefs and the crowd appear only as dim figures of light, and Salih only as a steady light seen from far away."
   ],
@@ -51,6 +51,6 @@
     { "dur": 8000, "ambient": ["jeer", "voice"], "cam": { "pos": [820, 460, -1300], "look": [820, 520, -9000] },
       "say": "Bring us a sign, they said, if you are telling the truth." },
     { "dur": 12000, "ambient": ["air", "crowd"], "cam": { "pos": [820, 450, -1500], "look": [820, 520, -9000] },
-      "pendingVerse": { "ref": "26:153-154", "place": "lower" } }
+      "verse": { "ref": "26:153-154", "place": "lower", "en": "They said, \"You are only of those affected by magic. You are but a man like ourselves, so bring a sign, if you should be of the truthful.\"" } }
   ]
 }

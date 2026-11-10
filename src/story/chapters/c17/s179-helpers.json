@@ -6,7 +6,7 @@
   "title": "The Disciples",
   "arabic": "الحواريون",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["3:52"],
   "art": ["Isa appears only as a steady light; his mother, the disciples and the people as soft or dim figures of light. Nothing in these scenes stands for God. The land's look is imagined.", "The disciples are shown as twelve soft lights; their number is from the commentaries."],
   "ambient": ["water", "birds"],
   "base": "#a8b4c0",
@@ -42,6 +42,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["water", "birds"], "cam": {"pos": [900, 520, 900], "look": [920, 680, -3000]}, "say": "When Isa sensed that many of his people rejected him, he asked: who will be my helpers in the cause of God?"},
     {"dur": 11000, "ambient": ["water", "voices"], "cam": {"pos": [820, 525, 650], "look": [820, 750, -3000]}, "say": "The disciples answered: we are God's helpers. We believe in God; bear witness that we submit to Him."},
-    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [800, 520, 800], "look": [800, 700, -3000]}, "pendingVerse": {"ref": "3:52", "place": "sky", "part": "from \"who are my supporters for Allah\""}}
+    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [800, 520, 800], "look": [800, 700, -3000]}, "verse": { "ref": "3:52", "ar": [7,21], "place": "sky", "en": "…\"Who are my supporters for [the cause of] Allah?\" The disciples said, \"We are supporters for Allah. We have believed in Allah and testify that we are Muslims [submitting to Him]." }}
   ]
 }

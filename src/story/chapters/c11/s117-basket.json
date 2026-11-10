@@ -6,7 +6,7 @@
   "title": "The Basket on the River",
   "arabic": "السلة على النهر",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:7"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "His mother and the infant appear only as soft lights. That the basket was of reeds sealed with pitch is from the commentaries; the Quran tells of the chest cast into the river (20:39, 28:7)."],
   "ambient": ["water", "crickets"],
   "base": "#141824",
@@ -38,6 +38,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["crickets", "water"], "cam": {"pos": [880, 535, 500], "look": [900, 800, -3000]}, "say": "In those days a son was born to a woman of Israel. God inspired her: nurse him, and when you fear for him, cast him into the river."},
     {"dur": 13000, "ambient": ["water", "birds"], "cam": {"pos": [1100, 530, 700], "look": [1140, 760, -3000]}, "say": "So she laid him in a basket and set it on the Nile, trusting God's promise to return him to her."},
-    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [1200, 525, 800], "look": [1240, 720, -3000]}, "pendingVerse": {"ref": "28:7", "place": "sky"}}
+    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [1200, 525, 800], "look": [1240, 720, -3000]}, "verse": { "ref": "28:7", "place": "sky", "en": "And We inspired to the mother of Moses, \"Suckle him; but when you fear for him, cast him into the river and do not fear and do not grieve. Indeed, We will return him to you and will make him [one] of the messengers.\"" }}
   ]
 }

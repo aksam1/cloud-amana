@@ -6,7 +6,7 @@
   "title": "The Golden Calf",
   "arabic": "العجل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["20:90"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "The calf is drawn as a figure of gold, as the Quran describes (20:88); the Samiri appears only as a cold dim light."],
   "ambient": ["crowd", "fire"],
   "base": "#141824",
@@ -40,6 +40,6 @@
     {"dur": 11000, "ambient": ["crowd", "fire"], "cam": {"pos": [780, 525, 700], "look": [800, 740, -3000]}, "say": "While Musa was on the mountain, a man called the Samiri gathered the people's gold ornaments and cast from them a calf that made a lowing sound."},
     {"dur": 10000, "ambient": ["crowd", "chant"], "cam": {"pos": [800, 520, 900], "look": [800, 680, -3000]}, "say": "This is your god, and the god of Musa, he told them, and many began to worship it."},
     {"dur": 10000, "ambient": ["crowd", "fire"], "cam": {"pos": [680, 530, 650], "look": [680, 760, -3000]}, "say": "Harun pleaded with them: you are only being tested by this. Your Lord is the Most Merciful, so follow me."},
-    {"dur": 12000, "ambient": ["fire", "air"], "cam": {"pos": [760, 520, 850], "look": [780, 700, -3000]}, "pendingVerse": {"ref": "20:90", "place": "sky"}}
+    {"dur": 12000, "ambient": ["fire", "air"], "cam": {"pos": [760, 520, 850], "look": [780, 700, -3000]}, "verse": { "ref": "20:90", "place": "sky", "en": "And Aaron had already told them before [the return of Moses], \"O my people, you are only being tested by it, and indeed, your Lord is the Most Merciful, so follow me and obey my order.\"" }}
   ]
 }

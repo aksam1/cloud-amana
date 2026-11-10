@@ -6,7 +6,7 @@
   "title": "Before Pharaoh",
   "arabic": "أمام فرعون",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["20:50"],
   "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined."],
   "ambient": ["echo", "fire"],
   "base": "#10141e",
@@ -39,6 +39,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["echo", "fire"], "cam": {"pos": [760, 530, 900], "look": [780, 760, -3000]}, "say": "Musa and Harun stood before Pharaoh: we are messengers of the Lord of the worlds. Let the Children of Israel go with us."},
     {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [800, 540, 500], "look": [800, 860, -3000]}, "say": "Pharaoh scoffed: did we not raise you among us as a child? And who is this Lord of yours?"},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [760, 530, 800], "look": [780, 780, -3000]}, "pendingVerse": {"ref": "20:50", "place": "sky"}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [760, 530, 800], "look": [780, 780, -3000]}, "verse": { "ref": "20:50", "place": "sky", "en": "He said, \"Our Lord is He who gave each thing its form and then guided [it].\"" }}
   ]
 }

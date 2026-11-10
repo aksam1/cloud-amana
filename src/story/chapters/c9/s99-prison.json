@@ -6,7 +6,7 @@
   "title": "Two Companions in Prison",
   "arabic": "السجن",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:39"],
   "art": ["Yusuf appears only as a steady light; his fellow prisoners as dim figures of light. The prison is imagined; their dreams are told, not shown."],
   "ambient": ["echo", "drips"],
   "base": "#100c0a",
@@ -30,6 +30,6 @@
   "beats": [
     {"dur": 9000, "ambient": ["echo", "drips"], "cam": {"pos": [920, 540, 260], "look": [940, 1050, -3000]}, "say": "Though he had done no wrong, Yusuf was put in prison, and two young men were imprisoned with him."},
     {"dur": 10000, "ambient": ["echo", "voice"], "cam": {"pos": [960, 540, 260], "look": [980, 1050, -3000]}, "say": "One dreamed he was pressing wine; the other, that birds ate bread from his head. Before explaining their dreams, Yusuf spoke to them of God."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [940, 535, 260], "look": [960, 1050, -3000]}, "pendingVerse": {"ref": "12:39", "place": "sky"}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [940, 535, 260], "look": [960, 1050, -3000]}, "verse": { "ref": "12:39", "place": "sky", "en": "O [my] two companions of prison, are separate lords better or Allah, the One, the Prevailing?" }}
   ]
 }

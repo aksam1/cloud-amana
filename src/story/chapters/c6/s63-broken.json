@@ -6,7 +6,7 @@
   "title": "The Broken Idols",
   "arabic": "تحطيم الأصنام",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["21:58"],
   "art": [
     "The idols are carved stone, wood and clay with blank faces; the temple is imagined. Ibrahim appears only as a steady light, from behind. The axe the commentaries say he left with the largest idol is not shown."
   ],
@@ -63,6 +63,6 @@
       "cam": { "dx": 6000, "pos": [800, 490, 920], "look": [800, 520, -3000] },
       "say": "He broke them to pieces, all but the largest of them." },
     { "dur": 12000, "ambient": ["echo", "air"], "cam": { "dx": 6000, "pos": [800, 580, 1350], "look": [800, 1250, -3000] },
-      "pendingVerse": { "ref": "21:58", "place": "lower" } }
+      "verse": { "ref": "21:58", "place": "lower", "en": "So he made them into fragments, except a large one among them, that they might return to it [and question]." } }
   ]
 }

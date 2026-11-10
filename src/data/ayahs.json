@@ -47,17 +47,317 @@
   "ar": "قُلْنَا ٱهْبِطُوا۟ مِنْهَا جَمِيعًۭا ۖ فَإِمَّا يَأْتِيَنَّكُم مِّنِّى هُدًۭى فَمَن تَبِعَ هُدَاىَ فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ",
   "en": "We said, \"Go down from it, all of you. And when guidance comes to you from Me, whoever follows My guidance - there will be no fear concerning them, nor will they grieve."
  },
+ "2:45": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ ۚ وَإِنَّهَا لَكَبِيرَةٌ إِلَّا عَلَى ٱلْخَٰشِعِينَ",
+  "en": "And seek help through patience and prayer, and indeed, it is difficult except for the humbly submissive [to Allah]"
+ },
+ "2:50": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَإِذْ فَرَقْنَا بِكُمُ ٱلْبَحْرَ فَأَنجَيْنَٰكُمْ وَأَغْرَقْنَآ ءَالَ فِرْعَوْنَ وَأَنتُمْ تَنظُرُونَ",
+  "en": "And [recall] when We parted the sea for you and saved you and drowned the people of Pharaoh while you were looking on."
+ },
+ "2:57": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَظَلَّلْنَا عَلَيْكُمُ ٱلْغَمَامَ وَأَنزَلْنَا عَلَيْكُمُ ٱلْمَنَّ وَٱلسَّلْوَىٰ ۖ كُلُوا۟ مِن طَيِّبَٰتِ مَا رَزَقْنَٰكُمْ ۖ وَمَا ظَلَمُونَا وَلَٰكِن كَانُوٓا۟ أَنفُسَهُمْ يَظْلِمُونَ",
+  "en": "And We shaded you with clouds and sent down to you manna and quails, [saying], \"Eat from the good things with which We have provided you.\" And they wronged Us not - but they were [only] wronging themselves."
+ },
+ "2:60": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "۞ وَإِذِ ٱسْتَسْقَىٰ مُوسَىٰ لِقَوْمِهِۦ فَقُلْنَا ٱضْرِب بِّعَصَاكَ ٱلْحَجَرَ ۖ فَٱنفَجَرَتْ مِنْهُ ٱثْنَتَا عَشْرَةَ عَيْنًۭا ۖ قَدْ عَلِمَ كُلُّ أُنَاسٍۢ مَّشْرَبَهُمْ ۖ كُلُوا۟ وَٱشْرَبُوا۟ مِن رِّزْقِ ٱللَّهِ وَلَا تَعْثَوْا۟ فِى ٱلْأَرْضِ مُفْسِدِينَ",
+  "en": "And [recall] when Moses prayed for water for his people, so We said, \"Strike with your staff the stone.\" And there gushed forth from it twelve springs, and every people knew its watering place. \"Eat and drink from the provision of Allah, and do not commit abuse on the earth, spreading corruption.\""
+ },
+ "2:69": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "قَالُوا۟ ٱدْعُ لَنَا رَبَّكَ يُبَيِّن لَّنَا مَا لَوْنُهَا ۚ قَالَ إِنَّهُۥ يَقُولُ إِنَّهَا بَقَرَةٌۭ صَفْرَآءُ فَاقِعٌۭ لَّوْنُهَا تَسُرُّ ٱلنَّٰظِرِينَ",
+  "en": "They said, \"Call upon your Lord to show us what is her color.\" He said, \"He says, 'It is a yellow cow, bright in color - pleasing to the observers.' \""
+ },
+ "2:127": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَإِذْ يَرْفَعُ إِبْرَٰهِۦمُ ٱلْقَوَاعِدَ مِنَ ٱلْبَيْتِ وَإِسْمَٰعِيلُ رَبَّنَا تَقَبَّلْ مِنَّآ ۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلْعَلِيمُ",
+  "en": "And [mention] when Abraham was raising the foundations of the House and [with him] Ishmael, [saying], \"Our Lord, accept [this] from us. Indeed You are the Hearing, the Knowing."
+ },
+ "2:129": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "رَبَّنَا وَٱبْعَثْ فِيهِمْ رَسُولًۭا مِّنْهُمْ يَتْلُوا۟ عَلَيْهِمْ ءَايَٰتِكَ وَيُعَلِّمُهُمُ ٱلْكِتَٰبَ وَٱلْحِكْمَةَ وَيُزَكِّيهِمْ ۚ إِنَّكَ أَنتَ ٱلْعَزِيزُ ٱلْحَكِيمُ",
+  "en": "Our Lord, and send among them a messenger from themselves who will recite to them Your verses and teach them the Book and wisdom and purify them. Indeed, You are the Exalted in Might, the Wise.\""
+ },
+ "2:132": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَوَصَّىٰ بِهَآ إِبْرَٰهِۦمُ بَنِيهِ وَيَعْقُوبُ يَٰبَنِىَّ إِنَّ ٱللَّهَ ٱصْطَفَىٰ لَكُمُ ٱلدِّينَ فَلَا تَمُوتُنَّ إِلَّا وَأَنتُم مُّسْلِمُونَ",
+  "en": "And Abraham instructed his sons [to do the same] and [so did] Jacob, [saying], \"O my sons, indeed Allah has chosen for you this religion, so do not die except while you are Muslims.\""
+ },
+ "2:133": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "أَمْ كُنتُمْ شُهَدَآءَ إِذْ حَضَرَ يَعْقُوبَ ٱلْمَوْتُ إِذْ قَالَ لِبَنِيهِ مَا تَعْبُدُونَ مِنۢ بَعْدِى قَالُوا۟ نَعْبُدُ إِلَٰهَكَ وَإِلَٰهَ ءَابَآئِكَ إِبْرَٰهِۦمَ وَإِسْمَٰعِيلَ وَإِسْحَٰقَ إِلَٰهًۭا وَٰحِدًۭا وَنَحْنُ لَهُۥ مُسْلِمُونَ",
+  "en": "Or were you witnesses when death approached Jacob, when he said to his sons, \"What will you worship after me?\" They said, \"We will worship your God and the God of your fathers, Abraham and Ishmael and Isaac - one God. And we are Muslims [in submission] to Him.\""
+ },
+ "2:155": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَلَنَبْلُوَنَّكُم بِشَىْءٍۢ مِّنَ ٱلْخَوْفِ وَٱلْجُوعِ وَنَقْصٍۢ مِّنَ ٱلْأَمْوَٰلِ وَٱلْأَنفُسِ وَٱلثَّمَرَٰتِ ۗ وَبَشِّرِ ٱلصَّٰبِرِينَ",
+  "en": "And We will surely test you with something of fear and hunger and a loss of wealth and lives and fruits, but give good tidings to the patient,"
+ },
+ "2:156": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "ٱلَّذِينَ إِذَآ أَصَٰبَتْهُم مُّصِيبَةٌۭ قَالُوٓا۟ إِنَّا لِلَّهِ وَإِنَّآ إِلَيْهِ رَٰجِعُونَ",
+  "en": "Who, when disaster strikes them, say, \"Indeed we belong to Allah, and indeed to Him we will return.\""
+ },
+ "2:157": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "أُو۟لَٰٓئِكَ عَلَيْهِمْ صَلَوَٰتٌۭ مِّن رَّبِّهِمْ وَرَحْمَةٌۭ ۖ وَأُو۟لَٰٓئِكَ هُمُ ٱلْمُهْتَدُونَ",
+  "en": "Those are the ones upon whom are blessings from their Lord and mercy. And it is those who are the [rightly] guided."
+ },
+ "2:158": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "۞ إِنَّ ٱلصَّفَا وَٱلْمَرْوَةَ مِن شَعَآئِرِ ٱللَّهِ ۖ فَمَنْ حَجَّ ٱلْبَيْتَ أَوِ ٱعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا ۚ وَمَن تَطَوَّعَ خَيْرًۭا فَإِنَّ ٱللَّهَ شَاكِرٌ عَلِيمٌ",
+  "en": "Indeed, as-Safa and al-Marwah are among the symbols of Allah. So whoever makes Hajj to the House or performs 'umrah - there is no blame upon him for walking between them. And whoever volunteers good - then indeed, Allah is appreciative and Knowing."
+ },
+ "2:183": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ كَمَا كُتِبَ عَلَى ٱلَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ",
+  "en": "O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may become righteous -"
+ },
+ "2:184": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "أَيَّامًۭا مَّعْدُودَٰتٍۢ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍۢ فَعِدَّةٌۭ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى ٱلَّذِينَ يُطِيقُونَهُۥ فِدْيَةٌۭ طَعَامُ مِسْكِينٍۢ ۖ فَمَن تَطَوَّعَ خَيْرًۭا فَهُوَ خَيْرٌۭ لَّهُۥ ۚ وَأَن تَصُومُوا۟ خَيْرٌۭ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+  "en": "[Fasting for] a limited number of days. So whoever among you is ill or on a journey [during them] - then an equal number of days [are to be made up]. And upon those who are able [to fast, but with hardship] - a ransom [as substitute] of feeding a poor person [each day]. And whoever volunteers excess - it is better for him. But to fast is best for you, if you only knew."
+ },
+ "2:185": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "شَهْرُ رَمَضَانَ ٱلَّذِىٓ أُنزِلَ فِيهِ ٱلْقُرْءَانُ هُدًۭى لِّلنَّاسِ وَبَيِّنَٰتٍۢ مِّنَ ٱلْهُدَىٰ وَٱلْفُرْقَانِ ۚ فَمَن شَهِدَ مِنكُمُ ٱلشَّهْرَ فَلْيَصُمْهُ ۖ وَمَن كَانَ مَرِيضًا أَوْ عَلَىٰ سَفَرٍۢ فَعِدَّةٌۭ مِّنْ أَيَّامٍ أُخَرَ ۗ يُرِيدُ ٱللَّهُ بِكُمُ ٱلْيُسْرَ وَلَا يُرِيدُ بِكُمُ ٱلْعُسْرَ وَلِتُكْمِلُوا۟ ٱلْعِدَّةَ وَلِتُكَبِّرُوا۟ ٱللَّهَ عَلَىٰ مَا هَدَىٰكُمْ وَلَعَلَّكُمْ تَشْكُرُونَ",
+  "en": "The month of Ramadhan [is that] in which was revealed the Qur'an, a guidance for the people and clear proofs of guidance and criterion. So whoever sights [the new moon of] the month, let him fast it; and whoever is ill or on a journey - then an equal number of other days. Allah intends for you ease and does not intend for you hardship and [wants] for you to complete the period and to glorify Allah for that [to] which He has guided you; and perhaps you will be grateful."
+ },
+ "2:197": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "ٱلْحَجُّ أَشْهُرٌۭ مَّعْلُومَٰتٌۭ ۚ فَمَن فَرَضَ فِيهِنَّ ٱلْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِى ٱلْحَجِّ ۗ وَمَا تَفْعَلُوا۟ مِنْ خَيْرٍۢ يَعْلَمْهُ ٱللَّهُ ۗ وَتَزَوَّدُوا۟ فَإِنَّ خَيْرَ ٱلزَّادِ ٱلتَّقْوَىٰ ۚ وَٱتَّقُونِ يَٰٓأُو۟لِى ٱلْأَلْبَٰبِ",
+  "en": "Hajj is [during] well-known months, so whoever has made Hajj obligatory upon himself therein [by entering the state of ihram], there is [to be for him] no sexual relations and no disobedience and no disputing during Hajj. And whatever good you do - Allah knows it. And take provisions, but indeed, the best provision is fear of Allah. And fear Me, O you of understanding."
+ },
+ "2:201": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَمِنْهُم مَّن يَقُولُ رَبَّنَآ ءَاتِنَا فِى ٱلدُّنْيَا حَسَنَةًۭ وَفِى ٱلْءَاخِرَةِ حَسَنَةًۭ وَقِنَا عَذَابَ ٱلنَّارِ",
+  "en": "But among them is he who says, \"Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire.\""
+ },
  "2:213": {
   "surah": "Al-Baqara",
   "surahAr": "سُورَةُ البَقَرَةِ",
   "ar": "كَانَ ٱلنَّاسُ أُمَّةًۭ وَٰحِدَةًۭ فَبَعَثَ ٱللَّهُ ٱلنَّبِيِّۦنَ مُبَشِّرِينَ وَمُنذِرِينَ وَأَنزَلَ مَعَهُمُ ٱلْكِتَٰبَ بِٱلْحَقِّ لِيَحْكُمَ بَيْنَ ٱلنَّاسِ فِيمَا ٱخْتَلَفُوا۟ فِيهِ ۚ وَمَا ٱخْتَلَفَ فِيهِ إِلَّا ٱلَّذِينَ أُوتُوهُ مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَٰتُ بَغْيًۢا بَيْنَهُمْ ۖ فَهَدَى ٱللَّهُ ٱلَّذِينَ ءَامَنُوا۟ لِمَا ٱخْتَلَفُوا۟ فِيهِ مِنَ ٱلْحَقِّ بِإِذْنِهِۦ ۗ وَٱللَّهُ يَهْدِى مَن يَشَآءُ إِلَىٰ صِرَٰطٍۢ مُّسْتَقِيمٍ",
   "en": "Mankind was [of] one religion [before their deviation]; then Allah sent the prophets as bringers of good tidings and warners and sent down with them the Scripture in truth to judge between the people concerning that in which they differed. And none differed over the Scripture except those who were given it - after the clear proofs came to them - out of jealous animosity among themselves. And Allah guided those who believed to the truth concerning that over which they had differed, by His permission. And Allah guides whom He wills to a straight path."
  },
+ "2:216": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "كُتِبَ عَلَيْكُمُ ٱلْقِتَالُ وَهُوَ كُرْهٌۭ لَّكُمْ ۖ وَعَسَىٰٓ أَن تَكْرَهُوا۟ شَيْـًۭٔا وَهُوَ خَيْرٌۭ لَّكُمْ ۖ وَعَسَىٰٓ أَن تُحِبُّوا۟ شَيْـًۭٔا وَهُوَ شَرٌّۭ لَّكُمْ ۗ وَٱللَّهُ يَعْلَمُ وَأَنتُمْ لَا تَعْلَمُونَ",
+  "en": "Fighting has been enjoined upon you while it is hateful to you. But perhaps you hate a thing and it is good for you; and perhaps you love a thing and it is bad for you. And Allah Knows, while you know not."
+ },
+ "2:248": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَقَالَ لَهُمْ نَبِيُّهُمْ إِنَّ ءَايَةَ مُلْكِهِۦٓ أَن يَأْتِيَكُمُ ٱلتَّابُوتُ فِيهِ سَكِينَةٌۭ مِّن رَّبِّكُمْ وَبَقِيَّةٌۭ مِّمَّا تَرَكَ ءَالُ مُوسَىٰ وَءَالُ هَٰرُونَ تَحْمِلُهُ ٱلْمَلَٰٓئِكَةُ ۚ إِنَّ فِى ذَٰلِكَ لَءَايَةًۭ لَّكُمْ إِن كُنتُم مُّؤْمِنِينَ",
+  "en": "And their prophet said to them, \"Indeed, a sign of his kingship is that the chest will come to you in which is assurance from your Lord and a remnant of what the family of Moses and the family of Aaron had left, carried by the angels. Indeed in that is a sign for you, if you are believers.\""
+ },
+ "2:249": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "فَلَمَّا فَصَلَ طَالُوتُ بِٱلْجُنُودِ قَالَ إِنَّ ٱللَّهَ مُبْتَلِيكُم بِنَهَرٍۢ فَمَن شَرِبَ مِنْهُ فَلَيْسَ مِنِّى وَمَن لَّمْ يَطْعَمْهُ فَإِنَّهُۥ مِنِّىٓ إِلَّا مَنِ ٱغْتَرَفَ غُرْفَةًۢ بِيَدِهِۦ ۚ فَشَرِبُوا۟ مِنْهُ إِلَّا قَلِيلًۭا مِّنْهُمْ ۚ فَلَمَّا جَاوَزَهُۥ هُوَ وَٱلَّذِينَ ءَامَنُوا۟ مَعَهُۥ قَالُوا۟ لَا طَاقَةَ لَنَا ٱلْيَوْمَ بِجَالُوتَ وَجُنُودِهِۦ ۚ قَالَ ٱلَّذِينَ يَظُنُّونَ أَنَّهُم مُّلَٰقُوا۟ ٱللَّهِ كَم مِّن فِئَةٍۢ قَلِيلَةٍ غَلَبَتْ فِئَةًۭ كَثِيرَةًۢ بِإِذْنِ ٱللَّهِ ۗ وَٱللَّهُ مَعَ ٱلصَّٰبِرِينَ",
+  "en": "And when Saul went forth with the soldiers, he said, \"Indeed, Allah will be testing you with a river. So whoever drinks from it is not of me, and whoever does not taste it is indeed of me, excepting one who takes [from it] in the hollow of his hand.\" But they drank from it, except a [very] few of them. Then when he had crossed it along with those who believed with him, they said, \"There is no power for us today against Goliath and his soldiers.\" But those who were certain that they would meet Allah said, \"How many a small company has overcome a large company by permission of Allah. And Allah is with the patient.\""
+ },
+ "2:250": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَلَمَّا بَرَزُوا۟ لِجَالُوتَ وَجُنُودِهِۦ قَالُوا۟ رَبَّنَآ أَفْرِغْ عَلَيْنَا صَبْرًۭا وَثَبِّتْ أَقْدَامَنَا وَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ",
+  "en": "And when they went forth to [face] Goliath and his soldiers, they said, \"Our Lord, pour upon us patience and plant firmly our feet and give us victory over the disbelieving people.\""
+ },
+ "2:251": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "فَهَزَمُوهُم بِإِذْنِ ٱللَّهِ وَقَتَلَ دَاوُۥدُ جَالُوتَ وَءَاتَىٰهُ ٱللَّهُ ٱلْمُلْكَ وَٱلْحِكْمَةَ وَعَلَّمَهُۥ مِمَّا يَشَآءُ ۗ وَلَوْلَا دَفْعُ ٱللَّهِ ٱلنَّاسَ بَعْضَهُم بِبَعْضٍۢ لَّفَسَدَتِ ٱلْأَرْضُ وَلَٰكِنَّ ٱللَّهَ ذُو فَضْلٍ عَلَى ٱلْعَٰلَمِينَ",
+  "en": "So they defeated them by permission of Allah, and David killed Goliath, and Allah gave him the kingship and prophethood and taught him from that which He willed. And if it were not for Allah checking [some] people by means of others, the earth would have been corrupted, but Allah is full of bounty to the worlds."
+ },
+ "2:255": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ",
+  "en": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great."
+ },
+ "2:256": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "لَآ إِكْرَاهَ فِى ٱلدِّينِ ۖ قَد تَّبَيَّنَ ٱلرُّشْدُ مِنَ ٱلْغَىِّ ۚ فَمَن يَكْفُرْ بِٱلطَّٰغُوتِ وَيُؤْمِنۢ بِٱللَّهِ فَقَدِ ٱسْتَمْسَكَ بِٱلْعُرْوَةِ ٱلْوُثْقَىٰ لَا ٱنفِصَامَ لَهَا ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌ",
+  "en": "There shall be no compulsion in [acceptance of] the religion. The right course has become clear from the wrong. So whoever disbelieves in Taghut and believes in Allah has grasped the most trustworthy handhold with no break in it. And Allah is Hearing and Knowing."
+ },
+ "2:258": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "أَلَمْ تَرَ إِلَى ٱلَّذِى حَآجَّ إِبْرَٰهِۦمَ فِى رَبِّهِۦٓ أَنْ ءَاتَىٰهُ ٱللَّهُ ٱلْمُلْكَ إِذْ قَالَ إِبْرَٰهِۦمُ رَبِّىَ ٱلَّذِى يُحْىِۦ وَيُمِيتُ قَالَ أَنَا۠ أُحْىِۦ وَأُمِيتُ ۖ قَالَ إِبْرَٰهِۦمُ فَإِنَّ ٱللَّهَ يَأْتِى بِٱلشَّمْسِ مِنَ ٱلْمَشْرِقِ فَأْتِ بِهَا مِنَ ٱلْمَغْرِبِ فَبُهِتَ ٱلَّذِى كَفَرَ ۗ وَٱللَّهُ لَا يَهْدِى ٱلْقَوْمَ ٱلظَّٰلِمِينَ",
+  "en": "Have you not considered the one who argued with Abraham about his Lord [merely] because Allah had given him kingship? When Abraham said, \"My Lord is the one who gives life and causes death,\" he said, \"I give life and cause death.\" Abraham said, \"Indeed, Allah brings up the sun from the east, so bring it up from the west.\" So the disbeliever was overwhelmed [by astonishment], and Allah does not guide the wrongdoing people."
+ },
+ "2:259": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "أَوْ كَٱلَّذِى مَرَّ عَلَىٰ قَرْيَةٍۢ وَهِىَ خَاوِيَةٌ عَلَىٰ عُرُوشِهَا قَالَ أَنَّىٰ يُحْىِۦ هَٰذِهِ ٱللَّهُ بَعْدَ مَوْتِهَا ۖ فَأَمَاتَهُ ٱللَّهُ مِا۟ئَةَ عَامٍۢ ثُمَّ بَعَثَهُۥ ۖ قَالَ كَمْ لَبِثْتَ ۖ قَالَ لَبِثْتُ يَوْمًا أَوْ بَعْضَ يَوْمٍۢ ۖ قَالَ بَل لَّبِثْتَ مِا۟ئَةَ عَامٍۢ فَٱنظُرْ إِلَىٰ طَعَامِكَ وَشَرَابِكَ لَمْ يَتَسَنَّهْ ۖ وَٱنظُرْ إِلَىٰ حِمَارِكَ وَلِنَجْعَلَكَ ءَايَةًۭ لِّلنَّاسِ ۖ وَٱنظُرْ إِلَى ٱلْعِظَامِ كَيْفَ نُنشِزُهَا ثُمَّ نَكْسُوهَا لَحْمًۭا ۚ فَلَمَّا تَبَيَّنَ لَهُۥ قَالَ أَعْلَمُ أَنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌۭ",
+  "en": "Or [consider such an example] as the one who passed by a township which had fallen into ruin. He said, \"How will Allah bring this to life after its death?\" So Allah caused him to die for a hundred years; then He revived him. He said, \"How long have you remained?\" The man said, \"I have remained a day or part of a day.\" He said, \"Rather, you have remained one hundred years. Look at your food and your drink; it has not changed with time. And look at your donkey; and We will make you a sign for the people. And look at the bones [of this donkey] - how We raise them and then We cover them with flesh.\" And when it became clear to him, he said, \"I know that Allah is over all things competent.\""
+ },
+ "2:260": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَإِذْ قَالَ إِبْرَٰهِۦمُ رَبِّ أَرِنِى كَيْفَ تُحْىِ ٱلْمَوْتَىٰ ۖ قَالَ أَوَلَمْ تُؤْمِن ۖ قَالَ بَلَىٰ وَلَٰكِن لِّيَطْمَئِنَّ قَلْبِى ۖ قَالَ فَخُذْ أَرْبَعَةًۭ مِّنَ ٱلطَّيْرِ فَصُرْهُنَّ إِلَيْكَ ثُمَّ ٱجْعَلْ عَلَىٰ كُلِّ جَبَلٍۢ مِّنْهُنَّ جُزْءًۭا ثُمَّ ٱدْعُهُنَّ يَأْتِينَكَ سَعْيًۭا ۚ وَٱعْلَمْ أَنَّ ٱللَّهَ عَزِيزٌ حَكِيمٌۭ",
+  "en": "And [mention] when Abraham said, \"My Lord, show me how You give life to the dead.\" [Allah] said, \"Have you not believed?\" He said, \"Yes, but [I ask] only that my heart may be satisfied.\" [Allah] said, \"Take four birds and commit them to yourself. Then [after slaughtering them] put on each hill a portion of them; then call them - they will come [flying] to you in haste. And know that Allah is Exalted in Might and Wise.\""
+ },
+ "2:261": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "مَّثَلُ ٱلَّذِينَ يُنفِقُونَ أَمْوَٰلَهُمْ فِى سَبِيلِ ٱللَّهِ كَمَثَلِ حَبَّةٍ أَنۢبَتَتْ سَبْعَ سَنَابِلَ فِى كُلِّ سُنۢبُلَةٍۢ مِّا۟ئَةُ حَبَّةٍۢ ۗ وَٱللَّهُ يُضَٰعِفُ لِمَن يَشَآءُ ۗ وَٱللَّهُ وَٰسِعٌ عَلِيمٌ",
+  "en": "The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing."
+ },
+ "2:286": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا ٱكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَآ إِن نَّسِينَآ أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَآ إِصْرًۭا كَمَا حَمَلْتَهُۥ عَلَى ٱلَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۦ ۖ وَٱعْفُ عَنَّا وَٱغْفِرْ لَنَا وَٱرْحَمْنَآ ۚ أَنتَ مَوْلَىٰنَا فَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ",
+  "en": "Allah does not charge a soul except [with that within] its capacity. It will have [the consequence of] what [good] it has gained, and it will bear [the consequence of] what [evil] it has earned. \"Our Lord, do not impose blame upon us if we have forgotten or erred. Our Lord, and lay not upon us a burden like that which You laid upon those before us. Our Lord, and burden us not with that which we have no ability to bear. And pardon us; and forgive us; and have mercy upon us. You are our protector, so give us victory over the disbelieving people.\""
+ },
+ "3:8": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ ٱلْوَهَّابُ",
+  "en": "[Who say], \"Our Lord, let not our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower."
+ },
+ "3:18": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ وَٱلْمَلَٰٓئِكَةُ وَأُو۟لُوا۟ ٱلْعِلْمِ قَآئِمًۢا بِٱلْقِسْطِ ۚ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ",
+  "en": "Allah witnesses that there is no deity except Him, and [so do] the angels and those of knowledge - [that He is] maintaining [creation] in justice. There is no deity except Him, the Exalted in Might, the Wise."
+ },
+ "3:35": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "إِذْ قَالَتِ ٱمْرَأَتُ عِمْرَٰنَ رَبِّ إِنِّى نَذَرْتُ لَكَ مَا فِى بَطْنِى مُحَرَّرًۭا فَتَقَبَّلْ مِنِّىٓ ۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلْعَلِيمُ",
+  "en": "[Mention, O Muhammad], when the wife of 'Imran said, \"My Lord, indeed I have pledged to You what is in my womb, consecrated [for Your service], so accept this from me. Indeed, You are the Hearing, the Knowing.\""
+ },
+ "3:37": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "فَتَقَبَّلَهَا رَبُّهَا بِقَبُولٍ حَسَنٍۢ وَأَنۢبَتَهَا نَبَاتًا حَسَنًۭا وَكَفَّلَهَا زَكَرِيَّا ۖ كُلَّمَا دَخَلَ عَلَيْهَا زَكَرِيَّا ٱلْمِحْرَابَ وَجَدَ عِندَهَا رِزْقًۭا ۖ قَالَ يَٰمَرْيَمُ أَنَّىٰ لَكِ هَٰذَا ۖ قَالَتْ هُوَ مِنْ عِندِ ٱللَّهِ ۖ إِنَّ ٱللَّهَ يَرْزُقُ مَن يَشَآءُ بِغَيْرِ حِسَابٍ",
+  "en": "So her Lord accepted her with good acceptance and caused her to grow in a good manner and put her in the care of Zechariah. Every time Zechariah entered upon her in the prayer chamber, he found with her provision. He said, \"O Mary, from where is this [coming] to you?\" She said, \"It is from Allah. Indeed, Allah provides for whom He wills without account.\""
+ },
+ "3:38": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "هُنَالِكَ دَعَا زَكَرِيَّا رَبَّهُۥ ۖ قَالَ رَبِّ هَبْ لِى مِن لَّدُنكَ ذُرِّيَّةًۭ طَيِّبَةً ۖ إِنَّكَ سَمِيعُ ٱلدُّعَآءِ",
+  "en": "At that, Zechariah called upon his Lord, saying, \"My Lord, grant me from Yourself a good offspring. Indeed, You are the Hearer of supplication.\""
+ },
+ "3:49": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "وَرَسُولًا إِلَىٰ بَنِىٓ إِسْرَٰٓءِيلَ أَنِّى قَدْ جِئْتُكُم بِـَٔايَةٍۢ مِّن رَّبِّكُمْ ۖ أَنِّىٓ أَخْلُقُ لَكُم مِّنَ ٱلطِّينِ كَهَيْـَٔةِ ٱلطَّيْرِ فَأَنفُخُ فِيهِ فَيَكُونُ طَيْرًۢا بِإِذْنِ ٱللَّهِ ۖ وَأُبْرِئُ ٱلْأَكْمَهَ وَٱلْأَبْرَصَ وَأُحْىِ ٱلْمَوْتَىٰ بِإِذْنِ ٱللَّهِ ۖ وَأُنَبِّئُكُم بِمَا تَأْكُلُونَ وَمَا تَدَّخِرُونَ فِى بُيُوتِكُمْ ۚ إِنَّ فِى ذَٰلِكَ لَءَايَةًۭ لَّكُمْ إِن كُنتُم مُّؤْمِنِينَ",
+  "en": "And [make him] a messenger to the Children of Israel, [who will say], 'Indeed I have come to you with a sign from your Lord in that I design for you from clay [that which is] like the form of a bird, then I breathe into it and it becomes a bird by permission of Allah. And I cure the blind and the leper, and I give life to the dead - by permission of Allah. And I inform you of what you eat and what you store in your houses. Indeed in that is a sign for you, if you are believers."
+ },
+ "3:52": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "۞ فَلَمَّآ أَحَسَّ عِيسَىٰ مِنْهُمُ ٱلْكُفْرَ قَالَ مَنْ أَنصَارِىٓ إِلَى ٱللَّهِ ۖ قَالَ ٱلْحَوَارِيُّونَ نَحْنُ أَنصَارُ ٱللَّهِ ءَامَنَّا بِٱللَّهِ وَٱشْهَدْ بِأَنَّا مُسْلِمُونَ",
+  "en": "But when Jesus felt [persistence in] disbelief from them, he said, \"Who are my supporters for [the cause of] Allah?\" The disciples said, \"We are supporters for Allah. We have believed in Allah and testify that we are Muslims [submitting to Him]."
+ },
+ "3:53": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "رَبَّنَآ ءَامَنَّا بِمَآ أَنزَلْتَ وَٱتَّبَعْنَا ٱلرَّسُولَ فَٱكْتُبْنَا مَعَ ٱلشَّٰهِدِينَ",
+  "en": "Our Lord, we have believed in what You revealed and have followed the messenger Jesus, so register us among the witnesses [to truth].\""
+ },
+ "3:97": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "فِيهِ ءَايَٰتٌۢ بَيِّنَٰتٌۭ مَّقَامُ إِبْرَٰهِيمَ ۖ وَمَن دَخَلَهُۥ كَانَ ءَامِنًۭا ۗ وَلِلَّهِ عَلَى ٱلنَّاسِ حِجُّ ٱلْبَيْتِ مَنِ ٱسْتَطَاعَ إِلَيْهِ سَبِيلًۭا ۚ وَمَن كَفَرَ فَإِنَّ ٱللَّهَ غَنِىٌّ عَنِ ٱلْعَٰلَمِينَ",
+  "en": "In it are clear signs [such as] the standing place of Abraham. And whoever enters it shall be safe. And [due] to Allah from the people is a pilgrimage to the House - for whoever is able to find thereto a way. But whoever disbelieves - then indeed, Allah is free from need of the worlds."
+ },
+ "3:134": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "ٱلَّذِينَ يُنفِقُونَ فِى ٱلسَّرَّآءِ وَٱلضَّرَّآءِ وَٱلْكَٰظِمِينَ ٱلْغَيْظَ وَٱلْعَافِينَ عَنِ ٱلنَّاسِ ۗ وَٱللَّهُ يُحِبُّ ٱلْمُحْسِنِينَ",
+  "en": "Who spend [in the cause of Allah] during ease and hardship and who restrain anger and who pardon the people - and Allah loves the doers of good;"
+ },
+ "3:147": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "وَمَا كَانَ قَوْلَهُمْ إِلَّآ أَن قَالُوا۟ رَبَّنَا ٱغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِىٓ أَمْرِنَا وَثَبِّتْ أَقْدَامَنَا وَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ",
+  "en": "And their words were not but that they said, \"Our Lord, forgive us our sins and the excess [committed] in our affairs and plant firmly our feet and give us victory over the disbelieving people.\""
+ },
+ "3:159": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "فَبِمَا رَحْمَةٍۢ مِّنَ ٱللَّهِ لِنتَ لَهُمْ ۖ وَلَوْ كُنتَ فَظًّا غَلِيظَ ٱلْقَلْبِ لَٱنفَضُّوا۟ مِنْ حَوْلِكَ ۖ فَٱعْفُ عَنْهُمْ وَٱسْتَغْفِرْ لَهُمْ وَشَاوِرْهُمْ فِى ٱلْأَمْرِ ۖ فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى ٱللَّهِ ۚ إِنَّ ٱللَّهَ يُحِبُّ ٱلْمُتَوَكِّلِينَ",
+  "en": "So by mercy from Allah, [O Muhammad], you were lenient with them. And if you had been rude [in speech] and harsh in heart, they would have disbanded from about you. So pardon them and ask forgiveness for them and consult them in the matter. And when you have decided, then rely upon Allah. Indeed, Allah loves those who rely [upon Him]."
+ },
+ "3:173": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "ٱلَّذِينَ قَالَ لَهُمُ ٱلنَّاسُ إِنَّ ٱلنَّاسَ قَدْ جَمَعُوا۟ لَكُمْ فَٱخْشَوْهُمْ فَزَادَهُمْ إِيمَٰنًۭا وَقَالُوا۟ حَسْبُنَا ٱللَّهُ وَنِعْمَ ٱلْوَكِيلُ",
+  "en": "Those to whom hypocrites said, \"Indeed, the people have gathered against you, so fear them.\" But it [merely] increased them in faith, and they said, \"Sufficient for us is Allah, and [He is] the best Disposer of affairs.\""
+ },
+ "3:193": {
+  "surah": "Aal-i-Imraan",
+  "surahAr": "سُورَةُ آلِ عِمۡرَانَ",
+  "ar": "رَّبَّنَآ إِنَّنَا سَمِعْنَا مُنَادِيًۭا يُنَادِى لِلْإِيمَٰنِ أَنْ ءَامِنُوا۟ بِرَبِّكُمْ فَـَٔامَنَّا ۚ رَبَّنَا فَٱغْفِرْ لَنَا ذُنُوبَنَا وَكَفِّرْ عَنَّا سَيِّـَٔاتِنَا وَتَوَفَّنَا مَعَ ٱلْأَبْرَارِ",
+  "en": "Our Lord, indeed we have heard a caller calling to faith, [saying], 'Believe in your Lord,' and we have believed. Our Lord, so forgive us our sins and remove from us our misdeeds and cause us to die with the righteous."
+ },
  "4:1": {
   "surah": "An-Nisaa",
   "surahAr": "سُورَةُ النِّسَاءِ",
   "ar": "يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم مِّن نَّفْسٍۢ وَٰحِدَةٍۢ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًۭا كَثِيرًۭا وَنِسَآءًۭ ۚ وَٱتَّقُوا۟ ٱللَّهَ ٱلَّذِى تَسَآءَلُونَ بِهِۦ وَٱلْأَرْحَامَ ۚ إِنَّ ٱللَّهَ كَانَ عَلَيْكُمْ رَقِيبًۭا",
   "en": "O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed Allah is ever, over you, an Observer."
+ },
+ "4:103": {
+  "surah": "An-Nisaa",
+  "surahAr": "سُورَةُ النِّسَاءِ",
+  "ar": "فَإِذَا قَضَيْتُمُ ٱلصَّلَوٰةَ فَٱذْكُرُوا۟ ٱللَّهَ قِيَٰمًۭا وَقُعُودًۭا وَعَلَىٰ جُنُوبِكُمْ ۚ فَإِذَا ٱطْمَأْنَنتُمْ فَأَقِيمُوا۟ ٱلصَّلَوٰةَ ۚ إِنَّ ٱلصَّلَوٰةَ كَانَتْ عَلَى ٱلْمُؤْمِنِينَ كِتَٰبًۭا مَّوْقُوتًۭا",
+  "en": "And when you have completed the prayer, remember Allah standing, sitting, or [lying] on your sides. But when you become secure, re-establish [regular] prayer. Indeed, prayer has been decreed upon the believers a decree of specified times."
+ },
+ "4:125": {
+  "surah": "An-Nisaa",
+  "surahAr": "سُورَةُ النِّسَاءِ",
+  "ar": "وَمَنْ أَحْسَنُ دِينًۭا مِّمَّنْ أَسْلَمَ وَجْهَهُۥ لِلَّهِ وَهُوَ مُحْسِنٌۭ وَٱتَّبَعَ مِلَّةَ إِبْرَٰهِيمَ حَنِيفًۭا ۗ وَٱتَّخَذَ ٱللَّهُ إِبْرَٰهِيمَ خَلِيلًۭا",
+  "en": "And who is better in religion than one who submits himself to Allah while being a doer of good and follows the religion of Abraham, inclining toward truth? And Allah took Abraham as an intimate friend."
+ },
+ "4:158": {
+  "surah": "An-Nisaa",
+  "surahAr": "سُورَةُ النِّسَاءِ",
+  "ar": "بَل رَّفَعَهُ ٱللَّهُ إِلَيْهِ ۚ وَكَانَ ٱللَّهُ عَزِيزًا حَكِيمًۭا",
+  "en": "Rather, Allah raised him to Himself. And ever is Allah Exalted in Might and Wise."
+ },
+ "4:163": {
+  "surah": "An-Nisaa",
+  "surahAr": "سُورَةُ النِّسَاءِ",
+  "ar": "۞ إِنَّآ أَوْحَيْنَآ إِلَيْكَ كَمَآ أَوْحَيْنَآ إِلَىٰ نُوحٍۢ وَٱلنَّبِيِّۦنَ مِنۢ بَعْدِهِۦ ۚ وَأَوْحَيْنَآ إِلَىٰٓ إِبْرَٰهِيمَ وَإِسْمَٰعِيلَ وَإِسْحَٰقَ وَيَعْقُوبَ وَٱلْأَسْبَاطِ وَعِيسَىٰ وَأَيُّوبَ وَيُونُسَ وَهَٰرُونَ وَسُلَيْمَٰنَ ۚ وَءَاتَيْنَا دَاوُۥدَ زَبُورًۭا",
+  "en": "Indeed, We have revealed to you, [O Muhammad], as We revealed to Noah and the prophets after him. And we revealed to Abraham, Ishmael, Isaac, Jacob, the Descendants, Jesus, Job, Jonah, Aaron, and Solomon, and to David We gave the book [of Psalms]."
+ },
+ "5:23": {
+  "surah": "Al-Maaida",
+  "surahAr": "سُورَةُ المَائـِدَةِ",
+  "ar": "قَالَ رَجُلَانِ مِنَ ٱلَّذِينَ يَخَافُونَ أَنْعَمَ ٱللَّهُ عَلَيْهِمَا ٱدْخُلُوا۟ عَلَيْهِمُ ٱلْبَابَ فَإِذَا دَخَلْتُمُوهُ فَإِنَّكُمْ غَٰلِبُونَ ۚ وَعَلَى ٱللَّهِ فَتَوَكَّلُوٓا۟ إِن كُنتُم مُّؤْمِنِينَ",
+  "en": "Said two men from those who feared [to disobey] upon whom Allah had bestowed favor, \"Enter upon them through the gate, for when you have entered it, you will be predominant. And upon Allah rely, if you should be believers.\""
+ },
+ "5:26": {
+  "surah": "Al-Maaida",
+  "surahAr": "سُورَةُ المَائـِدَةِ",
+  "ar": "قَالَ فَإِنَّهَا مُحَرَّمَةٌ عَلَيْهِمْ ۛ أَرْبَعِينَ سَنَةًۭ ۛ يَتِيهُونَ فِى ٱلْأَرْضِ ۚ فَلَا تَأْسَ عَلَى ٱلْقَوْمِ ٱلْفَٰسِقِينَ",
+  "en": "[Allah] said, \"Then indeed, it is forbidden to them for forty years [in which] they will wander throughout the land. So do not grieve over the defiantly disobedient people.\""
  },
  "5:27": {
   "surah": "Al-Maaida",
@@ -88,6 +388,66 @@
   "surahAr": "سُورَةُ المَائـِدَةِ",
   "ar": "مِنْ أَجْلِ ذَٰلِكَ كَتَبْنَا عَلَىٰ بَنِىٓ إِسْرَٰٓءِيلَ أَنَّهُۥ مَن قَتَلَ نَفْسًۢا بِغَيْرِ نَفْسٍ أَوْ فَسَادٍۢ فِى ٱلْأَرْضِ فَكَأَنَّمَا قَتَلَ ٱلنَّاسَ جَمِيعًۭا وَمَنْ أَحْيَاهَا فَكَأَنَّمَآ أَحْيَا ٱلنَّاسَ جَمِيعًۭا ۚ وَلَقَدْ جَآءَتْهُمْ رُسُلُنَا بِٱلْبَيِّنَٰتِ ثُمَّ إِنَّ كَثِيرًۭا مِّنْهُم بَعْدَ ذَٰلِكَ فِى ٱلْأَرْضِ لَمُسْرِفُونَ",
   "en": "Because of that, We decreed upon the Children of Israel that whoever kills a soul unless for a soul or for corruption [done] in the land - it is as if he had slain mankind entirely. And whoever saves one - it is as if he had saved mankind entirely. And our messengers had certainly come to them with clear proofs. Then indeed many of them, [even] after that, throughout the land, were transgressors."
+ },
+ "5:46": {
+  "surah": "Al-Maaida",
+  "surahAr": "سُورَةُ المَائـِدَةِ",
+  "ar": "وَقَفَّيْنَا عَلَىٰٓ ءَاثَٰرِهِم بِعِيسَى ٱبْنِ مَرْيَمَ مُصَدِّقًۭا لِّمَا بَيْنَ يَدَيْهِ مِنَ ٱلتَّوْرَىٰةِ ۖ وَءَاتَيْنَٰهُ ٱلْإِنجِيلَ فِيهِ هُدًۭى وَنُورٌۭ وَمُصَدِّقًۭا لِّمَا بَيْنَ يَدَيْهِ مِنَ ٱلتَّوْرَىٰةِ وَهُدًۭى وَمَوْعِظَةًۭ لِّلْمُتَّقِينَ",
+  "en": "And We sent, following in their footsteps, Jesus, the son of Mary, confirming that which came before him in the Torah; and We gave him the Gospel, in which was guidance and light and confirming that which preceded it of the Torah as guidance and instruction for the righteous."
+ },
+ "5:48": {
+  "surah": "Al-Maaida",
+  "surahAr": "سُورَةُ المَائـِدَةِ",
+  "ar": "وَأَنزَلْنَآ إِلَيْكَ ٱلْكِتَٰبَ بِٱلْحَقِّ مُصَدِّقًۭا لِّمَا بَيْنَ يَدَيْهِ مِنَ ٱلْكِتَٰبِ وَمُهَيْمِنًا عَلَيْهِ ۖ فَٱحْكُم بَيْنَهُم بِمَآ أَنزَلَ ٱللَّهُ ۖ وَلَا تَتَّبِعْ أَهْوَآءَهُمْ عَمَّا جَآءَكَ مِنَ ٱلْحَقِّ ۚ لِكُلٍّۢ جَعَلْنَا مِنكُمْ شِرْعَةًۭ وَمِنْهَاجًۭا ۚ وَلَوْ شَآءَ ٱللَّهُ لَجَعَلَكُمْ أُمَّةًۭ وَٰحِدَةًۭ وَلَٰكِن لِّيَبْلُوَكُمْ فِى مَآ ءَاتَىٰكُمْ ۖ فَٱسْتَبِقُوا۟ ٱلْخَيْرَٰتِ ۚ إِلَى ٱللَّهِ مَرْجِعُكُمْ جَمِيعًۭا فَيُنَبِّئُكُم بِمَا كُنتُمْ فِيهِ تَخْتَلِفُونَ",
+  "en": "And We have revealed to you, [O Muhammad], the Book in truth, confirming that which preceded it of the Scripture and as a criterion over it. So judge between them by what Allah has revealed and do not follow their inclinations away from what has come to you of the truth. To each of you We prescribed a law and a method. Had Allah willed, He would have made you one nation [united in religion], but [He intended] to test you in what He has given you; so race to [all that is] good. To Allah is your return all together, and He will [then] inform you concerning that over which you used to differ."
+ },
+ "5:114": {
+  "surah": "Al-Maaida",
+  "surahAr": "سُورَةُ المَائـِدَةِ",
+  "ar": "قَالَ عِيسَى ٱبْنُ مَرْيَمَ ٱللَّهُمَّ رَبَّنَآ أَنزِلْ عَلَيْنَا مَآئِدَةًۭ مِّنَ ٱلسَّمَآءِ تَكُونُ لَنَا عِيدًۭا لِّأَوَّلِنَا وَءَاخِرِنَا وَءَايَةًۭ مِّنكَ ۖ وَٱرْزُقْنَا وَأَنتَ خَيْرُ ٱلرَّٰزِقِينَ",
+  "en": "Said Jesus, the son of Mary, \"O Allah, our Lord, send down to us a table [spread with food] from the heaven to be for us a festival for the first of us and the last of us and a sign from You. And provide for us, and You are the best of providers.\""
+ },
+ "6:74": {
+  "surah": "Al-An'aam",
+  "surahAr": "سُورَةُ الأَنۡعَامِ",
+  "ar": "۞ وَإِذْ قَالَ إِبْرَٰهِيمُ لِأَبِيهِ ءَازَرَ أَتَتَّخِذُ أَصْنَامًا ءَالِهَةً ۖ إِنِّىٓ أَرَىٰكَ وَقَوْمَكَ فِى ضَلَٰلٍۢ مُّبِينٍۢ",
+  "en": "And [mention, O Muhammad], when Abraham said to his father Azar, \"Do you take idols as deities? Indeed, I see you and your people to be in manifest error.\""
+ },
+ "6:76": {
+  "surah": "Al-An'aam",
+  "surahAr": "سُورَةُ الأَنۡعَامِ",
+  "ar": "فَلَمَّا جَنَّ عَلَيْهِ ٱلَّيْلُ رَءَا كَوْكَبًۭا ۖ قَالَ هَٰذَا رَبِّى ۖ فَلَمَّآ أَفَلَ قَالَ لَآ أُحِبُّ ٱلْءَافِلِينَ",
+  "en": "So when the night covered him [with darkness], he saw a star. He said, \"This is my lord.\" But when it set, he said, \"I like not those that disappear.\""
+ },
+ "6:77": {
+  "surah": "Al-An'aam",
+  "surahAr": "سُورَةُ الأَنۡعَامِ",
+  "ar": "فَلَمَّا رَءَا ٱلْقَمَرَ بَازِغًۭا قَالَ هَٰذَا رَبِّى ۖ فَلَمَّآ أَفَلَ قَالَ لَئِن لَّمْ يَهْدِنِى رَبِّى لَأَكُونَنَّ مِنَ ٱلْقَوْمِ ٱلضَّآلِّينَ",
+  "en": "And when he saw the moon rising, he said, \"This is my lord.\" But when it set, he said, \"Unless my Lord guides me, I will surely be among the people gone astray.\""
+ },
+ "6:78": {
+  "surah": "Al-An'aam",
+  "surahAr": "سُورَةُ الأَنۡعَامِ",
+  "ar": "فَلَمَّا رَءَا ٱلشَّمْسَ بَازِغَةًۭ قَالَ هَٰذَا رَبِّى هَٰذَآ أَكْبَرُ ۖ فَلَمَّآ أَفَلَتْ قَالَ يَٰقَوْمِ إِنِّى بَرِىٓءٌۭ مِّمَّا تُشْرِكُونَ",
+  "en": "And when he saw the sun rising, he said, \"This is my lord; this is greater.\" But when it set, he said, \"O my people, indeed I am free from what you associate with Allah."
+ },
+ "6:79": {
+  "surah": "Al-An'aam",
+  "surahAr": "سُورَةُ الأَنۡعَامِ",
+  "ar": "إِنِّى وَجَّهْتُ وَجْهِىَ لِلَّذِى فَطَرَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ حَنِيفًۭا ۖ وَمَآ أَنَا۠ مِنَ ٱلْمُشْرِكِينَ",
+  "en": "Indeed, I have turned my face toward He who created the heavens and the earth, inclining toward truth, and I am not of those who associate others with Allah.\""
+ },
+ "6:162": {
+  "surah": "Al-An'aam",
+  "surahAr": "سُورَةُ الأَنۡعَامِ",
+  "ar": "قُلْ إِنَّ صَلَاتِى وَنُسُكِى وَمَحْيَاىَ وَمَمَاتِى لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
+  "en": "Say, \"Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds."
+ },
+ "6:163": {
+  "surah": "Al-An'aam",
+  "surahAr": "سُورَةُ الأَنۡعَامِ",
+  "ar": "لَا شَرِيكَ لَهُۥ ۖ وَبِذَٰلِكَ أُمِرْتُ وَأَنَا۠ أَوَّلُ ٱلْمُسْلِمِينَ",
+  "en": "No partner has He. And this I have been commanded, and I am the first [among you] of the Muslims.\""
  },
  "7:11": {
   "surah": "Al-A'raaf",
@@ -148,6 +508,138 @@
   "surahAr": "سُورَةُ الأَعۡرَافِ",
   "ar": "۞ وَإِلَىٰ عَادٍ أَخَاهُمْ هُودًۭا ۗ قَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُۥٓ ۚ أَفَلَا تَتَّقُونَ",
   "en": "And to the 'Aad [We sent] their brother Hud. He said, \"O my people, worship Allah; you have no deity other than Him. Then will you not fear Him?\""
+ },
+ "7:73": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَإِلَىٰ ثَمُودَ أَخَاهُمْ صَٰلِحًۭا ۗ قَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُۥ ۖ قَدْ جَآءَتْكُم بَيِّنَةٌۭ مِّن رَّبِّكُمْ ۖ هَٰذِهِۦ نَاقَةُ ٱللَّهِ لَكُمْ ءَايَةًۭ ۖ فَذَرُوهَا تَأْكُلْ فِىٓ أَرْضِ ٱللَّهِ ۖ وَلَا تَمَسُّوهَا بِسُوٓءٍۢ فَيَأْخُذَكُمْ عَذَابٌ أَلِيمٌۭ",
+  "en": "And to the Thamud [We sent] their brother Salih. He said, \"O my people, worship Allah; you have no deity other than Him. There has come to you clear evidence from your Lord. This is the she-camel of Allah [sent] to you as a sign. So leave her to eat within Allah 's land and do not touch her with harm, lest there seize you a painful punishment."
+ },
+ "7:74": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَٱذْكُرُوٓا۟ إِذْ جَعَلَكُمْ خُلَفَآءَ مِنۢ بَعْدِ عَادٍۢ وَبَوَّأَكُمْ فِى ٱلْأَرْضِ تَتَّخِذُونَ مِن سُهُولِهَا قُصُورًۭا وَتَنْحِتُونَ ٱلْجِبَالَ بُيُوتًۭا ۖ فَٱذْكُرُوٓا۟ ءَالَآءَ ٱللَّهِ وَلَا تَعْثَوْا۟ فِى ٱلْأَرْضِ مُفْسِدِينَ",
+  "en": "And remember when He made you successors after the 'Aad and settled you in the land, [and] you take for yourselves palaces from its plains and carve from the mountains, homes. Then remember the favors of Allah and do not commit abuse on the earth, spreading corruption.\""
+ },
+ "7:79": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "فَتَوَلَّىٰ عَنْهُمْ وَقَالَ يَٰقَوْمِ لَقَدْ أَبْلَغْتُكُمْ رِسَالَةَ رَبِّى وَنَصَحْتُ لَكُمْ وَلَٰكِن لَّا تُحِبُّونَ ٱلنَّٰصِحِينَ",
+  "en": "And he turned away from them and said, \"O my people, I had certainly conveyed to you the message of my Lord and advised you, but you do not like advisors.\""
+ },
+ "7:93": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "فَتَوَلَّىٰ عَنْهُمْ وَقَالَ يَٰقَوْمِ لَقَدْ أَبْلَغْتُكُمْ رِسَٰلَٰتِ رَبِّى وَنَصَحْتُ لَكُمْ ۖ فَكَيْفَ ءَاسَىٰ عَلَىٰ قَوْمٍۢ كَٰفِرِينَ",
+  "en": "And he turned away from them and said, \"O my people, I had certainly conveyed to you the messages of my Lord and advised you, so how could I grieve for a disbelieving people?\""
+ },
+ "7:107": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "فَأَلْقَىٰ عَصَاهُ فَإِذَا هِىَ ثُعْبَانٌۭ مُّبِينٌۭ",
+  "en": "So Moses threw his staff, and suddenly it was a serpent, manifest."
+ },
+ "7:108": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَنَزَعَ يَدَهُۥ فَإِذَا هِىَ بَيْضَآءُ لِلنَّٰظِرِينَ",
+  "en": "And he drew out his hand; thereupon it was white [with radiance] for the observers."
+ },
+ "7:117": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "۞ وَأَوْحَيْنَآ إِلَىٰ مُوسَىٰٓ أَنْ أَلْقِ عَصَاكَ ۖ فَإِذَا هِىَ تَلْقَفُ مَا يَأْفِكُونَ",
+  "en": "And We inspired to Moses, \"Throw your staff,\" and at once it devoured what they were falsifying."
+ },
+ "7:121": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "قَالُوٓا۟ ءَامَنَّا بِرَبِّ ٱلْعَٰلَمِينَ",
+  "en": "They said, \"We have believed in the Lord of the worlds,"
+ },
+ "7:122": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "رَبِّ مُوسَىٰ وَهَٰرُونَ",
+  "en": "The Lord of Moses and Aaron.\""
+ },
+ "7:126": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَمَا تَنقِمُ مِنَّآ إِلَّآ أَنْ ءَامَنَّا بِـَٔايَٰتِ رَبِّنَا لَمَّا جَآءَتْنَا ۚ رَبَّنَآ أَفْرِغْ عَلَيْنَا صَبْرًۭا وَتَوَفَّنَا مُسْلِمِينَ",
+  "en": "And you do not resent us except because we believed in the signs of our Lord when they came to us. Our Lord, pour upon us patience and let us die as Muslims [in submission to You].\""
+ },
+ "7:133": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "فَأَرْسَلْنَا عَلَيْهِمُ ٱلطُّوفَانَ وَٱلْجَرَادَ وَٱلْقُمَّلَ وَٱلضَّفَادِعَ وَٱلدَّمَ ءَايَٰتٍۢ مُّفَصَّلَٰتٍۢ فَٱسْتَكْبَرُوا۟ وَكَانُوا۟ قَوْمًۭا مُّجْرِمِينَ",
+  "en": "So We sent upon them the flood and locusts and lice and frogs and blood as distinct signs, but they were arrogant and were a criminal people."
+ },
+ "7:143": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَلَمَّا جَآءَ مُوسَىٰ لِمِيقَٰتِنَا وَكَلَّمَهُۥ رَبُّهُۥ قَالَ رَبِّ أَرِنِىٓ أَنظُرْ إِلَيْكَ ۚ قَالَ لَن تَرَىٰنِى وَلَٰكِنِ ٱنظُرْ إِلَى ٱلْجَبَلِ فَإِنِ ٱسْتَقَرَّ مَكَانَهُۥ فَسَوْفَ تَرَىٰنِى ۚ فَلَمَّا تَجَلَّىٰ رَبُّهُۥ لِلْجَبَلِ جَعَلَهُۥ دَكًّۭا وَخَرَّ مُوسَىٰ صَعِقًۭا ۚ فَلَمَّآ أَفَاقَ قَالَ سُبْحَٰنَكَ تُبْتُ إِلَيْكَ وَأَنَا۠ أَوَّلُ ٱلْمُؤْمِنِينَ",
+  "en": "And when Moses arrived at Our appointed time and his Lord spoke to him, he said, \"My Lord, show me [Yourself] that I may look at You.\" [Allah] said, \"You will not see Me, but look at the mountain; if it should remain in place, then you will see Me.\" But when his Lord appeared to the mountain, He rendered it level, and Moses fell unconscious. And when he awoke, he said, \"Exalted are You! I have repented to You, and I am the first of the believers.\""
+ },
+ "7:145": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَكَتَبْنَا لَهُۥ فِى ٱلْأَلْوَاحِ مِن كُلِّ شَىْءٍۢ مَّوْعِظَةًۭ وَتَفْصِيلًۭا لِّكُلِّ شَىْءٍۢ فَخُذْهَا بِقُوَّةٍۢ وَأْمُرْ قَوْمَكَ يَأْخُذُوا۟ بِأَحْسَنِهَا ۚ سَأُو۟رِيكُمْ دَارَ ٱلْفَٰسِقِينَ",
+  "en": "And We wrote for him on the tablets [something] of all things - instruction and explanation for all things, [saying], \"Take them with determination and order your people to take the best of it. I will show you the home of the defiantly disobedient.\""
+ },
+ "7:151": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "قَالَ رَبِّ ٱغْفِرْ لِى وَلِأَخِى وَأَدْخِلْنَا فِى رَحْمَتِكَ ۖ وَأَنتَ أَرْحَمُ ٱلرَّٰحِمِينَ",
+  "en": "[Moses] said, \"My Lord, forgive me and my brother and admit us into Your mercy, for You are the most merciful of the merciful.\""
+ },
+ "7:156": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "۞ وَٱكْتُبْ لَنَا فِى هَٰذِهِ ٱلدُّنْيَا حَسَنَةًۭ وَفِى ٱلْءَاخِرَةِ إِنَّا هُدْنَآ إِلَيْكَ ۚ قَالَ عَذَابِىٓ أُصِيبُ بِهِۦ مَنْ أَشَآءُ ۖ وَرَحْمَتِى وَسِعَتْ كُلَّ شَىْءٍۢ ۚ فَسَأَكْتُبُهَا لِلَّذِينَ يَتَّقُونَ وَيُؤْتُونَ ٱلزَّكَوٰةَ وَٱلَّذِينَ هُم بِـَٔايَٰتِنَا يُؤْمِنُونَ",
+  "en": "And decree for us in this world [that which is] good and [also] in the Hereafter; indeed, we have turned back to You.\" [Allah] said, \"My punishment - I afflict with it whom I will, but My mercy encompasses all things.\" So I will decree it [especially] for those who fear Me and give zakah and those who believe in Our verses -"
+ },
+ "7:171": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "۞ وَإِذْ نَتَقْنَا ٱلْجَبَلَ فَوْقَهُمْ كَأَنَّهُۥ ظُلَّةٌۭ وَظَنُّوٓا۟ أَنَّهُۥ وَاقِعٌۢ بِهِمْ خُذُوا۟ مَآ ءَاتَيْنَٰكُم بِقُوَّةٍۢ وَٱذْكُرُوا۟ مَا فِيهِ لَعَلَّكُمْ تَتَّقُونَ",
+  "en": "And [mention] when We raised the mountain above them as if it was a dark cloud and they were certain that it would fall upon them, [and Allah said], \"Take what We have given you with determination and remember what is in it that you might fear Allah.\""
+ },
+ "7:172": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَإِذْ أَخَذَ رَبُّكَ مِنۢ بَنِىٓ ءَادَمَ مِن ظُهُورِهِمْ ذُرِّيَّتَهُمْ وَأَشْهَدَهُمْ عَلَىٰٓ أَنفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ ۖ قَالُوا۟ بَلَىٰ ۛ شَهِدْنَآ ۛ أَن تَقُولُوا۟ يَوْمَ ٱلْقِيَٰمَةِ إِنَّا كُنَّا عَنْ هَٰذَا غَٰفِلِينَ",
+  "en": "And [mention] when your Lord took from the children of Adam - from their loins - their descendants and made them testify of themselves, [saying to them], \"Am I not your Lord?\" They said, \"Yes, we have testified.\" [This] - lest you should say on the day of Resurrection, \"Indeed, we were of this unaware.\""
+ },
+ "9:60": {
+  "surah": "At-Tawba",
+  "surahAr": "سُورَةُ التَّوۡبَةِ",
+  "ar": "۞ إِنَّمَا ٱلصَّدَقَٰتُ لِلْفُقَرَآءِ وَٱلْمَسَٰكِينِ وَٱلْعَٰمِلِينَ عَلَيْهَا وَٱلْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِى ٱلرِّقَابِ وَٱلْغَٰرِمِينَ وَفِى سَبِيلِ ٱللَّهِ وَٱبْنِ ٱلسَّبِيلِ ۖ فَرِيضَةًۭ مِّنَ ٱللَّهِ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ",
+  "en": "Zakah expenditures are only for the poor and for the needy and for those employed to collect [zakah] and for bringing hearts together [for Islam] and for freeing captives [or slaves] and for those in debt and for the cause of Allah and for the [stranded] traveler - an obligation [imposed] by Allah. And Allah is Knowing and Wise."
+ },
+ "9:103": {
+  "surah": "At-Tawba",
+  "surahAr": "سُورَةُ التَّوۡبَةِ",
+  "ar": "خُذْ مِنْ أَمْوَٰلِهِمْ صَدَقَةًۭ تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ ۖ إِنَّ صَلَوٰتَكَ سَكَنٌۭ لَّهُمْ ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌ",
+  "en": "Take, [O, Muhammad], from their wealth a charity by which you purify them and cause them increase, and invoke [Allah 's blessings] upon them. Indeed, your invocations are reassurance for them. And Allah is Hearing and Knowing."
+ },
+ "9:129": {
+  "surah": "At-Tawba",
+  "surahAr": "سُورَةُ التَّوۡبَةِ",
+  "ar": "فَإِن تَوَلَّوْا۟ فَقُلْ حَسْبِىَ ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَلَيْهِ تَوَكَّلْتُ ۖ وَهُوَ رَبُّ ٱلْعَرْشِ ٱلْعَظِيمِ",
+  "en": "But if they turn away, [O Muhammad], say, \"Sufficient for me is Allah; there is no deity except Him. On Him I have relied, and He is the Lord of the Great Throne.\""
+ },
+ "10:85": {
+  "surah": "Yunus",
+  "surahAr": "سُورَةُ يُونُسَ",
+  "ar": "فَقَالُوا۟ عَلَى ٱللَّهِ تَوَكَّلْنَا رَبَّنَا لَا تَجْعَلْنَا فِتْنَةًۭ لِّلْقَوْمِ ٱلظَّٰلِمِينَ",
+  "en": "So they said, \"Upon Allah do we rely. Our Lord, make us not [objects of] trial for the wrongdoing people"
+ },
+ "10:92": {
+  "surah": "Yunus",
+  "surahAr": "سُورَةُ يُونُسَ",
+  "ar": "فَٱلْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ ءَايَةًۭ ۚ وَإِنَّ كَثِيرًۭا مِّنَ ٱلنَّاسِ عَنْ ءَايَٰتِنَا لَغَٰفِلُونَ",
+  "en": "So today We will save you in body that you may be to those who succeed you a sign. And indeed, many among the people, of Our signs, are heedless"
  },
  "11:27": {
   "surah": "Hud",
@@ -245,11 +737,227 @@
   "ar": "وَلَمَّا جَآءَ أَمْرُنَا نَجَّيْنَا هُودًۭا وَٱلَّذِينَ ءَامَنُوا۟ مَعَهُۥ بِرَحْمَةٍۢ مِّنَّا وَنَجَّيْنَٰهُم مِّنْ عَذَابٍ غَلِيظٍۢ",
   "en": "And when Our command came, We saved Hud and those who believed with him, by mercy from Us; and We saved them from a harsh punishment."
  },
+ "11:61": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "۞ وَإِلَىٰ ثَمُودَ أَخَاهُمْ صَٰلِحًۭا ۚ قَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُۥ ۖ هُوَ أَنشَأَكُم مِّنَ ٱلْأَرْضِ وَٱسْتَعْمَرَكُمْ فِيهَا فَٱسْتَغْفِرُوهُ ثُمَّ تُوبُوٓا۟ إِلَيْهِ ۚ إِنَّ رَبِّى قَرِيبٌۭ مُّجِيبٌۭ",
+  "en": "And to Thamud [We sent] their brother Salih. He said, \"O my people, worship Allah; you have no deity other than Him. He has produced you from the earth and settled you in it, so ask forgiveness of Him and then repent to Him. Indeed, my Lord is near and responsive.\""
+ },
+ "11:65": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "فَعَقَرُوهَا فَقَالَ تَمَتَّعُوا۟ فِى دَارِكُمْ ثَلَٰثَةَ أَيَّامٍۢ ۖ ذَٰلِكَ وَعْدٌ غَيْرُ مَكْذُوبٍۢ",
+  "en": "But they hamstrung her, so he said, \"Enjoy yourselves in your homes for three days. That is a promise not to be denied.\""
+ },
+ "11:67": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "وَأَخَذَ ٱلَّذِينَ ظَلَمُوا۟ ٱلصَّيْحَةُ فَأَصْبَحُوا۟ فِى دِيَٰرِهِمْ جَٰثِمِينَ",
+  "en": "And the shriek seized those who had wronged, and they became within their homes [corpses] fallen prone"
+ },
+ "11:68": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "كَأَن لَّمْ يَغْنَوْا۟ فِيهَآ ۗ أَلَآ إِنَّ ثَمُودَا۟ كَفَرُوا۟ رَبَّهُمْ ۗ أَلَا بُعْدًۭا لِّثَمُودَ",
+  "en": "As if they had never prospered therein. Unquestionably, Thamud denied their Lord; then, away with Thamud."
+ },
+ "11:71": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "وَٱمْرَأَتُهُۥ قَآئِمَةٌۭ فَضَحِكَتْ فَبَشَّرْنَٰهَا بِإِسْحَٰقَ وَمِن وَرَآءِ إِسْحَٰقَ يَعْقُوبَ",
+  "en": "And his Wife was standing, and she smiled. Then We gave her good tidings of Isaac and after Isaac, Jacob."
+ },
+ "11:77": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "وَلَمَّا جَآءَتْ رُسُلُنَا لُوطًۭا سِىٓءَ بِهِمْ وَضَاقَ بِهِمْ ذَرْعًۭا وَقَالَ هَٰذَا يَوْمٌ عَصِيبٌۭ",
+  "en": "And when Our messengers, [the angels], came to Lot, he was anguished for them and felt for them great discomfort and said, \"This is a trying day.\""
+ },
+ "11:81": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "قَالُوا۟ يَٰلُوطُ إِنَّا رُسُلُ رَبِّكَ لَن يَصِلُوٓا۟ إِلَيْكَ ۖ فَأَسْرِ بِأَهْلِكَ بِقِطْعٍۢ مِّنَ ٱلَّيْلِ وَلَا يَلْتَفِتْ مِنكُمْ أَحَدٌ إِلَّا ٱمْرَأَتَكَ ۖ إِنَّهُۥ مُصِيبُهَا مَآ أَصَابَهُمْ ۚ إِنَّ مَوْعِدَهُمُ ٱلصُّبْحُ ۚ أَلَيْسَ ٱلصُّبْحُ بِقَرِيبٍۢ",
+  "en": "The angels said, \"O Lot, indeed we are messengers of your Lord; [therefore], they will never reach you. So set out with your family during a portion of the night and let not any among you look back - except your wife; indeed, she will be struck by that which strikes them. Indeed, their appointment is [for] the morning. Is not the morning near?\""
+ },
+ "11:82": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "فَلَمَّا جَآءَ أَمْرُنَا جَعَلْنَا عَٰلِيَهَا سَافِلَهَا وَأَمْطَرْنَا عَلَيْهَا حِجَارَةًۭ مِّن سِجِّيلٍۢ مَّنضُودٍۢ",
+  "en": "So when Our command came, We made the highest part [of the city] its lowest and rained upon them stones of layered hard clay, [which were]"
+ },
+ "11:84": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "۞ وَإِلَىٰ مَدْيَنَ أَخَاهُمْ شُعَيْبًۭا ۚ قَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُۥ ۖ وَلَا تَنقُصُوا۟ ٱلْمِكْيَالَ وَٱلْمِيزَانَ ۚ إِنِّىٓ أَرَىٰكُم بِخَيْرٍۢ وَإِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍۢ مُّحِيطٍۢ",
+  "en": "And to Madyan [We sent] their brother Shu'ayb. He said, \"O my people, worship Allah; you have no deity other than Him. And do not decrease from the measure and the scale. Indeed, I see you in prosperity, but indeed, I fear for you the punishment of an all-encompassing Day."
+ },
+ "11:85": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "وَيَٰقَوْمِ أَوْفُوا۟ ٱلْمِكْيَالَ وَٱلْمِيزَانَ بِٱلْقِسْطِ ۖ وَلَا تَبْخَسُوا۟ ٱلنَّاسَ أَشْيَآءَهُمْ وَلَا تَعْثَوْا۟ فِى ٱلْأَرْضِ مُفْسِدِينَ",
+  "en": "And O my people, give full measure and weight in justice and do not deprive the people of their due and do not commit abuse on the earth, spreading corruption."
+ },
+ "11:88": {
+  "surah": "Hud",
+  "surahAr": "سُورَةُ هُودٍ",
+  "ar": "قَالَ يَٰقَوْمِ أَرَءَيْتُمْ إِن كُنتُ عَلَىٰ بَيِّنَةٍۢ مِّن رَّبِّى وَرَزَقَنِى مِنْهُ رِزْقًا حَسَنًۭا ۚ وَمَآ أُرِيدُ أَنْ أُخَالِفَكُمْ إِلَىٰ مَآ أَنْهَىٰكُمْ عَنْهُ ۚ إِنْ أُرِيدُ إِلَّا ٱلْإِصْلَٰحَ مَا ٱسْتَطَعْتُ ۚ وَمَا تَوْفِيقِىٓ إِلَّا بِٱللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ",
+  "en": "He said, \"O my people, have you considered: if I am upon clear evidence from my Lord and He has provided me with a good provision from Him...? And I do not intend to differ from you in that which I have forbidden you; I only intend reform as much as I am able. And my success is not but through Allah. Upon him I have relied, and to Him I return."
+ },
  "12:3": {
   "surah": "Yusuf",
   "surahAr": "سُورَةُ يُوسُفَ",
   "ar": "نَحْنُ نَقُصُّ عَلَيْكَ أَحْسَنَ ٱلْقَصَصِ بِمَآ أَوْحَيْنَآ إِلَيْكَ هَٰذَا ٱلْقُرْءَانَ وَإِن كُنتَ مِن قَبْلِهِۦ لَمِنَ ٱلْغَٰفِلِينَ",
   "en": "We relate to you, [O Muhammad], the best of stories in what We have revealed to you of this Qur'an although you were, before it, among the unaware."
+ },
+ "12:4": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "إِذْ قَالَ يُوسُفُ لِأَبِيهِ يَٰٓأَبَتِ إِنِّى رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًۭا وَٱلشَّمْسَ وَٱلْقَمَرَ رَأَيْتُهُمْ لِى سَٰجِدِينَ",
+  "en": "[Of these stories mention] when Joseph said to his father, \"O my father, indeed I have seen [in a dream] eleven stars and the sun and the moon; I saw them prostrating to me.\""
+ },
+ "12:5": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "قَالَ يَٰبُنَىَّ لَا تَقْصُصْ رُءْيَاكَ عَلَىٰٓ إِخْوَتِكَ فَيَكِيدُوا۟ لَكَ كَيْدًا ۖ إِنَّ ٱلشَّيْطَٰنَ لِلْإِنسَٰنِ عَدُوٌّۭ مُّبِينٌۭ",
+  "en": "He said, \"O my son, do not relate your vision to your brothers or they will contrive against you a plan. Indeed Satan, to man, is a manifest enemy."
+ },
+ "12:15": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "فَلَمَّا ذَهَبُوا۟ بِهِۦ وَأَجْمَعُوٓا۟ أَن يَجْعَلُوهُ فِى غَيَٰبَتِ ٱلْجُبِّ ۚ وَأَوْحَيْنَآ إِلَيْهِ لَتُنَبِّئَنَّهُم بِأَمْرِهِمْ هَٰذَا وَهُمْ لَا يَشْعُرُونَ",
+  "en": "So when they took him [out] and agreed to put him into the bottom of the well... But We inspired to him, \"You will surely inform them [someday] about this affair of theirs while they do not perceive [your identity].\""
+ },
+ "12:18": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "وَجَآءُو عَلَىٰ قَمِيصِهِۦ بِدَمٍۢ كَذِبٍۢ ۚ قَالَ بَلْ سَوَّلَتْ لَكُمْ أَنفُسُكُمْ أَمْرًۭا ۖ فَصَبْرٌۭ جَمِيلٌۭ ۖ وَٱللَّهُ ٱلْمُسْتَعَانُ عَلَىٰ مَا تَصِفُونَ",
+  "en": "And they brought upon his shirt false blood. [Jacob] said, \"Rather, your souls have enticed you to something, so patience is most fitting. And Allah is the one sought for help against that which you describe.\""
+ },
+ "12:20": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "وَشَرَوْهُ بِثَمَنٍۭ بَخْسٍۢ دَرَٰهِمَ مَعْدُودَةٍۢ وَكَانُوا۟ فِيهِ مِنَ ٱلزَّٰهِدِينَ",
+  "en": "And they sold him for a reduced price - a few dirhams - and they were, concerning him, of those content with little."
+ },
+ "12:22": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "وَلَمَّا بَلَغَ أَشُدَّهُۥٓ ءَاتَيْنَٰهُ حُكْمًۭا وَعِلْمًۭا ۚ وَكَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ",
+  "en": "And when Joseph reached maturity, We gave him judgment and knowledge. And thus We reward the doers of good."
+ },
+ "12:23": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "وَرَٰوَدَتْهُ ٱلَّتِى هُوَ فِى بَيْتِهَا عَن نَّفْسِهِۦ وَغَلَّقَتِ ٱلْأَبْوَٰبَ وَقَالَتْ هَيْتَ لَكَ ۚ قَالَ مَعَاذَ ٱللَّهِ ۖ إِنَّهُۥ رَبِّىٓ أَحْسَنَ مَثْوَاىَ ۖ إِنَّهُۥ لَا يُفْلِحُ ٱلظَّٰلِمُونَ",
+  "en": "And she, in whose house he was, sought to seduce him. She closed the doors and said, \"Come, you.\" He said, \"[I seek] the refuge of Allah. Indeed, he is my master, who has made good my residence. Indeed, wrongdoers will not succeed.\""
+ },
+ "12:33": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "قَالَ رَبِّ ٱلسِّجْنُ أَحَبُّ إِلَىَّ مِمَّا يَدْعُونَنِىٓ إِلَيْهِ ۖ وَإِلَّا تَصْرِفْ عَنِّى كَيْدَهُنَّ أَصْبُ إِلَيْهِنَّ وَأَكُن مِّنَ ٱلْجَٰهِلِينَ",
+  "en": "He said, \"My Lord, prison is more to my liking than that to which they invite me. And if You do not avert from me their plan, I might incline toward them and [thus] be of the ignorant.\""
+ },
+ "12:39": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "يَٰصَىٰحِبَىِ ٱلسِّجْنِ ءَأَرْبَابٌۭ مُّتَفَرِّقُونَ خَيْرٌ أَمِ ٱللَّهُ ٱلْوَٰحِدُ ٱلْقَهَّارُ",
+  "en": "O [my] two companions of prison, are separate lords better or Allah, the One, the Prevailing?"
+ },
+ "12:43": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "وَقَالَ ٱلْمَلِكُ إِنِّىٓ أَرَىٰ سَبْعَ بَقَرَٰتٍۢ سِمَانٍۢ يَأْكُلُهُنَّ سَبْعٌ عِجَافٌۭ وَسَبْعَ سُنۢبُلَٰتٍ خُضْرٍۢ وَأُخَرَ يَابِسَٰتٍۢ ۖ يَٰٓأَيُّهَا ٱلْمَلَأُ أَفْتُونِى فِى رُءْيَٰىَ إِن كُنتُمْ لِلرُّءْيَا تَعْبُرُونَ",
+  "en": "And [subsequently] the king said, \"Indeed, I have seen [in a dream] seven fat cows being eaten by seven [that were] lean, and seven green spikes [of grain] and others [that were] dry. O eminent ones, explain to me my vision, if you should interpret visions.\""
+ },
+ "12:51": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "قَالَ مَا خَطْبُكُنَّ إِذْ رَٰوَدتُّنَّ يُوسُفَ عَن نَّفْسِهِۦ ۚ قُلْنَ حَٰشَ لِلَّهِ مَا عَلِمْنَا عَلَيْهِ مِن سُوٓءٍۢ ۚ قَالَتِ ٱمْرَأَتُ ٱلْعَزِيزِ ٱلْـَٰٔنَ حَصْحَصَ ٱلْحَقُّ أَنَا۠ رَٰوَدتُّهُۥ عَن نَّفْسِهِۦ وَإِنَّهُۥ لَمِنَ ٱلصَّٰدِقِينَ",
+  "en": "Said [the king to the women], \"What was your condition when you sought to seduce Joseph?\" They said, \"Perfect is Allah! We know about him no evil.\" The wife of al-'Azeez said, \"Now the truth has become evident. It was I who sought to seduce him, and indeed, he is of the truthful."
+ },
+ "12:55": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "قَالَ ٱجْعَلْنِى عَلَىٰ خَزَآئِنِ ٱلْأَرْضِ ۖ إِنِّى حَفِيظٌ عَلِيمٌۭ",
+  "en": "[Joseph] said, \"Appoint me over the storehouses of the land. Indeed, I will be a knowing guardian.\""
+ },
+ "12:67": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "وَقَالَ يَٰبَنِىَّ لَا تَدْخُلُوا۟ مِنۢ بَابٍۢ وَٰحِدٍۢ وَٱدْخُلُوا۟ مِنْ أَبْوَٰبٍۢ مُّتَفَرِّقَةٍۢ ۖ وَمَآ أُغْنِى عَنكُم مِّنَ ٱللَّهِ مِن شَىْءٍ ۖ إِنِ ٱلْحُكْمُ إِلَّا لِلَّهِ ۖ عَلَيْهِ تَوَكَّلْتُ ۖ وَعَلَيْهِ فَلْيَتَوَكَّلِ ٱلْمُتَوَكِّلُونَ",
+  "en": "And he said, \"O my sons, do not enter from one gate but enter from different gates; and I cannot avail you against [the decree of] Allah at all. The decision is only for Allah; upon Him I have relied, and upon Him let those who would rely [indeed] rely.\""
+ },
+ "12:76": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "فَبَدَأَ بِأَوْعِيَتِهِمْ قَبْلَ وِعَآءِ أَخِيهِ ثُمَّ ٱسْتَخْرَجَهَا مِن وِعَآءِ أَخِيهِ ۚ كَذَٰلِكَ كِدْنَا لِيُوسُفَ ۖ مَا كَانَ لِيَأْخُذَ أَخَاهُ فِى دِينِ ٱلْمَلِكِ إِلَّآ أَن يَشَآءَ ٱللَّهُ ۚ نَرْفَعُ دَرَجَٰتٍۢ مَّن نَّشَآءُ ۗ وَفَوْقَ كُلِّ ذِى عِلْمٍ عَلِيمٌۭ",
+  "en": "So he began [the search] with their bags before the bag of his brother; then he extracted it from the bag of his brother. Thus did We plan for Joseph. He could not have taken his brother within the religion of the king except that Allah willed. We raise in degrees whom We will, but over every possessor of knowledge is one [more] knowing."
+ },
+ "12:86": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "قَالَ إِنَّمَآ أَشْكُوا۟ بَثِّى وَحُزْنِىٓ إِلَى ٱللَّهِ وَأَعْلَمُ مِنَ ٱللَّهِ مَا لَا تَعْلَمُونَ",
+  "en": "He said, \"I only complain of my suffering and my grief to Allah, and I know from Allah that which you do not know."
+ },
+ "12:87": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "يَٰبَنِىَّ ٱذْهَبُوا۟ فَتَحَسَّسُوا۟ مِن يُوسُفَ وَأَخِيهِ وَلَا تَا۟يْـَٔسُوا۟ مِن رَّوْحِ ٱللَّهِ ۖ إِنَّهُۥ لَا يَا۟يْـَٔسُ مِن رَّوْحِ ٱللَّهِ إِلَّا ٱلْقَوْمُ ٱلْكَٰفِرُونَ",
+  "en": "O my sons, go and find out about Joseph and his brother and despair not of relief from Allah. Indeed, no one despairs of relief from Allah except the disbelieving people.\""
+ },
+ "12:92": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "قَالَ لَا تَثْرِيبَ عَلَيْكُمُ ٱلْيَوْمَ ۖ يَغْفِرُ ٱللَّهُ لَكُمْ ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ",
+  "en": "He said, \"No blame will there be upon you today. Allah will forgive you; and He is the most merciful of the merciful.\""
+ },
+ "12:100": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "وَرَفَعَ أَبَوَيْهِ عَلَى ٱلْعَرْشِ وَخَرُّوا۟ لَهُۥ سُجَّدًۭا ۖ وَقَالَ يَٰٓأَبَتِ هَٰذَا تَأْوِيلُ رُءْيَٰىَ مِن قَبْلُ قَدْ جَعَلَهَا رَبِّى حَقًّۭا ۖ وَقَدْ أَحْسَنَ بِىٓ إِذْ أَخْرَجَنِى مِنَ ٱلسِّجْنِ وَجَآءَ بِكُم مِّنَ ٱلْبَدْوِ مِنۢ بَعْدِ أَن نَّزَغَ ٱلشَّيْطَٰنُ بَيْنِى وَبَيْنَ إِخْوَتِىٓ ۚ إِنَّ رَبِّى لَطِيفٌۭ لِّمَا يَشَآءُ ۚ إِنَّهُۥ هُوَ ٱلْعَلِيمُ ٱلْحَكِيمُ",
+  "en": "And he raised his parents upon the throne, and they bowed to him in prostration. And he said, \"O my father, this is the explanation of my vision of before. My Lord has made it reality. And He was certainly good to me when He took me out of prison and brought you [here] from bedouin life after Satan had induced [estrangement] between me and my brothers. Indeed, my Lord is Subtle in what He wills. Indeed, it is He who is the Knowing, the Wise."
+ },
+ "12:101": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "۞ رَبِّ قَدْ ءَاتَيْتَنِى مِنَ ٱلْمُلْكِ وَعَلَّمْتَنِى مِن تَأْوِيلِ ٱلْأَحَادِيثِ ۚ فَاطِرَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ أَنتَ وَلِىِّۦ فِى ٱلدُّنْيَا وَٱلْءَاخِرَةِ ۖ تَوَفَّنِى مُسْلِمًۭا وَأَلْحِقْنِى بِٱلصَّٰلِحِينَ",
+  "en": "My Lord, You have given me [something] of sovereignty and taught me of the interpretation of dreams. Creator of the heavens and earth, You are my protector in this world and in the Hereafter. Cause me to die a Muslim and join me with the righteous.\""
+ },
+ "14:7": {
+  "surah": "Ibrahim",
+  "surahAr": "سُورَةُ إِبۡرَاهِيمَ",
+  "ar": "وَإِذْ تَأَذَّنَ رَبُّكُمْ لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ ۖ وَلَئِن كَفَرْتُمْ إِنَّ عَذَابِى لَشَدِيدٌۭ",
+  "en": "And [remember] when your Lord proclaimed, 'If you are grateful, I will surely increase you [in favor]; but if you deny, indeed, My punishment is severe.' \""
+ },
+ "14:35": {
+  "surah": "Ibrahim",
+  "surahAr": "سُورَةُ إِبۡرَاهِيمَ",
+  "ar": "وَإِذْ قَالَ إِبْرَٰهِيمُ رَبِّ ٱجْعَلْ هَٰذَا ٱلْبَلَدَ ءَامِنًۭا وَٱجْنُبْنِى وَبَنِىَّ أَن نَّعْبُدَ ٱلْأَصْنَامَ",
+  "en": "And [mention, O Muhammad], when Abraham said, \"My Lord, make this city [Makkah] secure and keep me and my sons away from worshipping idols."
+ },
+ "14:37": {
+  "surah": "Ibrahim",
+  "surahAr": "سُورَةُ إِبۡرَاهِيمَ",
+  "ar": "رَّبَّنَآ إِنِّىٓ أَسْكَنتُ مِن ذُرِّيَّتِى بِوَادٍ غَيْرِ ذِى زَرْعٍ عِندَ بَيْتِكَ ٱلْمُحَرَّمِ رَبَّنَا لِيُقِيمُوا۟ ٱلصَّلَوٰةَ فَٱجْعَلْ أَفْـِٔدَةًۭ مِّنَ ٱلنَّاسِ تَهْوِىٓ إِلَيْهِمْ وَٱرْزُقْهُم مِّنَ ٱلثَّمَرَٰتِ لَعَلَّهُمْ يَشْكُرُونَ",
+  "en": "Our Lord, I have settled some of my descendants in an uncultivated valley near Your sacred House, our Lord, that they may establish prayer. So make hearts among the people incline toward them and provide for them from the fruits that they might be grateful."
+ },
+ "14:40": {
+  "surah": "Ibrahim",
+  "surahAr": "سُورَةُ إِبۡرَاهِيمَ",
+  "ar": "رَبِّ ٱجْعَلْنِى مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِى ۚ رَبَّنَا وَتَقَبَّلْ دُعَآءِ",
+  "en": "My Lord, make me an establisher of prayer, and [many] from my descendants. Our Lord, and accept my supplication."
+ },
+ "14:41": {
+  "surah": "Ibrahim",
+  "surahAr": "سُورَةُ إِبۡرَاهِيمَ",
+  "ar": "رَبَّنَا ٱغْفِرْ لِى وَلِوَٰلِدَىَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ ٱلْحِسَابُ",
+  "en": "Our Lord, forgive me and my parents and the believers the Day the account is established.\""
+ },
+ "15:9": {
+  "surah": "Al-Hijr",
+  "surahAr": "سُورَةُ الحِجۡرِ",
+  "ar": "إِنَّا نَحْنُ نَزَّلْنَا ٱلذِّكْرَ وَإِنَّا لَهُۥ لَحَٰفِظُونَ",
+  "en": "Indeed, it is We who sent down the Qur'an and indeed, We will be its guardian."
  },
  "15:27": {
   "surah": "Al-Hijr",
@@ -269,11 +977,185 @@
   "ar": "فَإِذَا سَوَّيْتُهُۥ وَنَفَخْتُ فِيهِ مِن رُّوحِى فَقَعُوا۟ لَهُۥ سَٰجِدِينَ",
   "en": "And when I have proportioned him and breathed into him of My [created] soul, then fall down to him in prostration.\""
  },
+ "15:65": {
+  "surah": "Al-Hijr",
+  "surahAr": "سُورَةُ الحِجۡرِ",
+  "ar": "فَأَسْرِ بِأَهْلِكَ بِقِطْعٍۢ مِّنَ ٱلَّيْلِ وَٱتَّبِعْ أَدْبَٰرَهُمْ وَلَا يَلْتَفِتْ مِنكُمْ أَحَدٌۭ وَٱمْضُوا۟ حَيْثُ تُؤْمَرُونَ",
+  "en": "So set out with your family during a portion of the night and follow behind them and let not anyone among you look back and continue on to where you are commanded.\""
+ },
+ "16:18": {
+  "surah": "An-Nahl",
+  "surahAr": "سُورَةُ النَّحۡلِ",
+  "ar": "وَإِن تَعُدُّوا۟ نِعْمَةَ ٱللَّهِ لَا تُحْصُوهَآ ۗ إِنَّ ٱللَّهَ لَغَفُورٌۭ رَّحِيمٌۭ",
+  "en": "And if you should count the favors of Allah, you could not enumerate them. Indeed, Allah is Forgiving and Merciful."
+ },
+ "17:24": {
+  "surah": "Al-Israa",
+  "surahAr": "سُورَةُ الإِسۡرَاءِ",
+  "ar": "وَٱخْفِضْ لَهُمَا جَنَاحَ ٱلذُّلِّ مِنَ ٱلرَّحْمَةِ وَقُل رَّبِّ ٱرْحَمْهُمَا كَمَا رَبَّيَانِى صَغِيرًۭا",
+  "en": "And lower to them the wing of humility out of mercy and say, \"My Lord, have mercy upon them as they brought me up [when I was] small.\""
+ },
+ "18:10": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "إِذْ أَوَى ٱلْفِتْيَةُ إِلَى ٱلْكَهْفِ فَقَالُوا۟ رَبَّنَآ ءَاتِنَا مِن لَّدُنكَ رَحْمَةًۭ وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًۭا",
+  "en": "[Mention] when the youths retreated to the cave and said, \"Our Lord, grant us from Yourself mercy and prepare for us from our affair right guidance.\""
+ },
+ "18:13": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "نَّحْنُ نَقُصُّ عَلَيْكَ نَبَأَهُم بِٱلْحَقِّ ۚ إِنَّهُمْ فِتْيَةٌ ءَامَنُوا۟ بِرَبِّهِمْ وَزِدْنَٰهُمْ هُدًۭى",
+  "en": "It is We who relate to you, [O Muhammad], their story in truth. Indeed, they were youths who believed in their Lord, and We increased them in guidance."
+ },
+ "18:14": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "وَرَبَطْنَا عَلَىٰ قُلُوبِهِمْ إِذْ قَامُوا۟ فَقَالُوا۟ رَبُّنَا رَبُّ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ لَن نَّدْعُوَا۟ مِن دُونِهِۦٓ إِلَٰهًۭا ۖ لَّقَدْ قُلْنَآ إِذًۭا شَطَطًا",
+  "en": "And We made firm their hearts when they stood up and said, \"Our Lord is the Lord of the heavens and the earth. Never will we invoke besides Him any deity. We would have certainly spoken, then, an excessive transgression."
+ },
+ "18:21": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "وَكَذَٰلِكَ أَعْثَرْنَا عَلَيْهِمْ لِيَعْلَمُوٓا۟ أَنَّ وَعْدَ ٱللَّهِ حَقٌّۭ وَأَنَّ ٱلسَّاعَةَ لَا رَيْبَ فِيهَآ إِذْ يَتَنَٰزَعُونَ بَيْنَهُمْ أَمْرَهُمْ ۖ فَقَالُوا۟ ٱبْنُوا۟ عَلَيْهِم بُنْيَٰنًۭا ۖ رَّبُّهُمْ أَعْلَمُ بِهِمْ ۚ قَالَ ٱلَّذِينَ غَلَبُوا۟ عَلَىٰٓ أَمْرِهِمْ لَنَتَّخِذَنَّ عَلَيْهِم مَّسْجِدًۭا",
+  "en": "And similarly, We caused them to be found that they [who found them] would know that the promise of Allah is truth and that of the Hour there is no doubt. [That was] when they disputed among themselves about their affair and [then] said, \"Construct over them a structure. Their Lord is most knowing about them.\" Said those who prevailed in the matter, \"We will surely take [for ourselves] over them a masjid.\""
+ },
+ "18:24": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "إِلَّآ أَن يَشَآءَ ٱللَّهُ ۚ وَٱذْكُر رَّبَّكَ إِذَا نَسِيتَ وَقُلْ عَسَىٰٓ أَن يَهْدِيَنِ رَبِّى لِأَقْرَبَ مِنْ هَٰذَا رَشَدًۭا",
+  "en": "Except [when adding], \"If Allah wills.\" And remember your Lord when you forget [it] and say, \"Perhaps my Lord will guide me to what is nearer than this to right conduct.\""
+ },
+ "18:39": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "وَلَوْلَآ إِذْ دَخَلْتَ جَنَّتَكَ قُلْتَ مَا شَآءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ ۚ إِن تَرَنِ أَنَا۠ أَقَلَّ مِنكَ مَالًۭا وَوَلَدًۭا",
+  "en": "And why did you, when you entered your garden, not say, 'What Allah willed [has occurred]; there is no power except in Allah '? Although you see me less than you in wealth and children,"
+ },
+ "18:42": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "وَأُحِيطَ بِثَمَرِهِۦ فَأَصْبَحَ يُقَلِّبُ كَفَّيْهِ عَلَىٰ مَآ أَنفَقَ فِيهَا وَهِىَ خَاوِيَةٌ عَلَىٰ عُرُوشِهَا وَيَقُولُ يَٰلَيْتَنِى لَمْ أُشْرِكْ بِرَبِّىٓ أَحَدًۭا",
+  "en": "And his fruits were encompassed [by ruin], so he began to turn his hands about [in dismay] over what he had spent on it, while it had collapsed upon its trellises, and said, \"Oh, I wish I had not associated with my Lord anyone.\""
+ },
  "18:50": {
   "surah": "Al-Kahf",
   "surahAr": "سُورَةُ الكَهۡفِ",
   "ar": "وَإِذْ قُلْنَا لِلْمَلَٰٓئِكَةِ ٱسْجُدُوا۟ لِءَادَمَ فَسَجَدُوٓا۟ إِلَّآ إِبْلِيسَ كَانَ مِنَ ٱلْجِنِّ فَفَسَقَ عَنْ أَمْرِ رَبِّهِۦٓ ۗ أَفَتَتَّخِذُونَهُۥ وَذُرِّيَّتَهُۥٓ أَوْلِيَآءَ مِن دُونِى وَهُمْ لَكُمْ عَدُوٌّۢ ۚ بِئْسَ لِلظَّٰلِمِينَ بَدَلًۭا",
   "en": "And [mention] when We said to the angels, \"Prostrate to Adam,\" and they prostrated, except for Iblees. He was of the jinn and departed from the command of his Lord. Then will you take him and his descendants as allies other than Me while they are enemies to you? Wretched it is for the wrongdoers as an exchange."
+ },
+ "18:65": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "فَوَجَدَا عَبْدًۭا مِّنْ عِبَادِنَآ ءَاتَيْنَٰهُ رَحْمَةًۭ مِّنْ عِندِنَا وَعَلَّمْنَٰهُ مِن لَّدُنَّا عِلْمًۭا",
+  "en": "And they found a servant from among Our servants to whom we had given mercy from us and had taught him from Us a [certain] knowledge."
+ },
+ "18:68": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "وَكَيْفَ تَصْبِرُ عَلَىٰ مَا لَمْ تُحِطْ بِهِۦ خُبْرًۭا",
+  "en": "And how can you have patience for what you do not encompass in knowledge?\""
+ },
+ "18:79": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "أَمَّا ٱلسَّفِينَةُ فَكَانَتْ لِمَسَٰكِينَ يَعْمَلُونَ فِى ٱلْبَحْرِ فَأَرَدتُّ أَنْ أَعِيبَهَا وَكَانَ وَرَآءَهُم مَّلِكٌۭ يَأْخُذُ كُلَّ سَفِينَةٍ غَصْبًۭا",
+  "en": "As for the ship, it belonged to poor people working at sea. So I intended to cause defect in it as there was after them a king who seized every [good] ship by force."
+ },
+ "18:80": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "وَأَمَّا ٱلْغُلَٰمُ فَكَانَ أَبَوَاهُ مُؤْمِنَيْنِ فَخَشِينَآ أَن يُرْهِقَهُمَا طُغْيَٰنًۭا وَكُفْرًۭا",
+  "en": "And as for the boy, his parents were believers, and we feared that he would overburden them by transgression and disbelief."
+ },
+ "18:81": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "فَأَرَدْنَآ أَن يُبْدِلَهُمَا رَبُّهُمَا خَيْرًۭا مِّنْهُ زَكَوٰةًۭ وَأَقْرَبَ رُحْمًۭا",
+  "en": "So we intended that their Lord should substitute for them one better than him in purity and nearer to mercy."
+ },
+ "18:82": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "وَأَمَّا ٱلْجِدَارُ فَكَانَ لِغُلَٰمَيْنِ يَتِيمَيْنِ فِى ٱلْمَدِينَةِ وَكَانَ تَحْتَهُۥ كَنزٌۭ لَّهُمَا وَكَانَ أَبُوهُمَا صَٰلِحًۭا فَأَرَادَ رَبُّكَ أَن يَبْلُغَآ أَشُدَّهُمَا وَيَسْتَخْرِجَا كَنزَهُمَا رَحْمَةًۭ مِّن رَّبِّكَ ۚ وَمَا فَعَلْتُهُۥ عَنْ أَمْرِى ۚ ذَٰلِكَ تَأْوِيلُ مَا لَمْ تَسْطِع عَّلَيْهِ صَبْرًۭا",
+  "en": "And as for the wall, it belonged to two orphan boys in the city, and there was beneath it a treasure for them, and their father had been righteous. So your Lord intended that they reach maturity and extract their treasure, as a mercy from your Lord. And I did it not of my own accord. That is the interpretation of that about which you could not have patience.\""
+ },
+ "18:84": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "إِنَّا مَكَّنَّا لَهُۥ فِى ٱلْأَرْضِ وَءَاتَيْنَٰهُ مِن كُلِّ شَىْءٍۢ سَبَبًۭا",
+  "en": "Indeed We established him upon the earth, and We gave him to everything a way."
+ },
+ "18:98": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "قَالَ هَٰذَا رَحْمَةٌۭ مِّن رَّبِّى ۖ فَإِذَا جَآءَ وَعْدُ رَبِّى جَعَلَهُۥ دَكَّآءَ ۖ وَكَانَ وَعْدُ رَبِّى حَقًّۭا",
+  "en": "[Dhul-Qarnayn] said, \"This is a mercy from my Lord; but when the promise of my Lord comes, He will make it level, and ever is the promise of my Lord true.\""
+ },
+ "19:4": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "قَالَ رَبِّ إِنِّى وَهَنَ ٱلْعَظْمُ مِنِّى وَٱشْتَعَلَ ٱلرَّأْسُ شَيْبًۭا وَلَمْ أَكُنۢ بِدُعَآئِكَ رَبِّ شَقِيًّۭا",
+  "en": "He said, \"My Lord, indeed my bones have weakened, and my head has filled with white, and never have I been in my supplication to You, my Lord, unhappy."
+ },
+ "19:7": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "يَٰزَكَرِيَّآ إِنَّا نُبَشِّرُكَ بِغُلَٰمٍ ٱسْمُهُۥ يَحْيَىٰ لَمْ نَجْعَل لَّهُۥ مِن قَبْلُ سَمِيًّۭا",
+  "en": "[He was told], \"O Zechariah, indeed We give you good tidings of a boy whose name will be John. We have not assigned to any before [this] name.\""
+ },
+ "19:15": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "وَسَلَٰمٌ عَلَيْهِ يَوْمَ وُلِدَ وَيَوْمَ يَمُوتُ وَيَوْمَ يُبْعَثُ حَيًّۭا",
+  "en": "And peace be upon him the day he was born and the day he dies and the day he is raised alive."
+ },
+ "19:19": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "قَالَ إِنَّمَآ أَنَا۠ رَسُولُ رَبِّكِ لِأَهَبَ لَكِ غُلَٰمًۭا زَكِيًّۭا",
+  "en": "He said, \"I am only the messenger of your Lord to give you [news of] a pure boy.\""
+ },
+ "19:24": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "فَنَادَىٰهَا مِن تَحْتِهَآ أَلَّا تَحْزَنِى قَدْ جَعَلَ رَبُّكِ تَحْتَكِ سَرِيًّۭا",
+  "en": "But he called her from below her, \"Do not grieve; your Lord has provided beneath you a stream."
+ },
+ "19:25": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "وَهُزِّىٓ إِلَيْكِ بِجِذْعِ ٱلنَّخْلَةِ تُسَٰقِطْ عَلَيْكِ رُطَبًۭا جَنِيًّۭا",
+  "en": "And shake toward you the trunk of the palm tree; it will drop upon you ripe, fresh dates."
+ },
+ "19:26": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "فَكُلِى وَٱشْرَبِى وَقَرِّى عَيْنًۭا ۖ فَإِمَّا تَرَيِنَّ مِنَ ٱلْبَشَرِ أَحَدًۭا فَقُولِىٓ إِنِّى نَذَرْتُ لِلرَّحْمَٰنِ صَوْمًۭا فَلَنْ أُكَلِّمَ ٱلْيَوْمَ إِنسِيًّۭا",
+  "en": "So eat and drink and be contented. And if you see from among humanity anyone, say, 'Indeed, I have vowed to the Most Merciful abstention, so I will not speak today to [any] man.' \""
+ },
+ "19:30": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "قَالَ إِنِّى عَبْدُ ٱللَّهِ ءَاتَىٰنِىَ ٱلْكِتَٰبَ وَجَعَلَنِى نَبِيًّۭا",
+  "en": "[Jesus] said, \"Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet."
+ },
+ "19:47": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "قَالَ سَلَٰمٌ عَلَيْكَ ۖ سَأَسْتَغْفِرُ لَكَ رَبِّىٓ ۖ إِنَّهُۥ كَانَ بِى حَفِيًّۭا",
+  "en": "[Abraham] said, \"Peace will be upon you. I will ask forgiveness for you of my Lord. Indeed, He is ever gracious to me."
+ },
+ "19:54": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "وَٱذْكُرْ فِى ٱلْكِتَٰبِ إِسْمَٰعِيلَ ۚ إِنَّهُۥ كَانَ صَادِقَ ٱلْوَعْدِ وَكَانَ رَسُولًۭا نَّبِيًّۭا",
+  "en": "And mention in the Book, Ishmael. Indeed, he was true to his promise, and he was a messenger and a prophet."
+ },
+ "19:55": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "وَكَانَ يَأْمُرُ أَهْلَهُۥ بِٱلصَّلَوٰةِ وَٱلزَّكَوٰةِ وَكَانَ عِندَ رَبِّهِۦ مَرْضِيًّۭا",
+  "en": "And he used to enjoin on his people prayer and zakah and was to his Lord pleasing."
  },
  "19:56": {
   "surah": "Maryam",
@@ -287,17 +1169,191 @@
   "ar": "وَرَفَعْنَٰهُ مَكَانًا عَلِيًّا",
   "en": "And We raised him to a high station."
  },
+ "20:14": {
+  "surah": "Taa-Haa",
+  "surahAr": "سُورَةُ طه",
+  "ar": "إِنَّنِىٓ أَنَا ٱللَّهُ لَآ إِلَٰهَ إِلَّآ أَنَا۠ فَٱعْبُدْنِى وَأَقِمِ ٱلصَّلَوٰةَ لِذِكْرِىٓ",
+  "en": "Indeed, I am Allah. There is no deity except Me, so worship Me and establish prayer for My remembrance."
+ },
+ "20:25": {
+  "surah": "Taa-Haa",
+  "surahAr": "سُورَةُ طه",
+  "ar": "قَالَ رَبِّ ٱشْرَحْ لِى صَدْرِى",
+  "en": "[Moses] said, \"My Lord, expand for me my breast [with assurance]"
+ },
+ "20:29": {
+  "surah": "Taa-Haa",
+  "surahAr": "سُورَةُ طه",
+  "ar": "وَٱجْعَل لِّى وَزِيرًۭا مِّنْ أَهْلِى",
+  "en": "And appoint for me a minister from my family -"
+ },
+ "20:30": {
+  "surah": "Taa-Haa",
+  "surahAr": "سُورَةُ طه",
+  "ar": "هَٰرُونَ أَخِى",
+  "en": "Aaron, my brother."
+ },
+ "20:31": {
+  "surah": "Taa-Haa",
+  "surahAr": "سُورَةُ طه",
+  "ar": "ٱشْدُدْ بِهِۦٓ أَزْرِى",
+  "en": "Increase through him my strength"
+ },
+ "20:32": {
+  "surah": "Taa-Haa",
+  "surahAr": "سُورَةُ طه",
+  "ar": "وَأَشْرِكْهُ فِىٓ أَمْرِى",
+  "en": "And let him share my task"
+ },
+ "20:50": {
+  "surah": "Taa-Haa",
+  "surahAr": "سُورَةُ طه",
+  "ar": "قَالَ رَبُّنَا ٱلَّذِىٓ أَعْطَىٰ كُلَّ شَىْءٍ خَلْقَهُۥ ثُمَّ هَدَىٰ",
+  "en": "He said, \"Our Lord is He who gave each thing its form and then guided [it].\""
+ },
+ "20:90": {
+  "surah": "Taa-Haa",
+  "surahAr": "سُورَةُ طه",
+  "ar": "وَلَقَدْ قَالَ لَهُمْ هَٰرُونُ مِن قَبْلُ يَٰقَوْمِ إِنَّمَا فُتِنتُم بِهِۦ ۖ وَإِنَّ رَبَّكُمُ ٱلرَّحْمَٰنُ فَٱتَّبِعُونِى وَأَطِيعُوٓا۟ أَمْرِى",
+  "en": "And Aaron had already told them before [the return of Moses], \"O my people, you are only being tested by it, and indeed, your Lord is the Most Merciful, so follow me and obey my order.\""
+ },
+ "20:114": {
+  "surah": "Taa-Haa",
+  "surahAr": "سُورَةُ طه",
+  "ar": "فَتَعَٰلَى ٱللَّهُ ٱلْمَلِكُ ٱلْحَقُّ ۗ وَلَا تَعْجَلْ بِٱلْقُرْءَانِ مِن قَبْلِ أَن يُقْضَىٰٓ إِلَيْكَ وَحْيُهُۥ ۖ وَقُل رَّبِّ زِدْنِى عِلْمًۭا",
+  "en": "So high [above all] is Allah, the Sovereign, the Truth. And, [O Muhammad], do not hasten with [recitation of] the Qur'an before its revelation is completed to you, and say, \"My Lord, increase me in knowledge.\""
+ },
  "21:30": {
   "surah": "Al-Anbiyaa",
   "surahAr": "سُورَةُ الأَنبِيَاءِ",
   "ar": "أَوَلَمْ يَرَ ٱلَّذِينَ كَفَرُوٓا۟ أَنَّ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ كَانَتَا رَتْقًۭا فَفَتَقْنَٰهُمَا ۖ وَجَعَلْنَا مِنَ ٱلْمَآءِ كُلَّ شَىْءٍ حَىٍّ ۖ أَفَلَا يُؤْمِنُونَ",
   "en": "Have those who disbelieved not considered that the heavens and the earth were a joined entity, and We separated them and made from water every living thing? Then will they not believe?"
  },
+ "21:58": {
+  "surah": "Al-Anbiyaa",
+  "surahAr": "سُورَةُ الأَنبِيَاءِ",
+  "ar": "فَجَعَلَهُمْ جُذَٰذًا إِلَّا كَبِيرًۭا لَّهُمْ لَعَلَّهُمْ إِلَيْهِ يَرْجِعُونَ",
+  "en": "So he made them into fragments, except a large one among them, that they might return to it [and question]."
+ },
+ "21:63": {
+  "surah": "Al-Anbiyaa",
+  "surahAr": "سُورَةُ الأَنبِيَاءِ",
+  "ar": "قَالَ بَلْ فَعَلَهُۥ كَبِيرُهُمْ هَٰذَا فَسْـَٔلُوهُمْ إِن كَانُوا۟ يَنطِقُونَ",
+  "en": "He said, \"Rather, this - the largest of them - did it, so ask them, if they should [be able to] speak.\""
+ },
+ "21:69": {
+  "surah": "Al-Anbiyaa",
+  "surahAr": "سُورَةُ الأَنبِيَاءِ",
+  "ar": "قُلْنَا يَٰنَارُ كُونِى بَرْدًۭا وَسَلَٰمًا عَلَىٰٓ إِبْرَٰهِيمَ",
+  "en": "Allah said, \"O fire, be coolness and safety upon Abraham.\""
+ },
+ "21:72": {
+  "surah": "Al-Anbiyaa",
+  "surahAr": "سُورَةُ الأَنبِيَاءِ",
+  "ar": "وَوَهَبْنَا لَهُۥٓ إِسْحَٰقَ وَيَعْقُوبَ نَافِلَةًۭ ۖ وَكُلًّۭا جَعَلْنَا صَٰلِحِينَ",
+  "en": "And We gave him Isaac and Jacob in addition, and all [of them] We made righteous."
+ },
+ "21:79": {
+  "surah": "Al-Anbiyaa",
+  "surahAr": "سُورَةُ الأَنبِيَاءِ",
+  "ar": "فَفَهَّمْنَٰهَا سُلَيْمَٰنَ ۚ وَكُلًّا ءَاتَيْنَا حُكْمًۭا وَعِلْمًۭا ۚ وَسَخَّرْنَا مَعَ دَاوُۥدَ ٱلْجِبَالَ يُسَبِّحْنَ وَٱلطَّيْرَ ۚ وَكُنَّا فَٰعِلِينَ",
+  "en": "And We gave understanding of the case to Solomon, and to each [of them] We gave judgement and knowledge. And We subjected the mountains to exalt [Us], along with David and [also] the birds. And We were doing [that]."
+ },
+ "21:83": {
+  "surah": "Al-Anbiyaa",
+  "surahAr": "سُورَةُ الأَنبِيَاءِ",
+  "ar": "۞ وَأَيُّوبَ إِذْ نَادَىٰ رَبَّهُۥٓ أَنِّى مَسَّنِىَ ٱلضُّرُّ وَأَنتَ أَرْحَمُ ٱلرَّٰحِمِينَ",
+  "en": "And [mention] Job, when he called to his Lord, \"Indeed, adversity has touched me, and you are the Most Merciful of the merciful.\""
+ },
+ "21:84": {
+  "surah": "Al-Anbiyaa",
+  "surahAr": "سُورَةُ الأَنبِيَاءِ",
+  "ar": "فَٱسْتَجَبْنَا لَهُۥ فَكَشَفْنَا مَا بِهِۦ مِن ضُرٍّۢ ۖ وَءَاتَيْنَٰهُ أَهْلَهُۥ وَمِثْلَهُم مَّعَهُمْ رَحْمَةًۭ مِّنْ عِندِنَا وَذِكْرَىٰ لِلْعَٰبِدِينَ",
+  "en": "So We responded to him and removed what afflicted him of adversity. And We gave him [back] his family and the like thereof with them as mercy from Us and a reminder for the worshippers [of Allah]."
+ },
  "21:85": {
   "surah": "Al-Anbiyaa",
   "surahAr": "سُورَةُ الأَنبِيَاءِ",
   "ar": "وَإِسْمَٰعِيلَ وَإِدْرِيسَ وَذَا ٱلْكِفْلِ ۖ كُلٌّۭ مِّنَ ٱلصَّٰبِرِينَ",
   "en": "And [mention] Ishmael and Idrees and Dhul-Kifl; all were of the patient."
+ },
+ "21:87": {
+  "surah": "Al-Anbiyaa",
+  "surahAr": "سُورَةُ الأَنبِيَاءِ",
+  "ar": "وَذَا ٱلنُّونِ إِذ ذَّهَبَ مُغَٰضِبًۭا فَظَنَّ أَن لَّن نَّقْدِرَ عَلَيْهِ فَنَادَىٰ فِى ٱلظُّلُمَٰتِ أَن لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبْحَٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّٰلِمِينَ",
+  "en": "And [mention] the man of the fish, when he went off in anger and thought that We would not decree [anything] upon him. And he called out within the darknesses, \"There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.\""
+ },
+ "21:88": {
+  "surah": "Al-Anbiyaa",
+  "surahAr": "سُورَةُ الأَنبِيَاءِ",
+  "ar": "فَٱسْتَجَبْنَا لَهُۥ وَنَجَّيْنَٰهُ مِنَ ٱلْغَمِّ ۚ وَكَذَٰلِكَ نُۨجِى ٱلْمُؤْمِنِينَ",
+  "en": "So We responded to him and saved him from the distress. And thus do We save the believers."
+ },
+ "22:7": {
+  "surah": "Al-Hajj",
+  "surahAr": "سُورَةُ الحَجِّ",
+  "ar": "وَأَنَّ ٱلسَّاعَةَ ءَاتِيَةٌۭ لَّا رَيْبَ فِيهَا وَأَنَّ ٱللَّهَ يَبْعَثُ مَن فِى ٱلْقُبُورِ",
+  "en": "And [that they may know] that the Hour is coming - no doubt about it - and that Allah will resurrect those in the graves."
+ },
+ "22:27": {
+  "surah": "Al-Hajj",
+  "surahAr": "سُورَةُ الحَجِّ",
+  "ar": "وَأَذِّن فِى ٱلنَّاسِ بِٱلْحَجِّ يَأْتُوكَ رِجَالًۭا وَعَلَىٰ كُلِّ ضَامِرٍۢ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍۢ",
+  "en": "And proclaim to the people the Hajj [pilgrimage]; they will come to you on foot and on every lean camel; they will come from every distant pass -"
+ },
+ "23:1": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "قَدْ أَفْلَحَ ٱلْمُؤْمِنُونَ",
+  "en": "Certainly will the believers have succeeded:"
+ },
+ "23:2": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "ٱلَّذِينَ هُمْ فِى صَلَاتِهِمْ خَٰشِعُونَ",
+  "en": "They who are during their prayer humbly submissive"
+ },
+ "23:118": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "وَقُل رَّبِّ ٱغْفِرْ وَٱرْحَمْ وَأَنتَ خَيْرُ ٱلرَّٰحِمِينَ",
+  "en": "And, [O Muhammad], say, \"My Lord, forgive and have mercy, and You are the best of the merciful.\""
+ },
+ "25:63": {
+  "surah": "Al-Furqaan",
+  "surahAr": "سُورَةُ الفُرۡقَانِ",
+  "ar": "وَعِبَادُ ٱلرَّحْمَٰنِ ٱلَّذِينَ يَمْشُونَ عَلَى ٱلْأَرْضِ هَوْنًۭا وَإِذَا خَاطَبَهُمُ ٱلْجَٰهِلُونَ قَالُوا۟ سَلَٰمًۭا",
+  "en": "And the servants of the Most Merciful are those who walk upon the earth easily, and when the ignorant address them [harshly], they say [words of] peace,"
+ },
+ "25:74": {
+  "surah": "Al-Furqaan",
+  "surahAr": "سُورَةُ الفُرۡقَانِ",
+  "ar": "وَٱلَّذِينَ يَقُولُونَ رَبَّنَا هَبْ لَنَا مِنْ أَزْوَٰجِنَا وَذُرِّيَّٰتِنَا قُرَّةَ أَعْيُنٍۢ وَٱجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+  "en": "And those who say, \"Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous.\""
+ },
+ "26:52": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "۞ وَأَوْحَيْنَآ إِلَىٰ مُوسَىٰٓ أَنْ أَسْرِ بِعِبَادِىٓ إِنَّكُم مُّتَّبَعُونَ",
+  "en": "And We inspired to Moses, \"Travel by night with My servants; indeed, you will be pursued.\""
+ },
+ "26:61": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "فَلَمَّا تَرَٰٓءَا ٱلْجَمْعَانِ قَالَ أَصْحَٰبُ مُوسَىٰٓ إِنَّا لَمُدْرَكُونَ",
+  "en": "And when the two companies saw one another, the companions of Moses said, \"Indeed, we are to be overtaken!\""
+ },
+ "26:62": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "قَالَ كَلَّآ ۖ إِنَّ مَعِىَ رَبِّى سَيَهْدِينِ",
+  "en": "[Moses] said, \"No! Indeed, with me is my Lord; He will guide me.\""
+ },
+ "26:63": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "فَأَوْحَيْنَآ إِلَىٰ مُوسَىٰٓ أَنِ ٱضْرِب بِّعَصَاكَ ٱلْبَحْرَ ۖ فَٱنفَلَقَ فَكَانَ كُلُّ فِرْقٍۢ كَٱلطَّوْدِ ٱلْعَظِيمِ",
+  "en": "Then We inspired to Moses, \"Strike with your staff the sea,\" and it parted, and each portion was like a great towering mountain."
  },
  "26:128": {
   "surah": "Ash-Shu'araa",
@@ -317,17 +1373,461 @@
   "ar": "وَإِذَا بَطَشْتُم بَطَشْتُمْ جَبَّارِينَ",
   "en": "And when you strike, you strike as tyrants."
  },
+ "26:146": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "أَتُتْرَكُونَ فِى مَا هَٰهُنَآ ءَامِنِينَ",
+  "en": "Will you be left in what is here, secure [from death],"
+ },
+ "26:147": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "فِى جَنَّٰتٍۢ وَعُيُونٍۢ",
+  "en": "Within gardens and springs"
+ },
+ "26:148": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "وَزُرُوعٍۢ وَنَخْلٍۢ طَلْعُهَا هَضِيمٌۭ",
+  "en": "And fields of crops and palm trees with softened fruit?"
+ },
+ "26:149": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "وَتَنْحِتُونَ مِنَ ٱلْجِبَالِ بُيُوتًۭا فَٰرِهِينَ",
+  "en": "And you carve out of the mountains, homes, with skill."
+ },
+ "26:153": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "قَالُوٓا۟ إِنَّمَآ أَنتَ مِنَ ٱلْمُسَحَّرِينَ",
+  "en": "They said, \"You are only of those affected by magic."
+ },
+ "26:154": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "مَآ أَنتَ إِلَّا بَشَرٌۭ مِّثْلُنَا فَأْتِ بِـَٔايَةٍ إِن كُنتَ مِنَ ٱلصَّٰدِقِينَ",
+  "en": "You are but a man like ourselves, so bring a sign, if you should be of the truthful.\""
+ },
+ "26:155": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "قَالَ هَٰذِهِۦ نَاقَةٌۭ لَّهَا شِرْبٌۭ وَلَكُمْ شِرْبُ يَوْمٍۢ مَّعْلُومٍۢ",
+  "en": "He said, \"This is a she-camel. For her is a [time of] drink, and for you is a [time of] drink, [each] on a known day."
+ },
+ "26:156": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "وَلَا تَمَسُّوهَا بِسُوٓءٍۢ فَيَأْخُذَكُمْ عَذَابُ يَوْمٍ عَظِيمٍۢ",
+  "en": "And do not touch her with harm, lest you be seized by the punishment of a terrible day.\""
+ },
+ "26:169": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "رَبِّ نَجِّنِى وَأَهْلِى مِمَّا يَعْمَلُونَ",
+  "en": "My Lord, save me and my family from [the consequence of] what they do.\""
+ },
+ "26:181": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "۞ أَوْفُوا۟ ٱلْكَيْلَ وَلَا تَكُونُوا۟ مِنَ ٱلْمُخْسِرِينَ",
+  "en": "Give full measure and do not be of those who cause loss."
+ },
+ "26:182": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "وَزِنُوا۟ بِٱلْقِسْطَاسِ ٱلْمُسْتَقِيمِ",
+  "en": "And weigh with an even balance."
+ },
+ "26:189": {
+  "surah": "Ash-Shu'araa",
+  "surahAr": "سُورَةُ الشُّعَرَاءِ",
+  "ar": "فَكَذَّبُوهُ فَأَخَذَهُمْ عَذَابُ يَوْمِ ٱلظُّلَّةِ ۚ إِنَّهُۥ كَانَ عَذَابَ يَوْمٍ عَظِيمٍ",
+  "en": "And they denied him, so the punishment of the day of the black cloud seized them. Indeed, it was the punishment of a terrible day."
+ },
+ "27:17": {
+  "surah": "An-Naml",
+  "surahAr": "سُورَةُ النَّمۡلِ",
+  "ar": "وَحُشِرَ لِسُلَيْمَٰنَ جُنُودُهُۥ مِنَ ٱلْجِنِّ وَٱلْإِنسِ وَٱلطَّيْرِ فَهُمْ يُوزَعُونَ",
+  "en": "And gathered for Solomon were his soldiers of the jinn and men and birds, and they were [marching] in rows."
+ },
+ "27:19": {
+  "surah": "An-Naml",
+  "surahAr": "سُورَةُ النَّمۡلِ",
+  "ar": "فَتَبَسَّمَ ضَاحِكًۭا مِّن قَوْلِهَا وَقَالَ رَبِّ أَوْزِعْنِىٓ أَنْ أَشْكُرَ نِعْمَتَكَ ٱلَّتِىٓ أَنْعَمْتَ عَلَىَّ وَعَلَىٰ وَٰلِدَىَّ وَأَنْ أَعْمَلَ صَٰلِحًۭا تَرْضَىٰهُ وَأَدْخِلْنِى بِرَحْمَتِكَ فِى عِبَادِكَ ٱلصَّٰلِحِينَ",
+  "en": "So [Solomon] smiled, amused at her speech, and said, \"My Lord, enable me to be grateful for Your favor which You have bestowed upon me and upon my parents and to do righteousness of which You approve. And admit me by Your mercy into [the ranks of] Your righteous servants.\""
+ },
+ "27:23": {
+  "surah": "An-Naml",
+  "surahAr": "سُورَةُ النَّمۡلِ",
+  "ar": "إِنِّى وَجَدتُّ ٱمْرَأَةًۭ تَمْلِكُهُمْ وَأُوتِيَتْ مِن كُلِّ شَىْءٍۢ وَلَهَا عَرْشٌ عَظِيمٌۭ",
+  "en": "Indeed, I found [there] a woman ruling them, and she has been given of all things, and she has a great throne."
+ },
+ "27:40": {
+  "surah": "An-Naml",
+  "surahAr": "سُورَةُ النَّمۡلِ",
+  "ar": "قَالَ ٱلَّذِى عِندَهُۥ عِلْمٌۭ مِّنَ ٱلْكِتَٰبِ أَنَا۠ ءَاتِيكَ بِهِۦ قَبْلَ أَن يَرْتَدَّ إِلَيْكَ طَرْفُكَ ۚ فَلَمَّا رَءَاهُ مُسْتَقِرًّا عِندَهُۥ قَالَ هَٰذَا مِن فَضْلِ رَبِّى لِيَبْلُوَنِىٓ ءَأَشْكُرُ أَمْ أَكْفُرُ ۖ وَمَن شَكَرَ فَإِنَّمَا يَشْكُرُ لِنَفْسِهِۦ ۖ وَمَن كَفَرَ فَإِنَّ رَبِّى غَنِىٌّۭ كَرِيمٌۭ",
+  "en": "Said one who had knowledge from the Scripture, \"I will bring it to you before your glance returns to you.\" And when [Solomon] saw it placed before him, he said, \"This is from the favor of my Lord to test me whether I will be grateful or ungrateful. And whoever is grateful - his gratitude is only for [the benefit of] himself. And whoever is ungrateful - then indeed, my Lord is Free of need and Generous.\""
+ },
+ "27:44": {
+  "surah": "An-Naml",
+  "surahAr": "سُورَةُ النَّمۡلِ",
+  "ar": "قِيلَ لَهَا ٱدْخُلِى ٱلصَّرْحَ ۖ فَلَمَّا رَأَتْهُ حَسِبَتْهُ لُجَّةًۭ وَكَشَفَتْ عَن سَاقَيْهَا ۚ قَالَ إِنَّهُۥ صَرْحٌۭ مُّمَرَّدٌۭ مِّن قَوَارِيرَ ۗ قَالَتْ رَبِّ إِنِّى ظَلَمْتُ نَفْسِى وَأَسْلَمْتُ مَعَ سُلَيْمَٰنَ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
+  "en": "She was told, \"Enter the palace.\" But when she saw it, she thought it was a body of water and uncovered her shins [to wade through]. He said, \"Indeed, it is a palace [whose floor is] made smooth with glass.\" She said, \"My Lord, indeed I have wronged myself, and I submit with Solomon to Allah, Lord of the worlds.\""
+ },
+ "27:56": {
+  "surah": "An-Naml",
+  "surahAr": "سُورَةُ النَّمۡلِ",
+  "ar": "۞ فَمَا كَانَ جَوَابَ قَوْمِهِۦٓ إِلَّآ أَن قَالُوٓا۟ أَخْرِجُوٓا۟ ءَالَ لُوطٍۢ مِّن قَرْيَتِكُمْ ۖ إِنَّهُمْ أُنَاسٌۭ يَتَطَهَّرُونَ",
+  "en": "But the answer of his people was not except that they said, \"Expel the family of Lot from your city. Indeed, they are people who keep themselves pure.\""
+ },
+ "28:4": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "إِنَّ فِرْعَوْنَ عَلَا فِى ٱلْأَرْضِ وَجَعَلَ أَهْلَهَا شِيَعًۭا يَسْتَضْعِفُ طَآئِفَةًۭ مِّنْهُمْ يُذَبِّحُ أَبْنَآءَهُمْ وَيَسْتَحْىِۦ نِسَآءَهُمْ ۚ إِنَّهُۥ كَانَ مِنَ ٱلْمُفْسِدِينَ",
+  "en": "Indeed, Pharaoh exalted himself in the land and made its people into factions, oppressing a sector among them, slaughtering their [newborn] sons and keeping their females alive. Indeed, he was of the corrupters."
+ },
+ "28:7": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "وَأَوْحَيْنَآ إِلَىٰٓ أُمِّ مُوسَىٰٓ أَنْ أَرْضِعِيهِ ۖ فَإِذَا خِفْتِ عَلَيْهِ فَأَلْقِيهِ فِى ٱلْيَمِّ وَلَا تَخَافِى وَلَا تَحْزَنِىٓ ۖ إِنَّا رَآدُّوهُ إِلَيْكِ وَجَاعِلُوهُ مِنَ ٱلْمُرْسَلِينَ",
+  "en": "And We inspired to the mother of Moses, \"Suckle him; but when you fear for him, cast him into the river and do not fear and do not grieve. Indeed, We will return him to you and will make him [one] of the messengers.\""
+ },
+ "28:9": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "وَقَالَتِ ٱمْرَأَتُ فِرْعَوْنَ قُرَّتُ عَيْنٍۢ لِّى وَلَكَ ۖ لَا تَقْتُلُوهُ عَسَىٰٓ أَن يَنفَعَنَآ أَوْ نَتَّخِذَهُۥ وَلَدًۭا وَهُمْ لَا يَشْعُرُونَ",
+  "en": "And the wife of Pharaoh said, \"[He will be] a comfort of the eye for me and for you. Do not kill him; perhaps he may benefit us, or we may adopt him as a son.\" And they perceived not."
+ },
+ "28:13": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "فَرَدَدْنَٰهُ إِلَىٰٓ أُمِّهِۦ كَىْ تَقَرَّ عَيْنُهَا وَلَا تَحْزَنَ وَلِتَعْلَمَ أَنَّ وَعْدَ ٱللَّهِ حَقٌّۭ وَلَٰكِنَّ أَكْثَرَهُمْ لَا يَعْلَمُونَ",
+  "en": "So We restored him to his mother that she might be content and not grieve and that she would know that the promise of Allah is true. But most of the people do not know."
+ },
+ "28:16": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "قَالَ رَبِّ إِنِّى ظَلَمْتُ نَفْسِى فَٱغْفِرْ لِى فَغَفَرَ لَهُۥٓ ۚ إِنَّهُۥ هُوَ ٱلْغَفُورُ ٱلرَّحِيمُ",
+  "en": "He said, \"My Lord, indeed I have wronged myself, so forgive me,\" and He forgave him. Indeed, He is the Forgiving, the Merciful."
+ },
+ "28:17": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "قَالَ رَبِّ بِمَآ أَنْعَمْتَ عَلَىَّ فَلَنْ أَكُونَ ظَهِيرًۭا لِّلْمُجْرِمِينَ",
+  "en": "He said, \"My Lord, for the favor You bestowed upon me, I will never be an assistant to the criminals.\""
+ },
+ "28:22": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "وَلَمَّا تَوَجَّهَ تِلْقَآءَ مَدْيَنَ قَالَ عَسَىٰ رَبِّىٓ أَن يَهْدِيَنِى سَوَآءَ ٱلسَّبِيلِ",
+  "en": "And when he directed himself toward Madyan, he said, \"Perhaps my Lord will guide me to the sound way.\""
+ },
+ "28:24": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "فَسَقَىٰ لَهُمَا ثُمَّ تَوَلَّىٰٓ إِلَى ٱلظِّلِّ فَقَالَ رَبِّ إِنِّى لِمَآ أَنزَلْتَ إِلَىَّ مِنْ خَيْرٍۢ فَقِيرٌۭ",
+  "en": "So he watered [their flocks] for them; then he went back to the shade and said, \"My Lord, indeed I am, for whatever good You would send down to me, in need.\""
+ },
+ "28:26": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "قَالَتْ إِحْدَىٰهُمَا يَٰٓأَبَتِ ٱسْتَـْٔجِرْهُ ۖ إِنَّ خَيْرَ مَنِ ٱسْتَـْٔجَرْتَ ٱلْقَوِىُّ ٱلْأَمِينُ",
+  "en": "One of the women said, \"O my father, hire him. Indeed, the best one you can hire is the strong and the trustworthy.\""
+ },
+ "28:30": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "فَلَمَّآ أَتَىٰهَا نُودِىَ مِن شَٰطِئِ ٱلْوَادِ ٱلْأَيْمَنِ فِى ٱلْبُقْعَةِ ٱلْمُبَٰرَكَةِ مِنَ ٱلشَّجَرَةِ أَن يَٰمُوسَىٰٓ إِنِّىٓ أَنَا ٱللَّهُ رَبُّ ٱلْعَٰلَمِينَ",
+  "en": "But when he came to it, he was called from the right side of the valley in a blessed spot - from the tree, \"O Moses, indeed I am Allah, Lord of the worlds.\""
+ },
+ "28:81": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "فَخَسَفْنَا بِهِۦ وَبِدَارِهِ ٱلْأَرْضَ فَمَا كَانَ لَهُۥ مِن فِئَةٍۢ يَنصُرُونَهُۥ مِن دُونِ ٱللَّهِ وَمَا كَانَ مِنَ ٱلْمُنتَصِرِينَ",
+  "en": "And We caused the earth to swallow him and his home. And there was for him no company to aid him other than Allah, nor was he of those who [could] defend themselves."
+ },
+ "28:83": {
+  "surah": "Al-Qasas",
+  "surahAr": "سُورَةُ القَصَصِ",
+  "ar": "تِلْكَ ٱلدَّارُ ٱلْءَاخِرَةُ نَجْعَلُهَا لِلَّذِينَ لَا يُرِيدُونَ عُلُوًّۭا فِى ٱلْأَرْضِ وَلَا فَسَادًۭا ۚ وَٱلْعَٰقِبَةُ لِلْمُتَّقِينَ",
+  "en": "That home of the Hereafter We assign to those who do not desire exaltedness upon the earth or corruption. And the [best] outcome is for the righteous."
+ },
  "29:14": {
   "surah": "Al-Ankaboot",
   "surahAr": "سُورَةُ العَنكَبُوتِ",
   "ar": "وَلَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِۦ فَلَبِثَ فِيهِمْ أَلْفَ سَنَةٍ إِلَّا خَمْسِينَ عَامًۭا فَأَخَذَهُمُ ٱلطُّوفَانُ وَهُمْ ظَٰلِمُونَ",
   "en": "And We certainly sent Noah to his people, and he remained among them a thousand years minus fifty years, and the flood seized them while they were wrongdoers."
  },
+ "29:28": {
+  "surah": "Al-Ankaboot",
+  "surahAr": "سُورَةُ العَنكَبُوتِ",
+  "ar": "وَلُوطًا إِذْ قَالَ لِقَوْمِهِۦٓ إِنَّكُمْ لَتَأْتُونَ ٱلْفَٰحِشَةَ مَا سَبَقَكُم بِهَا مِنْ أَحَدٍۢ مِّنَ ٱلْعَٰلَمِينَ",
+  "en": "And [mention] Lot, when he said to his people, \"Indeed, you commit such immorality as no one has preceded you with from among the worlds."
+ },
+ "29:30": {
+  "surah": "Al-Ankaboot",
+  "surahAr": "سُورَةُ العَنكَبُوتِ",
+  "ar": "قَالَ رَبِّ ٱنصُرْنِى عَلَى ٱلْقَوْمِ ٱلْمُفْسِدِينَ",
+  "en": "He said, \"My Lord, support me against the corrupting people.\""
+ },
+ "29:35": {
+  "surah": "Al-Ankaboot",
+  "surahAr": "سُورَةُ العَنكَبُوتِ",
+  "ar": "وَلَقَد تَّرَكْنَا مِنْهَآ ءَايَةًۢ بَيِّنَةًۭ لِّقَوْمٍۢ يَعْقِلُونَ",
+  "en": "And We have certainly left of it a sign as clear evidence for a people who use reason."
+ },
+ "29:45": {
+  "surah": "Al-Ankaboot",
+  "surahAr": "سُورَةُ العَنكَبُوتِ",
+  "ar": "ٱتْلُ مَآ أُوحِىَ إِلَيْكَ مِنَ ٱلْكِتَٰبِ وَأَقِمِ ٱلصَّلَوٰةَ ۖ إِنَّ ٱلصَّلَوٰةَ تَنْهَىٰ عَنِ ٱلْفَحْشَآءِ وَٱلْمُنكَرِ ۗ وَلَذِكْرُ ٱللَّهِ أَكْبَرُ ۗ وَٱللَّهُ يَعْلَمُ مَا تَصْنَعُونَ",
+  "en": "Recite, [O Muhammad], what has been revealed to you of the Book and establish prayer. Indeed, prayer prohibits immorality and wrongdoing, and the remembrance of Allah is greater. And Allah knows that which you do."
+ },
+ "31:12": {
+  "surah": "Luqman",
+  "surahAr": "سُورَةُ لُقۡمَانَ",
+  "ar": "وَلَقَدْ ءَاتَيْنَا لُقْمَٰنَ ٱلْحِكْمَةَ أَنِ ٱشْكُرْ لِلَّهِ ۚ وَمَن يَشْكُرْ فَإِنَّمَا يَشْكُرُ لِنَفْسِهِۦ ۖ وَمَن كَفَرَ فَإِنَّ ٱللَّهَ غَنِىٌّ حَمِيدٌۭ",
+  "en": "And We had certainly given Luqman wisdom [and said], \"Be grateful to Allah.\" And whoever is grateful is grateful for [the benefit of] himself. And whoever denies [His favor] - then indeed, Allah is Free of need and Praiseworthy."
+ },
+ "31:16": {
+  "surah": "Luqman",
+  "surahAr": "سُورَةُ لُقۡمَانَ",
+  "ar": "يَٰبُنَىَّ إِنَّهَآ إِن تَكُ مِثْقَالَ حَبَّةٍۢ مِّنْ خَرْدَلٍۢ فَتَكُن فِى صَخْرَةٍ أَوْ فِى ٱلسَّمَٰوَٰتِ أَوْ فِى ٱلْأَرْضِ يَأْتِ بِهَا ٱللَّهُ ۚ إِنَّ ٱللَّهَ لَطِيفٌ خَبِيرٌۭ",
+  "en": "[And Luqman said], \"O my son, indeed if wrong should be the weight of a mustard seed and should be within a rock or [anywhere] in the heavens or in the earth, Allah will bring it forth. Indeed, Allah is Subtle and Acquainted."
+ },
+ "31:18": {
+  "surah": "Luqman",
+  "surahAr": "سُورَةُ لُقۡمَانَ",
+  "ar": "وَلَا تُصَعِّرْ خَدَّكَ لِلنَّاسِ وَلَا تَمْشِ فِى ٱلْأَرْضِ مَرَحًا ۖ إِنَّ ٱللَّهَ لَا يُحِبُّ كُلَّ مُخْتَالٍۢ فَخُورٍۢ",
+  "en": "And do not turn your cheek [in contempt] toward people and do not walk through the earth exultantly. Indeed, Allah does not like everyone self-deluded and boastful."
+ },
+ "31:19": {
+  "surah": "Luqman",
+  "surahAr": "سُورَةُ لُقۡمَانَ",
+  "ar": "وَٱقْصِدْ فِى مَشْيِكَ وَٱغْضُضْ مِن صَوْتِكَ ۚ إِنَّ أَنكَرَ ٱلْأَصْوَٰتِ لَصَوْتُ ٱلْحَمِيرِ",
+  "en": "And be moderate in your pace and lower your voice; indeed, the most disagreeable of sounds is the voice of donkeys.\""
+ },
  "33:72": {
   "surah": "Al-Ahzaab",
   "surahAr": "سُورَةُ الأَحۡزَابِ",
   "ar": "إِنَّا عَرَضْنَا ٱلْأَمَانَةَ عَلَى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ وَٱلْجِبَالِ فَأَبَيْنَ أَن يَحْمِلْنَهَا وَأَشْفَقْنَ مِنْهَا وَحَمَلَهَا ٱلْإِنسَٰنُ ۖ إِنَّهُۥ كَانَ ظَلُومًۭا جَهُولًۭا",
   "en": "Indeed, we offered the Trust to the heavens and the earth and the mountains, and they declined to bear it and feared it; but man [undertook to] bear it. Indeed, he was unjust and ignorant."
+ },
+ "34:10": {
+  "surah": "Saba",
+  "surahAr": "سُورَةُ سَبَإٍ",
+  "ar": "۞ وَلَقَدْ ءَاتَيْنَا دَاوُۥدَ مِنَّا فَضْلًۭا ۖ يَٰجِبَالُ أَوِّبِى مَعَهُۥ وَٱلطَّيْرَ ۖ وَأَلَنَّا لَهُ ٱلْحَدِيدَ",
+  "en": "And We certainly gave David from Us bounty. [We said], \"O mountains, repeat [Our] praises with him, and the birds [as well].\" And We made pliable for him iron,"
+ },
+ "34:11": {
+  "surah": "Saba",
+  "surahAr": "سُورَةُ سَبَإٍ",
+  "ar": "أَنِ ٱعْمَلْ سَٰبِغَٰتٍۢ وَقَدِّرْ فِى ٱلسَّرْدِ ۖ وَٱعْمَلُوا۟ صَٰلِحًا ۖ إِنِّى بِمَا تَعْمَلُونَ بَصِيرٌۭ",
+  "en": "[Commanding him], \"Make full coats of mail and calculate [precisely] the links, and work [all of you] righteousness. Indeed I, of what you do, am Seeing.\""
+ },
+ "34:13": {
+  "surah": "Saba",
+  "surahAr": "سُورَةُ سَبَإٍ",
+  "ar": "يَعْمَلُونَ لَهُۥ مَا يَشَآءُ مِن مَّحَٰرِيبَ وَتَمَٰثِيلَ وَجِفَانٍۢ كَٱلْجَوَابِ وَقُدُورٍۢ رَّاسِيَٰتٍ ۚ ٱعْمَلُوٓا۟ ءَالَ دَاوُۥدَ شُكْرًۭا ۚ وَقَلِيلٌۭ مِّنْ عِبَادِىَ ٱلشَّكُورُ",
+  "en": "They made for him what he willed of elevated chambers, statues, bowls like reservoirs, and stationary kettles. [We said], \"Work, O family of David, in gratitude.\" And few of My servants are grateful."
+ },
+ "34:14": {
+  "surah": "Saba",
+  "surahAr": "سُورَةُ سَبَإٍ",
+  "ar": "فَلَمَّا قَضَيْنَا عَلَيْهِ ٱلْمَوْتَ مَا دَلَّهُمْ عَلَىٰ مَوْتِهِۦٓ إِلَّا دَآبَّةُ ٱلْأَرْضِ تَأْكُلُ مِنسَأَتَهُۥ ۖ فَلَمَّا خَرَّ تَبَيَّنَتِ ٱلْجِنُّ أَن لَّوْ كَانُوا۟ يَعْلَمُونَ ٱلْغَيْبَ مَا لَبِثُوا۟ فِى ٱلْعَذَابِ ٱلْمُهِينِ",
+  "en": "And when We decreed for Solomon death, nothing indicated to the jinn his death except a creature of the earth eating his staff. But when he fell, it became clear to the jinn that if they had known the unseen, they would not have remained in humiliating punishment."
+ },
+ "34:16": {
+  "surah": "Saba",
+  "surahAr": "سُورَةُ سَبَإٍ",
+  "ar": "فَأَعْرَضُوا۟ فَأَرْسَلْنَا عَلَيْهِمْ سَيْلَ ٱلْعَرِمِ وَبَدَّلْنَٰهُم بِجَنَّتَيْهِمْ جَنَّتَيْنِ ذَوَاتَىْ أُكُلٍ خَمْطٍۢ وَأَثْلٍۢ وَشَىْءٍۢ مِّن سِدْرٍۢ قَلِيلٍۢ",
+  "en": "But they turned away [refusing], so We sent upon them the flood of the dam, and We replaced their two [fields of] gardens with gardens of bitter fruit, tamarisks and something of sparse lote trees."
+ },
+ "36:20": {
+  "surah": "Yaseen",
+  "surahAr": "سُورَةُ يسٓ",
+  "ar": "وَجَآءَ مِنْ أَقْصَا ٱلْمَدِينَةِ رَجُلٌۭ يَسْعَىٰ قَالَ يَٰقَوْمِ ٱتَّبِعُوا۟ ٱلْمُرْسَلِينَ",
+  "en": "And there came from the farthest end of the city a man, running. He said, \"O my people, follow the messengers."
+ },
+ "36:78": {
+  "surah": "Yaseen",
+  "surahAr": "سُورَةُ يسٓ",
+  "ar": "وَضَرَبَ لَنَا مَثَلًۭا وَنَسِىَ خَلْقَهُۥ ۖ قَالَ مَن يُحْىِ ٱلْعِظَٰمَ وَهِىَ رَمِيمٌۭ",
+  "en": "And he presents for Us an example and forgets his [own] creation. He says, \"Who will give life to bones while they are disintegrated?\""
+ },
+ "36:79": {
+  "surah": "Yaseen",
+  "surahAr": "سُورَةُ يسٓ",
+  "ar": "قُلْ يُحْيِيهَا ٱلَّذِىٓ أَنشَأَهَآ أَوَّلَ مَرَّةٍۢ ۖ وَهُوَ بِكُلِّ خَلْقٍ عَلِيمٌ",
+  "en": "Say, \"He will give them life who produced them the first time; and He is, of all creation, Knowing.\""
+ },
+ "37:99": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "وَقَالَ إِنِّى ذَاهِبٌ إِلَىٰ رَبِّى سَيَهْدِينِ",
+  "en": "And [then] he said, \"Indeed, I will go to [where I am ordered by] my Lord; He will guide me."
+ },
+ "37:100": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "رَبِّ هَبْ لِى مِنَ ٱلصَّٰلِحِينَ",
+  "en": "My Lord, grant me [a child] from among the righteous.\""
+ },
+ "37:101": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "فَبَشَّرْنَٰهُ بِغُلَٰمٍ حَلِيمٍۢ",
+  "en": "So We gave him good tidings of a forbearing boy."
+ },
+ "37:102": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "فَلَمَّا بَلَغَ مَعَهُ ٱلسَّعْىَ قَالَ يَٰبُنَىَّ إِنِّىٓ أَرَىٰ فِى ٱلْمَنَامِ أَنِّىٓ أَذْبَحُكَ فَٱنظُرْ مَاذَا تَرَىٰ ۚ قَالَ يَٰٓأَبَتِ ٱفْعَلْ مَا تُؤْمَرُ ۖ سَتَجِدُنِىٓ إِن شَآءَ ٱللَّهُ مِنَ ٱلصَّٰبِرِينَ",
+  "en": "And when he reached with him [the age of] exertion, he said, \"O my son, indeed I have seen in a dream that I [must] sacrifice you, so see what you think.\" He said, \"O my father, do as you are commanded. You will find me, if Allah wills, of the steadfast.\""
+ },
+ "37:104": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "وَنَٰدَيْنَٰهُ أَن يَٰٓإِبْرَٰهِيمُ",
+  "en": "We called to him, \"O Abraham,"
+ },
+ "37:105": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "قَدْ صَدَّقْتَ ٱلرُّءْيَآ ۚ إِنَّا كَذَٰلِكَ نَجْزِى ٱلْمُحْسِنِينَ",
+  "en": "You have fulfilled the vision.\" Indeed, We thus reward the doers of good."
+ },
+ "37:106": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "إِنَّ هَٰذَا لَهُوَ ٱلْبَلَٰٓؤُا۟ ٱلْمُبِينُ",
+  "en": "Indeed, this was the clear trial."
+ },
+ "37:107": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "وَفَدَيْنَٰهُ بِذِبْحٍ عَظِيمٍۢ",
+  "en": "And We ransomed him with a great sacrifice,"
+ },
+ "37:112": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "وَبَشَّرْنَٰهُ بِإِسْحَٰقَ نَبِيًّۭا مِّنَ ٱلصَّٰلِحِينَ",
+  "en": "And We gave him good tidings of Isaac, a prophet from among the righteous."
+ },
+ "37:125": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "أَتَدْعُونَ بَعْلًۭا وَتَذَرُونَ أَحْسَنَ ٱلْخَٰلِقِينَ",
+  "en": "Do you call upon Ba'l and leave the best of creators -"
+ },
+ "37:126": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "ٱللَّهَ رَبَّكُمْ وَرَبَّ ءَابَآئِكُمُ ٱلْأَوَّلِينَ",
+  "en": "Allah, your Lord and the Lord of your first forefathers?\""
+ },
+ "37:139": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "وَإِنَّ يُونُسَ لَمِنَ ٱلْمُرْسَلِينَ",
+  "en": "And indeed, Jonah was among the messengers."
+ },
+ "37:140": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "إِذْ أَبَقَ إِلَى ٱلْفُلْكِ ٱلْمَشْحُونِ",
+  "en": "[Mention] when he ran away to the laden ship."
+ },
+ "37:141": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "فَسَاهَمَ فَكَانَ مِنَ ٱلْمُدْحَضِينَ",
+  "en": "And he drew lots and was among the losers."
+ },
+ "37:142": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "فَٱلْتَقَمَهُ ٱلْحُوتُ وَهُوَ مُلِيمٌۭ",
+  "en": "Then the fish swallowed him, while he was blameworthy."
+ },
+ "37:145": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "۞ فَنَبَذْنَٰهُ بِٱلْعَرَآءِ وَهُوَ سَقِيمٌۭ",
+  "en": "But We threw him onto the open shore while he was ill."
+ },
+ "37:146": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "وَأَنۢبَتْنَا عَلَيْهِ شَجَرَةًۭ مِّن يَقْطِينٍۢ",
+  "en": "And We caused to grow over him a gourd vine."
+ },
+ "37:147": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "وَأَرْسَلْنَٰهُ إِلَىٰ مِا۟ئَةِ أَلْفٍ أَوْ يَزِيدُونَ",
+  "en": "And We sent him to [his people of] a hundred thousand or more."
+ },
+ "37:148": {
+  "surah": "As-Saaffaat",
+  "surahAr": "سُورَةُ الصَّافَّاتِ",
+  "ar": "فَـَٔامَنُوا۟ فَمَتَّعْنَٰهُمْ إِلَىٰ حِينٍۢ",
+  "en": "And they believed, so We gave them enjoyment [of life] for a time."
+ },
+ "38:24": {
+  "surah": "Saad",
+  "surahAr": "سُورَةُ صٓ",
+  "ar": "قَالَ لَقَدْ ظَلَمَكَ بِسُؤَالِ نَعْجَتِكَ إِلَىٰ نِعَاجِهِۦ ۖ وَإِنَّ كَثِيرًۭا مِّنَ ٱلْخُلَطَآءِ لَيَبْغِى بَعْضُهُمْ عَلَىٰ بَعْضٍ إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَقَلِيلٌۭ مَّا هُمْ ۗ وَظَنَّ دَاوُۥدُ أَنَّمَا فَتَنَّٰهُ فَٱسْتَغْفَرَ رَبَّهُۥ وَخَرَّ رَاكِعًۭا وَأَنَابَ ۩",
+  "en": "[David] said, \"He has certainly wronged you in demanding your ewe [in addition] to his ewes. And indeed, many associates oppress one another, except for those who believe and do righteous deeds - and few are they.\" And David became certain that We had tried him, and he asked forgiveness of his Lord and fell down bowing [in prostration] and turned in repentance [to Allah]."
+ },
+ "38:42": {
+  "surah": "Saad",
+  "surahAr": "سُورَةُ صٓ",
+  "ar": "ٱرْكُضْ بِرِجْلِكَ ۖ هَٰذَا مُغْتَسَلٌۢ بَارِدٌۭ وَشَرَابٌۭ",
+  "en": "[So he was told], \"Strike [the ground] with your foot; this is a [spring for] a cool bath and drink.\""
+ },
+ "38:43": {
+  "surah": "Saad",
+  "surahAr": "سُورَةُ صٓ",
+  "ar": "وَوَهَبْنَا لَهُۥٓ أَهْلَهُۥ وَمِثْلَهُم مَّعَهُمْ رَحْمَةًۭ مِّنَّا وَذِكْرَىٰ لِأُو۟لِى ٱلْأَلْبَٰبِ",
+  "en": "And We granted him his family and a like [number] with them as mercy from Us and a reminder for those of understanding."
+ },
+ "38:44": {
+  "surah": "Saad",
+  "surahAr": "سُورَةُ صٓ",
+  "ar": "وَخُذْ بِيَدِكَ ضِغْثًۭا فَٱضْرِب بِّهِۦ وَلَا تَحْنَثْ ۗ إِنَّا وَجَدْنَٰهُ صَابِرًۭا ۚ نِّعْمَ ٱلْعَبْدُ ۖ إِنَّهُۥٓ أَوَّابٌۭ",
+  "en": "[We said], \"And take in your hand a bunch [of grass] and strike with it and do not break your oath.\" Indeed, We found him patient, an excellent servant. Indeed, he was one repeatedly turning back [to Allah]."
+ },
+ "38:45": {
+  "surah": "Saad",
+  "surahAr": "سُورَةُ صٓ",
+  "ar": "وَٱذْكُرْ عِبَٰدَنَآ إِبْرَٰهِيمَ وَإِسْحَٰقَ وَيَعْقُوبَ أُو۟لِى ٱلْأَيْدِى وَٱلْأَبْصَٰرِ",
+  "en": "And remember Our servants, Abraham, Isaac and Jacob - those of strength and [religious] vision."
+ },
+ "38:48": {
+  "surah": "Saad",
+  "surahAr": "سُورَةُ صٓ",
+  "ar": "وَٱذْكُرْ إِسْمَٰعِيلَ وَٱلْيَسَعَ وَذَا ٱلْكِفْلِ ۖ وَكُلٌّۭ مِّنَ ٱلْأَخْيَارِ",
+  "en": "And remember Ishmael, Elisha and Dhul-Kifl, and all are among the outstanding."
+ },
+ "39:10": {
+  "surah": "Az-Zumar",
+  "surahAr": "سُورَةُ الزُّمَرِ",
+  "ar": "قُلْ يَٰعِبَادِ ٱلَّذِينَ ءَامَنُوا۟ ٱتَّقُوا۟ رَبَّكُمْ ۚ لِلَّذِينَ أَحْسَنُوا۟ فِى هَٰذِهِ ٱلدُّنْيَا حَسَنَةٌۭ ۗ وَأَرْضُ ٱللَّهِ وَٰسِعَةٌ ۗ إِنَّمَا يُوَفَّى ٱلصَّٰبِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍۢ",
+  "en": "Say, \"O My servants who have believed, fear your Lord. For those who do good in this world is good, and the earth of Allah is spacious. Indeed, the patient will be given their reward without account.\""
+ },
+ "40:28": {
+  "surah": "Ghafir",
+  "surahAr": "سُورَةُ غَافِرٍ",
+  "ar": "وَقَالَ رَجُلٌۭ مُّؤْمِنٌۭ مِّنْ ءَالِ فِرْعَوْنَ يَكْتُمُ إِيمَٰنَهُۥٓ أَتَقْتُلُونَ رَجُلًا أَن يَقُولَ رَبِّىَ ٱللَّهُ وَقَدْ جَآءَكُم بِٱلْبَيِّنَٰتِ مِن رَّبِّكُمْ ۖ وَإِن يَكُ كَٰذِبًۭا فَعَلَيْهِ كَذِبُهُۥ ۖ وَإِن يَكُ صَادِقًۭا يُصِبْكُم بَعْضُ ٱلَّذِى يَعِدُكُمْ ۖ إِنَّ ٱللَّهَ لَا يَهْدِى مَنْ هُوَ مُسْرِفٌۭ كَذَّابٌۭ",
+  "en": "And a believing man from the family of Pharaoh who concealed his faith said, \"Do you kill a man [merely] because he says, 'My Lord is Allah' while he has brought you clear proofs from your Lord? And if he should be lying, then upon him is [the consequence of] his lie; but if he should be truthful, there will strike you some of what he promises you. Indeed, Allah does not guide one who is a transgressor and a liar."
+ },
+ "40:44": {
+  "surah": "Ghafir",
+  "surahAr": "سُورَةُ غَافِرٍ",
+  "ar": "فَسَتَذْكُرُونَ مَآ أَقُولُ لَكُمْ ۚ وَأُفَوِّضُ أَمْرِىٓ إِلَى ٱللَّهِ ۚ إِنَّ ٱللَّهَ بَصِيرٌۢ بِٱلْعِبَادِ",
+  "en": "And you will remember what I [now] say to you, and I entrust my affair to Allah. Indeed, Allah is Seeing of [His] servants.\""
  },
  "41:11": {
   "surah": "Fussilat",
@@ -341,11 +1841,65 @@
   "ar": "فَأَمَّا عَادٌۭ فَٱسْتَكْبَرُوا۟ فِى ٱلْأَرْضِ بِغَيْرِ ٱلْحَقِّ وَقَالُوا۟ مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا۟ أَنَّ ٱللَّهَ ٱلَّذِى خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةًۭ ۖ وَكَانُوا۟ بِـَٔايَٰتِنَا يَجْحَدُونَ",
   "en": "As for 'Aad, they were arrogant upon the earth without right and said, \"Who is greater than us in strength?\" Did they not consider that Allah who created them was greater than them in strength? But they were rejecting Our signs."
  },
+ "41:34": {
+  "surah": "Fussilat",
+  "surahAr": "سُورَةُ فُصِّلَتۡ",
+  "ar": "وَلَا تَسْتَوِى ٱلْحَسَنَةُ وَلَا ٱلسَّيِّئَةُ ۚ ٱدْفَعْ بِٱلَّتِى هِىَ أَحْسَنُ فَإِذَا ٱلَّذِى بَيْنَكَ وَبَيْنَهُۥ عَدَٰوَةٌۭ كَأَنَّهُۥ وَلِىٌّ حَمِيمٌۭ",
+  "en": "And not equal are the good deed and the bad. Repel [evil] by that [deed] which is better; and thereupon the one whom between you and him is enmity [will become] as though he was a devoted friend."
+ },
+ "42:11": {
+  "surah": "Ash-Shura",
+  "surahAr": "سُورَةُ الشُّورَىٰ",
+  "ar": "فَاطِرُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۚ جَعَلَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًۭا وَمِنَ ٱلْأَنْعَٰمِ أَزْوَٰجًۭا ۖ يَذْرَؤُكُمْ فِيهِ ۚ لَيْسَ كَمِثْلِهِۦ شَىْءٌۭ ۖ وَهُوَ ٱلسَّمِيعُ ٱلْبَصِيرُ",
+  "en": "[He is] Creator of the heavens and the earth. He has made for you from yourselves, mates, and among the cattle, mates; He multiplies you thereby. There is nothing like unto Him, and He is the Hearing, the Seeing."
+ },
+ "46:15": {
+  "surah": "Al-Ahqaf",
+  "surahAr": "سُورَةُ الأَحۡقَافِ",
+  "ar": "وَوَصَّيْنَا ٱلْإِنسَٰنَ بِوَٰلِدَيْهِ إِحْسَٰنًا ۖ حَمَلَتْهُ أُمُّهُۥ كُرْهًۭا وَوَضَعَتْهُ كُرْهًۭا ۖ وَحَمْلُهُۥ وَفِصَٰلُهُۥ ثَلَٰثُونَ شَهْرًا ۚ حَتَّىٰٓ إِذَا بَلَغَ أَشُدَّهُۥ وَبَلَغَ أَرْبَعِينَ سَنَةًۭ قَالَ رَبِّ أَوْزِعْنِىٓ أَنْ أَشْكُرَ نِعْمَتَكَ ٱلَّتِىٓ أَنْعَمْتَ عَلَىَّ وَعَلَىٰ وَٰلِدَىَّ وَأَنْ أَعْمَلَ صَٰلِحًۭا تَرْضَىٰهُ وَأَصْلِحْ لِى فِى ذُرِّيَّتِىٓ ۖ إِنِّى تُبْتُ إِلَيْكَ وَإِنِّى مِنَ ٱلْمُسْلِمِينَ",
+  "en": "And We have enjoined upon man, to his parents, good treatment. His mother carried him with hardship and gave birth to him with hardship, and his gestation and weaning [period] is thirty months. [He grows] until, when he reaches maturity and reaches [the age of] forty years, he says, \"My Lord, enable me to be grateful for Your favor which You have bestowed upon me and upon my parents and to work righteousness of which You will approve and make righteous for me my offspring. Indeed, I have repented to You, and indeed, I am of the Muslims.\""
+ },
  "46:24": {
   "surah": "Al-Ahqaf",
   "surahAr": "سُورَةُ الأَحۡقَافِ",
   "ar": "فَلَمَّا رَأَوْهُ عَارِضًۭا مُّسْتَقْبِلَ أَوْدِيَتِهِمْ قَالُوا۟ هَٰذَا عَارِضٌۭ مُّمْطِرُنَا ۚ بَلْ هُوَ مَا ٱسْتَعْجَلْتُم بِهِۦ ۖ رِيحٌۭ فِيهَا عَذَابٌ أَلِيمٌۭ",
   "en": "And when they saw it as a cloud approaching their valleys, they said, \"This is a cloud bringing us rain!\" Rather, it is that for which you were impatient: a wind, within it a painful punishment,"
+ },
+ "47:19": {
+  "surah": "Muhammad",
+  "surahAr": "سُورَةُ مُحَمَّدٍ",
+  "ar": "فَٱعْلَمْ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا ٱللَّهُ وَٱسْتَغْفِرْ لِذَنۢبِكَ وَلِلْمُؤْمِنِينَ وَٱلْمُؤْمِنَٰتِ ۗ وَٱللَّهُ يَعْلَمُ مُتَقَلَّبَكُمْ وَمَثْوَىٰكُمْ",
+  "en": "So know, [O Muhammad], that there is no deity except Allah and ask forgiveness for your sin and for the believing men and believing women. And Allah knows of your movement and your resting place."
+ },
+ "48:29": {
+  "surah": "Al-Fath",
+  "surahAr": "سُورَةُ الفَتۡحِ",
+  "ar": "مُّحَمَّدٌۭ رَّسُولُ ٱللَّهِ ۚ وَٱلَّذِينَ مَعَهُۥٓ أَشِدَّآءُ عَلَى ٱلْكُفَّارِ رُحَمَآءُ بَيْنَهُمْ ۖ تَرَىٰهُمْ رُكَّعًۭا سُجَّدًۭا يَبْتَغُونَ فَضْلًۭا مِّنَ ٱللَّهِ وَرِضْوَٰنًۭا ۖ سِيمَاهُمْ فِى وُجُوهِهِم مِّنْ أَثَرِ ٱلسُّجُودِ ۚ ذَٰلِكَ مَثَلُهُمْ فِى ٱلتَّوْرَىٰةِ ۚ وَمَثَلُهُمْ فِى ٱلْإِنجِيلِ كَزَرْعٍ أَخْرَجَ شَطْـَٔهُۥ فَـَٔازَرَهُۥ فَٱسْتَغْلَظَ فَٱسْتَوَىٰ عَلَىٰ سُوقِهِۦ يُعْجِبُ ٱلزُّرَّاعَ لِيَغِيظَ بِهِمُ ٱلْكُفَّارَ ۗ وَعَدَ ٱللَّهُ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ مِنْهُم مَّغْفِرَةًۭ وَأَجْرًا عَظِيمًۢا",
+  "en": "Muhammad is the Messenger of Allah; and those with him are forceful against the disbelievers, merciful among themselves. You see them bowing and prostrating [in prayer], seeking bounty from Allah and [His] pleasure. Their mark is on their faces from the trace of prostration. That is their description in the Torah. And their description in the Gospel is as a plant which produces its offshoots and strengthens them so they grow firm and stand upon their stalks, delighting the sowers - so that Allah may enrage by them the disbelievers. Allah has promised those who believe and do righteous deeds among them forgiveness and a great reward."
+ },
+ "49:11": {
+  "surah": "Al-Hujuraat",
+  "surahAr": "سُورَةُ الحُجُرَاتِ",
+  "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا يَسْخَرْ قَوْمٌۭ مِّن قَوْمٍ عَسَىٰٓ أَن يَكُونُوا۟ خَيْرًۭا مِّنْهُمْ وَلَا نِسَآءٌۭ مِّن نِّسَآءٍ عَسَىٰٓ أَن يَكُنَّ خَيْرًۭا مِّنْهُنَّ ۖ وَلَا تَلْمِزُوٓا۟ أَنفُسَكُمْ وَلَا تَنَابَزُوا۟ بِٱلْأَلْقَٰبِ ۖ بِئْسَ ٱلِٱسْمُ ٱلْفُسُوقُ بَعْدَ ٱلْإِيمَٰنِ ۚ وَمَن لَّمْ يَتُبْ فَأُو۟لَٰٓئِكَ هُمُ ٱلظَّٰلِمُونَ",
+  "en": "O you who have believed, let not a people ridicule [another] people; perhaps they may be better than them; nor let women ridicule [other] women; perhaps they may be better than them. And do not insult one another and do not call each other by [offensive] nicknames. Wretched is the name of disobedience after [one's] faith. And whoever does not repent - then it is those who are the wrongdoers."
+ },
+ "49:12": {
+  "surah": "Al-Hujuraat",
+  "surahAr": "سُورَةُ الحُجُرَاتِ",
+  "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱجْتَنِبُوا۟ كَثِيرًۭا مِّنَ ٱلظَّنِّ إِنَّ بَعْضَ ٱلظَّنِّ إِثْمٌۭ ۖ وَلَا تَجَسَّسُوا۟ وَلَا يَغْتَب بَّعْضُكُم بَعْضًا ۚ أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًۭا فَكَرِهْتُمُوهُ ۚ وَٱتَّقُوا۟ ٱللَّهَ ۚ إِنَّ ٱللَّهَ تَوَّابٌۭ رَّحِيمٌۭ",
+  "en": "O you who have believed, avoid much [negative] assumption. Indeed, some assumption is sin. And do not spy or backbite each other. Would one of you like to eat the flesh of his brother when dead? You would detest it. And fear Allah; indeed, Allah is Accepting of repentance and Merciful."
+ },
+ "51:31": {
+  "surah": "Adh-Dhaariyat",
+  "surahAr": "سُورَةُ الذَّارِيَاتِ",
+  "ar": "۞ قَالَ فَمَا خَطْبُكُمْ أَيُّهَا ٱلْمُرْسَلُونَ",
+  "en": "[Abraham] said, \"Then what is your business [here], O messengers?\""
+ },
+ "51:32": {
+  "surah": "Adh-Dhaariyat",
+  "surahAr": "سُورَةُ الذَّارِيَاتِ",
+  "ar": "قَالُوٓا۟ إِنَّآ أُرْسِلْنَآ إِلَىٰ قَوْمٍۢ مُّجْرِمِينَ",
+  "en": "They said, \"Indeed, we have been sent to a people of criminals"
  },
  "54:11": {
   "surah": "Al-Qamar",
@@ -359,17 +1913,125 @@
   "ar": "وَفَجَّرْنَا ٱلْأَرْضَ عُيُونًۭا فَٱلْتَقَى ٱلْمَآءُ عَلَىٰٓ أَمْرٍۢ قَدْ قُدِرَ",
   "en": "And caused the earth to burst with springs, and the waters met for a matter already predestined."
  },
+ "54:37": {
+  "surah": "Al-Qamar",
+  "surahAr": "سُورَةُ القَمَرِ",
+  "ar": "وَلَقَدْ رَٰوَدُوهُ عَن ضَيْفِهِۦ فَطَمَسْنَآ أَعْيُنَهُمْ فَذُوقُوا۟ عَذَابِى وَنُذُرِ",
+  "en": "And they had demanded from him his guests, but We obliterated their eyes, [saying], \"Taste My punishment and warning.\""
+ },
+ "54:49": {
+  "surah": "Al-Qamar",
+  "surahAr": "سُورَةُ القَمَرِ",
+  "ar": "إِنَّا كُلَّ شَىْءٍ خَلَقْنَٰهُ بِقَدَرٍۢ",
+  "en": "Indeed, all things We created with predestination."
+ },
  "55:15": {
   "surah": "Ar-Rahmaan",
   "surahAr": "سُورَةُ الرَّحۡمَٰن",
   "ar": "وَخَلَقَ ٱلْجَآنَّ مِن مَّارِجٍۢ مِّن نَّارٍۢ",
   "en": "And He created the jinn from a smokeless flame of fire."
  },
+ "57:22": {
+  "surah": "Al-Hadid",
+  "surahAr": "سُورَةُ الحَدِيدِ",
+  "ar": "مَآ أَصَابَ مِن مُّصِيبَةٍۢ فِى ٱلْأَرْضِ وَلَا فِىٓ أَنفُسِكُمْ إِلَّا فِى كِتَٰبٍۢ مِّن قَبْلِ أَن نَّبْرَأَهَآ ۚ إِنَّ ذَٰلِكَ عَلَى ٱللَّهِ يَسِيرٌۭ",
+  "en": "No disaster strikes upon the earth or among yourselves except that it is in a register before We bring it into being - indeed that, for Allah, is easy -"
+ },
+ "57:23": {
+  "surah": "Al-Hadid",
+  "surahAr": "سُورَةُ الحَدِيدِ",
+  "ar": "لِّكَيْلَا تَأْسَوْا۟ عَلَىٰ مَا فَاتَكُمْ وَلَا تَفْرَحُوا۟ بِمَآ ءَاتَىٰكُمْ ۗ وَٱللَّهُ لَا يُحِبُّ كُلَّ مُخْتَالٍۢ فَخُورٍ",
+  "en": "In order that you not despair over what has eluded you and not exult [in pride] over what He has given you. And Allah does not like everyone self-deluded and boastful -"
+ },
+ "59:22": {
+  "surah": "Al-Hashr",
+  "surahAr": "سُورَةُ الحَشۡرِ",
+  "ar": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ",
+  "en": "He is Allah, other than whom there is no deity, Knower of the unseen and the witnessed. He is the Entirely Merciful, the Especially Merciful."
+ },
+ "59:23": {
+  "surah": "Al-Hashr",
+  "surahAr": "سُورَةُ الحَشۡرِ",
+  "ar": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ",
+  "en": "He is Allah, other than whom there is no deity, the Sovereign, the Pure, the Perfection, the Bestower of Faith, the Overseer, the Exalted in Might, the Compeller, the Superior. Exalted is Allah above whatever they associate with Him."
+ },
+ "59:24": {
+  "surah": "Al-Hashr",
+  "surahAr": "سُورَةُ الحَشۡرِ",
+  "ar": "هُوَ ٱللَّهُ ٱلْخَٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ ۚ يُسَبِّحُ لَهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۖ وَهُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ",
+  "en": "He is Allah, the Creator, the Inventor, the Fashioner; to Him belong the best names. Whatever is in the heavens and earth is exalting Him. And He is the Exalted in Might, the Wise."
+ },
+ "61:6": {
+  "surah": "As-Saff",
+  "surahAr": "سُورَةُ الصَّفِّ",
+  "ar": "وَإِذْ قَالَ عِيسَى ٱبْنُ مَرْيَمَ يَٰبَنِىٓ إِسْرَٰٓءِيلَ إِنِّى رَسُولُ ٱللَّهِ إِلَيْكُم مُّصَدِّقًۭا لِّمَا بَيْنَ يَدَىَّ مِنَ ٱلتَّوْرَىٰةِ وَمُبَشِّرًۢا بِرَسُولٍۢ يَأْتِى مِنۢ بَعْدِى ٱسْمُهُۥٓ أَحْمَدُ ۖ فَلَمَّا جَآءَهُم بِٱلْبَيِّنَٰتِ قَالُوا۟ هَٰذَا سِحْرٌۭ مُّبِينٌۭ",
+  "en": "And [mention] when Jesus, the son of Mary, said, \"O children of Israel, indeed I am the messenger of Allah to you confirming what came before me of the Torah and bringing good tidings of a messenger to come after me, whose name is Ahmad.\" But when he came to them with clear evidences, they said, \"This is obvious magic.\""
+ },
+ "65:3": {
+  "surah": "At-Talaaq",
+  "surahAr": "سُورَةُ الطَّلَاقِ",
+  "ar": "وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ ۚ وَمَن يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُۥٓ ۚ إِنَّ ٱللَّهَ بَٰلِغُ أَمْرِهِۦ ۚ قَدْ جَعَلَ ٱللَّهُ لِكُلِّ شَىْءٍۢ قَدْرًۭا",
+  "en": "And will provide for him from where he does not expect. And whoever relies upon Allah - then He is sufficient for him. Indeed, Allah will accomplish His purpose. Allah has already set for everything a [decreed] extent."
+ },
+ "66:6": {
+  "surah": "At-Tahrim",
+  "surahAr": "سُورَةُ التَّحۡرِيمِ",
+  "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ قُوٓا۟ أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًۭا وَقُودُهَا ٱلنَّاسُ وَٱلْحِجَارَةُ عَلَيْهَا مَلَٰٓئِكَةٌ غِلَاظٌۭ شِدَادٌۭ لَّا يَعْصُونَ ٱللَّهَ مَآ أَمَرَهُمْ وَيَفْعَلُونَ مَا يُؤْمَرُونَ",
+  "en": "O you who have believed, protect yourselves and your families from a Fire whose fuel is people and stones, over which are [appointed] angels, harsh and severe; they do not disobey Allah in what He commands them but do what they are commanded."
+ },
+ "66:11": {
+  "surah": "At-Tahrim",
+  "surahAr": "سُورَةُ التَّحۡرِيمِ",
+  "ar": "وَضَرَبَ ٱللَّهُ مَثَلًۭا لِّلَّذِينَ ءَامَنُوا۟ ٱمْرَأَتَ فِرْعَوْنَ إِذْ قَالَتْ رَبِّ ٱبْنِ لِى عِندَكَ بَيْتًۭا فِى ٱلْجَنَّةِ وَنَجِّنِى مِن فِرْعَوْنَ وَعَمَلِهِۦ وَنَجِّنِى مِنَ ٱلْقَوْمِ ٱلظَّٰلِمِينَ",
+  "en": "And Allah presents an example of those who believed: the wife of Pharaoh, when she said, \"My Lord, build for me near You a house in Paradise and save me from Pharaoh and his deeds and save me from the wrongdoing people.\""
+ },
  "67:3": {
   "surah": "Al-Mulk",
   "surahAr": "سُورَةُ المُلۡكِ",
   "ar": "ٱلَّذِى خَلَقَ سَبْعَ سَمَٰوَٰتٍۢ طِبَاقًۭا ۖ مَّا تَرَىٰ فِى خَلْقِ ٱلرَّحْمَٰنِ مِن تَفَٰوُتٍۢ ۖ فَٱرْجِعِ ٱلْبَصَرَ هَلْ تَرَىٰ مِن فُطُورٍۢ",
   "en": "[And] who created seven heavens in layers. You do not see in the creation of the Most Merciful any inconsistency. So return [your] vision [to the sky]; do you see any breaks?"
+ },
+ "68:4": {
+  "surah": "Al-Qalam",
+  "surahAr": "سُورَةُ القَلَمِ",
+  "ar": "وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍۢ",
+  "en": "And indeed, you are of a great moral character."
+ },
+ "68:17": {
+  "surah": "Al-Qalam",
+  "surahAr": "سُورَةُ القَلَمِ",
+  "ar": "إِنَّا بَلَوْنَٰهُمْ كَمَا بَلَوْنَآ أَصْحَٰبَ ٱلْجَنَّةِ إِذْ أَقْسَمُوا۟ لَيَصْرِمُنَّهَا مُصْبِحِينَ",
+  "en": "Indeed, We have tried them as We tried the companions of the garden, when they swore to cut its fruit in the [early] morning"
+ },
+ "68:18": {
+  "surah": "Al-Qalam",
+  "surahAr": "سُورَةُ القَلَمِ",
+  "ar": "وَلَا يَسْتَثْنُونَ",
+  "en": "Without making exception."
+ },
+ "68:19": {
+  "surah": "Al-Qalam",
+  "surahAr": "سُورَةُ القَلَمِ",
+  "ar": "فَطَافَ عَلَيْهَا طَآئِفٌۭ مِّن رَّبِّكَ وَهُمْ نَآئِمُونَ",
+  "en": "So there came upon the garden an affliction from your Lord while they were asleep."
+ },
+ "68:20": {
+  "surah": "Al-Qalam",
+  "surahAr": "سُورَةُ القَلَمِ",
+  "ar": "فَأَصْبَحَتْ كَٱلصَّرِيمِ",
+  "en": "And it became as though reaped."
+ },
+ "68:29": {
+  "surah": "Al-Qalam",
+  "surahAr": "سُورَةُ القَلَمِ",
+  "ar": "قَالُوا۟ سُبْحَٰنَ رَبِّنَآ إِنَّا كُنَّا ظَٰلِمِينَ",
+  "en": "They said, \"Exalted is our Lord! Indeed, we were wrongdoers.\""
+ },
+ "68:30": {
+  "surah": "Al-Qalam",
+  "surahAr": "سُورَةُ القَلَمِ",
+  "ar": "فَأَقْبَلَ بَعْضُهُمْ عَلَىٰ بَعْضٍۢ يَتَلَٰوَمُونَ",
+  "en": "Then they approached one another, blaming each other."
  },
  "69:6": {
   "surah": "Al-Haaqqa",
@@ -425,6 +2087,18 @@
   "ar": "وَقَالُوا۟ لَا تَذَرُنَّ ءَالِهَتَكُمْ وَلَا تَذَرُنَّ وَدًّۭا وَلَا سُوَاعًۭا وَلَا يَغُوثَ وَيَعُوقَ وَنَسْرًۭا",
   "en": "And said, 'Never leave your gods and never leave Wadd or Suwa' or Yaghuth and Ya'uq and Nasr."
  },
+ "71:28": {
+  "surah": "Nooh",
+  "surahAr": "سُورَةُ نُوحٍ",
+  "ar": "رَّبِّ ٱغْفِرْ لِى وَلِوَٰلِدَىَّ وَلِمَن دَخَلَ بَيْتِىَ مُؤْمِنًۭا وَلِلْمُؤْمِنِينَ وَٱلْمُؤْمِنَٰتِ وَلَا تَزِدِ ٱلظَّٰلِمِينَ إِلَّا تَبَارًۢا",
+  "en": "My Lord, forgive me and my parents and whoever enters my house a believer and the believing men and believing women. And do not increase the wrongdoers except in destruction.\""
+ },
+ "76:9": {
+  "surah": "Al-Insaan",
+  "surahAr": "سُورَةُ الإِنسَانِ",
+  "ar": "إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ ٱللَّهِ لَا نُرِيدُ مِنكُمْ جَزَآءًۭ وَلَا شُكُورًا",
+  "en": "[Saying], \"We feed you only for the countenance of Allah. We wish not from you reward or gratitude."
+ },
  "78:6": {
   "surah": "An-Naba",
   "surahAr": "سُورَةُ النَّبَإِ",
@@ -436,6 +2110,24 @@
   "surahAr": "سُورَةُ النَّبَإِ",
   "ar": "وَٱلْجِبَالَ أَوْتَادًۭا",
   "en": "And the mountains as stakes?"
+ },
+ "82:10": {
+  "surah": "Al-Infitaar",
+  "surahAr": "سُورَةُ الانفِطَارِ",
+  "ar": "وَإِنَّ عَلَيْكُمْ لَحَٰفِظِينَ",
+  "en": "And indeed, [appointed] over you are keepers,"
+ },
+ "82:11": {
+  "surah": "Al-Infitaar",
+  "surahAr": "سُورَةُ الانفِطَارِ",
+  "ar": "كِرَامًۭا كَٰتِبِينَ",
+  "en": "Noble and recording;"
+ },
+ "82:12": {
+  "surah": "Al-Infitaar",
+  "surahAr": "سُورَةُ الانفِطَارِ",
+  "ar": "يَعْلَمُونَ مَا تَفْعَلُونَ",
+  "en": "They know whatever you do."
  },
  "89:6": {
   "surah": "Al-Fajr",
@@ -454,5 +2146,95 @@
   "surahAr": "سُورَةُ الفَجۡرِ",
   "ar": "ٱلَّتِى لَمْ يُخْلَقْ مِثْلُهَا فِى ٱلْبِلَٰدِ",
   "en": "The likes of whom had never been created in the land?"
+ },
+ "89:9": {
+  "surah": "Al-Fajr",
+  "surahAr": "سُورَةُ الفَجۡرِ",
+  "ar": "وَثَمُودَ ٱلَّذِينَ جَابُوا۟ ٱلصَّخْرَ بِٱلْوَادِ",
+  "en": "And [with] Thamud, who carved out the rocks in the valley?"
+ },
+ "91:11": {
+  "surah": "Ash-Shams",
+  "surahAr": "سُورَةُ الشَّمۡسِ",
+  "ar": "كَذَّبَتْ ثَمُودُ بِطَغْوَىٰهَآ",
+  "en": "Thamud denied [their prophet] by reason of their transgression,"
+ },
+ "91:12": {
+  "surah": "Ash-Shams",
+  "surahAr": "سُورَةُ الشَّمۡسِ",
+  "ar": "إِذِ ٱنۢبَعَثَ أَشْقَىٰهَا",
+  "en": "When the most wretched of them was sent forth."
+ },
+ "91:13": {
+  "surah": "Ash-Shams",
+  "surahAr": "سُورَةُ الشَّمۡسِ",
+  "ar": "فَقَالَ لَهُمْ رَسُولُ ٱللَّهِ نَاقَةَ ٱللَّهِ وَسُقْيَٰهَا",
+  "en": "And the messenger of Allah [Salih] said to them, \"[Do not harm] the she-camel of Allah or [prevent her from] her drink.\""
+ },
+ "91:14": {
+  "surah": "Ash-Shams",
+  "surahAr": "سُورَةُ الشَّمۡسِ",
+  "ar": "فَكَذَّبُوهُ فَعَقَرُوهَا فَدَمْدَمَ عَلَيْهِمْ رَبُّهُم بِذَنۢبِهِمْ فَسَوَّىٰهَا",
+  "en": "But they denied him and hamstrung her. So their Lord brought down upon them destruction for their sin and made it equal [upon all of them]."
+ },
+ "98:5": {
+  "surah": "Al-Bayyina",
+  "surahAr": "سُورَةُ البَيِّنَةِ",
+  "ar": "وَمَآ أُمِرُوٓا۟ إِلَّا لِيَعْبُدُوا۟ ٱللَّهَ مُخْلِصِينَ لَهُ ٱلدِّينَ حُنَفَآءَ وَيُقِيمُوا۟ ٱلصَّلَوٰةَ وَيُؤْتُوا۟ ٱلزَّكَوٰةَ ۚ وَذَٰلِكَ دِينُ ٱلْقَيِّمَةِ",
+  "en": "And they were not commanded except to worship Allah, [being] sincere to Him in religion, inclining to truth, and to establish prayer and to give zakah. And that is the correct religion."
+ },
+ "99:7": {
+  "surah": "Az-Zalzala",
+  "surahAr": "سُورَةُ الزَّلۡزَلَةِ",
+  "ar": "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًۭا يَرَهُۥ",
+  "en": "So whoever does an atom's weight of good will see it,"
+ },
+ "99:8": {
+  "surah": "Az-Zalzala",
+  "surahAr": "سُورَةُ الزَّلۡزَلَةِ",
+  "ar": "وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍۢ شَرًّۭا يَرَهُۥ",
+  "en": "And whoever does an atom's weight of evil will see it."
+ },
+ "107:4": {
+  "surah": "Al-Maa'un",
+  "surahAr": "سُورَةُ المَاعُونِ",
+  "ar": "فَوَيْلٌۭ لِّلْمُصَلِّينَ",
+  "en": "So woe to those who pray"
+ },
+ "107:5": {
+  "surah": "Al-Maa'un",
+  "surahAr": "سُورَةُ المَاعُونِ",
+  "ar": "ٱلَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ",
+  "en": "[But] who are heedless of their prayer -"
+ },
+ "107:6": {
+  "surah": "Al-Maa'un",
+  "surahAr": "سُورَةُ المَاعُونِ",
+  "ar": "ٱلَّذِينَ هُمْ يُرَآءُونَ",
+  "en": "Those who make show [of their deeds]"
+ },
+ "112:1": {
+  "surah": "Al-Ikhlaas",
+  "surahAr": "سُورَةُ الإِخۡلَاصِ",
+  "ar": "قُلْ هُوَ ٱللَّهُ أَحَدٌ",
+  "en": "Say, \"He is Allah, [who is] One,"
+ },
+ "112:2": {
+  "surah": "Al-Ikhlaas",
+  "surahAr": "سُورَةُ الإِخۡلَاصِ",
+  "ar": "ٱللَّهُ ٱلصَّمَدُ",
+  "en": "Allah, the Eternal Refuge."
+ },
+ "112:3": {
+  "surah": "Al-Ikhlaas",
+  "surahAr": "سُورَةُ الإِخۡلَاصِ",
+  "ar": "لَمْ يَلِدْ وَلَمْ يُولَدْ",
+  "en": "He neither begets nor is born,"
+ },
+ "112:4": {
+  "surah": "Al-Ikhlaas",
+  "surahAr": "سُورَةُ الإِخۡلَاصِ",
+  "ar": "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ",
+  "en": "Nor is there to Him any equivalent.\""
  }
 }

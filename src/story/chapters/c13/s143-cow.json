@@ -6,7 +6,7 @@
   "title": "The Cow",
   "arabic": "البقرة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:69"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "The dead man and the slaughter of the cow are told, never shown (2:67–73)."],
   "ambient": ["herd", "voices"],
   "base": "#d8c0a0",
@@ -37,6 +37,6 @@
     {"dur": 10000, "ambient": ["herd", "voices"], "cam": {"pos": [800, 520, 800], "look": [800, 700, -3000]}, "say": "A man was found dead, and no one knew who had killed him. Through Musa, God told them: slaughter a cow."},
     {"dur": 11000, "ambient": ["herd", "voices"], "cam": {"pos": [810, 530, 550], "look": [810, 780, -3000]}, "say": "Instead they kept asking: how old? what colour? what kind? until it could only be one cow: bright yellow, never yoked to plough or well."},
     {"dur": 11000, "ambient": ["voices", "air"], "cam": {"pos": [820, 525, 750], "look": [820, 720, -3000]}, "say": "When part of it touched the dead man, God brought him to life for a moment to name his killer. So God gives life to the dead."},
-    {"dur": 12000, "ambient": ["herd", "air"], "cam": {"pos": [810, 520, 800], "look": [810, 700, -3000]}, "pendingVerse": {"ref": "2:69", "place": "sky"}}
+    {"dur": 12000, "ambient": ["herd", "air"], "cam": {"pos": [810, 520, 800], "look": [810, 700, -3000]}, "verse": { "ref": "2:69", "place": "sky", "en": "They said, \"Call upon your Lord to show us what is her color.\" He said, \"He says, 'It is a yellow cow, bright in color - pleasing to the observers.' \"" }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Magicians Believe",
   "arabic": "إيمان السحرة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:121-122"],
   "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "Pharaoh's threat is told, not shown, and nothing of its carrying out is shown."],
   "ambient": ["crowd", "air"],
   "base": "#d8c8a8",
@@ -40,6 +40,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["crowd", "air"], "cam": {"pos": [920, 530, 700], "look": [940, 720, -3000]}, "say": "The magicians knew this was no magic. They fell down in prostration: we believe in the Lord of the worlds, the Lord of Musa and Harun."},
     {"dur": 10000, "ambient": ["crowd", "wind"], "cam": {"pos": [860, 520, 900], "look": [860, 640, -3000]}, "say": "Pharaoh threatened them with terrible punishment for believing without his permission. They did not waver: we will return to our Lord."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [920, 525, 800], "look": [940, 690, -3000]}, "pendingVerse": {"ref": "7:121-122", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [920, 525, 800], "look": [940, 690, -3000]}, "verse": { "ref": "7:121-122", "place": "sky", "en": "They said, \"We have believed in the Lord of the worlds, The Lord of Moses and Aaron.\"" }}
   ]
 }

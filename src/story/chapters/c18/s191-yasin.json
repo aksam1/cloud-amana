@@ -6,7 +6,7 @@
   "title": "The Town of the Messengers",
   "arabic": "المدينة والرسل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["36:20"],
   "art": ["The messengers, the townspeople and the man who came running appear only as lights. His death is shown only as his light rising; Paradise is not depicted. That he was named Habib is from the commentaries (36:13–29)."],
   "ambient": ["crowd", "jeer"],
   "base": "#d8c0a0",
@@ -34,6 +34,6 @@
     {"dur": 11000, "ambient": ["crowd", "jeer"], "cam": {"pos": [860, 520, 800], "look": [880, 690, -3000]}, "say": "The Quran tells of a town to which God sent two messengers, then a third to strengthen them. You are only men like us, the people said; we see an evil omen in you, and if you do not stop, we will stone you. Then a man came running from the far end of the town: my people, follow the messengers!"},
     {"dur": 11000, "ambient": ["air"], "world": {"bloom": 0.95}, "cam": {"pos": [860, 505, 1000], "look": [880, 520, -3000]}, "say": "They killed him for his faith. Enter Paradise, he was told; and he said: if only my people knew how my Lord has forgiven me and honoured me."},
     {"dur": 9000, "ambient": ["wind"], "sfx": [{"name": "thunder", "at": 300}], "cam": {"pos": [860, 515, 950], "look": [880, 640, -3000]}, "say": "After him, no army from heaven was needed: there was only one cry, and they were extinguished."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [860, 515, 950], "look": [880, 640, -3000]}, "pendingVerse": {"ref": "36:20", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [860, 515, 950], "look": [880, 640, -3000]}, "verse": { "ref": "36:20", "place": "sky", "en": "And there came from the farthest end of the city a man, running. He said, \"O my people, follow the messengers." }}
   ]
 }

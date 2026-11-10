@@ -6,7 +6,7 @@
   "title": "The Mountains Sing",
   "arabic": "تسبيح الجبال",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["34:10"],
   "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "Dawud's recitation of the Zabur is heard as a wordless voice; no music. The mountains' and birds' praise is shown as light on the peaks and birds circling, as the Quran tells (34:10, 21:79)."],
   "ambient": ["chant", "birds"],
   "base": "#c8c0b0",
@@ -38,6 +38,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["chant", "wind"], "cam": {"pos": [800, 500, 1000], "look": [800, 540, -3000]}, "say": "God made Dawud king and prophet, and gave him the Zabur, the Psalms."},
     {"dur": 11000, "ambient": ["chant", "birds"], "cam": {"pos": [800, 490, 1100], "look": [800, 480, -3000]}, "say": "When he glorified God, the mountains and the birds joined in his praise."},
-    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [800, 495, 1050], "look": [800, 500, -3000]}, "pendingVerse": {"ref": "34:10", "place": "sky"}}
+    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [800, 495, 1050], "look": [800, 500, -3000]}, "verse": { "ref": "34:10", "place": "sky", "en": "And We certainly gave David from Us bounty. [We said], \"O mountains, repeat [Our] praises with him, and the birds [as well].\" And We made pliable for him iron," }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Valley of the Ants",
   "arabic": "النملة والجيش",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["27:19"],
   "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "The ant's warning is told as the Quran tells it (27:18); the ants are drawn in ink."],
   "ambient": ["army", "wind"],
   "base": "#d8c0a0",
@@ -30,6 +30,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["army", "wind"], "cam": {"pos": [800, 560, 900], "look": [800, 900, -3000]}, "say": "Once, as Sulayman's army came to a valley, an ant called out: ants, go into your homes, or Sulayman and his soldiers may crush you without knowing."},
     {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [800, 520, 1000], "look": [800, 640, -3000]}, "say": "Sulayman heard her and smiled, and he thanked God for His favour."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 520, 1000], "look": [800, 640, -3000]}, "pendingVerse": {"ref": "27:19", "place": "sky", "part": "his prayer, from \"My Lord, enable me to be grateful\""}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 520, 1000], "look": [800, 640, -3000]}, "verse": { "ref": "27:19", "ar": [5,23], "place": "sky", "en": "…\"My Lord, enable me to be grateful for Your favor which You have bestowed upon me and upon my parents and to do righteousness of which You approve. And admit me by Your mercy into [the ranks of] Your righteous servants.\"" }}
   ]
 }

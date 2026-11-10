@@ -6,7 +6,7 @@
   "title": "A Whole City Believes",
   "arabic": "مدينة تؤمن",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:147-148"],
   "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "That his people believed when they saw the signs of punishment coming, and were spared, is from 10:98 and 37:147–148."],
   "ambient": ["crowd", "birds"],
   "base": "#c8c0b0",
@@ -30,6 +30,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["crowd", "birds"], "cam": {"pos": [800, 515, 900], "look": [800, 660, -3000]}, "say": "Meanwhile his people had seen the signs of punishment coming, and had turned to God, every one of them; and God spared them."},
     {"dur": 10000, "ambient": ["crowd", "air"], "cam": {"pos": [800, 520, 700], "look": [800, 720, -3000]}, "say": "Yunus was sent back to them, a hundred thousand or more, and they all believed. They were the only people who believed before the punishment fell, and were saved."},
-    {"dur": 12000, "ambient": ["crowd", "air"], "cam": {"pos": [800, 515, 900], "look": [800, 660, -3000]}, "pendingVerse": {"ref": "37:147-148", "place": "sky"}}
+    {"dur": 12000, "ambient": ["crowd", "air"], "cam": {"pos": [800, 515, 900], "look": [800, 660, -3000]}, "verse": { "ref": "37:147-148", "place": "sky", "en": "And We sent him to [his people of] a hundred thousand or more. And they believed, so We gave them enjoyment [of life] for a time." }}
   ]
 }

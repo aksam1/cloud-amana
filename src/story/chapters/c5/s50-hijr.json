@@ -6,7 +6,7 @@
   "title": "The Valley of the Rock",
   "arabic": "وادي الحجر",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["89:9"],
   "art": [
     "The carved homes follow the tombs of al-Hijr (Hegra) in north-west Arabia, traditionally identified with Thamud; the people of Thamud appear only as figures of dim light."
   ],
@@ -66,6 +66,6 @@
       "cam": { "dx": 6000, "from": { "pos": [800, 520, 1200], "look": [800, 420, 0] }, "pos": [800, 450, 1020], "look": [800, 420, 0] },
       "say": "Their palaces stood on the plains, and their homes in the rock were made to last forever." },
     { "dur": 11000, "ambient": ["desert", "wind"], "cam": { "pos": [800, 330, 500], "look": [800, 580, -9000] },
-      "pendingVerse": { "ref": "89:9", "place": "lower" } }
+      "verse": { "ref": "89:9", "place": "lower", "en": "And [with] Thamud, who carved out the rocks in the valley?" } }
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Day of the Festival",
   "arabic": "يوم العيد",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:117"],
   "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The magicians' ropes are drawn as small ink serpents because the Quran says they seemed to move (20:66); that they were only ropes and staffs is shown when they vanish."],
   "ambient": ["crowd", "city"],
   "base": "#d8c8a8",
@@ -48,6 +48,6 @@
   "beats": [
     {"dur": 11000, "ambient": ["crowd", "jeer"], "cam": {"pos": [900, 530, 700], "look": [920, 720, -3000]}, "say": "On the day of the festival, all Egypt gathered to watch. The magicians threw down their ropes and staffs, and by their magic these seemed to crawl like snakes."},
     {"dur": 10000, "ambient": ["crowd", "roar"], "sfx": [{"name": "scratch", "at": 600}, {"name": "whoosh", "at": 1400}], "cam": {"pos": [860, 530, 700], "look": [880, 720, -3000]}, "say": "Musa felt afraid, but was told: do not fear, throw what is in your hand. His staff swallowed up all that they had faked."},
-    {"dur": 12000, "ambient": ["crowd", "air"], "cam": {"pos": [860, 525, 900], "look": [880, 680, -3000]}, "pendingVerse": {"ref": "7:117", "place": "sky"}}
+    {"dur": 12000, "ambient": ["crowd", "air"], "cam": {"pos": [860, 525, 900], "look": [880, 680, -3000]}, "verse": { "ref": "7:117", "place": "sky", "en": "And We inspired to Moses, \"Throw your staff,\" and at once it devoured what they were falsifying." }}
   ]
 }

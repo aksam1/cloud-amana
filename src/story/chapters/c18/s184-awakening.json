@@ -6,7 +6,7 @@
   "title": "The Awakening",
   "arabic": "اليقظة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["18:21"],
   "art": ["The youths and the townspeople appear only as soft and dim lights. The silver coin is from 18:19."],
   "ambient": ["air", "birds"],
   "base": "#0c0a08",
@@ -24,6 +24,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["air", "birds"], "cam": {"pos": [800, 540, 500], "look": [800, 860, -3000]}, "say": "When God woke them, they asked one another: how long have we slept? A day, or part of a day. They sent one of them to the town with a silver coin to buy food, quietly."},
     {"dur": 11000, "ambient": ["city", "voices"], "cam": {"pos": [800, 525, 700], "look": [800, 740, -3000], "dx": 6000}, "say": "But the town had changed; centuries had passed, and the coin was ancient. The people now believed, and their story became a sign that God's promise of resurrection is true."},
-    {"dur": 12000, "ambient": ["city", "air"], "cam": {"pos": [800, 520, 850], "look": [800, 690, -3000], "dx": 6000}, "pendingVerse": {"ref": "18:21", "place": "sky", "part": "to \"and that of the Hour there is no doubt\""}}
+    {"dur": 12000, "ambient": ["city", "air"], "cam": {"pos": [800, 520, 850], "look": [800, 690, -3000], "dx": 6000}, "verse": { "ref": "18:21", "ar": [0,12], "place": "sky", "en": "And similarly, We caused them to be found that they [who found them] would know that the promise of Allah is truth and that of the Hour there is no doubt.…" }}
   ]
 }

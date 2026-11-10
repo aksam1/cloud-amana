@@ -6,7 +6,7 @@
   "title": "Pharaoh's Egypt",
   "arabic": "مصر فرعون",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:4"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "That the Children of Israel were forced to build for Pharaoh is from the commentaries; the Quran tells of their oppression and of his order against their sons (28:4), which is told, never shown."],
   "ambient": ["work", "city"],
   "base": "#d8c8a8",
@@ -34,6 +34,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["work", "city"], "sfx": [{"name": "hoe", "at": 1500}, {"name": "hoe", "at": 5200}], "cam": {"pos": [860, 515, 1100], "look": [880, 600, -3000]}, "say": "In Egypt, Pharaoh ruled as though he were a god, and made the Children of Israel his slaves."},
     {"dur": 10000, "ambient": ["wind", "work"], "cam": {"pos": [720, 520, 900], "look": [700, 600, -3000]}, "say": "Fearing that a boy born among them would one day end his rule, he ordered that their newborn sons be killed."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [860, 515, 1050], "look": [880, 610, -3000]}, "pendingVerse": {"ref": "28:4", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [860, 515, 1050], "look": [880, 610, -3000]}, "verse": { "ref": "28:4", "place": "sky", "en": "Indeed, Pharaoh exalted himself in the land and made its people into factions, oppressing a sector among them, slaughtering their [newborn] sons and keeping their females alive. Indeed, he was of the corrupters." }}
   ]
 }

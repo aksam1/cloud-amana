@@ -6,7 +6,7 @@
   "title": "Manna and Quails",
   "arabic": "طعام في الصحراء",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:57"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "Manna is shown as pale flakes on the ground and quails as small birds, as the Quran names them (2:57)."],
   "ambient": ["desert", "voices"],
   "base": "#d8c0a0",
@@ -41,6 +41,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["desert", "voices"], "cam": {"pos": [800, 515, 1000], "look": [800, 640, -3000]}, "say": "In the desert, God shaded them with clouds, and sent down manna and quails for them to eat."},
     {"dur": 10000, "ambient": ["voices", "birds"], "cam": {"pos": [820, 525, 700], "look": [840, 740, -3000]}, "say": "Eat of the good things We have given you, they were told. Yet many of them complained, and longed for the onions and lentils of Egypt."},
-    {"dur": 12000, "ambient": ["desert", "air"], "cam": {"pos": [800, 515, 950], "look": [800, 650, -3000]}, "pendingVerse": {"ref": "2:57", "place": "sky", "part": "from its opening to \"Eat from the good things with which We have provided you\""}}
+    {"dur": 12000, "ambient": ["desert", "air"], "cam": {"pos": [800, 515, 950], "look": [800, 650, -3000]}, "verse": { "ref": "2:57", "ar": [0,12], "place": "sky", "en": "And We shaded you with clouds and sent down to you manna and quails, [saying], \"Eat from the good things with which We have provided you.\"…" }}
   ]
 }

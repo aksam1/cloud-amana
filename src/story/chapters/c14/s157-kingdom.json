@@ -6,7 +6,7 @@
   "title": "The Kingdom of Sulayman",
   "arabic": "مملكة سليمان",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["27:17"],
   "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "The jinn who worked for Sulayman appear as smouldering shadows; the wind at his command as streaming dust (34:12)."],
   "ambient": ["work", "wind"],
   "base": "#c8c0b0",
@@ -45,6 +45,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["work", "wind"], "sfx": [{"name": "hoe", "at": 2000}], "cam": {"pos": [860, 515, 1000], "look": [880, 620, -3000]}, "say": "Sulayman inherited his father's kingdom and prophethood. God gave him a kingdom like no other: the wind blew at his command, and jinn built for him."},
     {"dur": 11000, "ambient": ["army", "birds"], "cam": {"pos": [820, 525, 700], "look": [840, 730, -3000]}, "say": "He was taught the language of the birds, and his armies were gathered of men, jinn and birds, marching in ordered ranks."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [840, 515, 950], "look": [860, 640, -3000]}, "pendingVerse": {"ref": "27:17", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [840, 515, 950], "look": [860, 640, -3000]}, "verse": { "ref": "27:17", "place": "sky", "en": "And gathered for Solomon were his soldiers of the jinn and men and birds, and they were [marching] in rows." }}
   ]
 }

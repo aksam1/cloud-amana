@@ -6,7 +6,7 @@
   "title": "The Staff before Pharaoh",
   "arabic": "العصا أمام فرعون",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:107-108"],
   "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The serpent is drawn in ink as the Quran describes it (7:107); the chiefs' scorn is jagged strokes, never words."],
   "ambient": ["echo", "fire"],
   "base": "#10141e",
@@ -41,6 +41,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["echo", "fire"], "sfx": [{"name": "scratch", "at": 400}], "cam": {"pos": [800, 540, 600], "look": [820, 860, -3000]}, "say": "Musa threw down his staff, and before them all it became a serpent. He drew out his hand, and it shone white."},
     {"dur": 10000, "ambient": ["echo", "jeer"], "cam": {"pos": [820, 530, 800], "look": [840, 780, -3000]}, "say": "This is a skilled magician, said the chiefs. Summon every magician in the land!"},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 530, 800], "look": [820, 780, -3000]}, "pendingVerse": {"ref": "7:107-108", "place": "sky"}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 530, 800], "look": [820, 780, -3000]}, "verse": { "ref": "7:107-108", "place": "sky", "en": "So Moses threw his staff, and suddenly it was a serpent, manifest. And he drew out his hand; thereupon it was white [with radiance] for the observers." }}
   ]
 }

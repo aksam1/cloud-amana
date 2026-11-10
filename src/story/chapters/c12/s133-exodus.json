@@ -6,7 +6,7 @@
   "title": "By Night",
   "arabic": "الرحيل ليلا",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["26:52"],
   "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The Children of Israel appear as a long river of small warm lights."],
   "ambient": ["wind", "voices"],
   "base": "#141824",
@@ -32,6 +32,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["wind", "voices"], "cam": {"pos": [900, 510, 1000], "look": [900, 600, -3000]}, "say": "Then God told Musa: travel by night with My servants, for you will be pursued."},
     {"dur": 11000, "ambient": ["wind", "voices"], "cam": {"pos": [600, 515, 800], "look": [560, 640, -3000]}, "say": "So the Children of Israel slipped out of Egypt in the dark, a great river of people following Musa and Harun toward the sea."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [760, 510, 1000], "look": [760, 600, -3000]}, "pendingVerse": {"ref": "26:52", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [760, 510, 1000], "look": [760, 600, -3000]}, "verse": { "ref": "26:52", "place": "sky", "en": "And We inspired to Moses, \"Travel by night with My servants; indeed, you will be pursued.\"" }}
   ]
 }

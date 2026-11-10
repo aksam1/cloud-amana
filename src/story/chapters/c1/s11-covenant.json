@@ -6,7 +6,7 @@
   "title": "The Covenant",
   "arabic": "العهد الأول",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:172"],
   "art": ["God is not depicted in any form or light. That every soul of Adam's descendants was drawn out and testified is from the hadith (Ahmad, al-Tirmidhi) explaining 7:172; the souls are shown only as small lights rising like stars.", "Adam appears only as a steady light."],
   "ambient": ["air", "wind"],
   "base": "#0c0e16",
@@ -83,6 +83,6 @@
   "beats": [
     {"dur": 11000, "ambient": ["air", "wind"], "cam": {"pos": [800, 500, 1000], "look": [800, 520, -3000]}, "say": "Before any of his children were born, God brought out from Adam all the souls that would ever descend from him."},
     {"dur": 11000, "ambient": ["air"], "world": {"bloom": 1.1}, "cam": {"pos": [800, 470, 1150], "look": [800, 420, -3000]}, "say": "He asked them: am I not your Lord? And every soul answered: yes, we bear witness. That promise, the Quran says, is written in every human heart."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 480, 1100], "look": [800, 450, -3000]}, "pendingVerse": {"ref": "7:172", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 480, 1100], "look": [800, 450, -3000]}, "verse": { "ref": "7:172", "place": "sky", "en": "And [mention] when your Lord took from the children of Adam - from their loins - their descendants and made them testify of themselves, [saying to them], \"Am I not your Lord?\" They said, \"Yes, we have testified.\" [This] - lest you should say on the day of Resurrection, \"Indeed, we were of this unaware.\"" }}
   ]
 }

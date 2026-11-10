@@ -6,7 +6,7 @@
   "title": "Returned to His Mother",
   "arabic": "العودة إلى الأم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:13"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "His sister and mother appear only as soft lights; the nurses as dim lights."],
   "ambient": ["echo", "voices"],
   "base": "#10141e",
@@ -25,6 +25,6 @@
     {"dur": 10000, "ambient": ["water", "birds"], "world": {"fog": "#d8c8a8", "haze": 0.15}, "cam": {"pos": [900, 530, 600], "look": [920, 860, -3000]}, "say": "His sister had followed the basket along the bank, watching from a distance."},
     {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [880, 530, 300], "look": [900, 1150, -3000], "dx": 6000}, "say": "In the palace, the baby would not take any nurse. His sister came forward: shall I show you a household who will care for him?"},
     {"dur": 10000, "ambient": ["echo", "air"], "cam": {"pos": [880, 530, 200], "look": [900, 1200, -3000], "dx": 6000}, "say": "So God returned him to his mother, to comfort her and to show her that His promise is true."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [880, 530, 300], "look": [900, 1100, -3000], "dx": 6000}, "pendingVerse": {"ref": "28:13", "place": "sky"}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [880, 530, 300], "look": [900, 1100, -3000], "dx": 6000}, "verse": { "ref": "28:13", "place": "sky", "en": "So We restored him to his mother that she might be content and not grieve and that she would know that the promise of Allah is true. But most of the people do not know." }}
   ]
 }

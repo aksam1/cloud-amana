@@ -6,7 +6,7 @@
   "title": "Yahya",
   "arabic": "يحيى",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["19:15"],
   "art": ["Prophets appear only as steady lights; Maryam and her mother as soft lights; the people as dim figures of light. Angels are columns of light, never figures. The look of the temple and the land is imagined.", "That Yahya lived simply in the wild and was gentle with animals is from the commentaries."],
   "ambient": ["water", "birds"],
   "base": "#c8c0b0",
@@ -32,6 +32,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["water", "birds"], "cam": {"pos": [900, 525, 700], "look": [920, 730, -3000]}, "say": "Yahya was born as promised. While still a child he was told: take hold of the Scripture with strength. And he was given wisdom young."},
     {"dur": 11000, "ambient": ["water", "voices"], "cam": {"pos": [720, 525, 700], "look": [720, 730, -3000]}, "say": "He grew up gentle and pure, devoted to God and kind to his parents, never proud or rebellious; and he called his people back to God."},
-    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [800, 520, 850], "look": [820, 690, -3000]}, "pendingVerse": {"ref": "19:15", "place": "sky"}}
+    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [800, 520, 850], "look": [820, 690, -3000]}, "verse": { "ref": "19:15", "place": "sky", "en": "And peace be upon him the day he was born and the day he dies and the day he is raised alive." }}
   ]
 }

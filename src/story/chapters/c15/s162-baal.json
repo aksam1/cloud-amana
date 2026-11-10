@@ -6,7 +6,7 @@
   "title": "Ilyas and Ba'l",
   "arabic": "إلياس والصنم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:125-126"],
   "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "Ba'l appears as a faceless gilded idol on a high place, as in the idols of Ibrahim's chapter."],
   "ambient": ["crowd", "fire"],
   "base": "#c8c0b0",
@@ -36,6 +36,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["crowd", "fire"], "cam": {"pos": [820, 520, 800], "look": [840, 680, -3000]}, "say": "Among the Children of Israel, the prophet Ilyas found his people worshipping an idol they called Ba'l."},
     {"dur": 10000, "ambient": ["crowd", "jeer"], "cam": {"pos": [760, 525, 700], "look": [760, 720, -3000]}, "say": "Will you not fear God? he asked them. Do you call upon Ba'l and abandon the best of creators, God, your Lord and the Lord of your forefathers?"},
-    {"dur": 12000, "ambient": ["fire", "air"], "cam": {"pos": [800, 520, 800], "look": [820, 690, -3000]}, "pendingVerse": {"ref": "37:125-126", "place": "sky"}}
+    {"dur": 12000, "ambient": ["fire", "air"], "cam": {"pos": [800, 520, 800], "look": [820, 690, -3000]}, "verse": { "ref": "37:125-126", "place": "sky", "en": "Do you call upon Ba'l and leave the best of creators - Allah, your Lord and the Lord of your first forefathers?\"" }}
   ]
 }

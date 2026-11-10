@@ -6,7 +6,7 @@
   "title": "The Two Disputants",
   "arabic": "المتخاصمان",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["38:24"],
   "art": ["Dawud and the two men appear only as lights. Who the two were is not told in the Quran; many commentators say they were angels sent to test him. The flock is drawn as the case they described."],
   "ambient": ["air", "echo"],
   "base": "#10141e",
@@ -25,6 +25,6 @@
     {"dur": 10000, "ambient": ["air", "echo"], "cam": {"pos": [800, 535, 500], "look": [800, 860, -3000]}, "say": "One night, while Dawud was praying alone, two men climbed over the wall of his chamber. Do not be afraid, they said; we are two in a dispute. Judge between us with truth."},
     {"dur": 11000, "ambient": ["sheep", "wind"], "cam": {"pos": [900, 520, 850], "look": [900, 680, -3000], "dx": 6000}, "say": "This brother of mine has ninety-nine ewes, and I have one; yet he says, give it to me, and overpowers me with words. Dawud said: he has wronged you by asking for your ewe."},
     {"dur": 10000, "ambient": ["air"], "cam": {"pos": [800, 540, 450], "look": [800, 880, -3000]}, "say": "Then Dawud understood that he was the one being tested. He asked his Lord's forgiveness, fell down bowing, and turned to Him in repentance."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000]}, "pendingVerse": {"ref": "38:24", "place": "sky", "part": "from \"And David became certain that We had tried him\""}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000]}, "verse": { "ref": "38:24", "ar": [25,33], "place": "sky", "en": "…And David became certain that We had tried him, and he asked forgiveness of his Lord and fell down bowing [in prostration] and turned in repentance [to Allah]." }}
   ]
 }

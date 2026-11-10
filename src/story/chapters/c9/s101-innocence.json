@@ -6,7 +6,7 @@
   "title": "Innocence Declared",
   "arabic": "ظهور البراءة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:51"],
   "art": ["The king, the women and the Aziz's wife appear only as dim figures of light. Yusuf's light is far off in the prison; his answer is told."],
   "ambient": ["echo", "voices"],
   "base": "#10141e",
@@ -43,6 +43,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [800, 535, 500], "look": [800, 860, -3000]}, "say": "The king sent for the man who had explained his dream. But Yusuf would not leave prison until his name was cleared: ask what happened with the women who cut their hands."},
     {"dur": 11000, "ambient": ["echo"], "cam": {"pos": [820, 540, 400], "look": [820, 900, -3000]}, "say": "The women said: God forbid! We know no evil of him. And the Aziz's wife confessed: now the truth is out. It was I who tried to seduce him, and he is truthful."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000]}, "pendingVerse": {"ref": "12:51", "place": "sky", "part": "from \"Now the truth has become evident\""}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000]}, "verse": { "ref": "12:51", "ar": [21,30], "place": "sky", "en": "…\"Now the truth has become evident. It was I who sought to seduce him, and indeed, he is of the truthful." }}
   ]
 }

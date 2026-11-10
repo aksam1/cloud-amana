@@ -6,7 +6,7 @@
   "title": "Shu'ayb's Answer",
   "arabic": "جواب شعيب",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["11:88"],
   "art": ["Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined.", "Their mockery is drawn as jagged strokes, never words."],
   "ambient": ["crowd", "jeer"],
   "base": "#d8c0a0",
@@ -37,6 +37,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["crowd", "jeer"], "cam": {"pos": [920, 530, 760], "look": [950, 720, -3000]}, "say": "They mocked him: does your prayer tell you how we may run our trade?"},
     {"dur": 10000, "ambient": ["crowd", "jeer"], "cam": {"pos": [900, 530, 700], "look": [930, 730, -3000]}, "say": "Their chiefs threatened to drive him and those who believed out of Madyan, unless they returned to the old ways."},
-    {"dur": 12000, "ambient": ["air", "wind"], "cam": {"pos": [820, 530, 760], "look": [840, 700, -3000]}, "pendingVerse": {"ref": "11:88", "place": "sky", "part": "from \"I only intend reform as much as I am able\" to the end"}}
+    {"dur": 12000, "ambient": ["air", "wind"], "cam": {"pos": [820, 530, 760], "look": [840, 700, -3000]}, "verse": { "ref": "11:88", "ar": [23,38], "place": "sky", "en": "…I only intend reform as much as I am able. And my success is not but through Allah. Upon him I have relied, and to Him I return." }}
   ]
 }

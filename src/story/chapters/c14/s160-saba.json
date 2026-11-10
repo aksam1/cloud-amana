@@ -6,7 +6,7 @@
   "title": "The Queen of Saba",
   "arabic": "ملكة سبأ",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["27:44"],
   "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "The queen (named Bilqis in the commentaries) appears as a soft dim light. The floor of glass is drawn as a gleaming floor like water (27:44)."],
   "ambient": ["echo", "water"],
   "base": "#10141e",
@@ -30,6 +30,6 @@
     {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [820, 535, 500], "look": [820, 860, -3000]}, "say": "Sulayman sent the queen a letter calling her to God. She came to see him, and found her own throne already brought to his palace before her."},
     {"dur": 10000, "ambient": ["echo", "water"], "cam": {"pos": [860, 540, 400], "look": [880, 900, -3000]}, "say": "Enter the palace, she was told. Its floor was of glass so clear she thought it was water."},
     {"dur": 10000, "ambient": ["echo", "air"], "cam": {"pos": [840, 535, 500], "look": [860, 860, -3000]}, "say": "Then she understood. My Lord, she said, I have wronged myself; I submit with Sulayman to God, Lord of the worlds."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [820, 530, 700], "look": [840, 790, -3000]}, "pendingVerse": {"ref": "27:44", "place": "sky", "part": "her words, from \"My Lord, indeed I have wronged myself\""}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [820, 530, 700], "look": [840, 790, -3000]}, "verse": { "ref": "27:44", "ar": [21,30], "place": "sky", "en": "…\"My Lord, indeed I have wronged myself, and I submit with Solomon to Allah, Lord of the worlds.\"" }}
   ]
 }

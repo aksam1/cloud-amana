@@ -6,7 +6,7 @@
   "title": "By Night",
   "arabic": "الخروج ليلاً",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["15:65"],
   "art": [
     "Lut appears only as a steady light, his family as small lights and the angels as radiance. That his wife remained behind is told in the Quran; it is shown only as her light turning back.",
     "The city and the road are imagined."
@@ -54,6 +54,6 @@
     { "dur": 9000, "ambient": ["wind", "crickets"], "cam": { "dx": 6000, "from": { "pos": [800, 520, 1150], "look": [800, 600, -3000] }, "pos": [820, 525, 1050], "look": [820, 610, -3000] },
       "say": "But his wife stayed behind; her heart was with her people." },
     { "dur": 13000, "ambient": ["wind"], "cam": { "dx": 6000, "pos": [840, 520, 1080], "look": [840, 600, -3000] },
-      "pendingVerse": { "ref": "15:65", "place": "sky" } }
+      "verse": { "ref": "15:65", "place": "sky", "en": "So set out with your family during a portion of the night and follow behind them and let not anyone among you look back and continue on to where you are commanded.\"" } }
   ]
 }

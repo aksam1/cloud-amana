@@ -6,7 +6,7 @@
   "title": "The Night of the Nine",
   "arabic": "ليلة التسعة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["91:11-14"],
   "art": [
     "The nine men of 27:48 and the one who went out against the she-camel (91:12) appear only as dark embers; the act itself is never shown: her light simply goes out.",
     "The fire and the night gathering are imagined."
@@ -65,6 +65,6 @@
     { "dur": 9000, "ambient": ["wind"], "world": { "light": 0.72, "fog": "#2c3040" }, "cam": { "dx": 6000, "pos": [820, 470, 940], "look": [820, 580, -3000] },
       "say": "By morning her light was gone from the valley." },
     { "dur": 12000, "ambient": ["air"], "cam": { "dx": 6000, "pos": [820, 460, 900], "look": [820, 570, -3000] },
-      "pendingVerse": { "ref": "91:11-14", "place": "lower" } }
+      "verse": { "ref": "91:11-14", "place": "lower", "en": "Thamud denied [their prophet] by reason of their transgression, When the most wretched of them was sent forth. And the messenger of Allah [Salih] said to them, \"[Do not harm] the she-camel of Allah or [prevent her from] her drink.\" But they denied him and hamstrung her. So their Lord brought down upon them destruction for their sin and made it equal [upon all of them]." } }
   ]
 }

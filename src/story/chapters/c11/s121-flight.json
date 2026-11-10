@@ -6,7 +6,7 @@
   "title": "Flight into the Desert",
   "arabic": "الخروج إلى مدين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:22"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The man who warned him appears only as a dim light. The road to Madyan is imagined."],
   "ambient": ["wind", "desert"],
   "base": "#141824",
@@ -24,6 +24,6 @@
   "beats": [
     {"dur": 9000, "ambient": ["wind", "voices"], "sfx": "gust", "cam": {"pos": [960, 535, 500], "look": [980, 770, -3000]}, "say": "A man came running from the far side of the city: the chiefs are plotting to kill you. Leave!"},
     {"dur": 11000, "ambient": ["wind", "desert"], "cam": {"pos": [900, 500, 1100], "look": [900, 560, -3000], "dx": 6000}, "say": "So Musa fled alone across the desert, toward the land of Madyan."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [860, 500, 1100], "look": [860, 560, -3000], "dx": 6000}, "pendingVerse": {"ref": "28:22", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [860, 500, 1100], "look": [860, 560, -3000], "dx": 6000}, "verse": { "ref": "28:22", "place": "sky", "en": "And when he directed himself toward Madyan, he said, \"Perhaps my Lord will guide me to the sound way.\"" }}
   ]
 }

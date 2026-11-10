@@ -6,7 +6,7 @@
   "title": "The Day of the Canopy",
   "arabic": "السحابة السوداء",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["26:189"],
   "art": ["Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined.", "The Quran calls it the punishment of the day of the black cloud (26:189); that the people ran to its shade in the heat is from the commentaries. No one is shown harmed: their lights simply go out."],
   "ambient": ["wind", "desert"],
   "base": "#d8b890",
@@ -40,6 +40,6 @@
     {"dur": 10000, "ambient": ["desert", "wind"], "cam": {"pos": [780, 520, 900], "look": [760, 640, -3000]}, "say": "Shu'ayb and those who believed left the town, saved by God's mercy."},
     {"dur": 10000, "ambient": ["wind", "crowd"], "world": {"light": 0.8}, "cam": {"pos": [800, 505, 1150], "look": [800, 560, -3000]}, "say": "Then came a day of burning heat. A dark cloud appeared, and the people ran to its shade."},
     {"dur": 9000, "ambient": ["wind"], "sfx": [{"name": "thunder", "at": 500}, {"name": "rumble", "at": 900}], "world": {"light": 0.7, "shake": 1.4}, "cam": {"pos": [800, 505, 1150], "look": [800, 560, -3000]}, "say": "Then a mighty blast seized them, and their lights went out."},
-    {"dur": 12000, "ambient": ["wind", "air"], "world": {"light": 0.8, "shake": 0.3}, "cam": {"pos": [800, 510, 1100], "look": [800, 570, -3000]}, "pendingVerse": {"ref": "26:189", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "world": {"light": 0.8, "shake": 0.3}, "cam": {"pos": [800, 510, 1100], "look": [800, 570, -3000]}, "verse": { "ref": "26:189", "place": "sky", "en": "And they denied him, so the punishment of the day of the black cloud seized them. Indeed, it was the punishment of a terrible day." }}
   ]
 }

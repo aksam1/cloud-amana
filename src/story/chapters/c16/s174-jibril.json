@@ -6,7 +6,7 @@
   "title": "Maryam and the Angel",
   "arabic": "مريم والملك",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["19:19"],
   "art": ["Prophets appear only as steady lights; Maryam and her mother as soft lights; the people as dim figures of light. Angels are columns of light, never figures. The look of the temple and the land is imagined.", "Jibril came to Maryam in the form of a man (19:17); he is shown only as a column of light."],
   "ambient": ["air", "birds"],
   "base": "#14100c",
@@ -34,6 +34,6 @@
     {"dur": 10000, "ambient": ["air", "birds"], "world": {"light": 1.0}, "cam": {"pos": [820, 540, 500], "look": [820, 860, -3000]}, "say": "Maryam withdrew from her family to a place facing east, and set a screen between herself and them."},
     {"dur": 11000, "ambient": ["air"], "world": {"bloom": 1.05}, "cam": {"pos": [800, 540, 420], "look": [800, 880, -3000]}, "say": "There God sent her His angel Jibril, in the form of a man. I seek refuge in the Most Merciful from you, if you fear Him, she said."},
     {"dur": 11000, "ambient": ["air"], "world": {"bloom": 1.05}, "cam": {"pos": [800, 540, 500], "look": [800, 860, -3000]}, "say": "I am only a messenger of your Lord, he said, to give you a pure son. How, when no man has touched me? It is easy for God, he said."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000]}, "pendingVerse": {"ref": "19:19", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000]}, "verse": { "ref": "19:19", "place": "sky", "en": "He said, \"I am only the messenger of your Lord to give you [news of] a pure boy.\"" }}
   ]
 }

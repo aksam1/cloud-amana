@@ -6,7 +6,7 @@
   "title": "Musa's Return",
   "arabic": "رجوع موسى",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:151"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "Nothing of the quarrel is shown beyond two lights drawn close. The calf is burned and its ashes blown away, as the Quran tells (20:97)."],
   "ambient": ["wind", "fire"],
   "base": "#141824",
@@ -39,6 +39,6 @@
     {"dur": 11000, "ambient": ["wind", "crowd"], "cam": {"pos": [720, 530, 650], "look": [740, 760, -3000]}, "say": "Musa came back to find his people worshipping the calf. Grieved and angry, he put down the tablets and took hold of his brother."},
     {"dur": 9000, "ambient": ["wind"], "cam": {"pos": [720, 535, 500], "look": [740, 800, -3000]}, "say": "Son of my mother, said Harun, the people overpowered me and almost killed me. Do not let our enemies rejoice over me."},
     {"dur": 11000, "ambient": ["fire", "wind"], "sfx": [{"name": "ignite", "at": 600}], "cam": {"pos": [760, 525, 750], "look": [780, 720, -3000]}, "say": "Musa prayed: my Lord, forgive me and my brother, and take us into Your mercy. Then the calf was burned, and its ashes scattered on the wind."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [760, 520, 850], "look": [780, 690, -3000]}, "pendingVerse": {"ref": "7:151", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [760, 520, 850], "look": [780, 690, -3000]}, "verse": { "ref": "7:151", "place": "sky", "en": "[Moses] said, \"My Lord, forgive me and my brother and admit us into Your mercy, for You are the most merciful of the merciful.\"" }}
   ]
 }

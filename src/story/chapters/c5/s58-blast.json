@@ -6,7 +6,7 @@
   "title": "The Blast",
   "arabic": "الفجر الأخير",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["11:67-68"],
   "art": [
     "No one is shown suffering: the punishment is shown through the rock, the dust and the light alone, and the lights simply go out."
   ],
@@ -56,6 +56,6 @@
     { "dur": 9000, "ambient": ["echo", "air"], "world": { "shake": 0.2, "light": 0.72, "fog": "#a8a4a8", "bloom": 0.4 }, "cam": { "pos": [800, 480, 840], "look": [800, 560, -5000] },
       "say": "In every carved home, every light went out, and the valley fell silent." },
     { "dur": 12000, "ambient": ["air"], "cam": { "pos": [800, 480, 820], "look": [800, 560, -5000] },
-      "pendingVerse": { "ref": "11:67-68", "place": "lower" } }
+      "verse": { "ref": "11:67-68", "place": "lower", "en": "And the shriek seized those who had wronged, and they became within their homes [corpses] fallen prone As if they had never prospered therein. Unquestionably, Thamud denied their Lord; then, away with Thamud." } }
   ]
 }

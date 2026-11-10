@@ -6,7 +6,7 @@
   "title": "The House of the Aziz",
   "arabic": "بيت العزيز",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:22"],
   "art": ["Yusuf appears only as a steady light; the Aziz and the people of Egypt as dim figures of light. Egypt's look is imagined."],
   "ambient": ["city", "water"],
   "base": "#d8c8a8",
@@ -35,6 +35,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["city", "water"], "cam": {"pos": [960, 535, 900], "look": [1000, 700, -3000]}, "say": "In Egypt a great minister, the Aziz, bought him, and told his wife: make his stay a good one; he may be of use to us."},
     {"dur": 10000, "ambient": ["city", "birds"], "cam": {"pos": [1020, 540, 840], "look": [1050, 710, -3000]}, "say": "Yusuf grew up in that house, and God gave him wisdom and knowledge."},
-    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [960, 515, 1080], "look": [980, 570, -3000]}, "pendingVerse": {"ref": "12:22", "place": "sky"}}
+    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [960, 515, 1080], "look": [980, 570, -3000]}, "verse": { "ref": "12:22", "place": "sky", "en": "And when Joseph reached maturity, We gave him judgment and knowledge. And thus We reward the doers of good." }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "Asiya's Prayer",
   "arabic": "دعاء آسية",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["66:11"],
   "art": ["Asiya appears only as a soft light. That Pharaoh punished her for her faith is from the commentaries; nothing of it is shown. Paradise is not depicted: only the stars brighten."],
   "ambient": ["air", "crickets"],
   "base": "#141824",
@@ -41,6 +41,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["air", "crickets"], "cam": {"pos": [820, 520, 800], "look": [820, 700, -3000]}, "say": "In Pharaoh's own palace, his wife Asiya believed in the God of Musa."},
     {"dur": 11000, "ambient": ["air"], "cam": {"pos": [820, 500, 950], "look": [820, 520, -3000]}, "say": "Though Pharaoh punished her for it, she prayed: my Lord, build for me a house near You in Paradise, and save me from Pharaoh and his deeds."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [820, 510, 900], "look": [820, 600, -3000]}, "pendingVerse": {"ref": "66:11", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [820, 510, 900], "look": [820, 600, -3000]}, "verse": { "ref": "66:11", "place": "sky", "en": "And Allah presents an example of those who believed: the wife of Pharaoh, when she said, \"My Lord, build for me near You a house in Paradise and save me from Pharaoh and his deeds and save me from the wrongdoing people.\"" }}
   ]
 }

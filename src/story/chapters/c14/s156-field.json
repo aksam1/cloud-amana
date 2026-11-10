@@ -6,7 +6,7 @@
   "title": "The Judgment of the Field",
   "arabic": "قضية الكرم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["21:79"],
   "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "The details of the case (the flock grazing a vineyard by night, and Sulayman's judgment) are from the commentaries on 21:78–79."],
   "ambient": ["sheep", "crickets"],
   "base": "#141824",
@@ -24,6 +24,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["sheep", "crickets"], "cam": {"pos": [900, 520, 800], "look": [920, 700, -3000]}, "say": "One night a flock of sheep strayed into a vineyard and ate it bare. The owners brought the case to Dawud."},
     {"dur": 11000, "ambient": ["echo", "voices"], "cam": {"pos": [800, 535, 500], "look": [800, 860, -3000], "dx": 6000}, "say": "His young son Sulayman suggested a better judgment: let the vineyard's owner keep the flock's milk and wool while the shepherd restores the vines; then each takes back his own."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 530, 700], "look": [800, 780, -3000], "dx": 6000}, "pendingVerse": {"ref": "21:79", "place": "sky", "part": "to \"and to each [of them] We gave judgement and knowledge\""}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 530, 700], "look": [800, 780, -3000], "dx": 6000}, "verse": { "ref": "21:79", "ar": [0,6], "place": "sky", "en": "And We gave understanding of the case to Solomon, and to each [of them] We gave judgement and knowledge.…" }}
   ]
 }

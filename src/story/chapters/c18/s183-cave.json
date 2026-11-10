@@ -6,7 +6,7 @@
   "title": "The Sleepers of the Cave",
   "arabic": "فتية الكهف",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["18:10"],
   "art": ["The youths appear only as soft lights; their number (seven, with a dog) is one of the counts the Quran mentions (18:22), and God knows best. That they fled a king who forced idol-worship is from the commentaries.", "The years passing are shown as days and nights racing across the cave's mouth."],
   "ambient": ["wind", "air"],
   "base": "#0c0a08",
@@ -24,6 +24,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [820, 500, 1000], "look": [840, 560, -3000]}, "say": "Long ago a band of young men refused to worship their people's idols. Fleeing for their faith, they took refuge in a cave, and prayed: our Lord, grant us mercy from Yourself, and guide us rightly."},
     {"dur": 13000, "ambient": ["wind", "air"], "cam": {"pos": [800, 540, 500], "look": [800, 860, -3000], "dx": 6000}, "say": "God made them sleep, with their dog stretched across the entrance; and they slept on while the sun passed the cave mouth day after day, for three hundred years and nine."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000], "dx": 6000}, "pendingVerse": {"ref": "18:10", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 535, 600], "look": [800, 820, -3000], "dx": 6000}, "verse": { "ref": "18:10", "place": "sky", "en": "[Mention] when the youths retreated to the cave and said, \"Our Lord, grant us from Yourself mercy and prepare for us from our affair right guidance.\"" }}
   ]
 }

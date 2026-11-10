@@ -6,7 +6,7 @@
   "title": "The Well",
   "arabic": "البئر",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:18"],
   "art": ["Yusuf appears only as a steady light; his brothers as dim figures of light. Nothing is shown of how he was put into the well; the shirt is told, not shown."],
   "ambient": ["desert", "wind"],
   "base": "#d8c0a0",
@@ -26,6 +26,6 @@
     {"dur": 10000, "ambient": ["desert", "wind"], "cam": {"pos": [960, 520, 1100], "look": [980, 570, -3000]}, "say": "Jealous, the brothers took Yusuf out with them to the pastures, and threw him into a well."},
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [800, 520, 1100], "look": [800, 520, -3000], "dx": 6000}, "say": "Alone in the dark, he was inspired that one day he would tell them of what they had done."},
     {"dur": 10000, "ambient": ["crickets", "voices"], "cam": {"pos": [920, 522, 1040], "look": [940, 585, -3000], "dx": 12000}, "say": "At nightfall they came home weeping, with his shirt, and said a wolf had eaten him."},
-    {"dur": 12000, "ambient": ["crickets", "air"], "cam": {"pos": [900, 520, 1080], "look": [920, 580, -3000], "dx": 12000}, "pendingVerse": {"ref": "12:18", "place": "sky", "part": "Yaqub's answer: patience is most fitting"}}
+    {"dur": 12000, "ambient": ["crickets", "air"], "cam": {"pos": [900, 520, 1080], "look": [920, 580, -3000], "dx": 12000}, "verse": { "ref": "12:18", "ar": [6,14], "place": "sky", "en": "…[Jacob] said, \"Rather, your souls have enticed you to something, so patience is most fitting.…" }}
   ]
 }

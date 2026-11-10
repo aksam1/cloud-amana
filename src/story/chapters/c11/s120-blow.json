@@ -6,7 +6,7 @@
   "title": "One Blow",
   "arabic": "الضربة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:16"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "Nothing of the fight is shown: two dim lights struggle, and one goes out."],
   "ambient": ["wind", "crickets"],
   "base": "#141824",
@@ -25,6 +25,6 @@
     {"dur": 10000, "ambient": ["city", "water"], "world": {"fog": "#d8c8a8", "light": 1.05}, "cam": {"pos": [920, 530, 600], "look": [940, 780, -3000]}, "say": "Musa grew up in Pharaoh's palace, strong and wise."},
     {"dur": 10000, "ambient": ["wind", "voices"], "sfx": [{"name": "drop", "at": 1900}], "cam": {"pos": [960, 535, 500], "look": [980, 770, -3000], "dx": 6000}, "say": "One day he came upon two men fighting, one of his own people and one of Pharaoh's. Musa struck the Egyptian once, and the man died."},
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [920, 535, 450], "look": [920, 790, -3000], "dx": 6000}, "say": "Musa was horrified at what he had done. My Lord, he prayed, I have wronged myself, so forgive me. And God forgave him."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [920, 530, 600], "look": [930, 740, -3000], "dx": 6000}, "pendingVerse": {"ref": "28:16", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [920, 530, 600], "look": [930, 740, -3000], "dx": 6000}, "verse": { "ref": "28:16", "place": "sky", "en": "He said, \"My Lord, indeed I have wronged myself, so forgive me,\" and He forgave him. Indeed, He is the Forgiving, the Merciful." }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Staff and the Termite",
   "arabic": "منسأة سليمان",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["34:14"],
   "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "Sulayman's death is shown only as his light standing still, then gently fading; the jinn as smouldering shadows still at work. That he died leaning on his staff is told in 34:14."],
   "ambient": ["work", "wind"],
   "base": "#c8c0b0",
@@ -36,6 +36,6 @@
     {"dur": 10000, "ambient": ["work", "wind"], "sfx": [{"name": "hoe", "at": 2000}, {"name": "hoe", "at": 6000}], "cam": {"pos": [820, 520, 800], "look": [840, 700, -3000]}, "say": "When his time came, Sulayman died standing, leaning on his staff, while the jinn laboured on, thinking he was watching them."},
     {"dur": 11000, "ambient": ["work", "wind"], "cam": {"pos": [800, 535, 450], "look": [800, 820, -3000]}, "say": "Only when a small creature of the earth had gnawed through his staff, and he fell, did they understand."},
     {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [840, 520, 850], "look": [860, 690, -3000]}, "say": "Had the jinn known the unseen, they would not have stayed so long in their humiliating toil. Only God knows the unseen."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [840, 520, 850], "look": [860, 690, -3000]}, "pendingVerse": {"ref": "34:14", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [840, 520, 850], "look": [860, 690, -3000]}, "verse": { "ref": "34:14", "place": "sky", "en": "And when We decreed for Solomon death, nothing indicated to the jinn his death except a creature of the earth eating his staff. But when he fell, it became clear to the jinn that if they had known the unseen, they would not have remained in humiliating punishment." }}
   ]
 }

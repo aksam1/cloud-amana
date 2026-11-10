@@ -6,7 +6,7 @@
   "title": "The Spring",
   "arabic": "زمزم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:158"],
   "art": [
     "Hajar's search between the hills, the angel and the spring are told in the hadith (al-Bukhari). The angel appears only as radiance; Hajar as a dim figure of light; the child only as a small light.",
     "The two hills are Safa and Marwa, between which pilgrims still walk; the spring is Zamzam. Their look here is imagined."
@@ -55,6 +55,6 @@
     { "dur": 10000, "ambient": ["spring", "air"], "sfx": [{ "name": "drop", "at": 2000 }, { "name": "drop", "at": 2500 }, { "name": "drop", "at": 3300 }], "cam": { "pos": [800, 540, 920], "look": [800, 650, -3000] },
       "say": "Then she heard a sound. An angel stood where the child lay, and water welled up from the ground." },
     { "dur": 13000, "ambient": ["spring", "birds"], "cam": { "pos": [800, 525, 1060], "look": [800, 610, -3000] },
-      "pendingVerse": { "ref": "2:158", "place": "sky", "part": "its opening words, on as-Safa and al-Marwah" } }
+      "verse": { "ref": "2:158", "ar": [1,6], "place": "sky", "en": "Indeed, as-Safa and al-Marwah are among the symbols of Allah.…" } }
   ]
 }

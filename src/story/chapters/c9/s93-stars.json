@@ -6,7 +6,7 @@
   "title": "Eleven Stars",
   "arabic": "حلم يوسف",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:4"],
   "art": ["Yusuf and Yaqub appear only as steady lights. The dream's stars, sun and moon are shown as lights that bow by dipping toward him, nothing more."],
   "ambient": ["crickets", "air"],
   "base": "#1a1820",
@@ -26,6 +26,6 @@
     {"dur": 9000, "ambient": ["crickets", "air"], "cam": {"pos": [880, 525, 1000], "look": [890, 595, -3000]}, "say": "One night the boy Yusuf had a dream."},
     {"dur": 9000, "ambient": ["air"], "cam": {"pos": [800, 470, 1150], "look": [800, 470, -3000], "dx": 6000}, "say": "He saw eleven stars, and the sun and the moon,"},
     {"dur": 9000, "ambient": ["air"], "sfx": "whoosh", "cam": {"pos": [800, 480, 1100], "look": [800, 490, -3000], "dx": 6000}, "say": "and they were bowing down to him. His father told him to keep the dream from his brothers."},
-    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [870, 522, 1040], "look": [880, 585, -3000]}, "pendingVerse": {"ref": "12:4", "place": "sky"}}
+    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [870, 522, 1040], "look": [880, 585, -3000]}, "verse": { "ref": "12:4", "place": "sky", "en": "[Of these stories mention] when Joseph said to his father, \"O my father, indeed I have seen [in a dream] eleven stars and the sun and the moon; I saw them prostrating to me.\"" }}
   ]
 }

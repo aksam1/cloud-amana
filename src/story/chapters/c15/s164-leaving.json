@@ -6,7 +6,7 @@
   "title": "Yunus Leaves",
   "arabic": "خروج يونس",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:139-140"],
   "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "That Yunus was sent to Nineveh is from the commentaries; the Quran tells that he went off in anger (21:87)."],
   "ambient": ["city", "wind"],
   "base": "#a8b4c0",
@@ -24,6 +24,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["city", "voices"], "cam": {"pos": [800, 515, 900], "look": [800, 660, -3000]}, "say": "Yunus was sent to a great city, but its people would not listen. At last he left them in anger, before God had given him leave."},
     {"dur": 11000, "ambient": ["sea", "wind"], "cam": {"pos": [860, 515, 900], "look": [880, 650, -3000], "dx": 6000}, "say": "He went down to the sea and boarded a laden ship."},
-    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [860, 515, 950], "look": [880, 640, -3000], "dx": 6000}, "pendingVerse": {"ref": "37:139-140", "place": "sky"}}
+    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [860, 515, 950], "look": [880, 640, -3000], "dx": 6000}, "verse": { "ref": "37:139-140", "place": "sky", "en": "And indeed, Jonah was among the messengers. [Mention] when he ran away to the laden ship." }}
   ]
 }

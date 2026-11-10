@@ -6,7 +6,7 @@
   "title": "The Four Birds",
   "arabic": "الطيور الأربعة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:260"],
   "art": [
     "The birds appear only as light. What was done to them is told, not shown: on screen they fly to the hills and come back.",
     "Ibrahim appears as a steady light, far away. The hills are imagined."
@@ -58,6 +58,6 @@
     { "dur": 10000, "ambient": ["wind"], "sfx": [{ "name": "wings", "at": 700 }, { "name": "wings", "at": 1400 }], "cam": { "pos": [800, 505, 1300], "look": [800, 530, -3000] },
       "say": "Then to set a part of them on each of the hills around him, and to call them." },
     { "dur": 13000, "ambient": ["wind", "birds"], "sfx": [{ "name": "wings", "at": 3200 }, { "name": "wings", "at": 4400 }, { "name": "wings", "at": 6000 }], "cam": { "pos": [800, 505, 1250], "look": [800, 540, -3000] },
-      "pendingVerse": { "ref": "2:260", "place": "sky", "part": "Ibrahim's request to be shown how the dead are given life, to his heart being at rest" } }
+      "verse": { "ref": "2:260", "ar": [0,17], "place": "sky", "en": "And [mention] when Abraham said, \"My Lord, show me how You give life to the dead.\" [Allah] said, \"Have you not believed?\" He said, \"Yes, but [I ask] only that my heart may be satisfied.\"…" } }
   ]
 }

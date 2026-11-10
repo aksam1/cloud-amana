@@ -6,7 +6,7 @@
   "title": "The Lots",
   "arabic": "القرعة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:141-142"],
   "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "Casting lots to lighten the ship is from 37:141. Yunus going into the sea is shown only as his light slipping from the deck into the dark."],
   "ambient": ["storm", "sea"],
   "base": "#2a3038",
@@ -35,6 +35,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["storm", "sea"], "sfx": [{"name": "thunder", "at": 1500}, {"name": "wave", "at": 4000}], "cam": {"pos": [820, 500, 900], "look": [840, 640, -3000]}, "say": "A storm struck the ship. To lighten it, the sailors cast lots to choose who must go over the side, and the lot fell on Yunus."},
     {"dur": 11000, "ambient": ["storm", "sea"], "sfx": [{"name": "wave", "at": 3600}], "world": {"shake": 1.0}, "cam": {"pos": [860, 505, 900], "look": [880, 650, -3000]}, "say": "He went into the sea, and a great whale swallowed him."},
-    {"dur": 12000, "ambient": ["sea", "wind"], "cam": {"pos": [840, 505, 950], "look": [860, 640, -3000]}, "pendingVerse": {"ref": "37:141-142", "place": "sky"}}
+    {"dur": 12000, "ambient": ["sea", "wind"], "cam": {"pos": [840, 505, 950], "look": [860, 640, -3000]}, "verse": { "ref": "37:141-142", "place": "sky", "en": "And he drew lots and was among the losers. Then the fish swallowed him, while he was blameworthy." }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "A Forbearing Son",
   "arabic": "ولادة إسماعيل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:100-101"],
   "art": [
     "Sarah and Hajar appear only as dim figures of light; Ismail, newborn, as a small light. Ibrahim appears as a steady light.",
     "That Hajar came to Sarah in Egypt and that Sarah gave her to Ibrahim is told in the hadith (al-Bukhari). The camp in the land of Canaan is imagined."
@@ -46,6 +46,6 @@
     { "dur": 10000, "ambient": ["crickets", "fire"], "cam": { "pos": [830, 545, 760], "look": [850, 640, -3000] },
       "say": "Old by now, Ibrahim prayed for a son who would be righteous." },
     { "dur": 12000, "ambient": ["birds", "air"], "cam": { "pos": [920, 545, 780], "look": [950, 630, -3000] },
-      "pendingVerse": { "ref": "37:100-101", "place": "sky" } }
+      "verse": { "ref": "37:100-101", "place": "sky", "en": "My Lord, grant me [a child] from among the righteous.\" So We gave him good tidings of a forbearing boy." } }
   ]
 }

@@ -6,7 +6,7 @@
   "title": "Cast on the Shore",
   "arabic": "على الشاطئ",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:145-146"],
   "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "The gourd vine that shaded him is from 37:146; it is drawn as a broad-leafed plant."],
   "ambient": ["sea", "birds"],
   "base": "#a8b4c0",
@@ -30,6 +30,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["sea", "wind"], "cam": {"pos": [860, 520, 800], "look": [880, 690, -3000]}, "say": "Had he not been one who glorified God, he would have stayed in the whale until the Day of Resurrection. Instead, it cast him onto a bare shore, weak and ill."},
     {"dur": 10000, "ambient": ["sea", "birds"], "cam": {"pos": [840, 530, 550], "look": [860, 790, -3000]}, "say": "God made a gourd vine grow over him for shade, and he recovered."},
-    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [860, 520, 800], "look": [880, 690, -3000]}, "pendingVerse": {"ref": "37:145-146", "place": "sky"}}
+    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [860, 520, 800], "look": [880, 690, -3000]}, "verse": { "ref": "37:145-146", "place": "sky", "en": "But We threw him onto the open shore while he was ill. And We caused to grow over him a gourd vine." }}
   ]
 }

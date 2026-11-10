@@ -6,7 +6,7 @@
   "title": "The Water Shared",
   "arabic": "قسمة الماء",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["26:155-156"],
   "art": [
     "The well and the alternating days are imagined from the verses; the she-camel is drawn as soft light and the people as dim lights."
   ],
@@ -44,6 +44,6 @@
     { "dur": 10000, "ambient": ["herd", "air"], "world": { "cycle": { "period": 3.2, "min": 0.3 } }, "cam": { "pos": [800, 440, 980], "look": [800, 520, -3000] },
       "say": "She grazed freely on God's earth, and for a time they let her be." },
     { "dur": 12000, "ambient": ["water"], "world": { "cycle": null }, "cam": { "pos": [780, 470, 760], "look": [780, 540, -3000] },
-      "pendingVerse": { "ref": "26:155-156", "place": "lower" } }
+      "verse": { "ref": "26:155-156", "place": "lower", "en": "He said, \"This is a she-camel. For her is a [time of] drink, and for you is a [time of] drink, [each] on a known day. And do not touch her with harm, lest you be seized by the punishment of a terrible day.\"" } }
   ]
 }

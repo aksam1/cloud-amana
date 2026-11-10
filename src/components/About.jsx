@@ -41,15 +41,21 @@ export default function About({ missing = false }) {
       <h1 className="font-display text-[1.9rem] font-semibold leading-tight text-gold-hi">About Amanah</h1>
       <P>{say('Amanah tells the stories of the prophets as Islam teaches them, from the creation onward, and uses each story to teach one part of the faith. It is free, it has no adverts, and it needs no account.')}</P>
       <P>The name is an Arabic word for a trust: something precious placed in your care. The Quran uses it in 33:72.</P>
-      {MAKER && <P>{MAKER}</P>}
+      <P>{MAKER || 'Who made this: details will be added here.'}</P>
 
       <H>Who it is for</H>
       <P>{say('Muslims who want to know the stories and what they teach, and anyone curious about what Muslims believe. You choose a view when you begin and can switch at any time. The stories and verses are the same in both; the Muslim view says Allah where the other says God, and adds a short prayer to learn.')}</P>
 
       <H>Where the words come from</H>
       <ul className="mt-2 list-disc space-y-2 pl-5 font-body text-[1.08rem] leading-snug text-ivory/85">
-        <li>The Quran is shown in the Uthmani Arabic text with the Sahih International English translation. Verses are placed from a checked file by their reference. They are never typed in by hand.</li>
-        <li>Some verses are still being checked against the source. Until then you see the verse's reference and a link to read it at quran.com, never a stand-in text.</li>
+        <li>
+          The Quran is shown in Arabic and in English. The Arabic is the Uthmani text of the{' '}
+          <a href="https://tanzil.net" target="_blank" rel="noopener noreferrer" className="text-gold-hi underline decoration-gold/50 underline-offset-4">
+            Tanzil Project
+          </a>
+          . The English is the Sahih International translation.
+        </li>
+        <li>Verses are placed from a checked file by their reference, word for word. They are never typed in by hand, and where only part of a verse is shown, an ellipsis (…) marks what was left out.</li>
         <li>Sayings of the Prophet ﷺ carry the label “Awaiting scholar review” until a qualified reviewer has checked the wording. Today every saying still carries that label.</li>
         <li>Scenes marked “Tradition” draw on hadith and classical narrations, not the Quran. Each scene lists its sources, and says which details of the picture are imagined.</li>
       </ul>
@@ -67,16 +73,16 @@ export default function About({ missing = false }) {
       <H>What it is not</H>
       <P>{DISCLAIMER} The meters show what you have understood in these lessons, nothing more. For rulings and personal questions, ask a scholar you trust.</P>
 
-      {CONTACT && (
-        <>
-          <H>Found a mistake?</H>
-          <P>
-            Please tell us, especially about a verse, a saying or a detail of a story.{' '}
-            <a href={CONTACT} className="text-gold-hi underline decoration-gold/50 underline-offset-4">
-              Report a mistake
-            </a>
-          </P>
-        </>
+      <H>Found a mistake?</H>
+      {CONTACT ? (
+        <P>
+          Please tell us, especially about a verse, a saying or a detail of a story.{' '}
+          <a href={CONTACT} className="text-gold-hi underline decoration-gold/50 underline-offset-4">
+            Report a mistake
+          </a>
+        </P>
+      ) : (
+        <P>A contact address for reporting mistakes will be added here.</P>
       )}
 
       <div className="mt-8 flex flex-wrap items-center gap-2">

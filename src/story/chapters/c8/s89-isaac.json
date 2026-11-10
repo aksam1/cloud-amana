@@ -6,7 +6,7 @@
   "title": "The Birth of Ishaq",
   "arabic": "مولد إسحاق",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:112"],
   "art": ["Sarah appears only as a dim figure of light; Ibrahim and the infant Ishaq as steady lights. The camp in Canaan is imagined."],
   "ambient": ["birds", "air"],
   "base": "#c8c0b0",
@@ -36,6 +36,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["birds", "air"], "cam": {"pos": [860, 520, 1100], "look": [880, 570, -3000]}, "say": "As the angels had promised, Sarah, old as she was, bore a son: Ishaq."},
     {"dur": 10000, "ambient": ["birds", "sheep"], "cam": {"pos": [880, 525, 960], "look": [900, 600, -3000]}, "say": "Ibrahim thanked God, who had given him in his old age both Ismail and Ishaq."},
-    {"dur": 12000, "ambient": ["air", "birds"], "cam": {"pos": [860, 522, 1020], "look": [880, 585, -3000]}, "pendingVerse": {"ref": "37:112", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air", "birds"], "cam": {"pos": [860, 522, 1020], "look": [880, 585, -3000]}, "verse": { "ref": "37:112", "place": "sky", "en": "And We gave him good tidings of Isaac, a prophet from among the righteous." }}
   ]
 }

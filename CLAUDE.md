@@ -107,12 +107,13 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 ## Site basics (from the November 2026 audit)
 
 - `src/lib/site.js`: `SITE_URL` (change it when the site gets its own address), `MAKER` and `CONTACT` (empty until the
-  owner gives them; the About page leaves those lines out), `quranLink(ref)`, `share()`, `download()`.
+  owner gives them; the About page shows a plain "will be added here" line meanwhile, as he asked), `quranLink(ref)`, `share()`, `download()`.
 - `#/about` (`About.jsx`): purpose, sources, review status, privacy, the disclaimer. Any unknown address shows
   "That page does not exist" (router `missing`), never the start screen. Keep the About page true when things change
   (for example once hadith are reviewed, or if visitor counts are ever added).
 - A verse still waiting for its text is never replaced: scenes show `PendingCaption` (reference + link to quran.com) and
-  hold at most 6 s (`PENDING_MS`); units and lessons show the same link. All of it disappears once `npm run verses` runs.
+  hold at most 6 s (`PENDING_MS`); units and lessons show the same link. Nothing is pending today (all 220 verse
+  moments, 78 unit refs and 100 lesson refs show their text); the fallback stays for new refs.
 - A finished unit offers `nextUnit()` (first playable unit after it not yet completed) as its main button.
 - Fonts are bundled (`src/fonts.css`, @fontsource): nothing loads from Google. Add a weight there before using it.
 - `short:` is a Tailwind variant for a phone turned sideways (landscape, under 500 px tall). Check new screens with it.
@@ -285,10 +286,16 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   scratchpad's `rooms.py` keeps each place's room (Namrud, al-Aziz, the king of Egypt, Yusuf's hall,
   Yaqub's house, Pharaoh, Dawud's chamber and court, Sulayman, the smithy): `room(place)` + `front(place)`.
   (`Pillars` is town.jsx's painter; the interiors one is `colonnade`.)
-- api.alquran.cloud is not on this workspace's network allowlist: about 300 cited ayat (scene pendingVerses,
-  lesson and unit refs) wait for it. `npm run ayahs` now collects refs from lessons and units too; once the
-  host is allowed, run `npm run ayahs` then `npm run verses`. Copies on npm/GitHub (quran-json, fawazahmed0)
-  drop closing punctuation from Sahih International, so never fill ayahs.json from them.
+- api.alquran.cloud is not on this workspace's network allowlist. All 373 cited ayat are on file all the same:
+  297 were taken on 10 Nov 2026 from GitHub mirrors that match the 76 API-fetched ayat character for character and
+  agree with each other (`src/data/ayahs.SOURCE.md` has the sources and the checks). For a new ref while the host is
+  blocked, repeat that method (two mirrors, both matching what is on file, agreeing on the new ayah); otherwise the
+  beat stays a `pendingVerse`. Copies such as quran-json and fawazahmed0 drop closing punctuation from Sahih
+  International: never use a mirror that fails the match. `npm run ayahs` collects refs from lessons and units too.
+- A whole single ayah may leave `ar` out (as `npm run verses` writes it; the checker then requires its English to be
+  the whole ayah). 33 verse moments show part of an ayah with a hand-chosen `ar` range and matching English.
+- On phones a long verse sets itself smaller until it fits above the chronicle (`fit` in Captions.jsx, never under
+  66%); if it still cannot fit (a small phone) the chronicle folds away for that beat (`crowded` in ScenePlayer).
 - Arabic titles must not quote the Quran even when its ayat are not fetched yet (the checker can only catch
   phrases from fetched ayat): "يوم الزينة", "مجمع البحرين", "المن والسلوى", "سيل العرم" and "رجل يسعى" were caught by hand.
 - `world.cycle` needs a `period` above 0 (0 divides by zero and blacks out the stage), and it does nothing while

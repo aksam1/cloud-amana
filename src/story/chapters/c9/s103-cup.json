@@ -6,7 +6,7 @@
   "title": "The King's Cup",
   "arabic": "الإخوة في مصر",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:76"],
   "art": ["Yusuf appears only as a steady light; his brothers as dim figures of light, Binyamin a little brighter. The cup is shown only as a glint of gold."],
   "ambient": ["echo", "voices"],
   "base": "#10141e",
@@ -43,6 +43,6 @@
     {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [860, 520, 520], "look": [880, 900, -3000]}, "say": "Among those who came for grain were Yusuf's ten brothers. He knew them; they did not know him."},
     {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [900, 520, 520], "look": [920, 900, -3000]}, "say": "He asked them to bring their youngest brother, and on their next journey Binyamin came with them."},
     {"dur": 10000, "ambient": ["echo"], "sfx": [{"name": "gate", "at": 6000}], "cam": {"pos": [1000, 525, 520], "look": [1040, 900, -3000]}, "say": "Yusuf told Binyamin who he was. Then the king's cup was found in Binyamin's pack, and by the law of the land he stayed."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [900, 520, 520], "look": [920, 900, -3000]}, "pendingVerse": {"ref": "12:76", "place": "sky", "part": "its closing words, that over every possessor of knowledge is one more knowing"}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [900, 520, 520], "look": [920, 900, -3000]}, "verse": { "ref": "12:76", "ar": [32,36], "place": "sky", "en": "…but over every possessor of knowledge is one [more] knowing." }}
   ]
 }

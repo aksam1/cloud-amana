@@ -6,7 +6,7 @@
   "title": "Yaqub's Last Words",
   "arabic": "وصية يعقوب",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:133"],
   "art": ["Yaqub and Yusuf appear only as steady lights; his other sons as dim figures of light. That Yaqub died in Egypt is from the commentaries; his death is shown only as his light growing still and rising."],
   "ambient": ["air", "crickets"],
   "base": "#10141e",
@@ -41,6 +41,6 @@
     {"dur": 11000, "ambient": ["air", "crickets"], "cam": {"pos": [800, 540, 450], "look": [800, 880, -3000]}, "say": "Yaqub lived out his last years in Egypt with all his family around him. When death came near, he gathered his sons and asked them: what will you worship after me?"},
     {"dur": 11000, "ambient": ["air"], "cam": {"pos": [800, 540, 400], "look": [800, 900, -3000]}, "say": "They answered: we will worship your God, the God of your fathers Ibrahim, Ismail and Ishaq: one God, and to Him we submit."},
     {"dur": 11000, "ambient": ["air", "wind"], "world": {"bloom": 0.95}, "cam": {"pos": [820, 520, 650], "look": [840, 700, -3000]}, "say": "So the Children of Israel came to live in Egypt. Generations later, their descendants would cry out under a Pharaoh who had forgotten Yusuf."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 535, 550], "look": [800, 840, -3000]}, "pendingVerse": {"ref": "2:133", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 535, 550], "look": [800, 840, -3000]}, "verse": { "ref": "2:133", "place": "sky", "en": "Or were you witnesses when death approached Jacob, when he said to his sons, \"What will you worship after me?\" They said, \"We will worship your God and the God of your fathers, Abraham and Ishmael and Isaac - one God. And we are Muslims [in submission] to Him.\"" }}
   ]
 }

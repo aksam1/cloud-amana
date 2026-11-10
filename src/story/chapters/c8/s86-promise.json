@@ -6,7 +6,7 @@
   "title": "Ismail the Messenger",
   "arabic": "إسماعيل النبي",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["19:54"],
   "art": ["Ismail appears only as a steady light, far away; the people of the valley as dim lights.", "That Ismail grew up among the tribe of Jurhum, learned their tongue and married among them is told in the hadith (al-Bukhari)."],
   "ambient": ["desert", "voices"],
   "base": "#d8c0a0",
@@ -37,6 +37,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["desert", "voices"], "cam": {"pos": [1000, 515, 1150], "look": [1000, 560, -3000]}, "say": "Ismail grew up among the tribe that had settled by the spring, learned their tongue, and married among them."},
     {"dur": 10000, "ambient": ["voices", "wind"], "cam": {"pos": [1100, 520, 1000], "look": [1140, 585, -3000]}, "say": "God made him a messenger and a prophet, and he was known for keeping his word."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [1060, 520, 1080], "look": [1090, 580, -3000]}, "pendingVerse": {"ref": "19:54", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [1060, 520, 1080], "look": [1090, 580, -3000]}, "verse": { "ref": "19:54", "place": "sky", "en": "And mention in the Book, Ishmael. Indeed, he was true to his promise, and he was a messenger and a prophet." }}
   ]
 }

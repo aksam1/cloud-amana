@@ -6,7 +6,7 @@
   "title": "Safe on the Far Shore",
   "arabic": "النجاة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:50"],
   "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined."],
   "ambient": ["sea", "voices"],
   "base": "#a8b4c0",
@@ -31,6 +31,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["sea", "voices"], "cam": {"pos": [800, 515, 900], "look": [800, 660, -3000]}, "say": "On the far shore, the Children of Israel watched the calm sea where Pharaoh's army had been."},
     {"dur": 10000, "ambient": ["sea", "air"], "cam": {"pos": [780, 530, 600], "look": [780, 760, -3000]}, "say": "They were free. Musa bowed down in thanks to the One who had saved them."},
-    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [800, 515, 900], "look": [800, 660, -3000]}, "pendingVerse": {"ref": "2:50", "place": "sky"}}
+    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [800, 515, 900], "look": [800, 660, -3000]}, "verse": { "ref": "2:50", "place": "sky", "en": "And [recall] when We parted the sea for you and saved you and drowned the people of Pharaoh while you were looking on." }}
   ]
 }

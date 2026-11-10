@@ -6,7 +6,7 @@
   "title": "The Vow",
   "arabic": "نذر أم مريم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["3:35"],
   "art": ["Prophets appear only as steady lights; Maryam and her mother as soft lights; the people as dim figures of light. Angels are columns of light, never figures. The look of the temple and the land is imagined.", "Imran's wife is named Hannah in the commentaries."],
   "ambient": ["crickets", "air"],
   "base": "#141824",
@@ -30,6 +30,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["crickets", "air"], "cam": {"pos": [760, 500, 700], "look": [740, 560, -3000]}, "say": "In Jerusalem, the wife of Imran prayed: my Lord, I vow the child in my womb to Your service, freed for You alone. Accept it from me."},
     {"dur": 11000, "ambient": ["birds", "air"], "cam": {"pos": [740, 495, 520], "look": [730, 520, -3000]}, "say": "Her child was a girl. I have named her Maryam, she said, and I seek protection for her and her children from Satan, the outcast."},
-    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [760, 500, 700], "look": [740, 560, -3000]}, "pendingVerse": {"ref": "3:35", "place": "sky"}}
+    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [760, 500, 700], "look": [740, 560, -3000]}, "verse": { "ref": "3:35", "place": "sky", "en": "[Mention, O Muhammad], when the wife of 'Imran said, \"My Lord, indeed I have pledged to You what is in my womb, consecrated [for Your service], so accept this from me. Indeed, You are the Hearing, the Knowing.\"" }}
   ]
 }

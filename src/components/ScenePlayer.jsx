@@ -68,6 +68,9 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
   const [ayahOpen, setAyahOpen] = useState(false);
   const [help, setHelp] = useState(false);
   const [dock, setDock] = useState(0); // how far up the screen the chronicle reaches
+  const [crowded, setCrowded] = useState(false); // a long verse on a small phone: the chronicle folds away for that moment
+  const onCrowded = useCallback(() => setCrowded(true), []);
+  useEffect(() => setCrowded(false), [beat, scene.id]);
   const [toast, showToast] = useToast();
   const swipe = useRef(null);
   const wheelAt = useRef(0);
@@ -317,7 +320,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
         )}
       </AnimatePresence>
 
-      <AnimatePresence mode="wait">{!titleCard && b.verse && <VerseCaption key={`${scene.id}-${beat}`} verse={b.verse} tone={scene.captions} dock={dock} pen={!!scene.pen} />}</AnimatePresence>
+      <AnimatePresence mode="wait">{!titleCard && b.verse && <VerseCaption key={`${scene.id}-${beat}`} verse={b.verse} tone={scene.captions} dock={dock} pen={!!scene.pen} onCrowded={onCrowded} />}</AnimatePresence>
       <AnimatePresence mode="wait">{!titleCard && !b.verse && b.pendingVerse && <PendingCaption key={`${scene.id}-${beat}`} pending={b.pendingVerse} dock={dock} />}</AnimatePresence>
 
       {/* Top bar */}
@@ -352,7 +355,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
         </div>
       </div>
 
-      <Chronicle scene={scene} lines={ended ? lines : lines.slice(-1)} open={prefs.chronicle} onToggle={() => setPref('chronicle', !prefs.chronicle)} ayahOpen={ayahOpen} onAyah={() => setAyahOpen((o) => !o)} onTop={setDock} />
+      <Chronicle scene={scene} lines={ended ? lines : lines.slice(-1)} open={prefs.chronicle && !crowded} onToggle={() => (crowded ? setCrowded(false) : setPref('chronicle', !prefs.chronicle))} ayahOpen={ayahOpen} onAyah={() => setAyahOpen((o) => !o)} onTop={setDock} />
 
       {/* Transport */}
       <div className="pointer-events-none absolute bottom-0 right-0 z-30 flex w-full flex-col items-stretch gap-2 p-3 sm:w-auto sm:items-end sm:p-6 short:max-w-[46vw] short:p-2">

@@ -6,7 +6,7 @@
   "title": "The Sea Closes",
   "arabic": "غرق فرعون",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["10:92"],
   "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "Nothing of the drowning is shown: the waters close and the lights of the army go out. Pharaoh's last words are told as the Quran tells them (10:90–92)."],
   "ambient": ["sea", "army"],
   "base": "#8a98a8",
@@ -34,6 +34,6 @@
     {"dur": 10000, "ambient": ["sea", "army"], "cam": {"pos": [800, 470, 1250], "look": [800, 470, -3000]}, "say": "When the last of the Children of Israel had crossed, Pharaoh and his army followed them into the sea."},
     {"dur": 10000, "ambient": ["sea", "roar"], "sfx": [{"name": "wave", "at": 1400}, {"name": "thunder", "at": 3800}, {"name": "rumble", "at": 4000}], "world": {"shake": 1.4}, "cam": {"pos": [800, 470, 1250], "look": [800, 470, -3000]}, "say": "Then the waters closed over them, and the lights of the army went out."},
     {"dur": 10000, "ambient": ["sea", "wind"], "world": {"shake": 0.3}, "cam": {"pos": [800, 500, 1100], "look": [800, 560, -3000]}, "say": "As the sea took him, Pharaoh cried out: I believe in the God of the Children of Israel! But it was too late for belief."},
-    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [800, 500, 1100], "look": [800, 560, -3000]}, "pendingVerse": {"ref": "10:92", "place": "sky"}}
+    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [800, 500, 1100], "look": [800, 560, -3000]}, "verse": { "ref": "10:92", "place": "sky", "en": "So today We will save you in body that you may be to those who succeed you a sign. And indeed, many among the people, of Our signs, are heedless" }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "Zakariya's Prayer",
   "arabic": "دعاء زكريا",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["19:4"],
   "art": ["Prophets appear only as steady lights; Maryam and her mother as soft lights; the people as dim figures of light. Angels are columns of light, never figures. The look of the temple and the land is imagined."],
   "ambient": ["air", "crickets"],
   "base": "#0c0a08",
@@ -31,6 +31,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["air"], "cam": {"pos": [820, 540, 500], "look": [820, 860, -3000]}, "say": "Zakariya was old now; his bones were weak and his hair was white, and his wife had never had a child."},
     {"dur": 11000, "ambient": ["air", "crickets"], "cam": {"pos": [820, 545, 350], "look": [820, 920, -3000]}, "say": "In the quiet of the night he called to his Lord in secret: give me from Yourself an heir, who will carry on the faith of the family of Yaqub."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [820, 540, 520], "look": [820, 850, -3000]}, "pendingVerse": {"ref": "19:4", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [820, 540, 520], "look": [820, 850, -3000]}, "verse": { "ref": "19:4", "place": "sky", "en": "He said, \"My Lord, indeed my bones have weakened, and my head has filled with white, and never have I been in my supplication to You, my Lord, unhappy." }}
   ]
 }

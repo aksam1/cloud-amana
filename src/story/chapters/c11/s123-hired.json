@@ -6,7 +6,7 @@
   "title": "Ten Years in Madyan",
   "arabic": "عشر سنين في مدين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:26"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The old man of Madyan and his daughters appear only as dim figures of light. Whether he was the prophet Shu'ayb is debated among scholars, so he is not named."],
   "ambient": ["herd", "wind"],
   "base": "#d8c0a0",
@@ -34,6 +34,6 @@
   "beats": [
     {"dur": 11000, "ambient": ["wind", "voices"], "cam": {"pos": [880, 530, 700], "look": [900, 720, -3000]}, "say": "One of the sisters came back, walking shyly: my father invites you, to reward you. The old man offered Musa one of his daughters in marriage, for eight years of work, or ten if he chose."},
     {"dur": 12000, "ambient": ["herd", "wind"], "cam": {"pos": [960, 525, 900], "look": [980, 680, -3000]}, "say": "Musa served the full ten years, tending the flocks across the hills of Madyan."},
-    {"dur": 12000, "ambient": ["herd", "air"], "cam": {"pos": [920, 525, 860], "look": [940, 690, -3000]}, "pendingVerse": {"ref": "28:26", "place": "sky"}}
+    {"dur": 12000, "ambient": ["herd", "air"], "cam": {"pos": [920, 525, 860], "look": [940, 690, -3000]}, "verse": { "ref": "28:26", "place": "sky", "en": "One of the women said, \"O my father, hire him. Indeed, the best one you can hire is the strong and the trustworthy.\"" }}
   ]
 }

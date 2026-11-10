@@ -6,7 +6,7 @@
   "title": "Three Days",
   "arabic": "المهلة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["11:65"],
   "art": [
     "The numerals counting the days come from the verse's \"three days\"; the departure by night is imagined from 11:66.",
     "Salih and those who believed appear only as steady lights, from behind and far away."
@@ -68,6 +68,6 @@
       "cam": { "dx": 6000, "from": { "pos": [800, 560, 1150], "look": [800, 600, -3000] }, "pos": [800, 540, 1000], "look": [800, 600, -4000] },
       "say": "On the last night, Salih and those who believed left the valley." },
     { "dur": 12000, "ambient": ["air"], "world": { "light": 0.85, "fog": "#c8a090", "rays": 0.3 }, "cam": { "pos": [800, 520, 1100], "look": [800, 600, -3000] },
-      "pendingVerse": { "ref": "11:65", "place": "lower" } }
+      "verse": { "ref": "11:65", "place": "lower", "en": "But they hamstrung her, so he said, \"Enjoy yourselves in your homes for three days. That is a promise not to be denied.\"" } }
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Staff and the Hand",
   "arabic": "العصا واليد",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["20:29-32"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The serpent is drawn in ink as the Quran describes the sign (28:31); Musa's shining hand is shown as his light flaring white."],
   "ambient": ["air", "wind"],
   "base": "#0c0e16",
@@ -33,6 +33,6 @@
     {"dur": 9000, "ambient": ["air"], "cam": {"pos": [850, 545, 250], "look": [860, 1000, -3000]}, "say": "Throw down your staff, he was told."},
     {"dur": 10000, "ambient": ["air", "wind"], "sfx": [{"name": "scratch", "at": 300}], "cam": {"pos": [830, 545, 200], "look": [840, 1020, -3000]}, "say": "It moved like a living serpent, and Musa turned to run. Come back, and do not fear, he was told; you are safe."},
     {"dur": 11000, "ambient": ["air"], "sfx": [{"name": "swell", "at": 1200}], "cam": {"pos": [850, 545, 250], "look": [860, 1000, -3000]}, "say": "Then his hand came out shining white. Go to Pharaoh, he was told. Musa prayed: my Lord, open my heart, make my task easy, untie the knot from my tongue, and let my brother Harun help me."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [850, 535, 500], "look": [860, 880, -3000]}, "pendingVerse": {"ref": "20:29-32", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [850, 535, 500], "look": [860, 880, -3000]}, "verse": { "ref": "20:29-32", "place": "sky", "en": "And appoint for me a minister from my family - Aaron, my brother. Increase through him my strength And let him share my task" }}
   ]
 }

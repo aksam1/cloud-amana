@@ -6,7 +6,7 @@
   "title": "Talut's Army",
   "arabic": "جيش طالوت",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:249"],
   "art": ["The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined.", "Talut appears as a dim figure of light at the head of the army."],
   "ambient": ["water", "army"],
   "base": "#c8c0b0",
@@ -31,6 +31,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["army", "wind"], "cam": {"pos": [800, 515, 1000], "look": [800, 640, -3000]}, "say": "Long after Musa, the Children of Israel asked for a king to lead them, and God chose Talut."},
     {"dur": 11000, "ambient": ["water", "voices"], "cam": {"pos": [800, 520, 800], "look": [800, 700, -3000]}, "say": "At a river he tested his army: whoever drinks his fill is not with me, except a single handful. Most drank; only a few held back."},
-    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [800, 515, 950], "look": [800, 650, -3000]}, "pendingVerse": {"ref": "2:249", "place": "sky", "part": "its closing: \"How many a small company has overcome a large company by permission of Allah…\""}}
+    {"dur": 12000, "ambient": ["water", "air"], "cam": {"pos": [800, 515, 950], "look": [800, 650, -3000]}, "verse": { "ref": "2:249", "ar": [51,63], "place": "sky", "en": "…\"How many a small company has overcome a large company by permission of Allah. And Allah is with the patient.\"" }}
   ]
 }

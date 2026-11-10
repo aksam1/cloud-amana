@@ -6,7 +6,7 @@
   "title": "Salih Among His People",
   "arabic": "صالح بين قومه",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["11:61"],
   "art": [
     "Salih is shown only as a figure of steady white-gold light, from far away and from behind; his walk into the city and the rock he stands on are imagined."
   ],
@@ -47,6 +47,6 @@
     { "dur": 9000, "ambient": ["crowd", "voice"], "cam": { "pos": [800, 470, -2200], "look": [800, 540, -9000] },
       "say": "He called them to worship God alone, who had brought them out of the earth and settled them in it." },
     { "dur": 12000, "ambient": ["voice", "air"], "cam": { "pos": [800, 420, -2500], "look": [800, 560, -9000] },
-      "pendingVerse": { "ref": "11:61", "place": "lower" } }
+      "verse": { "ref": "11:61", "place": "lower", "en": "And to Thamud [We sent] their brother Salih. He said, \"O my people, worship Allah; you have no deity other than Him. He has produced you from the earth and settled you in it, so ask forgiveness of Him and then repent to Him. Indeed, my Lord is near and responsive.\"" } }
   ]
 }

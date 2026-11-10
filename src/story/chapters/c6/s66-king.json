@@ -6,7 +6,7 @@
   "title": "The King Who Argued",
   "arabic": "الملك المجادل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:258"],
   "art": ["The king is traditionally named Nimrod; he appears only as a dark figure on his throne, Ibrahim as a steady light, and the hall is imagined.", "Namrud's throne room is drawn in the glazed brick of ancient Mesopotamia; its look is imagined."],
   "ambient": ["echo", "voice"],
   "base": "#10141e",
@@ -24,6 +24,6 @@
   "beats": [
     {"dur": 9000, "ambient": ["echo", "voice"], "cam": {"pos": [800, 520, 1000], "look": [800, 520, -3000]}, "say": "A king claimed that he, too, gave life and death."},
     {"dur": 10000, "ambient": ["air", "echo"], "cam": {"dx": 6000, "from": {"pos": [800, 560, 1150], "look": [800, 540, -3000]}, "pos": [800, 540, 1000], "look": [800, 520, -3000]}, "say": "Ibrahim answered: my Lord brings the sun up from the east; bring it up from the west."},
-    {"dur": 13000, "ambient": ["air"], "cam": {"dx": 6000, "pos": [800, 530, 880], "look": [800, 520, -3000]}, "pendingVerse": {"ref": "2:258", "place": "sky", "part": "Ibrahim's answer about the sun rising in the east, to the disbeliever left confounded"}}
+    {"dur": 13000, "ambient": ["air"], "cam": {"dx": 6000, "pos": [800, 530, 880], "look": [800, 520, -3000]}, "verse": { "ref": "2:258", "ar": [24,38], "place": "sky", "en": "…Abraham said, \"Indeed, Allah brings up the sun from the east, so bring it up from the west.\" So the disbeliever was overwhelmed [by astonishment]…" }}
   ]
 }

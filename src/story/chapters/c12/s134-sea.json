@@ -6,7 +6,7 @@
   "title": "The Sea Parts",
   "arabic": "انفلاق البحر",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["26:63"],
   "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The walls of water are drawn as the Quran describes them, each part like a great mountain (26:63)."],
   "ambient": ["sea", "wind"],
   "base": "#8a98a8",
@@ -37,6 +37,6 @@
     {"dur": 10000, "ambient": ["sea", "wind"], "cam": {"pos": [800, 515, 1000], "look": [800, 620, -3000]}, "say": "At sunrise they reached the sea, and saw Pharaoh's army coming after them. We are overtaken! the people cried."},
     {"dur": 9000, "ambient": ["sea", "crowd"], "cam": {"pos": [800, 520, 800], "look": [800, 680, -3000]}, "say": "No! said Musa. My Lord is with me; He will guide me."},
     {"dur": 11000, "ambient": ["sea", "roar"], "sfx": [{"name": "swell", "at": 400}, {"name": "wave", "at": 2400}, {"name": "rumble", "at": 3000}], "world": {"shake": 1.0}, "cam": {"pos": [800, 470, 1250], "look": [800, 470, -3000]}, "say": "God told him: strike the sea with your staff. And the sea split apart, each side like a great mountain."},
-    {"dur": 12000, "ambient": ["sea", "voices"], "world": {"shake": 0.3}, "cam": {"pos": [800, 470, 1250], "look": [800, 470, -3000]}, "pendingVerse": {"ref": "26:63", "place": "sky"}}
+    {"dur": 12000, "ambient": ["sea", "voices"], "world": {"shake": 0.3}, "cam": {"pos": [800, 470, 1250], "look": [800, 470, -3000]}, "verse": { "ref": "26:63", "place": "sky", "en": "Then We inspired to Moses, \"Strike with your staff the sea,\" and it parted, and each portion was like a great towering mountain." }}
   ]
 }

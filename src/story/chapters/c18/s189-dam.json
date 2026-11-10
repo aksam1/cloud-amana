@@ -6,7 +6,7 @@
   "title": "The Flood of the Dam",
   "arabic": "انهيار السد",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["34:16"],
   "art": ["The land of Saba (in Yemen) and the great dam of Ma'rib are as the commentaries describe; the Quran tells of the two gardens and the flood (34:15–17). No people are shown in the flood: only the dam breaking and the land changing."],
   "ambient": ["water", "birds"],
   "base": "#d8c0a0",
@@ -35,6 +35,6 @@
     {"dur": 9000, "ambient": ["water", "voices"], "cam": {"pos": [800, 505, 1100], "look": [800, 520, -3000]}, "say": "But they turned away."},
     {"dur": 10000, "ambient": ["roar", "water"], "sfx": [{"name": "rumble", "at": 1500}, {"name": "wave", "at": 2600}], "world": {"shake": 1.4}, "cam": {"pos": [800, 505, 1100], "look": [800, 520, -3000]}, "say": "So God sent upon them the flood of the dam."},
     {"dur": 12000, "ambient": ["wind"], "world": {"shake": 0.3}, "cam": {"pos": [800, 505, 1100], "look": [800, 530, -3000]}, "say": "In place of their two gardens grew bitter fruit, tamarisk and a few lote trees: the reward of ingratitude."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 505, 1100], "look": [800, 530, -3000]}, "pendingVerse": {"ref": "34:16", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 505, 1100], "look": [800, 530, -3000]}, "verse": { "ref": "34:16", "place": "sky", "en": "But they turned away [refusing], so We sent upon them the flood of the dam, and We replaced their two [fields of] gardens with gardens of bitter fruit, tamarisks and something of sparse lote trees." }}
   ]
 }

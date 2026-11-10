@@ -6,7 +6,7 @@
   "title": "The Ransom",
   "arabic": "الفداء",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:104-107"],
   "art": [
     "Satan appears only as a coil of smoke, and the stones are told rather than shown: the account of Ibn Abbas (in the Musnad of Ahmad).",
     "No blade is shown and no one is harmed. Ibrahim and Ismail appear only as steady lights, far away; the ram appears only as light. The place is imagined after the valley of Mina."
@@ -58,6 +58,6 @@
     { "dur": 10000, "ambient": ["wind", "birds"], "sfx": [{ "name": "gust", "at": 300 }], "cam": { "dx": 6000, "pos": [840, 530, 920], "look": [870, 630, -3000] },
       "say": "Then a call came, and in the boy's place stood a great ram." },
     { "dur": 13000, "ambient": ["air", "birds"], "cam": { "dx": 6000, "pos": [860, 525, 1000], "look": [880, 610, -3000] },
-      "pendingVerse": { "ref": "37:104-107", "place": "sky" } }
+      "verse": { "ref": "37:104-107", "place": "sky", "en": "We called to him, \"O Abraham, You have fulfilled the vision.\" Indeed, We thus reward the doers of good. Indeed, this was the clear trial. And We ransomed him with a great sacrifice," } }
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Storehouses",
   "arabic": "مخازن الحبوب",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:55"],
   "art": ["Yusuf appears only as a steady light; the people as dim figures of light. The granaries and fields are imagined."],
   "ambient": ["wind", "work"],
   "base": "#d8c8a8",
@@ -34,6 +34,6 @@
     {"dur": 10000, "ambient": ["wind", "birds"], "cam": {"pos": [950, 515, 1150], "look": [970, 560, -3000]}, "say": "From prison Yusuf explained it: seven good years, then seven years of famine. The king freed him, and Yusuf asked to be put in charge of the land's grain."},
     {"dur": 10000, "ambient": ["work", "wind"], "sfx": [{"name": "hoe", "at": 2000}, {"name": "hoe", "at": 5000}], "cam": {"pos": [1000, 515, 1080], "look": [1040, 560, -3000]}, "say": "Through the good years the granaries rose and filled."},
     {"dur": 10000, "ambient": ["wind", "crowd"], "cam": {"pos": [950, 512, 1180], "look": [970, 555, -3000]}, "say": "Then the famine came, and people travelled from far lands to buy grain in Egypt."},
-    {"dur": 12000, "ambient": ["wind"], "cam": {"pos": [960, 515, 1120], "look": [980, 560, -3000]}, "pendingVerse": {"ref": "12:55", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind"], "cam": {"pos": [960, 515, 1120], "look": [980, 560, -3000]}, "verse": { "ref": "12:55", "place": "sky", "en": "[Joseph] said, \"Appoint me over the storehouses of the land. Indeed, I will be a knowing guardian.\"" }}
   ]
 }

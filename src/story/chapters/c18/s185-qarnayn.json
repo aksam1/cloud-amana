@@ -6,7 +6,7 @@
   "title": "Dhul-Qarnayn",
   "arabic": "ذو القرنين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["18:84"],
   "art": ["Dhul-Qarnayn, a righteous king given power on earth (18:83–84), appears only as a warm figure of light with his army of dim lights; who he was is debated. The sun is shown setting into dark water as it appeared to him (18:86)."],
   "ambient": ["wind", "army"],
   "base": "#d8c0a0",
@@ -24,6 +24,6 @@
   "beats": [
     {"dur": 11000, "ambient": ["wind", "army"], "cam": {"pos": [900, 505, 1000], "look": [900, 540, -3000]}, "say": "The Quran tells of Dhul-Qarnayn, a king to whom God gave power and a way to reach all things. He travelled west until he saw the sun setting, as if into a dark, muddy spring."},
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [900, 505, 1000], "look": [900, 540, -3000], "dx": 6000}, "say": "Then he travelled east, to where the sun rose over a people who had no shelter from it. Everywhere he went, he ruled with justice: the wrongdoer punished, the one who did good rewarded."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [900, 510, 950], "look": [900, 560, -3000], "dx": 6000}, "pendingVerse": {"ref": "18:84", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [900, 510, 950], "look": [900, 560, -3000], "dx": 6000}, "verse": { "ref": "18:84", "place": "sky", "en": "Indeed We established him upon the earth, and We gave him to everything a way." }}
   ]
 }

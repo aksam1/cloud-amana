@@ -6,7 +6,7 @@
   "title": "Raising the House",
   "arabic": "بناء البيت",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:127"],
   "art": [
     "The House is shown as its first builders might have raised it: walls of the valley's dark stone without a roof, as the histories describe. Ibrahim and Ismail appear only as steady lights.",
     "Ismail's help and the stone Ibrahim stood on as the walls rose are told in the hadith (al-Bukhari)."
@@ -49,6 +49,6 @@
     { "dur": 10000, "ambient": ["work", "stone"], "sfx": [{ "name": "hoe", "at": 1200 }, { "name": "hoe", "at": 3900 }, { "name": "hoe", "at": 6600 }], "cam": { "pos": [920, 515, 1020], "look": [920, 570, -3000] },
       "say": "When the walls grew high, Ibrahim stood on a stone to reach them: the stone still kept beside the House, called the Station of Ibrahim." },
     { "dur": 13000, "ambient": ["wind", "air"], "cam": { "pos": [930, 525, 1060], "look": [930, 595, -3000] },
-      "pendingVerse": { "ref": "2:127", "place": "sky" } }
+      "verse": { "ref": "2:127", "place": "sky", "en": "And [mention] when Abraham was raising the foundations of the House and [with him] Ishmael, [saying], \"Our Lord, accept [this] from us. Indeed You are the Hearing, the Knowing." } }
   ]
 }

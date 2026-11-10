@@ -6,7 +6,7 @@
   "title": "The House of Ibrahim",
   "arabic": "بيت إبراهيم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["38:45"],
   "art": ["The prophets appear only as steady lights, far away; the two lands, one under the other's stars, are imagined."],
   "ambient": ["crickets", "air"],
   "base": "#1a1820",
@@ -28,6 +28,6 @@
     {"dur": 10000, "ambient": ["crickets", "air"], "cam": {"pos": [920, 515, 1120], "look": [920, 560, -3000]}, "say": "From one father came two lines: Ismail's in the valley of the House, and Ishaq's in the land of Canaan."},
     {"dur": 10000, "ambient": ["crickets", "sheep"], "cam": {"pos": [820, 520, 1100], "look": [840, 570, -3000], "dx": 6000}, "say": "Both carried the same message: that God alone is to be worshipped."},
     {"dur": 10000, "ambient": ["wind", "birds"], "cam": {"pos": [800, 510, 1200], "look": [800, 545, -3000], "dx": 12000}, "say": "God called Ibrahim, Ishaq and Yaqub men of strength and of vision."},
-    {"dur": 13000, "ambient": ["wind", "air"], "cam": {"pos": [800, 510, 1180], "look": [800, 548, -3000], "dx": 12000}, "pendingVerse": {"ref": "38:45", "place": "sky"}}
+    {"dur": 13000, "ambient": ["wind", "air"], "cam": {"pos": [800, 510, 1180], "look": [800, 548, -3000], "dx": 12000}, "verse": { "ref": "38:45", "place": "sky", "en": "And remember Our servants, Abraham, Isaac and Jacob - those of strength and [religious] vision." }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "Fruit out of Season",
   "arabic": "رزق مريم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["3:37"],
   "art": ["Prophets appear only as steady lights; Maryam and her mother as soft lights; the people as dim figures of light. Angels are columns of light, never figures. The look of the temple and the land is imagined.", "That the fruit was of summer in winter and of winter in summer is from the commentaries on 3:37."],
   "ambient": ["echo", "wind"],
   "base": "#14100c",
@@ -33,6 +33,6 @@
   "beats": [
     {"dur": 11000, "ambient": ["echo", "wind"], "cam": {"pos": [840, 545, 300], "look": [850, 940, -3000]}, "say": "The temple's scholars drew lots with their pens to decide who would care for Maryam, and the lot fell to the prophet Zakariya. Whenever he came into her prayer chamber, he found food beside her: summer fruit in the depth of winter."},
     {"dur": 11000, "ambient": ["echo", "air"], "cam": {"pos": [800, 545, 300], "look": [800, 920, -3000]}, "say": "Maryam, where did this come from? he asked. It is from God, she said. God provides for whom He wills, without measure."},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 535, 560], "look": [800, 840, -3000]}, "pendingVerse": {"ref": "3:37", "place": "sky", "part": "from \"Every time Zakariya entered upon her in the prayer chamber\""}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 535, 560], "look": [800, 840, -3000]}, "verse": { "ref": "3:37", "ar": [10,37], "place": "sky", "en": "…Every time Zechariah entered upon her in the prayer chamber, he found with her provision. He said, \"O Mary, from where is this [coming] to you?\" She said, \"It is from Allah. Indeed, Allah provides for whom He wills without account.\"" }}
   ]
 }

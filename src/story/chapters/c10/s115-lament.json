@@ -6,7 +6,7 @@
   "title": "Shu'ayb Turns Away",
   "arabic": "وداع مدين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:93"],
   "art": ["Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined."],
   "ambient": ["wind", "air"],
   "base": "#a88a78",
@@ -36,6 +36,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [800, 515, 1100], "look": [800, 590, -3000]}, "say": "Their houses stood empty, as if they had never lived in them."},
     {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [1040, 540, 600], "look": [1080, 880, -3000]}, "say": "Shu'ayb turned away from them. He had warned them as best he could; he did not grieve for a people who refused to believe."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [960, 525, 820], "look": [1000, 760, -3000]}, "pendingVerse": {"ref": "7:93", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [960, 525, 820], "look": [1000, 760, -3000]}, "verse": { "ref": "7:93", "place": "sky", "en": "And he turned away from them and said, \"O my people, I had certainly conveyed to you the messages of my Lord and advised you, so how could I grieve for a disbelieving people?\"" }}
   ]
 }

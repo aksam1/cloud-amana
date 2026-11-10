@@ -6,7 +6,7 @@
   "title": "The Fire on the Mountain",
   "arabic": "النار في الطور",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["28:30"],
   "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The fire is shown only as Musa saw it, a fire on the mountainside; God is not depicted in it or in any form. The call is told in words, never shown."],
   "ambient": ["wind", "air"],
   "base": "#0c0e16",
@@ -25,6 +25,6 @@
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [900, 520, 800], "look": [940, 680, -3000]}, "say": "Years later, travelling with his family on a cold, dark night, Musa saw a fire on the side of the mountain."},
     {"dur": 10000, "ambient": ["wind"], "cam": {"pos": [980, 510, 900], "look": [1020, 640, -3000]}, "say": "Stay here, he told them. Perhaps I can bring you a burning brand, or find someone at the fire to guide us."},
     {"dur": 11000, "ambient": ["air", "fire"], "world": {"bloom": 0.95}, "cam": {"pos": [860, 520, 700], "look": [900, 720, -3000], "dx": 6000}, "say": "When he came to it, a voice called to him from the tree in the blessed valley: Musa, I am God, the Lord of the worlds."},
-    {"dur": 12000, "ambient": ["air", "fire"], "world": {"bloom": 0.95}, "cam": {"pos": [860, 520, 800], "look": [900, 690, -3000], "dx": 6000}, "pendingVerse": {"ref": "28:30", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air", "fire"], "world": {"bloom": 0.95}, "cam": {"pos": [860, 520, 800], "look": [900, 690, -3000], "dx": 6000}, "verse": { "ref": "28:30", "place": "sky", "en": "But when he came to it, he was called from the right side of the valley in a blessed spot - from the tree, \"O Moses, indeed I am Allah, Lord of the worlds.\"" }}
   ]
 }

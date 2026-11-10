@@ -6,7 +6,7 @@
   "title": "The Threshold",
   "arabic": "عتبة الباب",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["19:55"],
   "art": ["The two visits are told in the hadith (al-Bukhari): Ibrahim's word about the threshold of the door, and his blessing on the second household's meat and water.", "Ismail's wives appear only as dim figures of light; Ibrahim and Ismail as steady lights, far away."],
   "ambient": ["desert", "wind"],
   "base": "#d8c0a0",
@@ -36,6 +36,6 @@
     {"dur": 10000, "ambient": ["desert", "wind"], "cam": {"pos": [820, 515, 1050], "look": [820, 575, -3000]}, "say": "Years later Ibrahim came to visit while Ismail was out hunting. Ismail's wife, not knowing him, complained of hunger and hardship."},
     {"dur": 10000, "ambient": ["wind", "crickets"], "cam": {"pos": [900, 520, 1100], "look": [920, 568, -3000]}, "say": "Tell him to change the threshold of his door, Ibrahim said as he left; and Ismail understood, and parted from her."},
     {"dur": 12000, "ambient": ["desert", "voices"], "cam": {"pos": [820, 518, 1000], "look": [820, 588, -3000]}, "say": "On his next visit, Ismail's new wife thanked God for all they had and offered him meat and water. He prayed for blessing on them, and said: tell him to keep his threshold."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [830, 515, 1060], "look": [830, 582, -3000]}, "pendingVerse": {"ref": "19:55", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [830, 515, 1060], "look": [830, 582, -3000]}, "verse": { "ref": "19:55", "place": "sky", "en": "And he used to enjoin on his people prayer and zakah and was to his Lord pleasing." }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Visitors",
   "arabic": "الزائرون",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["11:77"],
   "art": [
     "The angels appear only as tall figures of radiance, never as men; that they came in the form of young men is said in the commentaries. Lut appears only as a steady light, far away."
   ],
@@ -45,6 +45,6 @@
     { "dur": 9000, "ambient": ["air", "city"], "cam": { "pos": [800, 530, 700], "look": [800, 590, -4000] },
       "say": "Lut went out to them, troubled for their sake, for he knew his people." },
     { "dur": 13000, "ambient": ["air", "city"], "cam": { "pos": [800, 525, 760], "look": [800, 580, -4000] },
-      "pendingVerse": { "ref": "11:77", "place": "sky" } }
+      "verse": { "ref": "11:77", "place": "sky", "en": "And when Our messengers, [the angels], came to Lot, he was anguished for them and felt for them great discomfort and said, \"This is a trying day.\"" } }
   ]
 }

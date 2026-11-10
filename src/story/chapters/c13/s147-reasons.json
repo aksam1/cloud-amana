@@ -6,7 +6,7 @@
   "title": "The Hidden Reasons",
   "arabic": "الأسباب الخفية",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["18:82"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "The servant of God appears as a soft green-white light. The king's ships, the parents and the orphans' treasure are shown only as he explains them."],
   "ambient": ["sea", "air"],
   "base": "#8a98a8",
@@ -26,6 +26,6 @@
     {"dur": 10000, "ambient": ["sea", "wind"], "cam": {"pos": [800, 515, 950], "look": [820, 660, -3000]}, "say": "Then he explained. The boat belonged to poor fishermen, and a king was seizing every sound boat; a damaged one would be left to them."},
     {"dur": 10000, "ambient": ["air"], "cam": {"pos": [800, 530, 600], "look": [800, 780, -3000], "dx": 6000}, "say": "The boy would have brought grief and disbelief upon his believing parents; God would give them a better child, purer and more loving."},
     {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [760, 525, 700], "look": [780, 740, -3000], "dx": 12000}, "say": "And under the wall lay a treasure belonging to two orphans, whose father had been a righteous man; it would wait for them until they came of age."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [760, 520, 850], "look": [780, 700, -3000], "dx": 12000}, "pendingVerse": {"ref": "18:82", "place": "sky", "part": "its closing: \"…as a mercy from your Lord. And I did it not of my own accord.\""}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [760, 520, 850], "look": [780, 700, -3000], "dx": 12000}, "verse": { "ref": "18:82", "ar": [21,28], "place": "sky", "en": "…as a mercy from your Lord. And I did it not of my own accord.…" }}
   ]
 }

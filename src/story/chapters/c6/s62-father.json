@@ -6,7 +6,7 @@
   "title": "My Father",
   "arabic": "حوار مع الأب",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["19:47"],
   "art": [
     "The scene is imagined from 19:42–47; Azar appears only as a dim figure and Ibrahim as a steady light. His father's anger is drawn as jagged strokes, never words."
   ],
@@ -43,6 +43,6 @@
     { "dur": 8500, "ambient": ["fire", "jeer"], "cam": { "pos": [800, 545, 780], "look": [800, 610, -3000] },
       "say": "His father turned on him in anger and told him to go away." },
     { "dur": 13000, "ambient": ["air", "fire"], "cam": { "pos": [900, 530, 1000], "look": [960, 570, -3000] },
-      "pendingVerse": { "ref": "19:47", "place": "sky" } }
+      "verse": { "ref": "19:47", "place": "sky", "en": "[Abraham] said, \"Peace will be upon you. I will ask forgiveness for you of my Lord. Indeed, He is ever gracious to me." } }
   ]
 }

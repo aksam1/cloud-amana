@@ -6,7 +6,7 @@
   "title": "The Table from Heaven",
   "arabic": "المائدة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["5:114"],
   "art": ["Isa appears only as a steady light; his mother, the disciples and the people as soft or dim figures of light. Nothing in these scenes stands for God. The land's look is imagined.", "The table is drawn spread with loaves and fish as the commentaries describe; the Quran tells only that it was sent down (5:112–115)."],
   "ambient": ["wind", "air"],
   "base": "#1a1820",
@@ -41,6 +41,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["wind", "air"], "cam": {"pos": [940, 545, 350], "look": [960, 920, -3000]}, "say": "The disciples asked: can your Lord send down to us a table spread with food from heaven? So Isa prayed: our Lord, send us down a table, to be a festival for us and a sign from You."},
     {"dur": 12000, "ambient": ["air"], "sfx": [{"name": "swell", "at": 800}], "world": {"bloom": 1.05}, "cam": {"pos": [940, 535, 500], "look": [960, 820, -3000]}, "say": "And God sent it down, warning that whoever disbelieved after this would face a punishment like no other."},
-    {"dur": 12000, "ambient": ["air"], "world": {"bloom": 1.0}, "cam": {"pos": [940, 540, 450], "look": [960, 860, -3000]}, "pendingVerse": {"ref": "5:114", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "world": {"bloom": 1.0}, "cam": {"pos": [940, 540, 450], "look": [960, 860, -3000]}, "verse": { "ref": "5:114", "place": "sky", "en": "Said Jesus, the son of Mary, \"O Allah, our Lord, send down to us a table [spread with food] from the heaven to be for us a festival for the first of us and the last of us and a sign from You. And provide for us, and You are the best of providers.\"" }}
   ]
 }

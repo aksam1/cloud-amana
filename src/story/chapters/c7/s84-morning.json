@@ -6,7 +6,7 @@
   "title": "The Morning",
   "arabic": "ذلك الصباح",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["11:82"],
   "art": [
     "No one is shown suffering: the cities' lights go out and the land is turned over, as the Quran describes; the stones are streaks of clay red.",
     "The cities by the Dead Sea are imagined."
@@ -46,6 +46,6 @@
     { "dur": 9000, "ambient": ["storm", "wind"], "sfx": [{ "name": "rumble", "at": 600 }], "world": { "shake": 1.0 },
       "say": "And stones of baked clay rained down upon them, layer on layer." },
     { "dur": 13000, "ambient": ["wind"], "world": { "shake": 0.3 }, "cam": { "pos": [800, 515, 1250], "look": [800, 560, -3000] },
-      "pendingVerse": { "ref": "11:82", "place": "sky" } }
+      "verse": { "ref": "11:82", "place": "sky", "en": "So when Our command came, We made the highest part [of the city] its lowest and rained upon them stones of layered hard clay, [which were]" } }
   ]
 }

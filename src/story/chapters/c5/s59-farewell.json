@@ -6,7 +6,7 @@
   "title": "Salih Turns Away",
   "arabic": "وداع صالح",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:79"],
   "art": [
     "Salih and those who believed appear only as steady lights, far away and from behind; the empty homes follow the tombs of al-Hijr as they stand today, and the closing words echo 27:52."
   ],
@@ -69,6 +69,6 @@
       "cam": { "dx": 12000, "from": { "pos": [800, 470, 1200], "look": [800, 520, -3000] }, "pos": [800, 460, 1050], "look": [800, 520, -3000] },
       "say": "Their houses stand empty in the rock to this day, a sign for those who know." },
     { "dur": 12000, "ambient": ["air"], "world": { "cycle": null }, "cam": { "dx": 12000, "pos": [800, 460, 1000], "look": [800, 520, -3000] },
-      "pendingVerse": { "ref": "7:79", "place": "lower" } }
+      "verse": { "ref": "7:79", "place": "lower", "en": "And he turned away from them and said, \"O my people, I had certainly conveyed to you the message of my Lord and advised you, but you do not like advisors.\"" } }
   ]
 }

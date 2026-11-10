@@ -6,7 +6,7 @@
   "title": "The Barren Valley",
   "arabic": "الوادي القاحل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["14:37"],
   "art": [
     "The valley is the place that became Makkah; its look is imagined. Hajar appears as a dim figure of light, the infant Ismail as a small light, Ibrahim as a steady light, far away and from behind.",
     "Hajar's question and Ibrahim's prayer at the pass are told in the hadith (al-Bukhari)."
@@ -60,6 +60,6 @@
     { "dur": 10000, "ambient": ["desert"], "cam": { "pos": [820, 520, 1060], "look": [820, 565, -3000] },
       "say": "He left them dates and a skin of water, and turned to go. Hajar asked: did God command you this? Yes, he said. Then He will not abandon us, she answered." },
     { "dur": 13000, "ambient": ["wind"], "cam": { "dx": 6000, "from": { "pos": [800, 500, 1150], "look": [800, 560, -3000] }, "pos": [760, 510, 1050], "look": [780, 580, -3000] },
-      "pendingVerse": { "ref": "14:37", "place": "sky" } }
+      "verse": { "ref": "14:37", "place": "sky", "en": "Our Lord, I have settled some of my descendants in an uncultivated valley near Your sacred House, our Lord, that they may establish prayer. So make hearts among the people incline toward them and provide for them from the fruits that they might be grateful." } }
   ]
 }

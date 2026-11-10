@@ -6,7 +6,7 @@
   "title": "The Child Speaks",
   "arabic": "الطفل يتكلم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["19:30"],
   "art": ["Prophets appear only as steady lights; Maryam and her mother as soft lights; the people as dim figures of light. Angels are columns of light, never figures. The look of the temple and the land is imagined.", "The people's reproach is drawn as jagged strokes; the infant's words are given as the Quran gives them (19:30–33)."],
   "ambient": ["crowd", "jeer"],
   "base": "#c8c0b0",
@@ -33,6 +33,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["crowd", "jeer"], "cam": {"pos": [800, 525, 700], "look": [800, 730, -3000]}, "say": "Maryam brought the child to her people. Maryam, they cried, you have done a terrible thing! Your father was no evil man, and your mother was chaste."},
     {"dur": 11000, "ambient": ["air"], "world": {"bloom": 1.0}, "cam": {"pos": [800, 535, 520], "look": [800, 790, -3000]}, "say": "She pointed to the baby. How can we speak to an infant in the cradle? they said. And the child spoke: I am the servant of God. He has given me the Scripture and made me a prophet."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 525, 700], "look": [800, 730, -3000]}, "pendingVerse": {"ref": "19:30", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 525, 700], "look": [800, 730, -3000]}, "verse": { "ref": "19:30", "place": "sky", "en": "[Jesus] said, \"Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet." }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Wall of Iron",
   "arabic": "السد",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["18:98"],
   "art": ["Dhul-Qarnayn and the people appear only as lights. Gog and Magog (Ya'juj and Ma'juj) are never shown: only the wall that holds them back (18:94–98)."],
   "ambient": ["work", "fire"],
   "base": "#2a2220",
@@ -33,6 +33,6 @@
     {"dur": 10000, "ambient": ["work", "wind"], "sfx": [{"name": "hoe", "at": 1500}, {"name": "hoe", "at": 4500}], "cam": {"pos": [800, 500, 1100], "look": [800, 520, -3000]}, "say": "Between two mountains he found a people who begged him: Ya'juj and Ma'juj spread corruption in the land. Build a barrier between us and them, and we will pay you."},
     {"dur": 11000, "ambient": ["fire", "work"], "cam": {"pos": [800, 500, 1050], "look": [800, 520, -3000]}, "say": "What my Lord has given me is better, he said; help me only with your strength. Bring me blocks of iron. When the gap was filled, he said: blow on the fires! until the iron glowed like fire;"},
     {"dur": 10000, "ambient": ["fire", "air"], "cam": {"pos": [800, 500, 1100], "look": [800, 510, -3000]}, "say": "then he poured molten copper over it. They could not climb it, and they could not dig through it."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 505, 1100], "look": [800, 520, -3000]}, "pendingVerse": {"ref": "18:98", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 505, 1100], "look": [800, 520, -3000]}, "verse": { "ref": "18:98", "place": "sky", "en": "[Dhul-Qarnayn] said, \"This is a mercy from my Lord; but when the promise of my Lord comes, He will make it level, and ever is the promise of my Lord true.\"" }}
   ]
 }

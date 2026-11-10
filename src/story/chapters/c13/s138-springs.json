@@ -6,7 +6,7 @@
   "title": "Twelve Springs",
   "arabic": "ينابيع الصخرة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:60"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "The twelve springs and the twelve tribes are as the Quran tells (2:60, 7:160)."],
   "ambient": ["desert", "voices"],
   "base": "#d8c0a0",
@@ -42,6 +42,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["desert", "voices"], "cam": {"pos": [800, 515, 900], "look": [800, 680, -3000]}, "say": "When his people were thirsty, Musa prayed for water. Strike the rock with your staff, he was told."},
     {"dur": 11000, "ambient": ["spring", "voices"], "sfx": [{"name": "swell", "at": 500}], "cam": {"pos": [800, 520, 700], "look": [800, 760, -3000]}, "say": "Twelve springs gushed out from it, one for each of the twelve tribes, and each knew its own place to drink."},
-    {"dur": 12000, "ambient": ["spring", "air"], "cam": {"pos": [800, 515, 900], "look": [800, 680, -3000]}, "pendingVerse": {"ref": "2:60", "place": "sky", "part": "to \"Every people knew its watering place\""}}
+    {"dur": 12000, "ambient": ["spring", "air"], "cam": {"pos": [800, 515, 900], "look": [800, 680, -3000]}, "verse": { "ref": "2:60", "ar": [1,20], "place": "sky", "en": "And [recall] when Moses prayed for water for his people, so We said, \"Strike with your staff the stone.\" And there gushed forth from it twelve springs, and every people knew its watering place.…" }}
   ]
 }

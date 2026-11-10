@@ -6,7 +6,7 @@
   "title": "The Chest of Tranquillity",
   "arabic": "التابوت",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["2:248"],
   "art": ["The prophet of the Children of Israel in Talut's time is named Shamwil (Samuel) in the commentaries; he and the people appear only as lights. The angels who carried the chest are columns of light (2:248). The chest's relics are not shown."],
   "ambient": ["crowd", "wind"],
   "base": "#c8c0b0",
@@ -32,6 +32,6 @@
   "beats": [
     {"dur": 11000, "ambient": ["crowd", "jeer"], "cam": {"pos": [820, 525, 700], "look": [820, 730, -3000]}, "say": "Long after Musa, the Children of Israel asked their prophet for a king to lead them in God's cause, and God chose Talut. How can he be king over us, they objected, when he has no great wealth?"},
     {"dur": 12000, "ambient": ["crowd", "air"], "world": {"bloom": 0.95}, "cam": {"pos": [820, 520, 800], "look": [820, 690, -3000]}, "say": "God chose him and gave him knowledge and strength, their prophet said, and here is the sign: the chest will come to you, carried by angels, bringing tranquillity from your Lord and what was left by the families of Musa and Harun."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [820, 525, 750], "look": [820, 720, -3000]}, "pendingVerse": {"ref": "2:248", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [820, 525, 750], "look": [820, 720, -3000]}, "verse": { "ref": "2:248", "place": "sky", "en": "And their prophet said to them, \"Indeed, a sign of his kingship is that the chest will come to you in which is assurance from your Lord and a remnant of what the family of Moses and the family of Aaron had left, carried by the angels. Indeed in that is a sign for you, if you are believers.\"" }}
   ]
 }

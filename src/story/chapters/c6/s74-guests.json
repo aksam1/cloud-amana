@@ -6,7 +6,7 @@
   "title": "The Honoured Guests",
   "arabic": "الضيوف",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["11:71"],
   "art": [
     "The guests are angels and appear only as tall figures of radiance; Ibrahim appears as a steady light and Sarah as a dim figure of light. The meal is told, not shown."
   ],
@@ -44,6 +44,6 @@
     { "dur": 9000, "ambient": ["air", "fire"], "cam": { "pos": [800, 520, 950], "look": [820, 570, -3000] },
       "say": "Do not be afraid, they said, and gave him news of a son who would be wise." },
     { "dur": 13000, "ambient": ["air"], "cam": { "pos": [760, 520, 980], "look": [780, 570, -3000] },
-      "pendingVerse": { "ref": "11:71", "place": "sky" } }
+      "verse": { "ref": "11:71", "place": "sky", "en": "And his Wife was standing, and she smiled. Then We gave her good tidings of Isaac and after Isaac, Jacob." } }
   ]
 }

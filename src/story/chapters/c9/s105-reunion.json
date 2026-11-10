@@ -6,7 +6,7 @@
   "title": "The Dream Fulfilled",
   "arabic": "لقاء يوسف وأبيه",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:100"],
   "art": ["Yusuf and Yaqub appear only as steady lights; the family as dim figures of light. Their bowing was the greeting of their time, as the Quran tells it."],
   "ambient": ["echo", "voices"],
   "base": "#10141e",
@@ -26,6 +26,6 @@
     {"dur": 10000, "ambient": ["echo", "voices"], "cam": {"pos": [800, 520, 520], "look": [800, 880, -3000]}, "say": "At last he told them: I am Yusuf. And he forgave them: no blame on you today."},
     {"dur": 10000, "ambient": ["birds", "air"], "cam": {"pos": [860, 525, 950], "look": [870, 600, -3000], "dx": 6000}, "say": "He sent his shirt to his father. Laid over Yaqub's face, it gave him back his sight."},
     {"dur": 11000, "ambient": ["echo", "voices"], "cam": {"pos": [800, 520, 520], "look": [800, 880, -3000]}, "say": "The whole family came to Egypt. Yusuf seated his parents beside him, and his brothers bowed: the dream of the eleven stars, the sun and the moon had come true. My Lord, Yusuf prayed, let me die in submission to You, and join me with the righteous."},
-    {"dur": 13000, "ambient": ["echo", "air"], "cam": {"pos": [800, 520, 520], "look": [800, 880, -3000]}, "pendingVerse": {"ref": "12:100", "place": "sky", "part": "from his raising his parents to \"this is the explanation of my vision of before\""}}
+    {"dur": 13000, "ambient": ["echo", "air"], "cam": {"pos": [800, 520, 520], "look": [800, 880, -3000]}, "verse": { "ref": "12:100", "ar": [0,14], "place": "sky", "en": "And he raised his parents upon the throne, and they bowed to him in prostration. And he said, \"O my father, this is the explanation of my vision of before.…" }}
   ]
 }

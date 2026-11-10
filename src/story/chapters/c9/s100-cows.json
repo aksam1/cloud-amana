@@ -6,7 +6,7 @@
   "title": "The King's Dream",
   "arabic": "رؤيا الملك",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:43"],
   "art": ["The king appears only as a dim figure of light. The dream's cows and ears of grain are drawn in ink as he described them."],
   "ambient": ["echo", "air"],
   "base": "#0e0a18",
@@ -25,6 +25,6 @@
     {"dur": 9000, "ambient": ["echo", "voices"], "cam": {"pos": [800, 560, 480], "look": [800, 800, -3000]}, "say": "The king of Egypt dreamed a dream that no one in his court could explain."},
     {"dur": 10000, "ambient": ["air"], "cam": {"pos": [800, 640, 900], "look": [800, 1150, -3000], "dx": 6000}, "say": "Seven fat cows were eaten by seven lean ones;"},
     {"dur": 9000, "ambient": ["air", "wind"], "cam": {"pos": [800, 640, 900], "look": [800, 1150, -3000], "dx": 6000}, "say": "and there were seven green ears of grain, and seven dry."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 640, 960], "look": [800, 1180, -3000], "dx": 6000}, "pendingVerse": {"ref": "12:43", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 640, 960], "look": [800, 1180, -3000], "dx": 6000}, "verse": { "ref": "12:43", "place": "sky", "en": "And [subsequently] the king said, \"Indeed, I have seen [in a dream] seven fat cows being eaten by seven [that were] lean, and seven green spikes [of grain] and others [that were] dry. O eminent ones, explain to me my vision, if you should interpret visions.\"" }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "Haman's Tower",
   "arabic": "برج هامان",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["40:28"],
   "art": ["Pharaoh, Haman and the believing man of Pharaoh's family appear only as dim figures of light, Pharaoh's cold. The tower's look is imagined."],
   "ambient": ["work", "city"],
   "base": "#d8c8a8",
@@ -25,6 +25,6 @@
     {"dur": 10000, "ambient": ["work", "city"], "sfx": [{"name": "hoe", "at": 2000}], "cam": {"pos": [900, 510, 1100], "look": [920, 560, -3000]}, "say": "Pharaoh mocked Musa's God. Haman, he ordered, bake bricks and build me a tower, that I may climb up and look at the God of Musa; I think he is a liar."},
     {"dur": 10000, "ambient": ["work", "wind"], "cam": {"pos": [920, 470, 1100], "look": [940, 380, -3000]}, "say": "So the tower rose, brick upon brick; but no tower could reach the One who made the heavens."},
     {"dur": 11000, "ambient": ["echo", "voices"], "cam": {"pos": [800, 535, 500], "look": [800, 860, -3000], "dx": 6000}, "say": "Then a man of Pharaoh's own family, who had hidden his faith, spoke up: will you kill a man simply for saying, my Lord is God, when he has brought you clear proofs?"},
-    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 530, 650], "look": [800, 800, -3000], "dx": 6000}, "pendingVerse": {"ref": "40:28", "place": "sky", "part": "from \"Do you kill a man [merely] because he says, My Lord is Allah\""}}
+    {"dur": 12000, "ambient": ["echo", "air"], "cam": {"pos": [800, 530, 650], "look": [800, 800, -3000], "dx": 6000}, "verse": { "ref": "40:28", "ar": [8,18], "place": "sky", "en": "…\"Do you kill a man [merely] because he says, 'My Lord is Allah' while he has brought you clear proofs from your Lord?…" }}
   ]
 }

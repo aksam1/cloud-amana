@@ -6,7 +6,7 @@
   "title": "In the Darkness",
   "arabic": "ظلمة البحر",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["21:87"],
   "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "The darkness of the night, of the sea and of the whale's belly (from the commentaries on 21:87) is shown as deep darkness around a small steady light."],
   "ambient": ["sea", "air"],
   "base": "#030506",
@@ -26,6 +26,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["sea"], "cam": {"pos": [800, 520, 800], "look": [800, 700, -3000]}, "say": "In the darkness, Yunus knew he had done wrong in leaving."},
     {"dur": 11000, "ambient": ["sea", "air"], "cam": {"pos": [800, 530, 500], "look": [800, 800, -3000]}, "say": "He called out: there is no god but You. Glory be to You! I have been one of the wrongdoers."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 525, 650], "look": [800, 750, -3000]}, "pendingVerse": {"ref": "21:87", "place": "sky", "part": "from \"And he called out within the darknesses\""}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 525, 650], "look": [800, 750, -3000]}, "verse": { "ref": "21:87", "ar": [10,22], "place": "sky", "en": "…And he called out within the darknesses, \"There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.\"" }}
   ]
 }

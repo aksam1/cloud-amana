@@ -6,7 +6,7 @@
   "title": "Raised Up",
   "arabic": "الرفع",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["4:158"],
   "art": ["Isa appears only as a steady light; his mother, the disciples and the people as soft or dim figures of light. Nothing in these scenes stands for God. The land's look is imagined.", "As the Quran tells (4:157–158), they did not kill him or crucify him; God raised him up to Himself. Nothing else is shown: his light rises into the night sky and the torches find no one."],
   "ambient": ["wind", "crickets"],
   "base": "#141824",
@@ -39,6 +39,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["wind", "crickets"], "cam": {"pos": [860, 530, 650], "look": [880, 740, -3000]}, "say": "Those who rejected Isa plotted to kill him. They planned, and God planned; and God is the best of planners."},
     {"dur": 13000, "ambient": ["wind", "air"], "world": {"bloom": 1.0}, "cam": {"pos": [820, 500, 900], "look": [820, 380, -3000]}, "say": "They did not kill him, nor did they crucify him; it was only made to appear so to them. God raised him up to Himself."},
-    {"dur": 12000, "ambient": ["crickets", "air"], "cam": {"pos": [860, 520, 800], "look": [880, 640, -3000]}, "pendingVerse": {"ref": "4:158", "place": "sky"}}
+    {"dur": 12000, "ambient": ["crickets", "air"], "cam": {"pos": [860, 520, 800], "look": [880, 640, -3000]}, "verse": { "ref": "4:158", "place": "sky", "en": "Rather, Allah raised him to Himself. And ever is Allah Exalted in Might and Wise." }}
   ]
 }

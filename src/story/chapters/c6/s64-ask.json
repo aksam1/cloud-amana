@@ -6,7 +6,7 @@
   "title": "Ask Them",
   "arabic": "المواجهة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["21:63"],
   "art": [
     "The crowd's anger is drawn as jagged strokes, never words; the people appear as dim lights and Ibrahim as a steady light. The broken idols lie as they fell."
   ],
@@ -44,6 +44,6 @@
     { "dur": 8000, "ambient": ["jeer", "crowd"],
       "say": "Was it you who did this to our gods, they asked." },
     { "dur": 12000, "ambient": ["air"], "cam": { "pos": [800, 580, 1350], "look": [800, 1250, -3000] },
-      "pendingVerse": { "ref": "21:63", "place": "lower" } }
+      "verse": { "ref": "21:63", "place": "lower", "en": "He said, \"Rather, this - the largest of them - did it, so ask them, if they should [be able to] speak.\"" } }
   ]
 }

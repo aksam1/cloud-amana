@@ -6,7 +6,7 @@
   "title": "Forty Years in the Wilderness",
   "arabic": "التيه",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["5:26"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "Of Musa's and Harun's deaths nothing is shown; the chapter closes on the wandering."],
   "ambient": ["wind", "desert"],
   "base": "#d8c0a0",
@@ -31,6 +31,6 @@
   "beats": [
     {"dur": 11000, "ambient": ["wind", "voices"], "cam": {"pos": [820, 515, 900], "look": [820, 640, -3000]}, "say": "Musa brought them to the edge of the holy land, but they were afraid of the people there and refused to enter: go, you and your Lord, and fight. We will sit here."},
     {"dur": 14000, "ambient": ["wind", "desert"], "cam": {"pos": [800, 510, 1100], "look": [800, 600, -3000]}, "say": "So for forty years they wandered in the desert, until a new generation grew up."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 510, 1000], "look": [800, 610, -3000]}, "pendingVerse": {"ref": "5:26", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 510, 1000], "look": [800, 610, -3000]}, "verse": { "ref": "5:26", "place": "sky", "en": "[Allah] said, \"Then indeed, it is forbidden to them for forty years [in which] they will wander throughout the land. So do not grieve over the defiantly disobedient people.\"" }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Call to Pilgrimage",
   "arabic": "النداء إلى الحج",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["22:27"],
   "art": [
     "Ibrahim appears only as a steady light, far away and from behind; the pilgrims as lights. That he asked how his voice would reach them is told by Ibn Abbas (in the commentary of al-Tabari).",
     "In the last shots the House stands as it does today, robed in black with a band of gold; the band's pattern is drawn as shapes, never letters."
@@ -60,6 +60,6 @@
     { "dur": 10000, "ambient": ["crowd", "voices"], "cam": { "dx": 6000, "pos": [800, 500, 1100], "look": [800, 560, -3000] },
       "say": "To this day they circle the House that Ibrahim and Ismail raised, answering his call." },
     { "dur": 13000, "ambient": ["crowd", "air"], "cam": { "dx": 6000, "pos": [800, 505, 1000], "look": [800, 575, -3000] },
-      "pendingVerse": { "ref": "22:27", "place": "sky" } }
+      "verse": { "ref": "22:27", "place": "sky", "en": "And proclaim to the people the Hajj [pilgrimage]; they will come to you on foot and on every lean camel; they will come from every distant pass -" } }
   ]
 }

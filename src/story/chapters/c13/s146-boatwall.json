@@ -6,7 +6,7 @@
   "title": "The Boat and the Wall",
   "arabic": "السفينة والجدار",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["18:68"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "The servant of God appears as a soft green-white light. Of the boy, nothing is shown: his part of the story is told in words alone."],
   "ambient": ["sea", "wind"],
   "base": "#8a98a8",
@@ -25,6 +25,6 @@
     {"dur": 11000, "ambient": ["sea", "wind"], "sfx": [{"name": "scratch", "at": 2000}], "cam": {"pos": [840, 525, 700], "look": [860, 740, -3000]}, "say": "You will not be able to bear with me patiently, the servant of God warned. They boarded a boat, and he broke a plank in its side. Musa could not keep silent."},
     {"dur": 9000, "ambient": ["sea", "air"], "cam": {"pos": [820, 520, 850], "look": [840, 700, -3000]}, "say": "Further on they met a boy, and the servant of God took his life. Again Musa protested; again he was reminded to be patient."},
     {"dur": 11000, "ambient": ["wind", "work"], "cam": {"pos": [760, 525, 700], "look": [780, 740, -3000], "dx": 6000}, "say": "In a town whose people refused them food, he rebuilt a wall that was about to fall, and asked nothing for it."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [780, 520, 850], "look": [800, 700, -3000], "dx": 6000}, "pendingVerse": {"ref": "18:68", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [780, 520, 850], "look": [800, 700, -3000], "dx": 6000}, "verse": { "ref": "18:68", "place": "sky", "en": "And how can you have patience for what you do not encompass in knowledge?\"" }}
   ]
 }

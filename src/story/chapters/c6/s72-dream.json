@@ -6,7 +6,7 @@
   "title": "The Dream",
   "arabic": "رؤيا إبراهيم",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:102"],
   "art": [
     "Ibrahim and Ismail appear only as steady lights, far away. The dream is shown only as the night sky.",
     "That a tribe (Jurhum) settled by the spring is told in the hadith (al-Bukhari); that the dreams of prophets are revelation is the teaching of the Companions."
@@ -49,6 +49,6 @@
     { "dur": 10000, "ambient": ["wind", "air"], "cam": { "pos": [960, 520, 1080], "look": [980, 570, -3000] },
       "say": "In the morning he told Ismail what he had seen, and asked him what he thought." },
     { "dur": 13000, "ambient": ["wind"], "cam": { "pos": [1080, 525, 1000], "look": [1100, 595, -3000] },
-      "pendingVerse": { "ref": "37:102", "place": "sky" } }
+      "verse": { "ref": "37:102", "place": "sky", "en": "And when he reached with him [the age of] exertion, he said, \"O my son, indeed I have seen in a dream that I [must] sacrifice you, so see what you think.\" He said, \"O my father, do as you are commanded. You will find me, if Allah wills, of the steadfast.\"" } }
   ]
 }

@@ -6,7 +6,7 @@
   "title": "Give Full Measure",
   "arabic": "الأمانة في السوق",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["26:181-182"],
   "art": ["Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined.", "His words are given as the Quran gives them (26:181–183); the balance coming level stands for the fair measure he asked of them."],
   "ambient": ["city", "voices"],
   "base": "#d8c0a0",
@@ -35,6 +35,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["city", "voices"], "cam": {"pos": [860, 540, 600], "look": [880, 760, -3000]}, "say": "God sent them one of their own, the prophet Shu'ayb."},
     {"dur": 11000, "ambient": ["city", "voices"], "cam": {"pos": [900, 545, 480], "look": [930, 790, -3000]}, "say": "Give full measure and full weight, he told them. Do not cheat people of what is theirs, and do not spread corruption in the land."},
-    {"dur": 12000, "ambient": ["city", "air"], "cam": {"pos": [880, 530, 760], "look": [900, 700, -3000]}, "pendingVerse": {"ref": "26:181-182", "place": "sky"}}
+    {"dur": 12000, "ambient": ["city", "air"], "cam": {"pos": [880, 530, 760], "look": [900, 700, -3000]}, "verse": { "ref": "26:181-182", "place": "sky", "en": "Give full measure and do not be of those who cause loss. And weigh with an even balance." }}
   ]
 }

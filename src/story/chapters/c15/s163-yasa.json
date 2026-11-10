@@ -6,7 +6,7 @@
   "title": "Al-Yasa'",
   "arabic": "اليسع",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["38:48"],
   "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "That Al-Yasa' followed Ilyas and carried on his work is from the commentaries; the Quran names him among the best (38:48)."],
   "ambient": ["birds", "wind"],
   "base": "#c8c0b0",
@@ -35,6 +35,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["birds", "wind"], "cam": {"pos": [780, 525, 700], "look": [800, 720, -3000]}, "say": "After Ilyas came Al-Yasa', who carried on calling the Children of Israel back to God."},
     {"dur": 10000, "ambient": ["birds", "voices"], "cam": {"pos": [960, 525, 650], "look": [980, 740, -3000]}, "say": "Little is told of him, but the Quran counts him among the best of people."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [920, 520, 800], "look": [940, 690, -3000]}, "pendingVerse": {"ref": "38:48", "place": "sky"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [920, 520, 800], "look": [940, 690, -3000]}, "verse": { "ref": "38:48", "place": "sky", "en": "And remember Ishmael, Elisha and Dhul-Kifl, and all are among the outstanding." }}
   ]
 }

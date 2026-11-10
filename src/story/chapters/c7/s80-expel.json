@@ -6,7 +6,7 @@
   "title": "Drive Them Out",
   "arabic": "التهديد بالطرد",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["27:56"],
   "art": [
     "Lut appears only as a steady light and his household as small lights within; the people as dim lights, their mockery as jagged strokes. The house and the gate are imagined."
   ],
@@ -47,6 +47,6 @@
     { "dur": 9000, "ambient": ["crowd", "jeer"], "world": { "fog": "#c8b8a0", "light": 1.0 }, "cam": { "dx": 6000, "from": { "pos": [800, 540, 1150], "look": [800, 590, -3000] }, "pos": [800, 540, 1050], "look": [800, 600, -3000] },
       "say": "They mocked him: bring God's punishment down on us, if you are telling the truth." },
     { "dur": 13000, "ambient": ["jeer", "crowd"], "world": { "fog": "#2e2a38", "light": 0.95 }, "cam": { "pos": [800, 540, 1060], "look": [800, 610, -3000] },
-      "pendingVerse": { "ref": "27:56", "place": "sky" } }
+      "verse": { "ref": "27:56", "place": "sky", "en": "But the answer of his people was not except that they said, \"Expel the family of Lot from your city. Indeed, they are people who keep themselves pure.\"" } }
   ]
 }

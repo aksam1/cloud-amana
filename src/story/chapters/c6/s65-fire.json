@@ -6,7 +6,7 @@
   "title": "The Fire",
   "arabic": "النار",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["21:69"],
   "art": [
     "How Ibrahim was cast into the fire is from the commentaries and is not shown; he appears only as a steady light, and the fire's turning cool is drawn from the verse. Nothing violent is shown."
   ],
@@ -42,6 +42,6 @@
       "say": "But the fire did not burn him." },
     { "dur": 13000, "ambient": ["air", "spring"], "world": { "fog": "#1a2232", "light": 0.85, "bloom": 0.8, "haze": 0.12, "shake": 0.2 },
       "cam": { "pos": [800, 520, 560], "look": [800, 520, -2400] },
-      "pendingVerse": { "ref": "21:69", "place": "sky" } }
+      "verse": { "ref": "21:69", "place": "sky", "en": "Allah said, \"O fire, be coolness and safety upon Abraham.\"" } }
   ]
 }

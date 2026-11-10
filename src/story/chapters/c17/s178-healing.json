@@ -6,7 +6,7 @@
   "title": "By God's Leave",
   "arabic": "الشفاء",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["3:49"],
   "art": ["Isa appears only as a steady light; his mother, the disciples and the people as soft or dim figures of light. Nothing in these scenes stands for God. The land's look is imagined.", "The blind and the sick are shown only as grey lights that grow bright. The one raised from death is a light kindled again; nothing of death is shown."],
   "ambient": ["voices", "wind"],
   "base": "#c8c0b0",
@@ -38,6 +38,6 @@
     {"dur": 10000, "ambient": ["voices", "wind"], "cam": {"pos": [900, 525, 600], "look": [920, 760, -3000]}, "say": "Crowds followed Isa wherever he went, bringing the blind and the sick."},
     {"dur": 11000, "ambient": ["voices", "air"], "cam": {"pos": [940, 525, 650], "look": [960, 750, -3000]}, "say": "By God's permission he healed the blind and the leper,"},
     {"dur": 11000, "ambient": ["air"], "world": {"bloom": 0.9}, "cam": {"pos": [1180, 530, 550], "look": [1220, 780, -3000]}, "say": "and by God's permission he brought the dead back to life. These are signs, he told them, if you are believers."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [960, 520, 800], "look": [980, 700, -3000]}, "pendingVerse": {"ref": "3:49", "place": "sky", "part": "from \"And I cure the blind\" to \"by permission of Allah\""}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [960, 520, 800], "look": [980, 700, -3000]}, "verse": { "ref": "3:49", "ar": [25,31], "place": "sky", "en": "…And I cure the blind and the leper, and I give life to the dead - by permission of Allah.…" }}
   ]
 }

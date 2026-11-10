@@ -6,7 +6,7 @@
   "title": "Restored",
   "arabic": "العطاء بعد الصبر",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["38:43", "38:44"],
   "art": ["Ayyub appears only as a steady light; his wife and children as dim figures of light. His wealth, herds and family before the trial are told in the commentaries; the Quran names his trial, his prayer and his patience. His illness is never shown: his light only dims. His land is drawn as the wheat plains of the Hauran, where tradition places him; his farmhouse is imagined.", "The Quran tells that his family was given back to him, and as many again with them (38:43); the rest is imagined."],
   "ambient": ["sheep", "birds"],
   "base": "#c8c0b0",
@@ -35,8 +35,8 @@
   ],
   "beats": [
     {"dur": 10000, "ambient": ["sheep", "birds"], "cam": {"pos": [1020, 520, 900], "look": [1060, 640, -3000]}, "say": "God gave him back his family, and as many again with them."},
-    {"dur": 12000, "ambient": ["sheep", "air"], "cam": {"pos": [1000, 525, 820], "look": [1030, 690, -3000]}, "pendingVerse": {"ref": "38:43", "place": "sky"}},
+    {"dur": 12000, "ambient": ["sheep", "air"], "cam": {"pos": [1000, 525, 820], "look": [1030, 690, -3000]}, "verse": { "ref": "38:43", "place": "sky", "en": "And We granted him his family and a like [number] with them as mercy from Us and a reminder for those of understanding." }},
     {"dur": 10000, "ambient": ["birds", "air"], "cam": {"pos": [960, 540, 620], "look": [990, 760, -3000]}, "say": "His flocks and fields flourished again. Through everything, he had been patient, and he never stopped turning back to God."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [1000, 525, 820], "look": [1030, 690, -3000]}, "pendingVerse": {"ref": "38:44", "place": "sky", "part": "its closing words: \"Indeed, We found him patient, an excellent servant…\""}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [1000, 525, 820], "look": [1030, 690, -3000]}, "verse": { "ref": "38:44", "ar": [8,16], "place": "sky", "en": "…Indeed, We found him patient, an excellent servant. Indeed, he was one repeatedly turning back [to Allah]." }}
   ]
 }

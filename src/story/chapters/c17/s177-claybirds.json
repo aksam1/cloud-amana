@@ -6,7 +6,7 @@
   "title": "Birds of Clay",
   "arabic": "طيور من طين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["3:49"],
   "art": ["Isa appears only as a steady light; his mother, the disciples and the people as soft or dim figures of light. Nothing in these scenes stands for God. The land's look is imagined.", "The clay birds are drawn in ink; their flight is by God's permission, as Isa says in 3:49 and as 5:110 tells."],
   "ambient": ["voices", "birds"],
   "base": "#c8c0b0",
@@ -41,6 +41,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["voices", "birds"], "cam": {"pos": [1000, 540, 350], "look": [1000, 880, -3000]}, "say": "God sent Isa to the Children of Israel with clear signs. He shaped birds from clay before the people's eyes."},
     {"dur": 13000, "ambient": ["birds", "voices"], "sfx": [{"name": "wings", "at": 600}, {"name": "wings", "at": 1600}], "cam": {"pos": [980, 520, 650], "look": [980, 600, -3000]}, "say": "Then he breathed into them, and they became birds, and flew; by God's permission, not by his own power."},
-    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [980, 520, 800], "look": [980, 640, -3000]}, "pendingVerse": {"ref": "3:49", "place": "sky", "part": "from \"I design for you from clay\" to \"by permission of Allah\""}}
+    {"dur": 12000, "ambient": ["birds", "air"], "cam": {"pos": [980, 520, 800], "look": [980, 640, -3000]}, "verse": { "ref": "3:49", "ar": [12,23], "place": "sky", "en": "…I design for you from clay [that which is] like the form of a bird, then I breathe into it and it becomes a bird by permission of Allah.…" }}
   ]
 }

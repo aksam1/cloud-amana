@@ -6,7 +6,7 @@
   "title": "The Caravan",
   "arabic": "القافلة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["12:20"],
   "art": ["Yusuf appears only as a steady light; the travellers as dim figures of light. The caravan and its road are imagined."],
   "ambient": ["desert", "wind"],
   "base": "#d8c0a0",
@@ -25,6 +25,6 @@
     {"dur": 10000, "ambient": ["desert", "herd"], "cam": {"pos": [960, 520, 1100], "look": [980, 570, -3000]}, "say": "A caravan stopped at the well and sent a man to draw water."},
     {"dur": 9000, "ambient": ["desert", "voices"], "cam": {"pos": [900, 525, 980], "look": [910, 595, -3000]}, "say": "Instead of water he drew up a boy, and they hid him to sell as goods."},
     {"dur": 10000, "ambient": ["wind", "herd"], "cam": {"pos": [800, 510, 1150], "look": [800, 550, -3000], "dx": 6000}, "say": "In Egypt they sold him cheaply, for a few coins."},
-    {"dur": 12000, "ambient": ["wind"], "cam": {"pos": [800, 510, 1120], "look": [800, 552, -3000], "dx": 6000}, "pendingVerse": {"ref": "12:20", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind"], "cam": {"pos": [800, 510, 1120], "look": [800, 552, -3000], "dx": 6000}, "verse": { "ref": "12:20", "place": "sky", "en": "And they sold him for a reduced price - a few dirhams - and they were, concerning him, of those content with little." }}
   ]
 }

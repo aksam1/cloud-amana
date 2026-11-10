@@ -6,7 +6,7 @@
   "title": "The Signs over Egypt",
   "arabic": "آيات على مصر",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:133"],
   "art": ["Musa and Harun appear only as steady lights; Pharaoh, his chiefs, the magicians and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The signs are those the Quran names (7:133): flood, locusts, lice, frogs and blood. They are shown on the land and the river, never on people."],
   "ambient": ["storm", "rain"],
   "base": "#8a8a90",
@@ -34,6 +34,6 @@
     {"dur": 9000, "ambient": ["storm", "rain"], "sfx": [{"name": "thunder", "at": 2000}], "world": {"light": 0.75}, "cam": {"pos": [800, 515, 1100], "look": [800, 600, -3000]}, "say": "Pharaoh still refused. So God sent signs upon Egypt, one after another: a flood,"},
     {"dur": 9000, "ambient": ["wind", "rustle"], "world": {"light": 0.9}, "cam": {"pos": [820, 515, 1050], "look": [820, 610, -3000]}, "say": "locusts that stripped the fields, lice and frogs,"},
     {"dur": 10000, "ambient": ["wind", "water"], "world": {"light": 0.8}, "cam": {"pos": [800, 515, 1100], "look": [800, 610, -3000]}, "say": "and the river turned to blood. Each time, Pharaoh begged Musa to pray for it to end, and each time he broke his word."},
-    {"dur": 12000, "ambient": ["wind", "air"], "world": {"light": 0.8}, "cam": {"pos": [800, 515, 1100], "look": [800, 600, -3000]}, "pendingVerse": {"ref": "7:133", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "world": {"light": 0.8}, "cam": {"pos": [800, 515, 1100], "look": [800, 600, -3000]}, "verse": { "ref": "7:133", "place": "sky", "en": "So We sent upon them the flood and locusts and lice and frogs and blood as distinct signs, but they were arrogant and were a criminal people." }}
   ]
 }

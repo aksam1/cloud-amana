@@ -6,7 +6,7 @@
   "title": "At the Door",
   "arabic": "عند الباب",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["54:37"],
   "art": [
     "The angels appear only as radiance and Lut as a steady light; the crowd as dim lights and its demands as jagged strokes. The blinding is shown only as their lights faltering and scattering.",
     "The street and the house are imagined."
@@ -51,6 +51,6 @@
     { "dur": 10000, "ambient": ["air"], "sfx": [{ "name": "whoosh", "at": 400 }], "cam": { "dx": 6000, "pos": [800, 545, 1000], "look": [800, 640, -3000] },
       "say": "Then the guests told Lut that they were messengers from his Lord, and that the crowd would never reach him; and the crowd's eyes were struck blind." },
     { "dur": 13000, "ambient": ["air", "wind"], "cam": { "dx": 6000, "pos": [800, 540, 1060], "look": [800, 630, -3000] },
-      "pendingVerse": { "ref": "54:37", "place": "sky" } }
+      "verse": { "ref": "54:37", "place": "sky", "en": "And they had demanded from him his guests, but We obliterated their eyes, [saying], \"Taste My punishment and warning.\"" } }
   ]
 }

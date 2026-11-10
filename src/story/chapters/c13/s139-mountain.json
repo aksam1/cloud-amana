@@ -6,7 +6,7 @@
   "title": "The Mountain",
   "arabic": "الجبل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["7:143"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "God is not depicted, in any form or light: only the mountain is seen, crumbling to dust (7:143). The tablets are drawn with rows of strokes, never letters."],
   "ambient": ["wind", "air"],
   "base": "#10121a",
@@ -32,6 +32,6 @@
     {"dur": 11000, "ambient": ["wind"], "cam": {"pos": [820, 500, 1000], "look": [840, 560, -3000]}, "say": "Musa went up the mountain for forty nights, to receive guidance for his people. There he asked: my Lord, show Yourself to me, that I may look at You."},
     {"dur": 11000, "ambient": ["wind", "roar"], "sfx": [{"name": "rumble", "at": 2800}, {"name": "thunder", "at": 3200}], "world": {"shake": 1.6}, "cam": {"pos": [820, 500, 1000], "look": [840, 560, -3000]}, "say": "You will not see Me, he was told, but look at the mountain. When his Lord appeared to the mountain, it crumbled to dust, and Musa fell down unconscious."},
     {"dur": 11000, "ambient": ["air"], "world": {"shake": 0.3}, "cam": {"pos": [860, 530, 600], "look": [880, 760, -3000]}, "say": "When he woke he said: glory be to You! I turn to You in repentance. Then he was given the tablets, written with guidance for his people."},
-    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [860, 520, 800], "look": [880, 700, -3000]}, "pendingVerse": {"ref": "7:143", "place": "sky", "part": "from \"And when he awoke\" to the end"}}
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [860, 520, 800], "look": [880, 700, -3000]}, "verse": { "ref": "7:143", "ar": [35,43], "place": "sky", "en": "…And when he awoke, he said, \"Exalted are You! I have repented to You, and I am the first of the believers.\"" }}
   ]
 }

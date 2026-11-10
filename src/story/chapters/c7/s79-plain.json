@@ -6,7 +6,7 @@
   "title": "The Cities of the Plain",
   "arabic": "مدن السهل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["29:28"],
   "art": [
     "The cities are imagined beside the Dead Sea, where tradition places them; that Lut was Ibrahim's nephew is said in the commentaries.",
     "The people appear as dim lights and their mockery as jagged strokes; their deeds are named, never shown. Lut appears only as a steady light, far away."
@@ -55,6 +55,6 @@
     { "dur": 9000, "ambient": ["crowd", "voice"], "cam": { "dx": 6000, "pos": [800, 545, 960], "look": [800, 640, -3000] },
       "say": "Lut called them to fear God and to leave what they did." },
     { "dur": 13000, "ambient": ["crowd", "air"], "cam": { "dx": 6000, "pos": [800, 540, 1000], "look": [800, 640, -3000] },
-      "pendingVerse": { "ref": "29:28", "place": "sky" } }
+      "verse": { "ref": "29:28", "place": "sky", "en": "And [mention] Lot, when he said to his people, \"Indeed, you commit such immorality as no one has preceded you with from among the worlds." } }
   ]
 }

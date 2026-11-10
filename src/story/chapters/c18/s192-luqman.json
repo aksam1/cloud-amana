@@ -6,7 +6,7 @@
   "title": "Luqman's Advice",
   "arabic": "وصية لقمان",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["31:16"],
   "art": ["Luqman, a wise man given wisdom by God (31:12), and his son appear only as soft lights; that he lived in the time of Dawud is from the commentaries. The mustard seed hidden in a rock is shown as the Quran's image (31:16)."],
   "ambient": ["wind", "birds"],
   "base": "#c8c0b0",
@@ -25,6 +25,6 @@
     {"dur": 10000, "ambient": ["wind", "birds"], "cam": {"pos": [880, 525, 650], "look": [900, 740, -3000]}, "say": "God gave wisdom to a man named Luqman. He counselled his son: do not associate anything with God; that is a great wrong. Be good to your parents, and thank Me and them."},
     {"dur": 11000, "ambient": ["wind"], "cam": {"pos": [880, 530, 550], "look": [900, 770, -3000]}, "say": "Establish prayer, call to what is good, and bear patiently what befalls you. Do not turn your cheek away from people in pride, walk modestly, and lower your voice."},
     {"dur": 11000, "ambient": ["air"], "world": {"bloom": 1.0}, "cam": {"pos": [800, 520, 300], "look": [800, 740, -3000], "dx": 6000}, "say": "Even a deed the weight of a mustard seed, hidden inside a rock, or anywhere in the heavens or the earth, God will bring it out. God is subtle and aware of all things."},
-    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [880, 525, 750], "look": [900, 710, -3000]}, "pendingVerse": {"ref": "31:16", "place": "sky"}}
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [880, 525, 750], "look": [900, 710, -3000]}, "verse": { "ref": "31:16", "place": "sky", "en": "[And Luqman said], \"O my son, indeed if wrong should be the weight of a mustard seed and should be within a rock or [anywhere] in the heavens or in the earth, Allah will bring it forth. Indeed, Allah is Subtle and Acquainted." }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "The Friend of God",
   "arabic": "الخليل",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["4:125"],
   "art": [
     "Ibrahim appears only as a steady light, far away and from behind. His prayers in the valley, his thanks for Ismail and Ishaq and his prayer for a messenger from among his descendants, are told in the Quran (14:35-41 and 2:129).",
     "The closing hill and its sky echo the night of his search; they are imagined."
@@ -57,6 +57,6 @@
     { "dur": 10000, "ambient": ["crickets", "air"], "cam": { "dx": 6000, "from": { "pos": [800, 590, 1250], "look": [800, 500, -4000] }, "pos": [800, 585, 1180], "look": [800, 505, -4000] },
       "say": "God made him a leader for all people, and took him as a close friend." },
     { "dur": 13000, "ambient": ["air", "birds"], "cam": { "dx": 6000, "pos": [800, 580, 1150], "look": [800, 510, -4000] },
-      "pendingVerse": { "ref": "4:125", "place": "sky" } }
+      "verse": { "ref": "4:125", "place": "sky", "en": "And who is better in religion than one who submits himself to Allah while being a doer of good and follows the religion of Abraham, inclining toward truth? And Allah took Abraham as an intimate friend." } }
   ]
 }

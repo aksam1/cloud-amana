@@ -6,7 +6,7 @@
   "title": "A Clear Sign",
   "arabic": "البحر الميت",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["29:35"],
   "art": [
     "That the cities lay where the Dead Sea is now is the traditional identification; the salt sea shown is the present-day one.",
     "Lut appears only as a steady light, far away, his family as small lights; the travellers as lights."
@@ -53,6 +53,6 @@
     { "dur": 10000, "ambient": ["wind", "air"], "cam": { "dx": 6000, "from": { "pos": [800, 520, 1150], "look": [800, 570, -3000] }, "pos": [780, 525, 1000], "look": [780, 590, -3000] },
       "say": "Lut and those who believed with him were saved." },
     { "dur": 13000, "ambient": ["wind"], "cam": { "dx": 6000, "pos": [780, 520, 1060], "look": [780, 585, -3000] },
-      "pendingVerse": { "ref": "29:35", "place": "sky" } }
+      "verse": { "ref": "29:35", "place": "sky", "en": "And We have certainly left of it a sign as clear evidence for a people who use reason." } }
   ]
 }

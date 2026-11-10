@@ -6,7 +6,7 @@
   "title": "Three Generations",
   "arabic": "الجد والحفيد",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["21:72"],
   "art": ["Ibrahim, Ishaq and Yaqub appear only as steady lights, far away. The hills, the flocks and the evening are imagined."],
   "ambient": ["sheep", "wind"],
   "base": "#c8c0b0",
@@ -26,6 +26,6 @@
   "beats": [
     {"dur": 10000, "ambient": ["sheep", "wind"], "cam": {"pos": [860, 520, 1100], "look": [880, 570, -3000]}, "say": "Ishaq grew up a prophet in the land of Canaan, and in time had a son of his own, Yaqub."},
     {"dur": 10000, "ambient": ["crickets", "fire"], "cam": {"pos": [800, 525, 980], "look": [800, 600, -3000], "dx": 6000}, "say": "Ibrahim lived to see his grandson, as the angels had foretold: after Ishaq, Yaqub."},
-    {"dur": 12000, "ambient": ["crickets", "air"], "cam": {"pos": [800, 522, 1040], "look": [800, 590, -3000], "dx": 6000}, "pendingVerse": {"ref": "21:72", "place": "sky"}}
+    {"dur": 12000, "ambient": ["crickets", "air"], "cam": {"pos": [800, 522, 1040], "look": [800, 590, -3000], "dx": 6000}, "verse": { "ref": "21:72", "place": "sky", "en": "And We gave him Isaac and Jacob in addition, and all [of them] We made righteous." }}
   ]
 }

@@ -6,7 +6,7 @@
   "title": "Where the Two Seas Meet",
   "arabic": "ملتقى البحرين",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["18:65"],
   "art": ["Musa and Harun appear only as steady lights; the Children of Israel as small warm lights. The look of the wilderness is imagined.", "The companion (named Yusha' in the hadith) and the servant of God (named al-Khidr in the hadith) appear only as lights; al-Khidr as a soft green-white light. The fish slipping away is shown as a small silver light."],
   "ambient": ["sea", "wind"],
   "base": "#8a98a8",
@@ -34,6 +34,6 @@
   "beats": [
     {"dur": 11000, "ambient": ["sea", "wind"], "cam": {"pos": [1000, 525, 700], "look": [1000, 740, -3000]}, "say": "Musa set out with a young companion to find a servant of God at the meeting of the two seas. When they rested by a rock, their fish slipped away into the sea."},
     {"dur": 10000, "ambient": ["sea", "air"], "cam": {"pos": [880, 525, 700], "look": [880, 740, -3000]}, "say": "That was the sign they had been seeking. Returning to the rock, they found one of God's servants, to whom He had given knowledge from Himself."},
-    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [900, 520, 850], "look": [900, 690, -3000]}, "pendingVerse": {"ref": "18:65", "place": "sky"}}
+    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [900, 520, 850], "look": [900, 690, -3000]}, "verse": { "ref": "18:65", "place": "sky", "en": "And they found a servant from among Our servants to whom we had given mercy from us and had taught him from Us a [certain] knowledge." }}
   ]
 }

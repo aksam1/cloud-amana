@@ -6,7 +6,7 @@
   "title": "The Journey",
   "arabic": "الهجرة",
   "source": "quran",
-  "ayahs": [],
+  "ayahs": ["37:99"],
   "art": [
     "The route is imagined; Ibrahim, Lut and Sarah appear only as steady lights, far away and from behind."
   ],
@@ -73,6 +73,6 @@
     { "dur": 10000, "ambient": ["wind"], "cam": { "dx": 12000, "from": { "pos": [800, 560, 1150], "look": [800, 560, -3000] }, "pos": [800, 540, 1000], "look": [800, 540, -3000] },
       "say": "Over plains and rivers and mountain passes they went on." },
     { "dur": 13000, "ambient": ["birds", "air"], "cam": { "dx": 18000, "from": { "pos": [800, 520, 1150], "look": [800, 360, -3000] }, "pos": [800, 520, 1000], "look": [800, 330, -3000] },
-      "pendingVerse": { "ref": "37:99", "place": "sky" } }
+      "verse": { "ref": "37:99", "place": "sky", "en": "And [then] he said, \"Indeed, I will go to [where I am ordered by] my Lord; He will guide me." } }
   ]
 }
