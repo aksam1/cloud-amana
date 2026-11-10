@@ -14,6 +14,7 @@ const Sheet = lazy(() => import('./components/Sheet.jsx'));
 const Lesson = lazy(() => import('./components/Lesson.jsx'));
 const Pyramid = lazy(() => import('./components/Pyramid.jsx'));
 const Unit = lazy(() => import('./components/Unit.jsx'));
+const About = lazy(() => import('./components/About.jsx'));
 
 /** Shown until the calligraphy fonts arrive (capped, so a slow network never blocks the story). */
 function Loader() {
@@ -105,6 +106,8 @@ export default function App() {
             <Pyramid view={route.view} />
           ) : route.name === 'unit' ? (
             <Unit id={route.id} step={route.query.step} />
+          ) : route.name === 'about' || route.name === 'missing' ? (
+            <About missing={route.name === 'missing'} />
           ) : route.name === 'map' ? (
             <CampaignMap query={route.query} />
           ) : (

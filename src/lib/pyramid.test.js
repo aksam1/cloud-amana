@@ -90,3 +90,24 @@ describe('the climb', () => {
     expect(UNITS.filter((u) => unitStatus(u.id) === 'soon').every((u) => !playable(u.id))).toBe(true);
   });
 });
+
+describe('the story meter and the next lesson', () => {
+  it('counts only story parts that have scenes, so the Messengers stone can reach 100%', async () => {
+    const { HISTORY_PARTS, meters } = await import('./pyramid.js');
+    const lessons = Object.values(import.meta.glob('../story/lessons/*.json', { eager: true, import: 'default' })).reduce((n, f) => n + f.parts.length, 0);
+    expect(HISTORY_PARTS).toBe(lessons);
+    const learned = Object.fromEntries(Array.from({ length: HISTORY_PARTS }, (_, i) => [`x:${i}`, true]));
+    expect(meters({ learned, units: {} }).messengers).toBe(100);
+  });
+
+  it('offers a next lesson that can be started and is not finished yet, and nothing once all are done', async () => {
+    const { nextUnit } = await import('./pyramid.js');
+    const first = PLAYABLE[0];
+    const next = nextUnit({ units: { [first]: { meter: 80 } }, learned: {} }, first);
+    expect(next && playable(next.id)).toBe(true);
+    expect(next.id).not.toBe(first);
+    const all = Object.fromEntries(UNITS.map((u) => [u.id, { meter: 100 }]));
+    const learned = Object.fromEntries(Array.from({ length: 500 }, (_, i) => [`x:${i}`, true]));
+    expect(nextUnit({ units: all, learned }, first)).toBe(null);
+  });
+});

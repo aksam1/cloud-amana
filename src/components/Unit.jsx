@@ -4,7 +4,8 @@ import { ayah, expandRef, sceneById } from '../lib/story.js';
 import { getState, saveDraft, saveJournal, saveUnit, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
-import { climb, CONFIG, completed, levelById, unitById, unitMeter, unitStatus, UNITS } from '../lib/pyramid.js';
+import { climb, CONFIG, completed, levelById, nextUnit, unitById, unitMeter, unitStatus, UNITS } from '../lib/pyramid.js';
+import { quranLink, share, shareMessage } from '../lib/site.js';
 
 // The lesson paths themselves load with this page only (the home page knows just which ones exist).
 const unitFiles = import.meta.glob('../pyramid/units/*.json', { eager: true, import: 'default' });
@@ -116,7 +117,7 @@ export default function Unit({ id, step: startStep }) {
       </AnimatePresence>
       <div className="mt-5 flex items-center justify-between gap-3 border-t border-[#8a6a4e]/25 pt-3">
         <ModePicker tone="parchment" />
-        <button type="button" className="font-body text-[0.95rem] text-ink-soft underline-offset-4 hover:underline" onClick={() => go('/pyramid')}>
+        <button type="button" className="inline-flex min-h-[44px] items-center px-2 font-body text-[1rem] text-ink-soft underline-offset-4 hover:underline" onClick={() => go('/pyramid')}>
           Save and leave
         </button>
       </div>
@@ -129,7 +130,7 @@ function Frame({ children }) {
     <div className="thin-scroll relative h-full w-full overflow-y-auto pb-28 sm:pb-10" style={{ background: 'linear-gradient(180deg, #070a1a 0%, #0e1530 34%, #171427 70%, #0b0a0e 100%) fixed' }}>
       {/* the same header as every pyramid page: the name home, the menu (a tab bar on phones) */}
       <header className="relative z-20 mx-auto flex w-full max-w-[1100px] items-center justify-between gap-6 px-5 pt-5 sm:px-10">
-        <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home" className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">
+        <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home" className="inline-flex min-h-[44px] items-center font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">
           Amanah
         </a>
         <div className="sm:w-[580px]">
@@ -301,7 +302,12 @@ function VerseCard({ refId, about }) {
           <p className="mt-1 font-body text-[1.04rem] leading-snug text-ink">{ayat.map((a) => a.en).join(' ')}</p>
         </>
       ) : (
-        <p className="mt-2 font-body text-[0.92rem] text-ink-soft/80">The verse's Arabic and English appear here once it is fetched from the verified source.</p>
+        <p className="mt-2 font-body text-[1rem] leading-snug text-ink">
+          <a href={quranLink(refId)} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center font-semibold underline decoration-[#8a6a4e] underline-offset-4">
+            Read this verse at quran.com
+          </a>
+          <span className="block font-body text-[0.9rem] italic text-ink-soft">Its text will show here once it has been checked against the source.</span>
+        </p>
       )}
       <figcaption className="mt-1 font-body text-[0.98rem] italic text-ink-soft">
         Quran {refId}
@@ -433,6 +439,8 @@ function Done({ u, result, mode }) {
   const levelDone = useMemo(() => levelById[u.level].units.every((x) => completed(state, x.id)), [state, u]);
   const c = useMemo(() => climb(state), [state]);
   const done = useMemo(() => Object.fromEntries(UNITS.map((x) => [x.id, completed(state, x.id)])), [state]);
+  const next = useMemo(() => nextUnit(state, u.id), [state, u]);
+  const [note, setNote] = useState('');
   return (
     <Frame>
       <Title u={u} />
@@ -461,12 +469,34 @@ function Done({ u, result, mode }) {
         Understanding counts {Math.round(CONFIG.weights.check * 100)}%, your choice and reflection {Math.round((CONFIG.weights.choice + CONFIG.weights.reflection) * 100)}%. Take it again any time to raise your meter.
       </p>
       {levelDone && <p className="mt-2 font-body text-[1.05rem] italic text-[#8a5e1c]">Every stone of {levelById[u.level].title} is now lit.</p>}
-      <div className="mt-5 flex flex-wrap justify-end gap-2">
+      {next && (
+        <div className="mt-5 flex justify-end">
+          <button type="button" className="btn-gold" onClick={() => go(next.history ? '/stories' : `/unit/${next.id}`)} ref={(el) => el?.focus({ preventScroll: true })}>
+            Next: {next.title}
+            <Icon name="next" className="h-4 w-4" />
+          </button>
+        </div>
+      )}
+      <div className={`${next ? 'mt-2' : 'mt-5'} flex flex-wrap items-center justify-end gap-2`}>
         <button type="button" className="btn-ink" onClick={() => go(`/unit/${u.id}?again=${Date.now()}`)}>
           Take it again
         </button>
-        <button type="button" className="btn-gold" onClick={() => go('/pyramid')} autoFocus>
+        <button type="button" className={next ? 'btn-ink' : 'btn-gold'} onClick={() => go('/pyramid')} autoFocus={!next}>
           Back to the pyramid
+        </button>
+      </div>
+      <div className="mt-2 flex flex-wrap items-center justify-end gap-x-3">
+        {note && (
+          <span role="status" className="font-body text-[0.98rem] italic text-ink-soft">
+            {note}
+          </span>
+        )}
+        <button
+          type="button"
+          className="inline-flex min-h-[44px] items-center px-2 font-body text-[1rem] text-ink-soft underline underline-offset-4"
+          onClick={async () => setNote(shareMessage(await share()))}
+        >
+          Share Amanah with someone
         </button>
       </div>
       <Disclaimer tone="parchment" />

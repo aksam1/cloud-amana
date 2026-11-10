@@ -15,20 +15,29 @@ execSync('npx vite build', { cwd: root, stdio: 'inherit' });
 const assets = readdirSync(join(root, 'dist/assets'));
 const css = assets.find((f) => /^index-.*\.css$/.test(f));
 const js = assets.find((f) => /^index-.*\.js$/.test(f));
-const fonts = readFileSync(join(root, 'index.html'), 'utf8').match(/https:\/\/fonts\.googleapis\.com\/css2\?[^"]+/)?.[0];
+// The icon travels inside the page (the published page has no folder of its own for it).
+const icon = `data:image/svg+xml,${encodeURIComponent(readFileSync(join(root, 'public/seal.svg'), 'utf8'))}`;
+const DESCRIPTION = 'Learn Islam through the stories of the prophets, told in light. Free, private, no account.';
 mkdirSync(join(root, 'deploy'), { recursive: true });
 writeFileSync(
   join(root, 'deploy/index.html'),
   [
     '<!DOCTYPE html>',
+    '<html lang="en">',
     '<meta charset="UTF-8" />',
-    '<meta name="viewport" content="width=device-width, initial-scale=1" />',
+    '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />',
     '<meta name="theme-color" content="#0e1530" />',
-    '<meta name="description" content="Learn Islam through the stories of the prophets, and watch your understanding rise, stone by stone." />',
+    `<meta name="description" content="${DESCRIPTION}" />`,
     '<title>Amanah</title>',
-    '<link rel="preconnect" href="https://fonts.googleapis.com" />',
-    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
-    `<link href="${fonts}" rel="stylesheet" />`,
+    `<link rel="icon" href="${icon}" type="image/svg+xml" />`,
+    // Link previews (a picture needs the site's own address: add og:image once it has one).
+    '<meta property="og:type" content="website" />',
+    '<meta property="og:site_name" content="Amanah" />',
+    '<meta property="og:title" content="Amanah: the stories of the prophets, told in light" />',
+    '<meta property="og:description" content="Learn Islam one story at a time. Free, private, no account." />',
+    `<meta property="og:url" content="${URL}" />`,
+    '<meta name="twitter:card" content="summary" />',
+    // Fonts are bundled with the site (src/fonts.css): nothing is fetched from another host.
     `<link rel="stylesheet" href="assets/${css}" />`,
     '<div id="root"></div>',
     `<script type="module" src="assets/${js}"></script>`,

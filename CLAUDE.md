@@ -85,7 +85,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   leaderboards or comparisons, shaming copy. The disclaimer shows on the landing, placement, result,
   progress and unit-result screens. Scores are private (localStorage); Progress has "Delete my data".
 - Engine: `src/lib/pyramid.js` (placement result, unit meters, level progress, overall, current level).
-  Messengers' meter = history lessons learned ÷ all 55 parts. A unit retaken keeps its best meter.
+  Messengers' meter = history lessons learned ÷ the parts that have scenes (`from` set; 50 today), so it can reach 100%. A unit retaken keeps its best meter.
 - Story steps play chronicle scenes with `?back=<unit>&until=<last scene>` and return to the unit.
 
 ## The journey and its safety nets
@@ -103,6 +103,22 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `CHROME_PATH=/usr/bin/google-chrome npm run e2e`), `npm run verify` (check +
   test + build). GitHub Actions runs all of it on every push (`.github/workflows/ci.yml`). Add a journey
   test whenever a new flow ships.
+
+## Site basics (from the November 2026 audit)
+
+- `src/lib/site.js`: `SITE_URL` (change it when the site gets its own address), `MAKER` and `CONTACT` (empty until the
+  owner gives them; the About page leaves those lines out), `quranLink(ref)`, `share()`, `download()`.
+- `#/about` (`About.jsx`): purpose, sources, review status, privacy, the disclaimer. Any unknown address shows
+  "That page does not exist" (router `missing`), never the start screen. Keep the About page true when things change
+  (for example once hadith are reviewed, or if visitor counts are ever added).
+- A verse still waiting for its text is never replaced: scenes show `PendingCaption` (reference + link to quran.com) and
+  hold at most 6 s (`PENDING_MS`); units and lessons show the same link. All of it disappears once `npm run verses` runs.
+- A finished unit offers `nextUnit()` (first playable unit after it not yet completed) as its main button.
+- Fonts are bundled (`src/fonts.css`, @fontsource): nothing loads from Google. Add a weight there before using it.
+- `short:` is a Tailwind variant for a phone turned sideways (landscape, under 500 px tall). Check new screens with it.
+- `publish.mjs` writes `<html lang>`, the icon (inline), and Open Graph tags; `og:image` waits for the site's own address.
+- `Stage.jsx` is not dead code: `GLStage` draws overlays and `flat` painters through it, and the painters make the cards.
+- Sharing lives on a unit's end screen, Progress and About (not in the scene player: it covered the chronicle on phones).
 
 ## The look (first impression)
 

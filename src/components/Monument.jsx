@@ -60,7 +60,7 @@ function viewOf(focus) {
 }
 
 // Unit names under (or, every other one, above) their seals when a level is looked at closely.
-const LABEL = [9, 7.5, 4.4];
+const LABEL = [12, 9, 5]; // seal names when a level is looked at closely: about 11 px tall on a phone
 
 export default function Monument({ meters = {}, done = {}, lit = {}, peak = false, start, recommended, selected, onSelect, focus, onFocus, scenery = true, className = '' }) {
   const still = useReducedMotion();

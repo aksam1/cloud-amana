@@ -1,7 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, animate, motion, useReducedMotion } from 'motion/react';
 import { Stage, useCamera } from './Stage.jsx';
-import { VerseCaption } from './Captions.jsx';
+import { PendingCaption, VerseCaption } from './Captions.jsx';
 import { Chronicle } from './Chronicle.jsx';
 import { Icon, SourceBadge } from './Ornaments.jsx';
 import { Toast, useToast } from './Toast.jsx';
@@ -22,6 +22,7 @@ const GLStage = lazy(() => import('../gl/GLStage.jsx'));
 const EASE = { inOut: [0.45, 0, 0.25, 1], out: [0.15, 0.6, 0.3, 1], in: [0.6, 0, 0.9, 0.5], linear: 'linear' };
 const TITLE_MS = 2800;
 const WATCH_MS = 6500; // long enough to read the question to watch for
+const PENDING_MS = 6000; // a verse moment still waiting for its text holds only this long, not the verse's reading time
 
 export default function ScenePlayer({ id, beat, still = false, moment, back, until }) {
   const scene = sceneById[id];
@@ -90,7 +91,11 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
   const learned = useStore((s) => s.learned);
 
   const durations = useMemo(
-    () => beats.map((bt) => Math.max(bt.dur ?? 6000, captionHoldMs({ en: bt.verse?.en || '', ar: bt.verse ? verseArabic(bt.verse) : '', say: bt.say || '' }))),
+    () =>
+      beats.map((bt) => {
+        const ms = Math.max(bt.dur ?? 6000, captionHoldMs({ en: bt.verse?.en || '', ar: bt.verse ? verseArabic(bt.verse) : '', say: bt.say || '' }));
+        return bt.pendingVerse && !bt.verse ? Math.min(ms, PENDING_MS) : ms;
+      }),
     [beats],
   );
 
@@ -313,15 +318,16 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
       </AnimatePresence>
 
       <AnimatePresence mode="wait">{!titleCard && b.verse && <VerseCaption key={`${scene.id}-${beat}`} verse={b.verse} tone={scene.captions} dock={dock} pen={!!scene.pen} />}</AnimatePresence>
+      <AnimatePresence mode="wait">{!titleCard && !b.verse && b.pendingVerse && <PendingCaption key={`${scene.id}-${beat}`} pending={b.pendingVerse} dock={dock} />}</AnimatePresence>
 
       {/* Top bar */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-3 p-3 sm:p-5">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-3 p-3 sm:p-5 short:p-2">
         <div className="pointer-events-auto flex items-center gap-3">
           <button type="button" className="hud-btn" onClick={() => go('/map')} aria-label="Campaign map (M)">
             <Icon name="map" className="h-4 w-4" />
             <span className="hidden sm:inline">Map</span>
           </button>
-          <div className="hidden leading-tight sm:block" style={{ textShadow: '0 1px 8px #000' }}>
+          <div className="hidden leading-tight sm:block short:!hidden" style={{ textShadow: '0 1px 8px #000' }}>
             <div className="caps text-[0.6rem] text-gold/80">
               Chapter {roman(chapter?.number || 1)} · {chapter?.title}
             </div>
@@ -349,7 +355,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
       <Chronicle scene={scene} lines={ended ? lines : lines.slice(-1)} open={prefs.chronicle} onToggle={() => setPref('chronicle', !prefs.chronicle)} ayahOpen={ayahOpen} onAyah={() => setAyahOpen((o) => !o)} onTop={setDock} />
 
       {/* Transport */}
-      <div className="pointer-events-none absolute bottom-0 right-0 z-30 flex w-full flex-col items-stretch gap-2 p-3 sm:w-auto sm:items-end sm:p-6">
+      <div className="pointer-events-none absolute bottom-0 right-0 z-30 flex w-full flex-col items-stretch gap-2 p-3 sm:w-auto sm:items-end sm:p-6 short:max-w-[46vw] short:p-2">
         <AnimatePresence>
           {ended && (
             <motion.button key="continue" type="button" className="btn-gold pointer-events-auto self-end" onClick={continueOn} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} autoFocus>
@@ -379,7 +385,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
                   setBeat(i);
                   setEnded(false);
                 }}
-                className="group grid h-8 w-4 min-w-[7px] shrink place-items-center" aria-label={`Moment ${i + 1} of ${beats.length}`} aria-current={i === beat ? 'step' : undefined}>
+                className="group grid h-11 w-5 min-w-[7px] shrink place-items-center" aria-label={`Moment ${i + 1} of ${beats.length}`} aria-current={i === beat ? 'step' : undefined}>
                 <span className={`relative block h-1.5 overflow-hidden rounded-full transition-all ${i === beat ? 'w-full bg-gold/30' : i < beat || ended ? 'w-1.5 bg-gold' : 'w-1.5 bg-ivory/30 group-hover:bg-ivory/60'}`}>
                   {i === beat && prefs.auto && !ended && (
                     <span

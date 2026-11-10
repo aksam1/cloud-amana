@@ -29,13 +29,13 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
     };
   }, [onTop]);
   return (
-    <div ref={box} className="pointer-events-auto absolute bottom-[84px] left-3 right-3 z-30 sm:bottom-6 sm:left-6 sm:right-auto sm:w-[400px]">
+    <div ref={box} className="pointer-events-auto absolute bottom-[84px] left-3 right-3 z-30 sm:bottom-6 sm:left-6 sm:right-auto sm:w-[400px] short:bottom-2 short:left-2 short:w-[min(50vw,430px)]">
       <AnimatePresence initial={false} mode="wait">
         {open ? (
           <motion.section
             key="open"
             aria-label="Chronicle"
-            className="parchment ruled cartouche thin-scroll max-h-[44vh] overflow-y-auto px-5 pb-4 pt-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,.8)] sm:max-h-[52vh]"
+            className="parchment ruled cartouche thin-scroll max-h-[44vh] overflow-y-auto px-5 pb-4 pt-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,.8)] sm:max-h-[52vh] short:max-h-[36vh] short:px-4 short:pb-2 short:pt-2"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}
@@ -43,11 +43,11 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
           >
             <header className="flex items-start gap-3">
               <div className="min-w-0 flex-1">
-                <div className="caps text-[0.6rem] text-ink-soft">Scene {roman(scene.order)}</div>
+                <div className="caps text-[0.6rem] text-ink-soft short:hidden">Scene {roman(scene.order)}</div>
                 <h2 className="font-display text-[1.02rem] font-semibold leading-tight text-ink">{scene.title}</h2>
               </div>
               <SourceBadge source={scene.source} />
-              <button type="button" onClick={onToggle} className="-mr-2 -mt-1 grid h-9 w-9 shrink-0 place-items-center rounded-full text-ink-soft hover:bg-black/5" aria-label="Fold the chronicle away">
+              <button type="button" onClick={onToggle} className="-mr-2 -mt-1 grid h-11 w-11 shrink-0 place-items-center rounded-full text-ink-soft hover:bg-black/5" aria-label="Fold the chronicle away">
                 <Icon name="chevron" className="h-4 w-4" />
               </button>
             </header>
@@ -63,8 +63,8 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
 
             {(refs.length > 0 || scene.notes?.length > 0 || scene.art?.length > 0) && (
               <>
-                <Rule className="mx-auto my-3 h-3 w-40 text-[#7a5a2e]" />
-                <button type="button" onClick={onAyah} aria-expanded={ayahOpen} className="flex w-full items-center justify-between gap-2 rounded-md px-1 py-1.5 text-left hover:bg-black/5">
+                <Rule className="mx-auto my-3 h-3 w-40 text-[#7a5a2e] short:hidden" />
+                <button type="button" onClick={onAyah} aria-expanded={ayahOpen} className="flex min-h-[44px] w-full items-center justify-between gap-2 rounded-md px-1 py-1.5 text-left hover:bg-black/5">
                   <span className="caps text-[0.66rem] text-ink">
                     {refs.length ? `The full ${refs.length === 1 ? 'ayah' : `ayat (${refs.length})`}` : 'Sources'}
                     {refs.length > 0 && (scene.notes?.length > 0 || scene.art?.length > 0) && ' & sources'}

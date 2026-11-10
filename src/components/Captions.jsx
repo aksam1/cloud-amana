@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { verseArabic, verseAyah } from '../lib/story.js';
+import { quranLink } from '../lib/site.js';
 
 // Voices are told apart by colour and motion, never by a drawn face:
 // divine speech is gold light; Iblis smoulders; Qabil's words shake; Habil's are still and white.
@@ -15,13 +16,13 @@ const VOICES = {
 };
 
 const PLACE = {
-  sky: 'top-[13%] sm:top-[11%]',
+  sky: 'top-[13%] sm:top-[11%] short:top-[3%]',
   center: 'top-1/2 -translate-y-1/2',
   // The lower third stacks just above the chronicle on tablets (`--dock` is the chronicle's top) and sits
   // beside it on wide screens, clear of the continue button. On phones the chronicle already fills the
   // lower third, so the verse rises to the top and the middle of the frame, where scenes put their
   // subject, stays clear.
-  lower: 'top-[11%] sm:top-auto sm:bottom-[calc(var(--dock,140px)_+_12px)] lg:bottom-[150px] lg:left-[448px] lg:right-6 lg:mx-0 lg:w-auto',
+  lower: 'top-[11%] sm:top-auto sm:bottom-[calc(var(--dock,140px)_+_12px)] short:top-[3%] short:bottom-auto lg:bottom-[150px] lg:left-[448px] lg:right-6 lg:mx-0 lg:w-auto',
 };
 
 /**
@@ -107,6 +108,33 @@ export function VerseCaption({ verse, tone, dock, pen = false }) {
           Quran {verse.ref.replace('-', '–')} · {a.surah}
         </motion.div>
       </div>
+    </motion.figure>
+  );
+}
+
+/**
+ * A verse moment whose verified text has not been fetched yet. Quran text is never typed in, so the moment
+ * shows its reference and a link to read the verse, in the place the verse will take.
+ */
+export function PendingCaption({ pending, dock }) {
+  return (
+    <motion.figure
+      className={`pointer-events-none absolute inset-x-0 z-20 mx-auto w-[min(92vw,560px)] px-4 text-center ${PLACE[pending.place] || PLACE.sky}`}
+      style={dock ? { '--dock': `${dock}px` } : undefined}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, transition: { duration: 0.5 } }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
+      <a
+        href={quranLink(pending.ref)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="pointer-events-auto inline-flex min-h-[44px] flex-wrap items-center justify-center gap-x-2 rounded-full border border-gold/45 bg-black/60 px-5 py-2 font-body text-[1.05rem] leading-tight text-[#f6e7c4] backdrop-blur-sm"
+      >
+        <span>Quran {pending.ref.replace('-', '–')}</span>
+        <span className="italic text-[#f6e7c4]/85">Read this verse at quran.com</span>
+      </a>
     </motion.figure>
   );
 }

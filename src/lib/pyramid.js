@@ -98,7 +98,9 @@ export function unitMeter({ check, choice, reflection }) {
 
 // The history chronicle is the Messengers unit: its meter grows with every part of the story whose lesson is
 // finished, out of every part in the chronicle (so it fills as lessons are written and learned).
-export const HISTORY_PARTS = chapters.reduce((n, c) => n + (c.parts?.length || 0), 0);
+// Only parts that have scenes count (a part with scenes carries `from`/`to`): chapters still being written must
+// not hold the meter below 100%.
+export const HISTORY_PARTS = chapters.reduce((n, c) => n + (c.parts || []).filter((p) => p.from !== undefined).length, 0);
 /** "Chapter title: part title" for a story lesson's journal key "chapter:part". */
 export function partName(key) {
   const [n, i] = key.split(':').map(Number);
@@ -134,4 +136,14 @@ export function climb(state) {
   const here = levels.slice(startIdx).find((l) => !l.lit) || levels[levels.length - 1];
   const peak = levels.every((l) => l.lit);
   return { meters: m, levels, overall, current: here.id, currentProgress: here.progress, peak };
+}
+
+/**
+ * After finishing `id`: the next unit to offer. The first playable unit after it (in the pyramid's order,
+ * wrapping round) that has not been completed; null when everything playable is done.
+ */
+export function nextUnit(state, id) {
+  const i = UNITS.findIndex((u) => u.id === id);
+  const order = [...UNITS.slice(i + 1), ...UNITS.slice(0, Math.max(0, i))];
+  return order.find((u) => playable(u.id) && !completed(state, u.id)) || null;
 }

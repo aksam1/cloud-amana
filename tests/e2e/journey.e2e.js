@@ -125,3 +125,43 @@ test('the lesson after a story part asks about what was just watched', async ({ 
   await page.getByRole('button', { name: /Did God command you this/ }).click();
   await expect(page.getByRole('button', { name: /Next question/ })).toBeVisible();
 });
+
+test('a finished lesson offers the next one, and the next one opens', async ({ page }) => {
+  await page.goto('/#/unit/shahadah');
+  await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
+  await page.getByRole('button', { name: /I know this story/ }).click();
+  await page.getByRole('radio').nth(2).click();
+  await page.getByRole('button', { name: /See what is taught/ }).click();
+  for (let i = 0; i < 3; i++) await page.getByRole('button', { name: /^(Next|Check your understanding)$/ }).click();
+  for (let i = 0; i < 5; i++) {
+    await page.locator('section button').nth(1).click();
+    await page.getByRole('button', { name: /^(Next|On to reflection)$/ }).click();
+  }
+  await page.getByRole('button', { name: /I've reflected/ }).click();
+  const next = page.getByRole('button', { name: /^Next: / });
+  await expect(next).toBeVisible();
+  await next.click();
+  await expect(page).toHaveURL(/#\/(unit\/(?!shahadah)|stories|scene)/);
+  await expect(page.getByText(/still being written/)).toHaveCount(0);
+});
+
+test('the About page says where the words come from and what is stored, and a wrong address says so', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'About', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'About Amanah' })).toBeVisible();
+  await expect(page.getByText(/Sahih International/)).toBeVisible();
+  await expect(page.getByText(/stored only in this browser/)).toBeVisible();
+  await expect(page.getByText(/only Allah knows the state of anyone's heart/i)).toBeVisible();
+  await page.goto('/#/no-such-page');
+  await expect(page.getByRole('heading', { name: 'That page does not exist' })).toBeVisible();
+  await page.getByRole('button', { name: 'Go to the start' }).click();
+  await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeVisible();
+});
+
+test('a verse still waiting for its text shows its reference and a way to read it', async ({ page }) => {
+  await page.goto('/#/unit/sabr?step=teaching');
+  await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
+  const waiting = page.getByRole('link', { name: /Read this verse at quran\.com/ });
+  if (await waiting.count()) await expect(waiting.first()).toHaveAttribute('href', /^https:\/\/quran\.com\/\d+\/\d+/);
+  await expect(page.getByText(/appear here once it is fetched/)).toHaveCount(0);
+});

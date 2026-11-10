@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { deleteAllData, savePlacement, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
+import { download, share, shareMessage } from '../lib/site.js';
 import { climb, completed, DISCLAIMER, HISTORY_PARTS, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
@@ -34,13 +35,13 @@ export default function Pyramid({ view = 'landing' }) {
 
 // ── Shared pieces ─────────────────────────────────────────
 
-function Shell({ children, back, title, stars = false, here, wide = false }) {
+export function Shell({ children, back, title, stars = false, here, wide = false }) {
   return (
     <div className="thin-scroll relative h-full w-full overflow-y-auto" style={{ background: NIGHT }}>
       {stars && <Stars />}
       {/* the same header as the pyramid page: the name home, the menu (a tab bar on phones) */}
       <header className="relative z-20 mx-auto flex w-full max-w-[1100px] items-center justify-between gap-6 px-5 pt-5 sm:px-10">
-        <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home" className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">
+        <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home" className="inline-flex min-h-[44px] items-center font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">
           Amanah
         </a>
         {here && (
@@ -184,7 +185,7 @@ function Home() {
       {/* darken top and bottom so the words read; keep the stars in the middle */}
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,6,13,0.75)_0%,rgba(5,6,13,0)_30%,rgba(5,6,13,0)_55%,rgba(5,6,13,0.92)_100%)]" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1100px] flex-col px-6 pb-28 pt-5 sm:px-10 sm:pb-12">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1100px] flex-col px-6 pb-28 pt-5 sm:px-10 sm:pb-12 short:pb-3 short:pt-3">
         <header className="flex items-center justify-between gap-6">
           <span className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">Amanah</span>
           <div className="sm:w-[580px]">
@@ -193,24 +194,28 @@ function Home() {
         </header>
 
         <motion.main className="mt-auto flex flex-col items-center text-center" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 1.2 }}>
-          <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(3rem,15vw,6.5rem)] font-semibold leading-none tracking-[0.06em] text-transparent [filter:drop-shadow(0_4px_24px_rgba(0,0,0,0.6))]">
+          <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(3rem,15vw,6.5rem)] font-semibold leading-none tracking-[0.06em] text-transparent [filter:drop-shadow(0_4px_24px_rgba(0,0,0,0.6))] short:text-[2.6rem]">
             Amanah
           </h1>
-          <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90">The stories of the prophets, told in light.</p>
-          <button type="button" className="btn-gold mt-8" onClick={() => go(cta.href)} autoFocus>
+          <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90 short:mt-1 short:max-w-none short:text-[1.15rem]">The stories of the prophets, told in light.</p>
+          <p className="mt-2 max-w-[34ch] font-body text-[clamp(1.02rem,3.9vw,1.15rem)] leading-snug text-ivory/75 short:mt-0 short:max-w-none">Learn Islam one story at a time. Free, private, no account.</p>
+          <button type="button" className="btn-gold mt-6 short:mt-2" onClick={() => go(cta.href)} autoFocus>
             <Icon name="play" className="h-4 w-4" />
             {cta.label}
           </button>
-          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65">{cta.note}</p>
-          <div className="mt-4 flex gap-6 font-body text-[1.08rem]">
+          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none">{cta.note}</p>
+          <div className="mt-3 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0">
             <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/stories')}>
               Watch the stories
             </button>
             <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/pyramid')}>
               See the pyramid
             </button>
+            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/about')}>
+              About
+            </button>
           </div>
-          <p className="mt-6 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45">{DISCLAIMER}</p>
+          <p className="mt-4 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45 short:mt-0 short:max-w-none">{DISCLAIMER}</p>
         </motion.main>
       </div>
     </div>
@@ -374,7 +379,7 @@ function Landing() {
       }
     : placed
       ? {
-          label: unitStatus(next) === 'history' ? 'Continue the stories' : `Begin ${unitById[next].title}`,
+          label: unitStatus(next) === 'history' ? 'Continue the stories' : mode === 'curious' ? `Explore ${unitById[next].title}` : `Begin ${unitById[next].title}`,
           href: unitHref(next),
           note: unitStatus(next) === 'history' ? 'Next on your climb: the stories of the prophets.' : `Next on your climb: ${inMode(unitById[next].english, mode).toLowerCase()}.`,
         }
@@ -432,7 +437,7 @@ function Landing() {
         <Stars />
         <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-col px-5 pt-5 sm:px-10">
           <header className="flex items-center justify-between gap-6">
-            <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home">
+            <a href="#/" onClick={(e) => { e.preventDefault(); go('/'); }} aria-label="Amanah, home" className="inline-flex min-h-[44px] items-center">
               <span className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi">Amanah</span>
             </a>
             <div className="sm:w-[580px]">
@@ -440,17 +445,17 @@ function Landing() {
             </div>
           </header>
 
-          <motion.div className="overflow-hidden text-center" initial={{ opacity: 0, y: 10 }} animate={focus && narrow ? { opacity: 0, height: 0, marginTop: 0 } : { opacity: 1, y: 0, height: 'auto', marginTop: narrow ? 32 : 48 }} transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}>
-            <p className="font-body text-[1.15rem] italic text-gold-hi/80">Islam, Iman and Ihsan</p>
-            <h1 className="mt-1 bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(2.4rem,10vw,4.2rem)] font-semibold leading-none tracking-[0.04em] text-transparent [filter:drop-shadow(0_3px_18px_rgba(0,0,0,0.55))]">
+          <motion.div className="overflow-hidden text-center short:!mt-1" initial={{ opacity: 0, y: 10 }} animate={focus && narrow ? { opacity: 0, height: 0, marginTop: 0 } : { opacity: 1, y: 0, height: 'auto', marginTop: narrow ? 32 : 48 }} transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}>
+            <p className="font-body text-[1.15rem] italic text-gold-hi/80 short:hidden">Islam, Iman and Ihsan</p>
+            <h1 className="mt-1 bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(2.4rem,10vw,4.2rem)] font-semibold leading-none tracking-[0.04em] text-transparent [filter:drop-shadow(0_3px_18px_rgba(0,0,0,0.55))] short:text-[1.5rem]">
               The Pyramid
             </h1>
-            <p className="mx-auto mt-4 max-w-[36ch] font-body text-[clamp(1.1rem,4.2vw,1.35rem)] leading-snug text-ivory/85">
+            <p className="mx-auto mt-4 max-w-[36ch] font-body text-[clamp(1.1rem,4.2vw,1.35rem)] leading-snug text-ivory/85 short:hidden">
               Three levels of faith. Each gold seal is a lesson you can open.
             </p>
           </motion.div>
 
-          <motion.div className="relative mx-auto mt-6 w-full max-w-[max(300px,min(640px,calc((100svh-440px)*1.33)))]" initial={{ opacity: 0, y: 24, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.25, duration: 1.4, ease: 'easeOut' }}>
+          <motion.div className="relative mx-auto mt-6 w-full max-w-[max(300px,min(640px,calc((100svh-440px)*1.33)))] short:mt-1 short:max-w-[min(380px,calc((100svh-110px)*1.33))]" initial={{ opacity: 0, y: 24, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.25, duration: 1.4, ease: 'easeOut' }}>
             <Monument
               className={`relative z-10 -mb-6 w-full sm:-mb-10 ${focus ? '[mask-image:radial-gradient(ellipse_70%_75%_at_50%_50%,#000_60%,transparent_100%)]' : ''}`}
               scenery={false}
@@ -471,7 +476,7 @@ function Landing() {
           <Dunes />
           <div className="h-[64px] sm:h-[92px]" />
         </div>
-        <div className="relative bg-[#1d140d] px-5 pb-12 pt-3">
+        <div className={`relative bg-[#1d140d] px-5 pb-12 pt-3 ${focus && narrow ? 'invisible' : ''}`} aria-hidden={focus && narrow ? true : undefined}>
           {Cta}
           <p className="mx-auto mt-3 text-center font-body text-[1rem] italic text-ivory/55">Tap any part of the pyramid to look closer.</p>
         </div>
@@ -489,13 +494,16 @@ function Landing() {
         </section>
       )}
 
-      <footer className="mx-auto max-w-[640px] px-5 pb-32 pt-10 text-center sm:pb-12">
+      <footer className={`mx-auto max-w-[640px] px-5 pb-32 pt-10 text-center sm:pb-12 ${focus && narrow ? 'invisible' : ''}`}>
         {mode && (
           <div className="flex justify-center">
             <ModePicker />
           </div>
         )}
         <Disclaimer />
+        <a href="#/about" className="mt-2 inline-flex min-h-[44px] items-center font-body text-[1.02rem] text-gold-hi/85 underline decoration-gold/40 underline-offset-4">
+          About Amanah: sources and privacy
+        </a>
       </footer>
     </div>
   );
@@ -773,7 +781,7 @@ function Result() {
     <Shell here="pyramid">
       <Monument className="mx-auto w-full max-w-[460px]" meters={c.meters} done={c.done} lit={c.lit} peak={c.peak} start={r.start} recommended={r.recommended} />
       <motion.section initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}>
-        <p className="text-center font-body text-[1.08rem] italic text-gold/85">Begin your climb at</p>
+        <p className="text-center font-body text-[1.08rem] italic text-gold/85">{mode === 'curious' ? 'A good place to start exploring' : 'Begin your climb at'}</p>
         <h1 className="text-center font-display text-[2rem] font-semibold text-gold-hi">{level.title}</h1>
         <p className="text-center font-body text-[1.05rem] text-ivory/75">{inMode(level.meaning, mode)}</p>
         {!r.startReady && rec && (
@@ -802,14 +810,14 @@ function Result() {
 
         {rec && (
           <div className="parchment cartouche mt-5 px-5 py-4">
-            <div className="font-body text-[1.05rem] italic text-ink-soft">A good first step</div>
+            <div className="font-body text-[1.05rem] italic text-ink-soft">{mode === 'curious' ? 'A good first lesson: what Muslims believe and do, and why' : 'A good first step'}</div>
             <div className="flex items-baseline gap-3">
               <h2 className="font-display text-[1.25rem] font-semibold text-ink">{rec.title}</h2>
             </div>
             <p className="font-body text-[1.05rem] text-ink-soft">{inMode(rec.english, mode)}</p>
             <button type="button" className="btn-gold mt-3" onClick={() => go(unitHref(rec.id))} ref={(el) => el?.focus({ preventScroll: true })}>
               <Icon name="play" className="h-4 w-4" />
-              {unitStatus(rec.id) === 'history' ? 'Begin the stories' : `Begin ${rec.title}`}
+              {unitStatus(rec.id) === 'history' ? 'Begin the stories' : mode === 'curious' ? `Explore ${rec.title}` : `Begin ${rec.title}`}
             </button>
           </div>
         )}
@@ -840,6 +848,7 @@ function Progress() {
   const [confirm, setConfirm] = useState(false);
   const [gone, setGone] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
+  const [shared, setShared] = useState('');
   const learned = Object.keys(c.state.learned || {}).length;
   const here = levelById[c.current];
   // The reader's private reflections, in the pyramid's order, then the story's.
@@ -872,9 +881,12 @@ function Progress() {
             ))}
           </div>
           <p className="mt-4 border-t border-gold/15 pt-3 font-body text-[1.02rem] text-ivory/70">
-            Overall understanding <span className="text-gold-hi">{c.overall}%</span>
-            <span className="mx-2 text-ivory/30">|</span>
-            Story lessons <span className="text-gold-hi">{learned} of {HISTORY_PARTS}</span>
+            <span className="mr-5 inline-block whitespace-nowrap">
+              Overall understanding <span className="text-gold-hi">{c.overall}%</span>
+            </span>
+            <span className="inline-block whitespace-nowrap">
+              Story lessons <span className="text-gold-hi">{learned} of {HISTORY_PARTS}</span>
+            </span>
           </p>
         </section>
       </div>
@@ -937,10 +949,20 @@ function Progress() {
             : 'When you write a reflection after a lesson, it will be kept here, only in this browser.'}
         </p>
         {notes.length > 0 && (
-          <button type="button" className="hud-btn mt-3" onClick={() => setShowNotes((v) => !v)} aria-expanded={showNotes}>
-            {showNotes ? 'Hide my notes' : 'Show my notes'}
-          </button>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button type="button" className="hud-btn" onClick={() => setShowNotes((v) => !v)} aria-expanded={showNotes}>
+              {showNotes ? 'Hide my notes' : 'Show my notes'}
+            </button>
+            <button
+              type="button"
+              className="hud-btn"
+              onClick={() => download('amanah-notes.txt', `My Amanah notes\n\n${notes.map((n) => `${n.label}\n${n.sub}\n${n.text}`).join('\n\n')}\n`)}
+            >
+              Download my notes
+            </button>
+          </div>
         )}
+        {notes.length > 0 && <p className="mt-2 font-body text-[0.95rem] italic text-ivory/50">Clearing this browser's data erases your notes. Download a copy to keep them.</p>}
         <AnimatePresence initial={false}>
           {showNotes && (
             <motion.ul className="mt-4 space-y-3" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}>
@@ -968,12 +990,23 @@ function Progress() {
         <button type="button" className="hud-btn" onClick={() => go('/pyramid')}>
           Back to the pyramid
         </button>
+        <button type="button" className="hud-btn" onClick={async () => setShared(shareMessage(await share()))}>
+          Share Amanah
+        </button>
+        {shared && (
+          <span role="status" className="font-body text-[1rem] italic text-ivory/70">
+            {shared}
+          </span>
+        )}
       </section>
 
       <section className="mt-6 rounded-2xl border border-blood/40 bg-black/30 p-5" aria-live="polite">
         <h2 className="font-display text-[1.05rem] text-ivory">Your data</h2>
         <p className="mt-1 font-body text-[1rem] leading-snug text-ivory/70">
-          Everything here is stored only in this browser. Nothing is sent anywhere, and no one else can see your answers or notes.
+          Everything here is stored only in this browser. Nothing is sent anywhere, and no one else can see your answers or notes.{' '}
+          <a href="#/about" className="text-gold-hi/85 underline decoration-gold/40 underline-offset-4">
+            More about privacy and sources
+          </a>
         </p>
         {gone ? (
           <p className="mt-3 font-body text-[1rem] text-gold-hi">Your data has been deleted from this browser.</p>

@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* A phone turned sideways: wide but very short. Pages tighten up so the picture stays in view. */
+@custom-variant short (@media (orientation: landscape) and (max-height: 500px));
+
 @theme {
   --font-display: "Cinzel", "Times New Roman", serif;
   --font-body: "Cormorant Garamond", Georgia, serif;

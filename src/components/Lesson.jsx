@@ -5,6 +5,7 @@ import { lessonFor, lessonKey, replayHref } from '../lib/lessons.js';
 import { markAnswered, markLearned, saveJournal, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
+import { quranLink } from '../lib/site.js';
 import { roman } from '../lib/geo.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
@@ -77,7 +78,7 @@ export default function Lesson({ chapter, part, then }) {
           </AnimatePresence>
           <div className="mt-5 flex items-center justify-between gap-3 border-t border-[#8a6a4e]/25 pt-3">
             <ModePicker tone="parchment" />
-            <button type="button" className="font-body text-[0.95rem] text-ink-soft underline-offset-4 hover:underline" onClick={() => go(onward)}>
+            <button type="button" className="inline-flex min-h-[44px] items-center px-2 font-body text-[1rem] text-ink-soft underline-offset-4 hover:underline" onClick={() => go(onward)}>
               Skip for now
             </button>
           </div>
@@ -177,7 +178,15 @@ function Remember({ data, mode, lessonKey: key, here, onDone }) {
 /** A verse shown in full from the verified file. */
 function Verse({ refId }) {
   const a = ayah(refId);
-  if (!a) return <p className="mt-3 font-body text-[0.95rem] italic text-ink-soft">Verse {refId} will appear here once it is fetched.</p>;
+  if (!a)
+    return (
+      <p className="mt-3 font-body text-[1rem] leading-snug text-ink">
+        <a href={quranLink(refId)} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center font-semibold underline decoration-[#8a6a4e] underline-offset-4">
+          Quran {refId}: read this verse at quran.com
+        </a>
+        <span className="block font-body text-[0.9rem] italic text-ink-soft">Its text will show here once it has been checked against the source.</span>
+      </p>
+    );
   return (
     <figure className="mt-3 rounded-md border border-[#8a6a4e]/35 bg-[#5a3d22]/5 p-3">
       <p lang="ar" className="quran text-[1.6rem] leading-[1.9] text-ink">
