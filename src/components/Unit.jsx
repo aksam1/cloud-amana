@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ayah, expandRef, sceneById } from '../lib/story.js';
 import { getState, saveDraft, saveJournal, saveUnit, useStore } from '../lib/store.js';
@@ -244,7 +244,15 @@ function Teaching({ data, v, say, onNext }) {
     t.insights?.length && { key: 'insights', title: 'Insight from the scholars' },
   ].filter(Boolean);
   const [p, setP] = useState(0);
+  const [all, setAll] = useState(false); // a page opens with two cards; the rest come when asked for
   const page = pages[p];
+  const onward = useRef(null);
+  useEffect(() => {
+    setAll(false);
+    onward.current?.focus({ preventScroll: true });
+  }, [p]);
+  const few = (list) => (all ? list : list.slice(0, 2));
+  const rest = Math.max(0, (t[page.key]?.length || 0) - 2);
   return (
     <section>
       <H>{t.heading[v]}</H>
@@ -252,10 +260,10 @@ function Teaching({ data, v, say, onNext }) {
         {page.title}, {p + 1} of {pages.length}
       </div>
       <div className="mt-2 space-y-3">
-        {page.key === 'quran' && t.quran.map((q) => <VerseCard key={q.ref} refId={q.ref} about={say(q.about)} />)}
-        {page.key === 'hadith' && t.hadith.map((h) => <HadithCard key={h.id} id={h.id} about={say(h.about)} />)}
+        {page.key === 'quran' && few(t.quran).map((q, i) => <VerseCard key={q.ref} refId={q.ref} about={say(q.about)} open={i === 0} />)}
+        {page.key === 'hadith' && few(t.hadith).map((h, i) => <HadithCard key={h.id} id={h.id} about={say(h.about)} open={i === 0} />)}
         {page.key === 'insights' &&
-          t.insights.map((x) => (
+          few(t.insights).map((x) => (
             <figure key={x.text} className="rounded-md border border-[#8a6a4e]/35 bg-[#5a3d22]/5 p-3">
               <p className="font-body text-[1.08rem] leading-snug text-ink">{say(x.text)}</p>
               <figcaption className="mt-1 flex flex-wrap items-center gap-2">
@@ -267,6 +275,11 @@ function Teaching({ data, v, say, onNext }) {
               </figcaption>
             </figure>
           ))}
+        {!all && rest > 0 && (
+          <button type="button" className={FOLD} onClick={() => setAll(true)}>
+            Show {rest} more
+          </button>
+        )}
       </div>
       <div className="mt-5 flex justify-between">
         {p > 0 ? (
@@ -276,7 +289,7 @@ function Teaching({ data, v, say, onNext }) {
         ) : (
           <span />
         )}
-        <button type="button" className="btn-gold" onClick={() => (p + 1 < pages.length ? setP(p + 1) : onNext())} autoFocus>
+        <button type="button" className="btn-gold" ref={onward} onClick={() => (p + 1 < pages.length ? setP(p + 1) : onNext())}>
           {p + 1 < pages.length ? 'Next' : 'Check your understanding'}
         </button>
       </div>
@@ -286,15 +299,19 @@ function Teaching({ data, v, say, onNext }) {
 
 const Draft = () => <span className="rounded-full border border-[#8a6a4e]/50 px-2 py-0.5 font-body text-[0.8rem] italic text-ink-soft">Awaiting scholar review</span>;
 
-function VerseCard({ refId, about }) {
+// A screen shows little by default: each card gives its point in a line, and its full text when asked for.
+const FOLD = 'mt-1 inline-flex min-h-[44px] items-center font-body text-[1rem] font-semibold text-ink underline decoration-[#8a6a4e] underline-offset-4';
+
+function VerseCard({ refId, about, open: start = false }) {
   const refs = expandRef(refId);
   const ayat = refs.map(ayah);
   const ready = ayat.every(Boolean);
   const surah = ayat[0]?.surah;
+  const [open, setOpen] = useState(start);
   return (
     <figure className="rounded-md border border-[#8a6a4e]/35 bg-[#5a3d22]/5 p-3">
-      <p className="font-body text-[1.02rem] italic leading-snug text-ink-soft">{about}</p>
-      {ready ? (
+      <p className="font-body text-[1.06rem] leading-snug text-ink">{about}</p>
+      {!open ? null : ready ? (
         <>
           <p lang="ar" dir="rtl" className="quran mt-2 text-[1.5rem] leading-[1.9] text-ink">
             {ayat.map((a) => a.ar).join(' ۝ ')}
@@ -309,34 +326,50 @@ function VerseCard({ refId, about }) {
           <span className="block font-body text-[0.9rem] italic text-ink-soft">Its text will show here once it has been checked against the source.</span>
         </p>
       )}
-      <figcaption className="mt-1 font-body text-[0.98rem] italic text-ink-soft">
-        Quran {refId}
-        {surah ? `, ${surah}` : ''}
+      <figcaption className="mt-1 flex flex-wrap items-center justify-between gap-x-3 font-body text-[0.98rem] italic text-ink-soft">
+        <span>
+          Quran {refId}
+          {surah ? `, ${surah}` : ''}
+        </span>
+        <button type="button" className={`${FOLD} not-italic`} aria-expanded={open} onClick={() => setOpen(!open)}>
+          {open ? 'Hide the verse' : 'Read the verse'}
+        </button>
       </figcaption>
     </figure>
   );
 }
 
-function HadithCard({ id, about }) {
+function HadithCard({ id, about, open: start = false }) {
   const h = hadithData[id];
+  const [open, setOpen] = useState(start);
   if (!h) return null;
   return (
     <figure className="rounded-md border border-[#8a6a4e]/35 bg-[#5a3d22]/5 p-3">
-      <p className="font-body text-[1.02rem] italic leading-snug text-ink-soft">{about}</p>
-      {h.context && <p className="mt-2 font-body text-[1rem] leading-snug text-ink-soft">{h.context}</p>}
-      {h.ar && (
-        <p lang="ar" dir="rtl" className="quran mt-2 text-[1.4rem] leading-[1.9] text-ink">
-          {h.ar}
-        </p>
+      <p className="font-body text-[1.06rem] leading-snug text-ink">{about}</p>
+      {open && (
+        <>
+          {h.context && <p className="mt-2 font-body text-[1rem] leading-snug text-ink-soft">{h.context}</p>}
+          {h.ar && (
+            <p lang="ar" dir="rtl" className="quran mt-2 text-[1.4rem] leading-[1.9] text-ink">
+              {h.ar}
+            </p>
+          )}
+          <blockquote className="mt-1 font-body text-[1.08rem] leading-snug text-ink">“{h.en}”</blockquote>
+          <p className="mt-1 font-body text-[0.98rem] italic text-ink-soft">
+            Narrated by {h.narrator}
+            {h.also ? `. Also ${h.also}` : ''}
+            {h.gradedBy ? `. Graded sahih by ${h.gradedBy}` : ''}
+          </p>
+        </>
       )}
-      <blockquote className="mt-1 font-body text-[1.08rem] leading-snug text-ink">“{h.en}”</blockquote>
-      <figcaption className="mt-1 flex flex-wrap items-center gap-2">
-        <span className="font-body text-[0.98rem] italic text-ink-soft">
+      <figcaption className="mt-1 flex flex-wrap items-center justify-between gap-x-3">
+        <span className="flex flex-wrap items-center gap-2 font-body text-[0.98rem] italic text-ink-soft">
           {h.collection} {h.number}
-          {h.also ? `, also ${h.also}` : ''}, narrated by {h.narrator}
-          {h.gradedBy ? `. Graded sahih by ${h.gradedBy}` : ''}
+          {h.status !== 'reviewed' && <Draft />}
         </span>
-        {h.status !== 'reviewed' && <Draft />}
+        <button type="button" className={FOLD} aria-expanded={open} onClick={() => setOpen(!open)}>
+          {open ? 'Hide the saying' : 'Read the saying'}
+        </button>
       </figcaption>
     </figure>
   );

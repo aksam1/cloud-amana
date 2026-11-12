@@ -173,7 +173,7 @@ function Home() {
     ? { label: 'Continue', href: resumeUnit ? `/unit/${resume.id}` : `/scene/${resume.id}`, note: resumeUnit ? `${resumeUnit.title}: you were on ${STEP_NAME[resume.step] || 'the lesson'}.` : `You were at “${resume.title}”.` }
     : placed
       ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
-      : { label: 'Begin your journey', href: '/begin', note: 'Your first story starts straight away. About one minute.' };
+      : { label: 'Begin your journey', href: '/begin', note: 'Free, private, no account.' };
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-[#05060d]">
@@ -201,12 +201,11 @@ function Home() {
             Amanah
           </h1>
           <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90 short:mt-1 short:max-w-none short:text-[1.15rem] tiny:mt-2 tiny:text-[1.15rem]">The stories of the prophets, told in light.</p>
-          <p className="mt-2 max-w-[34ch] font-body text-[clamp(1.02rem,3.9vw,1.15rem)] leading-snug text-ivory/75 short:mt-0 short:max-w-none tiny:mt-1">Learn Islam one story at a time. Free, private, no account.</p>
           <button type="button" className="btn-gold mt-6 short:mt-2 tiny:mt-3" onClick={() => go(cta.href)} autoFocus>
             <Icon name="play" className="h-4 w-4" />
             {cta.label}
           </button>
-          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none tiny:hidden">{cta.note}</p>
+          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none">{cta.note}</p>
           <div className="mt-3 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0 tiny:mt-1 tiny:gap-x-4 tiny:text-[1rem]">
             <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/stories')}>
               Watch the stories
@@ -241,7 +240,7 @@ function Begin() {
   return (
     <Shell back="/" title="Begin">
       <h1 className="mt-6 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">First, how would you like to explore?</h1>
-      <p className="mt-1 font-body text-[1.1rem] text-ivory/70">This changes the wording around the stories, not the stories themselves. You can switch at any time. Your first story starts as soon as you choose.</p>
+      <p className="mt-1 font-body text-[1.1rem] text-ivory/70">Only the wording changes. You can switch at any time.</p>
       <div className="mt-5">
         <ModePicker full />
       </div>
@@ -257,7 +256,7 @@ function Begun() {
   return (
     <Shell here="home" back="/" title="Your first story">
       <h1 className="mt-4 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">That was the first minute</h1>
-      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">The story runs on from here: the first people, then the prophets, one short scene at a time. Where would you like to go?</p>
+      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">The story goes on, one short scene at a time.</p>
       <button type="button" className="btn-gold mt-5 self-start" onClick={() => go('/stories')} autoFocus>
         <Icon name="play" className="h-4 w-4" />
         Keep watching
@@ -266,15 +265,15 @@ function Begun() {
       <div className="mt-2 grid gap-3">
         <button type="button" className={way} onClick={() => go('/pyramid/placement')}>
           <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">Find where to begin on the pyramid</span>
-          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">{n} private questions about where you are today. It is not a grade. About 3 minutes.</span>
+          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">{n} private questions. Not a grade.</span>
         </button>
         <button type="button" className={way} onClick={() => go('/paths')}>
           <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">Follow a path</span>
-          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">Women the Quran remembers, creatures, dreams, and prayers in hard moments.</span>
+          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">Women, creatures, dreams, prayers.</span>
         </button>
         <button type="button" className={way} onClick={() => go('/pyramid')}>
           <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">See the pyramid</span>
-          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">Three levels of faith, and a lesson for each part of them.</span>
+          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">Three levels of faith.</span>
         </button>
       </div>
       <Disclaimer />
@@ -753,14 +752,10 @@ function Placement() {
           <h1 className="font-display text-[1.4rem] font-semibold text-ink">Before you climb</h1>
           <p className="mt-2 font-body text-[1.12rem] leading-snug text-ink">
             {mode === 'muslim'
-              ? `These ${questions.length} questions are a moment to reflect on where you are today, so the pyramid can suggest where to begin.`
-              : `These ${questions.length} questions ask about your own values and curiosity, so the pyramid can suggest where to begin.`}
+              ? `${questions.length} questions about where you are today. The pyramid then suggests where to begin.`
+              : `${questions.length} questions about your own values. The pyramid then suggests where to begin.`}
           </p>
-          <ul className="mt-3 space-y-1 font-body text-[1.05rem] text-ink-soft">
-            <li>· It is not a grade, and there are no wrong answers.</li>
-            <li>· Only you will see your answers. They stay on this device.</li>
-            <li>· You can reflect again whenever you like.</li>
-          </ul>
+          <p className="mt-2 font-body text-[1.05rem] text-ink-soft">Not a grade. Only you see your answers.</p>
           <div className="mt-5 flex justify-end">
             <button type="button" className="btn-gold" onClick={() => setI(0)} autoFocus>
               Begin
@@ -870,7 +865,7 @@ function Result() {
 
         {rec && (
           <div className="parchment cartouche mt-5 px-5 py-4">
-            <div className="font-body text-[1.05rem] italic text-ink-soft">{mode === 'curious' ? 'A good first lesson: what Muslims believe and do, and why' : 'A good first step'}</div>
+            <div className="font-body text-[1.05rem] italic text-ink-soft">{mode === 'curious' ? 'A good first lesson' : 'A good first step'}</div>
             <div className="flex items-baseline gap-3">
               <h2 className="font-display text-[1.25rem] font-semibold text-ink">{rec.title}</h2>
             </div>
@@ -909,6 +904,7 @@ function Progress() {
   const [gone, setGone] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
   const [shared, setShared] = useState('');
+  const [openLevel, setOpenLevel] = useState(null); // a level's lessons show when its row is tapped
   const learned = Object.keys(c.state.learned || {}).length;
   const here = levelById[c.current];
   // The reader's private reflections, in the pyramid's order, then the story's.
@@ -961,16 +957,18 @@ function Progress() {
         </a>
       </section>
 
-      <div className="mt-8 space-y-5">
+      <div className="mt-8 space-y-3">
         {levelsTopDown.map((l) => (
-          <section key={l.id} className="rounded-2xl border border-gold/20 bg-[linear-gradient(160deg,rgba(255,226,160,0.07),rgba(255,226,160,0.015))] p-4 sm:p-5" aria-labelledby={`lv-${l.id}`}>
-            <div className="flex items-baseline justify-between gap-3 border-b border-gold/15 pb-2">
-              <h2 id={`lv-${l.id}`} className="font-display text-[1.25rem] font-semibold text-gold-hi">
-                {l.title}
-              </h2>
-              <span className="font-body text-[1rem] italic text-ivory/55">{say(l.meaning.split(':')[0])}</span>
-            </div>
-            <ul className="mt-1 divide-y divide-gold/10">
+          <section key={l.id} className="rounded-2xl border border-gold/20 bg-[linear-gradient(160deg,rgba(255,226,160,0.07),rgba(255,226,160,0.015))] px-4 py-1 sm:px-5" aria-labelledby={`lv-${l.id}`}>
+            <h2 id={`lv-${l.id}`}>
+              <button type="button" className="flex min-h-[56px] w-full items-center justify-between gap-3 text-left" aria-expanded={openLevel === l.id} onClick={() => setOpenLevel(openLevel === l.id ? null : l.id)}>
+                <span className="font-display text-[1.25rem] font-semibold text-gold-hi">{l.title}</span>
+                <span className="font-body text-[1rem] italic text-ivory/60">
+                  {l.units.filter((u) => c.done[u.id]).length} of {l.units.length}, {openLevel === l.id ? 'hide' : 'show'} lessons
+                </span>
+              </button>
+            </h2>
+            <ul className={`divide-y divide-gold/10 border-t border-gold/15 ${openLevel === l.id ? '' : 'hidden'}`}>
               {l.units.map((u) => {
                 const status = unitStatus(u.id);
                 const m = c.meters[u.id] || 0;
@@ -1013,11 +1011,7 @@ function Progress() {
           </h2>
           <span className="font-body text-[1rem] italic text-ivory/55">{notes.length ? `${notes.length} written` : 'None yet'}</span>
         </div>
-        <p className="mt-1 font-body text-[1.02rem] leading-snug text-ivory/65">
-          {notes.length
-            ? 'The reflections you wrote after lessons. They are kept only in this browser.'
-            : 'When you write a reflection after a lesson, it will be kept here, only in this browser.'}
-        </p>
+        <p className="mt-1 font-body text-[1.02rem] leading-snug text-ivory/65">Kept only in this browser.</p>
         {notes.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-2">
             <button type="button" className="hud-btn" onClick={() => setShowNotes((v) => !v)} aria-expanded={showNotes}>
@@ -1032,7 +1026,7 @@ function Progress() {
             </button>
           </div>
         )}
-        {notes.length > 0 && <p className="mt-2 font-body text-[0.95rem] italic text-ivory/50">Clearing this browser's data erases your notes. Download a copy to keep them.</p>}
+        {notes.length > 0 && <p className="mt-2 font-body text-[0.95rem] italic text-ivory/50">Clearing the browser erases them. Download a copy to keep.</p>}
         <AnimatePresence initial={false}>
           {showNotes && (
             <motion.ul className="mt-4 space-y-3" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}>
@@ -1073,7 +1067,7 @@ function Progress() {
       <section className="mt-6 rounded-2xl border border-blood/40 bg-black/30 p-5" aria-live="polite">
         <h2 className="font-display text-[1.05rem] text-ivory">Your data</h2>
         <p className="mt-1 font-body text-[1rem] leading-snug text-ivory/70">
-          Everything here is stored only in this browser. Nothing is sent anywhere, and no one else can see your answers or notes.{' '}
+          Stored only in this browser. Nothing is sent anywhere.{' '}
           <a href="#/about" className="text-gold-hi/85 underline decoration-gold/40 underline-offset-4">
             More about privacy and sources
           </a>

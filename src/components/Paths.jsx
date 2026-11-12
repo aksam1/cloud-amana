@@ -44,7 +44,7 @@ export default function Paths({ id }) {
     return (
       <Shell here="stories" back="/" title="Paths through the stories">
         <h1 className="mt-4 font-display text-[1.7rem] font-semibold leading-tight text-gold-hi">Choose a path</h1>
-        <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/75">The same stories, entered by a different door. Each stop is a short scene or two.</p>
+        <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/75">The same stories, by a different door.</p>
         <ul className="mt-5 grid gap-3">
           {PATHS.map((p) => {
             const done = p.stops.filter((st) => watched(st, seen)).length;
@@ -56,9 +56,7 @@ export default function Paths({ id }) {
                 >
                   <span className="block font-body text-[1.25rem] font-semibold text-gold-hi">{p.title}</span>
                   <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">{say(p.blurb)}</span>
-                  <span className="mt-1 block font-body text-[0.98rem] italic text-ivory/60">
-                    {p.stops.length} stops{done ? `, ${done} watched` : ''}
-                  </span>
+                  {done > 0 && <span className="mt-1 block font-body text-[0.98rem] italic text-ivory/60">{done} of {p.stops.length} watched</span>}
                 </a>
               </li>
             );
@@ -103,10 +101,8 @@ export default function Paths({ id }) {
                 <span className="min-w-0">
                   <span className="block font-body text-[1.15rem] font-semibold leading-tight text-ivory">{st.title}</span>
                   <span className="mt-0.5 block font-body text-[1.03rem] leading-snug text-ivory/75">{say(st.line)}</span>
-                  <span className="mt-0.5 block font-body text-[0.96rem] italic text-ivory/55">
-                    {scenes.length === 1 ? 'One scene' : `${scenes.length} scenes`}, about {minutes(scenes)} min{seenAll ? ', watched' : ''}
-                  </span>
                 </span>
+                <span className="ml-auto shrink-0 whitespace-nowrap pl-1 pt-1 font-body text-[0.96rem] italic text-ivory/55">{minutes(scenes)} min</span>
               </a>
             </li>
           );

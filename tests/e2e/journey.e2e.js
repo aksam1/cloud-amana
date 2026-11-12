@@ -149,8 +149,13 @@ test('the About page says where the words come from and what is stored, and a wr
   await page.goto('/');
   await page.getByRole('button', { name: 'About', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'About Amanah' })).toBeVisible();
+  // one line per subject; the detail opens when asked for
+  await expect(page.getByText(/Sahih International/)).toBeHidden();
+  await page.getByText('Where the words come from').click();
   await expect(page.getByText(/Sahih International/)).toBeVisible();
+  await page.getByText('Your privacy').click();
   await expect(page.getByText(/stored only in this browser/)).toBeVisible();
+  await page.getByText('What it is not').click();
   await expect(page.getByText(/only Allah knows the state of anyone's heart/i)).toBeVisible();
   await page.goto('/#/no-such-page');
   await expect(page.getByRole('heading', { name: 'That page does not exist' })).toBeVisible();

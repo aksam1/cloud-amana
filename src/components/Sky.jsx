@@ -77,7 +77,7 @@ export default function Sky({ learned = {}, done = {}, className = '' }) {
         <span className="text-gold-hi">
           {lit} of {total} stars lit.
         </span>{' '}
-        Each lesson you finish lights one. The winding band is the story, from the creation onward; the triangle is the pyramid. Nothing here counts days, and a star never goes out.
+        Each lesson you finish lights one.
       </figcaption>
     </figure>
   );

@@ -138,6 +138,10 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   hadith is not used (Tirmidhi 2517, "tie it and rely upon Allah", was removed and the tawakkul lesson rewritten
   around the hadith of the birds).
 - `tiny:` is a Tailwind variant for a small phone held upright (under 700 px tall); the start screen uses it.
+- Little text on screen (the owner's rule, 12 Nov 2026): a screen says its point in a line and gives detail only when
+  asked. Teaching pages open with two cards, the first one's verse or saying shown, the rest behind "Read the
+  verse" / "Show N more"; Progress folds each level's lessons; About is one line per subject (`<details>`). Write new
+  screens the same way: aim for under about 80 words before any tap, and never add an explaining paragraph by default.
 
 ## The look (first impression)
 
