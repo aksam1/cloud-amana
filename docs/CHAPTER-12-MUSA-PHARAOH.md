@@ -46,7 +46,7 @@ the sea closing and the army's lights going out. Mockery is jagged strokes. No m
 
 ### 130 · Haman's Tower · برج هامان (`tower`)
 - **Ayah:** 40:28. **Node:** musa.
-- **Beats.** (1) *Say:* Pharaoh mocked Musa's God. Haman, he ordered, bake bricks and build me a tower, that I may climb up and look at the God of Musa; I think he is a liar. (2) *Say:* So the tower rose, brick upon brick; but no tower could reach the One who made the heavens. (3) *Say:* Then a man of Pharaoh's own family, who had hidden his faith, spoke up: will you kill a man simply for saying, my Lord is God, when he has brought you clear proofs? (4) **Verse 40:28** (from "Do you kill a man [merely] because he says, My Lord is Allah"), placed sky.
+- **Beats.** (1) *Say:* Pharaoh mocked Musa's God. Haman, he ordered, bake bricks and build me a tower, that I may climb up and look at the God of Musa; I think he is a liar. (2) *Say:* So the tower rose, brick upon brick; but no tower could reach the One who made the heavens. (3) *Say:* Then a man of Pharaoh's own family, who had hidden his faith, spoke up: will you kill a man simply for saying, my Lord is God, when he has brought you clear proofs? (4) **Verse 40:28**, placed sky.
 - **Sound:** work, city → work, wind → echo, voices → echo, air. **Art:** Pharaoh, Haman and the believing man of Pharaoh's family appear only as dim figures of light, Pharaoh's cold. The tower's look is imagined.
 - **Image prompt:** An Egyptian city at morning, brick kilns glowing and a tower of baked brick rising course after course toward the clouds while crowds of dim lights labour around it; then Pharaoh's hall, a single warm dim light stepping forward from among grey courtiers to speak; ink-wash and parchment texture.
 

@@ -1,0 +1,32 @@
+{
+  "id": "sunrise",
+  "chapter": 20,
+  "order": 196,
+  "node": "major",
+  "title": "The Sun Rises from the West",
+  "arabic": "شروق الشمس من الغرب",
+  "source": "mixed",
+  "ayahs": [],
+  "art": ["That the sun will rise from the West is one of the eleven signs, told by the Prophet ﷺ in the hadith of al-Bukhari 4635 and 7121 (Sahih Muslim 2935). It is not in the Quran; the scene says so.", "The way the sunrise looks is imagined. The west is a direction, not a place shown here.", "Nobody is shown."],
+  "ambient": ["wind", "air"],
+  "base": "#161a24",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#161a24", "fogNear": 5000, "fogFar": 60000, "light": 0.95, "rays": 0, "bloom": 0.9, "haze": 0.04, "hazeY": 0.6, "shake": 0.2, "dof": 0},
+  "cam": {"pos": [800, 520, 1000], "look": [800, 600, -3000]},
+  "imagePrompt": "A wide empty plain under a night sky; along one horizon a band of pale gold appears low and brightens, until a sunrise comes up in the wrong direction and the whole empty land is lit by it; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 650, "tod": [5, 5.4, 11000], "sun": {"rise": 6, "set": 18, "x0": 1300, "x1": 300, "peak": 300, "size": 40}, "stars": 1400, "at": {"1": {"tod": [5.4, 6.2, 12000]}, "2": {"tod": [6.2, 7, 12000]}}},
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#101828"], [1, "#3e2f34"]]},
+    {"type": "ridge", "depth": 0.06, "y": 620, "amp": 36, "seed": 1730, "sharp": 0.3, "color": "#342e3c", "haze": 0.3, "fog": 0.4},
+    {"type": "ground", "depth": 0.2, "y": 700, "amp": 10, "seed": 1731, "color": "#342e38", "color2": "#161218", "at": {"2": {"color": "#54463c", "color2": "#241c18"}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 360, "size": 2.4, "color": "#e8e4f0", "opacity": 0.16, "wind": [3, -1, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [800, 520, 1000], "look": [800, 600, -3000]}, "say": "The sign the community is said to await is this: that the sun will rise from the West. When the people see it, they will all believe, and it will be too late for anyone who did not believe before."},
+    {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [800, 530, 900], "look": [800, 620, -3000]}, "say": "So the light comes up along the horizon, and the empty land wakes under it. Nothing of the people is shown, because the sign is not about them."},
+    {"dur": 12000, "ambient": ["air"], "cam": {"pos": [800, 540, 950], "look": [800, 640, -3000]}, "verse": {"ref": "6:158", "ar": [15, 38], "place": "lower", "en": "The Day that some of the signs of your Lord will come no soul will benefit from its faith as long as it had not believed before or had earned through its faith some good. Say, \"Wait. Indeed, we [also] are waiting.\""}}
+  ]
+}

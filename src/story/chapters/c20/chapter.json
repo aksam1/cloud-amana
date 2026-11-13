@@ -4,7 +4,16 @@
   "arabic": "أشراط الساعة",
   "nodes": ["minor", "major"],
   "parts": [
-    { "title": "The Minor Signs", "nodes": ["minor"] },
-    { "title": "The Major Signs", "nodes": ["major"] }
-  ]
+    { "title": "The Minor Signs", "from": 193, "to": 194 },
+    { "title": "The Major Signs", "from": 195, "to": 196 }
+  ],
+  "bridge": {
+    "when": "Before the Hour",
+    "where": "Everywhere, and then the sky",
+    "line": ["Isa", "…", "the signs"],
+    "text": [
+      "The story of the prophets ends where the Quran's own pictures begin. What is left is not a life but a set of signs — some of them told in the Quran, some of them told in the hadith — and a day that is described rather than shown.",
+      "This chapter holds the signs that come before the Hour: what the Prophet ﷺ said the world would drift toward. The next chapter holds the Hour itself."
+    ]
+  }
 }

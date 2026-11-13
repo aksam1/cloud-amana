@@ -53,6 +53,14 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Chapter 18, Stories of Wisdom (map stop `wisdom`), holds stories whose time is uncertain or that sit
   outside the line of prophets (the Cave, Dhul-Qarnayn, the two gardens, the owners of the garden, Saba's dam,
   the town of the messengers, the hundred years, Luqman).
+- Chapter 19 (the Final Messenger ﷺ) is **paused, not written**: its scenes depend on the owner's decision
+  about how the Prophet ﷺ is shown, which has not been made. Do not write chapter 19 without it. Its
+  chapter.json is a placeholder with three parts and no `from`/`to`.
+- Chapters 20 and 21 are written and are the end of the chronicle: 20, The Signs of the Hour (map stops
+  `minor` and `major`, four scenes), and 21, The Day of Judgment (map stop `judgment`, seven scenes). Neither
+  chapter shows a single person: they are the Quran's own pictures of the end, made of sky, earth, light and
+  stillness. Their generator is `tools/generators/c20_21.py`; their docs are `docs/CHAPTER-20-SIGNS.md` and
+  `docs/CHAPTER-21-JUDGMENT.md`.
 
 ## Two views and lessons
 
@@ -67,7 +75,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `#/lesson/<chapter>/<part>?then=<route>`, opened automatically at the end of a part not yet learned.
   "See the moment again" plays `#/scene/<id>?beat=n&back=<lesson>` and returns to the lesson.
 - Progress: `learned`, `answers` and the private `journal` in `src/lib/store.js` (localStorage only).
-  Every part with scenes (chapters 1–18, 50 parts) has a lesson; each `carry` is a short Quranic dua, by ref.
+  Every part with scenes (chapters 1–18 and 20–21, 53 parts) has a lesson; each `carry` is a short Quranic dua, by ref.
 
 ## The Pyramid of Righteousness (the home page)
 
@@ -89,7 +97,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   leaderboards or comparisons, shaming copy. The disclaimer shows on the landing, placement, result,
   progress and unit-result screens. Scores are private (localStorage); Progress has "Delete my data".
 - Engine: `src/lib/pyramid.js` (placement result, unit meters, level progress, overall, current level).
-  Messengers' meter = history lessons learned ÷ the parts that have scenes (`from` set; 50 today), so it can reach 100%. A unit retaken keeps its best meter.
+  Messengers' meter = history lessons learned ÷ the parts that have scenes (`from` set; 53 today), so it can reach 100%. A unit retaken keeps its best meter.
 - Story steps play chronicle scenes with `?back=<unit>&until=<last scene>` and return to the unit.
 
 ## The journey and its safety nets
@@ -116,8 +124,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   "That page does not exist" (router `missing`), never the start screen. Keep the About page true when things change
   (for example once hadith are reviewed, or if visitor counts are ever added).
 - A verse still waiting for its text is never replaced: scenes show `PendingCaption` (reference + link to quran.com) and
-  hold at most 6 s (`PENDING_MS`); units and lessons show the same link. Nothing is pending today (all 220 verse
-  moments, 78 unit refs and 100 lesson refs show their text); the fallback stays for new refs.
+  hold at most 6 s (`PENDING_MS`); units and lessons show the same link. Nothing is pending today (all 231 verse
+  moments, 78 unit refs and 102 lesson refs show their text); the fallback stays for new refs.
 - A finished unit offers `nextUnit()` (first playable unit after it not yet completed) as its main button.
 - Fonts are bundled (`src/fonts.css`, @fontsource): nothing loads from Google. Add a weight there before using it.
 - `short:` is a Tailwind variant for a phone turned sideways (landscape, under 500 px tall). Check new screens with it.
@@ -234,7 +242,10 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `cloth` (`pole`, `tear`), `storm`, `sun` (the visible one streams god-rays), `heavens` (a living sky:
   per-beat `tod` [from, to, ms] hours run the sky through night, dawn, day and dusk; `star`, `moon`, `sun`
   {rise, set, x0, x1, peak} rise and set behind the hills; it drives the scene's light and haze while shown,
-  so use it instead of a `sky` card; `tod` [from, to, ms, days] runs whole days past first), `fire`
+  so use it instead of a `sky` card; `tod` [from, to, ms, days] runs whole days past first; a body may be
+  switched off with `null` — `"sun": null` gives a night sky with no sun, which is how chapters 20–21 do it;
+  `sun.fold` 0–1 folds the disc inward with a bright seam (81:2); `moon.eclipse` swallows the moon's light
+  leaving a cold rim), `fire`
   (ink-wash flame sheets: `pos`, `w`, `h`, `heat`; `cool` 0–1 eases it to calm silver-blue light over
   `coolDur`), `masonry` (a building of stone raised course by course on one plane: `pos` foot middle, `w`,
   `h`, `side` face receding to `horizon`, `courses`, `blocks`, `built` 0–1 or `build` [from, to, ms,
@@ -312,20 +323,27 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `tools/generators/rooms.py` keeps each place's room (Namrud, al-Aziz, the king of Egypt, Yusuf's hall,
   Yaqub's house, Pharaoh, Dawud's chamber and court, Sulayman, the smithy): `room(place)` + `front(place)`.
   (`Pillars` is town.jsx's painter; the interiors one is `colonnade`.)
-- api.alquran.cloud is not on this workspace's network allowlist. All 373 cited ayat are on file all the same:
-  297 were taken on 10 Nov 2026 from GitHub mirrors that match the 76 API-fetched ayat character for character and
-  agree with each other (`src/data/ayahs.SOURCE.md` has the sources and the checks). For a new ref while the host is
+- api.alquran.cloud is not on this workspace's network allowlist. All 503 ayat are on file all the same:
+  427 were taken on 10 Nov 2026 from GitHub mirrors that match the 76 API-fetched ayat character for character and
+  agree with each other (`src/data/ayahs.SOURCE.md` has the sources and the checks); 130 more were added on
+  13 Nov 2026 for chapters 20–21 by the same two-mirror method. For a new ref while the host is
   blocked, repeat that method (two mirrors, both matching what is on file, agreeing on the new ayah); otherwise the
   beat stays a `pendingVerse`. Copies such as quran-json and fawazahmed0 drop closing punctuation from Sahih
   International: never use a mirror that fails the match. `npm run ayahs` collects refs from lessons and units too.
 - A whole single ayah may leave `ar` out (as `npm run verses` writes it; the checker then requires its English to be
-  the whole ayah). 33 verse moments show part of an ayah with a hand-chosen `ar` range and matching English.
+  the whole ayah). 118 verse moments show part of an ayah with a hand-chosen `ar` range and matching English.
+- `npm run ayahs` keeps every ayah already on file, even one no scene cites yet, and survives one failed fetch
+  (it notes the failures and goes on) — a verse fetched for a scene still being written is not lost.
 - On phones a long verse sets itself smaller until it fits above the chronicle (`fit` in Captions.jsx, never under
   66%); if it still cannot fit (a small phone) the chronicle folds away for that beat (`crowded` in ScenePlayer).
 - Arabic titles must not quote the Quran even when its ayat are not fetched yet (the checker can only catch
   phrases from fetched ayat): "يوم الزينة", "مجمع البحرين", "المن والسلوى", "سيل العرم" and "رجل يسعى" were caught by hand.
 - `world.cycle` needs a `period` above 0 (0 divides by zero and blacks out the stage), and it does nothing while
   a `heavens` sky is shown (the sky drives the light): run days past with `tod` [from, to, ms, days] instead.
+- A `heavens` body's default only covers `undefined`, not `null`: `"sun": null` used to crash the page with
+  `Cannot read properties of null (reading 'size')` at `src/gl/heavens.jsx` (the `sun` default in the
+  destructuring, then `sun.size` inside `place2`). The guard now reads `sun ? place2(...) : 0`. Keep `null`
+  meaning "this body is not in the sky" and keep the guard.
 - A wide `seawall` or `waves` card in front of a ship in the storm scene (The Lots) blacked out the whole
   stage in the headless renderer; a dark `water` band in front works. Check every new scene's still is not black.
 - Scene ids are unique across all chapters (`son`, `call`, `warning` were taken): `npm run check` says so.

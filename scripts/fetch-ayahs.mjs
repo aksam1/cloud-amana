@@ -82,19 +82,34 @@ async function fetchAyah(ref, attempt = 0) {
 
 const existing = existsSync(out) ? JSON.parse(readFileSync(out, 'utf8')) : {};
 const refs = collectRefs();
-const result = {};
+// Keep every ayah already on file, even one no scene cites yet: a verse fetched for a scene still
+// being written would otherwise be dropped by the next run.
+const result = { ...existing };
+const failed = [];
 for (const ref of refs) {
-  if (existing[ref]) { result[ref] = existing[ref]; continue; }
-  result[ref] = await fetchAyah(ref);
-  writeFileSync(out, JSON.stringify({ ...existing, ...result }, null, 1) + '\n');
+  if (result[ref]) continue;
+  try {
+    result[ref] = await fetchAyah(ref);
+  } catch (e) {
+    // One failure (a rate limit, a network blip) must not lose the rest of the run: note it and go on.
+    failed.push(`${ref}: ${e.message}`);
+    continue;
+  }
+  writeFileSync(out, JSON.stringify(result, null, 1) + '\n');
   console.log('fetched', ref);
   await sleep(450);
 }
 writeFileSync(out, JSON.stringify(result, null, 1) + '\n');
-console.log(`${refs.length} ayahs → src/data/ayahs.json`);
+console.log(`${Object.keys(result).length} ayahs → src/data/ayahs.json`);
+if (failed.length) {
+  console.log(`\n${failed.length} could not be fetched:`);
+  for (const f of failed) console.log('  ', f);
+  process.exitCode = 1;
+}
 
 if (process.argv.includes('--words')) {
   for (const ref of refs) {
+    if (!result[ref]) continue;
     const words = result[ref].ar.split(/\s+/);
     console.log(`\n${ref}  ${result[ref].en}`);
     console.log(words.map((w, i) => `${i}:${w}`).join('  '));

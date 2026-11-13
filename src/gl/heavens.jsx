@@ -110,8 +110,30 @@ void main() {
   gl_FragColor = vec4(vec3(1.0, 0.97, 0.9), smoothstep(0.5, 0.0, r) * vA * opacity);
 }`;
 
+const sunFragment = /* glsl */ `
+uniform float opacity;
+uniform float fold;
+uniform vec3 tint;
+varying vec2 vUv;
+void main() {
+  vec2 p = vUv - 0.5;
+  // the sun is folded: it draws inward from both sides, the disc closing like a pinched flame
+  float squeeze = max(1.0 - fold * 0.94, 0.06);
+  float rr = length(p * vec2(1.0 / squeeze, 1.0)) * 2.0;
+  if (rr > 1.0) discard;
+  // the light drawn to the fold line: a bright seam down the middle as the two halves meet
+  float seam = exp(-abs(p.x) * 90.0) * fold * 0.9;
+  float edge = smoothstep(1.0, 0.94, rr);
+  // the disc keeps the brightness it always had: the old material multiplied its colour by 1.6
+  vec3 c = tint * 1.6;
+  c += vec3(1.0, 0.92, 0.74) * seam;
+  float a = clamp(edge * opacity + seam * 0.85, 0.0, 1.0);
+  gl_FragColor = vec4(c, a);
+}`;
+
 const moonFragment = /* glsl */ `
 uniform float opacity;
+uniform float eclipse;
 uniform vec3 tint;
 varying vec2 vUv;
 float h21(vec2 p) { return fract(sin(dot(p, vec2(41.3, 289.1))) * 43758.5453); }
@@ -127,7 +149,13 @@ void main() {
   if (r > 1.0) discard;
   float maria = smoothstep(0.45, 0.75, vn(vUv * 5.0 + 3.0) * 0.6 + vn(vUv * 11.0) * 0.4);
   vec3 c = tint * (1.0 - maria * 0.16) * (1.0 - 0.12 * r * r);
-  gl_FragColor = vec4(c, opacity * smoothstep(1.0, 0.94, r));
+  // the eclipse: the moon's own light drawn inward and swallowed, leaving a cold rim
+  float eaten = smoothstep(eclipse * 1.02 - 0.06, eclipse * 1.02 + 0.02, r);
+  float rim = exp(-pow((r - eclipse * 1.02) * 26.0, 2.0)) * eclipse;
+  c = mix(c, vec3(0.10, 0.11, 0.16), eaten);
+  c += vec3(0.72, 0.80, 1.0) * rim * 0.7;
+  float a = opacity * smoothstep(1.0, 0.94, r);
+  gl_FragColor = vec4(c, a * (1.0 - eaten * 0.85) + rim * 0.3);
 }`;
 
 const roundVertex = /* glsl */ `
@@ -192,7 +220,8 @@ export function Heavens({ layer, beat, env, dissolve, lite }) {
     () => new ShaderMaterial({ uniforms: { time: { value: 0 }, pr: { value: Math.min(window.devicePixelRatio || 1, 2) }, night: { value: 0 }, opacity: { value: 0 } }, vertexShader: starVertex, fragmentShader: starFragment, transparent: true, depthWrite: false, blending: AdditiveBlending }),
     [],
   );
-  const moonMat = useMemo(() => new ShaderMaterial({ uniforms: { opacity: { value: 0 }, tint: { value: new Color('#f2f0e6') } }, vertexShader: roundVertex, fragmentShader: moonFragment, transparent: true, depthWrite: false }), []);
+  const moonMat = useMemo(() => new ShaderMaterial({ uniforms: { opacity: { value: 0 }, eclipse: { value: 0 }, tint: { value: new Color('#f2f0e6') } }, vertexShader: roundVertex, fragmentShader: moonFragment, transparent: true, depthWrite: false }), []);
+  const sunMat = useMemo(() => new ShaderMaterial({ uniforms: { opacity: { value: 0 }, fold: { value: 0 }, tint: { value: new Color('#fff0d0') } }, vertexShader: roundVertex, fragmentShader: sunFragment, transparent: true, depthWrite: false }), []);
   const glow = glowTexture();
   const refs = { star: useRef(null), starHalo: useRef(null), moon: useRef(null), moonHalo: useRef(null), sun: useRef(null), sunHalo: useRef(null) };
   const clock = useRef({ key: null, t0: null });
@@ -240,25 +269,35 @@ export function Heavens({ layer, beat, env, dissolve, lite }) {
       const vis = up ? o : 0;
       return { vis, w, lift: Math.sin(Math.PI * Math.min(1, Math.max(0, p))) };
     };
-    const sunNow = place2(sun, 'sun', refs.sun, refs.sunHalo, sun.size ?? 34, sun.halo ?? 210);
+    // a body may be switched off with null (a night sky with no sun): it is then simply not drawn
+    const sunNow = sun ? place2(sun, 'sun', refs.sun, refs.sunHalo, sun.size ?? 34, sun.halo ?? 210) : 0;
     if (sunNow) {
       const warm = scratch.fog.copy(scratch.warm).lerp(scratch.white, smooth(0.05, 0.5, sunNow.lift));
-      refs.sun.current.material.color.copy(warm).multiplyScalar(1.6);
-      refs.sun.current.material.opacity = sunNow.vis;
+      // the sun folded: the disc draws inward, its light going with it (81:2)
+      const fold = Math.min(1, Math.max(0, sun.fold ?? 0));
+      sunMat.uniforms.opacity.value = sunNow.vis;
+      sunMat.uniforms.fold.value = fold;
+      sunMat.uniforms.tint.value.copy(warm);
       refs.sunHalo.current.material.color.copy(warm);
-      refs.sunHalo.current.material.opacity = sunNow.vis * 0.6;
+      refs.sunHalo.current.material.opacity = sunNow.vis * 0.6 * (1 - fold * 0.9);
       s.sunPos.value.copy(sunNow.w);
       s.sunCol.value.copy(warm);
-      s.sunVis.value = sunNow.vis * (0.25 + 0.75 * (1 - sunNow.lift));
-    } else s.sunVis.value = 0;
+      s.sunVis.value = sunNow.vis * (0.25 + 0.75 * (1 - sunNow.lift)) * (1 - fold * 0.95);
+    } else {
+      s.sunVis.value = 0;
+      sunMat.uniforms.opacity.value = 0;
+    }
     const night = 1 - smooth(4.6, 6.2, wrap(h)) * (1 - smooth(18.6, 20.2, wrap(h)));
     let moonUp = 0;
     if (moon) {
       const m = place2(moon, 'moon', refs.moon, refs.moonHalo, moon.size ?? 30, moon.halo ?? 240);
       if (m) {
+        // the moon eclipsed: its light is swallowed from the middle outward (81:15-16)
+        const eclipse = Math.min(1, Math.max(0, moon.eclipse ?? 0));
         moonMat.uniforms.opacity.value = m.vis;
-        refs.moonHalo.current.material.opacity = m.vis * (0.25 + 0.4 * night);
-        moonUp = m.vis * m.lift;
+        moonMat.uniforms.eclipse.value = eclipse;
+        refs.moonHalo.current.material.opacity = m.vis * (0.25 + 0.4 * night) * (1 - eclipse * 0.85);
+        moonUp = m.vis * m.lift * (1 - eclipse);
       }
     }
     if (star) {
@@ -305,9 +344,8 @@ export function Heavens({ layer, beat, env, dissolve, lite }) {
       <sprite ref={refs.sunHalo} renderOrder={order + 2}>
         <spriteMaterial map={glow} color="#ffd8a0" blending={AdditiveBlending} transparent depthWrite={false} opacity={0} />
       </sprite>
-      <mesh ref={refs.sun} renderOrder={order + 3}>
+      <mesh ref={refs.sun} material={sunMat} renderOrder={order + 3}>
         <circleGeometry args={[1, 48]} />
-        <meshBasicMaterial color="#fff0d0" transparent depthWrite={false} opacity={0} />
       </mesh>
     </group>
   );

@@ -1,0 +1,80 @@
+{
+  "chapter": 21,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "This chapter shows almost nothing on purpose. Watch the ground, and watch what is being written.",
+      "questions": [
+        {
+          "q": "What does the Quran say happens to the earth on the Day of Judgment?",
+          "options": [
+            "It is leveled, pounded and crushed",
+            "It is split into seven seas",
+            "It turns to gold",
+            "It is swallowed by the sea"
+          ],
+          "answer": 0,
+          "replay": { "scene": "earth", "beat": 1 }
+        },
+        {
+          "q": "What does the Quran compare people to on the Day of the Striking Calamity?",
+          "options": [
+            "Scattered moths",
+            "Falling leaves",
+            "Rising smoke",
+            "Drifting sand"
+          ],
+          "answer": 0,
+          "replay": { "scene": "moths", "beat": 1 }
+        },
+        {
+          "q": "How small a deed does 99:7-8 say will be seen?",
+          "options": [
+            "Only the deeds that other people noticed",
+            "Only the deeds done in the last year",
+            "An atom's weight, of good or of evil",
+            "Only the deeds done in secret"
+          ],
+          "answer": 2,
+          "replay": { "scene": "atom", "beat": 1 }
+        },
+        {
+          "q": "Who does 82:10-12 say is over you, keeping record?",
+          "options": [
+            "Your family and your neighbours",
+            "Keepers, noble and recording, who know what you do",
+            "The angels of the throne, visible on the ground",
+            "Nobody; the record is kept in the earth itself"
+          ],
+          "answer": 1,
+          "replay": { "scene": "keepers", "beat": 0 }
+        },
+        {
+          "q": "What is the wrongdoer's wish, in 23:99-100?",
+          "options": [
+            "To be forgiven without asking",
+            "To be sent back, to do righteousness in what he left behind",
+            "To be allowed to explain himself",
+            "To be given another lifetime"
+          ],
+          "answer": 1,
+          "replay": { "scene": "returnwish", "beat": 0 }
+        }
+      ],
+      "lesson": {
+        "text": "The Day of Judgment is described in pictures, not in a report: the earth leveled and crushed, the graves opened, people like scattered moths, the mountains like fluffed wool. Nothing of it is shown here, because what each person carried is known only to God.",
+        "curious": "Two of the pictures are about how little it takes to matter: an atom's weight of good, or of evil. Another is about being recorded: keepers who know whatever you do. The last one is the hardest — that on that Day, no one can help anyone else, and the command is entirely with God.",
+        "ref": "99:7"
+      },
+      "carry": {
+        "title": "For the one whose scales are heavy",
+        "ref": "99:7"
+      },
+      "reflect": {
+        "muslim": "If the record is being written now, what would you want it to say about the last seven days?",
+        "curious": "Who is keeping track of the things you do that nobody else notices? How does that make you feel?"
+      },
+      "act": "Do one small good thing today that no one will thank you for."
+    }
+  ]
+}

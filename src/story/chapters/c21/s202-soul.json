@@ -1,0 +1,33 @@
+{
+  "id": "soul",
+  "chapter": 21,
+  "order": 202,
+  "node": "judgment",
+  "title": "At the Collar Bones",
+  "arabic": "عند الحنجرة",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["75:26-28: when the soul has reached the collar bones, and it is said, who will cure him, and the dying one is certain that it is the separation. None of it is shown: the scene is a still plain and a light that goes out.", "The look of the light and the plain is imagined."],
+  "ambient": ["wind", "air"],
+  "base": "#161a24",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#2a2436", "fogNear": 5000, "fogFar": 60000, "light": 0.95, "rays": 0, "bloom": 0.9, "haze": 0.05, "hazeY": 0.6, "shake": 0.2, "dof": 0},
+  "cam": {"pos": [800, 520, 1150], "look": [800, 640, -3000]},
+  "imagePrompt": "A still plain under a low sun at the end of the day, one small warm light standing alone; the light dims, thins and goes out, and the plain is left exactly as it was; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 610, "tod": [16.4, 17.2, 11000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "stars": 1400, "at": {"1": {"tod": [17.2, 18.2, 12000]}}},
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#6a4a44"], [1, "#3a3040"]]},
+    {"type": "ridge", "depth": 0.05, "y": 590, "amp": 30, "seed": 1780, "sharp": 0.3, "color": "#5c4a50", "haze": 0.3, "fog": 0.4},
+    {"type": "ground", "depth": 0.22, "y": 710, "amp": 8, "seed": 1781, "color": "#5a4a50", "color2": "#241c22"},
+    {"type": "light", "depth": 0.3, "pos": [800, 792], "h": 60, "color": "#ffdca8", "glow": 0.7, "bright": 1.2, "solid": 0.5, "at": {"1": {"pose": "bow", "w": 1}, "2": {"pose": "gone"}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 360, "size": 2.4, "color": "#e8e4f0", "opacity": 0.16, "wind": [3, -1, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [800, 520, 1150], "look": [800, 640, -3000]}, "say": "The Quran comes closer to a person's death than anywhere else in these chapters: when the soul has reached the collar bones, and it is said, who will cure him?"},
+    {"dur": 11000, "ambient": ["air"], "cam": {"pos": [800, 530, 950], "look": [800, 660, -3000]}, "say": "The dying one is certain that it is the separation, and the leg is wound about the leg. To your Lord, that Day, is the procession. None of it is shown here; the light simply thins and goes out."},
+    {"dur": 12000, "ambient": ["air", "wind"], "cam": {"pos": [800, 540, 1000], "look": [800, 680, -3000]}, "verse": {"ref": "75:26-28", "ar": [[0, 3], [0, 3], [0, 2]], "place": "lower", "en": "No! When the soul has reached the collar bones And it is said, \"Who will cure [him]?\" And the dying one is certain that it is the [time of] separation"}}
+  ]
+}

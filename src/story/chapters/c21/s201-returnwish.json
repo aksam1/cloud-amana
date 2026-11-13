@@ -1,0 +1,33 @@
+{
+  "id": "returnwish",
+  "chapter": 21,
+  "order": 201,
+  "node": "judgment",
+  "title": "The Plea",
+  "arabic": "العودة",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["23:99-100 holds the wrongdoer's own wish at the moment of death: my Lord, send me back, that I might do righteousness in what I left behind. And 75:13-14: man will be informed that Day of what he sent ahead and kept back.", "No one speaks on screen. The scene is the empty plain and the closed sky.", "The look of the sky and the light is imagined."],
+  "ambient": ["wind", "air"],
+  "base": "#161a24",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#161a24", "fogNear": 5000, "fogFar": 60000, "light": 0.95, "rays": 0, "bloom": 0.9, "haze": 0.04, "hazeY": 0.6, "shake": 0.2, "dof": 0},
+  "cam": {"pos": [800, 520, 1150], "look": [800, 640, -3000]},
+  "imagePrompt": "A bare plain at the edge of the world under an enormous still sky; one small point of light at the centre of the plain; the sky closing down slowly over it until the light is covered; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 640, "tod": [0, 0.6, 11000], "sun": null, "stars": 1000, "at": {"1": {"tod": [0.6, 1.2, 12000]}}},
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#1a1824"], [1, "#0c0a12"]]},
+    {"type": "ridge", "depth": 0.06, "y": 610, "amp": 30, "seed": 1790, "sharp": 0.3, "color": "#2e2a38", "haze": 0.3, "fog": 0.4},
+    {"type": "ground", "depth": 0.2, "y": 700, "amp": 10, "seed": 1791, "color": "#2e2a34", "color2": "#141218"},
+    {"type": "light", "depth": 0.3, "pos": [800, 792], "h": 60, "color": "#fff0dc", "glow": 0.6, "bright": 1.2, "solid": 0.5, "at": {"1": {"pose": "bow", "w": 1}, "2": {"glow": 1.2, "bright": 1.4}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 360, "size": 2.4, "color": "#e8e4f0", "opacity": 0.12, "wind": [3, -1, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [800, 520, 1150], "look": [800, 640, -3000]}, "say": "And when death comes to one of them, he says: my Lord, send me back, that I might do righteousness in what I left behind. But it is only a word he is saying; and behind them is a barrier."},
+    {"dur": 11000, "ambient": ["air"], "world": {"bloom": 1.0}, "cam": {"pos": [800, 530, 950], "look": [800, 660, -3000]}, "say": "Man will be informed that Day of what he sent ahead and kept back. Rather, man, against himself, will be a witness, even if he presents his excuses."},
+    {"dur": 12000, "ambient": ["air", "wind"], "cam": {"pos": [800, 540, 1000], "look": [800, 680, -3000]}, "verse": {"ref": "75:13-14", "ar": [[0, 4], [0, 3]], "place": "lower", "en": "Man will be informed that Day of what he sent ahead and kept back. Rather, man, against himself, will be a witness,"}}
+  ]
+}

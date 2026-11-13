@@ -87,7 +87,7 @@ export default function About({ missing = false }) {
       </More>
 
       <More title="What is still being written">
-        <P>The chapters on the Final Messenger ﷺ, the signs of the Hour and the Day of Judgment are not written yet. The map marks them “Soon”.</P>
+        <P>The chapter on the Final Messenger ﷺ is not written yet: the map marks it “Soon”. The chapters on the signs of the Hour and the Day of Judgment are written, and are the last two chapters.</P>
       </More>
 
       <More title="What it is not">

@@ -22,19 +22,19 @@ never shown. No music.
 
 ### 177 · Birds of Clay · طيور من طين (`claybirds`)
 - **Ayah:** 3:49. **Node:** isa.
-- **Beats.** (1) *Say:* God sent Isa to the Children of Israel with clear signs. He shaped birds from clay before the people's eyes. (2) *Say:* Then he breathed into them, and they became birds, and flew; by God's permission, not by his own power. (3) **Verse 3:49** (from "I design for you from clay" to "by permission of Allah"), placed sky.
+- **Beats.** (1) *Say:* God sent Isa to the Children of Israel with clear signs. He shaped birds from clay before the people's eyes. (2) *Say:* Then he breathed into them, and they became birds, and flew; by God's permission, not by his own power. (3) **Verse 3:49**, placed sky.
 - **Sound:** voices, birds → birds, voices → birds, air. **Art:** Isa appears only as a steady light; his mother, the disciples and the people as soft or dim figures of light. Nothing in these scenes stands for God. The land's look is imagined. The clay birds are drawn in ink; their flight is by God's permission, as Isa says in 3:49 and as 5:110 tells.
 - **Image prompt:** A village courtyard in morning sun, a board of small birds shaped from wet clay, children's small lights crowding to watch and a steady light bending over the clay; then the clay birds gone and birds of light rising from the board, wheeling up into the sky; ink-wash and parchment texture.
 
 ### 178 · By God's Leave · الشفاء (`healing`)
 - **Ayah:** 3:49. **Node:** isa.
-- **Beats.** (1) *Say:* Crowds followed Isa wherever he went, bringing the blind and the sick. (2) *Say:* By God's permission he healed the blind and the leper, (3) *Say:* and by God's permission he brought the dead back to life. These are signs, he told them, if you are believers. (4) **Verse 3:49** (from "And I cure the blind" to "by permission of Allah"), placed sky.
+- **Beats.** (1) *Say:* Crowds followed Isa wherever he went, bringing the blind and the sick. (2) *Say:* By God's permission he healed the blind and the leper, (3) *Say:* and by God's permission he brought the dead back to life. These are signs, he told them, if you are believers. (4) **Verse 3:49**, placed sky.
 - **Sound:** voices, wind → voices, air → air → air. **Art:** Isa appears only as a steady light; his mother, the disciples and the people as soft or dim figures of light. Nothing in these scenes stands for God. The land's look is imagined. The blind and the sick are shown only as grey lights that grow bright. The one raised from death is a light kindled again; nothing of death is shown.
 - **Image prompt:** A dusty road outside a village, a line of grey, dimmed figures of light waiting, some kneeling; a steady light passing along the line, each grey light turning warm and bright as he passes; then, beside a still bier, a new light kindled where there was none; ink-wash and parchment texture.
 
 ### 179 · The Disciples · الحواريون (`helpers`)
 - **Ayah:** 3:52. **Node:** isa.
-- **Beats.** (1) *Say:* When Isa sensed that many of his people rejected him, he asked: who will be my helpers in the cause of God? (2) *Say:* The disciples answered: we are God's helpers. We believe in God; bear witness that we submit to Him. (3) **Verse 3:52** (from "who are my supporters for Allah"), placed sky.
+- **Beats.** (1) *Say:* When Isa sensed that many of his people rejected him, he asked: who will be my helpers in the cause of God? (2) *Say:* The disciples answered: we are God's helpers. We believe in God; bear witness that we submit to Him. (3) **Verse 3:52**, placed sky.
 - **Sound:** water, birds → water, voices → water, air. **Art:** Isa appears only as a steady light; his mother, the disciples and the people as soft or dim figures of light. Nothing in these scenes stands for God. The land's look is imagined. The disciples are shown as twelve soft lights; their number is from the commentaries.
 - **Image prompt:** The shore of a wide lake in the hills at morning, small wooden fishing boats drawn up, nets drying; a steady light standing on the shingle as twelve soft lights leave their boats and gather around him; ink-wash and parchment texture.
 
@@ -46,7 +46,7 @@ never shown. No music.
 
 ### 181 · One Who Will Come · البشارة بأحمد (`ahmad`)
 - **Ayah:** 61:6. **Node:** isa.
-- **Beats.** (1) *Say:* Isa told the Children of Israel: I am the messenger of God to you, confirming the Torah that came before me, (2) *Say:* and bringing good news of a messenger to come after me, whose name will be Ahmad. (3) **Verse 61:6** (to "whose name is Ahmad"), placed sky.
+- **Beats.** (1) *Say:* Isa told the Children of Israel: I am the messenger of God to you, confirming the Torah that came before me, (2) *Say:* and bringing good news of a messenger to come after me, whose name will be Ahmad. (3) **Verse 61:6**, placed sky.
 - **Sound:** wind, birds → wind, air → air. **Art:** Isa appears only as a steady light; his mother, the disciples and the people as soft or dim figures of light. Nothing in these scenes stands for God. The land's look is imagined. The final messenger is spoken of, never shown. The light low on the southern horizon is only the dawn.
 - **Image prompt:** A hilltop at first light, a steady light standing with twelve soft lights around him, his arm raised toward the far south where the sky over endless desert ranges is beginning to glow gold; ink-wash and parchment texture.
 

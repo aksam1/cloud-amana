@@ -29,7 +29,7 @@ donkey is drawn back in, nothing more. Commentary details (the number of the sle
 
 ### 184 · The Awakening · اليقظة (`awakening`)
 - **Ayah:** 18:21. **Node:** wisdom.
-- **Beats.** (1) *Say:* When God woke them, they asked one another: how long have we slept? A day, or part of a day. They sent one of them to the town with a silver coin to buy food, quietly. (2) *Say:* But the town had changed; centuries had passed, and the coin was ancient. The people now believed, and their story became a sign that God's promise of resurrection is true. (3) **Verse 18:21** (to "and that of the Hour there is no doubt"), placed sky.
+- **Beats.** (1) *Say:* When God woke them, they asked one another: how long have we slept? A day, or part of a day. They sent one of them to the town with a silver coin to buy food, quietly. (2) *Say:* But the town had changed; centuries had passed, and the coin was ancient. The people now believed, and their story became a sign that God's promise of resurrection is true. (3) **Verse 18:21**, placed sky.
 - **Sound:** air, birds → city, voices → city, air. **Art:** The youths and the townspeople appear only as soft and dim lights. The silver coin is from 18:19.
 - **Image prompt:** Morning in the cave, seven soft lights sitting up, puzzled; one of them walking down into a town he no longer knows, new domes and walls, crowds of dim lights gathering in wonder around a small glint of old silver in his hand; ink-wash and parchment texture.
 
@@ -65,7 +65,7 @@ donkey is drawn back in, nothing more. Commentary details (the number of the sle
 
 ### 190 · A Hundred Years · قرن من النوم (`hundred`)
 - **Ayah:** 2:259. **Node:** wisdom.
-- **Beats.** (1) *Say:* A man passed by a town lying in ruins, its roofs fallen in. How, he wondered, will God ever bring this back to life after its death? (2) *Say:* So God caused him to die for a hundred years. (3) *Say:* Then He raised him. How long have you stayed? A day or part of a day. No, a hundred years. Look at your food, not even spoiled; and look at your donkey, as We bring it back to life. (4) **Verse 2:259** (its closing: "I know that Allah is over all things competent"), placed sky.
+- **Beats.** (1) *Say:* A man passed by a town lying in ruins, its roofs fallen in. How, he wondered, will God ever bring this back to life after its death? (2) *Say:* So God caused him to die for a hundred years. (3) *Say:* Then He raised him. How long have you stayed? A day or part of a day. No, a hundred years. Look at your food, not even spoiled; and look at your donkey, as We bring it back to life. (4) **Verse 2:259**, placed sky.
 - **Sound:** wind → wind, air → birds, air → birds, air. **Art:** That the man was 'Uzayr (Ezra) passing ruined Jerusalem is from the commentaries on 2:259; he and the people appear only as lights. His death is shown as his light going out; the donkey is drawn back in by God's leave, nothing more.
 - **Image prompt:** A man's steady light with his donkey and a basket of figs stopping by a ruined, empty town of fallen stone; his light going out as the sky races through a century; then dawn, the light kindled again, the figs still fresh, the donkey drawn back stroke by stroke, and the town rebuilt and alive; ink-wash and parchment texture.
 

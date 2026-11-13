@@ -1,0 +1,111 @@
+{
+  "chapter": 20,
+  "parts": [
+    {
+      "part": 0,
+      "watchFor": "The signs come before the Hour, not on it. Watch what happens to the light in the town.",
+      "questions": [
+        {
+          "q": "Which signs did the Prophet ﷺ say would come before the Hour?",
+          "options": [
+            "A great flood, and the end of the sea",
+            "Religious knowledge taken away, earthquakes increasing, and time passing quickly",
+            "The sun rising in the west, and the mountains moving",
+            "A new prophet, and a new scripture"
+          ],
+          "answer": 1,
+          "replay": { "scene": "lamps", "beat": 0 }
+        },
+        {
+          "q": "What happens to the lamps of the town?",
+          "options": [
+            "They are blown out one by one",
+            "They burn brighter and brighter",
+            "They go out from one end to the other, until barely any light is left",
+            "They are carried away by the wind"
+          ],
+          "answer": 2,
+          "replay": { "scene": "lamps", "beat": 1 }
+        },
+        {
+          "q": "What did the Prophet ﷺ say people would compete to build?",
+          "options": [
+            "Deep wells",
+            "Long roads",
+            "High buildings",
+            "Large fleets"
+          ],
+          "answer": 2,
+          "replay": { "scene": "towers", "beat": 0 }
+        }
+      ],
+      "lesson": {
+        "text": "Before the Hour comes, the signs appear one by one. The Prophet ﷺ named them: religious knowledge taken away, earthquakes increasing, time passing quickly, wealth so abundant that no one needs charity, and people competing to build ever higher.",
+        "curious": "These signs are told in a hadith of al-Bukhari (7121) and Sahih Muslim (2935), not in the Quran. Muslims read them as warnings about what a society drifts toward when it stops caring about what it knows.",
+        "ref": "81:14"
+      },
+      "carry": {
+        "title": "The prayer for knowledge",
+        "ref": "20:114"
+      },
+      "reflect": {
+        "muslim": "What knowledge of your faith has got harder to find than it used to be? What could you do about that this week?",
+        "curious": "What have you learned that people around you have not? What would it mean to share it?"
+      },
+      "act": "Teach one thing you know about God to someone who does not know it."
+    },
+    {
+      "part": 1,
+      "watchFor": "These signs come at the Hour itself. Watch the sun, and watch which way it rises.",
+      "questions": [
+        {
+          "q": "What does the Quran say happens to the sun?",
+          "options": [
+            "It is wrapped up in darkness",
+            "It stands still in the sky",
+            "It falls into the sea",
+            "It splits in two"
+          ],
+          "answer": 0,
+          "replay": { "scene": "sunfolded", "beat": 1 }
+        },
+        {
+          "q": "Which direction is the sun said to rise from, in the hadith of the eleven signs?",
+          "options": [
+            "The East",
+            "The North",
+            "The West",
+            "Straight above the Kaaba"
+          ],
+          "answer": 2,
+          "replay": { "scene": "sunrise", "beat": 1 }
+        },
+        {
+          "q": "What does the Quran say will happen to a soul on the Day some of the signs come?",
+          "options": [
+            "It will find nothing to answer for",
+            "It will be told what it brought with it",
+            "It will be returned to the world",
+            "It will be given another chance"
+          ],
+          "answer": 1,
+          "replay": { "scene": "sunrise", "beat": 2 }
+        }
+      ],
+      "lesson": {
+        "text": "The signs at the Hour are the ones the Quran itself paints: the sun wrapped up in darkness, the stars falling dispersing, the mountains removed, and the sun rising from the West. When the signs come, the choice has already been made.",
+        "curious": "The sun rising from the West comes from a hadith, not from the Quran. The Quran asks the question it answers: what are you waiting for? And it answers: we too are waiting.",
+        "ref": "6:158"
+      },
+      "carry": {
+        "title": "The prayer of the one who is waiting",
+        "ref": "6:158"
+      },
+      "reflect": {
+        "muslim": "If the sign could come tonight, what would you want to have already changed?",
+        "curious": "If everything you did were weighed tomorrow, what would you hope it added up to?"
+      },
+      "act": "Make one small correction this week that you would want counted."
+    }
+  ]
+}

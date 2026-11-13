@@ -1,0 +1,36 @@
+{
+  "id": "towers",
+  "chapter": 20,
+  "order": 194,
+  "node": "minor",
+  "title": "The High Buildings",
+  "arabic": "العمارات",
+  "source": "mixed",
+  "ayahs": [],
+  "art": ["Two of the eleven signs are told by the Prophet ﷺ in the hadith of al-Bukhari 7121 (Sahih Muslim 2935): wealth so abundant that a wealthy man worries nobody will accept his charity, and people competing with one another in constructing high buildings.", "The buildings and the town are imagined. No person is shown."],
+  "ambient": ["city", "work"],
+  "base": "#161a24",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#2a2436", "fogNear": 5000, "fogFar": 60000, "light": 0.95, "rays": 0, "bloom": 0.9, "haze": 0.05, "hazeY": 0.6, "shake": 0.2, "dof": 0},
+  "cam": {"pos": [800, 500, 1150], "look": [800, 560, -3000]},
+  "imagePrompt": "A great plain under a wide sky with a new city rising on it: tall pale towers standing up out of the dust, more and more of them, higher and higher, until they crowd the sky and the plain below is lost between their feet; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [8, 9, 11000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "stars": 1400, "at": {"1": {"tod": [9, 11, 12000]}}},
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#4a4658"], [1, "#282838"]]},
+    {"type": "ridge", "depth": 0.05, "y": 590, "amp": 34, "seed": 1710, "sharp": 0.3, "color": "#3a3644", "haze": 0.3, "fog": 0.4},
+    {"type": "town", "depth": 0.1, "y": 640, "x0": 0, "x1": 1600, "s": 0.5, "grade": "city", "lit": 0.3, "haze": "#585066", "seed": 1711, "rows": 2},
+    {"type": "masonry", "depth": 0.14, "pos": [420, 690], "w": 252, "h": 840, "side": 30, "courses": 40, "blocks": 6, "built": 0.2, "stone": "#b8b0bc", "stone2": "#c8c0cc", "ink": "#4a4452", "at": {"0": {"build": [0.2, 0.6, 10000]}, "1": {"build": [0.6, 1, 10000]}, "2": {"built": 1}}},
+    {"type": "masonry", "depth": 0.16, "pos": [1080, 700], "w": 336, "h": 1248, "side": 34, "courses": 52, "blocks": 6, "built": 0.1, "stone": "#a8a0b0", "stone2": "#b8b0bc", "ink": "#443e4e", "at": {"0": {"build": [0.1, 0.5, 10000]}, "1": {"build": [0.5, 1, 11000]}, "2": {"built": 1}}},
+    {"type": "ground", "depth": 0.26, "y": 760, "amp": 6, "seed": 1712, "color": "#3a3644", "color2": "#1e1c26"},
+    {"type": "dust", "box": [-1400, 200, -4000, 2800, 900, -1200], "count": 420, "size": 8, "color": "#a09aac", "opacity": 0.28, "wind": [6, 10, 0], "swirl": 30, "blend": "normal"},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 360, "size": 2.4, "color": "#e8e4f0", "opacity": 0.1, "wind": [3, -1, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["city", "work"], "sfx": [{"name": "hoe", "at": 1600}], "cam": {"pos": [800, 500, 1150], "look": [800, 560, -3000]}, "say": "And the Prophet ﷺ said: wealth would become so abundant that a wealthy man would worry nobody would accept his charity, and people would compete with one another in constructing high buildings."},
+    {"dur": 11000, "ambient": ["work", "city"], "cam": {"pos": [800, 470, 1000], "look": [800, 470, -3000]}, "say": "So the towers go up. They rise out of the dust of the plain, higher than the hills, and then higher still, until the ground they stand on is a small dark space between their feet."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 490, 1050], "look": [800, 500, -3000]}, "verse": {"ref": "89:6", "ar": [0, 5], "place": "lower", "en": "Have you not considered how your Lord dealt with 'Aad -"}}
+  ]
+}

@@ -14,7 +14,10 @@ API serves it (edition `quran-uthmani`, with pause marks; the basmala the API pu
     (`TariqMK/Obsidian-Quran-Journal`).
   - English: Tanzil's `en.sahih.xml` (in `myquranapp/quran-data`) and `azabcodes/quran_api`
     (`quran-translated/en.sahih`). Both match all 76 ayat on file exactly, and they match each other on all 6,236.
+- 130 ayat were added on 13 November 2026 for chapters 20 and 21, by the same two-mirror method and to the same
+  standard: both mirrors match the 373 ayat already on file character for character, and they match each other on
+  every one of the 130 new ones. No ayat already on file was changed.
 - When api.alquran.cloud can be reached, re-check: delete an entry, run `npm run ayahs`, and compare.
 
-33 verse moments show part of an ayah. Their word ranges (`ar`) and matching English were chosen by hand on the same
-day (each scene's beat has them); they are on the scholar's review sheet.
+118 verse moments show part of an ayah. Their word ranges (`ar`) and matching English were chosen by hand (each
+scene's beat has them); they are on the scholar's review sheet.

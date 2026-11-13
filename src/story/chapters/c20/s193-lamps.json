@@ -1,0 +1,34 @@
+{
+  "id": "lamps",
+  "chapter": 20,
+  "order": 193,
+  "node": "minor",
+  "title": "The Lamps Going Out",
+  "arabic": "انطفاء الأنوار",
+  "source": "mixed",
+  "ayahs": [],
+  "art": ["The eleven signs are told by the Prophet ﷺ in the hadith of al-Bukhari 7121 (Sahih Muslim 2935): among them, religious knowledge is taken away and time passes quickly. This scene draws on that hadith, not on the Quran.", "Nothing of anyone's belief is shown: the small lights are the lamps of a town, and a town going dark is the sign's picture.", "The town and the lights are imagined."],
+  "ambient": ["city", "wind"],
+  "base": "#161a24",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#161a24", "fogNear": 5000, "fogFar": 60000, "light": 0.95, "rays": 0, "bloom": 0.9, "haze": 0.04, "hazeY": 0.6, "shake": 0.2, "dof": 0},
+  "cam": {"pos": [800, 500, 1100], "look": [800, 600, -3000]},
+  "imagePrompt": "A low town of pale stone at dusk, its streets and windows filled with countless small warm lamps; then, one street at a time, the lamps going out, until only a few are left burning and the town stands in a blue dusk; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 640, "tod": [17.4, 18.2, 11000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "stars": 1400, "at": {"1": {"tod": [18.2, 19.4, 12000]}}},
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#3a3448"], [1, "#141426"]]},
+    {"type": "ridge", "depth": 0.06, "y": 600, "amp": 40, "seed": 1700, "sharp": 0.3, "color": "#2e2a3a", "haze": 0.3, "fog": 0.4},
+    {"type": "town", "depth": 0.16, "y": 700, "x0": 120, "x1": 1480, "s": 0.8, "grade": "city", "lit": 0.5, "haze": "#4a4258", "seed": 1701, "at": {"1": {"lit": 0.12}, "2": {"lit": 0.0}}},
+    {"type": "ground", "depth": 0.22, "y": 730, "amp": 8, "seed": 1702, "color": "#2a2630", "color2": "#121016"},
+    {"type": "crowd", "depth": 0.24, "area": [240, 1360, -2600, -1800], "y": [786, 740], "count": 200, "size": 76, "color": "#ffd8a0", "dim": 0.45, "glow": 0.16, "mill": 5, "speed": 0, "at": {"1": {"glow": 0.05, "dim": 0.6}, "2": {"glow": 0.0, "dim": 0.0}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 360, "size": 2.4, "color": "#e8e4f0", "opacity": 0.12, "wind": [3, -1, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["city", "voices"], "cam": {"pos": [800, 500, 1100], "look": [800, 600, -3000]}, "say": "Before the Hour comes, the signs appear one by one, and the Prophet ﷺ told of them: that religious knowledge would be taken away, that earthquakes would increase, and that time would pass quickly."},
+    {"dur": 11000, "ambient": ["city", "wind"], "world": {"shake": 0.6}, "cam": {"pos": [800, 510, 950], "look": [800, 620, -3000]}, "say": "The lamps of a town go out from one end to the other. Nobody blows them out. There is simply less and less light, until what is left is barely enough to walk by."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 520, 1000], "look": [800, 640, -3000]}, "verse": {"ref": "81:14", "ar": [0, 3], "place": "lower", "en": "A soul will [then] know what it has brought [with it]."}}
+  ]
+}

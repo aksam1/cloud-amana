@@ -53,7 +53,7 @@ def chapter_text(ch):
 def load_all():
     out = []
     for f in glob.glob(CH + 'c*/s*.json'):
-        s = json.load(open(f))
+        s = json.load(open(f, encoding='utf-8'))
         out.append((s['chapter'], float(s['order']), s['id'], f))
     return sorted(out)
 
@@ -70,10 +70,11 @@ def main():
     renames = []
     for n, (c, o, sid, f) in enumerate(rows, start=1):
         new[sid] = n
-        text = open(f).read()
+        text = open(f, encoding='utf-8').read()
         if o != n:
             text = re.sub(r'"order": [0-9.]+', f'"order": {n}', text, count=1)
-            open(f, 'w').write(text)
+            with open(f, 'w', encoding='utf-8') as fh:
+                fh.write(text)
         want = os.path.join(os.path.dirname(f), f's{n:02d}-{sid}.json')
         if os.path.abspath(f) != os.path.abspath(want):
             renames.append((f, want))
@@ -88,7 +89,7 @@ def main():
     # part ranges: keep each part's first scene, run it to the next part's start (or the chapter's end)
     old_at = {(c, o): sid for c, o, sid, f in rows}
     for d in glob.glob(CH + 'c*/chapter.json'):
-        ch = json.load(open(d))
+        ch = json.load(open(d, encoding='utf-8'))
         parts = ch.get('parts', [])
         if not parts or 'from' not in parts[0]:
             continue
@@ -103,7 +104,8 @@ def main():
         for k, p in enumerate(parts):
             p['from'] = starts[k]
             p['to'] = starts[k + 1] - 1 if k + 1 < len(parts) else new[ids[-1]]
-        open(d, 'w').write(chapter_text(ch))
+        with open(d, 'w', encoding='utf-8') as fh:
+            fh.write(chapter_text(ch))
     json.dump(new, open(os.path.join(HERE, 'order.json'), 'w'), indent=1)
     print(f'{len(rows)} scenes, {len(renames)} renamed')
 

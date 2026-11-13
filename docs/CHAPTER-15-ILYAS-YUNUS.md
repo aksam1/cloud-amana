@@ -45,7 +45,7 @@ slipping into the dark; the whale is drawn in ink. Mockery is jagged strokes. No
 
 ### 166 · In the Darkness · ظلمة البحر (`darkness`)
 - **Ayah:** 21:87. **Node:** yunus.
-- **Beats.** (1) *Say:* In the darkness, Yunus knew he had done wrong in leaving. (2) *Say:* He called out: there is no god but You. Glory be to You! I have been one of the wrongdoers. (3) **Verse 21:87** (from "And he called out within the darknesses"), placed sky.
+- **Beats.** (1) *Say:* In the darkness, Yunus knew he had done wrong in leaving. (2) *Say:* He called out: there is no god but You. Glory be to You! I have been one of the wrongdoers. (3) **Verse 21:87**, placed sky.
 - **Sound:** sea → sea, air → air. **Art:** The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined. The darkness of the night, of the sea and of the whale's belly (from the commentaries on 21:87) is shown as deep darkness around a small steady light.
 - **Image prompt:** Total darkness of the deep sea at night, a faint vast shape of a whale gliding; within the dark a single small steady light kneeling in prayer, its glow slowly growing; ink-wash and parchment texture.
 

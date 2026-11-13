@@ -17,14 +17,20 @@ def O(n):
     return ORDER.get(LEGACY.get(str(n)), n)
 
 
+def write_json(path, text):
+    """Write UTF-8. Windows' default encoding is cp1252, which cannot hold the Arabic titles."""
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(text)
+
+
 def write_chapter(path, data):
     """Write chapter.json, keeping the bridge text already there (written by hand, not by the generators)."""
     from renum import chapter_text
     if os.path.exists(path):
-        old = json.load(open(path))
+        old = json.load(open(path, encoding='utf-8'))
         if 'bridge' in old and 'bridge' not in data:
             data['bridge'] = old['bridge']
-    open(path, 'w').write(chapter_text(data))
+    write_json(path, chapter_text(data))
 
 
 def load(name):
@@ -91,7 +97,7 @@ def build(name, *, layers, cams, world, art=None, dissolve=2400, scene_cam=None,
     want = f"s{s['order']:02d}-{s['id']}.json"
     if want != name and os.path.exists(C1 + name):
         os.remove(C1 + name)
-    open(C1 + want, 'w').write(text)
+    open(C1 + want, 'w', encoding='utf-8').write(text)
     return s
 
 

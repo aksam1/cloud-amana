@@ -1,0 +1,32 @@
+{
+  "id": "atom",
+  "chapter": 21,
+  "order": 199,
+  "node": "judgment",
+  "title": "An Atom's Weight",
+  "arabic": "ذرة خفيفة",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["99:7-8 says whoever does an atom's weight of good will see it, and whoever does an atom's weight of evil will see it. The scene shows the earth opening; what each person carried is not shown, because only God knows it.", "The atom's weight (mithqal) is the smallest coin the Quraysh used; the coin itself is not shown."],
+  "ambient": ["air"],
+  "base": "#161a24",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#161a24", "fogNear": 5000, "fogFar": 60000, "light": 0.95, "rays": 0, "bloom": 0.9, "haze": 0.04, "hazeY": 0.6, "shake": 0.2, "dof": 0},
+  "cam": {"pos": [800, 500, 1150], "look": [800, 400, -3000]},
+  "imagePrompt": "A bare wide plain seen from above, the earth opening into a long dark seam that widens; along it a few points of light, some warm and steady and some dim, and dust rising where it opens; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 640, "tod": [0, 0.4, 11000], "sun": null, "stars": 1200, "at": {"1": {"tod": [0.4, 1, 12000]}}},
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#181820"], [1, "#0e0e14"]]},
+    {"type": "ground", "depth": 0.18, "y": 720, "amp": 14, "seed": 1760, "color": "#2a2a30", "color2": "#131318", "at": {"1": {"cracks": true, "color": "#22222a", "color2": "#0e0e12"}}},
+    {"type": "globe", "depth": 0.1, "pos": [800, 250], "r": 520, "phase": "appear", "seed": 41, "zoomDur": 9000, "at": {"1": {"phase": "dark"}, "2": {"phase": "gold"}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 360, "size": 2.4, "color": "#e8e4f0", "opacity": 0.14, "wind": [3, -1, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["air", "wind"], "cam": {"pos": [800, 500, 1150], "look": [800, 400, -3000]}, "say": "The Day of the Earthquake. When the earth is shaken with its final earthquake and discharges its burdens, the people depart separated, to be shown the result of their deeds."},
+    {"dur": 11000, "ambient": ["air"], "sfx": [{"name": "rumble", "at": 700}], "world": {"shake": 1.0}, "cam": {"pos": [800, 520, 950], "look": [800, 480, -3000]}, "say": "Whoever does an atom's weight of good will see it, and whoever does an atom's weight of evil will see it. A mustard seed's worth, a grain of dust's worth: nothing is too small to be seen."},
+    {"dur": 12000, "ambient": ["air"], "world": {"shake": 0.2}, "cam": {"pos": [800, 500, 1000], "look": [800, 420, -3000]}, "verse": {"ref": "99:7-8", "ar": [[0, 5], [0, 5]], "place": "lower", "en": "So whoever does an atom's weight of good will see it, And whoever does an atom's weight of evil will see it."}}
+  ]
+}

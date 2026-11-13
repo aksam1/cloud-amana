@@ -1,0 +1,32 @@
+{
+  "id": "earth",
+  "chapter": 21,
+  "order": 197,
+  "node": "judgment",
+  "title": "The Earth Is Leveled",
+  "arabic": "دك الأرض",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["89:21-22: when the earth is leveled, pounded and crushed, and your Lord has come and the angels, rank upon rank. The scene shows the earth only: the coming of the Lord and the angels is not depicted.", "Every life on the globe is a point of light (5:32); what each life carried is not shown, because only God knows it.", "The look of the cracked earth is imagined."],
+  "ambient": ["wind", "air"],
+  "base": "#161a24",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#161a24", "fogNear": 5000, "fogFar": 60000, "light": 0.95, "rays": 0, "bloom": 0.9, "haze": 0.04, "hazeY": 0.6, "shake": 0.2, "dof": 0},
+  "cam": {"pos": [800, 500, 1150], "look": [800, 400, -3000]},
+  "imagePrompt": "The earth seen from above as it splits open in long seams, the ground giving up its dead as points of light rise out of the fissures, a vast plain left bare behind them; then the seams closing and the plain left perfectly level and still; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 640, "tod": [0, 0.4, 11000], "sun": null, "stars": 1200, "at": {"1": {"tod": [0.4, 1, 12000]}}},
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#14161f"], [1, "#0a0b12"]]},
+    {"type": "ground", "depth": 0.16, "y": 700, "amp": 16, "seed": 1740, "color": "#2a2830", "color2": "#121016", "at": {"1": {"cracks": true}, "2": {"amp": 2, "cracks": false, "color": "#26242c", "color2": "#141218"}}},
+    {"type": "globe", "depth": 0.1, "pos": [800, 220], "r": 500, "phase": "appear", "seed": 57, "zoomDur": 9000, "at": {"1": {"phase": "dark"}, "2": {"phase": "gold"}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 360, "size": 2.4, "color": "#e8e4f0", "opacity": 0.14, "wind": [3, -1, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [800, 500, 1150], "look": [800, 400, -3000]}, "say": "The Quran describes the Day of Judgment in pictures rather than in a report. First the ground: when the earth is leveled, pounded and crushed."},
+    {"dur": 11000, "ambient": ["air"], "sfx": [{"name": "rumble", "at": 800}], "world": {"shake": 0.8}, "cam": {"pos": [800, 520, 950], "look": [800, 460, -3000]}, "say": "The seams open, and out of them rise the lights of those who were given back. Nothing is said of what they carried; that is known only to God. Then the ground closes over, and the plain is left level and perfectly still."},
+    {"dur": 12000, "ambient": ["air"], "world": {"shake": 0.2}, "cam": {"pos": [800, 500, 1000], "look": [800, 420, -3000]}, "verse": {"ref": "89:21-22", "ar": [[0, 5], [0, 4]], "place": "lower", "en": "No! When the earth has been leveled - pounded and crushed - And your Lord has come and the angels, rank upon rank,"}}
+  ]
+}

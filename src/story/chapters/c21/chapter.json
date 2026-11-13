@@ -3,5 +3,16 @@
   "title": "The Day of Judgment",
   "arabic": "يوم الدين",
   "nodes": ["judgment"],
-  "parts": []
+  "parts": [
+    { "title": "The Earth Is Asked", "from": 197, "to": 203 }
+  ],
+  "bridge": {
+    "when": "The Hour",
+    "where": "The earth, and the closed horizon",
+    "line": ["the signs", "…", "the Day"],
+    "text": [
+      "This is the last chapter of the chronicle. The Hour is not shown, because what each person carried is known only to God; so the Quran's pictures are given instead — the earth levelled, the mountains like wool, the people like moths, and the scales weighed.",
+      "It ends where the Quran ends its own surah: on that Day, no one can help anyone else, and the command is entirely with God."
+    ]
+  }
 }

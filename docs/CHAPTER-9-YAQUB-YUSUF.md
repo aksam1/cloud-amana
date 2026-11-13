@@ -44,7 +44,7 @@ brought nearer the camera together so they read clearly.
 
 ### 94 · The Well · البئر (`well`)
 - **Ayah:** 12:18. **Node:** yusuf.
-- **Beats.** (1) *Say:* Jealous, the brothers took Yusuf out with them to the pastures, and threw him into a well. (2) *Say:* Alone in the dark, he was inspired that one day he would tell them of what they had done. (3) *Say:* At nightfall they came home weeping, with his shirt, and said a wolf had eaten him. (4) **Verse 12:18** (Yaqub's answer: patience is most fitting), placed sky.
+- **Beats.** (1) *Say:* Jealous, the brothers took Yusuf out with them to the pastures, and threw him into a well. (2) *Say:* Alone in the dark, he was inspired that one day he would tell them of what they had done. (3) *Say:* At nightfall they came home weeping, with his shirt, and said a wolf had eaten him. (4) **Verse 12:18**, placed sky.
 - **Sound:** desert, wind → wind → crickets, voices → crickets, air. **Art:** Yusuf appears only as a steady light; his brothers as dim figures of light. Nothing is shown of how he was put into the well; the shirt is told, not shown.
 - **Image prompt:** Dry hills at noon, a stone-rimmed well under a lone thorn tree, dim amber figures leading a small steady light toward it; then the dark inside of a well, a disc of sky far above and the small light kneeling below; then night at a tent, the dim figures returning to an old steady light; ink-wash and parchment texture.
 
@@ -62,7 +62,7 @@ brought nearer the camera together so they read clearly.
 
 ### 97 · The Torn Shirt · القميص الممزق (`torn`)
 - **Ayah:** 12:23. **Node:** yusuf.
-- **Beats.** (1) *Say:* The wife of the Aziz desired him. She closed the doors, but he refused: I seek refuge in God. (2) *Say:* He ran for the door; she caught his shirt from behind, and it tore. (3) *Say:* Her husband stood in the doorway. A witness said: if the shirt is torn at the back, he is telling the truth. It was. (4) **Verse 12:23** (his answer, from "I seek the refuge of Allah" to the end), placed sky.
+- **Beats.** (1) *Say:* The wife of the Aziz desired him. She closed the doors, but he refused: I seek refuge in God. (2) *Say:* He ran for the door; she caught his shirt from behind, and it tore. (3) *Say:* Her husband stood in the doorway. A witness said: if the shirt is torn at the back, he is telling the truth. It was. (4) **Verse 12:23**, placed sky.
 - **Sound:** echo, fire → echo → echo, voices → echo, air. **Art:** Yusuf appears only as a steady light; the Aziz, his wife and the witness as dim figures of light. Nothing more than the run to the door is shown; the shirt is told, not shown.
 - **Image prompt:** A lamplit hall of a palace with tall columns and closed doors, a dim amber figure of light and a steady white light; the white light hurrying toward a lit doorway, the amber light behind; in the doorway a third dim figure; ink-wash and parchment texture.
 
@@ -86,7 +86,7 @@ brought nearer the camera together so they read clearly.
 
 ### 101 · Innocence Declared · ظهور البراءة (`innocence`)
 - **Ayah:** 12:51. **Node:** yusuf.
-- **Beats.** (1) *Say:* The king sent for the man who had explained his dream. But Yusuf would not leave prison until his name was cleared: ask what happened with the women who cut their hands. (2) *Say:* The women said: God forbid! We know no evil of him. And the Aziz's wife confessed: now the truth is out. It was I who tried to seduce him, and he is truthful. (3) **Verse 12:51** (from "Now the truth has become evident"), placed sky.
+- **Beats.** (1) *Say:* The king sent for the man who had explained his dream. But Yusuf would not leave prison until his name was cleared: ask what happened with the women who cut their hands. (2) *Say:* The women said: God forbid! We know no evil of him. And the Aziz's wife confessed: now the truth is out. It was I who tried to seduce him, and he is truthful. (3) **Verse 12:51**, placed sky.
 - **Sound:** echo, voices → echo → echo, air. **Art:** The king, the women and the Aziz's wife appear only as dim figures of light. Yusuf's light is far off in the prison; his answer is told.
 - **Image prompt:** The king's lapis throne hall, a dim seated figure on a low dais, a row of dim rose-gold lights of women before him; one of them stepping forward alone and bowing her head as she speaks; far away through a high window, a steady light in a dark prison; ink-wash and parchment texture.
 
@@ -98,7 +98,7 @@ brought nearer the camera together so they read clearly.
 
 ### 103 · The King's Cup · الإخوة في مصر (`cup`)
 - **Ayah:** 12:76. **Node:** yusuf.
-- **Beats.** (1) *Say:* Among those who came for grain were Yusuf's ten brothers. He knew them; they did not know him. (2) *Say:* He asked them to bring their youngest brother, and on their next journey Binyamin came with them. (3) *Say:* Yusuf told Binyamin who he was. Then the king's cup was found in Binyamin's pack, and by the law of the land he stayed. (4) **Verse 12:76** (its closing words, that over every possessor of knowledge is one more knowing), placed sky.
+- **Beats.** (1) *Say:* Among those who came for grain were Yusuf's ten brothers. He knew them; they did not know him. (2) *Say:* He asked them to bring their youngest brother, and on their next journey Binyamin came with them. (3) *Say:* Yusuf told Binyamin who he was. Then the king's cup was found in Binyamin's pack, and by the law of the land he stayed. (4) **Verse 12:76**, placed sky.
 - **Sound:** echo, voices → echo, voices → echo → echo, air. **Art:** Yusuf appears only as a steady light; his brothers as dim figures of light, Binyamin a little brighter. The cup is shown only as a glint of gold.
 - **Image prompt:** A lapis throne hall, a steady white light on a dais, ten dim amber figures of light entering and bowing their heads; later an eleventh beside them, a glint of gold found among their packs, the ten leaving while the eleventh stays; ink-wash and parchment texture.
 
@@ -110,7 +110,7 @@ brought nearer the camera together so they read clearly.
 
 ### 105 · The Dream Fulfilled · لقاء يوسف وأبيه (`reunion`)
 - **Ayah:** 12:100. **Node:** yusuf.
-- **Beats.** (1) *Say:* At last he told them: I am Yusuf. And he forgave them: no blame on you today. (2) *Say:* He sent his shirt to his father. Laid over Yaqub's face, it gave him back his sight. (3) *Say:* The whole family came to Egypt. Yusuf seated his parents beside him, and his brothers bowed: the dream of the eleven stars, the sun and the moon had come true. My Lord, Yusuf prayed, let me die in submission to You, and join me with the righteous. (4) **Verse 12:100** (from his raising his parents to "this is the explanation of my vision of before"), placed sky.
+- **Beats.** (1) *Say:* At last he told them: I am Yusuf. And he forgave them: no blame on you today. (2) *Say:* He sent his shirt to his father. Laid over Yaqub's face, it gave him back his sight. (3) *Say:* The whole family came to Egypt. Yusuf seated his parents beside him, and his brothers bowed: the dream of the eleven stars, the sun and the moon had come true. My Lord, Yusuf prayed, let me die in submission to You, and join me with the righteous. (4) **Verse 12:100**, placed sky.
 - **Sound:** echo, voices → birds, air → echo, voices → echo, air. **Art:** Yusuf and Yaqub appear only as steady lights; the family as dim figures of light. Their bowing was the greeting of their time, as the Quran tells it.
 - **Image prompt:** An old steady light seated before a tent at dawn, a shirt of white light laid over him, his glow brightening; then a lapis palace hall, a steady white light on the dais with two lights seated beside him, eleven dim amber lights bowed low before them; the dream of the eleven stars, the sun and the moon fulfilled; ink-wash and parchment texture.
 

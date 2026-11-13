@@ -28,7 +28,7 @@ out, nothing more. Mockery is jagged strokes. Commentary details are labelled in
 
 ### 107 · The Blessed Years · سنوات النعمة (`blessed`)
 - **Ayah:** 4:163. **Node:** ayyub.
-- **Beats.** (1) *Say:* Ayyub was a prophet to whom God had given much: land, flocks and herds, many children and good health. (2) *Say:* He was grateful for all of it, and gave freely to the poor and to travellers. (3) **Verse 4:163** (its naming of Job among those God inspired), placed sky.
+- **Beats.** (1) *Say:* Ayyub was a prophet to whom God had given much: land, flocks and herds, many children and good health. (2) *Say:* He was grateful for all of it, and gave freely to the poor and to travellers. (3) **Verse 4:163**, placed sky.
 - **Sound:** sheep, birds → sheep, air → air, birds. **Art:** Ayyub appears only as a steady light; his wife and children as dim figures of light. His wealth, herds and family before the trial are told in the commentaries; the Quran names his trial, his prayer and his patience. His illness is never shown: his light only dims. His land is drawn as the wheat plains of the Hauran, where tradition places him; his farmhouse is imagined.
 - **Image prompt:** A golden wheat plain under blue-grey basalt hills at morning, a farmhouse of black stone, flocks of sheep and a few cattle grazing, a steady white light standing before the farmhouse with a dim amber light beside him and a cluster of small amber lights of children; days passing in a time-lapse sky; ink-wash and parchment texture.
 
@@ -46,13 +46,13 @@ out, nothing more. Mockery is jagged strokes. Commentary details are labelled in
 
 ### 110 · Restored · العطاء بعد الصبر (`restored`)
 - **Ayah:** 38:43, 38:44. **Node:** ayyub.
-- **Beats.** (1) *Say:* God gave him back his family, and as many again with them. (2) **Verse 38:43**, placed sky. (3) *Say:* His flocks and fields flourished again. Through everything, he had been patient, and he never stopped turning back to God. (4) **Verse 38:44** (its closing words: "Indeed, We found him patient, an excellent servant…"), placed sky.
+- **Beats.** (1) *Say:* God gave him back his family, and as many again with them. (2) **Verse 38:43**, placed sky. (3) *Say:* His flocks and fields flourished again. Through everything, he had been patient, and he never stopped turning back to God. (4) **Verse 38:44**, placed sky.
 - **Sound:** sheep, birds → sheep, air → birds, air → air. **Art:** Ayyub appears only as a steady light; his wife and children as dim figures of light. His wealth, herds and family before the trial are told in the commentaries; the Quran names his trial, his prayer and his patience. His illness is never shown: his light only dims. His land is drawn as the wheat plains of the Hauran, where tradition places him; his farmhouse is imagined. The Quran tells that his family was given back to him, and as many again with them (38:43); the rest is imagined.
 - **Image prompt:** The plain golden with wheat again at morning, trees in leaf, the farmhouse lamp lit, a spring shining beside it, flocks and herds twice as many as before, a bright steady light and a dim amber light beside him among many small lights of children; ink-wash and parchment texture.
 
 ### 111 · Madyan · مدين (`madyan`)
 - **Ayah:** 11:84. **Node:** shuayb.
-- **Beats.** (1) *Say:* Madyan was a rich trading town where the caravan roads met. (2) *Say:* But its traders cheated. They gave short measure and short weight, and robbed travellers on the roads. (3) **Verse 11:84** (its opening: "And to Madyan [We sent] their brother Shu'ayb…"), placed sky.
+- **Beats.** (1) *Say:* Madyan was a rich trading town where the caravan roads met. (2) *Say:* But its traders cheated. They gave short measure and short weight, and robbed travellers on the roads. (3) **Verse 11:84**, placed sky.
 - **Sound:** city, herd → city, voices → city, air. **Art:** Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined. Their cheating with measure and weight is told in the Quran (7:85, 11:84); it is shown only as a tipped balance.
 - **Image prompt:** A trading town of flat-roofed houses below red sandstone mountains, palms at its edge, a busy market of striped awnings and dim amber lights, a caravan of camels arriving; a merchant's bronze balance in the foreground tipped unfairly; ink-wash and parchment texture.
 
@@ -64,7 +64,7 @@ out, nothing more. Mockery is jagged strokes. Commentary details are labelled in
 
 ### 113 · Shu'ayb's Answer · جواب شعيب (`reform`)
 - **Ayah:** 11:88. **Node:** shuayb.
-- **Beats.** (1) *Say:* They mocked him: does your prayer tell you how we may run our trade? (2) *Say:* Their chiefs threatened to drive him and those who believed out of Madyan, unless they returned to the old ways. (3) **Verse 11:88** (from "I only intend reform as much as I am able" to the end), placed sky.
+- **Beats.** (1) *Say:* They mocked him: does your prayer tell you how we may run our trade? (2) *Say:* Their chiefs threatened to drive him and those who believed out of Madyan, unless they returned to the old ways. (3) **Verse 11:88**, placed sky.
 - **Sound:** crowd, jeer → crowd, jeer → air, wind. **Art:** Shu'ayb appears only as a steady light; the people of Madyan as dim figures of light. The look of the town and its market is imagined. Their mockery is drawn as jagged strokes, never words.
 - **Image prompt:** A market square at late afternoon, a steady white light with a few small white lights of believers behind him, facing a crowd of dim amber lights; jagged dark strokes of mockery rising around him; ink-wash and parchment texture.
 

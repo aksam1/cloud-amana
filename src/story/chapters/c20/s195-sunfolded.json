@@ -1,0 +1,34 @@
+{
+  "id": "sunfolded",
+  "chapter": 20,
+  "order": 195,
+  "node": "major",
+  "title": "The Sun Folded",
+  "arabic": "انطواء الشمس",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The Quran says the sun is wrapped up in darkness, the stars fall dispersing, and the mountains are removed (81:1-3). The sun here is the sun; nothing in the scene stands for God.", "The way the light folds is imagined."],
+  "ambient": ["wind", "air"],
+  "base": "#161a24",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2600,
+  "world": {"fog": "#2a2436", "fogNear": 5000, "fogFar": 60000, "light": 0.95, "rays": 0, "bloom": 0.9, "haze": 0.05, "hazeY": 0.6, "shake": 0.2, "dof": 0},
+  "cam": {"pos": [800, 480, 1150], "look": [800, 380, -3000]},
+  "imagePrompt": "A pale desert under a great sky; the sun low and swollen, then folding inward and going dark like a pinched flame, while the stars behind it come up and are slowly blotted out, and the far mountains flatten like dropped cloth; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 640, "tod": [11.5, 12.2, 11000], "sun": {"rise": 6, "set": 18, "x0": 800, "x1": 800, "peak": 300, "size": 62}, "stars": 1400, "at": {"1": {"tod": [12.2, 13, 12000]}, "2": {"tod": [13, 13, 12000]}}},
+    {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#4a4a5c"], [1, "#14141c"]]},
+    {"type": "ridge", "depth": 0.06, "y": 620, "amp": 40, "seed": 1720, "sharp": 0.3, "color": "#4a4654", "haze": 0.3, "fog": 0.4},
+    {"type": "peak", "depth": 0.12, "x": 340, "y": 340, "w": 900, "h": 420, "color": "#5a5666", "lit": "#7e788a", "seed": 1721},
+    {"type": "peak", "depth": 0.12, "x": 1300, "y": 340, "w": 900, "h": 420, "color": "#5a5666", "lit": "#7e788a", "seed": 1722},
+    {"type": "ground", "depth": 0.24, "y": 740, "amp": 10, "seed": 1723, "color": "#4a4854", "color2": "#222028"},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 360, "size": 2.4, "color": "#e8e4f0", "opacity": 0.12, "wind": [3, -1, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["wind", "air"], "cam": {"pos": [800, 480, 1150], "look": [800, 380, -3000]}, "say": "Then the Quran turns to the Hour itself, and speaks of it in pictures: when the sun is wrapped up in darkness, and when the stars fall, dispersing, and when the mountains are removed."},
+    {"dur": 11000, "ambient": ["air"], "world": {"bloom": 1.0}, "cam": {"pos": [800, 460, 900], "look": [800, 340, -3000]}, "say": "The sun draws in on itself and goes out. Behind it the stars come up, one by one, and are blotted out as if they had never been lit. The far mountains lie down flat like cloth."},
+    {"dur": 12000, "ambient": ["air", "wind"], "cam": {"pos": [800, 480, 950], "look": [800, 380, -3000]}, "verse": {"ref": "81:1-3", "ar": [[0, 2], [0, 2], [0, 2]], "place": "lower", "en": "When the sun is wrapped up [in darkness] And when the stars fall, dispersing, And when the mountains are removed"}}
+  ]
+}

@@ -25,7 +25,7 @@ The web app is meant to have two parts:
 - They want **ambitious visuals**. Keep going without waiting unless a decision is truly theirs.
 - Publish to the same artifact URL after each batch, then commit and push.
 
-## 3. Where the story stands (192 scenes)
+## 3. Where the story stands (203 scenes)
 | Ch | Story | Ch | Story |
 |---|---|---|---|
 | 1 | Creation, Adam, Iblis | 10 | Ayyub and Shu'ayb |
@@ -35,22 +35,32 @@ The web app is meant to have two parts:
 | 8 | Ismail and Ishaq | 16 | Zakariya, Yahya and Maryam |
 | 9 | Yaqub and Yusuf | 17 | Isa |
 | | | 18 | Stories of Wisdom (Cave, Dhul-Qarnayn, Luqman…) |
+| | | 19 | The Final Messenger ﷺ — **paused** (see §4.1) |
+| | | 20 | The Signs of the Hour (the minor and the major signs) |
+| | | 21 | The Day of Judgment |
 
-- Chapters 19–21 are placeholders on the map.
+- Chapter 19 is a placeholder on the map; its three parts carry no `from`/`to` and it has no scenes.
+- Chapters 20 and 21 are written (11 scenes) and are the end of the chronicle. Neither shows a single person:
+  they are the Quran's own pictures of the end — sky, earth, light, stillness. Generator: `tools/generators/c20_21.py`.
+  Docs: `docs/CHAPTER-20-SIGNS.md`, `docs/CHAPTER-21-JUDGMENT.md`.
 - Each chapter has a "Between the stories" bridge page (`bridge` in chapter.json).
 - Every distinct place has its own setting (`src/layers/interiors.jsx`, `tools/generators/rooms.py`); the same place may
-  look the same in later scenes. Since v31 all 192 scenes run on the WebGL stage: chapters 2–3 were rebuilt from their 2D
+  look the same in later scenes. Since v31 all 203 scenes run on the WebGL stage: chapters 2–3 were rebuilt from their 2D
   originals by `tools/generators/c2_3.py` (the originals are kept in `tools/generators/legacy2d/`).
 
 ## 4. Waiting on the user (do not decide these yourself)
 1. **How the Prophet Muhammad ﷺ is shown.** Recommendation given: never shown in any form. Chapter 19 is paused until they answer.
-2. **Missing verses.** ~144 beats hold a `pendingVerse`. Once `api.alquran.cloud` is allowed in the environment's Network access, run `npm run words -- <ref>` for each, then `npm run verses`, then `npm run check`.
-3. Deliberately left out (content rules), ask before adding: the Sabbath-breakers, the Companions of the Ditch, Ayyub's oath, Isa's return.
+2. Deliberately left out (content rules), ask before adding: the Sabbath-breakers, the Companions of the Ditch, Ayyub's oath, Isa's return.
+3. All 503 ayat are on file and **no verse is pending** any more; every verse moment, unit ref and lesson ref shows
+   its text. When new ayat are needed and api.alquran.cloud is blocked, use the two-mirror method in
+   `src/data/ayahs.SOURCE.md`.
 
 ## 5. How to make changes
-1. Most chapters are written by Python generators in `tools/generators/` (`s*.py` for Ch1, `c2_3.py` for Ch2–3, `c8.py`–`c17.py`, `extras*.py`, `wisdom.py`; Ch4–7 have no generator here, so edit their JSON). Edit the generator, not the JSON, or your edit is overwritten next run.
+1. Most chapters are written by Python generators in `tools/generators/` (`s*.py` for Ch1, `c2_3.py` for Ch2–3, `c8.py`–`c17.py`, `c20_21.py` for Ch20–21, `extras*.py`, `wisdom.py`; Ch4–7 have no generator here, so edit their JSON). Edit the generator, not the JSON, or your edit is overwritten next run.
    Scene 1 (`s01-heavens.json`) was refined by hand after its generator: do not re-run `s01_06.py` over it.
-2. Run it from that folder: `python3 c10.py`, then **always** `python3 renum.py` (keeps scene numbers whole and part ranges right).
+2. Run it from that folder: `python c10.py`, then **always** `python renum.py` (keeps scene numbers whole and part ranges right).
+   On Windows use `python` (there is no `python3`), and every generator that reads or writes Arabic must pass
+   `encoding='utf-8'` — the default is cp1252 and it cannot hold an Arabic title.
 3. Shared helpers: `base.py` (P(d, m) true scale, scene(), O()), `rooms.py` (one room per place), `bridges.py` (bridge pages), `chdoc.py N` (docs/CHAPTER-N).
 4. `npm run check` must show 0 errors.
 5. Review stills: `npm run dev`, then `node tools/generators/stills.cjs <outDir> sceneId:beat ...` (headless Playwright). Look at every changed beat; check nothing is black.

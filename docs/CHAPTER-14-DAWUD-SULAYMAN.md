@@ -36,13 +36,13 @@ api.alquran.cloud can be reached; several are parts of ayat chosen by hand once 
 
 ### 151 · Talut's Army · جيش طالوت (`river`)
 - **Ayah:** 2:249. **Node:** dawud.
-- **Beats.** (1) *Say:* Long after Musa, the Children of Israel asked for a king to lead them, and God chose Talut. (2) *Say:* At a river he tested his army: whoever drinks his fill is not with me, except a single handful. Most drank; only a few held back. (3) **Verse 2:249** (its closing: "How many a small company has overcome a large company by permission of Allah…"), placed sky.
+- **Beats.** (1) *Say:* Long after Musa, the Children of Israel asked for a king to lead them, and God chose Talut. (2) *Say:* At a river he tested his army: whoever drinks his fill is not with me, except a single handful. Most drank; only a few held back. (3) **Verse 2:249**, placed sky.
 - **Sound:** army, wind → water, voices → water, air. **Art:** The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined. Talut appears as a dim figure of light at the head of the army.
 - **Image prompt:** A wide shallow river crossing green hills at noon, ranks of an army of dim lights coming down to it; most kneel and drink deep and stay behind on the bank, while a small band of lights crosses on, a few cupping a single handful; ink-wash and parchment texture.
 
 ### 152 · Dawud and Jalut · داود وجالوت (`jalut`)
 - **Ayah:** 2:251. **Node:** dawud.
-- **Beats.** (1) *Say:* When they faced the army of Jalut, the giant warrior strode out and challenged them. The small band prayed: our Lord, pour patience upon us. (2) *Say:* A young man named Dawud stepped forward, and by God's permission he brought Jalut down. (3) **Verse 2:251** (from its opening to "and gave him the kingship and prophethood"), placed sky.
+- **Beats.** (1) *Say:* When they faced the army of Jalut, the giant warrior strode out and challenged them. The small band prayed: our Lord, pour patience upon us. (2) *Say:* A young man named Dawud stepped forward, and by God's permission he brought Jalut down. (3) **Verse 2:251**, placed sky.
 - **Sound:** army, wind → wind → army, air. **Art:** The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined. Jalut appears as a tall cold light; his fall is a light going out, nothing more. The sling is from the commentaries.
 - **Image prompt:** Two armies of dim lights facing each other across a valley floor at morning; from the larger army a giant cold grey light strides out; from the small band a young steady light steps forward; a small arc of light, and the giant light goes out; ink-wash and parchment texture.
 
@@ -54,19 +54,19 @@ api.alquran.cloud can be reached; several are parts of ayat chosen by hand once 
 
 ### 154 · Iron Made Soft · الحديد اللين (`iron`)
 - **Ayah:** 34:11. **Node:** dawud.
-- **Beats.** (1) *Say:* God made iron soft in Dawud's hands, and taught him to make coats of mail, linking the rings in good measure. (2) *Say:* Though he was a king, he lived from the work of his own hands. (3) **Verse 34:11** (to "and work righteousness"), placed sky.
+- **Beats.** (1) *Say:* God made iron soft in Dawud's hands, and taught him to make coats of mail, linking the rings in good measure. (2) *Say:* Though he was a king, he lived from the work of his own hands. (3) **Verse 34:11**, placed sky.
 - **Sound:** fire, work → fire, air → fire, air. **Art:** The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined. The softened iron is shown as glowing rings of mail being linked, as the Quran tells (34:10–11).
 - **Image prompt:** A dark smithy at night, a forge glowing orange, a steady light at the anvil with rings of glowing iron drawn out like thread and linked into a coat of mail that hangs shining on a frame; ink-wash and parchment texture.
 
 ### 155 · The Two Disputants · المتخاصمان (`disputants`)
 - **Ayah:** 38:24. **Node:** dawud.
-- **Beats.** (1) *Say:* One night, while Dawud was praying alone, two men climbed over the wall of his chamber. Do not be afraid, they said; we are two in a dispute. Judge between us with truth. (2) *Say:* This brother of mine has ninety-nine ewes, and I have one; yet he says, give it to me, and overpowers me with words. Dawud said: he has wronged you by asking for your ewe. (3) *Say:* Then Dawud understood that he was the one being tested. He asked his Lord's forgiveness, fell down bowing, and turned to Him in repentance. (4) **Verse 38:24** (from "And David became certain that We had tried him"), placed sky.
+- **Beats.** (1) *Say:* One night, while Dawud was praying alone, two men climbed over the wall of his chamber. Do not be afraid, they said; we are two in a dispute. Judge between us with truth. (2) *Say:* This brother of mine has ninety-nine ewes, and I have one; yet he says, give it to me, and overpowers me with words. Dawud said: he has wronged you by asking for your ewe. (3) *Say:* Then Dawud understood that he was the one being tested. He asked his Lord's forgiveness, fell down bowing, and turned to Him in repentance. (4) **Verse 38:24**, placed sky.
 - **Sound:** air, echo → sheep, wind → air → air. **Art:** Dawud and the two men appear only as lights. Who the two were is not told in the Quran; many commentators say they were angels sent to test him. The flock is drawn as the case they described.
 - **Image prompt:** Dawud's prayer chamber at night, a steady light at prayer; two dim figures of light appearing on top of the high wall and dropping inside; then a vision of their case: a great flock of ninety-nine ewes on one side and a single ewe alone on the other; then the steady light bowed low in repentance; ink-wash and parchment texture.
 
 ### 156 · The Judgment of the Field · قضية الكرم (`field`)
 - **Ayah:** 21:79. **Node:** sulayman.
-- **Beats.** (1) *Say:* One night a flock of sheep strayed into a vineyard and ate it bare. The owners brought the case to Dawud. (2) *Say:* His young son Sulayman suggested a better judgment: let the vineyard's owner keep the flock's milk and wool while the shepherd restores the vines; then each takes back his own. (3) **Verse 21:79** (to "and to each [of them] We gave judgement and knowledge"), placed sky.
+- **Beats.** (1) *Say:* One night a flock of sheep strayed into a vineyard and ate it bare. The owners brought the case to Dawud. (2) *Say:* His young son Sulayman suggested a better judgment: let the vineyard's owner keep the flock's milk and wool while the shepherd restores the vines; then each takes back his own. (3) **Verse 21:79**, placed sky.
 - **Sound:** sheep, crickets → echo, voices → echo, air. **Art:** The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined. The details of the case (the flock grazing a vineyard by night, and Sulayman's judgment) are from the commentaries on 21:78–79.
 - **Image prompt:** A vineyard by moonlight trampled by a flock of sheep; then a lamplit court where a king's steady light sits and a younger steady light beside him speaks, two dim lights of the owners before them; ink-wash and parchment texture.
 
@@ -78,7 +78,7 @@ api.alquran.cloud can be reached; several are parts of ayat chosen by hand once 
 
 ### 158 · The Valley of the Ants · النملة والجيش (`ants`)
 - **Ayah:** 27:19. **Node:** sulayman.
-- **Beats.** (1) *Say:* Once, as Sulayman's army came to a valley, an ant called out: ants, go into your homes, or Sulayman and his soldiers may crush you without knowing. (2) *Say:* Sulayman heard her and smiled, and he thanked God for His favour. (3) **Verse 27:19** (his prayer, from "My Lord, enable me to be grateful"), placed sky.
+- **Beats.** (1) *Say:* Once, as Sulayman's army came to a valley, an ant called out: ants, go into your homes, or Sulayman and his soldiers may crush you without knowing. (2) *Say:* Sulayman heard her and smiled, and he thanked God for His favour. (3) **Verse 27:19**, placed sky.
 - **Sound:** army, wind → wind, air → air. **Art:** The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined. The ant's warning is told as the Quran tells it (27:18); the ants are drawn in ink.
 - **Image prompt:** A close view of dry sandy ground, a file of tiny ink-drawn ants hurrying into the dark mouth of their nest; far behind, ranks of an army of lights halting on the valley floor, and a steady light at their head smiling down; ink-wash and parchment texture.
 
@@ -90,7 +90,7 @@ api.alquran.cloud can be reached; several are parts of ayat chosen by hand once 
 
 ### 160 · The Queen of Saba · ملكة سبأ (`saba`)
 - **Ayah:** 27:44. **Node:** sulayman.
-- **Beats.** (1) *Say:* Sulayman sent the queen a letter calling her to God. She came to see him, and found her own throne already brought to his palace before her. (2) *Say:* Enter the palace, she was told. Its floor was of glass so clear she thought it was water. (3) *Say:* Then she understood. My Lord, she said, I have wronged myself; I submit with Sulayman to God, Lord of the worlds. (4) **Verse 27:44** (her words, from "My Lord, indeed I have wronged myself"), placed sky.
+- **Beats.** (1) *Say:* Sulayman sent the queen a letter calling her to God. She came to see him, and found her own throne already brought to his palace before her. (2) *Say:* Enter the palace, she was told. Its floor was of glass so clear she thought it was water. (3) *Say:* Then she understood. My Lord, she said, I have wronged myself; I submit with Sulayman to God, Lord of the worlds. (4) **Verse 27:44**, placed sky.
 - **Sound:** echo, voices → echo, water → echo, air → echo, air. **Art:** The prophets appear only as steady lights; kings, armies, the queen and the people as dim figures of light; the jinn as smouldering shadows. The look of the land is imagined. The queen (named Bilqis in the commentaries) appears as a soft dim light. The floor of glass is drawn as a gleaming floor like water (27:44).
 - **Image prompt:** A great palace hall with a floor of glass so clear it gleams like still water, a soft light of a queen stepping onto it, a steady light standing at its far end beside a tall throne; then the queen's light bowing; ink-wash and parchment texture.
 

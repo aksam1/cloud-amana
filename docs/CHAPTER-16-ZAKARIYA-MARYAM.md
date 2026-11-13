@@ -29,7 +29,7 @@ them, are columns of light, never figures. Maryam's pain is never shown. Reproac
 
 ### 170 · Fruit out of Season · رزق مريم (`mihrab`)
 - **Ayah:** 3:37. **Node:** zakariya.
-- **Beats.** (1) *Say:* The temple's scholars drew lots with their pens to decide who would care for Maryam, and the lot fell to the prophet Zakariya. Whenever he came into her prayer chamber, he found food beside her: summer fruit in the depth of winter. (2) *Say:* Maryam, where did this come from? he asked. It is from God, she said. God provides for whom He wills, without measure. (3) **Verse 3:37** (from "Every time Zakariya entered upon her in the prayer chamber"), placed sky.
+- **Beats.** (1) *Say:* The temple's scholars drew lots with their pens to decide who would care for Maryam, and the lot fell to the prophet Zakariya. Whenever he came into her prayer chamber, he found food beside her: summer fruit in the depth of winter. (2) *Say:* Maryam, where did this come from? he asked. It is from God, she said. God provides for whom He wills, without measure. (3) **Verse 3:37**, placed sky.
 - **Sound:** echo, wind → echo, air → echo, air. **Art:** Prophets appear only as steady lights; Maryam and her mother as soft lights; the people as dim figures of light. Angels are columns of light, never figures. The look of the temple and the land is imagined. That the fruit was of summer in winter and of winter in summer is from the commentaries on 3:37.
 - **Image prompt:** A warm stone prayer chamber in the temple, an arched doorway onto falling snow; a young soft light kneeling in prayer beside a shallow bowl of summer fruit glowing gold; an old white-haired steady light entering through the door and stopping in wonder; ink-wash and parchment texture.
 
