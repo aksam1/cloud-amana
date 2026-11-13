@@ -4,7 +4,7 @@ import json, re, os
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../..')) + '/'
 C1 = ROOT + 'src/story/chapters/c1/'
-ORIG = '/tmp/claude-0/-home-user-cloud-amana/1bb4774e-edb2-5b79-9480-89c3dab3eb96/scratchpad/c1orig/'
+ORIG = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'c1orig') + '/'  # Chapter 1's 2D originals
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))

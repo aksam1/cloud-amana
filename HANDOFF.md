@@ -1,5 +1,7 @@
 # Amanah: handover brief for a new chat
 
+Working on your own computer? Start with `LOCAL-SETUP.md`.
+
 Read this first, then `CLAUDE.md` (the rules and engine notes), then `.claude/skills/chapter/SKILL.md`.
 
 ## 1. What this is

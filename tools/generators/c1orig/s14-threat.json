@@ -1,0 +1,39 @@
+{
+  "id": "threat",
+  "chapter": 1,
+  "order": 14,
+  "node": "humanity",
+  "title": "The Threat and the Answer",
+  "arabic": "الوعيد والجواب",
+  "source": "quran",
+  "art": ["The black smoke is the same whisper seen in the Garden; the brothers are figures of glow with no faces."],
+  "ayahs": ["5:27-28"],
+  "ambient": ["storm"],
+  "base": "#0e0e12",
+  "cam": { "z": 1.05, "y": 40 },
+  "imagePrompt": "A tense side two-shot on a storm-lit hilltop, the horizon cutting the frame in half and the storm filling the sky; on the right a figure of deep, smouldering red light leaning forward, dark smoke rising from its shoulders, a thin snake-like wisp of black smoke coiling around it with faint unreadable script; on the left a calm, steady figure of white light with open hands lowered, palms outward, refusing to fight; two stone altars between them. No faces, only glow.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#0e0e12"], [0.5, "#26242a"], [1, "#4a3a2c"]] },
+    { "type": "clouds", "depth": 0.3, "y": 200, "count": 9, "color": "#222024", "rim": "#6a4a2a", "scale": 1.5 },
+    { "type": "ground", "depth": 1, "y": 662, "amp": 22, "seed": 9, "color": "#4a4036", "color2": "#1e1a16", "grass": 60, "grassColor": "#8a8456", "wind": 1.3 },
+    { "type": "altar", "depth": 1, "x": 700, "y": 700, "s": 0.8 },
+    { "type": "altar", "depth": 1, "x": 900, "y": 700, "s": 0.8 },
+    { "type": "figure", "depth": 1, "x": 470, "y": 710, "h": 126, "color": "#ffffff", "glow": 1.2, "at": { "2": { "hands": true } } },
+    { "type": "figure", "depth": 1, "x": 1130, "y": 710, "h": 130, "color": "#b8321a", "pose": "lean", "face": -1, "smoke": true, "embers": true, "flicker": true },
+    { "type": "wisp", "depth": 1, "points": [[1230, 780], [1200, 720], [1160, 660]], "wrap": { "x": 1130, "y": 615, "r": 36, "turns": 1.6 }, "width": 6, "script": true, "dur": 4000, "show": [1, null] }
+  ],
+  "beats": [
+    { "dur": 6500, "cam": { "z": 1.02, "y": 30 },
+      "say": "Envy burned in Qabil until his light turned red." },
+    { "dur": 8000, "cam": { "x": 330, "z": 1.6, "y": 140, "cut": true }, "sfx": "whoosh",
+      "say": "A thread of black smoke, the same that crept through the Garden, wound around his shoulders.",
+      "verse": { "ref": "5:27", "ar": [18, 18], "who": "Qabil", "style": "qabil", "en": "I will surely kill you." } },
+    { "dur": 9000, "cam": { "x": -330, "z": 1.72, "y": 140, "cut": true }, "sfx": "whoosh",
+      "say": "Habil lowered his open hands and would not fight.",
+      "verse": { "ref": "5:27", "ar": [21, 25], "who": "Habil", "style": "habil", "en": "Indeed, Allah only accepts from the righteous [who fear Him]." } },
+    { "dur": 5000, "cam": { "x": 335, "z": 1.88, "y": 145, "cut": true }, "sfx": "whoosh",
+      "say": "The wind rose with every word." },
+    { "dur": 11000, "cam": { "x": -335, "z": 2.02, "y": 145, "cut": true }, "sfx": "whoosh",
+      "verse": { "ref": "5:28", "ar": [0, 16], "who": "Habil", "style": "habil", "en": "If you should raise your hand against me to kill me - I shall not raise my hand against you to kill you. Indeed, I fear Allah, Lord of the worlds." } }
+  ]
+}

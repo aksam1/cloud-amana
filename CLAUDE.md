@@ -38,10 +38,14 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 ## Numbering, inserting scenes, and the pages between stories
 
 - Scene `order` runs through the whole story and shows as a Roman numeral, so it must stay whole and
-  sequential. To insert a scene, give it a fractional order (e.g. `96.5`) and then renumber: the scratchpad
-  generators' `renum.py` sorts by (chapter, order), renames files `s<NN>-<id>.json`, rewrites each
-  chapter's part ranges and records id → order in `order.json` (which the generators read). If the
-  scratchpad is gone, do the same by hand: renumber, rename, and fix `parts` `from`/`to`.
+  sequential. To insert a scene, give it a fractional order (e.g. `96.5`) and then renumber: the generators'
+  `tools/generators/renum.py` sorts by (chapter, order), renames files `s<NN>-<id>.json`, rewrites each
+  chapter's part ranges and records id → order in `order.json` (which the generators read). Without it,
+  do the same by hand: renumber, rename, and fix `parts` `from`/`to`.
+- The scene JSON in `src/story/` is the source of truth. Several generators in `tools/generators/` are
+  older than later hand edits (running `s01_06.py` once brought back an old Creation scene). After running
+  any generator, `git diff --stat src/` and keep only the scenes you meant to change (`git checkout --`
+  the rest).
 - Each chapter.json carries a `bridge` { when, where, line: [names], text: [paragraphs] }: the page between
   stories shown before the chapter's first scene (`src/components/Bridge.jsx`) and under "Before this
   story" on the map. Keep it plain, say which chapter it follows on from, and give Bible names in
@@ -304,8 +308,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   the same in later scenes). Rooms (`src/layers/interiors.jsx`): `wall` (`material` plaster, mudbrick,
   glazed, granite, cedar, marble, stone; `frieze` {at, h, style lotus/rosette/zigzag/vine/lattice, colors};
   `dado`; `openings` [{x, w, h, kind door/window/arch, lit, view {sky, land, moon}}]; `beams`, `niches`)
-  and `colonnade` (`xs`, `y`, `h`, `w`, `style` papyrus/lotus/pier/cedar/crystal/colossus). The
-  scratchpad's `rooms.py` keeps each place's room (Namrud, al-Aziz, the king of Egypt, Yusuf's hall,
+  and `colonnade` (`xs`, `y`, `h`, `w`, `style` papyrus/lotus/pier/cedar/crystal/colossus). 
+  `tools/generators/rooms.py` keeps each place's room (Namrud, al-Aziz, the king of Egypt, Yusuf's hall,
   Yaqub's house, Pharaoh, Dawud's chamber and court, Sulayman, the smithy): `room(place)` + `front(place)`.
   (`Pillars` is town.jsx's painter; the interiors one is `colonnade`.)
 - api.alquran.cloud is not on this workspace's network allowlist. All 373 cited ayat are on file all the same:

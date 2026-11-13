@@ -1,0 +1,39 @@
+{
+  "id": "descent",
+  "chapter": 1,
+  "order": 10,
+  "node": "adam",
+  "title": "The Descent to Earth",
+  "arabic": "الهبوط",
+  "source": "quran",
+  "then": "map",
+  "ayahs": ["2:36", "2:38"],
+  "ambient": ["wind"],
+  "base": "#1d3350",
+  "focus": 0.75,
+  "cam": { "z": 1.1, "y": -120 },
+  "imagePrompt": "Two small figures of light descending through soft clouds toward a green, living earth far below; far in the distance, separately, a falling trail of dark smoke; the view pulling back until the earth becomes a parchment campaign map of ink rivers and mountains.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#1d3350"], [0.5, "#6f8fae"], [1, "#d8c7a0"]] },
+    { "type": "earth", "depth": 0.5, "y": 690, "state": "green", "show": [1, null] },
+    { "type": "range", "count": 3, "y": [610, 660], "amp": [55, 85], "depth": [0.4, 0.6], "colors": ["#8fa89a", "#3e5a3a"], "fade": [0.2, 0.7], "seed": 12, "show": [1, null] },
+    { "type": "water", "depth": 0.6, "points": [[720, 650], [780, 710], [660, 800], [780, 1000]], "w0": 6, "w1": 220, "reflect": [[0, "#c8d8e0"], [1, "#6a8aa0"]], "show": [1, null] },
+    { "type": "trail", "depth": 0.4, "from": { "x": 1420, "y": -260 }, "to": { "x": 1260, "y": 720 }, "size": 0.5, "dur": 6500, "bend": 60, "show": [1, null] },
+    { "type": "clouds", "depth": 0.7, "rise": 260, "y": 400, "count": 12, "color": "#f1eadc", "show": [0, 2] },
+    { "type": "figure", "depth": 0.75, "x": 770, "y": 330, "h": 78, "color": "#fff3d6", "moveDur": 9000, "at": { "1": { "y": 676 } } },
+    { "type": "figure", "depth": 0.75, "x": 838, "y": 340, "h": 72, "color": "#fff0d8", "moveDur": 9000, "at": { "1": { "y": 680 } } },
+    { "type": "particles", "kind": "dust", "count": 40 },
+    { "type": "tint", "depth": 0, "color": "#ecdcb9", "amount": 0.9, "fade": 4200, "show": [3, null] }
+  ],
+  "beats": [
+    { "dur": 6500, "cam": { "z": 1.05, "y": -60 },
+      "say": "Then they were sent down from the Garden to the earth." },
+    { "dur": 10000, "cam": { "y": 40, "z": 1 }, "sfx": "fall", "sfxAt": 800,
+      "say": "Iblis fell too, far off, on a road of his own.",
+      "verse": { "ref": "2:38", "ar": [1, 3], "en": "Go down from it, all of you." } },
+    { "dur": 11500, "cam": { "z": 0.78, "y": 20, "dur": 11500 },
+      "say": "This was always the plan: humanity would live on the earth as its khalifah, and guidance would follow.",
+      "verse": { "ref": "2:38", "ar": [5, 17], "en": "And when guidance comes to you from Me, whoever follows My guidance - there will be no fear concerning them, nor will they grieve." } },
+    { "dur": 4800, "cam": { "z": 0.45, "y": 0, "dur": 4800 }, "sfx": "page", "sfxAt": 3600 }
+  ]
+}

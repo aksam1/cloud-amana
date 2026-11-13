@@ -1,0 +1,41 @@
+{
+  "id": "repentance",
+  "chapter": 1,
+  "order": 9,
+  "node": "adam",
+  "title": "Repentance and Forgiveness",
+  "arabic": "التوبة",
+  "source": "quran",
+  "ayahs": ["7:23", "2:37"],
+  "ambient": ["wind"],
+  "base": "#2a3540",
+  "focus": 0.85,
+  "cam": { "z": 1.2, "y": 70 },
+  "imagePrompt": "Two dimmed figures of light kneeling side by side in a quiet, darkened garden; faint Arabic calligraphy rising from them like ascending light; a soft column of warm light descending onto them as their glow returns, gentler than before; muted greens warming back toward gold.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#2a3540"], [0.6, "#4a5048"], [1, "#6a6450"]],
+      "at": { "2": { "stops": [[0, "#5a7a8a"], [0.6, "#c9c6a8"], [1, "#f3e2b8"]], "shift": 4000 } } },
+    { "type": "garden", "depth": 0.35, "plane": "back", "seed": 3, "y": 590, "count": 10, "sat": 0.3, "bright": 0.6, "at": { "2": { "sat": 0.75, "bright": 0.9 } } },
+    { "type": "ground", "depth": 0.8, "y": 650, "amp": 12, "seed": 6, "color": "#4f6a3a", "color2": "#22381f", "grass": 60, "grassColor": "#7aa04e", "sat": 0.4, "bright": 0.6, "at": { "2": { "sat": 0.85, "bright": 0.92 } } },
+    { "type": "tree", "depth": 0.8, "x": 1180, "y": 655, "h": 300, "kind": "forbidden", "bright": 0.7 },
+    { "type": "beam", "depth": 0.6, "x": 800, "y": 712, "w": 190, "color": "#fff3d6", "dur": 2800, "show": [2, null] },
+    { "type": "figure", "depth": 0.85, "x": 760, "y": 712, "h": 90, "pose": "kneel", "dim": 0.6, "leaves": true, "color": "#fff6e0", "at": { "2": { "dim": 0.12 } } },
+    { "type": "figure", "depth": 0.85, "x": 842, "y": 716, "h": 84, "pose": "kneel", "dim": 0.6, "leaves": true, "color": "#fff0d8", "at": { "2": { "dim": 0.12 } } },
+    { "type": "calligraphy", "depth": 0.7, "ref": "7:23", "ar": [1, 3], "rise": true, "x": 800, "y": 610, "size": 40, "color": "#fff1cf", "show": [1, 2] },
+    { "type": "calligraphy", "depth": 0.3, "ref": "2:37", "ar": [10, 11], "x": 800, "y": 330, "size": 94, "color": "#ffe8b0", "w": 820, "dur": 4200, "show": [3, null] },
+    { "type": "particles", "kind": "rise", "origin": { "x": 800, "y": 690, "r": 70 }, "count": 40, "show": [2, null] }
+  ],
+  "beats": [
+    { "dur": 6000, "cam": { "z": 1.1, "y": 70 },
+      "say": "In the darkened Garden, the two of them knelt." },
+    { "dur": 10500, "cam": { "z": 1.16, "y": 80 },
+      "say": "They did not blame each other or Iblis; they turned back to their Lord.",
+      "verse": { "ref": "7:23", "ar": [1, 11], "who": "Adam and Hawwa", "style": "people", "en": "Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers." } },
+    { "dur": 10000, "cam": { "z": 1, "y": 30 }, "ambient": ["air", "water"],
+      "say": "Light came down to them, and their glow returned, gentler than before.",
+      "verse": { "ref": "2:37", "ar": [0, 6], "en": "Then Adam received from his Lord [some] words, and He accepted his repentance." } },
+    { "dur": 9500, "cam": { "z": 0.95, "y": -20 }, "ambient": ["air", "water"],
+      "say": "They were forgiven.",
+      "verse": { "ref": "2:37", "ar": [8, 11], "showAr": false, "en": "Indeed, it is He who is the Accepting of repentance, the Merciful." } }
+  ]
+}

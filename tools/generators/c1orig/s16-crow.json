@@ -1,0 +1,41 @@
+{
+  "id": "crow",
+  "chapter": 1,
+  "order": 16,
+  "node": "humanity",
+  "title": "The Crow",
+  "arabic": "الغراب",
+  "source": "mixed",
+  "notes": ["That Qabil carried his brother's body for a time, not knowing what to do, comes from classical commentary."],
+  "ayahs": ["5:31"],
+  "ambient": ["wind"],
+  "base": "#1e1426",
+  "cam": { "z": 1.05 },
+  "imagePrompt": "A barren, cracked field at dusk, the sky a bruised purple fading to a thin line of orange on the horizon, a single leafless tree in silhouette; a dim grey figure of light hunched on the ground beside a shape covered in shadow; a black crow drawn in crisp, detailed ink strokes, standing out sharply from the soft painting, digging at the earth with beak and claws, small bursts of dirt flying; at the end, a small mound of earth beside the kneeling figure as the crow flies toward the fading sunset.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#1e1426"], [0.55, "#4a2a48"], [0.86, "#8a4a3a"], [1, "#e08a46"]],
+      "glow": { "x": 800, "y": 650, "rx": 1100, "ry": 60, "color": "#ff9a4a", "opacity": 0.6 } },
+    { "type": "ground", "depth": 1, "y": 668, "amp": 10, "seed": 31, "color": "#3a2c26", "color2": "#140e0c", "cracks": true },
+    { "type": "tree", "depth": 0.9, "x": 1260, "y": 672, "h": 330, "kind": "bare", "seed": 4 },
+    { "type": "figure", "depth": 1, "x": 720, "y": 700, "h": 92, "pose": "lie", "show": [0, 4] },
+    { "type": "mound", "depth": 1, "x": 720, "y": 700, "w": 130, "show": [4, null] },
+    { "type": "figure", "depth": 1, "x": 600, "y": 704, "h": 112, "color": "#8a8580", "core": "#b4aea6", "glow": 0.45, "pose": "hunch", "dim": 0.3, "flicker": true,
+      "at": { "3": { "pose": "kneel", "dim": 0.5 } } },
+    { "type": "crow", "depth": 1, "x": 920, "y": 702, "act": "glide", "at": { "1": { "act": "land" }, "2": { "act": "dig" }, "3": { "act": "bury" }, "4": { "act": "fly" } } },
+    { "type": "particles", "kind": "ash", "count": 30 }
+  ],
+  "beats": [
+    { "dur": 7500, "cam": { "x": -60, "z": 1.1, "y": 30 },
+      "say": "At dusk, Qabil sat beside his brother's body, lost, not knowing what to do." },
+    { "dur": 7500, "cam": { "x": 100, "z": 1.15, "y": 40 }, "sfx": "wings",
+      "say": "A crow glided down and landed a few steps away.",
+      "verse": { "ref": "5:31", "ar": [0, 10], "en": "Then Allah sent a crow searching in the ground to show him how to hide the disgrace of his brother." } },
+    { "dur": 7500, "cam": { "x": 80, "z": 1.8, "y": 200 }, "sfx": "dig",
+      "say": "It scratched at the earth, dug a small hollow, and pushed the soil back over it." },
+    { "dur": 10500, "cam": { "x": -180, "z": 1.45, "y": 150 },
+      "say": "Qabil fell to his knees.",
+      "verse": { "ref": "5:31", "ar": [13, 22], "who": "Qabil", "style": "plain", "en": "O woe to me! Have I failed to be like this crow and hide the body of my brother?" } },
+    { "dur": 9000, "cam": { "x": 0, "z": 0.96, "y": 0 }, "sfx": "wings",
+      "verse": { "ref": "5:31", "ar": [24, 26], "en": "And he became of the regretful." } }
+  ]
+}

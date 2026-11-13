@@ -1,0 +1,41 @@
+{
+  "id": "first-murder",
+  "chapter": 1,
+  "order": 15,
+  "node": "humanity",
+  "title": "The First Murder",
+  "arabic": "أول دم",
+  "source": "quran",
+  "art": ["No violence is shown. The moment happens off screen and is marked only by a single drop of ink."],
+  "ayahs": ["5:30"],
+  "ambient": ["storm"],
+  "base": "#0e0e12",
+  "cam": { "z": 1.05, "y": 40 },
+  "imagePrompt": "Two frames: a blank cream parchment filling the whole picture with a single drop of dark red ink spreading outward in thin branching veins; and a rain-soaked hilltop painted in long ink-stroke rain, nearly monochrome, where a lone figure of dull ashy-grey glow stands small and motionless beside two stone altars, a dark low shape lying in shadow on the ground. No violence, no weapon, no blood other than the ink.",
+  "layers": [
+    { "type": "sky", "depth": 0.05, "stops": [[0, "#0e0e12"], [0.5, "#26242a"], [1, "#4a3a2c"]],
+      "at": { "3": { "stops": [[0, "#141414"], [0.6, "#2c2c2c"], [1, "#4a4744"]] } } },
+    { "type": "clouds", "depth": 0.3, "y": 200, "count": 10, "color": "#1e1d22", "rim": "#5a4a3a", "scale": 1.5 },
+    { "type": "ground", "depth": 1, "y": 662, "amp": 22, "seed": 9, "color": "#4a4036", "color2": "#1e1a16", "grass": 60, "grassColor": "#8a8456", "wind": 1.3, "at": { "3": { "sat": 0.15, "bright": 0.72 } } },
+    { "type": "altar", "depth": 1, "x": 700, "y": 700, "s": 0.8, "at": { "3": { "sat": 0.15, "bright": 0.75 } } },
+    { "type": "altar", "depth": 1, "x": 900, "y": 700, "s": 0.8, "at": { "3": { "sat": 0.15, "bright": 0.75 } } },
+    { "type": "figure", "depth": 1, "x": 470, "y": 710, "h": 126, "color": "#ffffff", "hands": true, "show": [0, 3] },
+    { "type": "figure", "depth": 1, "x": 520, "y": 724, "h": 110, "pose": "lie", "show": [3, null] },
+    { "type": "figure", "depth": 1, "x": 1010, "y": 710, "from": { "x": 1130, "y": 710 }, "h": 130, "color": "#b8321a", "pose": "lean", "face": -1, "smoke": true, "embers": true, "flicker": true, "moveDur": 2600,
+      "at": { "3": { "color": "#7d7873", "core": "#b9b3ac", "pose": "stand", "smoke": false, "embers": false, "flicker": false, "glow": 0.5 } } },
+    { "type": "particles", "depth": 1.1, "kind": "rain", "count": 230, "show": [3, null] },
+    { "type": "lightning", "depth": 0, "at": { "1": { "flash": 1 } } },
+    { "type": "inkdrop", "depth": 0, "show": [2, 3], "fade": 500 }
+  ],
+  "beats": [
+    { "dur": 4800, "cam": { "x": 110, "z": 1.12, "y": 60 },
+      "say": "Qabil stepped forward." },
+    { "dur": 2800, "cam": { "x": 0, "y": -420, "z": 1.05, "dur": 1800, "ease": "out" }, "sfx": "thunder" },
+    { "dur": 8200, "ambient": [], "sfx": ["heartbeat", { "name": "drop", "at": 2400 }] },
+    { "dur": 10500, "cam": { "y": 40, "z": 1, "x": 0, "dur": 4200 }, "ambient": ["rain", "storm"],
+      "say": "When the sky could be seen again, Habil's light was gone, and Qabil stood alone in the rain.",
+      "verse": { "ref": "5:30", "ar": [0, 8], "en": "And his soul permitted to him the murder of his brother, so he killed him and became among the losers." } },
+    { "dur": 7000, "cam": { "z": 0.82, "x": 120, "y": 20 }, "ambient": ["rain", "storm"],
+      "say": "His red glow had dimmed to ash." }
+  ]
+}

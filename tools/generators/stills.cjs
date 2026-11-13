@@ -1,5 +1,5 @@
 // Screenshots held moments: node stills.cjs <outDir> <scene:beat[:t]> ...
-const { chromium } = require('playwright');
+const { chromium } = (() => { try { return require('playwright'); } catch { return require('@playwright/test'); } })();
 const fs = require('fs');
 const [out, ...items] = process.argv.slice(2);
 (async () => {
