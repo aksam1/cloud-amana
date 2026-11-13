@@ -71,6 +71,18 @@ The web app is meant to have two parts:
 2. Publish `deploy/index.html` with the Artifact tool to the URL above, passing that map as `files` (keep the nulls so old builds are removed).
 3. Commit, push to the branch, report to the user in numbered steps.
 
+The Artifact tool needs a claude.ai login, so it is refused while `ANTHROPIC_AUTH_TOKEN`
+(the orbit1 relay) is set. `tools/publish-artifact.sh` runs the publish in a nested CLI session with
+the relay unset (`CLAUDE_CODE_ARTIFACT=1 CLAUDE_CODE_ARTIFACT_MCP=1`), which is how it was done
+on 13 Nov 2026. `tools/make-publish-prompt.py` writes the exact publish call to
+`deploy/publish-prompt.txt` (not committed; `deploy/` is ignored).
+
+Two refusals to expect, and their fixes:
+- *"you hadn't viewed the live version"*: read the artifact first in the same session
+  (`action=read` with the `url`) — the publish prompt does this.
+- *"some files changed since Claude last saw them"*: the 22 old bundles being removed must be
+  named in `overwrite_unread` on the publish call.
+
 ## 7. Rules never to break (full list in CLAUDE.md)
 - Allah never depicted. Prophets only as distant lights of steady light, no faces.
 - Quran text only from `src/data/ayahs.json` (Sahih International), never typed by hand.
