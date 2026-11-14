@@ -7,7 +7,7 @@
   "arabic": "الصبر",
   "source": "quran",
   "ayahs": ["21:85"],
-  "art": ["The market and the townspeople are imagined; Idris appears only as a figure of light seen from behind."],
+  "art": ["The market and the townspeople are imagined; Idris appears only as a figure of light seen from behind.", "The look of the early village is imagined; its low mud-brick houses are of the kind built in the first generations."],
   "ambient": ["crowd", "wind"],
   "base": "#9fb4c4",
   "captions": "parchment",
@@ -19,7 +19,7 @@
   "layers": [
     {"type": "heavens", "horizon": 545, "tod": [9.4, 10, 6500], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 260, "size": 34}, "at": {"1": {"tod": [10, 10.8, 7500]}, "2": {"tod": [15.6, 16.2, 4500]}, "3": {"tod": [11.6, 12.2, 4500]}, "4": {"tod": [8.6, 10.6, 9000]}}},
     {"type": "range", "count": 2, "y": [500, 530], "amp": [40, 60], "depth": [0.04, 0.07], "colors": ["#c8bca8", "#a8987c"], "haze": [0.3, 0.6], "sharp": 0.3, "edge": false, "seed": 33},
-    {"type": "town", "depth": 0.11, "grade": "town", "y": 584, "x0": -260, "x1": 1860, "s": 0.9, "rows": 2, "seed": 41, "at": {"3": {"grey": 0.25}, "4": {"grey": 0}}},
+    {"type": "town", "depth": 0.11, "grade": "village", "y": 584, "x0": -260, "x1": 1860, "s": 0.9, "rows": 2, "seed": 41, "at": {"3": {"grey": 0.25}, "4": {"grey": 0}}},
     {"type": "ground", "depth": 0.12, "y": 588, "amp": 3, "seed": 7, "color": "#d0b486", "color2": "#9a7e52", "at": {"3": {"color": "#dcdcd8", "color2": "#a8aaa8"}, "4": {"color": "#d0b486", "color2": "#9a7e52"}}, "area": [-800, 528, 2400, 2600]},
     {"type": "stalls", "depth": 0.24, "s": 0.83, "items": [{"x": 200, "y": 636, "w": 150, "color": "#b8644a"}, {"x": 430, "y": 636, "w": 120, "color": "#5e7a8a"}, {"x": 1170, "y": 636, "w": 130, "color": "#8a6a3e"}, {"x": 1400, "y": 636, "w": 160, "color": "#a8584a"}]},
     {"type": "crowd", "area": [-200, 1800, -3545, -2704], "y": [648, 628], "count": 30, "size": 62, "flow": [1, 0], "speed": 34, "mill": 4, "color": "#ffd8a0", "glow": 0.12, "dim": 0.35, "flicker": 0.15},

@@ -81,19 +81,26 @@ export function Dunes({ cfg }) {
 // ── Columns ──────────────────────────────────────────────
 
 /**
- * One great column of rose and gold stone standing on the line `y`, `h` tall and `w` wide, lit from the
- * left: fluted shaft, a carved capital, a plinth. `broken` (0–1) snaps it off that far down; `shadow`
- * {dx, len} throws its long shadow across the sand.
+ * One great column standing on the line `y`, `h` tall and `w` wide, lit from the left. `broken` (0–1)
+ * snaps it off that far down; `shadow` {dx, len} throws its long shadow across the sand.
+ *
+ * `style` is the age of it:
+ *   classical  a fluted shaft swelling to a cushion capital, on a plinth (the classical world)
+ *   protoaic   a slender plain shaft on a stepped base under a carved block capital (Jerusalem's temple)
+ *   pillared  a square brick pier with a glazed band, uncapitalised (the Levant and Mesopotamia)
  */
 export function Column({ cfg }) {
   const uid = useUid('cl');
-  const { x = 800, y = 700, h = 520, w = 46, stone = ROSE, lit = GOLD, dark = DUSK, broken = 0, shadow, seed = 1 } = cfg;
+  const { x = 800, y = 700, h = 520, w = 46, stone = ROSE, lit = GOLD, dark = DUSK, broken = 0, shadow, seed = 1, style = 'classical' } = cfg;
   const top = y - h * (1 - broken);
   const jag = useMemo(() => {
     const r = rng(seed);
     return Array.from({ length: 5 }, (_, i) => [x - w / 2 + (i / 4) * w, top + (r() - 0.3) * w * 0.6]);
   }, [x, w, top, seed]);
-  const tw = w * 0.86;
+  const tw = w * (style === 'protoaic' ? 0.76 : style === 'pillared' ? 1 : 0.86);
+  const shaft = (
+    <path d={`M${x - w / 2},${y - 14} L${x - tw / 2},${top + w * 0.5} L${x + tw / 2},${top + w * 0.5} L${x + w / 2},${y - 14} Z`} fill={`url(#${uid}g)`} />
+  );
   return (
     <Svg>
       <defs>
@@ -104,21 +111,46 @@ export function Column({ cfg }) {
         </linearGradient>
       </defs>
       {shadow && <path d={`M${x - w / 2},${y} L${x + w / 2},${y} L${x + w / 2 + shadow.len},${y + (shadow.dy ?? shadow.len * 0.08)} L${x - w / 2 + shadow.len * 0.92},${y + (shadow.dy ?? shadow.len * 0.08) + w * 0.4} Z`} fill="#3a2234" opacity={shadow.o ?? 0.35} />}
-      <rect x={x - w * 0.78} y={y - 16} width={w * 1.56} height="18" fill={mixColor(stone, dark, 0.3)} />
+      {style === 'protoaic' ? (
+        /* a stepped base: two square plinths, then the plain shaft */
+        <>
+          <rect x={x - w * 0.92} y={y - 14} width={w * 1.84} height="14" fill={mixColor(stone, dark, 0.36)} />
+          <rect x={x - w * 0.82} y={y - 30} width={w * 1.64} height="16" fill={mixColor(stone, dark, 0.22)} />
+          <rect x={x - w * 0.72} y={y - 44} width={w * 1.44} height="14" fill={mixColor(stone, dark, 0.12)} />
+        </>
+      ) : (
+        <rect x={x - w * 0.78} y={y - 16} width={w * 1.56} height="18" fill={mixColor(stone, dark, 0.3)} />
+      )}
       {broken > 0 ? (
         <path d={`M${x - w / 2},${y - 14} L${pts(jag)} L${x + w / 2},${y - 14} Z`} fill={`url(#${uid}g)`} />
+      ) : style === 'protoaic' ? (
+        <>
+          {shaft}
+          {/* a carved block capital: a plain slab on a spreading bracket, each course wider than the one below */}
+          <path d={`M${x - tw / 2},${top + w * 0.62} L${x - w * 0.62},${top + w * 0.3} L${x + w * 0.62},${top + w * 0.3} L${x + tw / 2},${top + w * 0.62} Z`} fill={mixColor(stone, lit, 0.26)} />
+          <rect x={x - w * 0.78} y={top + w * 0.16} width={w * 1.56} height={w * 0.16} fill={mixColor(stone, dark, 0.1)} />
+          <rect x={x - w * 0.9} y={top} width={w * 1.8} height={w * 0.18} fill={mixColor(stone, lit, 0.32)} />
+        </>
+      ) : style === 'pillared' ? (
+        <>
+          {shaft}
+          <rect x={x - tw / 2} y={top + w * 0.2} width={tw} height={w * 0.22} fill={mixColor(stone, lit, 0.3)} />
+          <rect x={x - w * 0.86} y={top} width={w * 1.72} height={w * 0.2} fill={mixColor(stone, dark, 0.16)} />
+        </>
       ) : (
         <>
-          <path d={`M${x - w / 2},${y - 14} L${x - tw / 2},${top + w * 0.5} L${x + tw / 2},${top + w * 0.5} L${x + w / 2},${y - 14} Z`} fill={`url(#${uid}g)`} />
+          {shaft}
           {/* the capital: a cushion swelling from the shaft up to the slab that crowns it (touching it, so
               the slab never floats on a column seen up close) */}
           <path d={`M${x - tw / 2},${top + w * 0.56} Q${x - w * 0.5},${top + w * 0.4} ${x - w * 0.7},${top + w * 0.23} L${x + w * 0.7},${top + w * 0.23} Q${x + w * 0.5},${top + w * 0.4} ${x + tw / 2},${top + w * 0.56} Z`} fill={mixColor(stone, lit, 0.3)} />
           <rect x={x - w * 0.82} y={top} width={w * 1.64} height={w * 0.24} fill={mixColor(stone, dark, 0.15)} />
         </>
       )}
-      {[-0.3, -0.1, 0.1, 0.3].map((u) => (
-        <path key={u} d={`M${x + u * w},${y - 16} L${x + u * tw},${broken > 0 ? top + w * 0.4 : top + w * 0.55}`} stroke="#000" strokeOpacity="0.1" strokeWidth={Math.max(1, w * 0.05)} />
-      ))}
+      {/* the flutes belong to the classical shaft alone */}
+      {style === 'classical' &&
+        [-0.3, -0.1, 0.1, 0.3].map((u) => (
+          <path key={u} d={`M${x + u * w},${y - 16} L${x + u * tw},${broken > 0 ? top + w * 0.4 : top + w * 0.55}`} stroke="#000" strokeOpacity="0.1" strokeWidth={Math.max(1, w * 0.05)} />
+        ))}
     </Svg>
   );
 }
@@ -303,16 +335,29 @@ export function Floor({ cfg }) {
 }
 
 /**
- * A great wall of dressed stone, `w` wide and `h` tall, centred at `x` on the line `y`. `doors` [{x, w, h,
- * lit}] are arched openings (lit ones glow warm); `gate` {w, h} cuts an open gateway (see-through) and
- * `towers` flank it, as at a city's gates.
+ * A great wall, `w` wide and `h` tall, centred at `x` on the line `y`. `doors` [{x, w, h, lit}] are
+ * arched openings (lit ones glow warm); `gate` {w, h} cuts an open gateway (see-through) and `towers`
+ * flank it, as at a city's gates.
+ *
+ * `style` says what it is built of, and each age builds its own way:
+ *   mudbrick  courses of sun-dried brick with a stepped merlon parapet (Sumer, Assyria, the desert)
+ *   ashlar    dressed stone in long blocks, a chevron course under the coping (Jerusalem, the Levant)
+ *   pylon     an Egyptian pylon: battered, leaning inward as it rises
+ *   brick     a Babylonian wall of fine burnt brick, its joints thin and even
  */
 export function Facade({ cfg }) {
   const uid = useUid('fc');
-  const { x = 800, y = 700, w = 1200, h = 520, stone = ROSE, lit = GOLD, dark = DUSK, doors = [], gate, towers = false } = cfg;
+  const { x = 800, y = 700, w = 1200, h = 520, stone = ROSE, lit = GOLD, dark = DUSK, doors = [], gate, towers = false, style = 'mudbrick' } = cfg;
   const left = x - w / 2;
   const arch = (cx, dw, dh) => `M${cx - dw / 2},${y} L${cx - dw / 2},${y - dh + dw / 2} A${dw / 2},${dw / 2} 0 0 1 ${cx + dw / 2},${y - dh + dw / 2} L${cx + dw / 2},${y} Z`;
-  const wall = `M${left},${y} L${left},${y - h} L${left + w},${y - h} L${left + w},${y} Z${gate ? ` ${arch(x, gate.w, gate.h)}` : ''}`;
+  // a pylon leans inward as it rises; the other styles stand plumb
+  const batter = style === 'pylon' ? Math.min(w * 0.14, h * 0.28) : 0;
+  const topL = left + batter;
+  const topR = left + w - batter;
+  const wall = `M${left},${y} L${topL},${y - h} L${topR},${y - h} L${left + w},${y} Z${gate ? ` ${arch(x, gate.w, gate.h)}` : ''}`;
+  // how the courses are marked: fine burnt brick is close-jointed, mud-brick is not, ashlar is long blocks
+  const course = style === 'brick' ? 30 : style === 'ashlar' ? 74 : 46;
+  const merlons = style === 'mudbrick' || style === 'brick';
   return (
     <Svg>
       <defs>
@@ -332,11 +377,33 @@ export function Facade({ cfg }) {
       <path d={wall} fill={`url(#${uid}w)`} fillRule="evenodd" />
       {/* the courses stay on the stone: a gate stays open */}
       <g clipPath={`url(#${uid}c)`}>
-        {Array.from({ length: Math.floor(h / 46) }, (_, i) => (
-          <path key={i} d={`M${left},${y - i * 46} L${left + w},${y - i * 46}`} stroke="#000" strokeOpacity="0.09" strokeWidth="2" />
+        {Array.from({ length: Math.floor(h / course) }, (_, i) => (
+          <path key={i} d={`M${left},${y - i * course} L${left + w},${y - i * course}`} stroke="#000" strokeOpacity="0.09" strokeWidth={style === 'brick' ? 1.4 : 2} />
         ))}
+        {/* ashlar is laid in long blocks, so it also shows its vertical joints */}
+        {style === 'ashlar' &&
+          Array.from({ length: Math.ceil(w / 150) }, (_, i) => (
+            <path key={i} d={`M${left + i * 150},${y - h} L${left + i * 150},${y}`} stroke="#000" strokeOpacity="0.06" strokeWidth="2" />
+          ))}
+        {/* the chevron course under the coping of dressed stone */}
+        {style === 'ashlar' && (
+          <path
+            d={`M${topL},${y - h + 26} ${Array.from({ length: Math.ceil((topR - topL) / 60) }, (_, i) => `L${topL + i * 60 + 30},${y - h + 10} L${topL + (i + 1) * 60},${y - h + 26}`).join(' ')}`}
+            fill="none"
+            stroke="#000"
+            strokeOpacity="0.12"
+            strokeWidth="3"
+          />
+        )}
       </g>
       <rect x={left - 10} y={y - h - 18} width={w + 20} height="20" fill={mixColor(stone, lit, 0.35)} />
+      {merlons &&
+        Array.from({ length: Math.ceil(w / 46) }, (_, i) => (
+          <g key={i}>
+            <rect x={left + i * 46} y={y - h - 34} width="30" height="16" fill={mixColor(stone, lit, 0.2)} />
+            <rect x={left + i * 46 + 6} y={y - h - 44} width="18" height="10" fill={mixColor(stone, lit, 0.2)} />
+          </g>
+        ))}
       {doors.map((d, i) => (
         <path key={i} d={arch(d.x, d.w, d.h)} fill={d.lit ? `url(#${uid}d)` : '#1e1218'} />
       ))}
@@ -357,8 +424,9 @@ export function Facade({ cfg }) {
   );
 }
 Facade.bounds = (c) => {
-  const { x = 800, y = 700, w = 1200, h = 520, towers } = c;
-  return [x - w / 2 - 40, y - h * (towers ? 1.4 : 1) - 60, x + w / 2 + 40, y + 30];
+  const { x = 800, y = 700, w = 1200, h = 520, towers, style } = c;
+  const batter = style === 'pylon' ? Math.min(w * 0.14, h * 0.28) : 0;
+  return [x - w / 2 - 40, y - h * (towers ? 1.4 : 1) - 60, x + w / 2 + 40 + batter, y + 30];
 };
 
 /**

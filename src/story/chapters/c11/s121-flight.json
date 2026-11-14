@@ -7,7 +7,7 @@
   "arabic": "الخروج إلى مدين",
   "source": "quran",
   "ayahs": ["28:22"],
-  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The man who warned him appears only as a dim light. The road to Madyan is imagined."],
+  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "The man who warned him appears only as a dim light. The road to Madyan is imagined.", "Egypt's look is imagined; its ochre limestone houses and flat roofs are of the kind built on the Nile."],
   "ambient": ["wind", "desert"],
   "base": "#141824",
   "captions": "parchment",

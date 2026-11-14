@@ -2,13 +2,13 @@
 
 An illustrated campaign that tells the story of creation and humanity in Islam, from the first light
 to the Last Day. Painterly ink-and-gold scenes (Troy × Three Kingdoms), short narration on parchment,
-every ayah in Uthmani Arabic with Sahih International, and a campaign map as the main navigation.
+every ayah in Uthmani Arabic with Sahih International, and a map of time as the main navigation.
 
 **Built so far:** Chapter 1, *The Beginning*: 18 scenes in two parts (From Light to the Garden ·
 Adam's Family on Earth). Chapter 2, *Prophet Idris and the Generations Before Nuh*: scenes 19–26 in two
 parts (Shith and Idris · The Generations Before Nuh). Chapter 3, *Prophet Nuh and the Great Flood*: scenes
 27–38 in two parts (The Call · The Ark and the Flood). Chapter 4, *Prophet Hud*: scenes 39–48 in two parts
-(The Pride of ʿAd · The Wind), the first chapter rendered in WebGL. The map holds all 33 events in order, and
+(The Pride of ʿAd · The Wind), the first chapter rendered in WebGL. The map holds all 34 events in order, and
 chapters 5–21 (the prophets from Salih to Isa, the Final Messenger ﷺ, the Signs of the Hour, the Day of
 Judgment) are planned: each has a `chapter.json` naming its map events, and their nodes show "In
 preparation" with the chapter that will tell them.
@@ -38,7 +38,8 @@ Opens on <http://localhost:5210>. The `amanah` entry in `LocalChat/.claude/launc
 ## Where things live
 
 ```
-src/story/timeline.json        map skeleton: eras + 33 events (from timelinev1.netlify.app, oldest first)
+src/story/timeline.json        map of time: 5 eras + 34 events (oldest first); the map draws it as a thread of
+                               light descending, the gap between two seals being the time between them
 src/story/chapters/c<n>/*.json chapter.json + one file per scene (auto-discovered, no code changes); a planned
                                chapter is a chapter.json alone: number, title, arabic, `nodes`, `parts`
 src/data/ayahs.json            verified Quran text (generated)

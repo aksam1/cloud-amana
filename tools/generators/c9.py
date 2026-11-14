@@ -83,7 +83,7 @@ def nile(seed=500):
     # of obelisks and towered gates in chapters 11-12 is another, centuries later)
     return [
         {'type': 'ridge', 'depth': 0.04, 'y': 610, 'amp': 30, 'seed': seed, 'sharp': 0.3, 'color': '#b0987a', 'haze': 0.4, 'fog': 0.4},
-        {'type': 'town', 'depth': 0.1, 'y': 640, 'x0': -200, 'x1': 1800, 's': 0.75, 'grade': 'town', 'lit': 0.2, 'haze': '#d8c0a0', 'seed': seed + 1},
+        {'type': 'town', 'depth': 0.1, 'y': 640, 'x0': -200, 'x1': 1800, 's': 0.75, 'grade': 'city', 'lit': 0.2, 'haze': '#d8c0a0', 'seed': seed + 1},
         {'type': 'palms', 'depth': 0.12, 'items': [{'x': x, 'y': 652, 'h': 120 + (i % 3) * 18, 'lean': (-1) ** i * 0.04} for i, x in enumerate((300, 360, 430, 1180, 1250, 1320, 1400))], 'seed': seed + 4},
         {'type': 'ground', 'depth': 0.14, 'y': 664, 'amp': 6, 'seed': seed + 2, 'color': '#8a9a5a', 'color2': '#5a6a3a', 'grass': True, 'grassColor': '#a8b468'},
         {'type': 'water', 'depth': 0.16, 'points': [[-200, 690], [400, 700], [900, 712], [1800, 724]], 'w0': 60, 'w1': 90, 'reflect': [['0', '#b8d0d8'], ['1', '#5a7a8a']]},
@@ -271,7 +271,7 @@ scene('aziz', 95, 'yusuf', 'The House of the Aziz', 'بيت العزيز',
     *nile(),
     {'type': 'crowd', 'area': [200, 900, -3500, -2800], 'y': [748, 730], 'count': 40, 'size': 58, 'color': '#ffd8a0', 'dim': 0.25, 'glow': 0.5, 'mill': 16, 'speed': 0, 'flicker': 0.15},
     *zoom(1.5, 1000, 750,
-      {'type': 'facade', 'depth': 0.18, 'x': 1260, 'y': 712, 'w': 520, 'h': 150, 'gate': {'w': 110, 'h': 110}, 'stone': '#c8a074', 'ppu': 0.8},
+      {'type': 'facade', 'depth': 0.18, 'x': 1260, 'y': 712, 'w': 520, 'h': 150, 'gate': {'w': 110, 'h': 110}, 'stone': '#c8a074', 'style': 'ashlar', 'ppu': 0.8},
       light([920, 752], 47, depth=0.24, **prophet_day, pose='walk', path=[[760, 760], [1080, 748]], dur=9000, at={'1': {'h': 61, 'pose': 'stand', 'path': None, 'pos': [1020, 750]}}),
       light([960, 752], 62, depth=0.24, **dim, pose='walk', path=[[800, 760], [1120, 748]], dur=9000, at={'1': {'pose': 'stand', 'path': None, 'pos': [1080, 750]}})),
     near_grass(505), motes(),

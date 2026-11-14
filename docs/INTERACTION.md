@@ -66,7 +66,7 @@ Rules worth naming:
 | Next / previous moment | → Space Enter / ← | Tap, swipe | Click, wheel | ⏮ ⏭ and the pips |
 | Pause | P / K | | | ⏯ |
 | Map | M / Esc | | | Map button |
-| Pan / zoom map | ←/→ between seals, + / − | Drag, pinch | Drag, wheel, ctrl+wheel | + − ⌖ buttons, era chips, List view |
+| Pan / zoom map | ←/→ between seals, + / − | Drag, pinch | Drag, wheel, ctrl+wheel | + − ⌖ buttons, era rail, List view |
 
 ## States inventory
 

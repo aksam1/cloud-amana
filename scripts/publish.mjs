@@ -50,5 +50,8 @@ const before = existsSync(ledger) ? JSON.parse(readFileSync(ledger, 'utf8')) : [
 const files = Object.fromEntries(assets.map((f) => [`assets/${f}`, `dist/assets/${f}`]));
 for (const f of before) if (!assets.includes(f)) files[`assets/${f}`] = null;
 writeFileSync(ledger, `${JSON.stringify(assets, null, 2)}\n`);
+// The same map on disk: tools/make-publish-prompt.py reads it, so the prompt can never
+// name assets from an older build.
+writeFileSync(join(root, 'deploy/files.json'), `${JSON.stringify(files, null, 2)}\n`);
 
 console.log(`\nPublish deploy/index.html to ${URL} with files:\n${JSON.stringify(files, null, 2)}`);

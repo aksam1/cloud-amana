@@ -67,7 +67,7 @@ def land(state='green'):
 def tent(lit=True, dark_from=None, **kw):
     """Ayyub's farmhouse of black basalt (the stone of the Hauran), its door lit or dark."""
     door = lambda on: [{'x': 760, 'w': P(0.36, 1.1), 'h': P(0.36, 2), 'lit': on}]
-    h = {'type': 'facade', 'depth': 0.36, 'x': 700, 'y': 778, 'w': P(0.36, 9), 'h': P(0.36, 3.6), 'stone': '#4a4a54', 'light': 0.8, 'doors': door(lit), 'ppu': 0.9, **kw}
+    h = {'type': 'facade', 'depth': 0.36, 'x': 700, 'y': 778, 'w': P(0.36, 9), 'h': P(0.36, 3.6), 'stone': '#4a4a54', 'light': 0.8, 'doors': door(lit), 'style': 'ashlar', 'ppu': 0.9, **kw}
     if dark_from is not None:
         h['at'] = {str(dark_from): {'doors': door(False)}}
     return h
@@ -202,7 +202,7 @@ def madyan(lit=0.3, empty=False):
     return [
         {'type': 'ridge', 'depth': 0.04, 'y': 610, 'amp': 70, 'seed': 720, 'sharp': 0.6, 'color': '#8a5a4a', 'haze': 0.4, 'fog': 0.4},
         {'type': 'ridge', 'depth': 0.07, 'y': 640, 'amp': 40, 'seed': 721, 'sharp': 0.5, 'color': '#a8705a', 'haze': 0.3, 'fog': 0.3},
-        {'type': 'town', 'depth': 0.13, 'y': 690, 'x0': 120, 'x1': 1480, 's': P(0.13, 1) / 30, 'grade': 'town', 'lit': lit, 'haze': '#c8a888', 'seed': 722},
+        {'type': 'town', 'depth': 0.13, 'y': 690, 'x0': 120, 'x1': 1480, 's': P(0.13, 1) / 30, 'grade': 'desert', 'lit': lit, 'haze': '#c8a888', 'seed': 722},
         {'type': 'ground', 'depth': 0.16, 'y': 700, 'amp': 6, 'seed': 723, 'color': '#c8a078', 'color2': '#9a7050'},
         {'type': 'palms', 'depth': 0.22, 'items': [{'x': 180, 'y': 726, 'h': P(0.22, 8), 'lean': 0.05}, {'x': 270, 'y': 724, 'h': P(0.22, 9), 'lean': -0.04},
                                                    {'x': 1340, 'y': 726, 'h': P(0.22, 8.5), 'lean': 0.06}, {'x': 1440, 'y': 724, 'h': P(0.22, 9), 'lean': -0.03}], 'seed': 724},

@@ -7,7 +7,7 @@
   "arabic": "الضربة",
   "source": "quran",
   "ayahs": ["28:16"],
-  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "Nothing of the fight is shown: two dim lights struggle, and one goes out."],
+  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "Nothing of the fight is shown: two dim lights struggle, and one goes out.", "Egypt's look is imagined; its ochre limestone houses and flat roofs are of the kind built on the Nile.", "The pylon gate is imagined; its battered sides and ochre limestone are of the kind built at the gates of Egypt's temples."],
   "ambient": ["wind", "crickets"],
   "base": "#141824",
   "captions": "parchment",

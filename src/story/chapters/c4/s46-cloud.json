@@ -8,7 +8,8 @@
   "source": "quran",
   "ayahs": ["46:24"],
   "art": [
-    "The people of ʿAd appear only as figures of dim light; their rush onto the roofs and the waving banners are imagined from their words in the verse."
+    "The people of ʿAd appear only as figures of dim light; their rush onto the roofs and the waving banners are imagined from their words in the verse.",
+    "The piers are imagined; plain square brick piers of the kind built in the Levant and in Mesopotamia."
   ],
   "ambient": ["desert", "city"],
   "base": "#1e1a24",
@@ -37,8 +38,8 @@
       { "type": "light", "show": [1, null], "depth": 0.3, "pos": [1240, 490], "h": 39, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
       { "type": "cloth", "depth": 0.3, "pos": [470, 380], "w": 40, "h": 100, "pole": 110, "color": "#8a1e1e", "trim": "#d4a040", "amp": 10, "speed": 3, "at": { "1": { "amp": 20, "speed": 5 }, "3": { "amp": 34, "speed": 8 }, "4": { "amp": 6, "speed": 1.2 } } },
       { "type": "cloth", "depth": 0.3, "pos": [1130, 380], "w": 40, "h": 100, "pole": 110, "color": "#8a1e1e", "trim": "#d4a040", "amp": 10, "speed": 3.2, "at": { "1": { "amp": 20, "speed": 5.4 }, "3": { "amp": 34, "speed": 8 }, "4": { "amp": 6, "speed": 1.2 } } },
-      { "type": "column", "depth": 0.42, "x": 260, "y": 690, "h": 560, "w": 36 },
-      { "type": "column", "depth": 0.42, "x": 1340, "y": 690, "h": 600, "w": 38 },
+       {"type": "column", "depth": 0.42, "x": 260, "y": 690, "h": 560, "w": 36, "style": "pillared"},
+       {"type": "column", "depth": 0.42, "x": 1340, "y": 690, "h": 600, "w": 38, "style": "pillared"},
       { "type": "light", "show": [1, null], "depth": 0.42, "pos": [260, 122], "h": 40, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
       { "type": "light", "show": [1, null], "depth": 0.42, "pos": [1340, 82], "h": 40, "color": "#e8a860", "glow": 0.2, "bright": 0.85, "solid": 0.4, "at": { "1": { "pose": "raise", "glow": 0.5, "bright": 1.1 }, "3": { "pose": "stand", "glow": 0.15, "bright": 0.7 } } },
       { "type": "facade", "depth": 0.5, "x": 330, "y": 830, "w": 700, "h": 180, "stone": "#c89676" },

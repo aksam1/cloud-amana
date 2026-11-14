@@ -11,11 +11,31 @@ const NIGHT = '#1b2033';
 
 // ── Towns ────────────────────────────────────────────────
 
+/**
+ * The build grades, oldest first. Each one belongs to an age, and the age is what it looks like:
+ * the roof form, the wall material, how high the buildings stand and how the town is walled.
+ *
+ *   hut       Adam's valley — domed huts of branch and reed
+ *   village   the first settlements — low mud-brick, flat or pitched roofs
+ *   town      Sumer, Madyan, Sodom — mud-brick, flat roofs, a corner tower now and then
+ *   city      Egypt — ochre limestone, river terraces, pylon gates
+ *   assyrian  Nineveh — crenellated mud-brick on ziggurat platforms
+ *   israelite Dawud and Sulayman — dressed limestone, terraced roofs
+ *   galilaean Bethlehem and Galilee — lime-plastered stone, low and plain
+ *   desert    Madyan's trading town — sun-dried brick, very low, tan
+ *
+ * `tall` is how often a tower rises among them, and `tallMul` how far it goes above the roofs: a
+ * mud-brick town's tower is a watch-tower, not a skyscraper.
+ */
 const GRADES = {
-  hut: { h: [44, 62], w: [64, 92], wall: '#7a6248', roof: '#6a5238' },
-  village: { h: [62, 92], w: [80, 120], wall: '#94806a', roof: '#a88e5e' },
-  town: { h: [84, 150], w: [86, 140], wall: '#a8916e', roof: '#8a7456' },
-  city: { h: [110, 180], w: [100, 170], wall: '#d6c39e', roof: '#9a5a32' },
+  hut: { h: [44, 62], w: [64, 92], wall: '#7a6248', roof: '#6a5238', kinds: ['dome'], tall: 0, tallMul: 1, wallStyle: 'palisade' },
+  village: { h: [62, 92], w: [80, 120], wall: '#94806a', roof: '#a88e5e', kinds: ['gable', 'flat'], tall: 0.04, tallMul: 1.25, wallStyle: 'palisade' },
+  town: { h: [84, 150], w: [86, 140], wall: '#a8916e', roof: '#8a7456', kinds: ['flat', 'merlon', 'gable'], tall: 0.12, tallMul: 1.45, wallStyle: 'brick' },
+  city: { h: [110, 180], w: [100, 170], wall: '#d6c39e', roof: '#bda882', kinds: ['portico', 'terrace', 'flat'], tall: 0.08, tallMul: 1.4, wallStyle: 'ashlar' },
+  assyrian: { h: [96, 170], w: [88, 150], wall: '#b09372', roof: '#9c7a52', kinds: ['merlon', 'flat', 'terrace'], tall: 0.14, tallMul: 1.5, wallStyle: 'brick' },
+  israelite: { h: [80, 140], w: [84, 130], wall: '#cfc4ae', roof: '#a89474', kinds: ['flat', 'terrace', 'gable'], tall: 0.05, tallMul: 1.3, wallStyle: 'ashlar' },
+  galilaean: { h: [60, 100], w: [72, 110], wall: '#d6cdb8', roof: '#b8ab90', kinds: ['flat', 'gable'], tall: 0, tallMul: 1, wallStyle: 'ashlar' },
+  desert: { h: [55, 90], w: [64, 100], wall: '#c2a179', roof: '#a8875e', kinds: ['flat', 'gable'], tall: 0.03, tallMul: 1.2, wallStyle: 'brick' },
 };
 
 function buildRow({ x0, x1, s, grade, seed }) {
@@ -25,14 +45,12 @@ function buildRow({ x0, x1, s, grade, seed }) {
   let x = x0 + r() * 20;
   while (x < x1) {
     const w = lerp(G.w[0], G.w[1], r()) * s;
-    const tall = (grade === 'town' || grade === 'city') && r() < 0.14;
-    const h = lerp(G.h[0], G.h[1], r()) * s * (tall ? 1.7 : 1);
-    let kind = 'flat';
-    if (grade === 'hut') kind = 'dome';
-    else if (grade === 'village') kind = 'gable';
-    else if (tall) kind = 'tower';
-    else if (grade === 'city') kind = r() < 0.4 ? 'portico' : r() < 0.55 ? 'terrace' : 'flat';
-    else if (r() < 0.3) kind = 'gable';
+    const tall = r() < G.tall;
+    const h = lerp(G.h[0], G.h[1], r()) * s * (tall ? G.tallMul : 1);
+    // the grade's own roof forms, with the tower standing among them
+    const kinds = G.kinds;
+    let kind = kinds[Math.floor(r() * kinds.length)];
+    if (tall) kind = 'tower';
     out.push({ x, w, h, kind, door: r(), win: r(), smoke: r() });
     x += w + lerp(4, 18, r()) * s;
   }
@@ -88,6 +106,16 @@ function Building({ b, y, pal, night, lit, uid, shade, ruin = 0 }) {
         <rect x={x} y={top} width={w} height={y - top} fill={wall} />
         {kind === 'gable' && <path d={`M${x - w * 0.08},${top} L${x + w / 2},${y - h} L${x + w * 1.08 + sideW},${top - sideW * 0.4} Z`} fill={roof} />}
         {(kind === 'flat' || kind === 'tower') && <rect x={x - 3} y={top - 7} width={w + 6} height={8} fill={mixColor(wall, '#000000', 0.15)} />}
+        {kind === 'merlon' && (
+          <>
+            {/* a mud-brick wall: a parapet of stepped merlons along the roofline */}
+            <rect x={x} y={top - 7} width={w} height={7} fill={mixColor(wall, '#000000', 0.12)} />
+            {Array.from({ length: Math.max(2, Math.floor(w / 22)) }, (_, i, a) => {
+              const mw = w / (a.length * 2 - 1);
+              return <rect key={i} x={x + i * mw * 2} y={top - 18} width={mw} height={11} fill={wall} />;
+            })}
+          </>
+        )}
         {kind === 'tower' && Array.from({ length: Math.floor(w / 16) }, (_, i) => <rect key={i} x={x + 4 + i * 16} y={top - 17} width={9} height={11} fill={wall} />)}
         {kind === 'portico' && (
           <>
@@ -133,12 +161,13 @@ function Building({ b, y, pal, night, lit, uid, shade, ruin = 0 }) {
 }
 
 /**
- * Buildings at eye level along `x0`–`x1` on the ground line `y`, at scale `s`. `grade` sets what has been
- * built: "hut" (domed huts), "village" (stone houses under pitched roofs), "town" (flat roofs, towers),
- * "city" (marble porticos and terraces with bronze roofs). `wall` {x0, x1, gate, h} rings it with a
- * palisade (village) or a stone wall with a gateway; `night` darkens it and `lit` lights its doors and
- * windows; `grey` drains its colour; `smoke` puts that many smoke columns over the roofs; `rows: 2` adds
- * a hazier row behind; `ruin` (0–1) leaves it broken down to jagged walls and rubble.
+ * Buildings at eye level along `x0`–`x1` on the ground line `y`, at scale `s`. `grade` sets the age of
+ * what has been built — "hut", "village", "town", "city" (Egypt), "assyrian", "israelite", "galilaean"
+ * or "desert" — and with it the roof forms, the wall material and how high the buildings stand (see
+ * GRADES above). `wall` {x0, x1, gate, h, style} rings it with a palisade, a mud-brick wall or a wall of
+ * dressed stone, with a gateway; `night` darkens it and `lit` lights its doors and windows; `grey` drains
+ * its colour; `smoke` puts that many smoke columns over the roofs; `rows: 2` adds a hazier row behind;
+ * `ruin` (0–1) leaves it broken down to jagged walls and rubble.
  */
 export function Town({ cfg }) {
   const uid = useUid('tn');
@@ -181,10 +210,17 @@ export function Town({ cfg }) {
   );
 }
 
+/**
+ * The wall round a town. `style` comes from the grade: a palisade of timber for the first settlements,
+ * courses of mud-brick with stepped merlons for Sumer and Assyria, dressed ashlar with a course of
+ * larger blocks for Egypt and Israel.
+ */
 function TownWall({ wall, y, s, grade, pal, night, lit }) {
   const { x0, x1, gate, h = 44 } = wall;
   const H = h * s;
-  if (grade === 'village' || grade === 'hut') {
+  const G = GRADES[grade] || GRADES.town;
+  const style = wall.style || G.wallStyle || 'brick';
+  if (style === 'palisade') {
     const stakes = [];
     for (let x = x0; x <= x1; x += 9 * s) if (!gate || Math.abs(x - gate) > 22 * s) stakes.push(x);
     return (
@@ -196,12 +232,24 @@ function TownWall({ wall, y, s, grade, pal, night, lit }) {
     );
   }
   const stone = mixColor(pal.wall, '#000000', 0.12);
+  const ashlar = style === 'ashlar';
   const crenels = [];
-  for (let x = x0; x < x1; x += 14 * s) crenels.push(x);
+  // dressed stone is laid in longer blocks than mud-brick
+  const step = (ashlar ? 26 : 14) * s;
+  for (let x = x0; x < x1; x += step) crenels.push(x);
   const gw = 34 * s;
+  // the courses of the wall: mud-brick shows its courses, ashlar shows its joints
+  const courses = [];
+  if (!ashlar) for (let yy = y; yy > y - H; yy -= 9 * s) courses.push(yy);
   return (
     <g>
       <rect x={x0} y={y - H} width={x1 - x0} height={H + 4} fill={stone} />
+      {courses.map((yy, i) => (
+        <path key={i} d={`M${x0},${yy} L${x1},${yy}`} stroke="#000000" strokeOpacity="0.07" strokeWidth="1.4" />
+      ))}
+      {ashlar && Array.from({ length: Math.ceil((x1 - x0) / (step * 2)) }, (_, i) => (
+        <path key={i} d={`M${x0 + i * step * 2},${y - H} L${x0 + i * step * 2},${y}`} stroke="#000000" strokeOpacity="0.05" strokeWidth="1.2" />
+      ))}
       {crenels.map((x, i) => (
         <rect key={i} x={x} y={y - H - 7 * s} width={8 * s} height={8 * s} fill={stone} />
       ))}

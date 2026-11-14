@@ -34,7 +34,7 @@
 
     { "type": "set", "show": [1, 2], "dx": 6000, "layers": [
       { "type": "ridge", "depth": 0.04, "y": 600, "amp": 50, "seed": 220, "sharp": 0.5, "color": "#9a7a7a", "haze": 0.35, "fog": 0.4 },
-      { "type": "facade", "depth": 0.2, "x": 800, "y": 720, "w": 2600, "h": 480, "gate": { "w": 240, "h": 280 }, "towers": true, "stone": "#9a8270", "ppu": 0.8 },
+       {"type": "facade", "depth": 0.2, "x": 800, "y": 720, "w": 2600, "h": 240, "gate": {"w": 240, "h": 140}, "towers": true, "stone": "#9a8270", "ppu": 0.8},
       { "type": "ground", "depth": 0.22, "y": 722, "amp": 4, "seed": 221, "color": "#a89070", "color2": "#7a6650" },
       { "type": "crowd", "area": [200, 1400, -3000, -1600], "y": [840, 740], "count": 320, "size": 24, "color": "#e8a868", "dim": 0.25, "glow": 0.5, "mill": 10, "speed": 0, "flicker": 0.5 },
       { "type": "light", "depth": 0.36, "pos": [820, 812], "h": 64, "color": "#fffaf0", "glow": 0.3, "bright": 1.0, "solid": 0.5 }

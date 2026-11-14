@@ -7,7 +7,7 @@
   "arabic": "انطفاء الأنوار",
   "source": "mixed",
   "ayahs": [],
-  "art": ["The eleven signs are told by the Prophet ﷺ in the hadith of al-Bukhari 7121 (Sahih Muslim 2935): among them, religious knowledge is taken away and time passes quickly. This scene draws on that hadith, not on the Quran.", "Nothing of anyone's belief is shown: the small lights are the lamps of a town, and a town going dark is the sign's picture.", "The town and the lights are imagined."],
+  "art": ["The eleven signs are told by the Prophet ﷺ in the hadith of al-Bukhari 7121 (Sahih Muslim 2935): among them, religious knowledge is taken away and time passes quickly. This scene draws on that hadith, not on the Quran.", "Nothing of anyone's belief is shown: the small lights are the lamps of a town, and a town going dark is the sign's picture.", "The town and the lights are imagined.", "The look of the town is imagined; its mud-brick walls and flat roofs are of the kind built in this people's time."],
   "ambient": ["city", "wind"],
   "base": "#161a24",
   "captions": "parchment",
@@ -21,7 +21,7 @@
     {"type": "heavens", "horizon": 640, "tod": [17.4, 18.2, 11000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "stars": 1400, "at": {"1": {"tod": [18.2, 19.4, 12000]}}},
     {"type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#3a3448"], [1, "#141426"]]},
     {"type": "ridge", "depth": 0.06, "y": 600, "amp": 40, "seed": 1700, "sharp": 0.3, "color": "#2e2a3a", "haze": 0.3, "fog": 0.4},
-    {"type": "town", "depth": 0.16, "y": 700, "x0": 120, "x1": 1480, "s": 0.8, "grade": "city", "lit": 0.5, "haze": "#4a4258", "seed": 1701, "at": {"1": {"lit": 0.12}, "2": {"lit": 0.0}}},
+    {"type": "town", "depth": 0.16, "y": 700, "x0": 120, "x1": 1480, "s": 0.8, "grade": "town", "lit": 0.5, "haze": "#4a4258", "seed": 1701, "at": {"1": {"lit": 0.12}, "2": {"lit": 0.0}}},
     {"type": "ground", "depth": 0.22, "y": 730, "amp": 8, "seed": 1702, "color": "#2a2630", "color2": "#121016"},
     {"type": "crowd", "depth": 0.24, "area": [240, 1360, -2600, -1800], "y": [786, 740], "count": 200, "size": 76, "color": "#ffd8a0", "dim": 0.45, "glow": 0.16, "mill": 5, "speed": 0, "at": {"1": {"glow": 0.05, "dim": 0.6}, "2": {"glow": 0.0, "dim": 0.0}}},
     {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 360, "size": 2.4, "color": "#e8e4f0", "opacity": 0.12, "wind": [3, -1, 0], "swirl": 40}

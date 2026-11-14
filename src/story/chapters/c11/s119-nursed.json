@@ -7,7 +7,7 @@
   "arabic": "العودة إلى الأم",
   "source": "quran",
   "ayahs": ["28:13"],
-  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "His sister and mother appear only as soft lights; the nurses as dim lights."],
+  "art": ["Musa appears only as a steady light; Pharaoh, his household and the people as dim figures of light, Pharaoh's cold and grey. Egypt's look is imagined.", "His sister and mother appear only as soft lights; the nurses as dim lights.", "Egypt's look is imagined; its ochre limestone houses and flat roofs are of the kind built on the Nile.", "The dressed stone is imagined; its long blocks and chevron course are of the kind cut in the Levant and in Egypt's quarries."],
   "ambient": ["echo", "voices"],
   "base": "#10141e",
   "captions": "parchment",

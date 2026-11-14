@@ -7,7 +7,7 @@
   "arabic": "مدينة الأصنام",
   "source": "quran",
   "ayahs": ["6:74"],
-  "art": ["The city and its temple tower are imagined after the ziggurats of Mesopotamia; the people and Azar appear as dim lights, and Ibrahim as a steady light. The idols have blank faces."],
+  "art": ["The city and its temple tower are imagined after the ziggurats of Mesopotamia; the people and Azar appear as dim lights, and Ibrahim as a steady light. The idols have blank faces.", "The look of the town is imagined; its mud-brick walls and flat roofs are of the kind built in this people's time.", "The wall of baked brick is imagined; its fine courses are of the kind built in Mesopotamia and in Assyria."],
   "ambient": ["water", "city"],
   "base": "#e8c8a0",
   "captions": "parchment",

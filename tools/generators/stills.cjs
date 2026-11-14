@@ -4,7 +4,12 @@ const fs = require('fs');
 const [out, ...items] = process.argv.slice(2);
 (async () => {
   fs.mkdirSync(out, { recursive: true });
-  const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+  // CHROME_PATH (or PW_CHROME) points at a browser: Playwright's own download may be a different build
+  const exe = process.env.CHROME_PATH || process.env.PW_CHROME || undefined;
+  const browser = await chromium.launch({
+    executablePath: exe,
+    args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'],
+  });
   const page = await browser.newPage({ viewport: { width: Number(process.env.W || 1024), height: Number(process.env.H || 768) } });
   const logs = [];
   page.on('console', (m) => ['error', 'warning'].includes(m.type()) && !m.text().includes('Clock') && logs.push(`${m.type()}: ${m.text()}`));

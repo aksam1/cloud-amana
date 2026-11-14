@@ -8,7 +8,8 @@
   "source": "quran",
   "ayahs": ["19:47"],
   "art": [
-    "The scene is imagined from 19:42–47; Azar appears only as a dim figure and Ibrahim as a steady light. His father's anger is drawn as jagged strokes, never words."
+    "The scene is imagined from 19:42–47; Azar appears only as a dim figure and Ibrahim as a steady light. His father's anger is drawn as jagged strokes, never words.",
+    "The wall of baked brick is imagined; its fine courses are of the kind built in Mesopotamia and in Assyria."
   ],
   "ambient": ["fire", "voice"],
   "base": "#140e0c",
@@ -21,7 +22,7 @@
   "imagePrompt": "A dim workshop of carved idols lit by a single oil lamp; a steady white light standing before a dim amber figure seated among the idols; the amber figure turning away; then the white light walking out through a doorway into bright daylight; warm lamp amber, deep umber shadows, a slice of white sun; ink-wash and parchment texture.",
   "layers": [
     { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#1a120e"], [1, "#120c0a"]] },
-    { "type": "facade", "depth": 0.2, "x": 800, "y": 724, "w": 2400, "h": 820, "stone": "#7a5a44", "light": 0.85, "doors": [{ "x": 1250, "w": 150, "h": 230, "lit": true }] },
+     {"type": "facade", "depth": 0.2, "x": 800, "y": 724, "w": 2400, "h": 820, "stone": "#7a5a44", "light": 0.85, "doors": [{"x": 1250, "w": 150, "h": 230, "lit": true}], "style": "brick"},
     { "type": "floor", "depth": 0.21, "y": 726, "vp": [800, 520], "color": "#4a3a2e", "color2": "#1e1610", "lines": 12, "gloss": 0.2, "area": [-800, 720, 2400, 1350] },
     { "type": "idol", "depth": 0.24, "x": 360, "y": 740, "h": 230, "kind": "stone", "seed": 21, "light": 0.8 },
     { "type": "idol", "depth": 0.24, "x": 500, "y": 740, "h": 200, "kind": "wood", "seed": 22, "light": 0.8 },

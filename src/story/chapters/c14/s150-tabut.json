@@ -7,7 +7,7 @@
   "arabic": "التابوت",
   "source": "quran",
   "ayahs": ["2:248"],
-  "art": ["The prophet of the Children of Israel in Talut's time is named Shamwil (Samuel) in the commentaries; he and the people appear only as lights. The angels who carried the chest are columns of light (2:248). The chest's relics are not shown."],
+  "art": ["The prophet of the Children of Israel in Talut's time is named Shamwil (Samuel) in the commentaries; he and the people appear only as lights. The angels who carried the chest are columns of light (2:248). The chest's relics are not shown.", "The look of the town is imagined; its dressed limestone houses and terraced roofs are of the kind built in the Levant."],
   "ambient": ["crowd", "wind"],
   "base": "#c8c0b0",
   "captions": "parchment",
@@ -20,7 +20,7 @@
   "layers": [
     {"type": "heavens", "horizon": 630, "tod": [8, 9, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [9, 10, 11000]}, "2": {"tod": [10, 11, 12000]}}},
     {"type": "ridge", "depth": 0.04, "y": 620, "amp": 50, "seed": 1710, "sharp": 0.3, "color": "#8a8a78", "haze": 0.35, "fog": 0.4},
-    {"type": "town", "depth": 0.12, "y": 690, "x0": 100, "x1": 1500, "s": 0.6, "grade": "town", "lit": 0.2, "haze": "#b8a898", "seed": 1711},
+    {"type": "town", "depth": 0.12, "y": 690, "x0": 100, "x1": 1500, "s": 0.6, "grade": "israelite", "lit": 0.2, "haze": "#b8a898", "seed": 1711},
     {"type": "ground", "depth": 0.2, "y": 740, "amp": 6, "seed": 1712, "color": "#8a9a5a", "color2": "#5a6a3a", "grass": true, "grassColor": "#a8b468"},
     {"type": "crowd", "area": [-200, 1800, -2600, -1700], "y": [792, 760], "count": 180, "size": 92, "color": "#ffd8a0", "dim": 0.4, "glow": 0.12, "mill": 5, "speed": 0, "flicker": 0.3, "at": {"1": {"flicker": 0.05}, "2": {"flicker": 0.05}}},
     {"type": "jeers", "show": [0, 1], "center": [860, 520], "from": [1160, 380], "clear": [100, 120], "count": 16, "size": 30, "period": 6},

@@ -1,16 +1,26 @@
-import json
+import json, os
 
 files = json.load(open('deploy/files.json', encoding='utf-8'))
-# the paths the old build published, which this publish removes (value null in the map)
-old = sorted(k for k, v in files.items() if v is None)
+# The bundles the live artifact still holds, so the publish can name the ones it removes.
+# deploy/live-files.txt is written from the Artifact tool's own listing of the live version;
+# without it we fall back to the nulls in the map (what the last local build knew was gone).
+live_path = 'deploy/live-files.txt'
+if os.path.exists(live_path):
+    live = [l.strip() for l in open(live_path, encoding='utf-8') if l.strip()]
+    old = sorted(p for p in live if p.startswith('assets/') and p not in files)
+else:
+    old = sorted(k for k, v in files.items() if v is None)
+# every removed bundle is also given a null, so the publish call can delete it
+for p in old:
+    files[p] = None
 payload = {
     "action": "publish",
     "url": "https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq",
     "file_path": r"C:\Users\User\Desktop\LocalChat\amanah\deploy\index.html",
     "files": files,
     "overwrite_unread": old,
-    "label": "v7 through Chapter 21",
-    "description": "Amanah, the illustrated story of the Trust: now through Chapter 21, the Day of Judgment, ending the chronicle.",
+    "label": "v8 through Chapter 21",
+    "description": "Amanah, the illustrated story of the Trust: through Chapter 21, the Day of Judgment, ending the chronicle. This build gives every town the architecture of its own century and redraws the map as a map of time.",
 }
 prompt = (
     "Publish the Amanah web app to its existing artifact URL using the Artifact tool.\n"

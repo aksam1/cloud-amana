@@ -7,7 +7,7 @@
   "arabic": "الفلك",
   "source": "quran",
   "ayahs": ["11:38"],
-  "art": ["The ark's shape, the tools and the seasons are imagined; Nuh and the believers appear only as figures and hands of light. The mockers' words are loose strokes, never letters."],
+  "art": ["The ark's shape, the tools and the seasons are imagined; Nuh and the believers appear only as figures and hands of light. The mockers' words are loose strokes, never letters.", "The look of the town is imagined; its mud-brick walls and flat roofs are of the kind built in this people's time."],
   "ambient": ["work", "wind"],
   "base": "#7ea6d0",
   "captions": "parchment",
@@ -19,7 +19,7 @@
   "layers": [
     {"type": "heavens", "horizon": 600, "tod": [9, 10, 6000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 260, "size": 34}, "at": {"1": {"tod": [8, 16, 7000, 2]}, "2": {"tod": [9, 16.4, 4500, 2]}, "3": {"tod": [10, 15, 4500, 2]}, "4": {"tod": [15.6, 16.8, 9500]}}},
     {"type": "range", "count": 2, "y": [586, 620], "amp": [40, 60], "depth": [0.04, 0.07], "colors": ["#c8a880", "#a88860"], "haze": [0.3, 0.6], "sharp": 0.3, "edge": false, "seed": 91, "sat": 1.0},
-    {"type": "town", "depth": 0.075, "grade": "city", "y": 640, "x0": -260, "x1": 300, "s": 0.6, "rows": 2, "seed": 71, "grey": 0.4, "sat": 1.0},
+    {"type": "town", "depth": 0.075, "grade": "town", "y": 640, "x0": -260, "x1": 300, "s": 0.6, "rows": 2, "seed": 71, "grey": 0.4, "sat": 1.0},
     {"type": "ground", "depth": 0.12, "y": 650, "amp": 6, "seed": 17, "x0": -900, "x1": 2500, "color": "#c8a46e", "color2": "#8a6a40", "rocks": 10, "grass": 14, "grassColor": "#a89060", "sat": 1.0, "area": [-800, 590, 2400, 2600]},
     {"type": "hillpath", "depth": 0.26, "points": [[-500, 742], [300, 732], [1100, 744], [2100, 730]], "w0": 30, "w1": 28, "color": "#d8bc8a", "edge": "#a88a5a", "sat": 1.0},
     {"type": "ark", "show": [1, null], "depth": 0.2, "x": 820, "y": 694, "s": 0.9, "built": 1, "ppu": 1, "at": {"2": {"built": 2}, "3": {"built": 3}}},

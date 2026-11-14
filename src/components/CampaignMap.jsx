@@ -5,115 +5,87 @@ import { chapterForNode, eraById, expandRef, ayah, nodeScenes, timeline } from '
 import { lightNode, useStore } from '../lib/store.js';
 import { go } from '../lib/router.js';
 import { ambience } from '../lib/audio.js';
-import { clamp, roman, smoothPath } from '../lib/geo.js';
+import { clamp, roman } from '../lib/geo.js';
 import { Icon, Rule, starPath } from './Ornaments.jsx';
 
 const world = buildWorld(timeline);
 const ARABIC_FONT = '"Aref Ruqaa", Amiri, serif';
 
-/** Static ink terrain. Memoised: it never changes, so pan and zoom only move a cached layer. */
+/** The strata of time: five bands of parchment, the thread of light, and ruled lines. */
 const Terrain = memo(function Terrain() {
   const { W, H } = world;
   return (
     <g>
       <defs>
-        <linearGradient id="mtn" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#4a3620" stopOpacity="0.62" />
-          <stop offset="1" stopColor="#4a3620" stopOpacity="0" />
+        <linearGradient id="strata" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#3a2a18" stopOpacity="0.34" />
+          <stop offset="1" stopColor="#3a2a18" stopOpacity="0.1" />
         </linearGradient>
-        <linearGradient id="mtn-dark" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#3a1410" stopOpacity="0.7" />
-          <stop offset="1" stopColor="#3a1410" stopOpacity="0" />
+        <linearGradient id="thread" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#f7e0a3" stopOpacity="0.85" />
+          <stop offset="0.5" stopColor="#c9993f" stopOpacity="0.6" />
+          <stop offset="1" stopColor="#8a6a3a" stopOpacity="0.35" />
         </linearGradient>
-        {world.regions.map((g) => (
-          <radialGradient key={g.id} id={`wash-${g.id}`}>
-            <stop offset="0" stopColor={g.tone} stopOpacity="0.3" />
-            <stop offset="0.7" stopColor={g.tone} stopOpacity="0.12" />
-            <stop offset="1" stopColor={g.tone} stopOpacity="0" />
-          </radialGradient>
-        ))}
+        <radialGradient id="origin" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#fff3cd" stopOpacity="0.95" />
+          <stop offset="0.4" stopColor="#f7d98a" stopOpacity="0.4" />
+          <stop offset="1" stopColor="#f7d98a" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="hour" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stopColor="#f2b8a0" stopOpacity="0.7" />
+          <stop offset="1" stopColor="#f2b8a0" stopOpacity="0" />
+        </radialGradient>
       </defs>
 
+      {/* the strata: one band of parchment for each era */}
       {world.regions.map((g) => (
-        <ellipse key={g.id} cx={g.cx} cy={H / 2} rx={(g.x1 - g.x0) / 2 + 260} ry={H * 0.62} fill={`url(#wash-${g.id})`} />
+        <rect key={g.id} x="0" y={g.y0} width={W} height={g.y1 - g.y0} fill={g.tone} opacity="0.26" />
+      ))}
+      {world.regions.map((g) => (
+        <rect key={`${g.id}-rule`} x="0" y={g.y0} width={W} height={g.y1 - g.y0} fill="url(#strata)" opacity="0.5" />
       ))}
 
-      {world.stars.map((s, i) => (
-        <path key={i} d={starPath(4 * s.s, 0.35)} transform={`translate(${s.x.toFixed(0)} ${s.y.toFixed(0)})`} fill="#6b5428" opacity="0.55" />
-      ))}
-      {world.regions[0] && (
-        <g opacity="0.35" fill="none" stroke="#6b5428">
-          {Array.from({ length: 7 }, (_, i) => (
-            <ellipse key={i} cx={world.regions[0].cx} cy={220} rx={200 + i * 46} ry={70 + i * 16} strokeWidth="1.2" />
+      {/* the ruled lines of a page of time */}
+      {world.regions.map((g) => (
+        <g key={`${g.id}-lines`} opacity="0.3">
+          {Array.from({ length: 5 }, (_, i) => (
+            <line key={i} x1="0" y1={g.y0 + ((g.y1 - g.y0) * (i + 1)) / 6} x2={W} y2={g.y0 + ((g.y1 - g.y0) * (i + 1)) / 6} stroke="#5a4630" strokeWidth="0.7" strokeDasharray="1 9" />
           ))}
         </g>
-      )}
-
-      {world.rivers.map((pts, i) => (
-        <g key={i}>
-          <path d={smoothPath(pts)} fill="none" stroke="#6f8a92" strokeOpacity="0.38" strokeWidth="18" strokeLinecap="round" />
-          <path d={smoothPath(pts)} fill="none" stroke="#3f5a66" strokeOpacity="0.55" strokeWidth="2.2" strokeLinecap="round" />
-        </g>
       ))}
 
-      {world.sea && (
-        <g opacity="0.5" stroke="#3f5a66" fill="none" strokeWidth="1.6">
-          <ellipse cx={world.sea.x} cy={world.sea.y} rx="230" ry="120" fill="#6f8a92" fillOpacity="0.18" stroke="none" />
-          {Array.from({ length: 16 }, (_, i) => {
-            const wx = world.sea.x - 160 + (i % 4) * 90 + (Math.floor(i / 4) % 2) * 40;
-            const wy = world.sea.y - 70 + Math.floor(i / 4) * 40;
-            return <path key={i} d={`M${wx},${wy} q12,-10 24,0 t24,0`} />;
-          })}
-        </g>
-      )}
-
-      {world.dunes.map((d, i) => (
-        <path key={i} d={`M${(d.x - 24 * d.s).toFixed(0)},${d.y.toFixed(0)} q${24 * d.s},-${14 * d.s} ${48 * d.s},0`} fill="none" stroke="#8a6a3a" strokeOpacity="0.5" strokeWidth="1.4" />
+      {/* the stars of the first night */}
+      {world.stars.map((s, i) => (
+        <circle key={i} cx={s.x.toFixed(0)} cy={s.y.toFixed(0)} r={s.s.toFixed(1)} fill="#e8d9a8" opacity="0.5" />
       ))}
 
-      {world.trees.map((t, i) => (
-        <g key={i} transform={`translate(${t.x.toFixed(0)} ${t.y.toFixed(0)}) scale(${t.s.toFixed(2)})`} opacity="0.7">
-          <path d="M0,0 L0,-14" stroke="#3b2a18" strokeWidth="2" />
-          <circle cx="0" cy="-22" r="11" fill="#4f5a2c" fillOpacity="0.55" stroke="#3b2a18" strokeWidth="1.2" />
-        </g>
+      {/* the point of light at the top: the Creation */}
+      <g>
+        <circle cx={W / 2} cy={110} r="86" fill="url(#origin)" />
+        <circle cx={W / 2} cy={110} r="9" fill="#fff6d8" />
+        <circle cx={W / 2} cy={110} r="20" fill="none" stroke="#f7d98a" strokeWidth="1.2" opacity="0.6" />
+        <circle cx={W / 2} cy={110} r="34" fill="none" stroke="#f7d98a" strokeWidth="0.9" opacity="0.4" />
+      </g>
+
+      {/* the thread: one line of light from the first seal to the last */}
+      {world.segs.map((s) => (
+        <path key={`t-${s.from}-${s.to}`} d={s.d} fill="none" stroke="url(#thread)" strokeWidth="3.4" strokeLinecap="round" opacity="0.7" />
       ))}
 
-      {world.palms.map((t, i) => (
-        <g key={i} transform={`translate(${t.x.toFixed(0)} ${t.y.toFixed(0)}) scale(${t.s.toFixed(2)})`} stroke="#3b2a18" fill="none" strokeWidth="1.6" opacity="0.7">
-          <path d="M0,0 Q3,-16 0,-30" />
-          <path d="M0,-30 q-12,-4 -20,6 M0,-30 q12,-4 20,6 M0,-30 q-8,-10 -18,-8 M0,-30 q8,-10 18,-8" />
-        </g>
-      ))}
+      {/* the Hour, at the end of the thread */}
+      <g>
+        <circle cx={world.nodes.at(-1).x} cy={world.nodes.at(-1).y} r="120" fill="url(#hour)" />
+      </g>
 
-      {world.mountains.map((m, i) => (
-        <g key={i} transform={`translate(${m.x.toFixed(0)} ${m.y.toFixed(0)}) scale(${m.s.toFixed(2)})`}>
-          {m.v > 0 && <path d="M-6,0 C6,-16 18,-36 28,-44 C36,-30 46,-14 62,0 Z" fill={`url(#${m.dark ? 'mtn-dark' : 'mtn'})`} />}
-          <path d="M-46,0 C-30,-20 -14,-52 0,-66 C10,-46 26,-22 48,0 Z" fill={`url(#${m.dark ? 'mtn-dark' : 'mtn'})`} />
-          <path d="M-46,0 C-30,-20 -14,-52 0,-66 C10,-46 26,-22 48,0" fill="none" stroke={m.dark ? '#3a1410' : '#3b2a18'} strokeWidth="1.7" />
-          <path d="M0,-66 C-4,-42 -10,-22 -19,0" fill="none" stroke="#3b2a18" strokeWidth="1" opacity="0.55" />
-        </g>
-      ))}
-
-      {world.cracks.map((c, i) => (
-        <path key={i} d={`M${c.x.toFixed(0)},${c.y.toFixed(0)} l${14 * c.s},${10 * c.s} l${-6 * c.s},${16 * c.s} l${18 * c.s},${8 * c.s} M${(c.x + 14 * c.s).toFixed(0)},${(c.y + 10 * c.s).toFixed(0)} l${16 * c.s},${-6 * c.s}`} fill="none" stroke="#5a1c14" strokeWidth="1.6" opacity="0.6" />
-      ))}
-
+      {/* the era names, in the left margin */}
       {world.regions.map((g) => (
-        <g key={g.id} textAnchor="middle">
-          <text x={g.cx} y={130} fontFamily="Cinzel, serif" fontSize="40" letterSpacing="10" fill="#3b2a18" opacity="0.8">
+        <g key={`${g.id}-name`}>
+          <text x="56" y={g.cy} fontFamily="Cinzel, serif" fontSize="30" letterSpacing="8" fill="#3b2a18" opacity="0.62" transform={`rotate(-90 56 ${g.cy})`}>
             {g.title.toUpperCase()}
           </text>
+          <line x1="30" y1={g.y0} x2={W - 30} y2={g.y0} stroke="#3b2a18" strokeWidth="1" opacity="0.28" />
         </g>
       ))}
-
-      <g transform={`translate(${W - 190} ${H - 190})`} opacity="0.65" fill="none" stroke="#3b2a18">
-        <circle r="92" strokeWidth="1.4" />
-        <circle r="70" strokeWidth="0.8" />
-        <path d={starPath(84, 0.32)} strokeWidth="1.6" fill="#a5772f" fillOpacity="0.25" />
-        <text y="-104" textAnchor="middle" fontFamily="Cinzel, serif" fontSize="18" fill="#3b2a18" stroke="none">
-          N
-        </text>
-      </g>
     </g>
   );
 });
@@ -174,11 +146,40 @@ function MapNode({ n, st, selected, igniting, onSelect }) {
         {st.complete && <path d="M-7,0 L-2,5 L8,-6" stroke="#2a1d12" strokeWidth="2.6" fill="none" strokeLinecap="round" />}
         {st.lit && !st.complete && <circle r="5" fill={st.ready ? '#f3d48b' : '#cdb98f'} />}
       </motion.g>
-      <text y="68" textAnchor="middle" fontFamily="Cinzel, serif" fontSize="17" letterSpacing="2.5" fill="#24180e" fontWeight="600">
+      {/* the name sits beside the seal, not below it: in the crowded centuries two
+          seals can be level with one another, and a label underneath would land on
+          the next seal down. The name is also kept off the thread — it lies outward
+          from the seal, away from the centre line, so it never crosses the light. */}
+      <text
+        x={n.side === 'left' ? -52 : 52}
+        y="-4"
+        textAnchor={n.side === 'left' ? 'end' : 'start'}
+        fontFamily="Cinzel, serif"
+        fontSize="15"
+        letterSpacing="2"
+        fill="#24180e"
+        fontWeight="600"
+        stroke="#ecdcb9"
+        strokeWidth="3"
+        paintOrder="stroke"
+        strokeLinejoin="round"
+      >
         {n.short.toUpperCase()}
       </text>
       {n.alt && (
-        <text y="88" textAnchor="middle" fontFamily="Cormorant Garamond, serif" fontSize="17" fontStyle="italic" fill="#4a3826">
+        <text
+          x={n.side === 'left' ? -52 : 52}
+          y="14"
+          textAnchor={n.side === 'left' ? 'end' : 'start'}
+          fontFamily="Cormorant Garamond, serif"
+          fontSize="15"
+          fontStyle="italic"
+          fill="#4a3826"
+          stroke="#ecdcb9"
+          strokeWidth="2.5"
+          paintOrder="stroke"
+          strokeLinejoin="round"
+        >
           {n.alt}
         </text>
       )}
@@ -272,7 +273,7 @@ function Dossier({ n, st, onClose, seen }) {
         <div className="rounded-md border border-[#8a6a4e]/40 bg-[#5a3d22]/5 p-4">
           <div className="caps text-[0.62rem] text-ink">In preparation{planned && ` · Chapter ${roman(planned.number)}`}</div>
           <p className="mt-1 font-body text-[1.04rem] leading-snug text-ink">
-            {planned ? `This page of the chronicle will be painted in Chapter ${roman(planned.number)}, ${planned.title}.` : 'This page of the chronicle will be painted in a later chapter.'} The road is already drawn; the scenes are still to come.
+            {planned ? `This page of the chronicle will be painted in Chapter ${roman(planned.number)}, ${planned.title}.` : 'This page of the chronicle will be painted in a later chapter.'} Its place in time is already marked; the scenes are still to come.
           </p>
         </div>
       )}
@@ -293,7 +294,10 @@ export default function CampaignMap({ query = {} }) {
   const transform = useMotionTemplate`translate3d(${x}px, ${y}px, 0) scale(${k})`;
   const drag = useRef({ pointers: new Map() });
 
-  const kMin = clamp((vs.h / world.H) * 0.8, 0.3, 0.9);
+  // The world is a tall column of time, so the map is read by scrolling down it.
+  // The zoom that shows the whole width is the floor; the zoom that shows the whole
+  // height is the ceiling, and the reader may go a little past both.
+  const kMin = clamp((vs.w / world.W) * 0.95, 0.2, 0.9);
   const kMax = 1.7;
   const states = useMemo(() => Object.fromEntries(world.nodes.map((n) => [n.id, nodeState(n, store)])), [store]);
   const frontier = useMemo(() => Math.max(0, ...world.nodes.filter((n) => store.lit[n.id]).map((n) => n.i)), [store.lit]);
@@ -349,11 +353,11 @@ export default function CampaignMap({ query = {} }) {
   }, []);
 
   // First view: the arrival ceremony if we came from a chapter's end, else the story's frontier.
-  // Opens at an overview zoom (about a dozen seals across) so the road ahead is visible.
+  // Opens at the zoom that shows the whole width of the thread, so the ages are in view.
   useEffect(() => {
     const from = world.byId[query.from];
     const to = world.byId[query.arrive];
-    const overview = clamp((vs.h / world.H) * 1.1, 0.45, 0.85);
+    const overview = clamp((vs.w / world.W) * 1.05, 0.3, 0.9);
     k.set(overview);
     if (from && to) {
       try {
@@ -528,7 +532,7 @@ export default function CampaignMap({ query = {} }) {
             {world.nodes
               .filter((n) => n.i > frontier + 1)
               .map((n) => (
-                <ellipse key={`fog-${n.id}`} cx={n.x} cy={n.y} rx="190" ry="150" fill="url(#fog)" />
+                <ellipse key={`fog-${n.id}`} cx={n.x} cy={n.y} rx="150" ry="118" fill="url(#fog)" opacity="0.75" />
               ))}
 
             {world.nodes.map((n) => (
@@ -558,7 +562,7 @@ export default function CampaignMap({ query = {} }) {
         </div>
       </div>
 
-      {/* Zoom + era jumps */}
+      {/* Zoom + the rail of time */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-3 p-3 sm:p-5">
         <div className="pointer-events-auto flex flex-col gap-2">
           <button type="button" className="hud-btn icon" onClick={() => zoomBy(1.25)} aria-label="Zoom in (+)">
@@ -571,17 +575,31 @@ export default function CampaignMap({ query = {} }) {
             <Icon name="target" className="h-4 w-4" />
           </button>
         </div>
-        <nav className={`pointer-events-auto -mb-1 flex max-w-[calc(100vw-90px)] gap-1.5 overflow-x-auto pb-1 thin-scroll ${sel ? 'hidden sm:flex' : 'flex'}`} aria-label="Eras">
-          {timeline.eras.map((e) => {
-            const firstNode = world.nodes.find((n) => n.era === e.id);
-            return (
-              <button key={e.id} type="button" className="hud-btn shrink-0 !text-[0.64rem]" onClick={() => flyTo(firstNode.id, { zoom: k.get() })}>
-                {e.title}
-              </button>
-            );
-          })}
-        </nav>
       </div>
+
+      {/* The rail of time: the five eras, top to bottom, tappable. It reads downward
+          like the thread itself, where the compass used to point. */}
+      <nav
+        className={`pointer-events-auto absolute right-2 top-1/2 z-20 flex -translate-y-1/2 flex-col items-end gap-1.5 transition-opacity sm:right-4 ${sel ? 'opacity-0 sm:opacity-0' : 'opacity-100'}`}
+        aria-label="Eras"
+      >
+        {world.regions.map((g) => {
+          const here = world.byId[g.first];
+          const active = sel && here && world.byId[sel].era === g.id;
+          return (
+            <button
+              key={g.id}
+              type="button"
+              className="hud-btn !text-[0.62rem]"
+              aria-current={active ? 'true' : undefined}
+              onClick={() => flyTo(g.first, { zoom: k.get() })}
+            >
+              <span className="hidden sm:inline">{g.title}</span>
+              <span className="sm:hidden">{g.title.slice(0, 4)}</span>
+            </button>
+          );
+        })}
+      </nav>
 
       <AnimatePresence>{sel && <Dossier n={sel} st={states[sel.id]} seen={store.seen} onClose={() => setSelected(null)} />}</AnimatePresence>
 

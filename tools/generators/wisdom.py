@@ -63,7 +63,7 @@ scene('awakening', 172.2, C, 'wisdom', 'The Awakening', 'اليقظة',
     {'type': 'set', 'show': [1, None], 'dx': 6000, 'layers': [
       heav([[9, 10, 10000], [10, 11, 12000]]),
       {'type': 'ridge', 'depth': 0.04, 'y': 620, 'amp': 40, 'seed': 1610, 'sharp': 0.3, 'color': '#8a8070', 'haze': 0.35, 'fog': 0.4},
-      {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 0, 'x1': 1600, 's': P(0.12, 1) / 30, 'grade': 'city', 'lit': 0.2, 'haze': '#b8a898', 'seed': 1611},
+      {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 0, 'x1': 1600, 's': P(0.12, 1) / 30, 'grade': 'town', 'lit': 0.2, 'haze': '#b8a898', 'seed': 1611, 'ruin': 1},
       {'type': 'ground', 'depth': 0.2, 'y': 740, 'amp': 4, 'seed': 1612, 'color': '#b0a080', 'color2': '#8a7a5a'},
       {'type': 'crowd', 'area': [200, 1400, -2400, -1600], 'y': [FEET, 770], 'count': 90, 'size': P(0.36), 'color': '#ffd8a0', 'dim': 0.4, 'glow': 0.12, 'mill': 4, 'speed': 0,
        'at': {'2': {'area': [600, 1000, -1800, -1500]}}},

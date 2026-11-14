@@ -35,9 +35,9 @@ for i, (x, y, z) in enumerate(targets):
     flames.append({'type': 'light', 'kind': 'flame', 'show': [1, None], 'h': 50 + (i * 7) % 28, 'color': ['#ff4a1a', '#ff7a2a', '#ffa040', '#e8341a'][i % 4], 'glow': 1.2,
                    'path': [[800, 770, -2333], [x, y, z]], 'dur': 4200 + i * 220, 'delay': 1400 + (i * 170) % 900,
                    'at': {'2': {'path': [[x, y, z], [x + dx, y + 4, z - 300]], 'dur': 7000}}})
-towns = [{'type': 'town', 'show': [3, None], 'depth': 0.14, 'y': 652, 'x0': 180, 'x1': 700, 's': 0.6, 'grade': 'town', 'night': True, 'lit': 0.6, 'grey': 0.5,
+towns = [{'type': 'town', 'show': [3, None], 'depth': 0.14, 'y': 652, 'x0': 180, 'x1': 700, 's': 0.6, 'grade': 'hut', 'night': True, 'lit': 0.6, 'grey': 0.5,
           'haze': '#1a0806', 'seed': 31, 'reveal': {'dir': 'up', 'dur': 2400}, 'at': {'3': {'shatter': {'delay': 4300, 'dur': 2400, 'seed': 31}}}},
-         {'type': 'town', 'show': [3, None], 'depth': 0.13, 'y': 648, 'x0': 930, 'x1': 1440, 's': 0.55, 'grade': 'town', 'night': True, 'lit': 0.6, 'grey': 0.5,
+         {'type': 'town', 'show': [3, None], 'depth': 0.13, 'y': 648, 'x0': 930, 'x1': 1440, 's': 0.55, 'grade': 'hut', 'night': True, 'lit': 0.6, 'grey': 0.5,
           'haze': '#1a0806', 'seed': 32, 'reveal': {'dir': 'up', 'dur': 2600, 'delay': 400}, 'at': {'3': {'shatter': {'delay': 4800, 'dur': 2400, 'seed': 32}}}}]
 build('s02-jinn.json',
   world={'fog': '#1a0806', 'fogNear': 5000, 'fogFar': 36000, 'light': 0.85, 'rays': 0, 'bloom': 1.0, 'haze': 0.14, 'hazeY': 0.62, 'shake': 0.3, 'dof': 0},

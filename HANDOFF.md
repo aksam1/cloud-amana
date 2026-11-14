@@ -47,6 +47,16 @@ The web app is meant to have two parts:
 - Every distinct place has its own setting (`src/layers/interiors.jsx`, `tools/generators/rooms.py`); the same place may
   look the same in later scenes. Since v31 all 203 scenes run on the WebGL stage: chapters 2–3 were rebuilt from their 2D
   originals by `tools/generators/c2_3.py` (the originals are kept in `tools/generators/legacy2d/`).
+- **The built world belongs to its century.** The `town` painter has eight grades (`hut`, `village`, `town`,
+  `city` for Egypt only, `assyrian`, `israelite`, `galilaean`, `desert`) and every scene uses its own era's
+  grade; `facade` has a `style` (`mudbrick`, `ashlar`, `pylon`, `brick`) and `colonnade` has `protoaic`.
+  Walls are 4–9 m, not 27–30 m. The one table that drives this is `tools/gen/period.py`, which rewrites both
+  the scene JSON and the generator lines, so a generator re-run does not undo it.
+- **The map is a map of time.** `src/lib/mapWorld.js` lays the 34 events as one descending thread of light
+  from the Creation to the Hour; the gap between two seals is the time between them, and the five eras are
+  horizontal strata. The compass rose and the era-jump buttons are gone, replaced by an era rail on the
+  right edge. `src/lib/mapWorld.test.js` guards the geometry; `world.segs` must keep an entry for every
+  consecutive pair or the arrival animation disappears.
 
 ## 4. Waiting on the user (do not decide these yourself)
 1. **How the Prophet Muhammad ﷺ is shown.** Recommendation given: never shown in any form. Chapter 19 is paused until they answer.

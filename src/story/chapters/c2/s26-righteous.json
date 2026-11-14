@@ -7,7 +7,7 @@
   "arabic": "الصالحون",
   "source": "tradition",
   "ayahs": ["71:23"],
-  "art": ["The five and the townspeople appear only as figures of light; their deeds here are imagined to show their goodness."],
+  "art": ["The five and the townspeople appear only as figures of light; their deeds here are imagined to show their goodness.", "The look of the town is imagined; its mud-brick walls and flat roofs are of the kind built in this people's time."],
   "ambient": ["wind", "voices"],
   "base": "#4a3e5e",
   "renderer": "gl",
@@ -18,7 +18,7 @@
   "layers": [
     {"type": "heavens", "horizon": 560, "tod": [15.6, 16.2, 7000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 260, "size": 34}, "at": {"1": {"tod": [16.2, 16.8, 7000]}, "2": {"tod": [16.8, 17.3, 6000]}, "3": {"tod": [17.3, 17.8, 6000]}, "4": {"tod": [17.8, 18.6, 8500]}}},
     {"type": "range", "count": 3, "y": [530, 590], "amp": [60, 90], "depth": [0.04, 0.07], "colors": ["#9a8e96", "#5e5662"], "haze": [0.2, 0.6], "sharp": 0.35, "edge": false, "seed": 61},
-    {"type": "town", "depth": 0.11, "grade": "city", "y": 606, "x0": -320, "x1": 1920, "s": 0.9, "rows": 2, "lit": 0.5, "seed": 71, "grey": 0.0, "at": {"2": {"grey": 0.2}, "3": {"grey": 0.4}}},
+    {"type": "town", "depth": 0.11, "grade": "town", "y": 606, "x0": -320, "x1": 1920, "s": 0.9, "rows": 2, "lit": 0.5, "seed": 71, "grey": 0.0, "at": {"2": {"grey": 0.2}, "3": {"grey": 0.4}}},
     {"type": "floor", "depth": 0.12, "y": 610, "vp": [800, 560], "color": "#b4a084", "color2": "#6e5c48", "lines": 24, "gloss": 0.12, "area": [-800, 600, 2400, 2600]},
     {"type": "crowd", "area": [-100, 1700, -5250, -3167], "y": [661, 627], "count": 40, "size": 51, "mill": 22, "speed": 0, "color": "#ffd8a0", "glow": 0.12, "dim": 0.35, "flicker": 0.15, "at": {"2": {"dim": 0.3}, "3": {"dim": 0.45}}, "show": [0, 4]},
     {"type": "crowd", "area": [380, 1220, -4000, -2704], "y": [673, 644], "count": 46, "size": 60, "mill": 3, "speed": 0, "color": "#ffd8a0", "glow": 0.2, "dim": 0.3, "flicker": 0.15, "seed": 11, "show": [4, null]},

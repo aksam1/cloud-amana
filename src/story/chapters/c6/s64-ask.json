@@ -8,7 +8,9 @@
   "source": "quran",
   "ayahs": ["21:63"],
   "art": [
-    "The crowd's anger is drawn as jagged strokes, never words; the people appear as dim lights and Ibrahim as a steady light. The broken idols lie as they fell."
+    "The crowd's anger is drawn as jagged strokes, never words; the people appear as dim lights and Ibrahim as a steady light. The broken idols lie as they fell.",
+    "The wall of baked brick is imagined; its fine courses are of the kind built in Mesopotamia and in Assyria.",
+    "The piers are imagined; plain square brick piers of the kind built in the Levant and in Mesopotamia."
   ],
   "ambient": ["crowd", "jeer"],
   "base": "#1a1410",
@@ -22,11 +24,11 @@
   "layers": [
     { "type": "sky", "depth": 0.03, "fog": 0, "stops": [[0, "#fff4dc"], [1, "#f0d8b0"]] },
     { "type": "sun", "pos": [800, 120, -6000], "size": 40, "color": "#fff4dc" },
-    { "type": "facade", "depth": 0.18, "x": 800, "y": 700, "w": 2400, "h": 760, "stone": "#8a6a4e", "light": 0.8, "doors": [{ "x": 800, "w": 160, "h": 260 }] },
+     {"type": "facade", "depth": 0.18, "x": 800, "y": 700, "w": 2400, "h": 760, "stone": "#8a6a4e", "light": 0.8, "doors": [{"x": 800, "w": 160, "h": 260}], "style": "brick"},
     { "type": "floor", "depth": 0.19, "y": 702, "vp": [800, 520], "color": "#7a5a40", "color2": "#3a2a20", "lines": 16, "gloss": 0.15, "area": [-800, 696, 2400, 1350] },
     { "type": "idol", "depth": 0.2, "x": 800, "y": 698, "h": 440, "kind": "gilt", "ppu": 1 },
-    { "type": "column", "depth": 0.24, "x": 470, "y": 712, "h": 560, "w": 40, "stone": "#6a4a30", "lit": "#a07a50", "dark": "#2a1a10" },
-    { "type": "column", "depth": 0.24, "x": 1130, "y": 712, "h": 560, "w": 40, "stone": "#6a4a30", "lit": "#a07a50", "dark": "#2a1a10" },
+     {"type": "column", "depth": 0.24, "x": 470, "y": 712, "h": 560, "w": 40, "stone": "#6a4a30", "lit": "#a07a50", "dark": "#2a1a10", "style": "pillared"},
+     {"type": "column", "depth": 0.24, "x": 1130, "y": 712, "h": 560, "w": 40, "stone": "#6a4a30", "lit": "#a07a50", "dark": "#2a1a10", "style": "pillared"},
     { "type": "idol", "depth": 0.27, "x": 600, "y": 724, "h": 250, "kind": "clay", "ppu": 1.2, "seed": 4, "shatter": { "delay": -6000, "seed": 4 } },
     { "type": "idol", "depth": 0.27, "x": 1000, "y": 724, "h": 250, "kind": "wood", "ppu": 1.2, "seed": 5, "shatter": { "delay": -6000, "seed": 5 } },
     { "type": "idol", "depth": 0.34, "x": 520, "y": 752, "h": 280, "kind": "stone", "ppu": 1.2, "seed": 6, "shatter": { "delay": -6000, "seed": 6 } },

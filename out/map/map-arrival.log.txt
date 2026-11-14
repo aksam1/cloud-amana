@@ -1,0 +1,37 @@
+error: %o
+
+%s
+
+%s
+ TypeError: Cannot read properties of undefined (reading 'era')
+    at http://localhost:5210/src/components/CampaignMap.jsx?t=1794643319725:1497:52
+    at Array.map (<anonymous>)
+    at CampaignMap (http://localhost:5210/src/components/CampaignMap.jsx?t=1794643319725:1495:29)
+    at Object.react_stack_bottom_frame (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:13895:12)
+    at renderWithHooks (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:4153:19)
+    at updateFunctionComponent (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:5528:16)
+    at beginWork (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:6144:20)
+    at runWithFiberInDEV (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:697:66)
+    at performUnitOfWork (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:8901:92)
+    at workLoopSync (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:8797:37) The above error occurred in the <CampaignMap> component. React will try to recreate this component tree from scratch using the error boundary you provided, Recover.
+error: [amanah] page crashed TypeError: Cannot read properties of undefined (reading 'era')
+    at http://localhost:5210/src/components/CampaignMap.jsx?t=1794643319725:1497:52
+    at Array.map (<anonymous>)
+    at CampaignMap (http://localhost:5210/src/components/CampaignMap.jsx?t=1794643319725:1495:29)
+    at Object.react_stack_bottom_frame (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:13895:12)
+    at renderWithHooks (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:4153:19)
+    at updateFunctionComponent (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:5528:16)
+    at beginWork (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:6144:20)
+    at runWithFiberInDEV (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:697:66)
+    at performUnitOfWork (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:8901:92)
+    at workLoopSync (http://localhost:5210/node_modules/.vite/deps/react-dom_client.js?v=30f3c51c:8797:37) 
+    at CampaignMap (http://localhost:5210/src/components/CampaignMap.jsx?t=1794643319725:844:39)
+    at Suspense (<anonymous>)
+    at Recover (http://localhost:5210/src/App.jsx?t=1794643319725:95:1)
+    at div (<anonymous>)
+    at MotionDOMComponent (http://localhost:5210/node_modules/.vite/deps/motion_react.js?v=b9985c84:13601:20)
+    at PopChildMeasure (http://localhost:5210/node_modules/.vite/deps/motion_react.js?v=b9985c84:12444:23)
+    at PopChild (http://localhost:5210/node_modules/.vite/deps/motion_react.js?v=b9985c84:12472:21)
+    at PresenceChild (http://localhost:5210/node_modules/.vite/deps/motion_react.js?v=b9985c84:12573:24)
+    at AnimatePresence (http://localhost:5210/node_modules/.vite/deps/motion_react.js?v=b9985c84:12756:26)
+    at App (http://localhost:5210/src/App.jsx?t=1794643319725:175:16)

@@ -9,7 +9,8 @@
   "ayahs": ["26:128-130"],
   "art": [
     "The great size of the people of ʿAd follows the Quran's word that they were increased in stature (7:69); they appear only as figures of dim amber light.",
-    "The shapes of the monuments, the palace hall and the army are imagined from 26:128–130."
+    "The shapes of the monuments, the palace hall and the army are imagined from 26:128–130.",
+    "The piers are imagined; plain square brick piers of the kind built in the Levant and in Mesopotamia."
   ],
   "ambient": ["desert", "stone", "chant"],
   "base": "#2a1a14",
@@ -61,17 +62,17 @@
       { "type": "sun", "pos": [800, 500, -3990], "size": 54, "color": "#fff0d0" },
       { "type": "light", "depth": 0.25, "pos": [745, 612], "h": 64, "w": 0.6, "color": "#e8b070", "glow": 0.6 },
       { "type": "light", "depth": 0.25, "pos": [860, 614], "h": 66, "w": 0.6, "color": "#e8b070", "glow": 0.6 },
-      { "type": "column", "depth": 0.25, "x": 640, "y": 610, "h": 300, "w": 28, "light": 0.85 },
-      { "type": "column", "depth": 0.25, "x": 960, "y": 610, "h": 300, "w": 28, "light": 0.85 },
+       {"type": "column", "depth": 0.25, "x": 640, "y": 610, "h": 300, "w": 28, "light": 0.85, "style": "pillared"},
+       {"type": "column", "depth": 0.25, "x": 960, "y": 610, "h": 300, "w": 28, "light": 0.85, "style": "pillared"},
       { "type": "facade", "depth": 0.25, "x": 800, "y": 342, "w": 400, "h": 34, "stone": "#b08470", "light": 0.85 },
       { "type": "floor", "depth": 0.22, "y": 600, "vp": [800, 470], "color": "#d8b898", "color2": "#7a5a4a", "gloss": 0.5, "reflect": [640, 960, 560, 1040, 430, 1170], "area": [-800, 590, 2400, 1350] },
-      { "type": "column", "depth": 0.35, "x": 560, "y": 650, "h": 400, "w": 38, "light": 0.9 },
-      { "type": "column", "depth": 0.35, "x": 1040, "y": 650, "h": 400, "w": 38, "light": 0.9 },
+       {"type": "column", "depth": 0.35, "x": 560, "y": 650, "h": 400, "w": 38, "light": 0.9, "style": "pillared"},
+       {"type": "column", "depth": 0.35, "x": 1040, "y": 650, "h": 400, "w": 38, "light": 0.9, "style": "pillared"},
       { "type": "facade", "depth": 0.35, "x": 800, "y": 290, "w": 560, "h": 44, "stone": "#b08470", "light": 0.85 },
       { "type": "cloth", "depth": 0.45, "pos": [492, 250], "w": 64, "h": 300, "color": "#8a1e1e", "trim": "#d4a040", "amp": 10, "speed": 1.8 },
       { "type": "cloth", "depth": 0.45, "pos": [1108, 250], "w": 64, "h": 300, "color": "#8a1e1e", "trim": "#d4a040", "amp": 10, "speed": 1.6 },
-      { "type": "column", "depth": 0.55, "x": 430, "y": 720, "h": 560, "w": 54, "ppu": 0.9 },
-      { "type": "column", "depth": 0.55, "x": 1170, "y": 720, "h": 560, "w": 54, "ppu": 0.9 },
+       {"type": "column", "depth": 0.55, "x": 430, "y": 720, "h": 560, "w": 54, "ppu": 0.9, "style": "pillared"},
+       {"type": "column", "depth": 0.55, "x": 1170, "y": 720, "h": 560, "w": 54, "ppu": 0.9, "style": "pillared"},
       { "type": "facade", "depth": 0.55, "x": 800, "y": 196, "w": 830, "h": 60, "stone": "#a87c68" },
       { "type": "pool", "depth": 0.6, "x": 800, "y": 800, "w": 380, "d": 90, "ppu": 0.9 },
       { "type": "dust", "box": [-18, 760, -700, 18, 970, -640], "count": 260, "size": 2.6, "color": "#eaf6ff", "opacity": 0.7, "wind": [0, -160, 0], "swirl": 6 },
@@ -81,8 +82,8 @@
       { "type": "light", "kind": "flame", "depth": 0.6, "pos": [1040, 701], "h": 80, "color": "#ffb050", "glow": 1.2 },
       { "type": "cloth", "depth": 0.75, "pos": [318, 150], "w": 96, "h": 440, "color": "#8a1e1e", "trim": "#d4a040", "amp": 14, "speed": 1.7 },
       { "type": "cloth", "depth": 0.75, "pos": [1282, 150], "w": 96, "h": 440, "color": "#8a1e1e", "trim": "#d4a040", "amp": 14, "speed": 1.9 },
-      { "type": "column", "depth": 0.9, "x": 230, "y": 830, "h": 800, "w": 80, "ppu": 0.8 },
-      { "type": "column", "depth": 0.9, "x": 1370, "y": 830, "h": 800, "w": 80, "ppu": 0.8 },
+       {"type": "column", "depth": 0.9, "x": 230, "y": 830, "h": 800, "w": 80, "ppu": 0.8, "style": "pillared"},
+       {"type": "column", "depth": 0.9, "x": 1370, "y": 830, "h": 800, "w": 80, "ppu": 0.8, "style": "pillared"},
       { "type": "facade", "depth": 0.9, "x": 800, "y": 50, "w": 1300, "h": 300, "stone": "#9a7060", "light": 0.9 }
     ] },
 
@@ -94,14 +95,14 @@
       { "type": "cloth", "depth": 0.4, "pos": [980, 480], "w": 50, "h": 130, "pole": 250, "color": "#8a1e1e", "trim": "#d4a040", "amp": 18, "speed": 4.8 },
       { "type": "cloth", "depth": 0.4, "pos": [1320, 470], "w": 50, "h": 130, "pole": 250, "color": "#8a1e1e", "trim": "#d4a040", "amp": 18, "speed": 4.4 },
       { "type": "dust", "box": [-1500, 400, -3000, 3000, 950, 400], "count": 1400, "size": 3, "color": "#ffe2b8", "opacity": 0.45, "wind": [24, -2, 0] },
-      { "type": "column", "depth": 1.4, "x": 1500, "y": 1000, "h": 1300, "w": 120, "ppu": 0.6 },
+       {"type": "column", "depth": 1.4, "x": 1500, "y": 1000, "h": 1300, "w": 120, "ppu": 0.6, "style": "pillared"},
       { "type": "facade", "depth": 1.6, "x": 800, "y": 960, "w": 2400, "h": 150, "stone": "#c8a080", "ppu": 0.6 }
     ] },
 
     { "type": "set", "show": [4, null], "dx": 10400, "layers": [
       { "type": "iram", "depth": 0.14, "seed": 18, "x0": -600, "x1": 2200, "haze": "#f2dcc0", "area": [-700, 420, 2300, 980],
         "rows": [{ "y": 800, "h": 150, "n": 36, "w": 10 }, { "y": 840, "h": 200, "n": 26, "w": 14 }, { "y": 890, "h": 260, "n": 18, "w": 20 }] },
-      { "type": "column", "depth": 0.5, "x": 800, "y": 1500, "h": 1340, "w": 200, "ppu": 1.2 },
+       {"type": "column", "depth": 0.5, "x": 800, "y": 1500, "h": 1340, "w": 200, "ppu": 1.2, "style": "pillared"},
       { "type": "light", "depth": 0.5, "pos": [745, 164], "h": 70, "w": 0.64, "color": "#e09048", "glow": 0.45, "bright": 1.0, "solid": 0.55 },
       { "type": "light", "depth": 0.5, "pos": [800, 160], "h": 74, "w": 0.64, "color": "#e09048", "glow": 0.45, "bright": 1.0, "solid": 0.55 },
       { "type": "light", "depth": 0.5, "pos": [855, 164], "h": 70, "w": 0.64, "color": "#e09048", "glow": 0.45, "bright": 1.0, "solid": 0.55 },

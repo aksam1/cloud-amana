@@ -7,7 +7,7 @@
   "arabic": "إلياس والصنم",
   "source": "quran",
   "ayahs": ["37:125-126"],
-  "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "Ba'l appears as a faceless gilded idol on a high place, as in the idols of Ibrahim's chapter."],
+  "art": ["The prophets appear only as steady lights; the people and sailors as dim figures of light. The look of the lands is imagined.", "Ba'l appears as a faceless gilded idol on a high place, as in the idols of Ibrahim's chapter.", "The look of the town is imagined; its dressed limestone houses and terraced roofs are of the kind built in the Levant."],
   "ambient": ["crowd", "fire"],
   "base": "#c8c0b0",
   "captions": "parchment",
@@ -20,7 +20,7 @@
   "layers": [
     {"type": "heavens", "horizon": 630, "tod": [16.6, 17.4, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [17.4, 18, 10000]}, "2": {"tod": [18, 18.8, 12000]}}},
     {"type": "ridge", "depth": 0.04, "y": 620, "amp": 50, "seed": 1200, "sharp": 0.4, "color": "#7a7a70", "haze": 0.35, "fog": 0.4},
-    {"type": "town", "depth": 0.12, "y": 690, "x0": 100, "x1": 1500, "s": 0.6, "grade": "town", "lit": 0.35, "haze": "#a89888", "seed": 1201},
+    {"type": "town", "depth": 0.12, "y": 690, "x0": 100, "x1": 1500, "s": 0.6, "grade": "israelite", "lit": 0.35, "haze": "#a89888", "seed": 1201},
     {"type": "ground", "depth": 0.18, "y": 720, "amp": 6, "seed": 1202, "color": "#8a8060", "color2": "#5a5040"},
     {"type": "platform", "depth": 0.26, "x": 1000, "y": 760, "w": 312, "steps": 4, "rise": 10, "dais": 12, "stone": "#b8a080", "lit": "#e0c8a0", "dark": "#5a4a38", "ppu": 1},
     {"type": "idol", "depth": 0.261, "x": 1000, "y": 708, "h": 156, "kind": "gilt", "ppu": 1.2, "seed": 7},

@@ -58,7 +58,7 @@ def judea(seed=1100, green=True):
 def palace(stone='#e0d0b4'):
     return [
         {'type': 'sky', 'depth': 0.03, 'fog': 0, 'stops': [[0, '#1a2030'], [1, '#121620']]},
-        {'type': 'facade', 'depth': 0.18, 'x': 800, 'y': 712, 'w': 2400, 'h': 820, 'stone': stone, 'light': 0.85, 'doors': [{'x': 800, 'w': 70, 'h': 120, 'lit': True}]},
+        {'type': 'facade', 'depth': 0.18, 'x': 800, 'y': 712, 'w': 2400, 'h': 820, 'stone': stone, 'light': 0.85, 'style': 'ashlar', 'doors': [{'x': 800, 'w': 70, 'h': 120, 'lit': True}]},
         {'type': 'column', 'depth': 0.26, 'x': 420, 'y': 740, 'h': 600, 'w': 44, 'stone': '#d8c8a8', 'lit': '#f8ecd0', 'dark': '#6a5a48'},
         {'type': 'column', 'depth': 0.26, 'x': 1180, 'y': 740, 'h': 600, 'w': 44, 'stone': '#d8c8a8', 'lit': '#f8ecd0', 'dark': '#6a5a48'},
         {'type': 'brazier', 'depth': 0.3, 'x': 640, 'y': 790, 's': 0.6},
@@ -87,10 +87,10 @@ scene('kifl', 141, 'dhulkifl', 'Dhul-Kifl', 'ذو الكفل',
   layers=[
     heav([[16, 17.6, 10000], [6, 18, 12000, 6], [18.4, 19.6, 12000]]),
     *judea(1100),
-    {'type': 'town', 'depth': 0.14, 'y': 700, 'x0': 100, 'x1': 1500, 's': P(0.14, 1) / 30, 'grade': 'town', 'lit': 0.3, 'haze': '#b8a898', 'seed': 1103},
+    {'type': 'town', 'depth': 0.14, 'y': 700, 'x0': 100, 'x1': 1500, 's': P(0.14, 1) / 30, 'grade': 'israelite', 'lit': 0.3, 'haze': '#b8a898', 'seed': 1103},
     # the town gate where he sat to judge: a plain gateway in a wall of grey limestone, no towers (Pharaoh's palace and
     # Qarun's house are other places)
-    {'type': 'facade', 'depth': 0.34, 'x': 800, 'y': 790, 'w': P(0.34, 20), 'h': P(0.34, 5.5), 'gate': {'w': P(0.34, 3.6), 'h': P(0.34, 4.4)}, 'stone': '#b4aa98', 'ppu': 0.8},
+    {'type': 'facade', 'depth': 0.34, 'x': 800, 'y': 790, 'w': P(0.34, 20), 'h': P(0.34, 5.5), 'gate': {'w': P(0.34, 3.6), 'h': P(0.34, 4.4)}, 'stone': '#b4aa98', 'style': 'ashlar', 'ppu': 0.8},
     light([800, 788], P(0.36, 1.75), depth=0.36, **prophet_d, pose='kneel', at={'2': {'color': '#fffaf0', 'glow': 0.6, 'bright': 1.35}}),
     *[light([960 + i * 44, 790 + (i % 2) * 4], P(0.37), depth=0.37, **dim) for i in range(6)],
     motes(),

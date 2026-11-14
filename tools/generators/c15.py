@@ -63,7 +63,7 @@ scene('baal', 152, 'ilyas', "Ilyas and Ba'l", 'إلياس والصنم',
   layers=[
     heav([[16.6, 17.4, 10000], [17.4, 18, 10000], [18, 18.8, 12000]]),
     {'type': 'ridge', 'depth': 0.04, 'y': 620, 'amp': 50, 'seed': 1200, 'sharp': 0.4, 'color': '#7a7a70', 'haze': 0.35, 'fog': 0.4},
-    {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 100, 'x1': 1500, 's': P(0.12, 1) / 30, 'grade': 'town', 'lit': 0.35, 'haze': '#a89888', 'seed': 1201},
+    {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 100, 'x1': 1500, 's': P(0.12, 1) / 30, 'grade': 'israelite', 'lit': 0.35, 'haze': '#a89888', 'seed': 1201},
     {'type': 'ground', 'depth': 0.18, 'y': 720, 'amp': 6, 'seed': 1202, 'color': '#8a8060', 'color2': '#5a5040'},
     {'type': 'platform', 'depth': 0.26, 'x': 1000, 'y': 760, 'w': P(0.26, 8), 'steps': 4, 'rise': P(0.26, 0.25), 'dais': P(0.26, 0.3), 'stone': '#b8a080', 'lit': '#e0c8a0', 'dark': '#5a4a38', 'ppu': 1},
     {'type': 'idol', 'depth': 0.261, 'x': 1000, 'y': 760 - 4 * P(0.26, 0.25) - P(0.26, 0.3), 'h': P(0.26, 4), 'kind': 'gilt', 'ppu': 1.2, 'seed': 7},
@@ -118,8 +118,8 @@ scene('leaving', 154, 'yunus', 'Yunus Leaves', 'خروج يونس',
     {'type': 'set', 'show': [0, 1], 'layers': [
       heav([[16, 17, 10000]]),
       {'type': 'ridge', 'depth': 0.04, 'y': 620, 'amp': 30, 'seed': 1220, 'sharp': 0.3, 'color': '#9a8a7a', 'haze': 0.4, 'fog': 0.4},
-      {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 0, 'x1': 1600, 's': P(0.12, 1) / 30, 'grade': 'city', 'lit': 0.3, 'haze': '#b8a898', 'seed': 1221},
-      {'type': 'facade', 'depth': 0.18, 'x': 800, 'y': 720, 'w': P(0.18, 60), 'h': P(0.18, 10), 'gate': {'w': P(0.18, 4), 'h': P(0.18, 6)}, 'towers': True, 'stone': '#a87c5c', 'ppu': 0.8},  # Nineveh: walls of red-brown mudbrick
+      {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 0, 'x1': 1600, 's': P(0.12, 1) / 30, 'grade': 'assyrian', 'lit': 0.3, 'haze': '#b8a898', 'seed': 1221},
+      {'type': 'facade', 'depth': 0.18, 'x': 800, 'y': 720, 'w': P(0.18, 60), 'h': P(0.18, 7), 'gate': {'w': P(0.18, 4), 'h': P(0.18, 4.2)}, 'towers': True, 'stone': '#a87c5c', 'style': 'brick', 'ppu': 0.8},  # Nineveh: walls of red-brown mudbrick
       {'type': 'ground', 'depth': 0.22, 'y': 742, 'amp': 4, 'seed': 1222, 'color': '#a89878', 'color2': '#7a6a52'},
       people(140, area=[200, 1400, -3600, -2600], mill=12),
       light([800, FEET + 6], P(0.42), depth=0.42, **prophet_d, at={'0': {'pose': 'raise'}}),
@@ -220,8 +220,8 @@ scene('believed', 158, 'yunus', 'A Whole City Believes', 'مدينة تؤمن',
   layers=[
     heav([[7, 8.4, 10000], [8.4, 9.6, 10000], [9.6, 10.6, 12000]]),
     {'type': 'ridge', 'depth': 0.04, 'y': 620, 'amp': 30, 'seed': 1220, 'sharp': 0.3, 'color': '#9a8a7a', 'haze': 0.4, 'fog': 0.4},
-    {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 0, 'x1': 1600, 's': P(0.12, 1) / 30, 'grade': 'city', 'lit': 0.4, 'haze': '#b8a898', 'seed': 1221},
-    {'type': 'facade', 'depth': 0.18, 'x': 800, 'y': 720, 'w': P(0.18, 60), 'h': P(0.18, 10), 'gate': {'w': P(0.18, 4), 'h': P(0.18, 6)}, 'towers': True, 'stone': '#a87c5c', 'ppu': 0.8},  # Nineveh: walls of red-brown mudbrick
+    {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 0, 'x1': 1600, 's': P(0.12, 1) / 30, 'grade': 'assyrian', 'lit': 0.4, 'haze': '#b8a898', 'seed': 1221},
+    {'type': 'facade', 'depth': 0.18, 'x': 800, 'y': 720, 'w': P(0.18, 60), 'h': P(0.18, 7), 'gate': {'w': P(0.18, 4), 'h': P(0.18, 4.2)}, 'towers': True, 'stone': '#a87c5c', 'style': 'brick', 'ppu': 0.8},  # Nineveh: walls of red-brown mudbrick
     {'type': 'ground', 'depth': 0.22, 'y': 742, 'amp': 4, 'seed': 1222, 'color': '#a89878', 'color2': '#7a6a52'},
     {'type': 'crowd', 'area': [-400, 2000, -3600, -1700], 'y': [FEET, 744], 'count': 700, 'size': P(0.3), 'color': '#ffe0b0', 'dim': 0.5, 'glow': 0.08, 'mill': 4, 'speed': 0, 'flicker': 0.05,
      'at': {'1': {'dim': 0.25, 'glow': 0.15}, '2': {'dim': 0.2, 'glow': 0.18}}},

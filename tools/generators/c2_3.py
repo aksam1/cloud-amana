@@ -406,7 +406,7 @@ scene('s24-call.json', 2,
   layers=[
     sky(545, {0: [9.4, 10, 6500], 1: [10, 10.8, 7500], 2: [15.6, 16.2, 4500], 3: [11.6, 12.2, 4500], 4: [8.6, 10.6, 9000]}),
     {'type': 'range', 'count': 2, 'y': [500, 530], 'amp': [40, 60], 'depth': [0.04, 0.07], 'colors': ['#c8bca8', '#a8987c'], 'haze': [0.3, 0.6], 'sharp': 0.3, 'edge': False, 'seed': 33},
-    {'type': 'town', 'depth': 0.11, 'grade': 'town', 'y': mk_y(0.11), 'x0': -260, 'x1': 1860, 's': 0.9, 'rows': 2, 'seed': 41,
+    {'type': 'town', 'depth': 0.11, 'grade': 'village', 'y': mk_y(0.11), 'x0': -260, 'x1': 1860, 's': 0.9, 'rows': 2, 'seed': 41,
      'at': {'3': {'grey': 0.25}, '4': {'grey': 0}}},
     {'type': 'ground', 'depth': 0.12, 'y': mk_y(0.12), 'amp': 3, 'seed': 7, 'color': '#d0b486', 'color2': '#9a7e52', 'at': {'3': {'color': '#dcdcd8', 'color2': '#a8aaa8'}, '4': {'color': '#d0b486', 'color2': '#9a7e52'}}},
     {'type': 'stalls', 'depth': 0.24, 's': 0.83, 'items': [{'x': 200, 'y': mk_y(0.24), 'w': 150, 'color': '#b8644a'}, {'x': 430, 'y': mk_y(0.24), 'w': 120, 'color': '#5e7a8a'},
@@ -475,7 +475,7 @@ SQUARE_W = {'fog': '#c8b8b0', 'fogNear': 6000, 'fogFar': 40000, 'light': 1.0, 'r
 
 
 def square(grey=0.0, night=False, at_=None):
-    town = {'type': 'town', 'depth': 0.11, 'grade': 'city', 'y': sq_y(0.11), 'x0': -320, 'x1': 1920, 's': 0.9, 'rows': 2, 'lit': 0.9 if night else 0.5, 'seed': 71, 'grey': grey}
+    town = {'type': 'town', 'depth': 0.11, 'grade': 'town', 'y': sq_y(0.11), 'x0': -320, 'x1': 1920, 's': 0.9, 'rows': 2, 'lit': 0.9 if night else 0.5, 'seed': 71, 'grey': grey}
     if night:
         town['night'] = True
     if at_:
@@ -534,7 +534,7 @@ print('26 ok', at(FIVE[0], Y5, D5, c26[0]), at(FIVE[4], Y5, D5, c26[1]))
 
 # The hill outside the town where Nuh watches it, and from which he comes down: the town small and far below.
 def hillside(night=False):
-    town = {'type': 'town', 'depth': 0.07, 'grade': 'city', 'y': 604, 'x0': 470, 'x1': 1010, 's': 0.32, 'rows': 2, 'seed': 71, 'grey': 0.35 if not night else 0.2}
+    town = {'type': 'town', 'depth': 0.07, 'grade': 'town', 'y': 604, 'x0': 470, 'x1': 1010, 's': 0.32, 'rows': 2, 'seed': 71, 'grey': 0.35 if not night else 0.2}
     if night:
         town.update(night=True, lit=0.9)
     return [
@@ -757,7 +757,7 @@ scene('s31-chiefs.json', 3,
     {'type': 'set', 'show': [0, 2], 'layers': [
         sky(120, {0: [10, 10.5, 6500], 1: [10.5, 11.2, 9000]}),
         {'type': 'ground', 'depth': 0.16, 'y': 176, 'amp': 2, 'seed': 74, 'x0': -900, 'x1': 2500, 'color': '#b89a6c', 'color2': '#8a6e4a'},
-        {'type': 'town', 'depth': 0.161, 'grade': 'city', 'y': 176, 'x0': -300, 'x1': 1900, 's': 0.45, 'seed': 74, 'grey': 0.15},
+        {'type': 'town', 'depth': 0.161, 'grade': 'town', 'y': 176, 'x0': -300, 'x1': 1900, 's': 0.45, 'seed': 74, 'grey': 0.15},
         townsfolk(30, d0=0.17, d1=0.19, mill=14, seed=31) | {'y': [380, 300]},
         {'type': 'light', 'depth': 0.18, 'pos': [800, 330], 'h': 30, **dayP, 'glow': 0.6, 'bright': 1.3},
         *[{'type': 'light', 'depth': 0.18, 'pos': [800 + dx, 334], 'h': 24, 'color': '#ffeed4', **day} for dx in (-22, -42, -62, 22, 42, 62)],
@@ -820,7 +820,7 @@ def plain(dark=0.0):
     sat = 1 - dark * 0.5
     return [
         {'type': 'range', 'count': 2, 'y': [586, 620], 'amp': [40, 60], 'depth': [0.04, 0.07], 'colors': ['#c8a880', '#a88860'], 'haze': [0.3, 0.6], 'sharp': 0.3, 'edge': False, 'seed': 91, 'sat': sat},
-        {'type': 'town', 'depth': 0.075, 'grade': 'city', 'y': 640, 'x0': -260, 'x1': 300, 's': 0.6, 'rows': 2, 'seed': 71, 'grey': 0.4, 'sat': sat},
+        {'type': 'town', 'depth': 0.075, 'grade': 'town', 'y': 640, 'x0': -260, 'x1': 300, 's': 0.6, 'rows': 2, 'seed': 71, 'grey': 0.4, 'sat': sat},
         {'type': 'ground', 'depth': 0.12, 'y': pl_y(0.12) - 10, 'amp': 6, 'seed': 17, 'x0': -900, 'x1': 2500, 'color': '#c8a46e', 'color2': '#8a6a40', 'rocks': 10, 'grass': 14, 'grassColor': '#a89060', 'sat': sat},
         {'type': 'hillpath', 'depth': 0.26, 'points': [[-500, 742], [300, 732], [1100, 744], [2100, 730]], 'w0': 30, 'w1': 28, 'color': '#d8bc8a', 'edge': '#a88a5a', 'sat': sat},
     ]
@@ -938,7 +938,7 @@ scene('s35-deluge.json', 3,
     {'type': 'clouds', 'depth': 0.07, 'y': 260, 'count': 7, 'color': '#2a2e34', 'scale': 1.7, 'spanY': 160, 'seed': 43},
     {'type': 'range', 'count': 2, 'y': [560, 600], 'amp': [50, 70], 'depth': [0.04, 0.06], 'colors': ['#3a4440', '#262e2a'], 'haze': [0.3, 0.6], 'sharp': 0.35, 'edge': False, 'seed': 47},
     {'type': 'ground', 'depth': 0.08, 'y': 620, 'amp': 6, 'seed': 25, 'x0': -900, 'x1': 2500, 'color': '#4a5040', 'color2': '#1e2218'},
-    {'type': 'town', 'depth': 0.1, 'grade': 'city', 'y': 652, 'x0': -260, 'x1': 640, 's': 0.8, 'rows': 2, 'seed': 71, 'night': True, 'lit': 0.35, 'grey': 0.4},
+    {'type': 'town', 'depth': 0.1, 'grade': 'town', 'y': 652, 'x0': -260, 'x1': 640, 's': 0.8, 'rows': 2, 'seed': 71, 'night': True, 'lit': 0.35, 'grey': 0.4},
     {'type': 'statues', 'depth': 0.102, 'xs': [190, 250, 310, 370, 430], 'y': 660, 'h': 60, 'color': '#6a5640', 'grey': 0.3, 'lamps': 1, 'night': True},
     {'type': 'crowd', 'area': [-100, 640, zof(0.105), zof(0.12)], 'y': [pl_y(0.12) - 8, 656], 'count': 40, 'size': h17(0.11), 'color': '#ffc890', 'dim': 0.5, 'glow': 0.45, 'mill': 10, 'speed': 0, 'flicker': 0.3,
      'at': {'2': {'out': 1, 'outDur': 7000}}},

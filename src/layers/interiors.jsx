@@ -214,14 +214,15 @@ export function Wall({ cfg }) {
 }
 
 /**
- * A row of pillars on the floor line `y`, `h` tall and `w` thick, at `xs`: `style` papyrus (a bundled shaft
- * with an open flaring capital, painted bands), lotus (a closed bud capital), pier (square brick pier with a
- * glazed band), cedar (timber post with a bracket), crystal (a slender pale shaft) or colossus (a seated,
- * faceless statue of stone on its throne). `colors` [body, band, dark].
+ * A row of pillars on the floor line `y`, `h` tall and `w` thick, at `xs`: `style` papyrus (a bundled
+ * shaft with an open flaring capital, painted bands), lotus (a closed bud capital), pier (square brick
+ * pier with a glazed band), cedar (timber post with a bracket), crystal (a slender pale shaft),
+ * colossus (a seated, faceless statue of stone on its throne), protoaic (a plain slender shaft on a
+ * stepped base under a carved block capital — Jerusalem's temple). `colors` [body, band, dark].
  */
 export function Colonnade({ cfg }) {
   const { xs = [400, 1200], y = 740, h = 600, w = 50, style = 'papyrus', colors } = cfg;
-  const [body, band, dark] = colors || { papyrus: ['#d8c098', '#2a6a8a', '#7a5a38'], lotus: ['#e0cca8', '#a83a2a', '#7a5a38'], pier: ['#b07850', '#2a5a9a', '#5a3820'], cedar: ['#7a4e2e', '#c8a060', '#3a2414'], crystal: ['#dce8f0', '#ffffff', '#8aa0b0'], colossus: ['#4a4448', '#8a7a5a', '#1e1a1e'] }[style];
+  const [body, band, dark] = colors || { papyrus: ['#d8c098', '#2a6a8a', '#7a5a38'], lotus: ['#e0cca8', '#a83a2a', '#7a5a38'], pier: ['#b07850', '#2a5a9a', '#5a3820'], cedar: ['#7a4e2e', '#c8a060', '#3a2414'], crystal: ['#dce8f0', '#ffffff', '#8aa0b0'], colossus: ['#4a4448', '#8a7a5a', '#1e1a1e'], protoaic: ['#dcd0b8', '#8a7a5a', '#4a4038'] }[style];
   return (
     <Svg>
       {xs.map((x, i) => {
@@ -236,6 +237,22 @@ export function Colonnade({ cfg }) {
               <path d={`M${x - W * 0.3},${y - h * 0.42} L${x - W * 0.3},${y - h * 0.06} L${x - W * 0.1},${y - h * 0.06} L${x - W * 0.1},${y - h * 0.42} M${x + W * 0.1},${y - h * 0.42} L${x + W * 0.1},${y - h * 0.06} L${x + W * 0.3},${y - h * 0.06} L${x + W * 0.3},${y - h * 0.42}`} fill={body} stroke={INK} strokeWidth="2" />
               <path d={`M${x - W * 0.2},${y - h * 0.8} L${x - W * 0.26},${y - h * 0.94} Q${x},${y - h * 1.02} ${x + W * 0.26},${y - h * 0.94} L${x + W * 0.2},${y - h * 0.8} Z`} fill={body} stroke={INK} strokeWidth="2" />
               <path d={`M${x - W * 0.26},${y - h * 0.94} L${x - W * 0.34},${y - h * 0.76} L${x - W * 0.22},${y - h * 0.76} Z M${x + W * 0.26},${y - h * 0.94} L${x + W * 0.34},${y - h * 0.76} L${x + W * 0.22},${y - h * 0.76} Z`} fill={band} stroke={INK} strokeWidth="1.5" />
+            </g>
+          );
+        }
+        if (style === 'protoaic') {
+          // a plain slender shaft on a stepped base, under a carved block capital
+          const top2 = y - h;
+          return (
+            <g key={i}>
+              <rect x={x - w * 0.9} y={y - 14} width={w * 1.8} height="14" fill={dark} stroke={INK} strokeWidth="1.5" />
+              <rect x={x - w * 0.78} y={y - 28} width={w * 1.56} height="14" fill={mixColor(body, dark, 0.4)} stroke={INK} strokeWidth="1.5" />
+              <rect x={x - w * 0.42} y={y - 44} width={w * 0.84} height="16" fill={mixColor(body, dark, 0.2)} stroke={INK} strokeWidth="1.5" />
+              <rect x={x - w * 0.36} y={top2 + w * 0.6} width={w * 0.72} height={h - w * 0.6 - 44} fill={body} stroke={INK} strokeWidth="2" />
+              <rect x={x - w * 0.32} y={top2 + w * 0.6} width={w * 0.12} height={h - w * 0.6 - 44} fill={mixColor(body, band, 0.3)} />
+              <path d={`M${x - w * 0.36},${top2 + w * 0.6} L${x - w * 0.58},${top2 + w * 0.26} L${x + w * 0.58},${top2 + w * 0.26} L${x + w * 0.36},${top2 + w * 0.6} Z`} fill={mixColor(body, band, 0.16)} stroke={INK} strokeWidth="1.5" />
+              <rect x={x - w * 0.72} y={top2 + w * 0.12} width={w * 1.44} height={w * 0.18} fill={band} stroke={INK} strokeWidth="1.5" />
+              <rect x={x - w * 0.86} y={top2} width={w * 1.72} height={w * 0.16} fill={mixColor(body, band, 0.3)} stroke={INK} strokeWidth="1.5" />
             </g>
           );
         }

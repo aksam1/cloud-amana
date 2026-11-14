@@ -219,6 +219,42 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   spread about (cx, cy) by k), which leaves the group where it was from the reference camera. Keep a near
   grass band in front of the group's new depth.
 
+## The built world is true to its age (Nov 2026)
+
+- The `town` painter (`src/layers/town.jsx`) has **eight grades**, one per period, and a scene's
+  buildings must use the grade of its own century: `hut` (reed-and-branch domes, Adam's valley),
+  `village` (low mud-brick, the early generations and Canaan), `town` (flat-roofed mud-brick with
+  corner towers — Sumer, Madyan, Sodom), `city` (Egypt only: ochre limestone, terraces, pylon gates),
+  `assyrian` (crenellated mud-brick on ziggurat platforms — Nineveh), `israelite` (dressed limestone,
+  terraced roofs — Dawud and Sulayman), `galilaean` (low lime-plastered stone — Bethlehem and Galilee),
+  `desert` (sun-dried brick, very low — Madyan). `city` is never a classical Greco-Roman town.
+- `facade` (`src/layers/iram.jsx`) takes a `style`: `mudbrick` (default), `ashlar` (dressed stone with
+  a chevron frieze and a stepped voussoir arch — Jerusalem), `pylon` (a battered Egyptian pylon),
+  `brick` (the glazed Neo-Babylonian hall at Ur).
+- `colonnade` (`src/layers/interiors.jsx`) takes `style: 'protoaic'` for the Jerusalem temple: a slender
+  shaft, a carved capital, a stepped base.
+- Walls are 4–9 m in their period, not 27–30 m: a wall of M metres at depth d is `h = M × 150 × d`.
+  The two cliffs (c9 The Well, the cave's mouth in c18) are terrain and stay tall.
+- The one table that drives all of this is `tools/gen/period.py`: it rewrites the scene JSON **and** the
+  matching lines in `tools/generators/*.py`, because a generator re-run would otherwise undo the work.
+  Chapters 4–7 have no generator, so their JSON is edited directly.
+- Any scene whose architecture changed carries a line in its `art` list saying the look is imagined but
+  the building forms are of that age. `tools/generators/chdoc.py` carries it into `docs/CHAPTER-*.md`.
+
+## The map is a map of time, not of land (Nov 2026)
+
+- `src/lib/mapWorld.js` builds the world from `timeline.json` alone: a single thread of light descends
+  from a point of light at the top (the Creation) to the Hour at the bottom, and **the gap between two
+  seals is the time between them**. The five eras are horizontal strata; the compass rose and the
+  era-jump buttons are gone, replaced by a vertical era rail down the right edge.
+- The dates come from each node's `date`; `fillDates` interpolates the undated ones in log space.
+  `solveScale` fits the gaps to the world, so the shape of the ages is the shape of the map.
+- `world.segs` must have an entry for every consecutive pair of nodes: `ScenePlayer.jsx` produces it
+  and `CampaignMap.jsx` consumes it, and if one is missing the arrival path animation silently
+  disappears. `src/lib/mapWorld.test.js` guards this.
+- The map keeps everything it had: seal states, the dossier, the arrival ceremony (`?from=&arrive=`),
+  the list dialog, pan/zoom, the frontier fog and the keyboard navigation.
+
 ## WebGL scenes (`"renderer": "gl"`, from Chapter 4)
 
 - Design frame 1600×900, y down. The reference camera at Z = 1000 sees it exactly. A layer at parallax

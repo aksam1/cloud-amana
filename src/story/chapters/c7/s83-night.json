@@ -9,7 +9,8 @@
   "ayahs": ["15:65"],
   "art": [
     "Lut appears only as a steady light, his family as small lights and the angels as radiance. That his wife remained behind is told in the Quran; it is shown only as her light turning back.",
-    "The city and the road are imagined."
+    "The city and the road are imagined.",
+    "The look of the town is imagined; its mud-brick walls and flat roofs are of the kind built in this people's time."
   ],
   "ambient": ["air", "crickets"],
   "base": "#12101a",
@@ -25,7 +26,7 @@
 
     { "type": "set", "show": [0, 1], "layers": [
       { "type": "ridge", "depth": 0.08, "y": 640, "amp": 60, "seed": 240, "sharp": 0.4, "color": "#26242e", "haze": 0.2 },
-      { "type": "facade", "depth": 0.2, "x": 800, "y": 720, "w": 2600, "h": 480, "gate": { "w": 240, "h": 280 }, "towers": true, "stone": "#3a3448", "light": 0.6, "ppu": 0.8 },
+       {"type": "facade", "depth": 0.2, "x": 800, "y": 720, "w": 2600, "h": 240, "gate": {"w": 240, "h": 140}, "towers": true, "stone": "#3a3448", "light": 0.6, "ppu": 0.8},
       { "type": "floor", "depth": 0.21, "y": 722, "vp": [800, 520], "color": "#34303c", "color2": "#141218", "lines": 10, "gloss": 0.1, "area": [-800, 716, 2400, 1350] },
       { "type": "light", "h": 70, "w": 0.42, "color": "#ffffff", "glow": 0.7, "bright": 1.5, "solid": 0.6, "pose": "walk", "path": [[760, 840, -1100], [790, 720, -3900], [800, 705, -5600]], "dur": 7000 },
       { "type": "light", "h": 72, "w": 0.42, "color": "#ffffff", "glow": 0.7, "bright": 1.5, "solid": 0.6, "pose": "walk", "path": [[840, 842, -1100], [810, 720, -3900], [805, 705, -5600]], "dur": 7000, "delay": 300 },

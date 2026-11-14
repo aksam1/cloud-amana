@@ -8,7 +8,8 @@
   "source": "quran",
   "ayahs": ["11:56"],
   "art": [
-    "The crowd's scorn is drawn as jagged strokes, never words; Hud and those who believed appear only as steady lights, seen from far away as they leave the city."
+    "The crowd's scorn is drawn as jagged strokes, never words; Hud and those who believed appear only as steady lights, seen from far away as they leave the city.",
+    "The piers are imagined; plain square brick piers of the kind built in the Levant and in Mesopotamia."
   ],
   "ambient": ["crowd", "jeer", "dry"],
   "base": "#2a1e16",
@@ -27,14 +28,14 @@
       { "type": "iram", "depth": 0.12, "seed": 81, "x0": -500, "x1": 2100, "area": [-600, 120, 2200, 600], "haze": "#e8d8bc",
         "rows": [{ "y": 540, "h": 220, "n": 40, "w": 9 }, { "y": 555, "h": 300, "n": 28, "w": 13 }] },
       { "type": "floor", "depth": 0.22, "y": 560, "vp": [800, 430], "color": "#d8b88a", "color2": "#a8845a", "lines": 24, "gloss": 0.05, "area": [-800, 555, 2400, 1350] },
-      { "type": "column", "depth": 0.25, "x": 300, "y": 590, "h": 420, "w": 26 },
-      { "type": "column", "depth": 0.25, "x": 1300, "y": 590, "h": 420, "w": 26 },
+       {"type": "column", "depth": 0.25, "x": 300, "y": 590, "h": 420, "w": 26, "style": "pillared"},
+       {"type": "column", "depth": 0.25, "x": 1300, "y": 590, "h": 420, "w": 26, "style": "pillared"},
       { "type": "crowd", "area": [200, 1400, -2650, -2350], "y": 596, "count": 300, "size": 22, "color": "#e89850", "dim": 0.3, "glow": 0.55, "flicker": 0.6, "mill": 6, "speed": 0, "seed": 3 },
       { "type": "platform", "depth": 0.3, "x": 800, "y": 600, "w": 600, "steps": 7, "rise": 24, "dais": 40, "ppu": 0.9 },
       { "type": "light", "depth": 0.3, "pos": [800, 392], "h": 58, "color": "#fffaf0", "glow": 1.4, "bright": 1.8 },
       { "type": "crowd", "area": [380, 1220, -2300, -1100], "y": [760, 606], "count": 900, "size": 22, "color": "#e89850", "dim": 0.3, "glow": 0.55, "flicker": 0.6, "mill": 8, "speed": 0 },
-      { "type": "column", "depth": 0.45, "x": 120, "y": 700, "h": 640, "w": 40 },
-      { "type": "column", "depth": 0.45, "x": 1480, "y": 700, "h": 640, "w": 40 },
+       {"type": "column", "depth": 0.45, "x": 120, "y": 700, "h": 640, "w": 40, "style": "pillared"},
+       {"type": "column", "depth": 0.45, "x": 1480, "y": 700, "h": 640, "w": 40, "style": "pillared"},
       { "type": "dust", "box": [-1200, 100, -3000, 2800, 950, 800], "count": 1400, "size": 4, "color": "#d8b088", "opacity": 0.38, "wind": [24, -3, 0], "swirl": 50, "blend": "normal" },
       { "type": "jeers", "show": [1, 2], "center": [800, 358], "from": [560, 300], "clear": [100, 112], "count": 30, "size": 44, "period": 7 }
     ] },

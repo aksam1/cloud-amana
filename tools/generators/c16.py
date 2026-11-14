@@ -61,11 +61,10 @@ def chamber(stone='#8a7258', lamp=True):
     """The prayer chamber (mihrab) of the temple: warm stone, an arched niche, an oil lamp."""
     out = [
         {'type': 'sky', 'depth': 0.03, 'fog': 0, 'stops': [[0, '#1a1410'], [1, '#100c0a']]},
-        {'type': 'facade', 'depth': 0.2, 'x': 800, 'y': 728, 'w': 2600, 'h': 900, 'stone': stone, 'light': 0.7,
+        {'type': 'facade', 'depth': 0.2, 'x': 800, 'y': 728, 'w': 2600, 'h': 900, 'stone': stone, 'light': 0.7, 'style': 'ashlar',
          'doors': [{'x': 800, 'w': P(0.2, 2.6), 'h': P(0.2, 4.2), 'lit': True}, {'x': 1260, 'w': P(0.2, 1.4), 'h': P(0.2, 2.6)}]},
         {'type': 'floor', 'depth': 0.21, 'y': 730, 'vp': [800, 520], 'color': '#5a4a3a', 'color2': '#1e1812', 'lines': 10, 'gloss': 0.25, 'area': [-800, 724, 2400, 1350]},
-        {'type': 'column', 'depth': 0.3, 'x': 520, 'y': 790, 'h': P(0.3, 7), 'w': P(0.3, 0.7), 'stone': '#c8a880', 'lit': '#f0dcb8', 'dark': '#5a4430'},
-        {'type': 'column', 'depth': 0.3, 'x': 1080, 'y': 790, 'h': P(0.3, 7), 'w': P(0.3, 0.7), 'stone': '#c8a880', 'lit': '#f0dcb8', 'dark': '#5a4430'},
+        {'type': 'colonnade', 'depth': 0.3, 'xs': [520, 1080], 'y': 790, 'h': P(0.3, 7), 'w': P(0.3, 0.7), 'style': 'protoaic', 'colors': ['#c8a880', '#e0c8a0', '#5a4430']},
     ]
     if lamp:
         out += [{'type': 'light', 'kind': 'flame', 'depth': 0.36, 'pos': [960, 742], 'h': 10, 'color': '#ffc060', 'glow': 1.4}]
@@ -84,8 +83,8 @@ scene('vow', 159, 'zakariya', 'The Vow', 'نذر أم مريم',
     {'type': 'ridge', 'depth': 0.04, 'y': 640, 'amp': 40, 'seed': 1300, 'sharp': 0.3, 'color': '#3a3a48', 'haze': 0.3, 'fog': 0.4, 'at': {'1': {'color': '#6a6870'}}},
     {'type': 'masonry', 'depth': 0.1, 'pos': [1180, 660], 'w': P(0.1, 40), 'h': P(0.1, 14), 'side': 30, 'courses': 14, 'blocks': 24, 'built': 1,
      'stone': '#c8bca8', 'stone2': '#d8ccb8', 'ink': '#5a5048'},
-    {'type': 'town', 'depth': 0.14, 'y': 700, 'x0': 100, 'x1': 1500, 's': P(0.14, 1) / 30, 'grade': 'town', 'night': True, 'lit': 0.25, 'haze': '#24202e', 'seed': 1301},
-    {'type': 'facade', 'depth': 0.32, 'x': 760, 'y': 790, 'w': P(0.32, 8), 'h': P(0.32, 4), 'stone': '#a89478', 'light': 0.7, 'doors': [{'x': 860, 'w': P(0.32, 1), 'h': P(0.32, 1.3), 'lit': True}], 'ppu': 0.9},
+    {'type': 'town', 'depth': 0.14, 'y': 700, 'x0': 100, 'x1': 1500, 's': P(0.14, 1) / 30, 'grade': 'galilaean', 'night': True, 'lit': 0.25, 'haze': '#24202e', 'seed': 1301},
+    {'type': 'facade', 'depth': 0.32, 'x': 760, 'y': 790, 'w': P(0.32, 8), 'h': P(0.32, 4), 'stone': '#a89478', 'light': 0.7, 'style': 'ashlar', 'doors': [{'x': 860, 'w': P(0.32, 1), 'h': P(0.32, 1.3), 'lit': True}], 'ppu': 0.9},
     light([700, 790 - P(0.32, 4)], P(0.322, 1.6), depth=0.322, **soft, pose='kneel'),
     babe(714, 790 - P(0.32, 4) - 10, 0.323, show=[1, None]),
     motes(0.12),
@@ -260,8 +259,8 @@ scene('cradle', 166, 'isa', 'The Child Speaks', 'الطفل يتكلم',
   layers=[
     heav([[8, 9, 10000], [9, 9.6, 10000], [9.6, 10.6, 12000]]),
     {'type': 'ridge', 'depth': 0.04, 'y': 620, 'amp': 40, 'seed': 1360, 'sharp': 0.3, 'color': '#8a8a7a', 'haze': 0.35, 'fog': 0.4},
-    {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 0, 'x1': 1600, 's': P(0.12, 1) / 30, 'grade': 'town', 'lit': 0.2, 'haze': '#b8a898', 'seed': 1361},
-    {'type': 'facade', 'depth': 0.2, 'x': 800, 'y': 730, 'w': P(0.2, 40), 'h': P(0.2, 8), 'gate': {'w': P(0.2, 4), 'h': P(0.2, 5.5)}, 'stone': '#dcc48c', 'ppu': 0.8},  # her town's gate of golden limestone, no towers
+    {'type': 'town', 'depth': 0.12, 'y': 690, 'x0': 0, 'x1': 1600, 's': P(0.12, 1) / 30, 'grade': 'galilaean', 'lit': 0.2, 'haze': '#b8a898', 'seed': 1361},
+    {'type': 'facade', 'depth': 0.2, 'x': 800, 'y': 730, 'w': P(0.2, 40), 'h': P(0.2, 8), 'gate': {'w': P(0.2, 4), 'h': P(0.2, 5.5)}, 'stone': '#dcc48c', 'style': 'ashlar', 'ppu': 0.8},  # her town's gate of golden limestone, no towers
     {'type': 'ground', 'depth': 0.24, 'y': 752, 'amp': 4, 'seed': 1362, 'color': '#b0a080', 'color2': '#8a7a5a'},
     {'type': 'crowd', 'area': [-200, 1800, -2400, -1500], 'y': [FEET + 6, 770], 'count': 160, 'size': P(0.36), 'color': '#ffd8a0', 'dim': 0.4, 'glow': 0.12, 'mill': 6, 'speed': 0, 'flicker': 0.3,
      'at': {'1': {'flicker': 0.05}, '2': {'flicker': 0.05}}},
