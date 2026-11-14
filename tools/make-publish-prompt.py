@@ -17,6 +17,8 @@ payload = {
     "action": "publish",
     "url": "https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq",
     "file_path": r"C:\Users\User\Desktop\LocalChat\amanah\deploy\index.html",
+    # the files map is relative to the repository's parent (the artifact tool's own cwd)
+    "root": "amanah",
     "files": files,
     "overwrite_unread": old,
     "label": "v8 through Chapter 21",
