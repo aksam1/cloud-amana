@@ -11,9 +11,10 @@ import { Icon, Rule, starPath } from './Ornaments.jsx';
 const world = buildWorld(timeline);
 const ARABIC_FONT = '"Aref Ruqaa", Amiri, serif';
 
-/** The strata of time: five bands of parchment, the thread of light, and ruled lines. */
+/** The strata of time: five bands of rock, the thread of light, and the ground of each age. */
 const Terrain = memo(function Terrain() {
   const { W, H } = world;
+  const s = world.scenery;
   return (
     <g>
       <defs>
@@ -37,39 +38,158 @@ const Terrain = memo(function Terrain() {
         </radialGradient>
       </defs>
 
-      {/* the strata: one band of parchment for each era */}
+      {/* the strata: one band of rock for each age */}
       {world.regions.map((g) => (
-        <rect key={g.id} x="0" y={g.y0} width={W} height={g.y1 - g.y0} fill={g.tone} opacity="0.26" />
+        <rect key={g.id} x="0" y={g.y0} width={W} height={g.y1 - g.y0} fill={g.tone} opacity="0.3" />
       ))}
       {world.regions.map((g) => (
-        <rect key={`${g.id}-rule`} x="0" y={g.y0} width={W} height={g.y1 - g.y0} fill="url(#strata)" opacity="0.5" />
+        <rect key={`${g.id}-rule`} x="0" y={g.y0} width={W} height={g.y1 - g.y0} fill="url(#strata)" opacity="0.55" />
       ))}
 
       {/* the ruled lines of a page of time */}
       {world.regions.map((g) => (
-        <g key={`${g.id}-lines`} opacity="0.3">
+        <g key={`${g.id}-lines`} opacity="0.26">
           {Array.from({ length: 5 }, (_, i) => (
             <line key={i} x1="0" y1={g.y0 + ((g.y1 - g.y0) * (i + 1)) / 6} x2={W} y2={g.y0 + ((g.y1 - g.y0) * (i + 1)) / 6} stroke="#5a4630" strokeWidth="0.7" strokeDasharray="1 9" />
           ))}
         </g>
       ))}
 
-      {/* the stars of the first night */}
-      {world.stars.map((s, i) => (
-        <circle key={i} cx={s.x.toFixed(0)} cy={s.y.toFixed(0)} r={s.s.toFixed(1)} fill="#e8d9a8" opacity="0.5" />
-      ))}
-
-      {/* the point of light at the top: the Creation */}
+      {/* ── The Creation: seven heavens opening out of one point of light ─── */}
       <g>
-        <circle cx={W / 2} cy={110} r="86" fill="url(#origin)" />
-        <circle cx={W / 2} cy={110} r="9" fill="#fff6d8" />
-        <circle cx={W / 2} cy={110} r="20" fill="none" stroke="#f7d98a" strokeWidth="1.2" opacity="0.6" />
-        <circle cx={W / 2} cy={110} r="34" fill="none" stroke="#f7d98a" strokeWidth="0.9" opacity="0.4" />
+        {s.heavens.map((h, i) => (
+          <ellipse key={i} cx={s.origin.x} cy={s.origin.y} rx={h.rx} ry={h.ry} fill="none" stroke="#e8d9a8" strokeWidth={1.6 - i * 0.12} opacity={h.o} />
+        ))}
+        {s.rays.map((r, i) => {
+          const rad = (r.a * Math.PI) / 180;
+          return (
+            <line
+              key={i}
+              x1={s.origin.x}
+              y1={s.origin.y}
+              x2={s.origin.x + Math.cos(rad) * r.len}
+              y2={s.origin.y + Math.sin(rad) * r.len * 0.7}
+              stroke="#f7d98a"
+              strokeWidth={r.w}
+              opacity="0.22"
+              strokeLinecap="round"
+            />
+          );
+        })}
+        <circle cx={s.origin.x} cy={s.origin.y} r="86" fill="url(#origin)" />
+        <circle cx={s.origin.x} cy={s.origin.y} r="9" fill="#fff6d8" />
+        <circle cx={s.origin.x} cy={s.origin.y} r="20" fill="none" stroke="#f7d98a" strokeWidth="1.2" opacity="0.6" />
+        <circle cx={s.origin.x} cy={s.origin.y} r="34" fill="none" stroke="#f7d98a" strokeWidth="0.9" opacity="0.4" />
       </g>
 
+      {/* the stars of the first night */}
+      {s.stars.map((st, i) => (
+        <circle key={i} cx={st.x.toFixed(0)} cy={st.y.toFixed(0)} r={st.s.toFixed(1)} fill="#e8d9a8" opacity={st.o} />
+      ))}
+
+      {/* the swirls of the waters, before the earth was made */}
+      {s.swirls.map((w, i) => (
+        <path key={i} d={w.d} fill="none" stroke="#6f8a92" strokeWidth="1.6" strokeLinecap="round" opacity={w.o} />
+      ))}
+
+      {/* ── The garden: the loam of the first ground, its roots, its trees ── */}
+      {s.loam.lines.map((l, i) => (
+        <path key={`l-${i}`} d={l.d} fill="none" stroke="#4c6a3a" strokeWidth="1.3" opacity={l.o} />
+      ))}
+      {s.loam.roots.map((r, i) => (
+        <path key={`r-${i}`} d={r.d} fill="none" stroke="#3d5530" strokeWidth="1.1" opacity={r.o} strokeLinecap="round" />
+      ))}
+      {s.trees.map((t, i) => (
+        <g key={`t-${i}`} transform={`translate(${t.x.toFixed(0)} ${t.y.toFixed(0)}) scale(${t.s.toFixed(2)})`} opacity="0.62">
+          <path d="M0,0 L0,-16" stroke="#3b2a18" strokeWidth="2.2" />
+          {t.kind === 'round' ? (
+            <circle cx="0" cy="-26" r="12" fill="#4f5a2c" fillOpacity="0.6" stroke="#3b2a18" strokeWidth="1.2" />
+          ) : (
+            <path d="M0,-14 C-9,-24 -7,-40 0,-48 C7,-40 9,-24 0,-14 Z" fill="#4f5a2c" fillOpacity="0.55" stroke="#3b2a18" strokeWidth="1.2" />
+          )}
+        </g>
+      ))}
+
+      {/* ── The cities of the prophets: brick courses, towers, rivers ──────── */}
+      {s.courses.courses.map((c, i) => (
+        <path key={`c-${i}`} d={c.d} fill="none" stroke="#8a6a3a" strokeWidth="1.4" opacity={c.o} />
+      ))}
+      {s.courses.towers.map((t, i) => (
+        <g key={`tw-${i}`} transform={`translate(${t.x.toFixed(0)} ${t.y.toFixed(0)})`} opacity="0.4">
+          {t.ziggurat ? (
+            <path
+              d={`M${-t.w / 2},0 L${-t.w / 2.6},${-t.h * 0.42} L${-t.w / 4.4},${-t.h * 0.42} L${-t.w / 4.6},${-t.h * 0.78} L${-t.w / 8},${-t.h * 0.78} L${-t.w / 9},${-t.h} L${t.w / 9},${-t.h} L${t.w / 8},${-t.h * 0.78} L${t.w / 4.6},${-t.h * 0.78} L${t.w / 4.4},${-t.h * 0.42} L${t.w / 2.6},${-t.h * 0.42} L${t.w / 2},0 Z`}
+              fill="#7a5a34"
+              fillOpacity="0.55"
+              stroke="#3b2a18"
+              strokeWidth="1.3"
+            />
+          ) : (
+            <>
+              <path d={`M${-t.w / 2},0 L${-t.w / 2},${-t.h} L${t.w / 2},${-t.h} L${t.w / 2},0 Z`} fill="#8a6a3a" fillOpacity="0.45" stroke="#3b2a18" strokeWidth="1.3" />
+              {Array.from({ length: Math.max(2, Math.round(t.w / 34)) }, (_, k) => {
+                const n = Math.max(2, Math.round(t.w / 34));
+                const bw = t.w / n;
+                return <rect key={k} x={-t.w / 2 + k * bw + bw * 0.2} y={-t.h - 9} width={bw * 0.6} height="9" fill="#8a6a3a" fillOpacity="0.5" stroke="#3b2a18" strokeWidth="1" />;
+              })}
+            </>
+          )}
+        </g>
+      ))}
+      {s.groves.map((t, i) => (
+        <g key={`g-${i}`} transform={`translate(${t.x.toFixed(0)} ${t.y.toFixed(0)}) scale(${t.s.toFixed(2)})`} opacity="0.45">
+          <path d="M0,0 L0,-14" stroke="#3b2a18" strokeWidth="2" />
+          <circle cx="0" cy="-22" r="10" fill="#4f5a2c" fillOpacity="0.5" stroke="#3b2a18" strokeWidth="1.1" />
+        </g>
+      ))}
+      {s.rivers.map((r, i) => (
+        <g key={`rv-${i}`}>
+          <path d={r.d} fill="none" stroke="#6f8a92" strokeOpacity="0.3" strokeWidth="16" strokeLinecap="round" />
+          <path d={r.d} fill="none" stroke="#3f5a66" strokeOpacity="0.5" strokeWidth="2.2" strokeLinecap="round" />
+        </g>
+      ))}
+      {s.sea && (
+        <g opacity="0.45">
+          <ellipse cx={s.sea.x} cy={s.sea.y} rx={s.sea.rx} ry={s.sea.ry} fill="#6f8a92" fillOpacity="0.22" stroke="#3f5a66" strokeWidth="1.4" />
+          {Array.from({ length: 7 }, (_, i) => (
+            <path
+              key={i}
+              d={`M${(s.sea.x - s.sea.rx * 0.6 + i * 26).toFixed(0)},${(s.sea.y + (i % 2 ? 8 : -8)).toFixed(0)} q12,-9 24,0 t24,0`}
+              fill="none"
+              stroke="#3f5a66"
+              strokeWidth="1.3"
+            />
+          ))}
+        </g>
+      )}
+
+      {/* ── Arabia: the dunes and the palms of the valleys ─────────────────── */}
+      {s.dunes.map((d, i) => (
+        <path key={`d-${i}`} d={d.d} fill="none" stroke="#8a6a3a" strokeOpacity={d.o} strokeWidth="1.5" />
+      ))}
+      {s.palms.map((p, i) => (
+        <g key={`p-${i}`} transform={`translate(${p.x.toFixed(0)} ${p.y.toFixed(0)}) scale(${p.s.toFixed(2)})`} stroke="#3b2a18" fill="none" strokeWidth="1.6" opacity="0.5">
+          <path d="M0,0 Q3,-16 0,-30" />
+          <path d="M0,-30 q-12,-4 -20,6 M0,-30 q12,-4 20,6 M0,-30 q-8,-10 -18,-8 M0,-30 q8,-10 18,-8" />
+        </g>
+      ))}
+
+      {/* ── The last day: the ground opening, and the fire beneath it ─────── */}
+      {s.embers.map((e, i) => (
+        <circle key={`e-${i}`} cx={e.x.toFixed(0)} cy={e.y.toFixed(0)} r={e.s.toFixed(1)} fill="#e08a4a" opacity={e.o} />
+      ))}
+      {s.cracks.map((c, i) => (
+        <path key={`cr-${i}`} d={c.d} fill="none" stroke="#5a1c14" strokeWidth={c.w.toFixed(1)} opacity={c.o} strokeLinecap="round" />
+      ))}
+
+      {/* the ground line between one age and the next: the edge of the rock */}
+      {world.ground.map((g) => (
+        <path key={`g-${g.id}`} d={g.d} fill="none" stroke="#3b2a18" strokeWidth="1.6" opacity="0.35" />
+      ))}
+
       {/* the thread: one line of light from the first seal to the last */}
-      {world.segs.map((s) => (
-        <path key={`t-${s.from}-${s.to}`} d={s.d} fill="none" stroke="url(#thread)" strokeWidth="3.4" strokeLinecap="round" opacity="0.7" />
+      {world.segs.map((seg) => (
+        <path key={`t-${seg.from}-${seg.to}`} d={seg.d} fill="none" stroke="url(#thread)" strokeWidth="3.4" strokeLinecap="round" opacity="0.7" />
       ))}
 
       {/* the Hour, at the end of the thread */}
@@ -89,7 +209,6 @@ const Terrain = memo(function Terrain() {
     </g>
   );
 });
-
 function nodeState(n, store) {
   const scenes = nodeScenes(n.id);
   const seen = scenes.filter((s) => store.seen[s.id]).length;
@@ -584,8 +703,8 @@ export default function CampaignMap({ query = {} }) {
         aria-label="Eras"
       >
         {world.regions.map((g) => {
-          const here = world.byId[g.first];
-          const active = sel && here && world.byId[sel].era === g.id;
+          // `sel` is a node object, not an id: the era rail must ask the node itself.
+          const active = !!sel && sel.era === g.id;
           return (
             <button
               key={g.id}

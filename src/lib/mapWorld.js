@@ -1,9 +1,10 @@
 // The map of time.
 //
-// The campaign map is not a road through a country. It is one thread of light descending
-// from the Creation to the Hour, and the *gap* between two seals is the time between them:
-// the Creation to Adam is a long fall, the prophets are a tight run of seals, and the signs
-// of the Hour close the thread.
+// The campaign map is not a road through a country. It is a cliff of time seen in
+// section: five strata of rock stacked one above another, and a single thread of light
+// descending through them from the Creation to the Hour. The *gap* between two seals
+// is the time between them: the Creation to Adam is a long fall, the prophets are a
+// tight run of seals, and the signs of the Hour close the thread.
 //
 // The scale. Every node gets a number of years before 2026, read from timeline.json's
 // human-readable `date` field. The gap between neighbours is the difference of those
@@ -15,7 +16,7 @@
 // The compression is what makes the map honest: a century between two prophets is a
 // hand's breadth of the thread, while the age between the Creation and Adam is a fall.
 
-import { clamp, rng } from './geo.js';
+import { clamp, lerp, rng, smoothPath } from './geo.js';
 
 export const W = 1700; // the width of the world; the thread wanders about its centre
 const TOP = 190; // the light of the Creation, and the first seal
@@ -26,6 +27,7 @@ const MARGIN = 300; // the room at each side for the names of the seals
 const DRIFT = 380; // how far the thread may wander from the centre line
 const RAW_MIN = 0.30; // the least a compressed age may be, before the scale
 const EXP = 0.7; // the compression of the ages
+const RAMP = 6; // how many seals it takes for the thread to reach its full drift
 const NOW = 2026;
 
 // ── The dates ──────────────────────────────────────────────────────────────
@@ -134,6 +136,216 @@ function solveScale(raw) {
   return (lo + hi) / 2;
 }
 
+// ── The ground of the ages ────────────────────────────────────────────────
+//
+// Each stratum of the cliff is drawn from its own material: the sky of the first
+// night, the loam of the first gardens, the mud-brick courses of the cities of the
+// prophets, the dunes of Arabia, and the scorched rock of the last day.
+//
+// Nothing here is random at draw time: every scatter is seeded, so the cliff is the
+// same on every visit.
+
+/** A point in a band, kept clear of the seals and of the name margin. */
+function inBand(r, band, opts = {}) {
+  const { x0 = 165, x1 = W - 165, avoid = 96 } = opts;
+  const y = lerp(band.y0, band.y1, r());
+  let x = lerp(x0, x1, r());
+  // push the point away from any seal it would sit on
+  for (let tries = 0; tries < 6; tries++) {
+    const near = opts.seals.find((s) => (s.x - x) ** 2 + (s.y - y) ** 2 < avoid ** 2);
+    if (!near) break;
+    x = near.x + (x > near.x ? 1 : -1) * (avoid + 40 + r() * 90);
+    x = clamp(x, x0, x1);
+  }
+  return { x, y };
+}
+
+/** The seven heavens: rings of light opening out of the one point at the top. */
+function buildHeavens(cx, cy) {
+  return Array.from({ length: 7 }, (_, i) => ({
+    rx: 130 + i * 78,
+    ry: 74 + i * 44,
+    o: 0.5 - i * 0.055,
+  }));
+}
+
+/** The rays thrown out of that point. */
+function buildRays(cx, cy, n = 26) {
+  const r = rng(23);
+  return Array.from({ length: n }, () => ({
+    a: r() * 360,
+    len: 260 + r() * 460,
+    w: 0.6 + r() * 1.1,
+  }));
+}
+
+/** The stars of the first night: mostly small, a few bright. */
+function buildStars(band, seals) {
+  const r = rng(21);
+  const out = [];
+  for (let i = 0; i < 130; i++) {
+    const p = inBand(r, band, { avoid: 70, seals });
+    const s = r();
+    out.push({ x: p.x, y: p.y, s: s > 0.9 ? 7 + r() * 5 : 2 + r() * 3.4, o: 0.3 + r() * 0.55 });
+  }
+  return out;
+}
+
+/** The slow swirl of the waters before the earth was made. */
+function buildSwirls(band, seals) {
+  const r = rng(34);
+  return Array.from({ length: 7 }, () => {
+    const p = inBand(r, band, { avoid: 120, seals });
+    const turns = 1.4 + r() * 1.4;
+    const rad = 90 + r() * 150;
+    const pts = [];
+    for (let a = 0; a <= 1; a += 0.08) {
+      const th = a * turns * Math.PI * 2;
+      const rr2 = rad * a;
+      pts.push([p.x + Math.cos(th + r() * 0.01) * rr2, p.y + Math.sin(th) * rr2 * 0.5]);
+    }
+    return { d: smoothPath(pts), o: 0.1 + r() * 0.12 };
+  });
+}
+
+/** The loam of the first gardens: fine horizontal bedding, with roots running through. */
+function buildLoam(band, seals) {
+  const r = rng(24);
+  const lines = [];
+  for (let y = band.y0 + 18; y < band.y1 - 10; y += 15 + r() * 9) {
+    const pts = [];
+    for (let x = 130; x <= W - 130; x += 90) {
+      pts.push([x, y + (r() - 0.5) * 7]);
+    }
+    lines.push({ d: smoothPath(pts), o: 0.1 + r() * 0.12 });
+  }
+  const roots = [];
+  for (let i = 0; i < 16; i++) {
+    const p = inBand(r, band, { avoid: 110, seals });
+    const pts = [[p.x, p.y]];
+    let x = p.x;
+    let y = p.y;
+    for (let k = 0; k < 4; k++) {
+      x += (r() - 0.5) * 90;
+      y += 12 + r() * 26;
+      pts.push([x, y]);
+    }
+    roots.push({ d: smoothPath(pts), o: 0.14 + r() * 0.14 });
+  }
+  return { lines, roots };
+}
+
+/** The trees of the garden and the olive groves of the south. */
+function buildTrees(band, seals, count, seed) {
+  const r = rng(seed);
+  return Array.from({ length: count }, () => {
+    const p = inBand(r, band, { avoid: 110, seals });
+    return { x: p.x, y: p.y, s: 0.55 + r() * 0.75, kind: r() > 0.55 ? 'round' : 'tall' };
+  });
+}
+
+/** The dunes of Arabia: a curve of sand, drawn as one long stroke. */
+function buildDunes(band, seals) {
+  const r = rng(27);
+  const out = [];
+  for (let i = 0; i < 9; i++) {
+    const p = inBand(r, band, { avoid: 130, seals });
+    const w = 150 + r() * 260;
+    const h = 16 + r() * 22;
+    out.push({ d: `M${(p.x - w).toFixed(0)},${p.y.toFixed(0)} q${(w / 2).toFixed(0)},${(-h).toFixed(0)} ${w.toFixed(0)},0`, o: 0.16 + r() * 0.18 });
+  }
+  return out;
+}
+
+/** The palms of the valleys of Mecca. */
+function buildPalms(band, seals) {
+  const r = rng(28);
+  return Array.from({ length: 9 }, () => {
+    const p = inBand(r, band, { avoid: 110, seals });
+    return { x: p.x, y: p.y, s: 0.5 + r() * 0.55 };
+  });
+}
+
+/** The courses of mud-brick: the walls of the cities, seen in section. */
+function buildCourses(band, seals) {
+  const r = rng(29);
+  const courses = [];
+  for (let y = band.y0 + 26; y < band.y1 - 12; y += 34 + r() * 10) {
+    const pts = [];
+    for (let x = 120; x <= W - 120; x += 120) pts.push([x, y + (r() - 0.5) * 4]);
+    courses.push({ d: smoothPath(pts), o: 0.13 + r() * 0.1 });
+  }
+  // the towers of the cities, standing along the horizon of the age
+  const towers = [];
+  for (let i = 0; i < 7; i++) {
+    const p = inBand(r, band, { avoid: 130, seals });
+    towers.push({ x: p.x, y: p.y, w: 60 + r() * 130, h: 40 + r() * 110, ziggurat: r() > 0.55 });
+  }
+  return { courses, towers };
+}
+
+/** The rivers of the cities: two threads of water running down the cliff. */
+function buildRivers(band, seals) {
+  const r = rng(30);
+  return Array.from({ length: 2 }, () => {
+    const p = inBand(r, band, { avoid: 150, seals });
+    const pts = [[p.x, p.y]];
+    let x = p.x;
+    for (let k = 0; k < 7; k++) {
+      x += (r() - 0.5) * 210;
+      pts.push([x, p.y + ((band.y1 - band.y0) * (k + 1)) / 7]);
+    }
+    return { d: smoothPath(pts), o: 0.22 + r() * 0.14 };
+  });
+}
+
+/** The sea of Yunus, with the whale's road through it. */
+function buildSea(band, seals) {
+  const r = rng(33);
+  const p = inBand(r, band, { avoid: 150, seals });
+  return { x: p.x, y: p.y, rx: 150 + r() * 90, ry: 46 + r() * 26 };
+}
+
+/** The cracks of the last day: the ground opening. */
+function buildCracks(band, seals) {
+  const r = rng(32);
+  const out = [];
+  for (let i = 0; i < 16; i++) {
+    const p = inBand(r, band, { avoid: 100, seals });
+    const pts = [[p.x, p.y]];
+    let x = p.x;
+    let y = p.y;
+    for (let k = 0; k < 3; k++) {
+      x += (r() - 0.5) * 70;
+      y += 16 + r() * 34;
+      pts.push([x, y]);
+    }
+    out.push({ d: smoothPath(pts), o: 0.22 + r() * 0.22, w: 1 + r() * 1.6 });
+  }
+  return out;
+}
+
+/** The embers under the last day: the fire beneath the crust. */
+function buildEmbers(band, seals) {
+  const r = rng(35);
+  return Array.from({ length: 40 }, () => {
+    const p = inBand(r, band, { avoid: 70, seals });
+    return { x: p.x, y: p.y, s: 1 + r() * 2.4, o: 0.2 + r() * 0.5 };
+  });
+}
+
+/** The glyph inside a seal, for the nodes that carry a picture of their own. */
+const GLYPHS = {
+  earth: 'globe', // the round earth, with its horizon
+  jinn: 'flame', // the jinn are of fire
+  mawlid: 'light', // a light born
+  revelation: 'light', // a light revealed
+  wafat: 'light', // a light gone
+  judgment: 'sun', // the sun that is folded
+  minor: 'sun',
+  major: 'sun',
+};
+
 export function buildWorld({ eras, nodes }) {
   const bp = fillDates(nodes);
   const raw = bp.slice(1).map((_, i) => rawGap(bp[i], bp[i + 1]));
@@ -145,7 +357,10 @@ export function buildWorld({ eras, nodes }) {
   const placed = nodes.map((n, i) => {
     // The thread wanders, but it wanders inside a corridor: every seal keeps MARGIN of
     // room at each side, so the name that falls away from it is never cut off.
-    const drift = Math.sin(i * 0.83 + 0.6) * DRIFT + Math.sin(i * 0.31 + 1.2) * DRIFT * 0.45;
+    // The first seals stay near the centre, so that the light of the Creation opens
+    // in the middle of the page and the cliff is seen head-on.
+    const ramp = Math.min(1, i / RAMP);
+    const drift = (Math.sin(i * 0.83 + 0.6) * DRIFT + Math.sin(i * 0.31 + 1.2) * DRIFT * 0.45) * ramp;
     const p = {
       ...n,
       i,
@@ -153,6 +368,7 @@ export function buildWorld({ eras, nodes }) {
       x: clamp(cx + drift, MARGIN, W - MARGIN),
       y,
       gap: i < raw.length ? Math.max(MIN_GAP, k * raw[i]) : 0,
+      glyph: GLYPHS[n.id] || null,
     };
     if (i < raw.length) y += Math.max(MIN_GAP, k * raw[i]);
     return p;
@@ -181,7 +397,7 @@ export function buildWorld({ eras, nodes }) {
     };
   });
 
-  // the eras are strata: bands of the thread, not strips of the map
+  // the eras are strata: bands of the cliff, not strips of the map
   const regions = eras
     .map((e) => {
       const ns = placed.filter((n) => n.era === e.id);
@@ -197,19 +413,44 @@ export function buildWorld({ eras, nodes }) {
     })
     .filter(Boolean);
 
-  // a few stars in the first stratum only: the Creation is the one night of the map
-  const r = rng(2024);
-  const creation = regions[0];
-  const stars = [];
-  if (creation) {
-    for (let i = 0; i < 46; i++) {
-      stars.push({
-        x: 120 + r() * (W - 240),
-        y: creation.y0 + 40 + r() * (creation.y1 - creation.y0 - 80),
-        s: 2 + r() * 4,
-      });
-    }
-  }
+  // ── The ground of each age ───────────────────────────────────────────────
+  const first = placed[0];
+  const origin = { x: first.x, y: first.y - 96 };
+  const band = (id) => regions.find((g) => g.id === id);
+  const seals = placed;
+  const creation = band('creation');
+  const adam = band('adam');
+  const prophets = band('prophets');
+  const messenger = band('messenger');
+  const lastday = band('lastday');
 
-  return { W, H, nodes: placed, byId, segs, regions, stars };
+  const scenery = {
+    origin,
+    heavens: buildHeavens(origin.x, origin.y),
+    rays: buildRays(origin.x, origin.y),
+    stars: creation ? buildStars(creation, seals) : [],
+    swirls: creation ? buildSwirls(creation, seals) : [],
+    loam: adam ? buildLoam(adam, seals) : { lines: [], roots: [] },
+    trees: adam ? buildTrees(adam, seals, 7, 26) : [],
+    groves: prophets ? buildTrees(prophets, seals, 9, 36) : [],
+    dunes: messenger ? buildDunes(messenger, seals) : [],
+    palms: messenger ? buildPalms(messenger, seals) : [],
+    courses: prophets ? buildCourses(prophets, seals) : { courses: [], towers: [] },
+    rivers: prophets ? buildRivers(prophets, seals) : [],
+    sea: prophets ? buildSea(prophets, seals) : null,
+    cracks: lastday ? buildCracks(lastday, seals) : [],
+    embers: lastday ? buildEmbers(lastday, seals) : [],
+  };
+
+  // the rock face between two ages: the ground line of each stratum
+  const ground = regions.map((g, i) => {
+    const r = rng(40 + i);
+    const pts = [];
+    for (let x = 60; x <= W - 60; x += 70) {
+      pts.push([x, g.y0 + (r() - 0.5) * 9]);
+    }
+    return { id: g.id, d: smoothPath(pts), y: g.y0 };
+  });
+
+  return { W, H, nodes: placed, byId, segs, regions, scenery, ground, stars: scenery.stars };
 }
