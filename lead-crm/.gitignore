@@ -1,0 +1,13 @@
+# Secrets: never commit your keys
+.env
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# The database (your leads live here)
+data/
+*.db
+# Node
+node_modules/
+frontend/dist/
