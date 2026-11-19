@@ -1,12 +1,15 @@
 // Where the site lives, and the small things that depend on it: sharing, and links out to read a verse.
 // When the site moves to its own address, change SITE_URL here (or set VITE_SITE_URL at build time).
 export const SITE_URL = import.meta.env?.VITE_SITE_URL || 'https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq';
-// Shown on the About page once the owner fills them in (left empty, the page simply leaves those lines out).
-export const MAKER = ''; // e.g. 'Made by …' or 'A volunteer project'
-export const CONTACT = ''; // an address for "Report a mistake": 'mailto:…' or a form's link
+// Who makes it: shown on the About page and the Privacy page.
+export const MAKER = 'Amanah, an independent project';
+// How to reach the people who make it: the contact form in the app (no address is published).
+export const CONTACT = '#/contact';
+// The date the Privacy page takes effect. The owner changes it on the day counting goes live.
+export const PRIVACY_EFFECTIVE = '19 November 2026';
 // The scene a new visitor is shown first, before any questions (a unit test keeps it the story's first scene).
 export const FIRST_STORY = 'heavens';
-export const SITE_LINE = 'Learn Islam through the stories of the prophets. Free, private, no account.';
+export const SITE_LINE = 'Learn Islam through the stories of the prophets. Free and private. No account needed.';
 
 /**
  * A verse waiting for its verified text is never replaced by typed text: the reader gets its reference and
