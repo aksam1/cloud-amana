@@ -348,11 +348,31 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `node tools/rules-smoke.mjs --project=amanah-stories --key=<web key>` posts two real valid records (one as JSON,
   one as text/plain the way the app sends) marked `ref: 'rules-smoke'`, and checks the refusals.
 - Live since 19 Nov 2026: rules published in the Firebase console, database `(default)` in nam5 (United States).
-  **Deletion is still owed.** Firestore's TTL policy needs the Blaze (billing) plan, and the owner chose to stay on
-  the free Spark plan, so nothing deletes the `ev` records yet. The Privacy page promises about 90 days, and the first
-  records reach it on **17 Feb 2027**: before then, either a TTL policy on `ev.exp` (if billing is ever turned on) or
-  a free scheduled job that deletes `ev` documents whose `exp` has passed must be running. Spark also caps writes at
-  20,000 a day; past that, sends fail quietly until the next day (nothing is charged).
+  Firestore's TTL policy needs the Blaze (billing) plan and the owner chose to stay on the free Spark plan, so the
+  90-day deletion the Privacy page promises is done by a daily Apps Script job instead (next section). Spark also caps
+  writes at 20,000 a day; past that, sends fail quietly until the next day (nothing is charged).
+
+## Deleting the usage records (Nov 2026)
+
+- The Google Apps Script project "Amanah usage clean-up" (owner's Google account, script.google.com, id
+  `1vxZKNVRPQnsArPgosiVhJZ8lU-8mbRViKxavlqN3gZ3_lPu2XGqaBo2a`) deletes every `ev` record whose `exp` has passed. A
+  time-driven trigger runs `dailyCleanup` once a day around 4 am New York time. It runs as the owner, with
+  `ScriptApp.getOAuthToken()` and `X-Goog-User-Project: amanah-stories`, so there is no key or service account. Google
+  emails the owner when a run fails (a failed delete throws on purpose).
+- The source is `tools/cleanup/Code.gs` and `tools/cleanup/appsscript.json` (its three scopes: datastore,
+  script.external_request, script.scriptapp). The editor at script.google.com holds a copy, so after any change paste
+  both files there again and save. Code.gs must stay free of backticks, `${` and backslashes; they broke pasting
+  through the editor's Monaco model.
+- How a run works: runQuery for names only (`select __name__`, `exp < now`, oldest first, 500 a page), then
+  batchWrite deletes. It stops at 18,000 a run (Spark allows 20,000 deletes a day) and stops at the first failed
+  delete rather than looping on it. `tools/cleanup/cleanup.test.js` (part of `npm test`) runs this against a pretend
+  Firestore.
+- `setup()` is run once by hand: it replaces the daily trigger, then calls `selfTest()`. The self-test writes a record
+  that expired an hour ago (`ref: 'cleanup-selftest'`), cleans up, and checks the record answers 404. It passed on
+  19 Nov 2026 (`deleted: 1`, so nothing real had expired yet). Re-run `setup` after changing the scopes; Google will
+  ask the owner to allow them again.
+- Check it now and then: the project's Executions page lists each daily run and its log (`{"deleted":…}`). If the
+  project ever moves to Blaze, a TTL policy on `ev.exp` can replace the job; keep one of the two running.
 
 ## WebGL scenes (`"renderer": "gl"`, from Chapter 4)
 

@@ -15,7 +15,7 @@
 //     · a valid `ev` document, built by buildDoc() and toFirestore() from src/lib/usageRules.js
 //     · the same, sent exactly as the app sends it (a text/plain body, which needs no CORS preflight)
 //   The two it adds are marked ref 'rules-smoke', so they can be left out of the totals; like every
-//   count they are deleted by the TTL policy on `exp`.
+//   count they are deleted once `exp` passes (the daily Apps Script job, tools/cleanup/Code.gs).
 //   must fail
 //     · an `ev` document with one extra field
 //     · an `ev` document carrying the reader's chosen view
