@@ -3,6 +3,10 @@
 // and the wind that buried it. No music and no instruments. Everything is synthesized with the Web Audio
 // API (no audio files). Close detail sounds (a footstep, a hammer, a block settling) are panned left or
 // right at random, so the near layer of sound has space around it.
+//
+// Tap sounds (tap()) are separate from the ambience: a soft click of filtered noise when a button is
+// pressed, on their own quiet channel (ui), so they work while the ambient sound is off and never wake
+// the sound beds. They build only the audio context and the noise, not the beds.
 
 const LEVELS = { wind: 0.5, storm: 0.6, fire: 0.42, water: 0.38, rain: 0.42, birds: 0.5, air: 0.2, sheep: 0.5, voices: 0.16, voice: 0.2, crowd: 0.3, hum: 0.22, crickets: 0.4, sea: 0.5, work: 0.45, herd: 0.4, bubbles: 0.4, jeer: 0.14, sand: 0.35, desert: 0.55, city: 0.24, stone: 0.4, chant: 0.18, army: 0.45, banners: 0.3, fountain: 0.3, cheer: 0.3, roar: 0.7, echo: 0.4, dry: 0.4, drips: 0.45, spring: 0.36, rustle: 0.3, boom: 0.5 };
 
@@ -16,14 +20,19 @@ class Ambience {
   enabled = false;
   wanted = [];
 
-  init() {
+  /** The audio context, the two noises and the tap channel: all a tap needs, without the sound beds. */
+  base() {
     if (this.ctx) return true;
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return false;
-    const ctx = (this.ctx = new AC());
-    this.master = ctx.createGain();
-    this.master.gain.value = 0;
-    this.master.connect(ctx.destination);
+    try {
+      this.ctx = new AC();
+    } catch {
+      return false;
+    }
+    this.ui = this.ctx.createGain();
+    this.ui.gain.value = 0.8;
+    this.ui.connect(this.ctx.destination);
     this.white = this.buffer((d) => {
       for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
     });
@@ -34,6 +43,15 @@ class Ambience {
         d[i] = last * 3.5;
       }
     });
+    return true;
+  }
+
+  init() {
+    if (this.master) return true;
+    if (!this.base()) return false;
+    this.master = this.ctx.createGain();
+    this.master.gain.value = 0;
+    this.master.connect(this.ctx.destination);
     this.buildBeds();
     this.timer = setInterval(() => this.tick(), 110);
     return true;
@@ -337,7 +355,7 @@ class Ambience {
   }
 
   tick() {
-    if (!this.enabled || !this.ctx) return;
+    if (!this.enabled || !this.master) return;
     const t = this.ctx.currentTime;
     if ((this.targets.fire || 0) > 0 && Math.random() < 0.45) this.crackle(t);
     if ((this.targets.birds || 0) > 0 && Math.random() < 0.045) this.chirp(t);
@@ -532,7 +550,7 @@ class Ambience {
   setEnabled(on) {
     this.enabled = on;
     if (on && !this.init()) return;
-    if (!this.ctx) return;
+    if (!this.master) return;
     if (on) this.ctx.resume();
     const t = this.ctx.currentTime;
     this.master.gain.cancelScheduledValues(t);
@@ -543,7 +561,7 @@ class Ambience {
   /** Fade in the named beds, fade out the rest. Safe to call before audio is enabled. */
   setBeds(names = []) {
     this.wanted = names;
-    if (!this.ctx) return;
+    if (!this.master) return;
     const t = this.ctx.currentTime;
     for (const [name, g] of Object.entries(this.beds)) {
       const target = names.includes(name) ? LEVELS[name] ?? 0.4 : 0;
@@ -554,7 +572,7 @@ class Ambience {
   }
 
   sfx(name) {
-    if (!this.enabled || !this.ctx) return;
+    if (!this.enabled || !this.master) return;
     const t = this.ctx.currentTime + 0.02;
     const fx = {
       thunder: () => {
@@ -634,6 +652,33 @@ class Ambience {
       },
     };
     fx[name]?.();
+  }
+
+  /**
+   * A soft click for a pressed control: 'tap' (an ordinary button or link), 'primary' (the main gold
+   * button: a fuller, lower knock), 'on' (a switch turning on: two clicks rising) and 'off' (two falling).
+   * Made of short bursts of filtered noise, kept wide (q 2 or under) so nothing rings like a note.
+   */
+  tap(kind = 'tap') {
+    const now = typeof performance !== 'undefined' ? performance.now() : Date.now();
+    if (now - (this.lastTap || 0) < 40) return; // one press, one click
+    if (!this.base()) return;
+    this.lastTap = now;
+    if (this.ctx.state === 'suspended') this.ctx.resume();
+    const t = this.ctx.currentTime + 0.005;
+    const click = (dt, freq, q, peak, release) => this.burst(t + dt, { type: 'bandpass', freq, q, peak, attack: 0.002, release, out: this.ui });
+    if (kind === 'primary') {
+      click(0, 1500, 1.4, 0.6, 0.05);
+      click(0.004, 4200, 2, 0.3, 0.025);
+    } else if (kind === 'on') {
+      click(0, 2600, 1.6, 0.45, 0.03);
+      click(0.055, 3600, 1.8, 0.4, 0.03);
+    } else if (kind === 'off') {
+      click(0, 3600, 1.8, 0.4, 0.03);
+      click(0.055, 2200, 1.6, 0.4, 0.035);
+    } else {
+      click(0, 2800, 1.5, 0.45, 0.03);
+    }
   }
 }
 

@@ -16,6 +16,7 @@ export function ModePicker({ full = false, tone = 'night' }) {
             type="button"
             onClick={() => setMode(id)}
             aria-pressed={mode === id}
+            data-tap="on"
             className={`rounded-xl border px-4 py-3 text-left transition-colors ${
               ink
                 ? `border-[#8a6a4e]/50 hover:bg-black/5 ${mode === id ? 'bg-[#5a3d22]/10' : ''}`

@@ -17,6 +17,9 @@ import AbodesMonument from './AbodesMonument.jsx';
  */
 
 const ease = [0.65, 0, 0.35, 1];
+// Chapter 21, The Day of Judgment: its first and last scenes. The page's way into the story that leads here,
+// played with ?back so it returns to the abodes instead of running on to the end of the chronicle.
+const JUDGMENT = { from: 'earth', to: 'sovereign' };
 const SIDE_QUERY = '(min-width: 1024px), (orientation: landscape) and (max-height: 500px)';
 const NARROW_QUERY = '(max-width: 1023px)';
 const LINK = 'inline-flex min-h-[44px] items-center font-body text-[1.08rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4 hover:decoration-gold-hi';
@@ -108,7 +111,13 @@ export default function Abodes({ at }) {
           <p className="font-body text-[1rem] italic leading-snug text-ivory/60">{ABODES.orderNote}</p>
           <p className="mt-3 font-body text-[1.08rem] leading-snug text-ivory/85">{say(ABODES.closing)}</p>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6">
-            <button type="button" className={LINK} onClick={() => go('/map')}>
+            <button type="button" className={LINK} onClick={() => go(`/scene/${JUDGMENT.from}?back=${encodeURIComponent('/abodes')}&until=${JUDGMENT.to}`)}>
+              Watch the Day of Judgment
+            </button>
+            <button type="button" className={LINK} onClick={() => go('/unit/lastday')}>
+              Belief in the Last Day
+            </button>
+            <button type="button" className={LINK} onClick={() => go('/map?at=judgment')}>
               The map
             </button>
             <button type="button" className={LINK} onClick={toTop}>

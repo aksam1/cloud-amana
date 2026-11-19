@@ -3,6 +3,7 @@
   "parts": [
     {
       "part": 0,
+      "see": { "label": "Finish and see the two abodes", "to": "/abodes" },
       "watchFor": "This chapter shows almost nothing on purpose. Watch the ground, and watch what is being written.",
       "questions": [
         {

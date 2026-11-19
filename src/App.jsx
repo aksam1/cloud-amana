@@ -22,6 +22,7 @@ const Privacy = lazy(() => import('./components/Privacy.jsx'));
 const End = lazy(() => import('./components/End.jsx'));
 const Report = lazy(() => import('./components/Report.jsx'));
 const Abodes = lazy(() => import('./components/Abodes.jsx'));
+const Guide = lazy(() => import('./components/Guide.jsx'));
 
 /** Shown until the calligraphy fonts arrive (capped, so a slow network never blocks the story). */
 function Loader() {
@@ -117,6 +118,12 @@ export default function App() {
     };
   }, []);
 
+  // A scene's sound beds belong to it: leaving for any other page lets them fade (they used to play on
+  // under lessons and menus). The map keeps a soft wind of its own, so its Sound switch is heard at once.
+  useEffect(() => {
+    if (route.name !== 'scene') ambience.setBeds(route.name === 'map' ? ['wind'] : []);
+  }, [route.name]);
+
   // The service worker (web build only): it keeps the app on the device, and it never reloads the
   // page by itself: a new version waits, and the reader is asked. The question is held back while a
   // scene is playing, so a story is never interrupted by it.
@@ -170,6 +177,8 @@ export default function App() {
             <Report where={route.query.where || ''} />
           ) : route.name === 'abodes' ? (
             <Abodes at={route.query.at} />
+          ) : route.name === 'guide' ? (
+            <Guide step={route.query.step} />
           ) : route.name === 'about' || route.name === 'missing' ? (
             <About missing={route.name === 'missing'} />
           ) : route.name === 'map' ? (

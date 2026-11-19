@@ -27,9 +27,10 @@ export default function Lesson({ chapter, part, then }) {
   const [step, setStep] = useState(0);
   const at = steps[Math.min(step, steps.length - 1)];
 
-  const finish = () => {
+  // `to` lets the reflection finish somewhere else than the story's way on (a lesson's `see` page).
+  const finish = (to = onward) => {
     markLearned(key);
-    go(onward);
+    go(to);
   };
 
   if (!data) {
@@ -278,6 +279,21 @@ function Reflect({ data, mode, lessonKey: key, onDone }) {
       >
         Finish the lesson
       </Next>
+      {/* a page that goes further on this part's subject (the lesson's `see`: { label, to }); it finishes too */}
+      {data.see && (
+        <div className="mt-2 flex justify-end">
+          <button
+            type="button"
+            className="btn-ink"
+            onClick={() => {
+              saveJournal(key, text);
+              onDone(data.see.to);
+            }}
+          >
+            {data.see.label}
+          </button>
+        </div>
+      )}
     </section>
   );
 }

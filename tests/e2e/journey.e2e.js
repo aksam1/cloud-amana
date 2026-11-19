@@ -5,15 +5,16 @@ async function reflect(page, pick = 2, view = /I'm Muslim/) {
   await page.goto('/#/pyramid/placement'); // the reflection is an offer now (story first), reached from the pyramid or after the first story
   await page.getByRole('button', { name: view }).click();
   await page.getByRole('button', { name: 'Begin', exact: true }).click();
-  // answer every question; the flow moves on by itself after each answer
-  for (;;) {
-    const options = page.getByRole('radio');
-    await options.first().waitFor();
+  // answer every question; the flow moves on by itself after each answer. Each answer waits for its own question
+  // to be on screen ("Question 3 of 15"), so a busy machine never clicks a question that is still sliding away.
+  const total = Number((await page.getByText(/^Question 1 of \d+$/).textContent()).match(/of (\d+)/)[1]);
+  for (let q = 1; q <= total; q++) {
+    await expect(page.getByText(`Question ${q} of ${total}`, { exact: true })).toBeVisible();
+    const options = page.getByRole('radiogroup').getByRole('radio');
     const n = await options.count();
     await options.nth(Math.min(pick, n - 1)).click();
-    await page.waitForTimeout(450);
-    if (page.url().includes('/pyramid/result')) break;
   }
+  await expect(page).toHaveURL(/#\/pyramid\/result$/);
 }
 
 test('a first-time visitor understands the app, reflects, and reaches a lesson that exists', async ({ page }) => {
@@ -127,12 +128,14 @@ test('a backup can be saved, the device wiped, and the backup brought back', asy
 test('the last scene of the chronicle leads to the closing page', async ({ page }) => {
   test.setTimeout(240000);
   await page.goto('/#/scene/sovereign?beat=0');
-  // play to the end of the scene, then press the button that leads on
-  const cont = page.locator('button.btn-gold').filter({ hasText: /The end of the chronicle/ });
-  await cont.waitFor({ timeout: 120000 });
-  await cont.click();
-
-  // the last scene closes a part, so its lesson comes first, and the lesson leads on to the end
+  // play to the end of the scene: it closes a part, so its lesson is offered beside the way on (it never
+  // opens by itself), and the lesson, once taken, leads on to the end
+  const lesson = page.getByRole('button', { name: 'Take the short lesson' });
+  await lesson.waitFor({ timeout: 120000 });
+  await expect(page.getByRole('button', { name: /The end of the chronicle/ })).toBeVisible();
+  await page.waitForTimeout(3000);
+  await expect(page).toHaveURL(/#\/scene\/sovereign/); // auto-advance waits while a lesson is offered
+  await lesson.click();
   await expect(page).toHaveURL(/#\/lesson\//, { timeout: 30_000 });
   await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
   let pick = 0;
@@ -218,6 +221,8 @@ test('every pyramid lesson can be walked to its end', async ({ page }) => {
     }
     await page.getByRole('button', { name: /I've reflected/ }).click();
     await expect(page.getByText(/^Your .+ stone$/)).toBeVisible();
+    // the Last Day's lesson leads on to the two abodes (its unit's `see`)
+    if (id === 'lastday') await expect(page.getByRole('button', { name: 'The two abodes' })).toBeVisible();
   }
 });
 
@@ -273,12 +278,19 @@ test('a verse still waiting for its text shows its reference and a way to read i
   await expect(page.getByText(/appear here once it is fetched/)).toHaveCount(0);
 });
 
-test('story first: a new visitor chooses a view and the first scene plays, with no questions before it', async ({ page }) => {
+test('story first: a new visitor chooses a view, then where to start, with no questions before the first scene', async ({ page }) => {
   test.setTimeout(150000); // it waits for a scene's last moment to play out
   await page.goto('/');
+  await expect(page.getByRole('button', { name: /New here\? Take the short guide/ })).toBeVisible();
   await page.getByRole('button', { name: /Begin your journey/ }).click();
   await expect(page.getByRole('heading', { name: /how would you like to explore/ })).toBeVisible();
   await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
+  // a choice of where to start, never a scene that starts by itself
+  await expect(page.getByRole('heading', { name: 'Where would you like to start?' })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Take the short guide/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Look around on my own/ })).toBeVisible();
+  await expect(page.getByRole('switch', { name: /Sound for the stories/ })).toBeVisible();
+  await page.getByRole('button', { name: /Watch the first story/ }).click();
   await expect(page).toHaveURL(/#\/scene\/heavens\?first=1/);
   await expect(page.getByRole('radio')).toHaveCount(0);
   // the end of that first scene leads to the choice of where to go, not straight into more

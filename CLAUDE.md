@@ -76,8 +76,13 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   part: `watchFor`, `questions` [{q, options, answer, replay {scene, beat}}], `lesson` {text, curious, ref},
   `carry` {title, ref}, `reflect` {muslim, curious}, `act`. Verses by `ref` only, never typed; write "God".
   `npm run check` validates them. `src/lib/lessons.js` loads them; `src/components/Lesson.jsx` is
-  `#/lesson/<chapter>/<part>?then=<route>`, opened automatically at the end of a part not yet learned.
+  `#/lesson/<chapter>/<part>?then=<route>`, **offered** (never opened by itself) at the end of a part not yet learned:
+  "Take the short lesson" beside the way on, and hands-free play waits while it is offered. A lesson left there
+  waits on Progress ("Lessons waiting for you", `lessonsWaiting()` in pyramid.js: the part's last scene, read from
+  the scene file names, is `seen` and the lesson is not `learned`).
   "See the moment again" plays `#/scene/<id>?beat=n&back=<lesson>` and returns to the lesson.
+- A lesson (or a unit file) may carry `"see": { "label", "to" }`: one more door at its end (the Last Day unit and
+  chapter 21's lesson lead to the two abodes). Data only.
 - Progress: `learned`, `answers` and the private `journal` in `src/lib/store.js` (localStorage only).
   Every part with scenes (chapters 1–18 and 20–21, 55 parts) has a lesson; each `carry` is a short Quranic dua, by ref.
 
@@ -141,8 +146,9 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## Story first, paths and the sky (10 Nov 2026)
 
-- Story first: the start screen's "Begin your journey" goes to `#/begin` (choose a view; then `#/scene/heavens?first=1`
-  plays at once; `FIRST_STORY` in site.js). That first scene ends at `#/begin/next` (`Begun` in Pyramid.jsx): Keep
+- Story first: the start screen's "Begin your journey" goes to `#/begin` (choose a view; then "Where would you like to
+  start?": Watch the first story `#/scene/heavens?first=1` (`FIRST_STORY` in site.js), Take the short guide, or Look
+  around on my own, with the story sound switch beside them; nothing plays until chosen). That first scene ends at `#/begin/next` (`Begun` in Pyramid.jsx): Keep
   watching, or the reflection questions as an offer, a path, or the pyramid. The reflection is never forced first; the
   pyramid page still offers it.
 - Paths (`src/data/paths.json`, `Paths.jsx`, `#/paths`, `#/path/<id>`): new doors into existing scenes (women,
@@ -287,8 +293,30 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   Every Fire card carries the way back (39:53 and 25:70; 4:146 for al-Hawiyah). No people are drawn in either abode,
   and nothing (a score, an answer, "you") ever links a reader to a level. Never predict anyone's place.
 - The 100 grades of Paradise (blueprint §8) are shelved by the owner, not planned.
-- Doors in: the end page, the map's `judgment` stop (timeline.json `see`: { label, to }, a node's extra page,
-  shown under its scenes) and About. `tests/e2e/abodes.e2e.js` walks all three.
+- Doors in: the home page's links, the end page, the map's `judgment` stop (timeline.json `see`: { label, to }, a
+  node's extra page, shown under its scenes), the end of the Last Day unit and of chapter 21's lesson (`see`), the
+  guide and About. Doors out (its footer): the Day of Judgment story (`earth`..`sovereign` with `?back=/abodes`, whose
+  last moment says "Back to the two abodes"), the Last Day unit, and the map opened at that stop (`#/map?at=judgment`;
+  `?at=<node>` opens any stop's dossier). `tests/e2e/abodes.e2e.js` walks them.
+
+## Finding your way: the guide, tips and sounds (Nov 2026)
+
+- The owner's rule: never thrust a newcomer into anything; offer choices. Begin asks where to start, a part's end
+  offers its lesson, the guide ends with a choice, and auto-advance waits whenever a choice is on screen.
+- `#/guide?step=<id>` (`Guide.jsx`, `STEPS`: one place per step, its line, where it is, a way to open it; `spot`
+  rings that item of the real menu with `.guide-spot`). `?step=all` is every step on one page; the last step,
+  `start`, asks where to begin. Doors: the home page ("New here? Take the short guide" until the guide has been
+  opened, then a plain Guide link), Begin, the scene player's help, Settings ("Finding your way") and About.
+  Keep each step's `where` true when a place moves.
+- First-visit tips: `Hint.jsx` (`<Hint id>`: Got it, Show me around, No more tips), remembered in `prefs.hints`
+  (`dismissHint(id)`, `all` for every tip; the guide sets `guide`). Settings can turn them all back on. Place a
+  tip in the flow or over open sky, never over a page's own controls. The map has one today.
+- Tap sounds: `src/lib/taps.js` listens once for the whole app (main.jsx) and plays `ambience.tap(kind)`, a short
+  synthesized click (noise, no instrument). `data-tap="tap|primary|on|off"` names a control's click, `data-silent`
+  keeps one quiet; switches click on/off from their state before the press. Settings → Tap sounds (`prefs.taps`).
+- Ambient beds clear when leaving a scene (App.jsx), and the map keeps a soft wind of its own, so its Sound switch
+  (top right, its state written on it: "Sound on/off") is heard at once.
+- `tests/e2e/guide.e2e.js` walks the guide, the tips and the map's sound switch.
 
 ## WebGL scenes (`"renderer": "gl"`, from Chapter 4)
 

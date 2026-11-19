@@ -1,5 +1,6 @@
 {
   "id": "lastday",
+  "see": { "label": "The two abodes", "to": "/abodes" },
   "_note": "One unit = one lesson path in five steps. Write 'God' (the Muslim view shows 'Allah'). Verses by ref only (shown from src/data/ayahs.json); hadith by id only (shown from src/data/hadith.json). 'about' lines are our own words, never a translation.",
   "story": {
     "intro": {

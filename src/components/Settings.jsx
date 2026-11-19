@@ -167,8 +167,27 @@ export default function Settings() {
       {/* Watching */}
       <Section title="Watching">
         <Switch label="Ambient sound" hint="Wind, water, fire and crowds. No music." on={!!prefs.sound} onChange={toggleSound} />
+        <Switch label="Tap sounds" hint="A soft click when you press a button." on={prefs.taps !== false} onChange={(v) => setPref('taps', v)} />
         <Switch label="Play scenes automatically" hint="Otherwise each moment waits for you." on={prefs.auto !== false} onChange={(v) => setPref('auto', v)} />
         <Switch label="Show the chronicle captions" hint="The words of each scene, as they are spoken." on={prefs.chronicle !== false} onChange={(v) => setPref('chronicle', v)} />
+      </Section>
+
+      {/* Finding your way: the guide, and the first-visit tips */}
+      <Section title="Finding your way">
+        <div className="flex flex-wrap items-center gap-2">
+          <button type="button" className="hud-btn" onClick={() => go('/guide')}>
+            <Icon name="help" className="h-4 w-4" />
+            The short guide: what is where
+          </button>
+          <button
+            type="button"
+            className="hud-btn"
+            disabled={!Object.keys(prefs.hints || {}).length}
+            onClick={() => setPref('hints', {})}
+          >
+            {Object.keys(prefs.hints || {}).length ? 'Show the first-visit tips again' : 'The first-visit tips are on'}
+          </button>
+        </div>
       </Section>
 
       {/* On this device (web build only) */}

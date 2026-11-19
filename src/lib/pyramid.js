@@ -21,6 +21,14 @@ const WRITTEN = new Set(Object.keys(unitFiles).map((p) => p.split('/').pop().rep
 // How many scenes the chronicle has: the file names only, so the home page never downloads the story.
 const sceneFiles = import.meta.glob('../story/chapters/**/s*.json');
 export const SCENE_COUNT = Object.keys(sceneFiles).length;
+// A scene's file is named s<order>-<id>.json (the renumbering keeps it so), which gives each order its id
+// without opening a single scene.
+const sceneIdByOrder = Object.fromEntries(
+  Object.keys(sceneFiles)
+    .map((f) => f.match(/\/s(\d+)-([^/]+)\.json$/))
+    .filter(Boolean)
+    .map(([, order, id]) => [Number(order), id]),
+);
 
 export const LEVELS = structure.levels;
 export const UNITS = LEVELS.flatMap((l) => l.units.map((u) => ({ ...u, level: l.id })));
@@ -115,7 +123,15 @@ export function partName(key) {
 /** Every story part that has scenes, in story order: its lesson key and its name (for the Progress page's sky). */
 export const STORY_PARTS = [...chapters]
   .sort((a, b) => a.number - b.number)
-  .flatMap((c) => (c.parts || []).map((p, i) => ({ p, i })).filter(({ p }) => p.from !== undefined).map(({ i }) => ({ key: `${c.number}:${i}`, chapter: c.number, title: partName(`${c.number}:${i}`) })));
+  .flatMap((c) => (c.parts || []).map((p, i) => ({ p, i })).filter(({ p }) => p.from !== undefined).map(({ p, i }) => ({ key: `${c.number}:${i}`, chapter: c.number, title: partName(`${c.number}:${i}`), last: sceneIdByOrder[p.to] })));
+
+/**
+ * The story lessons waiting for the reader: the part has been watched to its last scene, and its lesson, which is
+ * only ever offered there, was left for later. Story order. Progress lists them, so a lesson passed by is never lost.
+ */
+export function lessonsWaiting(state) {
+  return STORY_PARTS.filter((p) => p.last && state.seen?.[p.last] && !state.learned?.[p.key]);
+}
 const historyMeter = (learned) => Math.round((100 * Object.keys(learned || {}).length) / Math.max(1, HISTORY_PARTS));
 
 /** Every unit's meter from saved state. */

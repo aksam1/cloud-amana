@@ -2,11 +2,12 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, animate, motion, useMotionTemplate, useMotionValue } from 'motion/react';
 import { buildWorld } from '../lib/mapWorld.js';
 import { chapterForNode, eraById, expandRef, ayah, nodeScenes, timeline } from '../lib/story.js';
-import { lightNode, useStore } from '../lib/store.js';
+import { lightNode, setPref, useStore } from '../lib/store.js';
 import { go } from '../lib/router.js';
 import { ambience } from '../lib/audio.js';
 import { clamp, roman } from '../lib/geo.js';
 import { Icon, Rule, starPath } from './Ornaments.jsx';
+import Hint from './Hint.jsx';
 
 const world = buildWorld(timeline);
 const ARABIC_FONT = '"Aref Ruqaa", Amiri, serif';
@@ -452,6 +453,11 @@ export default function CampaignMap({ query = {} }) {
   const [selected, setSelected] = useState(null);
   const [listOpen, setListOpen] = useState(false);
   const [arrival, setArrival] = useState(null);
+  const sound = !!store.prefs.sound;
+  const toggleSound = () => {
+    setPref('sound', !sound);
+    ambience.setEnabled(!sound);
+  };
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const k = useMotionValue(1);
@@ -541,6 +547,13 @@ export default function CampaignMap({ query = {} }) {
         setTimeout(() => setSelected(to.id), 3600),
       ];
       return () => timers.forEach(clearTimeout);
+    }
+    // #/map?at=<stop>: another page sending the reader to one stop (the two abodes to the Day of Judgment)
+    const at = world.byId[query.at];
+    if (at) {
+      flyTo(at.id, { instant: true, zoom: overview });
+      setSelected(at.id);
+      return undefined;
     }
     const last = store.last && world.nodes.find((n) => nodeScenes(n.id).some((s) => s.id === store.last));
     flyTo(last?.id || world.nodes[frontier]?.id || 'earth', { instant: true, zoom: overview });
@@ -719,6 +732,14 @@ export default function CampaignMap({ query = {} }) {
           <div className="font-display text-[1rem] font-semibold text-ink">The Chronicle of the Trust</div>
         </div>
         <div className="pointer-events-auto flex gap-2">
+          {/* Sound, with its state written on it (not an icon alone), on every screen size. */}
+          <button type="button" className="hud-btn" aria-pressed={sound} onClick={toggleSound} title="Ambient sound">
+            <Icon name={sound ? 'soundOn' : 'soundOff'} className="h-[18px] w-[18px]" />
+            <span>Sound</span>
+            <span className={sound ? 'text-gold-hi' : 'text-ivory/60'} aria-hidden="true">
+              {sound ? 'on' : 'off'}
+            </span>
+          </button>
           <button type="button" className="hud-btn" aria-pressed={listOpen} onClick={() => setListOpen((o) => !o)} aria-label="All events as a list">
             <Icon name="list" className="h-4 w-4" />
             <span className="hidden sm:inline">List</span>
@@ -766,6 +787,13 @@ export default function CampaignMap({ query = {} }) {
           );
         })}
       </nav>
+
+      {/* A first visit's pointer, over open sky below the top bar; it steps aside while anything is open. */}
+      {!sel && !listOpen && !query.arrive && (
+        <div className="pointer-events-auto absolute left-1/2 top-[68px] z-30 w-[min(88vw,420px)] -translate-x-1/2 sm:top-[92px]">
+          <Hint id="map">The map of time: the Creation at the top, the Last Day at the bottom. Tap a seal to see its stories. Sound is at the top right.</Hint>
+        </div>
+      )}
 
       <AnimatePresence>{sel && <Dossier n={sel} st={states[sel.id]} seen={store.seen} onClose={() => setSelected(null)} />}</AnimatePresence>
 

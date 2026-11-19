@@ -42,6 +42,9 @@ export default function About({ missing = false }) {
             <button type="button" className="hud-btn" onClick={() => go('/stories')}>
               Watch the stories
             </button>
+            <button type="button" className="hud-btn" onClick={() => go('/guide')}>
+              The short guide
+            </button>
           </div>
         </div>
       </Shell>
@@ -52,7 +55,13 @@ export default function About({ missing = false }) {
     <Shell here="about" back="/" title="About">
       <h1 className="font-display text-[1.9rem] font-semibold leading-tight text-gold-hi">About Amanah</h1>
       <P>{say('The stories of the prophets as Islam teaches them, each with one lesson. Free, private, no account, no adverts.')}</P>
-      <p className="mt-4 font-body text-[1rem] italic text-ivory/55">Tap a line to read more.</p>
+      <p className="mt-4 font-body text-[1rem] italic text-ivory/55">
+        Tap a line to read more. New here?{' '}
+        <a href="#/guide" onClick={(e) => { e.preventDefault(); go('/guide'); }} className="not-italic text-gold-hi underline decoration-gold/50 underline-offset-4">
+          The short guide
+        </a>{' '}
+        shows what is where.
+      </p>
 
       <More title="Where the words come from">
         <ul className="mt-2 list-disc space-y-2 pl-5 font-body text-[1.08rem] leading-snug text-ivory/85">

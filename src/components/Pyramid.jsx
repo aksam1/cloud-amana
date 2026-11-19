@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { savePlacement, useStore } from '../lib/store.js';
+import { savePlacement, setPref, useStore } from '../lib/store.js';
+import { ambience } from '../lib/audio.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { download, FIRST_STORY, share, shareMessage } from '../lib/site.js';
-import { climb, completed, DISCLAIMER, HISTORY_PARTS, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, SCENE_COUNT, STORY_PARTS, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
+import { climb, completed, DISCLAIMER, HISTORY_PARTS, lessonsWaiting, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, SCENE_COUNT, STORY_PARTS, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import InstallInvite from './InstallInvite.jsx';
@@ -39,7 +40,7 @@ export default function Pyramid({ view = 'landing' }) {
 
 // ── Shared pieces ─────────────────────────────────────────
 
-export function Shell({ children, back, title, stars = false, here, wide = false }) {
+export function Shell({ children, back, title, stars = false, here, wide = false, spot = null }) {
   return (
     <div className="thin-scroll relative h-full w-full overflow-y-auto" style={{ background: NIGHT }}>
       {stars && <Stars />}
@@ -50,7 +51,7 @@ export function Shell({ children, back, title, stars = false, here, wide = false
         </a>
         {here && (
           <div className="sm:w-[580px]">
-            <Nav here={here} />
+            <Nav here={here} spot={spot} />
           </div>
         )}
       </header>
@@ -187,6 +188,10 @@ function Home() {
       ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
       : { label: 'Begin your journey', href: '/begin', note: 'Free, private, no account.' };
   const button = allWatched && !resume ? done : cta;
+  // someone who has watched nothing and answered nothing yet is offered the short guide beside the main button,
+  // until they have opened it (the guide marks `hints.guide`); after that it is the plain Guide link like everyone's
+  const newcomer = !placed && !resume && !Object.keys(c.state.seen || {}).length && !c.state.prefs?.hints?.guide;
+  const link = 'min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4';
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-[#05060d]">
@@ -219,20 +224,34 @@ function Home() {
             {button.label}
           </button>
           <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none">{button.note}</p>
+          {newcomer && (
+            <button type="button" className="mt-1 flex min-h-[44px] items-center gap-2 rounded-full border border-gold/40 bg-black/40 px-4 font-body text-[1.08rem] text-ivory hover:border-gold-hi short:mt-0" onClick={() => go('/guide')}>
+              <Icon name="help" className="h-4 w-4 text-gold-hi" />
+              New here? Take the short guide
+            </button>
+          )}
           <div className="mt-3 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0 tiny:mt-1 tiny:gap-x-4 tiny:text-[1rem]">
-            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/stories')}>
+            <button type="button" className={link} onClick={() => go('/stories')}>
               Watch the stories
             </button>
-            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/paths')}>
+            <button type="button" className={link} onClick={() => go('/paths')}>
               Paths
             </button>
-            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/pyramid')}>
+            <button type="button" className={link} onClick={() => go('/pyramid')}>
               See the pyramid
             </button>
-            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/settings')}>
+            <button type="button" className={link} onClick={() => go('/abodes')}>
+              The two abodes
+            </button>
+            {!newcomer && (
+              <button type="button" className={link} onClick={() => go('/guide')}>
+                Guide
+              </button>
+            )}
+            <button type="button" className={link} onClick={() => go('/settings')}>
               Settings
             </button>
-            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/about')}>
+            <button type="button" className={link} onClick={() => go('/about')}>
               About
             </button>
           </div>
@@ -244,22 +263,72 @@ function Home() {
   );
 }
 
+// A way-in card: a title and one line, the whole card is the button.
+const WAY = 'w-full rounded-xl border border-gold/35 bg-black/30 px-4 py-3 text-left transition-colors hover:border-gold-hi';
+
+function Way({ title, line, onClick, main = false, autoFocus = false }) {
+  return (
+    <button type="button" className={`${WAY} ${main ? 'border-gold-hi/70 bg-[#3c2a12]/55' : ''}`} onClick={onClick} autoFocus={autoFocus} data-tap={main ? 'primary' : undefined}>
+      <span className="flex items-center gap-2 font-body text-[1.2rem] font-semibold text-gold-hi">
+        {main && <Icon name="play" className="h-4 w-4" />}
+        {title}
+      </span>
+      <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">{line}</span>
+    </button>
+  );
+}
+
+/** The ambient sound as a plain switch, for the pages before a story (the scenes have their own). */
+export function SoundChoice({ label = 'Sound for the stories' }) {
+  const on = useStore((s) => !!s.prefs.sound);
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={on}
+      aria-label={label}
+      onClick={() => {
+        setPref('sound', !on);
+        ambience.setEnabled(!on);
+      }}
+      className="flex min-h-[44px] items-center gap-2 font-body text-[1.05rem] text-ivory/80 hover:text-ivory"
+    >
+      <Icon name={on ? 'soundOn' : 'soundOff'} className="h-[18px] w-[18px] text-gold-hi" />
+      {label}: <span className={on ? 'text-gold-hi' : 'text-ivory/60'}>{on ? 'on' : 'off'}</span>
+    </button>
+  );
+}
+
 /**
- * Story first. A new visitor chooses a view, and the first scene of the story plays at once: no questions
- * stand between them and it. (#/begin)
+ * Story first, at the reader's own pace (#/begin). A new visitor chooses a view; then, on the same page, where
+ * to start: the first story (the main choice, one tap away), the short guide, or the map on their own. Nothing
+ * plays until they choose, and no questions stand between them and the story.
  */
 function Begin() {
   const { mode } = useMode();
-  useEffect(() => {
-    if (mode) window.location.replace(`#/scene/${FIRST_STORY}?first=1`);
-  }, [mode]);
-  if (mode) return null;
+  if (!mode) {
+    return (
+      <Shell back="/" title="Begin">
+        <h1 className="mt-6 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">First, how would you like to explore?</h1>
+        <p className="mt-1 font-body text-[1.1rem] text-ivory/70">Only the wording changes. You can switch at any time.</p>
+        <div className="mt-5">
+          <ModePicker full />
+        </div>
+      </Shell>
+    );
+  }
   return (
     <Shell back="/" title="Begin">
-      <h1 className="mt-6 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">First, how would you like to explore?</h1>
-      <p className="mt-1 font-body text-[1.1rem] text-ivory/70">Only the wording changes. You can switch at any time.</p>
-      <div className="mt-5">
-        <ModePicker full />
+      <h1 className="mt-6 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">Where would you like to start?</h1>
+      <p className="mt-1 font-body text-[1.1rem] text-ivory/70">Choose one. The others stay here for later.</p>
+      <div className="mt-5 grid gap-3">
+        <Way main autoFocus title="Watch the first story" line="The beginning of everything, in about a minute." onClick={() => go(`/scene/${FIRST_STORY}?first=1`)} />
+        <Way title="Take the short guide" line="What is where, one step at a time." onClick={() => go('/guide')} />
+        <Way title="Look around on my own" line="Start from the map of time." onClick={() => go('/map')} />
+      </div>
+      <div className="mt-4 flex flex-wrap items-center gap-x-6">
+        <SoundChoice />
+        <ModePicker />
       </div>
     </Shell>
   );
@@ -269,7 +338,7 @@ function Begin() {
 function Begun() {
   const { mode } = useMode();
   const n = placementQuestions(pathOf(mode)).length;
-  const way = 'w-full rounded-xl border border-gold/35 bg-black/30 px-4 py-3 text-left transition-colors hover:border-gold-hi';
+  const way = WAY;
   return (
     <Shell here="home" back="/" title="Your first story">
       <h1 className="mt-4 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">That was the first minute</h1>
@@ -291,6 +360,10 @@ function Begun() {
         <button type="button" className={way} onClick={() => go('/pyramid')}>
           <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">See the pyramid</span>
           <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">Three levels of faith.</span>
+        </button>
+        <button type="button" className={way} onClick={() => go('/guide')}>
+          <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">Take the short guide</span>
+          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">What is where, one step at a time.</span>
         </button>
       </div>
       <Disclaimer />
@@ -915,6 +988,43 @@ function Result() {
 
 // ── Progress ──────────────────────────────────────────────
 
+/**
+ * Story lessons left for later. A lesson is only offered when its part ends, so one passed by would otherwise be
+ * lost: they wait here, the first three shown, and each opens its lesson and comes back here. Nothing when none wait.
+ */
+function Waiting({ state }) {
+  const [all, setAll] = useState(false);
+  const waiting = lessonsWaiting(state);
+  if (!waiting.length) return null;
+  const shown = all ? waiting : waiting.slice(0, 3);
+  return (
+    <section className="mt-8 rounded-2xl border border-gold/25 bg-black/30 p-5" aria-labelledby="waiting-h">
+      <h2 id="waiting-h" className="font-body text-[1.35rem] font-semibold text-gold-hi">
+        Lessons waiting for you
+      </h2>
+      <p className="font-body text-[1.02rem] italic text-ivory/60">From stories you have watched to the end.</p>
+      <ul className="mt-2 divide-y divide-gold/10">
+        {shown.map((p) => (
+          <li key={p.key}>
+            <a
+              href={`#/lesson/${p.key.split(':')[0]}/${p.key.split(':')[1]}?then=${encodeURIComponent('/pyramid/progress')}`}
+              className="flex min-h-[48px] items-center justify-between gap-3 font-body text-[1.05rem] text-ivory/85 hover:text-gold-hi"
+            >
+              <span>{p.title}</span>
+              <span className="shrink-0 italic text-gold-hi/85">Take it</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {waiting.length > 3 && (
+        <button type="button" className="mt-1 inline-flex min-h-[44px] items-center font-body text-[1.02rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" aria-expanded={all} onClick={() => setAll((v) => !v)}>
+          {all ? 'Show fewer' : `Show ${waiting.length - 3} more`}
+        </button>
+      )}
+    </section>
+  );
+}
+
 function Progress() {
   const c = useClimb();
   const say = useSay();
@@ -962,6 +1072,8 @@ function Progress() {
           </p>
         </section>
       </div>
+
+      <Waiting state={c.state} />
 
       <section className="mt-8" aria-labelledby="sky-h">
         <h2 id="sky-h" className="font-body text-[1.35rem] font-semibold text-gold-hi">

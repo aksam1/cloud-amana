@@ -93,7 +93,7 @@ export default function Unit({ id, step: startStep }) {
     setResult({ meter, right, total: q.length });
   };
 
-  if (result) return <Done u={u} result={result} mode={mode} />;
+  if (result) return <Done u={u} result={result} mode={mode} see={data?.see} />;
 
   return (
     <Frame id={id}>
@@ -466,7 +466,7 @@ function Reflection({ id, data, v, say, setReflected, onFinish }) {
 }
 
 // The stone's meter after a unit, and where to go next.
-function Done({ u, result, mode }) {
+function Done({ u, result, mode, see }) {
   const state = useStore();
   const best = Math.max(state.units[u.id]?.meter ?? 0, result.meter);
   const earlierBest = best > result.meter;
@@ -519,6 +519,14 @@ function Done({ u, result, mode }) {
           Back to the pyramid
         </button>
       </div>
+      {/* a page that goes further on this lesson's subject (the unit file's `see`: { label, to }) */}
+      {see && (
+        <div className="mt-2 flex justify-end">
+          <button type="button" className="btn-ink" onClick={() => go(see.to)}>
+            {see.label}
+          </button>
+        </div>
+      )}
       <div className="mt-2 flex flex-wrap items-center justify-end gap-x-3">
         {note && (
           <span role="status" className="font-body text-[0.98rem] italic text-ink-soft">

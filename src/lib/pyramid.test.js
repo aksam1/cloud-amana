@@ -110,4 +110,16 @@ describe('the story meter and the next lesson', () => {
     const learned = Object.fromEntries(Array.from({ length: 500 }, (_, i) => [`x:${i}`, true]));
     expect(nextUnit({ units: all, learned }, first)).toBe(null);
   });
+
+  it('keeps a story lesson that was passed by waiting, once its part has been watched to the end', async () => {
+    const { lessonsWaiting, STORY_PARTS } = await import('./pyramid.js');
+    // every part knows its last scene from the file names alone
+    expect(STORY_PARTS.every((p) => typeof p.last === 'string' && p.last.length > 0)).toBe(true);
+    const judgment = STORY_PARTS.find((p) => p.key === '21:0');
+    expect(judgment.last).toBe('sovereign');
+    expect(lessonsWaiting({ seen: {}, learned: {} })).toEqual([]);
+    expect(lessonsWaiting({ seen: { earth: true }, learned: {} })).toEqual([]); // the part is not over yet
+    expect(lessonsWaiting({ seen: { sovereign: true }, learned: {} }).map((p) => p.key)).toEqual(['21:0']);
+    expect(lessonsWaiting({ seen: { sovereign: true }, learned: { '21:0': true } })).toEqual([]);
+  });
 });

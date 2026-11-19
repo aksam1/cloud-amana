@@ -90,6 +90,31 @@ test('the end of the chronicle, the map\'s last stop and the About page all lead
   await expect(page.getByRole('heading', { name: 'The two abodes' })).toBeVisible();
 });
 
+test('the two abodes lead on: the Day of Judgment and back, the Last Day lesson, and the map\'s last stop', async ({ page }) => {
+  test.setTimeout(90000);
+  await page.goto('/#/');
+  await page.getByRole('button', { name: 'The two abodes' }).click();
+  await expect(page).toHaveURL(/#\/abodes$/);
+
+  await page.getByRole('button', { name: 'Watch the Day of Judgment' }).click();
+  await expect(page).toHaveURL(/#\/scene\/earth\?back=%2Fabodes&until=sovereign$/);
+
+  // the story's last moment offers the way back to the page it was opened from
+  await page.goto('/#/scene/sovereign?back=%2Fabodes&until=sovereign&beat=2');
+  const back = page.getByRole('button', { name: 'Back to the two abodes' });
+  await expect(back).toBeVisible({ timeout: 45000 });
+  await back.click();
+  await expect(page).toHaveURL(/#\/abodes$/);
+
+  await page.getByRole('button', { name: 'Belief in the Last Day' }).click();
+  await expect(page).toHaveURL(/#\/unit\/lastday/);
+
+  await page.goto('/#/abodes');
+  await page.getByRole('button', { name: 'The map', exact: true }).click();
+  await expect(page).toHaveURL(/#\/map\?at=judgment$/);
+  await expect(page.getByRole('complementary', { name: 'The Day of Judgment' })).toBeVisible();
+});
+
 test.describe('with reduced motion', () => {
   test.use({ reducedMotion: 'reduce' });
 

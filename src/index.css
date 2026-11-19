@@ -268,6 +268,15 @@ body {
   to { transform: scaleX(1); }
 }
 
+/* The guide's pointer: a menu item ringed in light, breathing slowly (still, with reduced motion). */
+.guide-spot {
+  box-shadow: 0 0 0 2px #e2bb68, 0 0 18px 2px rgb(226 187 104 / 0.45);
+  animation: guide-spot 2.4s ease-in-out infinite;
+}
+@keyframes guide-spot {
+  50% { box-shadow: 0 0 0 2px #f3d48c, 0 0 28px 6px rgb(226 187 104 / 0.6); }
+}
+
 /* Arabic revealed right-to-left, the way the pen moves */
 .ink-reveal {
   -webkit-mask-image: linear-gradient(to left, #000 0 44%, transparent 56% 100%);
@@ -469,7 +478,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .twinkle, .flicker, .flame, .bob, .drift, .sway, .spin, .breathe,
-  .rise-fade, .smoke, .shake, .halo-pulse, .wiggle, .shimmer, .flutter, .gait, .flap {
+  .rise-fade, .smoke, .shake, .halo-pulse, .wiggle, .shimmer, .flutter, .gait, .flap, .guide-spot {
     animation: none !important;
   }
   .ink-reveal, .brush-reveal {

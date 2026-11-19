@@ -12,9 +12,9 @@ const ITEMS = [
 /**
  * The one menu every page shares. On a phone it is a tab bar along the bottom edge, where a thumb reaches
  * it (pages leave `pb-28` free for it); from the `sm` breakpoint up it sits inline where it is placed.
- * `here` marks the current section.
+ * `here` marks the current section. `spot` rings one item in light: the guide uses it to show where a place is.
  */
-export default function Nav({ here, tone = 'night' }) {
+export default function Nav({ here, tone = 'night', spot = null }) {
   const ink = tone === 'parchment';
   return (
     <nav
@@ -28,8 +28,9 @@ export default function Nav({ here, tone = 'night' }) {
       >
         {ITEMS.map((it) => {
           const on = it.id === here;
+          const lit = it.id === spot;
           return (
-            <li key={it.id} className="flex-1">
+            <li key={it.id} className={`flex-1 rounded-full ${lit ? 'guide-spot' : ''}`}>
               <a
                 href={`#${it.to}`}
                 onClick={(e) => {

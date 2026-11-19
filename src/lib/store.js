@@ -16,7 +16,9 @@ const DEFAULTS = {
   units: {}, // unitId → { meter, check, choice, reflection, attempts, at }
   drafts: {}, // unitId → an unfinished attempt { step, choice, firsts, at }, so leaving never loses a place
   recent: null, // the last thing opened, for "Continue where you left off": { kind: 'unit'|'scene', id, title, at }
-  prefs: { sound: false, auto: true, chronicle: true, mode: null, installAsked: false }, // mode: 'muslim' | 'curious' | null (not chosen)
+  // mode: 'muslim' | 'curious' | null (not chosen); taps: the soft click on buttons; hints: the first-visit
+  // pointers a reader has closed (hintId → true), so each one shows once
+  prefs: { sound: false, auto: true, chronicle: true, mode: null, installAsked: false, taps: true, hints: {} },
 };
 
 function load() {
@@ -58,6 +60,8 @@ export function useStore(select = (s) => s) {
 
 export const setPref = (k, v) => update((s) => void (s.prefs[k] = v));
 export const markSeen = (id) => update((s) => void (s.seen[id] = true));
+/** Close a first-visit pointer for good ('all' closes every one, as "Don't show tips" does). */
+export const dismissHint = (id) => update((s) => void (s.prefs.hints = { ...(s.prefs.hints || {}), [id]: true }));
 export const lightNode = (id) => update((s) => void (s.lit[id] = true));
 export const setLast = (id, title) =>
   update((s) => {

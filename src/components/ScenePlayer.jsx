@@ -152,6 +152,17 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
     else finish();
   }, [beat, last, finish]);
 
+  // Where the story goes on from here, when it is not playing for a lesson, a unit or a path. The last scene of
+  // the chronicle leads to the closing page, not back to the map.
+  const onward = useMemo(() => {
+    const crossesNode = !next || next.node !== scene.node;
+    return !next ? '/end' : scene.then === 'map' ? `/map?from=${scene.node}&arrive=${crossesNode && next ? next.node : nextNodeId(scene.node)}` : `/scene/${next.id}`;
+  }, [scene, next]);
+  // The end of a part with a lesson not yet taken: the lesson is offered beside the way on, never forced. The reader
+  // chooses; an unread lesson waits on Progress.
+  const lessonPart = first || back ? null : lessonAfter(scene);
+  const lessonWaiting = lessonPart !== null && !learned[lessonKey(scene.chapter, lessonPart)];
+
   const continueOn = useCallback(() => {
     markSeen(scene.id);
     // played from a lesson or a pyramid unit: go back there, at once or (with ?until=<scene>) once that
@@ -162,22 +173,23 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
       if (!until || scene.id === until || !next) return go(back);
       return go(`/scene/${next.id}?back=${encodeURIComponent(back)}&until=${until}`);
     }
-    const crossesNode = !next || next.node !== scene.node;
-    // the last scene of the chronicle leads to the closing page, not back to the map
-    const target = !next ? '/end' : scene.then === 'map' ? `/map?from=${scene.node}&arrive=${crossesNode && next ? next.node : nextNodeId(scene.node)}` : `/scene/${next.id}`;
-    // the end of a part with a lesson goes to the lesson first; the lesson then continues to `target`
-    const part = lessonAfter(scene);
-    if (part !== null && !learned[lessonKey(scene.chapter, part)]) go(`/lesson/${scene.chapter}/${part}?then=${encodeURIComponent(target)}`);
-    else go(target);
-  }, [scene, next, back, until, learned, first]);
+    go(onward);
+  }, [scene, next, back, until, first, onward]);
+
+  // The lesson, which then continues to where the story goes on.
+  const takeLesson = useCallback(() => {
+    markSeen(scene.id);
+    go(`/lesson/${scene.chapter}/${lessonPart}?then=${encodeURIComponent(onward)}`);
+  }, [scene, lessonPart, onward]);
 
   // A part's last scene flows straight into the map ("the camera pulls back into the campaign map")
-  // when the viewer is watching hands-free; in manual mode the Continue button waits for them.
+  // when the viewer is watching hands-free; in manual mode the Continue button waits for them. When a lesson is
+  // waiting it waits too: the reader chooses between the lesson and the map.
   useEffect(() => {
-    if (!ended || scene.then !== 'map' || !prefs.auto) return undefined;
+    if (!ended || scene.then !== 'map' || !prefs.auto || lessonWaiting) return undefined;
     const t = setTimeout(continueOn, 700);
     return () => clearTimeout(t);
-  }, [ended, scene.then, prefs.auto, continueOn]);
+  }, [ended, scene.then, prefs.auto, lessonWaiting, continueOn]);
 
   const goNext = useCallback(() => {
     if (ended) continueOn();
@@ -264,7 +276,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   const frozen = !playing || ayahOpen || help || bridge;
   const relatedUnit = !back && (!next || next.chapter !== scene.chapter) ? unitForChapter(scene.chapter) : null;
   const related = relatedUnit && unitStatus(relatedUnit.id) === 'ready' ? relatedUnit : null; // only units with a lesson path yet
-  const nextLabel = first ? 'Continue' : back ? (until && scene.id !== until && next ? `${roman(next.order)}. ${next.title}` : back.startsWith('/path') ? 'Back to the path' : 'Back to the lesson') : !next ? 'The end of the chronicle' : scene.then === 'map' ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `${roman(next.order)}. ${next.title}`;
+  const nextLabel = first ? 'Continue' : back ? (until && scene.id !== until && next ? `${roman(next.order)}. ${next.title}` : back.startsWith('/path') ? 'Back to the path' : back === '/abodes' ? 'Back to the two abodes' : 'Back to the lesson') : !next ? 'The end of the chronicle' : scene.then === 'map' ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `${roman(next.order)}. ${next.title}`;
 
   return (
     <div className="relative h-full w-full select-none overflow-hidden bg-night">
@@ -350,8 +362,12 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
           <button type="button" className="hud-btn icon" aria-pressed={prefs.auto} onClick={toggleAuto} aria-label={prefs.auto ? 'Auto-advance is on' : 'Auto-advance is off'} title="Auto-advance">
             <Icon name="auto" className="h-[18px] w-[18px]" />
           </button>
-          <button type="button" className="hud-btn icon" aria-pressed={prefs.sound} onClick={toggleSound} aria-label={prefs.sound ? 'Turn ambient sound off (S)' : 'Turn ambient sound on (S)'} title="Ambient sound">
+          {/* The name stays "Sound" (pressed or not), so a voice command that reads the button still finds it. */}
+          <button type="button" className="hud-btn icon sm:w-auto sm:px-4" aria-pressed={!!prefs.sound} onClick={toggleSound} aria-label="Sound" aria-keyshortcuts="S" title="Ambient sound (S)">
             <Icon name={prefs.sound ? 'soundOn' : 'soundOff'} className="h-[18px] w-[18px]" />
+            <span className="hidden sm:inline" aria-hidden="true">
+              {prefs.sound ? 'Sound on' : 'Sound off'}
+            </span>
           </button>
           <button type="button" className="hud-btn icon hidden sm:inline-flex" onClick={() => setHelp(true)} aria-label="Keyboard shortcuts (?)">
             <Icon name="help" className="h-[18px] w-[18px]" />
@@ -364,8 +380,14 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
       {/* Transport */}
       <div className="pointer-events-none absolute bottom-0 right-0 z-30 flex w-full flex-col items-stretch gap-2 p-3 sm:w-auto sm:items-end sm:p-6 short:max-w-[46vw] short:p-2">
         <AnimatePresence>
+          {ended && lessonWaiting && (
+            <motion.button key="lesson" type="button" className="btn-gold pointer-events-auto self-end" onClick={takeLesson} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} autoFocus>
+              <Icon name="book" className="h-4 w-4" />
+              <span className="max-w-[62vw] truncate sm:max-w-[340px]">Take the short lesson</span>
+            </motion.button>
+          )}
           {ended && (
-            <motion.button key="continue" type="button" className="btn-gold pointer-events-auto self-end" onClick={continueOn} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} autoFocus>
+            <motion.button key="continue" type="button" className={`${lessonWaiting ? 'hud-btn' : 'btn-gold'} pointer-events-auto self-end`} onClick={continueOn} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} autoFocus={!lessonWaiting}>
               <span className="max-w-[62vw] truncate sm:max-w-[340px]">{nextLabel}</span>
               <Icon name="next" className="h-4 w-4" />
             </motion.button>
@@ -438,6 +460,16 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
               </dl>
               <button type="button" className="btn-ink mt-5" onClick={() => setHelp(false)}>
                 Close
+              </button>
+              <button
+                type="button"
+                className="mt-3 block min-h-[44px] font-body text-[1rem] text-ink-soft underline decoration-[#8a6a4e] underline-offset-4"
+                onClick={() => {
+                  setHelp(false);
+                  go('/guide');
+                }}
+              >
+                The short guide: what is where
               </button>
               {IS_WEB && (
                 <button
