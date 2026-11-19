@@ -1,5 +1,5 @@
 {
-  "_note": "Every hadith shown in the app comes from this file by id, never typed into a unit (like verses from ayahs.json). status 'draft' means the English wording has not yet been checked word for word against a verified translation and by a scholar: the app labels it as awaiting review, and npm run check warns. Set status to 'reviewed' (and fill reviewedBy) only after that check. Arabic is added only from a verified source. Only sahih hadith are used (the owner's rule, 10 Nov 2026): `grade` must begin with \"Sahih\" and npm run check rejects anything else. Bukhari and Muslim are sahih by their collection; for any other collection `gradedBy` names who graded it sahih and `gradeNote` records other gradings for the reviewer. Tirmidhi 2517 (\"tie it and rely upon Allah\") was removed: it is graded hasan, and Yahya al-Qattan called it munkar.",
+  "_note": "Every hadith shown in the app comes from this file by id, never typed into a unit (like verses from ayahs.json). status 'draft' means the English wording has not yet been checked word for word against a verified translation and by a scholar: the app labels it as awaiting review, and npm run check warns. `checked` records a check that is not a scholar's: on 18 Nov 2026 every reference was confirmed to point to the right hadith and every wording to keep the meaning of the English on sunnah.com (which the hadith-api dataset reproduces, and the two agree). Bukhari 6018 was put back in its own order then. That check does not make a hadith 'reviewed'. Set status to 'reviewed' (and fill reviewedBy) only after that check. Arabic is added only from a verified source. Only sahih hadith are used (the owner's rule, 10 Nov 2026): `grade` must begin with \"Sahih\" and npm run check rejects anything else. Bukhari and Muslim are sahih by their collection; for any other collection `gradedBy` names who graded it sahih and `gradeNote` records other gradings for the reviewer. Tirmidhi 2517 (\"tie it and rely upon Allah\") was removed: it is graded hasan, and Yahya al-Qattan called it munkar.",
   "muslim-2999": {
     "collection": "Sahih Muslim",
     "number": "2999",
@@ -7,7 +7,12 @@
     "en": "How wonderful is the affair of the believer, for all of it is good, and that is for no one except the believer. If something good happens to him, he is thankful, and that is good for him. If something harmful befalls him, he is patient, and that is good for him.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-1283": {
     "collection": "Sahih al-Bukhari",
@@ -18,7 +23,12 @@
     "en": "Patience is at the first strike of a calamity.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-8-islam": {
     "collection": "Sahih Muslim",
@@ -28,7 +38,12 @@
     "en": "Islam is to testify that there is no god but Allah and that Muhammad is the Messenger of Allah, to establish the prayer, to give the zakat, to fast in Ramadan, and to make the pilgrimage to the House if you are able to find a way.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-8-iman": {
     "collection": "Sahih Muslim",
@@ -38,7 +53,12 @@
     "en": "It is to believe in Allah, His angels, His books, His messengers and the Last Day, and to believe in the decree, its good and its bad.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-8-ihsan": {
     "collection": "Sahih Muslim",
@@ -48,7 +68,12 @@
     "en": "It is to worship Allah as though you see Him, and though you do not see Him, He sees you.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-8": {
     "collection": "Sahih al-Bukhari",
@@ -58,7 +83,12 @@
     "en": "Islam is built upon five: testifying that there is no god but Allah and that Muhammad is the Messenger of Allah, establishing the prayer, giving the zakat, the pilgrimage, and fasting in Ramadan.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-1": {
     "collection": "Sahih al-Bukhari",
@@ -68,7 +98,12 @@
     "en": "Actions are only by intentions, and every person will have only what they intended.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-2564": {
     "collection": "Sahih Muslim",
@@ -77,7 +112,12 @@
     "en": "Allah does not look at your appearance or your wealth, but He looks at your hearts and your deeds.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-528": {
     "collection": "Sahih al-Bukhari",
@@ -87,7 +127,12 @@
     "en": "Tell me, if there were a river at the door of one of you and he bathed in it five times every day, would any dirt remain on him? They said: No dirt would remain on him. He said: That is the likeness of the five prayers; by them Allah wipes away sins.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-6464": {
     "collection": "Sahih al-Bukhari",
@@ -97,7 +142,57 @@
     "en": "The most beloved of deeds to Allah are those done consistently, even if they are few.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
+  },
+  "bukhari-6463": {
+    "collection": "Sahih al-Bukhari",
+    "number": "6463",
+    "also": "Sahih Muslim 2816",
+    "narrator": "Abu Hurayrah",
+    "en": "No one's deeds alone will save him. They asked, Not even you, Messenger of Allah? He said: Not even me, unless Allah covers me with His mercy. So do good, keep to what is right and moderate, worship in the morning, the evening and part of the night, and keep to the middle way: you will reach the goal.",
+    "status": "draft",
+    "reviewedBy": null,
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
+  },
+  "bukhari-7423": {
+    "collection": "Sahih al-Bukhari",
+    "number": "7423",
+    "also": "Sahih al-Bukhari 2790",
+    "narrator": "Abu Hurayrah",
+    "en": "When you ask Allah, ask Him for al-Firdaus, for it is the middle of Paradise and its highest part. Above it is the Throne of the Most Merciful, and from it the rivers of Paradise gush forth.",
+    "status": "draft",
+    "reviewedBy": null,
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), the Arabic of the hadith-api dataset, and Bukhari 2790",
+      "result": "Reference and meaning match; this is the end of a longer hadith. In 2790 the sub-narrator adds 'I think' before the Throne sentence, while 7423 states it plainly, so 7423 is the one cited. The wording here is a plainer rendering, not that translation word for word."
+    }
+  },
+  "bukhari-806": {
+    "collection": "Sahih al-Bukhari",
+    "number": "806",
+    "also": "Sahih Muslim 182",
+    "narrator": "Abu Hurayrah",
+    "en": "The bridge will be laid across Hell. No one will speak that day except the messengers, and their call will be: O Allah, keep safe, keep safe.",
+    "status": "draft",
+    "reviewedBy": null,
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match; this is one part of a long hadith about the Day of Resurrection. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-2588": {
     "collection": "Sahih Muslim",
@@ -106,7 +201,12 @@
     "en": "Charity does not decrease wealth. Allah increases a servant in honour when he forgives, and no one humbles himself for the sake of Allah except that Allah raises him.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-38": {
     "collection": "Sahih al-Bukhari",
@@ -116,7 +216,12 @@
     "en": "Whoever fasts Ramadan out of faith and hoping for its reward, his past sins are forgiven.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-1903": {
     "collection": "Sahih al-Bukhari",
@@ -125,7 +230,12 @@
     "en": "Whoever does not give up false speech and acting upon it, Allah has no need of his giving up his food and drink.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-1521": {
     "collection": "Sahih al-Bukhari",
@@ -135,7 +245,12 @@
     "en": "Whoever performs the pilgrimage for Allah and does not speak obscenely or do wrong returns like the day his mother gave birth to him.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-2856": {
     "collection": "Sahih al-Bukhari",
@@ -146,7 +261,12 @@
     "en": "Do you know what Allah's right over His servants is? It is that they worship Him and associate nothing with Him.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-2996": {
     "collection": "Sahih Muslim",
@@ -155,7 +275,12 @@
     "en": "The angels were created from light, the jinn were created from a smokeless flame of fire, and Adam was created from what has been described to you.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-3443": {
     "collection": "Sahih al-Bukhari",
@@ -165,17 +290,27 @@
     "en": "The prophets are brothers from one father: their mothers are different, and their religion is one.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-6018": {
     "collection": "Sahih al-Bukhari",
     "number": "6018",
     "also": "Sahih Muslim 47",
     "narrator": "Abu Hurayrah",
-    "en": "Whoever believes in Allah and the Last Day, let him say what is good or keep silent. Whoever believes in Allah and the Last Day, let him not harm his neighbour. Whoever believes in Allah and the Last Day, let him honour his guest.",
+    "en": "Whoever believes in Allah and the Last Day, let him not harm his neighbour. Whoever believes in Allah and the Last Day, let him honour his guest. Whoever believes in Allah and the Last Day, let him say what is good or keep silent.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-2664": {
     "collection": "Sahih Muslim",
@@ -184,7 +319,12 @@
     "en": "The strong believer is better and more beloved to Allah than the weak believer, and in both there is good. Strive for what benefits you, seek help from Allah, and do not give up. If something befalls you, do not say, 'If only I had done such and such,' but say, 'Allah has decreed, and what He wills He does,' for 'if only' opens the door to the work of Satan.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "tirmidhi-2516": {
     "collection": "Jami' al-Tirmidhi",
@@ -196,7 +336,12 @@
     "reviewedBy": null,
     "grade": "Sahih",
     "gradedBy": "al-Albani and Ahmad Shakir",
-    "gradeNote": "Al-Tirmidhi: hasan sahih. The Darussalam edition grades it hasan."
+    "gradeNote": "Al-Tirmidhi: hasan sahih. The Darussalam edition grades it hasan.",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abu Khaliyl (Darussalam)), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "tirmidhi-2344": {
     "collection": "Jami' al-Tirmidhi",
@@ -208,7 +353,12 @@
     "reviewedBy": null,
     "grade": "Sahih",
     "gradedBy": "al-Albani and Ahmad Shakir",
-    "gradeNote": "Al-Tirmidhi: hasan sahih. The Darussalam edition grades it hasan."
+    "gradeNote": "Al-Tirmidhi: hasan sahih. The Darussalam edition grades it hasan.",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abu Khaliyl (Darussalam)), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-2963": {
     "collection": "Sahih Muslim",
@@ -218,7 +368,12 @@
     "en": "Look at those who are below you and do not look at those who are above you, for that is more fitting, so that you do not belittle the blessings of Allah upon you.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "abudawud-4811": {
     "collection": "Sunan Abi Dawud",
@@ -229,7 +384,12 @@
     "status": "draft",
     "reviewedBy": null,
     "grade": "Sahih",
-    "gradedBy": "al-Albani"
+    "gradedBy": "al-Albani",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Ahmad Hasan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-2865": {
     "collection": "Sahih Muslim",
@@ -238,7 +398,12 @@
     "en": "Allah has revealed to me that you should be humble, so that no one boasts over another and no one wrongs another.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-6035": {
     "collection": "Sahih al-Bukhari",
@@ -248,7 +413,12 @@
     "en": "The best of you are those who are best in character.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "muslim-2553": {
     "collection": "Sahih Muslim",
@@ -257,7 +427,12 @@
     "en": "Righteousness is good character, and sin is what wavers in your heart and you would dislike people to find out about.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (Abdul Hamid Siddiqui), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-6114": {
     "collection": "Sahih al-Bukhari",
@@ -267,7 +442,12 @@
     "en": "The strong one is not the one who overpowers others in wrestling; the strong one is the one who controls himself when angry.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   },
   "bukhari-13": {
     "collection": "Sahih al-Bukhari",
@@ -277,6 +457,11 @@
     "en": "None of you truly believes until he loves for his brother what he loves for himself.",
     "status": "draft",
     "reviewedBy": null,
-    "grade": "Sahih"
+    "grade": "Sahih",
+    "checked": {
+      "on": "2026-11-18",
+      "against": "the English on sunnah.com (M. Muhsin Khan), and the hadith-api dataset that reproduces it",
+      "result": "Reference and meaning match. The wording here is a plainer rendering, not that translation word for word."
+    }
   }
 }

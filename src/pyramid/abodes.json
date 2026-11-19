@@ -1,0 +1,415 @@
+{
+  "_note": "The Two Abodes page (#/abodes). Plan and rules: docs/ABODES-BLUEPRINT.md. Every verse is shown from src/data/ayahs.json by ref and every hadith from src/data/hadith.json by id; the lines here are our plain wording only. Never place the reader or anyone on a level. The Fire's punishment is told only by its verses, as text: the picture stays dark stone. src/lib/abodes.test.js checks these rules.",
+  "title": "The two abodes",
+  "sub": "What the Quran says about Paradise and the Fire, and what leads there.",
+  "opening": {
+    "ref": "7:156",
+    "line": "His mercy encompasses all things."
+  },
+  "orderNote": "The names are from the Quran. Their order as levels comes from later scholars: only al-Firdaus as the highest is from a sahih hadith.",
+  "closing": "Only God knows where anyone will be. This page shows what the verses say. It is not a judgment on anyone.",
+  "throne": {
+    "id": "throne",
+    "title": "The Throne",
+    "label": "The Throne, which God created",
+    "line": "Above the highest garden is the Throne, which God created. Angels surround it, praising their Lord.",
+    "refs": [
+      "69:17",
+      "39:75"
+    ],
+    "hadith": [
+      "bukhari-7423"
+    ],
+    "note": {
+      "ref": "42:11",
+      "line": "God is not shown here and cannot be pictured: there is nothing like Him."
+    }
+  },
+  "paradise": {
+    "title": "Paradise",
+    "mercy": {
+      "line": "Deeds are the way, but it is God's mercy that admits anyone.",
+      "hadith": [
+        "bukhari-6463"
+      ]
+    },
+    "levels": [
+      {
+        "id": "firdaus",
+        "rank": 1,
+        "name": "Al-Firdaus",
+        "ar": "الفردوس",
+        "en": "The highest garden",
+        "named": [
+          "23:11",
+          "18:107"
+        ],
+        "leads": {
+          "line": "Humble in prayer, turning from idle talk, paying zakah, chaste, true to trusts and promises, guarding the prayers.",
+          "refs": [
+            "23:1-9"
+          ],
+          "hadith": [
+            "bukhari-7423"
+          ]
+        },
+        "says": {
+          "line": "They inherit it and stay for ever, never wishing to move.",
+          "refs": [
+            "23:10-11",
+            "18:107-108"
+          ]
+        }
+      },
+      {
+        "id": "adn",
+        "rank": 2,
+        "name": "Jannat ʿAdn",
+        "ar": "جنات عدن",
+        "en": "Gardens of perpetual residence",
+        "named": [
+          "13:23"
+        ],
+        "leads": {
+          "line": "Keeping God's covenant, joining what He ordered joined, patience for His sake, prayer, giving in secret and in public, and answering evil with good.",
+          "refs": [
+            "13:20-22"
+          ]
+        },
+        "says": {
+          "line": "They enter with the righteous of their families, and angels come in from every gate with peace.",
+          "refs": [
+            "13:23-24"
+          ]
+        }
+      },
+      {
+        "id": "naim",
+        "rank": 3,
+        "name": "Jannat an-Naʿim",
+        "ar": "جنات النعيم",
+        "en": "Gardens of Pleasure",
+        "named": [
+          "10:9",
+          "31:8",
+          "56:12"
+        ],
+        "leads": {
+          "line": "Faith and righteous deeds, and being foremost in doing good.",
+          "refs": [
+            "31:8",
+            "56:10-12"
+          ]
+        },
+        "says": {
+          "line": "Rivers flow beneath them. Their call there is God's praise, and their greeting is peace.",
+          "refs": [
+            "10:9-10"
+          ]
+        }
+      },
+      {
+        "id": "mawa",
+        "rank": 4,
+        "name": "Jannat al-Maʾwa",
+        "ar": "جنة المأوى",
+        "en": "Gardens of Refuge",
+        "named": [
+          "79:41",
+          "32:19"
+        ],
+        "leads": {
+          "line": "Fearing the standing before one's Lord, and holding the soul back from its desires.",
+          "refs": [
+            "79:40-41"
+          ]
+        },
+        "says": {
+          "line": "A place of welcome, given for what they used to do.",
+          "refs": [
+            "32:19"
+          ]
+        }
+      },
+      {
+        "id": "salam",
+        "rank": 5,
+        "name": "Dar as-Salam",
+        "ar": "دار السلام",
+        "en": "The Home of Peace",
+        "named": [
+          "10:25",
+          "6:127"
+        ],
+        "leads": {
+          "line": "Doing good. God Himself invites to it, and gives the good-doers the best, and more.",
+          "refs": [
+            "10:25-26"
+          ]
+        },
+        "says": {
+          "line": "It is with their Lord, and He is their protecting friend.",
+          "refs": [
+            "6:127"
+          ]
+        }
+      },
+      {
+        "id": "muqamah",
+        "rank": 6,
+        "name": "Dar al-Muqamah",
+        "ar": "دار المقامة",
+        "en": "The home of duration",
+        "named": [
+          "35:35"
+        ],
+        "leads": {
+          "line": "Reciting God's Book, praying, and giving in secret and in public. Even some who wronged themselves enter, by His bounty.",
+          "refs": [
+            "35:29-30",
+            "35:32"
+          ]
+        },
+        "says": {
+          "line": "No sorrow, no fatigue and no weariness there. Its people say: praise be to God.",
+          "refs": [
+            "35:33-35"
+          ]
+        }
+      },
+      {
+        "id": "khuld",
+        "rank": 7,
+        "name": "Jannat al-Khuld",
+        "ar": "جنة الخلد",
+        "en": "The Garden of Eternity",
+        "named": [
+          "25:15"
+        ],
+        "leads": {
+          "line": "It is promised to the righteous, those mindful of God.",
+          "refs": [
+            "25:15"
+          ]
+        },
+        "says": {
+          "line": "Whatever they wish is theirs, for ever: a promise worth asking God for.",
+          "refs": [
+            "25:16"
+          ]
+        }
+      }
+    ]
+  },
+  "between": {
+    "id": "between",
+    "title": "Between the two",
+    "items": [
+      {
+        "id": "bridge",
+        "title": "The bridge",
+        "line": "A bridge is laid across the Fire, and all come to it.",
+        "refs": [
+          "19:71"
+        ],
+        "hadith": [
+          "bukhari-806"
+        ]
+      },
+      {
+        "id": "wall",
+        "title": "The wall with a door",
+        "line": "A wall with a door: mercy on its inner side, punishment on the outer.",
+        "refs": [
+          "57:13"
+        ]
+      },
+      {
+        "id": "heights",
+        "title": "The heights",
+        "line": "A partition between the two, with heights where some wait, longing for the Garden.",
+        "refs": [
+          "7:46"
+        ]
+      }
+    ]
+  },
+  "fire": {
+    "title": "The Fire",
+    "wayBack": {
+      "line": "Do not despair of God's mercy: He forgives all sins for whoever turns back, believes and does good.",
+      "refs": [
+        "39:53",
+        "25:70"
+      ]
+    },
+    "levels": [
+      {
+        "id": "jahannam",
+        "rank": 1,
+        "name": "Jahannam",
+        "ar": "جهنم",
+        "en": "Hell, the Fire's general name",
+        "named": [
+          "40:60",
+          "16:29"
+        ],
+        "leads": {
+          "line": "Being too proud to worship God, though He promises to answer whoever calls on Him.",
+          "refs": [
+            "40:60",
+            "16:29"
+          ]
+        },
+        "says": {
+          "line": "It has seven gates, each with its own share.",
+          "refs": [
+            "15:43-44"
+          ]
+        }
+      },
+      {
+        "id": "laza",
+        "rank": 2,
+        "name": "Laza",
+        "ar": "لظى",
+        "en": "The Flame",
+        "named": [
+          "70:15"
+        ],
+        "leads": {
+          "line": "Turning away from the truth, then gathering wealth and hoarding it.",
+          "refs": [
+            "70:17-18"
+          ]
+        },
+        "says": {
+          "line": "A flame that strips away the skin.",
+          "refs": [
+            "70:15-16"
+          ]
+        }
+      },
+      {
+        "id": "hutamah",
+        "rank": 3,
+        "name": "Al-Hutamah",
+        "ar": "الحطمة",
+        "en": "The Crusher",
+        "named": [
+          "104:4"
+        ],
+        "leads": {
+          "line": "Scorning and mocking people, and counting wealth as if it would make one live for ever.",
+          "refs": [
+            "104:1-3"
+          ]
+        },
+        "says": {
+          "line": "God's fire, kept burning, rising over the hearts, closed over them in long columns.",
+          "refs": [
+            "104:4-9"
+          ]
+        }
+      },
+      {
+        "id": "sair",
+        "rank": 4,
+        "name": "As-Saʿir",
+        "ar": "السعير",
+        "en": "The Blaze",
+        "named": [
+          "4:10",
+          "67:10"
+        ],
+        "leads": {
+          "line": "Unjustly eating the property of orphans. Refusing to listen, or to think.",
+          "refs": [
+            "4:10",
+            "67:10"
+          ]
+        },
+        "says": {
+          "line": "There they admit their sin, and are kept far away.",
+          "refs": [
+            "67:11"
+          ]
+        }
+      },
+      {
+        "id": "saqar",
+        "rank": 5,
+        "name": "Saqar",
+        "ar": "سقر",
+        "en": "Saqar",
+        "named": [
+          "74:26"
+        ],
+        "leads": {
+          "line": "Asked what brought them there, they answer: we did not pray, we did not feed the poor, we joined in vain talk, and we denied the Day.",
+          "refs": [
+            "74:42-47"
+          ]
+        },
+        "says": {
+          "line": "It spares nothing and leaves nothing. Nineteen angels are over it.",
+          "refs": [
+            "74:26-30"
+          ]
+        }
+      },
+      {
+        "id": "jahim",
+        "rank": 6,
+        "name": "Al-Jahim",
+        "ar": "الجحيم",
+        "en": "Hellfire",
+        "named": [
+          "79:39"
+        ],
+        "leads": {
+          "line": "Transgressing, and preferring the life of this world.",
+          "refs": [
+            "79:37-39"
+          ]
+        },
+        "says": {
+          "line": "Its welcome is scalding water, and the burning of Hellfire.",
+          "refs": [
+            "56:92-94"
+          ]
+        }
+      },
+      {
+        "id": "hawiyah",
+        "rank": 7,
+        "name": "Al-Hawiyah",
+        "ar": "الهاوية",
+        "en": "The abyss",
+        "named": [
+          "101:9",
+          "4:145"
+        ],
+        "leads": {
+          "line": "Scales light with good. The Quran names the hypocrites in the lowest depths of the Fire.",
+          "refs": [
+            "101:8",
+            "4:145"
+          ]
+        },
+        "says": {
+          "line": "An abyss, and a fire burning intensely hot.",
+          "refs": [
+            "101:9-11"
+          ]
+        },
+        "wayBack": {
+          "line": "Except those who repent, put things right, hold fast to God and are sincere: they will be with the believers.",
+          "refs": [
+            "4:146"
+          ]
+        }
+      }
+    ]
+  }
+}

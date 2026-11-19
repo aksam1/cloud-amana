@@ -16,6 +16,7 @@ const Pyramid = lazy(() => import('./components/Pyramid.jsx'));
 const Unit = lazy(() => import('./components/Unit.jsx'));
 const About = lazy(() => import('./components/About.jsx'));
 const Paths = lazy(() => import('./components/Paths.jsx'));
+const Abodes = lazy(() => import('./components/Abodes.jsx'));
 
 /** Shown until the calligraphy fonts arrive (capped, so a slow network never blocks the story). */
 function Loader() {
@@ -109,6 +110,8 @@ export default function App() {
             <Unit id={route.id} step={route.query.step} />
           ) : route.name === 'paths' ? (
             <Paths id={route.id} />
+          ) : route.name === 'abodes' ? (
+            <Abodes at={route.query.at} />
           ) : route.name === 'about' || route.name === 'missing' ? (
             <About missing={route.name === 'missing'} />
           ) : route.name === 'map' ? (

@@ -92,7 +92,9 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   Messengers is the chronicle itself), `config.json` (DEFAULT
   weights 70/15/15, placement threshold, the disclaimer). Hadith come only from `src/data/hadith.json` by
   id, like verses from ayahs.json; `status: "draft"` shows "Awaiting scholar review" until checked. All 28 are
-  drafts typed from well-known translations: check each against a verified translation before marking reviewed.
+  still drafts, but on 18 Nov 2026 each was checked against sunnah.com's English (reference points to the right
+  hadith, wording keeps its meaning; recorded in each entry's `checked`). That is not a scholar's review: only set
+  `status: "reviewed"` (and `reviewedBy`) after one.
 - Never: a "test"/"exam" (the checker rejects the words in pyramid data), predicting anyone's afterlife,
   leaderboards or comparisons, shaming copy. The disclaimer shows on the landing, placement, result,
   progress and unit-result screens. Scores are private (localStorage); Progress has "Delete my data".
@@ -359,13 +361,12 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `tools/generators/rooms.py` keeps each place's room (Namrud, al-Aziz, the king of Egypt, Yusuf's hall,
   Yaqub's house, Pharaoh, Dawud's chamber and court, Sulayman, the smithy): `room(place)` + `front(place)`.
   (`Pillars` is town.jsx's painter; the interiors one is `colonnade`.)
-- api.alquran.cloud is not on this workspace's network allowlist. All 503 ayat are on file all the same:
-  427 were taken on 10 Nov 2026 from GitHub mirrors that match the 76 API-fetched ayat character for character and
-  agree with each other (`src/data/ayahs.SOURCE.md` has the sources and the checks); 130 more were added on
-  13 Nov 2026 for chapters 20–21 by the same two-mirror method. For a new ref while the host is
-  blocked, repeat that method (two mirrors, both matching what is on file, agreeing on the new ayah); otherwise the
-  beat stays a `pendingVerse`. Copies such as quran-json and fawazahmed0 drop closing punctuation from Sahih
-  International: never use a mirror that fails the match. `npm run ayahs` collects refs from lessons and units too.
+- api.alquran.cloud is reachable from this machine (it was blocked in an earlier workspace, when most ayat came
+  from two agreeing GitHub mirrors; `src/data/ayahs.SOURCE.md` has that history). On 18 Nov 2026 every ayah on
+  file was compared with the API itself (`node scripts/verify-ayahs.mjs`: Uthmani Arabic and Sahih International,
+  whole surahs) and all matched. Run it again after adding ayat. If the host is ever blocked again, use the
+  two-mirror method or leave the beat a `pendingVerse`. Copies such as quran-json and fawazahmed0 drop closing
+  punctuation from Sahih International: never use a mirror that fails the match. `npm run ayahs` collects refs from lessons and units too.
 - A whole single ayah may leave `ar` out (as `npm run verses` writes it; the checker then requires its English to be
   the whole ayah). 118 verse moments show part of an ayah with a hand-chosen `ar` range and matching English.
 - `npm run ayahs` keeps every ayah already on file, even one no scene cites yet, and survives one failed fetch
@@ -405,4 +406,5 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Depth-of-field blurs cards only (mip bias); crowds and lights stay sharp.
 - `postprocessing` needs three < 0.187 (pinned 0.186.0). A composer disposes its effects on unmount.
 - Bash heredocs break on JSX and apostrophes: write code with the Write tool, or a `.cjs` patch file.
-- `captionHoldMs` in `src/lib/pacing.js` is the user's TODO(human); leave it for them.
+- `captionHoldMs` in `src/lib/pacing.js` (how long a beat must hold so its words can be read: `READ_CPS`, the Arabic
+  paint-in, a short settle, capped at 30 s) is done and tested in `pacing.test.js`.

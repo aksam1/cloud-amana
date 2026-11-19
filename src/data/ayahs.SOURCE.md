@@ -17,7 +17,13 @@ API serves it (edition `quran-uthmani`, with pause marks; the basmala the API pu
 - 130 ayat were added on 13 November 2026 for chapters 20 and 21, by the same two-mirror method and to the same
   standard: both mirrors match the 373 ayat already on file character for character, and they match each other on
   every one of the 130 new ones. No ayat already on file was changed.
-- When api.alquran.cloud can be reached, re-check: delete an entry, run `npm run ayahs`, and compare.
+- 17 ayat were fetched directly from api.alquran.cloud on 18 November 2026 (7:163-166, 2:65-66, 85:1-10, 38:41)
+  for the four stories added then.
+- **Re-checked on 18 November 2026:** from a machine that can reach api.alquran.cloud, all 520 ayat on file were
+  compared with the API's `quran-uthmani` and `en.sahih` editions (whole surahs, the same basmala rule as
+  `fetch-ayahs.mjs`). All 520 are identical, so every ayah taken from the mirrors is now confirmed against the
+  primary source.
+- To re-check again: `node scripts/verify-ayahs.mjs` (needs api.alquran.cloud).
 
 118 verse moments show part of an ayah. Their word ranges (`ar`) and matching English were chosen by hand (each
 scene's beat has them); they are on the scholar's review sheet.

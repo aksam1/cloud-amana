@@ -3016,5 +3016,623 @@
   "surahAr": "سُورَةُ التَّكۡوِيرِ",
   "ar": "وَإِذَا ٱلْجَنَّةُ أُزْلِفَتْ",
   "en": "And when Paradise is brought near,"
+ },
+ "7:163": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَسْـَٔلْهُمْ عَنِ ٱلْقَرْيَةِ ٱلَّتِى كَانَتْ حَاضِرَةَ ٱلْبَحْرِ إِذْ يَعْدُونَ فِى ٱلسَّبْتِ إِذْ تَأْتِيهِمْ حِيتَانُهُمْ يَوْمَ سَبْتِهِمْ شُرَّعًۭا وَيَوْمَ لَا يَسْبِتُونَ ۙ لَا تَأْتِيهِمْ ۚ كَذَٰلِكَ نَبْلُوهُم بِمَا كَانُوا۟ يَفْسُقُونَ",
+  "en": "And ask them about the town that was by the sea - when they transgressed in [the matter of] the sabbath - when their fish came to them openly on their sabbath day, and the day they had no sabbath they did not come to them. Thus did We give them trial because they were defiantly disobedient."
+ },
+ "7:164": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَإِذْ قَالَتْ أُمَّةٌۭ مِّنْهُمْ لِمَ تَعِظُونَ قَوْمًا ۙ ٱللَّهُ مُهْلِكُهُمْ أَوْ مُعَذِّبُهُمْ عَذَابًۭا شَدِيدًۭا ۖ قَالُوا۟ مَعْذِرَةً إِلَىٰ رَبِّكُمْ وَلَعَلَّهُمْ يَتَّقُونَ",
+  "en": "And when a community among them said, \"Why do you advise [or warn] a people whom Allah is [about] to destroy or to punish with a severe punishment?\" they [the advisors] said, \"To be absolved before your Lord and perhaps they may fear Him.\""
+ },
+ "7:165": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "فَلَمَّا نَسُوا۟ مَا ذُكِّرُوا۟ بِهِۦٓ أَنجَيْنَا ٱلَّذِينَ يَنْهَوْنَ عَنِ ٱلسُّوٓءِ وَأَخَذْنَا ٱلَّذِينَ ظَلَمُوا۟ بِعَذَابٍۭ بَـِٔيسٍۭ بِمَا كَانُوا۟ يَفْسُقُونَ",
+  "en": "And when they forgot that by which they had been reminded, We saved those who had forbidden evil and seized those who wronged, with a wretched punishment, because they were defiantly disobeying."
+ },
+ "7:166": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "فَلَمَّا عَتَوْا۟ عَن مَّا نُهُوا۟ عَنْهُ قُلْنَا لَهُمْ كُونُوا۟ قِرَدَةً خَٰسِـِٔينَ",
+  "en": "So when they were insolent about that which they had been forbidden, We said to them, \"Be apes, despised.\""
+ },
+ "2:65": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "وَلَقَدْ عَلِمْتُمُ ٱلَّذِينَ ٱعْتَدَوْا۟ مِنكُمْ فِى ٱلسَّبْتِ فَقُلْنَا لَهُمْ كُونُوا۟ قِرَدَةً خَٰسِـِٔينَ",
+  "en": "And you had already known about those who transgressed among you concerning the sabbath, and We said to them, \"Be apes, despised.\""
+ },
+ "2:66": {
+  "surah": "Al-Baqara",
+  "surahAr": "سُورَةُ البَقَرَةِ",
+  "ar": "فَجَعَلْنَٰهَا نَكَٰلًۭا لِّمَا بَيْنَ يَدَيْهَا وَمَا خَلْفَهَا وَمَوْعِظَةًۭ لِّلْمُتَّقِينَ",
+  "en": "And We made it a deterrent punishment for those who were present and those who succeeded [them] and a lesson for those who fear Allah."
+ },
+ "85:1": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "وَٱلسَّمَآءِ ذَاتِ ٱلْبُرُوجِ",
+  "en": "By the sky containing great stars"
+ },
+ "85:2": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "وَٱلْيَوْمِ ٱلْمَوْعُودِ",
+  "en": "And [by] the promised Day"
+ },
+ "85:3": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "وَشَاهِدٍۢ وَمَشْهُودٍۢ",
+  "en": "And [by] the witness and what is witnessed,"
+ },
+ "85:4": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "قُتِلَ أَصْحَٰبُ ٱلْأُخْدُودِ",
+  "en": "Cursed were the companions of the trench"
+ },
+ "85:5": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "ٱلنَّارِ ذَاتِ ٱلْوَقُودِ",
+  "en": "[Containing] the fire full of fuel,"
+ },
+ "85:6": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "إِذْ هُمْ عَلَيْهَا قُعُودٌۭ",
+  "en": "When they were sitting near it"
+ },
+ "85:7": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "وَهُمْ عَلَىٰ مَا يَفْعَلُونَ بِٱلْمُؤْمِنِينَ شُهُودٌۭ",
+  "en": "And they, to what they were doing against the believers, were witnesses."
+ },
+ "85:8": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "وَمَا نَقَمُوا۟ مِنْهُمْ إِلَّآ أَن يُؤْمِنُوا۟ بِٱللَّهِ ٱلْعَزِيزِ ٱلْحَمِيدِ",
+  "en": "And they resented them not except because they believed in Allah, the Exalted in Might, the Praiseworthy,"
+ },
+ "85:9": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "ٱلَّذِى لَهُۥ مُلْكُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۚ وَٱللَّهُ عَلَىٰ كُلِّ شَىْءٍۢ شَهِيدٌ",
+  "en": "To whom belongs the dominion of the heavens and the earth. And Allah, over all things, is Witness."
+ },
+ "85:10": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "إِنَّ ٱلَّذِينَ فَتَنُوا۟ ٱلْمُؤْمِنِينَ وَٱلْمُؤْمِنَٰتِ ثُمَّ لَمْ يَتُوبُوا۟ فَلَهُمْ عَذَابُ جَهَنَّمَ وَلَهُمْ عَذَابُ ٱلْحَرِيقِ",
+  "en": "Indeed, those who have tortured the believing men and believing women and then have not repented will have the punishment of Hell, and they will have the punishment of the Burning Fire."
+ },
+ "38:41": {
+  "surah": "Saad",
+  "surahAr": "سُورَةُ صٓ",
+  "ar": "وَٱذْكُرْ عَبْدَنَآ أَيُّوبَ إِذْ نَادَىٰ رَبَّهُۥٓ أَنِّى مَسَّنِىَ ٱلشَّيْطَٰنُ بِنُصْبٍۢ وَعَذَابٍ",
+  "en": "And remember Our servant Job, when he called to his Lord, \"Indeed, Satan has touched me with hardship and torment.\""
+ },
+ "85:11": {
+  "surah": "Al-Burooj",
+  "surahAr": "سُورَةُ البُرُوجِ",
+  "ar": "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ لَهُمْ جَنَّٰتٌۭ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ ۚ ذَٰلِكَ ٱلْفَوْزُ ٱلْكَبِيرُ",
+  "en": "Indeed, those who have believed and done righteous deeds will have gardens beneath which rivers flow. That is the great attainment."
+ },
+ "12:111": {
+  "surah": "Yusuf",
+  "surahAr": "سُورَةُ يُوسُفَ",
+  "ar": "لَقَدْ كَانَ فِى قَصَصِهِمْ عِبْرَةٌۭ لِّأُو۟لِى ٱلْأَلْبَٰبِ ۗ مَا كَانَ حَدِيثًۭا يُفْتَرَىٰ وَلَٰكِن تَصْدِيقَ ٱلَّذِى بَيْنَ يَدَيْهِ وَتَفْصِيلَ كُلِّ شَىْءٍۢ وَهُدًۭى وَرَحْمَةًۭ لِّقَوْمٍۢ يُؤْمِنُونَ",
+  "en": "There was certainly in their stories a lesson for those of understanding. Never was the Qur'an a narration invented, but a confirmation of what was before it and a detailed explanation of all things and guidance and mercy for a people who believe."
+ },
+ "4:10": {
+  "surah": "An-Nisaa",
+  "surahAr": "سُورَةُ النِّسَاءِ",
+  "ar": "إِنَّ ٱلَّذِينَ يَأْكُلُونَ أَمْوَٰلَ ٱلْيَتَٰمَىٰ ظُلْمًا إِنَّمَا يَأْكُلُونَ فِى بُطُونِهِمْ نَارًۭا ۖ وَسَيَصْلَوْنَ سَعِيرًۭا",
+  "en": "Indeed, those who devour the property of orphans unjustly are only consuming into their bellies fire. And they will be burned in a Blaze."
+ },
+ "4:145": {
+  "surah": "An-Nisaa",
+  "surahAr": "سُورَةُ النِّسَاءِ",
+  "ar": "إِنَّ ٱلْمُنَٰفِقِينَ فِى ٱلدَّرْكِ ٱلْأَسْفَلِ مِنَ ٱلنَّارِ وَلَن تَجِدَ لَهُمْ نَصِيرًا",
+  "en": "Indeed, the hypocrites will be in the lowest depths of the Fire - and never will you find for them a helper -"
+ },
+ "4:146": {
+  "surah": "An-Nisaa",
+  "surahAr": "سُورَةُ النِّسَاءِ",
+  "ar": "إِلَّا ٱلَّذِينَ تَابُوا۟ وَأَصْلَحُوا۟ وَٱعْتَصَمُوا۟ بِٱللَّهِ وَأَخْلَصُوا۟ دِينَهُمْ لِلَّهِ فَأُو۟لَٰٓئِكَ مَعَ ٱلْمُؤْمِنِينَ ۖ وَسَوْفَ يُؤْتِ ٱللَّهُ ٱلْمُؤْمِنِينَ أَجْرًا عَظِيمًۭا",
+  "en": "Except for those who repent, correct themselves, hold fast to Allah, and are sincere in their religion for Allah, for those will be with the believers. And Allah is going to give the believers a great reward."
+ },
+ "6:127": {
+  "surah": "Al-An'aam",
+  "surahAr": "سُورَةُ الأَنۡعَامِ",
+  "ar": "۞ لَهُمْ دَارُ ٱلسَّلَٰمِ عِندَ رَبِّهِمْ ۖ وَهُوَ وَلِيُّهُم بِمَا كَانُوا۟ يَعْمَلُونَ",
+  "en": "For them will be the Home of Peace with their Lord. And He will be their protecting friend because of what they used to do."
+ },
+ "7:46": {
+  "surah": "Al-A'raaf",
+  "surahAr": "سُورَةُ الأَعۡرَافِ",
+  "ar": "وَبَيْنَهُمَا حِجَابٌۭ ۚ وَعَلَى ٱلْأَعْرَافِ رِجَالٌۭ يَعْرِفُونَ كُلًّۢا بِسِيمَىٰهُمْ ۚ وَنَادَوْا۟ أَصْحَٰبَ ٱلْجَنَّةِ أَن سَلَٰمٌ عَلَيْكُمْ ۚ لَمْ يَدْخُلُوهَا وَهُمْ يَطْمَعُونَ",
+  "en": "And between them will be a partition, and on [its] elevations are men who recognize all by their mark. And they call out to the companions of Paradise, \"Peace be upon you.\" They have not [yet] entered it, but they long intensely."
+ },
+ "10:9": {
+  "surah": "Yunus",
+  "surahAr": "سُورَةُ يُونُسَ",
+  "ar": "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ يَهْدِيهِمْ رَبُّهُم بِإِيمَٰنِهِمْ ۖ تَجْرِى مِن تَحْتِهِمُ ٱلْأَنْهَٰرُ فِى جَنَّٰتِ ٱلنَّعِيمِ",
+  "en": "Indeed, those who have believed and done righteous deeds - their Lord will guide them because of their faith. Beneath them rivers will flow in the Gardens of Pleasure"
+ },
+ "10:10": {
+  "surah": "Yunus",
+  "surahAr": "سُورَةُ يُونُسَ",
+  "ar": "دَعْوَىٰهُمْ فِيهَا سُبْحَٰنَكَ ٱللَّهُمَّ وَتَحِيَّتُهُمْ فِيهَا سَلَٰمٌۭ ۚ وَءَاخِرُ دَعْوَىٰهُمْ أَنِ ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
+  "en": "Their call therein will be, \"Exalted are You, O Allah,\" and their greeting therein will be, \"Peace.\" And the last of their call will be, \"Praise to Allah, Lord of the worlds!\""
+ },
+ "10:25": {
+  "surah": "Yunus",
+  "surahAr": "سُورَةُ يُونُسَ",
+  "ar": "وَٱللَّهُ يَدْعُوٓا۟ إِلَىٰ دَارِ ٱلسَّلَٰمِ وَيَهْدِى مَن يَشَآءُ إِلَىٰ صِرَٰطٍۢ مُّسْتَقِيمٍۢ",
+  "en": "And Allah invites to the Home of Peace and guides whom He wills to a straight path"
+ },
+ "10:26": {
+  "surah": "Yunus",
+  "surahAr": "سُورَةُ يُونُسَ",
+  "ar": "۞ لِّلَّذِينَ أَحْسَنُوا۟ ٱلْحُسْنَىٰ وَزِيَادَةٌۭ ۖ وَلَا يَرْهَقُ وُجُوهَهُمْ قَتَرٌۭ وَلَا ذِلَّةٌ ۚ أُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلْجَنَّةِ ۖ هُمْ فِيهَا خَٰلِدُونَ",
+  "en": "For them who have done good is the best [reward] and extra. No darkness will cover their faces, nor humiliation. Those are companions of Paradise; they will abide therein eternally"
+ },
+ "13:20": {
+  "surah": "Ar-Ra'd",
+  "surahAr": "سُورَةُ الرَّعۡدِ",
+  "ar": "ٱلَّذِينَ يُوفُونَ بِعَهْدِ ٱللَّهِ وَلَا يَنقُضُونَ ٱلْمِيثَٰقَ",
+  "en": "Those who fulfill the covenant of Allah and do not break the contract,"
+ },
+ "13:21": {
+  "surah": "Ar-Ra'd",
+  "surahAr": "سُورَةُ الرَّعۡدِ",
+  "ar": "وَٱلَّذِينَ يَصِلُونَ مَآ أَمَرَ ٱللَّهُ بِهِۦٓ أَن يُوصَلَ وَيَخْشَوْنَ رَبَّهُمْ وَيَخَافُونَ سُوٓءَ ٱلْحِسَابِ",
+  "en": "And those who join that which Allah has ordered to be joined and fear their Lord and are afraid of the evil of [their] account,"
+ },
+ "13:22": {
+  "surah": "Ar-Ra'd",
+  "surahAr": "سُورَةُ الرَّعۡدِ",
+  "ar": "وَٱلَّذِينَ صَبَرُوا۟ ٱبْتِغَآءَ وَجْهِ رَبِّهِمْ وَأَقَامُوا۟ ٱلصَّلَوٰةَ وَأَنفَقُوا۟ مِمَّا رَزَقْنَٰهُمْ سِرًّۭا وَعَلَانِيَةًۭ وَيَدْرَءُونَ بِٱلْحَسَنَةِ ٱلسَّيِّئَةَ أُو۟لَٰٓئِكَ لَهُمْ عُقْبَى ٱلدَّارِ",
+  "en": "And those who are patient, seeking the countenance of their Lord, and establish prayer and spend from what We have provided for them secretly and publicly and prevent evil with good - those will have the good consequence of [this] home -"
+ },
+ "13:23": {
+  "surah": "Ar-Ra'd",
+  "surahAr": "سُورَةُ الرَّعۡدِ",
+  "ar": "جَنَّٰتُ عَدْنٍۢ يَدْخُلُونَهَا وَمَن صَلَحَ مِنْ ءَابَآئِهِمْ وَأَزْوَٰجِهِمْ وَذُرِّيَّٰتِهِمْ ۖ وَٱلْمَلَٰٓئِكَةُ يَدْخُلُونَ عَلَيْهِم مِّن كُلِّ بَابٍۢ",
+  "en": "Gardens of perpetual residence; they will enter them with whoever were righteous among their fathers, their spouses and their descendants. And the angels will enter upon them from every gate, [saying],"
+ },
+ "13:24": {
+  "surah": "Ar-Ra'd",
+  "surahAr": "سُورَةُ الرَّعۡدِ",
+  "ar": "سَلَٰمٌ عَلَيْكُم بِمَا صَبَرْتُمْ ۚ فَنِعْمَ عُقْبَى ٱلدَّارِ",
+  "en": "\"Peace be upon you for what you patiently endured. And excellent is the final home.\""
+ },
+ "15:43": {
+  "surah": "Al-Hijr",
+  "surahAr": "سُورَةُ الحِجۡرِ",
+  "ar": "وَإِنَّ جَهَنَّمَ لَمَوْعِدُهُمْ أَجْمَعِينَ",
+  "en": "And indeed, Hell is the promised place for them all."
+ },
+ "15:44": {
+  "surah": "Al-Hijr",
+  "surahAr": "سُورَةُ الحِجۡرِ",
+  "ar": "لَهَا سَبْعَةُ أَبْوَٰبٍۢ لِّكُلِّ بَابٍۢ مِّنْهُمْ جُزْءٌۭ مَّقْسُومٌ",
+  "en": "It has seven gates; for every gate is of them a portion designated.\""
+ },
+ "16:29": {
+  "surah": "An-Nahl",
+  "surahAr": "سُورَةُ النَّحۡلِ",
+  "ar": "فَٱدْخُلُوٓا۟ أَبْوَٰبَ جَهَنَّمَ خَٰلِدِينَ فِيهَا ۖ فَلَبِئْسَ مَثْوَى ٱلْمُتَكَبِّرِينَ",
+  "en": "So enter the gates of Hell to abide eternally therein, and how wretched is the residence of the arrogant."
+ },
+ "18:107": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ كَانَتْ لَهُمْ جَنَّٰتُ ٱلْفِرْدَوْسِ نُزُلًا",
+  "en": "Indeed, those who have believed and done righteous deeds - they will have the Gardens of Paradise as a lodging,"
+ },
+ "18:108": {
+  "surah": "Al-Kahf",
+  "surahAr": "سُورَةُ الكَهۡفِ",
+  "ar": "خَٰلِدِينَ فِيهَا لَا يَبْغُونَ عَنْهَا حِوَلًۭا",
+  "en": "Wherein they abide eternally. They will not desire from it any transfer."
+ },
+ "19:71": {
+  "surah": "Maryam",
+  "surahAr": "سُورَةُ مَرۡيَمَ",
+  "ar": "وَإِن مِّنكُمْ إِلَّا وَارِدُهَا ۚ كَانَ عَلَىٰ رَبِّكَ حَتْمًۭا مَّقْضِيًّۭا",
+  "en": "And there is none of you except he will come to it. This is upon your Lord an inevitability decreed."
+ },
+ "23:3": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "وَٱلَّذِينَ هُمْ عَنِ ٱللَّغْوِ مُعْرِضُونَ",
+  "en": "And they who turn away from ill speech"
+ },
+ "23:4": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "وَٱلَّذِينَ هُمْ لِلزَّكَوٰةِ فَٰعِلُونَ",
+  "en": "And they who are observant of zakah"
+ },
+ "23:5": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "وَٱلَّذِينَ هُمْ لِفُرُوجِهِمْ حَٰفِظُونَ",
+  "en": "And they who guard their private parts"
+ },
+ "23:6": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "إِلَّا عَلَىٰٓ أَزْوَٰجِهِمْ أَوْ مَا مَلَكَتْ أَيْمَٰنُهُمْ فَإِنَّهُمْ غَيْرُ مَلُومِينَ",
+  "en": "Except from their wives or those their right hands possess, for indeed, they will not be blamed -"
+ },
+ "23:7": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "فَمَنِ ٱبْتَغَىٰ وَرَآءَ ذَٰلِكَ فَأُو۟لَٰٓئِكَ هُمُ ٱلْعَادُونَ",
+  "en": "But whoever seeks beyond that, then those are the transgressors -"
+ },
+ "23:8": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "وَٱلَّذِينَ هُمْ لِأَمَٰنَٰتِهِمْ وَعَهْدِهِمْ رَٰعُونَ",
+  "en": "And they who are to their trusts and their promises attentive"
+ },
+ "23:9": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "وَٱلَّذِينَ هُمْ عَلَىٰ صَلَوَٰتِهِمْ يُحَافِظُونَ",
+  "en": "And they who carefully maintain their prayers -"
+ },
+ "23:10": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "أُو۟لَٰٓئِكَ هُمُ ٱلْوَٰرِثُونَ",
+  "en": "Those are the inheritors"
+ },
+ "23:11": {
+  "surah": "Al-Muminoon",
+  "surahAr": "سُورَةُ المُؤۡمِنُونَ",
+  "ar": "ٱلَّذِينَ يَرِثُونَ ٱلْفِرْدَوْسَ هُمْ فِيهَا خَٰلِدُونَ",
+  "en": "Who will inherit al-Firdaus. They will abide therein eternally."
+ },
+ "25:15": {
+  "surah": "Al-Furqaan",
+  "surahAr": "سُورَةُ الفُرۡقَانِ",
+  "ar": "قُلْ أَذَٰلِكَ خَيْرٌ أَمْ جَنَّةُ ٱلْخُلْدِ ٱلَّتِى وُعِدَ ٱلْمُتَّقُونَ ۚ كَانَتْ لَهُمْ جَزَآءًۭ وَمَصِيرًۭا",
+  "en": "Say, \"Is that better or the Garden of Eternity which is promised to the righteous? It will be for them a reward and destination."
+ },
+ "25:16": {
+  "surah": "Al-Furqaan",
+  "surahAr": "سُورَةُ الفُرۡقَانِ",
+  "ar": "لَّهُمْ فِيهَا مَا يَشَآءُونَ خَٰلِدِينَ ۚ كَانَ عَلَىٰ رَبِّكَ وَعْدًۭا مَّسْـُٔولًۭا",
+  "en": "For them therein is whatever they wish, [while] abiding eternally. It is ever upon your Lord a promise [worthy to be] requested."
+ },
+ "25:70": {
+  "surah": "Al-Furqaan",
+  "surahAr": "سُورَةُ الفُرۡقَانِ",
+  "ar": "إِلَّا مَن تَابَ وَءَامَنَ وَعَمِلَ عَمَلًۭا صَٰلِحًۭا فَأُو۟لَٰٓئِكَ يُبَدِّلُ ٱللَّهُ سَيِّـَٔاتِهِمْ حَسَنَٰتٍۢ ۗ وَكَانَ ٱللَّهُ غَفُورًۭا رَّحِيمًۭا",
+  "en": "Except for those who repent, believe and do righteous work. For them Allah will replace their evil deeds with good. And ever is Allah Forgiving and Merciful."
+ },
+ "31:8": {
+  "surah": "Luqman",
+  "surahAr": "سُورَةُ لُقۡمَانَ",
+  "ar": "إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ لَهُمْ جَنَّٰتُ ٱلنَّعِيمِ",
+  "en": "Indeed, those who believe and do righteous deeds - for them are the Gardens of Pleasure."
+ },
+ "32:19": {
+  "surah": "As-Sajda",
+  "surahAr": "سُورَةُ السَّجۡدَةِ",
+  "ar": "أَمَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ فَلَهُمْ جَنَّٰتُ ٱلْمَأْوَىٰ نُزُلًۢا بِمَا كَانُوا۟ يَعْمَلُونَ",
+  "en": "As for those who believed and did righteous deeds, for them will be the Gardens of Refuge as accommodation for what they used to do."
+ },
+ "35:29": {
+  "surah": "Faatir",
+  "surahAr": "سُورَةُ فَاطِرٍ",
+  "ar": "إِنَّ ٱلَّذِينَ يَتْلُونَ كِتَٰبَ ٱللَّهِ وَأَقَامُوا۟ ٱلصَّلَوٰةَ وَأَنفَقُوا۟ مِمَّا رَزَقْنَٰهُمْ سِرًّۭا وَعَلَانِيَةًۭ يَرْجُونَ تِجَٰرَةًۭ لَّن تَبُورَ",
+  "en": "Indeed, those who recite the Book of Allah and establish prayer and spend [in His cause] out of what We have provided them, secretly and publicly, [can] expect a profit that will never perish -"
+ },
+ "35:30": {
+  "surah": "Faatir",
+  "surahAr": "سُورَةُ فَاطِرٍ",
+  "ar": "لِيُوَفِّيَهُمْ أُجُورَهُمْ وَيَزِيدَهُم مِّن فَضْلِهِۦٓ ۚ إِنَّهُۥ غَفُورٌۭ شَكُورٌۭ",
+  "en": "That He may give them in full their rewards and increase for them of His bounty. Indeed, He is Forgiving and Appreciative."
+ },
+ "35:31": {
+  "surah": "Faatir",
+  "surahAr": "سُورَةُ فَاطِرٍ",
+  "ar": "وَٱلَّذِىٓ أَوْحَيْنَآ إِلَيْكَ مِنَ ٱلْكِتَٰبِ هُوَ ٱلْحَقُّ مُصَدِّقًۭا لِّمَا بَيْنَ يَدَيْهِ ۗ إِنَّ ٱللَّهَ بِعِبَادِهِۦ لَخَبِيرٌۢ بَصِيرٌۭ",
+  "en": "And that which We have revealed to you, [O Muhammad], of the Book is the truth, confirming what was before it. Indeed, Allah, of His servants, is Acquainted and Seeing."
+ },
+ "35:32": {
+  "surah": "Faatir",
+  "surahAr": "سُورَةُ فَاطِرٍ",
+  "ar": "ثُمَّ أَوْرَثْنَا ٱلْكِتَٰبَ ٱلَّذِينَ ٱصْطَفَيْنَا مِنْ عِبَادِنَا ۖ فَمِنْهُمْ ظَالِمٌۭ لِّنَفْسِهِۦ وَمِنْهُم مُّقْتَصِدٌۭ وَمِنْهُمْ سَابِقٌۢ بِٱلْخَيْرَٰتِ بِإِذْنِ ٱللَّهِ ۚ ذَٰلِكَ هُوَ ٱلْفَضْلُ ٱلْكَبِيرُ",
+  "en": "Then we caused to inherit the Book those We have chosen of Our servants; and among them is he who wrongs himself, and among them is he who is moderate, and among them is he who is foremost in good deeds by permission of Allah. That [inheritance] is what is the great bounty."
+ },
+ "35:33": {
+  "surah": "Faatir",
+  "surahAr": "سُورَةُ فَاطِرٍ",
+  "ar": "جَنَّٰتُ عَدْنٍۢ يَدْخُلُونَهَا يُحَلَّوْنَ فِيهَا مِنْ أَسَاوِرَ مِن ذَهَبٍۢ وَلُؤْلُؤًۭا ۖ وَلِبَاسُهُمْ فِيهَا حَرِيرٌۭ",
+  "en": "[For them are] gardens of perpetual residence which they will enter. They will be adorned therein with bracelets of gold and pearls, and their garments therein will be silk."
+ },
+ "35:34": {
+  "surah": "Faatir",
+  "surahAr": "سُورَةُ فَاطِرٍ",
+  "ar": "وَقَالُوا۟ ٱلْحَمْدُ لِلَّهِ ٱلَّذِىٓ أَذْهَبَ عَنَّا ٱلْحَزَنَ ۖ إِنَّ رَبَّنَا لَغَفُورٌۭ شَكُورٌ",
+  "en": "And they will say, \"Praise to Allah, who has removed from us [all] sorrow. Indeed, our Lord is Forgiving and Appreciative -"
+ },
+ "35:35": {
+  "surah": "Faatir",
+  "surahAr": "سُورَةُ فَاطِرٍ",
+  "ar": "ٱلَّذِىٓ أَحَلَّنَا دَارَ ٱلْمُقَامَةِ مِن فَضْلِهِۦ لَا يَمَسُّنَا فِيهَا نَصَبٌۭ وَلَا يَمَسُّنَا فِيهَا لُغُوبٌۭ",
+  "en": "He who has settled us in the home of duration out of His bounty. There touches us not in it any fatigue, and there touches us not in it weariness [of mind].\""
+ },
+ "39:53": {
+  "surah": "Az-Zumar",
+  "surahAr": "سُورَةُ الزُّمَرِ",
+  "ar": "۞ قُلْ يَٰعِبَادِىَ ٱلَّذِينَ أَسْرَفُوا۟ عَلَىٰٓ أَنفُسِهِمْ لَا تَقْنَطُوا۟ مِن رَّحْمَةِ ٱللَّهِ ۚ إِنَّ ٱللَّهَ يَغْفِرُ ٱلذُّنُوبَ جَمِيعًا ۚ إِنَّهُۥ هُوَ ٱلْغَفُورُ ٱلرَّحِيمُ",
+  "en": "Say, \"O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful.\""
+ },
+ "39:75": {
+  "surah": "Az-Zumar",
+  "surahAr": "سُورَةُ الزُّمَرِ",
+  "ar": "وَتَرَى ٱلْمَلَٰٓئِكَةَ حَآفِّينَ مِنْ حَوْلِ ٱلْعَرْشِ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْ ۖ وَقُضِىَ بَيْنَهُم بِٱلْحَقِّ وَقِيلَ ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
+  "en": "And you will see the angels surrounding the Throne, exalting [Allah] with praise of their Lord. And it will be judged between them in truth, and it will be said, \"[All] praise to Allah, Lord of the worlds.\""
+ },
+ "40:60": {
+  "surah": "Ghafir",
+  "surahAr": "سُورَةُ غَافِرٍ",
+  "ar": "وَقَالَ رَبُّكُمُ ٱدْعُونِىٓ أَسْتَجِبْ لَكُمْ ۚ إِنَّ ٱلَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِى سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ",
+  "en": "And your Lord says, \"Call upon Me; I will respond to you.\" Indeed, those who disdain My worship will enter Hell [rendered] contemptible."
+ },
+ "56:10": {
+  "surah": "Al-Waaqia",
+  "surahAr": "سُورَةُ الوَاقِعَةِ",
+  "ar": "وَٱلسَّٰبِقُونَ ٱلسَّٰبِقُونَ",
+  "en": "And the forerunners, the forerunners -"
+ },
+ "56:11": {
+  "surah": "Al-Waaqia",
+  "surahAr": "سُورَةُ الوَاقِعَةِ",
+  "ar": "أُو۟لَٰٓئِكَ ٱلْمُقَرَّبُونَ",
+  "en": "Those are the ones brought near [to Allah]"
+ },
+ "56:12": {
+  "surah": "Al-Waaqia",
+  "surahAr": "سُورَةُ الوَاقِعَةِ",
+  "ar": "فِى جَنَّٰتِ ٱلنَّعِيمِ",
+  "en": "In the Gardens of Pleasure,"
+ },
+ "56:92": {
+  "surah": "Al-Waaqia",
+  "surahAr": "سُورَةُ الوَاقِعَةِ",
+  "ar": "وَأَمَّآ إِن كَانَ مِنَ ٱلْمُكَذِّبِينَ ٱلضَّآلِّينَ",
+  "en": "But if he was of the deniers [who were] astray,"
+ },
+ "56:93": {
+  "surah": "Al-Waaqia",
+  "surahAr": "سُورَةُ الوَاقِعَةِ",
+  "ar": "فَنُزُلٌۭ مِّنْ حَمِيمٍۢ",
+  "en": "Then [for him is] accommodation of scalding water"
+ },
+ "56:94": {
+  "surah": "Al-Waaqia",
+  "surahAr": "سُورَةُ الوَاقِعَةِ",
+  "ar": "وَتَصْلِيَةُ جَحِيمٍ",
+  "en": "And burning in Hellfire"
+ },
+ "57:13": {
+  "surah": "Al-Hadid",
+  "surahAr": "سُورَةُ الحَدِيدِ",
+  "ar": "يَوْمَ يَقُولُ ٱلْمُنَٰفِقُونَ وَٱلْمُنَٰفِقَٰتُ لِلَّذِينَ ءَامَنُوا۟ ٱنظُرُونَا نَقْتَبِسْ مِن نُّورِكُمْ قِيلَ ٱرْجِعُوا۟ وَرَآءَكُمْ فَٱلْتَمِسُوا۟ نُورًۭا فَضُرِبَ بَيْنَهُم بِسُورٍۢ لَّهُۥ بَابٌۢ بَاطِنُهُۥ فِيهِ ٱلرَّحْمَةُ وَظَٰهِرُهُۥ مِن قِبَلِهِ ٱلْعَذَابُ",
+  "en": "On the [same] Day the hypocrite men and hypocrite women will say to those who believed, \"Wait for us that we may acquire some of your light.\" It will be said, \"Go back behind you and seek light.\" And a wall will be placed between them with a door, its interior containing mercy, but on the outside of it is torment."
+ },
+ "67:10": {
+  "surah": "Al-Mulk",
+  "surahAr": "سُورَةُ المُلۡكِ",
+  "ar": "وَقَالُوا۟ لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ مَا كُنَّا فِىٓ أَصْحَٰبِ ٱلسَّعِيرِ",
+  "en": "And they will say, \"If only we had been listening or reasoning, we would not be among the companions of the Blaze.\""
+ },
+ "67:11": {
+  "surah": "Al-Mulk",
+  "surahAr": "سُورَةُ المُلۡكِ",
+  "ar": "فَٱعْتَرَفُوا۟ بِذَنۢبِهِمْ فَسُحْقًۭا لِّأَصْحَٰبِ ٱلسَّعِيرِ",
+  "en": "And they will admit their sin, so [it is] alienation for the companions of the Blaze."
+ },
+ "69:17": {
+  "surah": "Al-Haaqqa",
+  "surahAr": "سُورَةُ الحَاقَّةِ",
+  "ar": "وَٱلْمَلَكُ عَلَىٰٓ أَرْجَآئِهَا ۚ وَيَحْمِلُ عَرْشَ رَبِّكَ فَوْقَهُمْ يَوْمَئِذٍۢ ثَمَٰنِيَةٌۭ",
+  "en": "And the angels are at its edges. And there will bear the Throne of your Lord above them, that Day, eight [of them]."
+ },
+ "70:15": {
+  "surah": "Al-Ma'aarij",
+  "surahAr": "سُورَةُ المَعَارِجِ",
+  "ar": "كَلَّآ ۖ إِنَّهَا لَظَىٰ",
+  "en": "No! Indeed, it is the Flame [of Hell],"
+ },
+ "70:16": {
+  "surah": "Al-Ma'aarij",
+  "surahAr": "سُورَةُ المَعَارِجِ",
+  "ar": "نَزَّاعَةًۭ لِّلشَّوَىٰ",
+  "en": "A remover of exteriors."
+ },
+ "70:17": {
+  "surah": "Al-Ma'aarij",
+  "surahAr": "سُورَةُ المَعَارِجِ",
+  "ar": "تَدْعُوا۟ مَنْ أَدْبَرَ وَتَوَلَّىٰ",
+  "en": "It invites he who turned his back [on truth] and went away [from obedience]"
+ },
+ "70:18": {
+  "surah": "Al-Ma'aarij",
+  "surahAr": "سُورَةُ المَعَارِجِ",
+  "ar": "وَجَمَعَ فَأَوْعَىٰٓ",
+  "en": "And collected [wealth] and hoarded."
+ },
+ "74:26": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "سَأُصْلِيهِ سَقَرَ",
+  "en": "I will drive him into Saqar."
+ },
+ "74:27": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "وَمَآ أَدْرَىٰكَ مَا سَقَرُ",
+  "en": "And what can make you know what is Saqar?"
+ },
+ "74:28": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "لَا تُبْقِى وَلَا تَذَرُ",
+  "en": "It lets nothing remain and leaves nothing [unburned],"
+ },
+ "74:29": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "لَوَّاحَةٌۭ لِّلْبَشَرِ",
+  "en": "Blackening the skins."
+ },
+ "74:30": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "عَلَيْهَا تِسْعَةَ عَشَرَ",
+  "en": "Over it are nineteen [angels]."
+ },
+ "74:42": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "مَا سَلَكَكُمْ فِى سَقَرَ",
+  "en": "[And asking them], \"What put you into Saqar?\""
+ },
+ "74:43": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "قَالُوا۟ لَمْ نَكُ مِنَ ٱلْمُصَلِّينَ",
+  "en": "They will say, \"We were not of those who prayed,"
+ },
+ "74:44": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "وَلَمْ نَكُ نُطْعِمُ ٱلْمِسْكِينَ",
+  "en": "Nor did we used to feed the poor."
+ },
+ "74:45": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "وَكُنَّا نَخُوضُ مَعَ ٱلْخَآئِضِينَ",
+  "en": "And we used to enter into vain discourse with those who engaged [in it],"
+ },
+ "74:46": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "وَكُنَّا نُكَذِّبُ بِيَوْمِ ٱلدِّينِ",
+  "en": "And we used to deny the Day of Recompense"
+ },
+ "74:47": {
+  "surah": "Al-Muddaththir",
+  "surahAr": "سُورَةُ المُدَّثِّرِ",
+  "ar": "حَتَّىٰٓ أَتَىٰنَا ٱلْيَقِينُ",
+  "en": "Until there came to us the certainty.\""
+ },
+ "79:37": {
+  "surah": "An-Naazi'aat",
+  "surahAr": "سُورَةُ النَّازِعَاتِ",
+  "ar": "فَأَمَّا مَن طَغَىٰ",
+  "en": "So as for he who transgressed"
+ },
+ "79:38": {
+  "surah": "An-Naazi'aat",
+  "surahAr": "سُورَةُ النَّازِعَاتِ",
+  "ar": "وَءَاثَرَ ٱلْحَيَوٰةَ ٱلدُّنْيَا",
+  "en": "And preferred the life of the world,"
+ },
+ "79:39": {
+  "surah": "An-Naazi'aat",
+  "surahAr": "سُورَةُ النَّازِعَاتِ",
+  "ar": "فَإِنَّ ٱلْجَحِيمَ هِىَ ٱلْمَأْوَىٰ",
+  "en": "Then indeed, Hellfire will be [his] refuge."
+ },
+ "79:40": {
+  "surah": "An-Naazi'aat",
+  "surahAr": "سُورَةُ النَّازِعَاتِ",
+  "ar": "وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِۦ وَنَهَى ٱلنَّفْسَ عَنِ ٱلْهَوَىٰ",
+  "en": "But as for he who feared the position of his Lord and prevented the soul from [unlawful] inclination,"
+ },
+ "79:41": {
+  "surah": "An-Naazi'aat",
+  "surahAr": "سُورَةُ النَّازِعَاتِ",
+  "ar": "فَإِنَّ ٱلْجَنَّةَ هِىَ ٱلْمَأْوَىٰ",
+  "en": "Then indeed, Paradise will be [his] refuge."
+ },
+ "101:8": {
+  "surah": "Al-Qaari'a",
+  "surahAr": "سُورَةُ القَارِعَةِ",
+  "ar": "وَأَمَّا مَنْ خَفَّتْ مَوَٰزِينُهُۥ",
+  "en": "But as for one whose scales are light,"
+ },
+ "104:1": {
+  "surah": "Al-Humaza",
+  "surahAr": "سُورَةُ الهُمَزَةِ",
+  "ar": "وَيْلٌۭ لِّكُلِّ هُمَزَةٍۢ لُّمَزَةٍ",
+  "en": "Woe to every scorner and mocker"
+ },
+ "104:2": {
+  "surah": "Al-Humaza",
+  "surahAr": "سُورَةُ الهُمَزَةِ",
+  "ar": "ٱلَّذِى جَمَعَ مَالًۭا وَعَدَّدَهُۥ",
+  "en": "Who collects wealth and [continuously] counts it."
+ },
+ "104:3": {
+  "surah": "Al-Humaza",
+  "surahAr": "سُورَةُ الهُمَزَةِ",
+  "ar": "يَحْسَبُ أَنَّ مَالَهُۥٓ أَخْلَدَهُۥ",
+  "en": "He thinks that his wealth will make him immortal."
+ },
+ "104:4": {
+  "surah": "Al-Humaza",
+  "surahAr": "سُورَةُ الهُمَزَةِ",
+  "ar": "كَلَّا ۖ لَيُنۢبَذَنَّ فِى ٱلْحُطَمَةِ",
+  "en": "No! He will surely be thrown into the Crusher."
+ },
+ "104:5": {
+  "surah": "Al-Humaza",
+  "surahAr": "سُورَةُ الهُمَزَةِ",
+  "ar": "وَمَآ أَدْرَىٰكَ مَا ٱلْحُطَمَةُ",
+  "en": "And what can make you know what is the Crusher?"
+ },
+ "104:6": {
+  "surah": "Al-Humaza",
+  "surahAr": "سُورَةُ الهُمَزَةِ",
+  "ar": "نَارُ ٱللَّهِ ٱلْمُوقَدَةُ",
+  "en": "It is the fire of Allah, [eternally] fueled,"
+ },
+ "104:7": {
+  "surah": "Al-Humaza",
+  "surahAr": "سُورَةُ الهُمَزَةِ",
+  "ar": "ٱلَّتِى تَطَّلِعُ عَلَى ٱلْأَفْـِٔدَةِ",
+  "en": "Which mounts directed at the hearts."
+ },
+ "104:8": {
+  "surah": "Al-Humaza",
+  "surahAr": "سُورَةُ الهُمَزَةِ",
+  "ar": "إِنَّهَا عَلَيْهِم مُّؤْصَدَةٌۭ",
+  "en": "Indeed, Hellfire will be closed down upon them"
+ },
+ "104:9": {
+  "surah": "Al-Humaza",
+  "surahAr": "سُورَةُ الهُمَزَةِ",
+  "ar": "فِى عَمَدٍۢ مُّمَدَّدَةٍۭ",
+  "en": "In extended columns."
  }
 }
