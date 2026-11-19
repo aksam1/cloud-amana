@@ -11,7 +11,8 @@ def scene(sid, order, node, title, arabic, art, prompt, world, layers, beats, am
     s = {'id': sid, 'chapter': 10, 'order': order, 'node': node, 'title': title, 'arabic': arabic, 'source': 'quran', 'ayahs': [], 'art': art,
          'ambient': ambient, 'base': base, 'captions': 'parchment', 'renderer': 'gl', 'pen': True, 'dissolve': dissolve, 'world': world,
          'cam': beats[0]['cam'], 'imagePrompt': prompt, 'layers': layers, 'beats': beats}
-    open(C10 + f's{order}-{sid}.json', 'w').write(dump(s))
+    with open(C10 + f's{order}-{sid}.json', 'w', encoding='utf-8') as fh:
+        fh.write(dump(s))
 
 
 def pv(ref, part=None):
@@ -195,6 +196,39 @@ scene('restored', 106, 'ayyub', 'Restored', 'العطاء بعد الصبر',
     {'dur': 10000, 'ambient': ['birds', 'air'], 'cam': cam_near,
      'say': "His flocks and fields flourished again. Through everything, he had been patient, and he never stopped turning back to God."},
     {'dur': 12000, 'ambient': ['air'], 'cam': cam_verse, 'pendingVerse': pv('38:44', 'its closing words: "Indeed, We found him patient, an excellent servant…"')},
+  ])
+
+# ── 105.5 · Ayyub's oath (between Strike the Ground and Restored) ────────
+# The same place as `strike` and `restored`: the wheat plain of the Hauran, the black basalt farmhouse,
+# the spring. The oath itself (that he had sworn something in his pain, and would keep his word) is
+# tradition, from the commentators; the Quran gives only God's gentle instruction (38:44). Nothing is
+# struck: the bundle of grass is gathered, carried, and set down.
+scene('oath', 105.5, 'ayyub', "Ayyub's Oath", 'يمين أيوب',
+  art=[ART_AYYUB,
+       "That Ayyub had sworn an oath in his illness (the commentators say about a word of his wife's) and that he kept it is from the traditions on 38:44; the wife, the number of his children and the bundle of grass are not counted or named on screen.",
+       "The bundle of grass is shown as the Quran describes it (38:44): a bunch taken in the hand. Only the bundle is shown, gathered and laid down; no one is hurt."],
+  prompt="The same wheat plain in the evening light, the black basalt farmhouse and the clear spring beside it; a bright steady light bending in the wheat and gathering a small bundle of grass in one hand; a dim amber light standing close beside him; then the bundle of grass laid down on the ground between them, and the two lights standing still together; ink-wash and parchment texture.",
+  world=HILLS, ambient=['wind', 'birds'], base='#c0a884',
+  layers=[
+    heav([[16.4, 17.2, 10000], [17.2, 18, 10000], [18, 18.8, 12000]], moon=MOON),
+    *land(),
+    tent(),
+    {'type': 'spring', 'depth': D - 0.04, 'pos': [790, FEET - 16], 'r': 60, 'squash': 0.26, 'well': 1, 'rim': 1},
+    # the bundle of grass: a small sheaf of ink strokes, gathered and then laid down
+    {'type': 'ears', 'depth': D + 0.01, 'n': 7, 'x0': 1000, 'x1': 1060, 'y': FEET + 2, 'h': 26, 'state': 'dry', 'seed': 41, 'area': [980, 740, 1080, 800],
+     'at': {'1': {'move': {'path': [[0, 0, 0], [-46, 26, 0]], 'dur': 7000, 'delay': 900}}, '2': {'move': {'path': [[-46, 26, 0]], 'dur': 1}}}},
+    ayyub(at={'1': {'pose': 'bow', 'w': 1}, '2': {'pose': 'raise'}}),
+    wife(960),
+    near_grass(), motes(opacity=0.2),
+  ],
+  beats=[
+    {'dur': 11000, 'ambient': ['wind', 'birds'], 'cam': cam([960, 530, 700], [1000, 760, -3000]),
+     'say': "In his long illness Ayyub had sworn an oath; the commentators say it was over a word of his wife's. Now he was healed, and he meant to keep his word."},
+    {'dur': 11000, 'ambient': ['wind', 'air'], 'cam': cam([930, 535, 560], [990, 780, -3000]),
+     'say': "God gave him a gentle way to keep it: to take a small bundle of grass in his hand. He kept his word, and no one was hurt."},
+    {'dur': 12000, 'ambient': ['birds', 'air'], 'cam': cam([980, 525, 820], [1020, 700, -3000]),
+     'verse': {'ref': '38:44', 'ar': [0, 7], 'place': 'sky',
+               'en': "[We said], \"And take in your hand a bunch [of grass] and strike with it and do not break your oath.\""}},
   ])
 
 # ── Madyan: a trading town where the caravan roads meet ────────────────────

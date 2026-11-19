@@ -1,0 +1,36 @@
+{
+  "id": "lord",
+  "chapter": 18,
+  "order": 198,
+  "node": "wisdom",
+  "title": "The Lord of the Boy",
+  "arabic": "رب الغلام",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The story is from the hadith of Sahih Muslim 3005; the words the boy spoke are given there. The boy, the king and the crowds appear only as lights. Nothing is shown of how the boy's light went out: it goes out, and that is all.", "The palm trunk and the plain are imagined; in the hadith the people were gathered in a field with a palm tree in it."],
+  "ambient": ["wind", "voices"],
+  "base": "#141824",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#141824", "fogNear": 6000, "fogFar": 42000, "light": 0.9, "rays": 0, "bloom": 0.9, "haze": 0.04, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 520, 950], "look": [800, 620, -3000]},
+  "imagePrompt": "A wide plain at night under a great sky, a crowd of dim lights gathered in a wide ring, a palm trunk standing among them; in the middle a small clear light standing alone, and beside it the tall cold light of a king; then the small light goes out, and every light in the crowd brightens at once; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [23.2, 23.8, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "stars": 1600, "at": {"1": {"tod": [23.8, 24.4, 10000]}, "2": {"tod": [24.4, 25, 12000]}}},
+    {"type": "ridge", "depth": 0.03, "y": 636, "amp": 40, "seed": 1950, "sharp": 0.3, "color": "#2a2a38", "haze": 0.3, "fog": 0.4},
+    {"type": "ground", "depth": 0.14, "y": 692, "amp": 8, "seed": 1951, "color": "#443c30", "color2": "#201c16"},
+    {"type": "ground", "depth": 0.28, "y": 762, "amp": 6, "seed": 1952, "x0": -600, "x1": 2200, "color": "#524838", "color2": "#2a241c"},
+    {"type": "tree", "depth": 0.22, "x": 1180, "y": 720, "h": 297, "kind": "living", "seed": 1953},
+    {"type": "crowd", "area": [-200, 1800, -3400, -2100], "y": [792, 720], "count": 260, "size": 76, "color": "#ffd8a0", "dim": 0.4, "glow": 0.14, "mill": 6, "speed": 0, "flicker": 0.3, "at": {"1": {"glow": 0.5, "dim": 0.15, "flicker": 0.08}}},
+    {"type": "light", "depth": 0.42, "pos": [800, 798], "h": 96, "color": "#fffaf0", "glow": 0.6, "bright": 1.35, "solid": 0.5, "pose": "raise", "at": {"1": {"pose": "gone"}}},
+    {"type": "light", "depth": 0.42, "pos": [560, 796], "h": 118, "color": "#b8b0c8", "glow": 0.2, "bright": 0.9, "solid": 0.7},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.14, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 12000, "ambient": ["crowd", "voices"], "cam": {"pos": [800, 520, 950], "look": [800, 620, -3000]}, "say": "The king could not be rid of the boy. At last the boy told him how: gather all the people on one plain, and say before them, In the name of God, the Lord of the boy."},
+    {"dur": 12000, "ambient": ["crowd", "air"], "world": {"bloom": 1.0}, "cam": {"pos": [820, 525, 700], "look": [820, 700, -3000]}, "say": "The boy's light went out. Then the whole crowd said it together: we believe in the Lord of the boy, and all their lights burned bright at once."},
+    {"dur": 12000, "ambient": ["wind", "air"], "cam": {"pos": [800, 515, 900], "look": [800, 600, -3000]}, "verse": {"ref": "85:8-9", "place": "sky", "en": "And they resented them not except because they believed in Allah, the Exalted in Might, the Praiseworthy, To whom belongs the dominion of the heavens and the earth. And Allah, over all things, is Witness."}}
+  ]
+}

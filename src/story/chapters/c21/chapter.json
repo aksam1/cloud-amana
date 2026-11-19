@@ -4,7 +4,7 @@
   "arabic": "يوم الدين",
   "nodes": ["judgment"],
   "parts": [
-    { "title": "The Earth Is Asked", "from": 197, "to": 203 }
+    { "title": "The Earth Is Asked", "from": 205, "to": 211 }
   ],
   "bridge": {
     "when": "The Hour",

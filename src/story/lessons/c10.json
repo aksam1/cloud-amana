@@ -46,10 +46,24 @@
             "scene": "strike",
             "beat": 1
           }
+        },
+        {
+          "q": "How did Ayyub keep his oath once he was healed?",
+          "options": [
+            "He broke it",
+            "He took a small bundle of grass in his hand, as God allowed",
+            "He paid a fine",
+            "He forgot it"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "oath",
+            "beat": 1
+          }
         }
       ],
       "lesson": {
-        "text": "Ayyub was grateful in good times and patient in hard ones, and through both he kept turning back to God. God called him an excellent servant.",
+        "text": "Ayyub was grateful in good times and patient in hard ones, and through both he kept turning back to God. When he was healed, God gave him a gentle way to keep his word. God called him an excellent servant.",
         "curious": "Muslims honour Ayyub, known in the Bible as Job, as a model of patience who never stopped turning back to God.",
         "ref": "38:44"
       },

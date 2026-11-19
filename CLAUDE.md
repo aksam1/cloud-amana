@@ -52,13 +52,17 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   passing (Musa, known as Moses). Generators must keep it (write chapter.json without dropping `bridge`).
 - Chapter 18, Stories of Wisdom (map stop `wisdom`), holds stories whose time is uncertain or that sit
   outside the line of prophets (the Cave, Dhul-Qarnayn, the two gardens, the owners of the garden, Saba's dam,
-  the town of the messengers, the hundred years, Luqman).
+  the town of the messengers, the hundred years, Luqman, the town by the sea (the Sabbath-breakers, 7:163-166)
+  and the boy and the trench (85:4-11 with the hadith in Sahih Muslim)). Its lessons have five parts: the
+  last two are these two stories (lesson keys are `chapter:part` by index, so new parts always go at the end).
+- Ayyub's oath (38:44) closes his story in chapter 10, and Isa's return (43:61 and the hadith of the white
+  minaret) opens the major signs in chapter 20, shown as light coming down at dawn, never a figure.
 - Chapter 19 (the Final Messenger ﷺ) is **paused, not written**: its scenes depend on the owner's decision
   about how the Prophet ﷺ is shown, which has not been made. Do not write chapter 19 without it. Its
   chapter.json is a placeholder with three parts and no `from`/`to`.
 - Chapters 20 and 21 are written and are the end of the chronicle: 20, The Signs of the Hour (map stops
-  `minor` and `major`, four scenes), and 21, The Day of Judgment (map stop `judgment`, seven scenes). Neither
-  chapter shows a single person: they are the Quran's own pictures of the end, made of sky, earth, light and
+  `minor` and `major`, five scenes), and 21, The Day of Judgment (map stop `judgment`, seven scenes). Neither
+  chapter shows a person's form (Isa's return is only light coming down at dawn): they are the Quran's own pictures of the end, made of sky, earth, light and
   stillness. Their generator is `tools/generators/c20_21.py`; their docs are `docs/CHAPTER-20-SIGNS.md` and
   `docs/CHAPTER-21-JUDGMENT.md`.
 
@@ -75,7 +79,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   `#/lesson/<chapter>/<part>?then=<route>`, opened automatically at the end of a part not yet learned.
   "See the moment again" plays `#/scene/<id>?beat=n&back=<lesson>` and returns to the lesson.
 - Progress: `learned`, `answers` and the private `journal` in `src/lib/store.js` (localStorage only).
-  Every part with scenes (chapters 1–18 and 20–21, 53 parts) has a lesson; each `carry` is a short Quranic dua, by ref.
+  Every part with scenes (chapters 1–18 and 20–21, 55 parts) has a lesson; each `carry` is a short Quranic dua, by ref.
 
 ## The Pyramid of Righteousness (the home page)
 
@@ -99,7 +103,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   leaderboards or comparisons, shaming copy. The disclaimer shows on the landing, placement, result,
   progress and unit-result screens. Scores are private (localStorage); Progress has "Delete my data".
 - Engine: `src/lib/pyramid.js` (placement result, unit meters, level progress, overall, current level).
-  Messengers' meter = history lessons learned ÷ the parts that have scenes (`from` set; 53 today), so it can reach 100%. A unit retaken keeps its best meter.
+  Messengers' meter = history lessons learned ÷ the parts that have scenes (`from` set; 55 today), so it can reach 100%. A unit retaken keeps its best meter.
 - Story steps play chronicle scenes with `?back=<unit>&until=<last scene>` and return to the unit.
 
 ## The journey and its safety nets
@@ -121,12 +125,12 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 ## Site basics (from the November 2026 audit)
 
 - `src/lib/site.js`: `SITE_URL` (change it when the site gets its own address), `MAKER` and `CONTACT` (empty until the
-  owner gives them; the About page shows a plain "will be added here" line meanwhile, as he asked), `quranLink(ref)`, `share()`, `download()`.
+  owner gives them; the About page shows a plain "will be added here" line meanwhile, as the owner asked), `quranLink(ref)`, `share()`, `download()`.
 - `#/about` (`About.jsx`): purpose, sources, review status, privacy, the disclaimer. Any unknown address shows
   "That page does not exist" (router `missing`), never the start screen. Keep the About page true when things change
   (for example once hadith are reviewed, or if visitor counts are ever added).
 - A verse still waiting for its text is never replaced: scenes show `PendingCaption` (reference + link to quran.com) and
-  hold at most 6 s (`PENDING_MS`); units and lessons show the same link. Nothing is pending today (all 231 verse
+  hold at most 6 s (`PENDING_MS`); units and lessons show the same link. Nothing is pending today (all 240 verse
   moments, 78 unit refs and 102 lesson refs show their text); the fallback stays for new refs.
 - A finished unit offers `nextUnit()` (first playable unit after it not yet completed) as its main button.
 - Fonts are bundled (`src/fonts.css`, @fontsource): nothing loads from Google. Add a weight there before using it.
@@ -256,6 +260,35 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   disappears. `src/lib/mapWorld.test.js` guards this.
 - The map keeps everything it had: seal states, the dossier, the arrival ceremony (`?from=&arrive=`),
   the list dialog, pan/zoom, the frontier fog and the keyboard navigation.
+
+## A real site: Netlify, installable, offline (Nov 2026)
+
+- Netlify site `amanah-stories` builds every push to `claude/hopeful-volta-f4sesq` (https://amanah-stories.netlify.app).
+  `netlify.toml` sets `VITE_TARGET=web`, which switches on the web-only parts (`IS_WEB` in `src/lib/pwa.js`): the
+  service worker (`src/sw/sw.template.js`: network-first pages, cache-first hashed assets, old caches dropped), the
+  install invitation (`InstallInvite.jsx`) and the mistake-report form (`ReportForm.jsx`, Netlify Forms). The artifact
+  build leaves it unset and stays a single page with none of them. Never make the artifact depend on them.
+- `#/settings` (view, install, keep the whole story offline, back up / restore / merge, delete), `#/privacy`, `#/end`
+  (the end of the chronicle: counts, the closing verse 12:111, what is still open, the ways back), `#/report`.
+- Backups: `exportState`, `validateBackup`, `mergeStates` in store.js are pure and tested. A merge is idempotent
+  (merging the same backup twice changes nothing; a note joined from two devices does not grow again).
+- The privacy page must stay exactly true: say what leaves the device and what the host sees (internet address,
+  browser). Change it in the same commit as anything that sends data.
+- `npm run e2e:chrome` / `e2e:offline:chrome` run the journeys with the installed Chrome (`tools/run-e2e*.cjs`).
+
+## The two abodes (Nov 2026)
+
+- `#/abodes` (`Abodes.jsx`, `AbodesMonument.jsx`, data `src/pyramid/abodes.json`, engine `src/lib/abodes.js`,
+  plan `docs/ABODES-BLUEPRINT.md`): a diamond of 7 levels of Paradise above and 7 of the Fire below, the ground
+  between (the bridge, the wall, the heights) and the Throne as a labelled canopy of light on top (never God).
+- Each level shows what the Quran names as leading there and what it says of the level, verses by `ref` only. The
+  names are Quranic; their order is from later scholars, and the page says so once. Only Firdaus as highest is sahih.
+- Punishment is shown only as verse text; the drawing stays abstract (dark stone, no figures, no shaped flames).
+  Every Fire card carries the way back (39:53 and 25:70; 4:146 for al-Hawiyah). No people are drawn in either abode,
+  and nothing (a score, an answer, "you") ever links a reader to a level. Never predict anyone's place.
+- The 100 grades of Paradise (blueprint §8) are shelved by the owner, not planned.
+- Doors in: the end page, the map's `judgment` stop (timeline.json `see`: { label, to }, a node's extra page,
+  shown under its scenes) and About. `tests/e2e/abodes.e2e.js` walks all three.
 
 ## WebGL scenes (`"renderer": "gl"`, from Chapter 4)
 

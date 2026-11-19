@@ -4,9 +4,9 @@
   "arabic": "موسى من النيل إلى الطور",
   "nodes": ["musa"],
   "parts": [
-    { "title": "Born in Egypt", "from": 116, "to": 119 },
-    { "title": "Exile", "from": 120, "to": 123 },
-    { "title": "The Call", "from": 124, "to": 125 }
+    { "title": "Born in Egypt", "from": 117, "to": 120 },
+    { "title": "Exile", "from": 121, "to": 124 },
+    { "title": "The Call", "from": 125, "to": 126 }
   ],
   "bridge": {
     "when": "Several centuries after Yusuf (about 1400 BCE)",

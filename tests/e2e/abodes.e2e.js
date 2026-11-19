@@ -71,6 +71,25 @@ test('on a phone the pop-up opens below the level it describes, never over it', 
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(page.viewportSize().width);
 });
 
+test('the end of the chronicle, the map\'s last stop and the About page all lead to the two abodes', async ({ page }) => {
+  await page.goto('/#/end');
+  await page.getByRole('button', { name: 'The two abodes' }).click();
+  await expect(page).toHaveURL(/#\/abodes$/);
+
+  await page.goto('/#/map');
+  await page.locator('g[aria-label^="The Day of Judgment"]').dispatchEvent('click');
+  const stop = page.getByRole('complementary', { name: 'The Day of Judgment' });
+  await stop.getByRole('button', { name: 'The two abodes' }).click();
+  await expect(page).toHaveURL(/#\/abodes$/);
+
+  await page.goto('/#/about');
+  await expect(page.getByRole('heading', { name: 'About Amanah' })).toBeVisible();
+  await page.locator('summary', { hasText: 'The two abodes' }).click();
+  await page.getByRole('link', { name: 'Open the two abodes' }).click();
+  await expect(page).toHaveURL(/#\/abodes$/);
+  await expect(page.getByRole('heading', { name: 'The two abodes' })).toBeVisible();
+});
+
 test.describe('with reduced motion', () => {
   test.use({ reducedMotion: 'reduce' });
 

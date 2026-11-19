@@ -1,0 +1,40 @@
+{
+  "id": "trench",
+  "chapter": 18,
+  "order": 199,
+  "node": "wisdom",
+  "title": "The Companions of the Trench",
+  "arabic": "أصحاب الخندق",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The story is from the hadith of Sahih Muslim 3005; the Quran's own words about these people are 85:4-8 and 85:11. Everyone appears only as a light. The trench and its fires are seen far off across the plain, and no one is shown near them; what happened to those who would not turn back is told in words, and their lights simply go out.", "The child's words are given as the hadith has them. The look of the plain is imagined."],
+  "ambient": ["wind", "fire"],
+  "base": "#141824",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#141824", "fogNear": 6000, "fogFar": 42000, "light": 0.9, "rays": 0, "bloom": 0.9, "haze": 0.04, "hazeY": 0.6, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 520, 1000], "look": [800, 620, -3000]},
+  "imagePrompt": "Night over a wide empty plain; far off along the horizon a long line of fire glowing in trenches, seen from a great distance; near the front of the plain a small group of steady lights standing still at the edge of the darkness, and beside them a dim light with a tiny light close to it; then every light going out quietly, one by one; and last, the sky alone, its great stars clear and still; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [23.4, 24, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "stars": 1800, "at": {"1": {"tod": [24, 24.6, 10000]}, "2": {"tod": [24.6, 25.2, 12000]}, "3": {"tod": [25.2, 26, 12000]}}},
+    {"type": "ridge", "depth": 0.03, "y": 630, "amp": 38, "seed": 1960, "sharp": 0.3, "color": "#282838", "haze": 0.3, "fog": 0.4},
+    {"type": "ground", "depth": 0.14, "y": 686, "amp": 8, "seed": 1961, "color": "#3c3428", "color2": "#1a1610"},
+    {"type": "ground", "depth": 0.3, "y": 764, "amp": 6, "seed": 1962, "x0": -600, "x1": 2200, "color": "#463c30", "color2": "#221e18"},
+    {"type": "fire", "depth": 0.06, "pos": [800, 664], "w": 810, "h": 126, "heat": 1.0, "sheets": 2, "at": {"3": {"cool": 1, "coolDur": 5000}}},
+    {"type": "light", "depth": 0.42, "pos": [600, 798], "h": 107, "color": "#fff0dc", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"2": {"pose": "gone"}, "3": {"pose": "gone"}}},
+    {"type": "light", "depth": 0.42, "pos": [654, 798], "h": 107, "color": "#fff0dc", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"2": {"pose": "gone"}, "3": {"pose": "gone"}}},
+    {"type": "light", "depth": 0.42, "pos": [708, 798], "h": 107, "color": "#fff0dc", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"2": {"pose": "gone"}, "3": {"pose": "gone"}}},
+    {"type": "light", "depth": 0.42, "pos": [762, 798], "h": 107, "color": "#fff0dc", "glow": 0.35, "bright": 1.1, "solid": 0.5, "at": {"2": {"pose": "gone"}, "3": {"pose": "gone"}}},
+    {"type": "light", "depth": 0.43, "pos": [880, 796], "h": 96, "color": "#e8c088", "glow": 0.2, "bright": 0.95, "solid": 0.6, "at": {"2": {"pose": "gone"}, "3": {"pose": "gone"}}},
+    {"type": "light", "depth": 0.44, "pos": [912, 794], "h": 34, "color": "#fff0dc", "glow": 0.4, "bright": 1.1, "solid": 0.5, "pose": "babe", "w": 1.0, "at": {"2": {"pose": "gone"}, "3": {"pose": "gone"}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.14, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 12000, "ambient": ["wind", "fire"], "cam": {"pos": [800, 520, 1000], "look": [800, 620, -3000]}, "say": "The hadith goes on. The king had trenches dug at the roads and fires lit in them, and whoever would not give up their faith was to be thrown in. The believers' lights stood steady at the edge and did not turn back."},
+    {"dur": 12000, "ambient": ["fire", "wind"], "cam": {"pos": [800, 505, 1000], "look": [800, 590, -3000]}, "verse": {"ref": "85:4-7", "place": "sky", "en": "Cursed were the companions of the trench [Containing] the fire full of fuel, When they were sitting near it And they, to what they were doing against the believers, were witnesses."}},
+    {"dur": 12000, "ambient": ["fire", "wind"], "cam": {"pos": [760, 535, 620], "look": [800, 720, -3000]}, "say": "A mother held back, with her child in her arms. And the child said to her: O mother, endure, for you are on the truth."},
+    {"dur": 12000, "ambient": ["wind", "air"], "world": {"bloom": 1.0}, "cam": {"pos": [800, 505, 1100], "look": [800, 560, -3000]}, "verse": {"ref": "85:11", "place": "sky", "en": "Indeed, those who have believed and done righteous deeds will have gardens beneath which rivers flow. That is the great attainment."}}
+  ]
+}

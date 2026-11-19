@@ -4,8 +4,8 @@
   "arabic": "إلياس واليسع ويونس",
   "nodes": ["ilyas", "alyasa", "yunus"],
   "parts": [
-    { "title": "Ilyas and Al-Yasa'", "from": 162, "to": 163 },
-    { "title": "Yunus", "from": 164, "to": 168 }
+    { "title": "Ilyas and Al-Yasa'", "from": 163, "to": 164 },
+    { "title": "Yunus", "from": 165, "to": 169 }
   ],
   "bridge": {
     "when": "About 900–750 BCE",

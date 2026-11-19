@@ -4,9 +4,9 @@
   "arabic": "داود وسليمان",
   "nodes": ["dhulkifl", "dawud", "sulayman"],
   "parts": [
-    { "title": "Dhul-Kifl", "from": 149, "to": 149 },
-    { "title": "Dawud", "from": 150, "to": 155 },
-    { "title": "Sulayman", "from": 156, "to": 161 }
+    { "title": "Dhul-Kifl", "from": 150, "to": 150 },
+    { "title": "Dawud", "from": 151, "to": 156 },
+    { "title": "Sulayman", "from": 157, "to": 162 }
   ],
   "bridge": {
     "when": "About 1000–930 BCE",

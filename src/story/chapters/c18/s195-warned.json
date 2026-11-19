@@ -1,0 +1,41 @@
+{
+  "id": "warned",
+  "chapter": 18,
+  "order": 195,
+  "node": "wisdom",
+  "title": "Those Who Warned",
+  "arabic": "الواعظون",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["Everyone appears only as a light. The Quran tells of three groups (7:164-165): those who broke the sabbath, those who warned them, and some who asked why they still warned. How they stood on the shore is imagined.", "The look of the town is imagined: dressed limestone houses of the Levant in the time of Dawud."],
+  "ambient": ["sea", "voices"],
+  "base": "#c0c4c4",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c4ccd0", "fogNear": 6000, "fogFar": 46000, "light": 1.02, "rays": 0, "bloom": 0.62, "haze": 0.1, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 525, 900], "look": [800, 640, -3000]},
+  "imagePrompt": "A harbour town at evening, its quay and its low stone houses; on the shore three groups of dim lights standing apart from one another, one group standing together and facing the town; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [16.4, 17.4, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [17.4, 18.2, 10000]}, "2": {"tod": [18.2, 19, 12000]}}},
+    {"type": "ridge", "depth": 0.03, "y": 604, "amp": 34, "seed": 1920, "sharp": 0.3, "color": "#8a8a90", "haze": 0.4, "fog": 0.5},
+    {"type": "water", "depth": 0.06, "mode": "sea", "level": 662, "reflect": [["0", "#a8c0cc"], ["1", "#3a5568"]]},
+    {"type": "town", "depth": 0.1, "y": 648, "x0": -40, "x1": 1640, "s": 0.5, "grade": "israelite", "lit": 0.35, "haze": "#b8b4ac", "seed": 1921},
+    {"type": "ground", "depth": 0.18, "y": 704, "amp": 4, "seed": 1922, "color": "#c2b294", "color2": "#8e8064"},
+    {"type": "ground", "depth": 0.3, "y": 762, "amp": 4, "seed": 1923, "x0": -600, "x1": 2200, "color": "#c0aa8a", "color2": "#8c7c60"},
+    {"type": "crowd", "area": [900, 1600, -2600, -1900], "y": [792, 780], "count": 80, "size": 87, "color": "#ffd8a0", "dim": 0.4, "glow": 0.12, "mill": 5, "speed": 0, "flicker": 0.35},
+    {"type": "light", "depth": 0.42, "pos": [470, 800], "h": 107, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5},
+    {"type": "light", "depth": 0.42, "pos": [516, 800], "h": 107, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5},
+    {"type": "light", "depth": 0.42, "pos": [562, 800], "h": 107, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5},
+    {"type": "light", "depth": 0.42, "pos": [1120, 798], "h": 107, "color": "#e8c088", "glow": 0.2, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.42, "pos": [1164, 798], "h": 107, "color": "#e8c088", "glow": 0.2, "bright": 0.95, "solid": 0.6},
+    {"type": "light", "depth": 0.42, "pos": [1208, 798], "h": 107, "color": "#e8c088", "glow": 0.2, "bright": 0.95, "solid": 0.6},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.16, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["sea", "voices"], "cam": {"pos": [800, 525, 900], "look": [800, 640, -3000]}, "say": "A group among them asked the warners: why do you advise a people God is about to destroy, or to punish with a severe punishment?"},
+    {"dur": 11000, "ambient": ["sea", "air"], "cam": {"pos": [560, 535, 620], "look": [600, 740, -3000]}, "say": "The warners answered that they did it to be free of blame before their Lord, and in the hope that the others would fear Him."},
+    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [800, 520, 850], "look": [800, 620, -3000]}, "verse": {"ref": "7:164", "place": "sky", "en": "And when a community among them said, \"Why do you advise [or warn] a people whom Allah is [about] to destroy or to punish with a severe punishment?\" they [the advisors] said, \"To be absolved before your Lord and perhaps they may fear Him.\""}}
+  ]
+}

@@ -14,7 +14,8 @@ def scene(sid, order, chapter, node, title, arabic, art, prompt, world, layers, 
     num = f'{order:02d}' if isinstance(order, int) else str(order)
     for old in glob_(CH + f'c{chapter}/s*-{sid}.json'):
         os.remove(old)
-    open(CH + f'c{chapter}/s{num}-{sid}.json', 'w').write(dump(s))
+    with open(CH + f'c{chapter}/s{num}-{sid}.json', 'w', encoding='utf-8') as fh:
+        fh.write(dump(s))
 
 
 def glob_(p):
@@ -49,9 +50,11 @@ MOON = {'rise': 19, 'set': 6.5, 'x0': 1300, 'x1': 300, 'peak': 340, 'size': 24}
 motes = lambda opacity=0.28, **kw: dust(box=(-1400, 200, -8000, 3000, 950, 600), count=400, size=2.6, color='#fff0d8', opacity=opacity, wind=(4, -2, 0), **kw)
 
 
-def heav(tods, sun=SUN, moon=MOON, horizon=630):
+def heav(tods, sun=SUN, moon=MOON, horizon=630, stars=None):
     t0, *rest = tods
     h = {'type': 'heavens', 'horizon': horizon, 'tod': t0, 'sun': sun, 'moon': moon}
+    if stars:
+        h['stars'] = stars
     if rest:
         h['at'] = {str(i + 1): {'tod': t} for i, t in enumerate(rest) if t}
     return h

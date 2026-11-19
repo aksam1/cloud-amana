@@ -14,7 +14,10 @@
             "A new prophet, and a new scripture"
           ],
           "answer": 1,
-          "replay": { "scene": "lamps", "beat": 0 }
+          "replay": {
+            "scene": "lamps",
+            "beat": 0
+          }
         },
         {
           "q": "What happens to the lamps of the town?",
@@ -25,7 +28,10 @@
             "They are carried away by the wind"
           ],
           "answer": 2,
-          "replay": { "scene": "lamps", "beat": 1 }
+          "replay": {
+            "scene": "lamps",
+            "beat": 1
+          }
         },
         {
           "q": "What did the Prophet ﷺ say people would compete to build?",
@@ -36,7 +42,10 @@
             "Large fleets"
           ],
           "answer": 2,
-          "replay": { "scene": "towers", "beat": 0 }
+          "replay": {
+            "scene": "towers",
+            "beat": 0
+          }
         }
       ],
       "lesson": {
@@ -56,8 +65,22 @@
     },
     {
       "part": 1,
-      "watchFor": "These signs come at the Hour itself. Watch the sun, and watch which way it rises.",
+      "watchFor": "These are the great signs, the last before the Hour. Watch who comes down at dawn, and which way the sun rises.",
       "questions": [
+        {
+          "q": "Where does the hadith say Isa will come down?",
+          "options": [
+            "By a white minaret east of Damascus",
+            "On a mountain in Egypt",
+            "In the middle of the sea",
+            "In the desert of Madyan"
+          ],
+          "answer": 0,
+          "replay": {
+            "scene": "dawn",
+            "beat": 1
+          }
+        },
         {
           "q": "What does the Quran say happens to the sun?",
           "options": [
@@ -67,7 +90,10 @@
             "It splits in two"
           ],
           "answer": 0,
-          "replay": { "scene": "sunfolded", "beat": 1 }
+          "replay": {
+            "scene": "sunfolded",
+            "beat": 1
+          }
         },
         {
           "q": "Which direction is the sun said to rise from, in the hadith of the eleven signs?",
@@ -78,7 +104,10 @@
             "Straight above the Kaaba"
           ],
           "answer": 2,
-          "replay": { "scene": "sunrise", "beat": 1 }
+          "replay": {
+            "scene": "sunrise",
+            "beat": 1
+          }
         },
         {
           "q": "What does the Quran say will happen to a soul on the Day some of the signs come?",
@@ -89,12 +118,15 @@
             "It will be given another chance"
           ],
           "answer": 1,
-          "replay": { "scene": "sunrise", "beat": 2 }
+          "replay": {
+            "scene": "sunrise",
+            "beat": 2
+          }
         }
       ],
       "lesson": {
-        "text": "The signs at the Hour are the ones the Quran itself paints: the sun wrapped up in darkness, the stars falling dispersing, the mountains removed, and the sun rising from the West. When the signs come, the choice has already been made.",
-        "curious": "The sun rising from the West comes from a hadith, not from the Quran. The Quran asks the question it answers: what are you waiting for? And it answers: we too are waiting.",
+        "text": "The great signs come last. The Quran calls Isa a sign of the Hour, and paints the end itself: the sun wrapped up in darkness, the stars falling, the mountains removed. When the signs come, the choice has already been made.",
+        "curious": "Isa, known as Jesus, coming down at Damascus and the sun rising from the West are told in hadith; the Quran itself calls Isa a sign of the Hour. It asks what people are waiting for, and answers: we too are waiting.",
         "ref": "6:158"
       },
       "carry": {

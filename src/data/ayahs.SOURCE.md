@@ -23,6 +23,10 @@ API serves it (edition `quran-uthmani`, with pause marks; the basmala the API pu
   compared with the API's `quran-uthmani` and `en.sahih` editions (whole surahs, the same basmala rule as
   `fetch-ayahs.mjs`). All 520 are identical, so every ayah taken from the mirrors is now confirmed against the
   primary source.
+- 90 more ayat were added on 18 November 2026, after that check: for the Two Abodes page, the four new stories and
+  four new lesson prayers (3:16, 3:194, 23:109, 60:5).
+- **Re-checked on 19 November 2026:** all 610 ayat on file were compared with the API again in the same way, and
+  all 610 are identical.
 - To re-check again: `node scripts/verify-ayahs.mjs` (needs api.alquran.cloud).
 
 118 verse moments show part of an ayah. Their word ranges (`ar`) and matching English were chosen by hand (each

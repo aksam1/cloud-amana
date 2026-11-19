@@ -133,12 +133,17 @@ export default function App() {
   }, []);
 
   const inScene = route.name === 'scene';
+  // Scenes keep the slow, cinematic fade in and out. Every other page (home, map, menus, lessons) fades
+  // quickly: with mode="wait" the old page must fade out before the new one fades in, so 0.75 s each way
+  // made a tap on the tab bar take 1.5 s. An exiting page keeps the props it last had, so a scene still
+  // fades out slowly even when the page after it is quick.
+  const fade = inScene ? 0.75 : 0.2;
 
   if (!ready) return <Loader />;
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div key={route.key} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75, ease: 'easeInOut' }}>
+      <motion.div key={route.key} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: fade, ease: 'easeInOut' }}>
         <Recover routeKey={route.key}>
         <Suspense fallback={<Loader />}>
           {route.name === 'scene' ? (

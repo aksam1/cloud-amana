@@ -97,6 +97,17 @@ for (const s of scenes) {
 // ── Lessons (src/story/lessons/c<N>.json): one per part, verses by ref only ──
 const lessonDir = join(root, 'src/story/lessons');
 const chapterFiles = walk(join(root, 'src/story/chapters')).filter((f) => f.endsWith('chapter.json')).map((f) => JSON.parse(readFileSync(f, 'utf8')));
+// Each chapter's parts must cover exactly its own scenes, in order, with no gap or overlap. A generator
+// that hard-codes part numbers goes stale when scenes are inserted earlier in the story, and then the
+// last scene of a part no longer leads to its lesson.
+for (const ch of chapterFiles) {
+  const parts = (ch.parts || []).filter((p) => p.from != null);
+  if (!parts.length) continue;
+  const own = scenes.filter((s) => s.chapter === ch.number).map((s) => s.order).sort((a, b) => a - b);
+  const covered = parts.flatMap((p) => Array.from({ length: Math.max(0, p.to - p.from + 1) }, (_, i) => p.from + i));
+  if (covered.join() !== own.join())
+    errors.push(`chapter ${ch.number}: parts cover ${parts.map((p) => `${p.from}-${p.to}`).join(', ')} but its scenes are ${own[0]}-${own.at(-1)} (run tools/generators/renum.py, or fix the generator's part numbers)`);
+}
 const sceneIds = new Map(scenes.map((s) => [s.id, s]));
 let lessonCount = 0;
 for (const f of readdirSync(lessonDir).filter((f) => f.endsWith('.json'))) {

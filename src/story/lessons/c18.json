@@ -186,6 +186,130 @@
         "curious": "Which of these stories stays with you most? What is it saying to you?"
       },
       "act": "Pick one piece of Luqman's advice and live by it all week."
+    },
+    {
+      "part": 3,
+      "watchFor": "A town by the sea keeps the words of a rule and breaks its trust. Watch the three groups on the shore.",
+      "questions": [
+        {
+          "q": "On which day did the fish come to the town openly?",
+          "options": [
+            "Every day",
+            "On their day of rest, the sabbath",
+            "Only at night",
+            "Never"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "sabbath",
+            "beat": 0
+          }
+        },
+        {
+          "q": "Why did the warners keep advising people who would not listen?",
+          "options": [
+            "To win the argument",
+            "To be free of blame before their Lord, and in the hope that the others would fear Him",
+            "Because the king told them to",
+            "They had stopped"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "warned",
+            "beat": 1
+          }
+        },
+        {
+          "q": "Who was saved when the town was seized?",
+          "options": [
+            "Everyone",
+            "Those who had forbidden the wrong",
+            "Those who caught the most",
+            "No one"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "aftermath",
+            "beat": 0
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The town kept the words of the rule and broke its trust, with nets set the day before. A few kept warning them, even when others asked why they bothered. When the town was seized, those who had forbidden the wrong were saved. Speaking up for the good is never wasted.",
+        "curious": "The Quran tells this of a town by the sea whose day of rest was the sabbath; commentators name it Aylah, on the Red Sea. Muslims read it as a warning against tricks that keep a rule’s words and defeat its purpose.",
+        "ref": "7:164"
+      },
+      "carry": {
+        "title": "The prayer of the servants who were mocked for believing",
+        "ref": "23:109"
+      },
+      "reflect": {
+        "muslim": "Is there a rule of God you keep in its words but not in its spirit? And is there someone you have stopped reminding of the good?",
+        "curious": "Have you ever found a way around a rule while knowing what it was for? What did it cost?"
+      },
+      "act": "Speak up kindly, once this week, about something you know is wrong."
+    },
+    {
+      "part": 4,
+      "watchFor": "A boy teaches a king’s whole people to believe. Watch who stays steady at the edge of the fire.",
+      "questions": [
+        {
+          "q": "When the boy healed the sick, what did he say?",
+          "options": [
+            "I am a great healer",
+            "I do not cure anyone; it is God who cures",
+            "Pay me first",
+            "My teacher cures you"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "boy",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the whole crowd say when the boy’s light went out?",
+          "options": [
+            "Long live the king",
+            "We believe in the Lord of the boy",
+            "Nothing at all",
+            "Let us go home"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "lord",
+            "beat": 1
+          }
+        },
+        {
+          "q": "What did the child say to the mother at the trench?",
+          "options": [
+            "Let us run",
+            "O mother, endure, for you are on the truth",
+            "Give up your faith",
+            "Go back home"
+          ],
+          "answer": 1,
+          "replay": {
+            "scene": "trench",
+            "beat": 2
+          }
+        }
+      ],
+      "lesson": {
+        "text": "The boy gave God the credit for every healing, and in the end gave his life so that a whole people would believe. The believers at the trench held to their faith; the Quran says they were hated for nothing but believing in God, and promises them the great attainment.",
+        "curious": "The story is told in Sahih Muslim, and the Quran’s eighty-fifth chapter, The Mansions of the Stars, speaks of the trench. Commentators place it in Najran, in south Arabia, long before Islam.",
+        "ref": "85:11"
+      },
+      "carry": {
+        "title": "The prayer of Ibrahim and those with him",
+        "ref": "60:5"
+      },
+      "reflect": {
+        "muslim": "The boy said: it is God who cures. What good in your life do you take credit for that was really given to you?",
+        "curious": "What would you hold to even if it cost you? What makes it worth that?"
+      },
+      "act": "When someone thanks you this week, remember quietly who gave you the means to help."
     }
   ]
 }

@@ -58,7 +58,8 @@ def scene(sid, order, chapter, node, title, arabic, art, prompt, world, layers, 
     s = {'id': sid, 'chapter': chapter, 'order': order, 'node': node, 'title': title, 'arabic': arabic, 'source': source, 'ayahs': [], 'art': art,
          'ambient': ambient, 'base': base, 'captions': 'parchment', 'renderer': 'gl', 'pen': True, 'dissolve': dissolve, 'world': world,
          'cam': beats[0]['cam'], 'imagePrompt': prompt, 'layers': layers, 'beats': beats}
-    open(ROOT + f'src/story/chapters/c{chapter}/s{order:02d}-{sid}.json', 'w', encoding='utf-8').write(dump(s))
+    num = f'{order:02d}' if isinstance(order, int) else str(order)
+    open(ROOT + f'src/story/chapters/c{chapter}/s{num}-{sid}.json', 'w', encoding='utf-8').write(dump(s))
 
 
 # The ground under the Hour: a flat, wide, empty plain. Nothing stands on it, because nothing is shown.
@@ -212,6 +213,55 @@ def scene_sunrise():
                    'en': "The Day that some of the signs of your Lord will come no soul will benefit from its faith as long as it had not believed before or had earned through its faith some good. Say, \"Wait. Indeed, we [also] are waiting.\""}},
     ]
     scene(sid, order, 20, 'major', title, arabic, art, prompt, HOUR, layers, beats, ['wind', 'air'], source='mixed')
+
+
+# ── 194.5 · Isa's return. The one exception the owner approved: this chapter otherwise shows no person
+# at all, but the Quran calls Isa a sign of the Hour (43:61), and the hadith of Sahih Muslim 2937 says
+# he will come down at dawn by a white minaret east of Damascus. He is shown only as a distant steady
+# light between two columns of light; nothing of what the hadith goes on to describe is shown.
+def scene_descent():
+    sid, order, title, arabic = 'dawn', 194.5, "Isa's Return", 'نزول عيسى'
+    art = ["The Quran calls Isa, known as Jesus, a sign of the Hour (43:61); that verse is the one shown here.",
+           "That Isa will come down at dawn at a white minaret to the east of Damascus, his hands on the wings of two angels, and that drops fall like pearls when he lowers his head, is from the hadith of Sahih Muslim 2937. It is tradition, not Quran, and it is named as such here.",
+           "Isa appears only as a distant, steady light far up in the sky, between two columns of light; the angels are never drawn as figures.",
+           "The city below is a quiet silhouette of low stone roofs. How the city of that time looked is unknown, so the look of it is imagined, though the buildings are of that age.",
+           "Nothing else the hadith describes is shown and nothing is said about it."]
+    prompt = "Dawn over a low dark city of stone roofs; above the roofs a single slender white minaret stands in the pale light; far up in the sky a small steady figure of light descends slowly between two tall columns of light, and a few drops of light fall from it like pearls; ink-wash and parchment texture."
+    # the minaret stands at depth 0.2, so a 14 m shaft is P(0.2, 14) = 420 design units tall
+    layers = [
+        heav([[4.6, 5.2, 11000], [5.2, 5.8, 12000], [5.8, 6.4, 12000]], sun={**SUN, 'x0': 300, 'x1': 1300, 'peak': 300, 'size': 34}, horizon=660),
+        {'type': 'sky', 'depth': 0.03, 'fog': 0, 'stops': [[0, '#2a2c40'], [1, '#6a6070']]},
+        ridge(0.05, 618, 26, '#3a3648', 1795),
+        # the city: low stone roofs of the Levant, dark at this hour
+        {'type': 'town', 'depth': 0.12, 'y': 700, 'x0': -60, 'x1': 1660, 's': P(0.12, 1) / 30, 'grade': 'galilaean', 'night': True, 'lit': 0.16, 'haze': '#3a3446', 'seed': 1796},
+        plain(0.26, 726, 5, '#3a3644', '#1c1a22', 1797),
+        # the white minaret: a slender shaft, a balcony and a small dome, of the kind built in the Levant
+        {'type': 'facade', 'depth': 0.2, 'x': 1150, 'y': 712, 'w': 44, 'h': 420, 'stone': '#e6e2da', 'style': 'ashlar', 'ppu': 1.1},
+        {'type': 'facade', 'depth': 0.2, 'x': 1150, 'y': 292, 'w': 72, 'h': 22, 'stone': '#f0ece4', 'style': 'ashlar', 'ppu': 1.1},
+        {'type': 'facade', 'depth': 0.2, 'x': 1150, 'y': 270, 'w': 38, 'h': 34, 'stone': '#f4f0e8', 'style': 'ashlar', 'ppu': 1.1},
+        # the two angels: columns of light, never figures, far up and far off
+        {'type': 'crowd', 'kind': 'angels', 'area': [660, 700, -7600, -7300], 'y': [500, 500], 'count': 1, 'size': 190, 'color': '#fff4d8', 'dim': 0.05, 'glow': 0.9, 'mill': 0, 'speed': 0, 'flicker': 0.06},
+        {'type': 'crowd', 'kind': 'angels', 'area': [900, 940, -7600, -7300], 'y': [500, 500], 'count': 1, 'size': 190, 'color': '#fff4d8', 'dim': 0.05, 'glow': 0.9, 'mill': 0, 'speed': 0, 'flicker': 0.06},
+        # Isa: a small steady light, descending slowly between the two columns
+        {'type': 'light', 'depth': 0.1, 'pos': [800, 240], 'h': 96, 'color': '#fffaf0', 'glow': 0.85, 'bright': 1.3, 'solid': 0.4,
+         'path': [[800, 240], [800, 360], [800, 470]], 'dur': 11000, 'delay': 400,
+         'at': {'1': {'path': [[800, 470], [800, 540], [800, 600]], 'dur': 11000}, '2': {'path': [[800, 600], [800, 600], [800, 600]], 'dur': 1}}},
+        # the drops, falling like pearls
+        {'type': 'light', 'kind': 'flame', 'depth': 0.1, 'h': 6, 'color': '#fff8e8', 'glow': 1.5, 'delay': 0, 'pos': [790, 500], 'path': [[790, 500], [782, 640], [774, 770]], 'dur': 9000},
+        {'type': 'light', 'kind': 'flame', 'depth': 0.1, 'h': 5, 'color': '#fff8e8', 'glow': 1.4, 'delay': 900, 'pos': [812, 510], 'path': [[812, 510], [820, 640], [828, 770]], 'dur': 9000},
+        {'type': 'light', 'kind': 'flame', 'depth': 0.1, 'h': 4, 'color': '#fff8e8', 'glow': 1.3, 'delay': 1800, 'pos': [800, 530], 'path': [[800, 530], [800, 640], [800, 780]], 'dur': 9000},
+        motes(0.16),
+    ]
+    beats = [
+        {'dur': 12000, 'ambient': ['wind', 'air'], 'cam': cam([800, 500, 1150], [800, 560, -3000]),
+         'say': "The Quran calls Isa, known as Jesus, a sign of the Hour. Most commentators read this as his coming down again before the end."},
+        {'dur': 12000, 'ambient': ['wind', 'air'], 'cam': cam([860, 470, 1000], [880, 470, -3000]),
+         'say': "The Prophet Muhammad ﷺ said that he will come down at dawn by a white minaret east of Damascus, his hands on the wings of two angels, and that when he lowers his head, drops fall like pearls."},
+        {'dur': 12000, 'ambient': ['wind', 'air'], 'cam': cam([800, 520, 1100], [800, 600, -3000]),
+         'verse': {'ref': '43:61', 'ar': [0, 10], 'place': 'sky',
+                   'en': "And indeed, Jesus will be [a sign for] knowledge of the Hour, so be not in doubt of it, and follow Me. This is a straight path."}},
+    ]
+    scene(sid, order, 20, 'major', title, arabic, art, prompt, DAWN, layers, beats, ['wind', 'air'], source='mixed')
 
 
 # ── Chapter 21 · The Day of Judgment ───────────────────────────────────────
@@ -427,17 +477,23 @@ def scene_sovereign():
 
 
 # ── Chapter files ──────────────────────────────────────────────────────────
-for make in (scene_lamps, scene_towers, scene_sunfolded, scene_sunrise,
+for make in (scene_lamps, scene_towers, scene_descent, scene_sunfolded, scene_sunrise,
              scene_earth, scene_moths, scene_atom, scene_keepers, scene_soul, scene_returnwish, scene_sovereign):
     make()
 
 # Chapter 20 has two map stops (the minor and the major signs), so it has two parts; chapter 21 has one.
+# Part ranges are looked up by scene id in order.json (written by renum.py), never typed as numbers: scenes
+# inserted earlier in the story shift every number after them, and a stale range breaks the lesson hand-off.
+def span(title, first, last):
+    return {'title': title, 'from': ORDER[first], 'to': ORDER[last]}
+
+
 write_chapter(C20 + 'chapter.json', {
     'number': 20, 'title': 'The Signs of the Hour', 'arabic': 'أشراط الساعة', 'nodes': ['minor', 'major'],
-    'parts': [{'title': 'The Minor Signs', 'from': 193, 'to': 194},
-              {'title': 'The Major Signs', 'from': 195, 'to': 196}]})
+    'parts': [span('The Minor Signs', 'lamps', 'towers'),
+              span('The Major Signs', 'dawn', 'sunrise')]})
 write_chapter(C21 + 'chapter.json', {
     'number': 21, 'title': 'The Day of Judgment', 'arabic': 'يوم الدين', 'nodes': ['judgment'],
-    'parts': [{'title': 'The Earth Is Asked', 'from': 197, 'to': 203}]})
+    'parts': [span('The Earth Is Asked', 'earth', 'sovereign')]})
 
 print('c20_21 ok')

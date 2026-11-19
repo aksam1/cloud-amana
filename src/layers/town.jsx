@@ -110,10 +110,13 @@ function Building({ b, y, pal, night, lit, uid, shade, ruin = 0 }) {
           <>
             {/* a mud-brick wall: a parapet of stepped merlons along the roofline */}
             <rect x={x} y={top - 7} width={w} height={7} fill={mixColor(wall, '#000000', 0.12)} />
-            {Array.from({ length: Math.max(2, Math.floor(w / 22)) }, (_, i, a) => {
-              const mw = w / (a.length * 2 - 1);
-              return <rect key={i} x={x + i * mw * 2} y={top - 18} width={mw} height={11} fill={wall} />;
-            })}
+            {(() => {
+              const n = Math.max(2, Math.floor(w / 22));
+              const mw = w / (n * 2 - 1);
+              return Array.from({ length: n }, (_, i) => (
+                <rect key={i} x={x + i * mw * 2} y={top - 18} width={mw} height={11} fill={wall} />
+              ));
+            })()}
           </>
         )}
         {kind === 'tower' && Array.from({ length: Math.floor(w / 16) }, (_, i) => <rect key={i} x={x + 4 + i * 16} y={top - 17} width={9} height={11} fill={wall} />)}

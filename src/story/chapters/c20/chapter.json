@@ -4,8 +4,8 @@
   "arabic": "أشراط الساعة",
   "nodes": ["minor", "major"],
   "parts": [
-    { "title": "The Minor Signs", "from": 193, "to": 194 },
-    { "title": "The Major Signs", "from": 195, "to": 196 }
+    { "title": "The Minor Signs", "from": 200, "to": 201 },
+    { "title": "The Major Signs", "from": 202, "to": 204 }
   ],
   "bridge": {
     "when": "Before the Hour",

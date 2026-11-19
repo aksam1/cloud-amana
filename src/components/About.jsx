@@ -75,7 +75,7 @@ export default function About({ missing = false }) {
       </More>
 
       <More title="Your privacy">
-        <P>Your answers, progress and notes are stored only in this browser, on your device. Nothing is sent to us or to anyone else. There are no cookies, no tracking and no adverts.</P>
+        <P>Your answers, progress and notes are stored only in this browser, on your device. None of them is sent to us or to anyone else. There are no cookies, no tracking and no adverts.</P>
         <P>
           The <a href="#/privacy" onClick={(e) => { e.preventDefault(); go('/privacy'); }} className="text-gold-hi underline decoration-gold/50 underline-offset-4">privacy page</a> says it in
           full, and where to back up, restore and delete your progress.
@@ -93,6 +93,15 @@ export default function About({ missing = false }) {
 
       <More title="What is still being written">
         <P>The chapter on the Final Messenger ﷺ is not written yet: the map marks it “Coming later”. The chapters on the signs of the Hour and the Day of Judgment are written, and are the last two chapters.</P>
+      </More>
+
+      <More title="The two abodes">
+        <P>
+          {say('Paradise and the Fire, level by level, as the Quran names them: what it says leads to each, and the way back the Quran offers.')}{' '}
+          <a href="#/abodes" onClick={(e) => { e.preventDefault(); go('/abodes'); }} className="text-gold-hi underline decoration-gold/50 underline-offset-4">
+            Open the two abodes
+          </a>
+        </P>
       </More>
 
       <More title="What it is not">

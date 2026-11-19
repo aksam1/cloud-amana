@@ -25,7 +25,7 @@ The web app is meant to have two parts:
 - They want **ambitious visuals**. Keep going without waiting unless a decision is truly theirs.
 - Publish to the same artifact URL after each batch, then commit and push.
 
-## 3. Where the story stands (203 scenes)
+## 3. Where the story stands (211 scenes)
 | Ch | Story | Ch | Story |
 |---|---|---|---|
 | 1 | Creation, Adam, Iblis | 10 | Ayyub and Shu'ayb |
@@ -34,18 +34,18 @@ The web app is meant to have two parts:
 | 7 | Lut | 15 | Yunus and others |
 | 8 | Ismail and Ishaq | 16 | Zakariya, Yahya and Maryam |
 | 9 | Yaqub and Yusuf | 17 | Isa |
-| | | 18 | Stories of Wisdom (Cave, Dhul-Qarnayn, Luqman…) |
+| | | 18 | Stories of Wisdom (Cave, Dhul-Qarnayn, Luqman, the town by the sea, the trench…) |
 | | | 19 | The Final Messenger ﷺ — **paused** (see §4.1) |
 | | | 20 | The Signs of the Hour (the minor and the major signs) |
 | | | 21 | The Day of Judgment |
 
 - Chapter 19 is a placeholder on the map; its three parts carry no `from`/`to` and it has no scenes.
-- Chapters 20 and 21 are written (11 scenes) and are the end of the chronicle. Neither shows a single person:
+- Chapters 20 and 21 are written (12 scenes) and are the end of the chronicle. Neither shows a person's form:
   they are the Quran's own pictures of the end — sky, earth, light, stillness. Generator: `tools/generators/c20_21.py`.
   Docs: `docs/CHAPTER-20-SIGNS.md`, `docs/CHAPTER-21-JUDGMENT.md`.
 - Each chapter has a "Between the stories" bridge page (`bridge` in chapter.json).
 - Every distinct place has its own setting (`src/layers/interiors.jsx`, `tools/generators/rooms.py`); the same place may
-  look the same in later scenes. Since v31 all 203 scenes run on the WebGL stage: chapters 2–3 were rebuilt from their 2D
+  look the same in later scenes. Since v31 all scenes (211 today) run on the WebGL stage: chapters 2–3 were rebuilt from their 2D
   originals by `tools/generators/c2_3.py` (the originals are kept in `tools/generators/legacy2d/`).
 - **The built world belongs to its century.** The `town` painter has eight grades (`hut`, `village`, `town`,
   `city` for Egypt only, `assyrian`, `israelite`, `galilaean`, `desert`) and every scene uses its own era's
@@ -60,8 +60,9 @@ The web app is meant to have two parts:
 
 ## 4. Waiting on the user (do not decide these yourself)
 1. **How the Prophet Muhammad ﷺ is shown.** Recommendation given: never shown in any form. Chapter 19 is paused until they answer.
-2. Deliberately left out (content rules), ask before adding: the Sabbath-breakers, the Companions of the Ditch, Ayyub's oath, Isa's return.
-3. All 503 ayat are on file and **no verse is pending** any more; every verse moment, unit ref and lesson ref shows
+2. Added in November 2026 at the owner's request: the Sabbath-breakers (the town by the sea) and the Companions of the
+   Trench (end of chapter 18), Ayyub's oath (chapter 10) and Isa's return (chapter 20). None shows suffering or a face.
+3. All 610 ayat are on file (each re-checked against api.alquran.cloud on 19 November 2026) and **no verse is pending** any more; every verse moment, unit ref and lesson ref shows
    its text. When new ayat are needed and api.alquran.cloud is blocked, use the two-mirror method in
    `src/data/ayahs.SOURCE.md`.
 

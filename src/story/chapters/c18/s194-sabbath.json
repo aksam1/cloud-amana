@@ -1,0 +1,36 @@
+{
+  "id": "sabbath",
+  "chapter": 18,
+  "order": 194,
+  "node": "wisdom",
+  "title": "The Day of the Fish",
+  "arabic": "يوم السمك",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The people of the town appear only as dim figures of light. The town is drawn with the israelite grade, its dressed limestone and terraced roofs of the kind built in the Levant, because tradition places this town in the time of Dawud.", "That the fish came openly on the sabbath day, and that some set their nets and channels the day before and drew them in the day after, is from the commentaries on 7:163.", "No number of fish, boats or people is shown. Nothing of what the Quran says came afterwards is shown here; the town's lights simply go out."],
+  "ambient": ["sea", "birds"],
+  "base": "#c4ccd0",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c4ccd0", "fogNear": 6000, "fogFar": 46000, "light": 1.02, "rays": 0, "bloom": 0.62, "haze": 0.1, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [800, 520, 1000], "look": [800, 620, -3000]},
+  "imagePrompt": "A small harbour town of pale dressed stone on a gulf, its quay and boats below, a bright afternoon; the water by the boats suddenly covered with a shimmer of silver fish that comes right up to the shore, while the water further out is empty; then the sun going down and the same town at evening, its quay bare, the sea calm and without a shimmer; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [13.4, 14.4, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [14.4, 15.4, 10000]}, "2": {"tod": [15.4, 16.4, 12000]}}},
+    {"type": "ridge", "depth": 0.03, "y": 604, "amp": 34, "seed": 1900, "sharp": 0.3, "color": "#8a8a90", "haze": 0.4, "fog": 0.5},
+    {"type": "water", "depth": 0.06, "mode": "sea", "level": 662, "reflect": [["0", "#a8c0cc"], ["1", "#3a5568"]]},
+    {"type": "town", "depth": 0.1, "y": 648, "x0": -40, "x1": 1640, "s": 0.5, "grade": "israelite", "lit": 0.3, "haze": "#b8b4ac", "seed": 1901},
+    {"type": "ground", "depth": 0.18, "y": 704, "amp": 4, "seed": 1902, "color": "#c2b294", "color2": "#8e8064"},
+    {"type": "ground", "depth": 0.3, "y": 760, "amp": 4, "seed": 1910, "x0": -600, "x1": 2200, "color": "#c8b898", "color2": "#96866a"},
+    {"type": "crowd", "depth": 0.2, "area": [-200, 1800, -5400, -4600], "y": [660, 656], "count": 150, "size": 7, "color": "#e8f0f4", "dim": 0.1, "glow": 0.5, "mill": 0, "speed": 0, "flicker": 0.3, "at": {"1": {"glow": 0.0, "dim": 0.0}, "2": {"glow": 0.0, "dim": 0.0}}},
+    {"type": "crowd", "area": [-100, 1500, -2600, -1900], "y": [792, 780], "count": 70, "size": 87, "color": "#ffd8a0", "dim": 0.4, "glow": 0.12, "mill": 5, "speed": 0, "flicker": 0.3, "at": {"2": {"out": 1, "outDur": 2500}}},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.16, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["sea", "birds"], "cam": {"pos": [800, 520, 1000], "look": [800, 620, -3000]}, "say": "The Quran asks about a town by the sea whose people broke their day of rest. On that day their fish came to them openly, all along the shore; on the other days, they did not come."},
+    {"dur": 11000, "ambient": ["sea", "air"], "cam": {"pos": [800, 535, 620], "look": [800, 660, -3000]}, "say": "They had found a way to keep the letter of the rule and break its trust: some of them set their nets and channels the day before and drew them in the day after, and took their catch in between."},
+    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [800, 525, 850], "look": [800, 640, -3000]}, "verse": {"ref": "7:163", "ar": [11, 28], "place": "sky", "en": "…when their fish came to them openly on their sabbath day, and the day they had no sabbath they did not come to them. Thus did We give them trial because they were defiantly disobedient."}}
+  ]
+}

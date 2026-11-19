@@ -607,7 +607,7 @@ function StoriesStrip() {
         Walk through the stories
       </h2>
       <p className="mt-1 max-w-[56ch] font-body text-[1.12rem] leading-[1.45] text-ivory/75">
-        {inMode('203 painted scenes, from the creation of the heavens to the Day of Judgment, with verses of the Quran in Arabic and English. God is never depicted, and the prophets appear only as distant light.', mode)}
+        {inMode('211 painted scenes, from the creation of the heavens to the Day of Judgment, with verses of the Quran in Arabic and English. God is never depicted, and the prophets appear only as distant light.', mode)}
       </p>
       <ul className="-mx-5 mt-5 flex snap-x snap-mandatory scroll-pl-5 gap-4 overflow-x-auto px-5 pb-3 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0">
         {STORIES.map((s) => (

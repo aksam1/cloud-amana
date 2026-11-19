@@ -228,9 +228,218 @@ scene('luqman', 172.7, C, 'wisdom', "Luqman's Advice", 'وصية لقمان',
     {'dur': 12000, 'ambient': ['wind', 'air'], 'cam': cam([880, 525, 750], [900, 710, -3000]), 'pendingVerse': pv('31:16')},
   ])
 
+
+# ── The town by the sea ───────────────────────────────────────────────────
+# 7:163-166: a town on the coast whose people broke the sabbath; those who warned them; and what
+# came of it. The town is drawn with the `israelite` grade (dressed limestone, terraced roofs), because
+# tradition places it in the time of Dawud. Nothing of what the Quran says happened to them afterwards
+# is shown: the town's lights simply go out, and that is all.
+SEA = {'fog': '#c4ccd0', 'fogNear': 6000, 'fogFar': 46000, 'light': 1.02, 'rays': 0, 'bloom': 0.62, 'haze': 0.1, 'hazeY': 0.62, 'shake': 0.3, 'dof': 0}
+
+
+def harbour(seed=1900, lit=0.3, walls=True):
+    """The town by the sea: a low shore, a walled town of dressed stone above it, the gulf in front."""
+    return [
+        {'type': 'ridge', 'depth': 0.03, 'y': 604, 'amp': 34, 'seed': seed, 'sharp': 0.3, 'color': '#8a8a90', 'haze': 0.4, 'fog': 0.5},
+        {'type': 'water', 'depth': 0.06, 'mode': 'sea', 'level': 662, 'reflect': [['0', '#a8c0cc'], ['1', '#3a5568']]},
+        {'type': 'town', 'depth': 0.1, 'y': 648, 'x0': -40, 'x1': 1640, 's': P(0.1, 1) / 30, 'grade': 'israelite', 'lit': lit, 'haze': '#b8b4ac', 'seed': seed + 1},
+        {'type': 'ground', 'depth': 0.18, 'y': 704, 'amp': 4, 'seed': seed + 2, 'color': '#c2b294', 'color2': '#8e8064'},
+    ]
+
+
+scene('sabbath', 186.1, C, 'wisdom', 'The Day of the Fish', 'يوم السمك',
+  art=["The people of the town appear only as dim figures of light. The town is drawn with the israelite grade, its dressed limestone and terraced roofs of the kind built in the Levant, because tradition places this town in the time of Dawud.",
+       "That the fish came openly on the sabbath day, and that some set their nets and channels the day before and drew them in the day after, is from the commentaries on 7:163.",
+       "No number of fish, boats or people is shown. Nothing of what the Quran says came afterwards is shown here; the town's lights simply go out."],
+  prompt="A small harbour town of pale dressed stone on a gulf, its quay and boats below, a bright afternoon; the water by the boats suddenly covered with a shimmer of silver fish that comes right up to the shore, while the water further out is empty; then the sun going down and the same town at evening, its quay bare, the sea calm and without a shimmer; ink-wash and parchment texture.",
+  world=SEA, ambient=['sea', 'birds'], base='#c4ccd0',
+  layers=[
+    heav([[13.4, 14.4, 10000], [14.4, 15.4, 10000], [15.4, 16.4, 12000]]),
+    *harbour(),
+    {'type': 'ground', 'depth': 0.3, 'y': 760, 'amp': 4, 'seed': 1910, 'x0': -600, 'x1': 2200, 'color': '#c8b898', 'color2': '#96866a'},
+    # the shimmer of fish: many small silver points along the water's edge, only on the sabbath day
+    {'type': 'crowd', 'depth': 0.2, 'area': [-200, 1800, -5400, -4600], 'y': [660, 656], 'count': 150, 'size': 7, 'color': '#e8f0f4', 'dim': 0.1, 'glow': 0.5, 'mill': 0, 'speed': 0, 'flicker': 0.3,
+     'at': {'1': {'glow': 0.0, 'dim': 0.0}, '2': {'glow': 0.0, 'dim': 0.0}}},
+    {'type': 'crowd', 'area': [-100, 1500, -2600, -1900], 'y': [FEET, 780], 'count': 70, 'size': P(0.34), 'color': '#ffd8a0', 'dim': 0.4, 'glow': 0.12, 'mill': 5, 'speed': 0, 'flicker': 0.3,
+     'at': {'2': {'out': 1, 'outDur': 2500}}},
+    motes(0.16),
+  ],
+  beats=[
+    {'dur': 11000, 'ambient': ['sea', 'birds'], 'cam': cam([800, 520, 1000], [800, 620, -3000]),
+     'say': "The Quran asks about a town by the sea whose people broke their day of rest. On that day their fish came to them openly, all along the shore; on the other days, they did not come."},
+    {'dur': 11000, 'ambient': ['sea', 'air'], 'cam': cam([800, 535, 620], [800, 660, -3000]),
+     'say': "They had found a way to keep the letter of the rule and break its trust: some of them set their nets and channels the day before and drew them in the day after, and took their catch in between."},
+    {'dur': 12000, 'ambient': ['sea', 'air'], 'cam': cam([800, 525, 850], [800, 640, -3000]),
+     'verse': {'ref': '7:163', 'ar': [11, 28], 'place': 'sky',
+               'en': "…when their fish came to them openly on their sabbath day, and the day they had no sabbath they did not come to them. Thus did We give them trial because they were defiantly disobedient."}},
+  ])
+
+scene('warned', 186.2, C, 'wisdom', 'Those Who Warned', 'الواعظون',
+  art=["Everyone appears only as a light. The Quran tells of three groups (7:164-165): those who broke the sabbath, those who warned them, and some who asked why they still warned. How they stood on the shore is imagined.",
+       "The look of the town is imagined: dressed limestone houses of the Levant in the time of Dawud."],
+  prompt="A harbour town at evening, its quay and its low stone houses; on the shore three groups of dim lights standing apart from one another, one group standing together and facing the town; ink-wash and parchment texture.",
+  world=SEA, ambient=['sea', 'voices'], base='#c0c4c4',
+  layers=[
+    heav([[16.4, 17.4, 10000], [17.4, 18.2, 10000], [18.2, 19, 12000]]),
+    *harbour(seed=1920, lit=0.35),
+    {'type': 'ground', 'depth': 0.3, 'y': 762, 'amp': 4, 'seed': 1923, 'x0': -600, 'x1': 2200, 'color': '#c0aa8a', 'color2': '#8c7c60'},
+    # the town: the people who broke the sabbath, gathered by their houses
+    {'type': 'crowd', 'area': [900, 1600, -2600, -1900], 'y': [FEET, 780], 'count': 80, 'size': P(0.34), 'color': '#ffd8a0', 'dim': 0.4, 'glow': 0.12, 'mill': 5, 'speed': 0, 'flicker': 0.35},
+    # those who warned them: a small group of steady white lights, standing apart and facing the town
+    *[light([470 + i * 46, FEET + 8], P(D), depth=D, color='#fff0dc', glow=0.3, bright=1.05, solid=0.5) for i in range(3)],
+    # those who said: why warn them at all?
+    *[light([1120 + i * 44, FEET + 6], P(D), depth=D, color='#e8c088', glow=0.2, bright=0.95, solid=0.6) for i in range(3)],
+    motes(0.16),
+  ],
+  beats=[
+    {'dur': 11000, 'ambient': ['sea', 'voices'], 'cam': cam([800, 525, 900], [800, 640, -3000]),
+     'say': "A group among them asked the warners: why do you advise a people God is about to destroy, or to punish with a severe punishment?"},
+    {'dur': 11000, 'ambient': ['sea', 'air'], 'cam': cam([560, 535, 620], [600, 740, -3000]),
+     'say': "The warners answered that they did it to be free of blame before their Lord, and in the hope that the others would fear Him."},
+    {'dur': 12000, 'ambient': ['sea', 'air'], 'cam': cam([800, 520, 850], [800, 620, -3000]),
+     'verse': {'ref': '7:164', 'place': 'sky',
+               'en': "And when a community among them said, \"Why do you advise [or warn] a people whom Allah is [about] to destroy or to punish with a severe punishment?\" they [the advisors] said, \"To be absolved before your Lord and perhaps they may fear Him.\""}},
+  ])
+
+scene('aftermath', 186.3, C, 'wisdom', 'A Deterrent and a Lesson', 'نكال وموعظة',
+  art=["The people of the town appear only as dim figures of light, and their lights simply go out: nothing of what the Quran says happened to them is shown. The Quran tells in 7:166 and 2:65 that they were made apes, despised; that is not shown, and it is not said in the narration either.",
+       "The look of the town is imagined: dressed limestone houses of the Levant in the time of Dawud."],
+  prompt="A harbour town at evening, the warners and the few who stood with them walking out of the town along the shore road, their steady lights moving away; then the same town from the water, every one of its lights gone out, the quay and the roofs dark, the sea calm and empty under the last of the sky; ink-wash and parchment texture.",
+  world=SEA, ambient=['sea', 'wind'], base='#3a4048',
+  layers=[
+    heav([[18.2, 19, 10000], [19, 19.8, 10000], [19.8, 20.6, 12000]], moon=MOON),
+    *harbour(seed=1930, lit=0.3),
+    {'type': 'ground', 'depth': 0.3, 'y': 762, 'amp': 4, 'seed': 1933, 'x0': -600, 'x1': 2200, 'color': '#a89678', 'color2': '#786a52'},
+    {'type': 'crowd', 'area': [900, 1600, -2600, -1900], 'y': [FEET, 780], 'count': 80, 'size': P(0.34), 'color': '#ffd8a0', 'dim': 0.4, 'glow': 0.12, 'mill': 5, 'speed': 0, 'flicker': 0.35,
+     'at': {'1': {'out': 1, 'outDur': 2600}, '2': {'out': 1, 'outDur': 1}}},
+    # the warners walk out of the town along the shore
+    *[light([470 + i * 46, FEET + 8], P(D), depth=D, color='#fff0dc', glow=0.3, bright=1.05, solid=0.5, pose='walk',
+            path=[[470 + i * 46, FEET + 8], [190 + i * 40, FEET + 4]], dur=9000, delay=i * 250) for i in range(3)],
+    motes(0.16),
+  ],
+  beats=[
+    {'dur': 11000, 'ambient': ['sea', 'wind'], 'cam': cam([640, 535, 700], [560, 740, -3000]),
+     'say': "When they forgot what they had been reminded of, those who had forbidden the wrong were saved, and those who did wrong were seized."},
+    {'dur': 11000, 'ambient': ['sea', 'wind'], 'cam': cam([800, 515, 1000], [800, 600, -3000]),
+     'say': "The warners walked out of the town at evening. Behind them its lights went out, and the sea lay calm and empty."},
+    {'dur': 12000, 'ambient': ['sea', 'air'], 'cam': cam([800, 525, 900], [800, 630, -3000]),
+     'verse': {'ref': '2:66', 'place': 'sky',
+               'en': "And We made it a deterrent punishment for those who were present and those who succeeded [them] and a lesson for those who fear Allah."}},
+  ])
+
+# ── The companions of the trench ──────────────────────────────────────────
+# Sahih Muslim 3005. The boy, the king, the magician, the monk and the crowds appear only as lights.
+# Nothing of the trench is shown near anyone: the fires are far off, seen across the plain, and what
+# happens to the believers is told in words and by lights going out.
+TRENCH = {'fog': '#141824', 'fogNear': 6000, 'fogFar': 42000, 'light': 0.9, 'rays': 0, 'bloom': 0.9, 'haze': 0.04, 'hazeY': 0.6, 'shake': 0.3, 'dof': 0}
+
+scene('boy', 186.4, C, 'wisdom', 'The Boy and the King', 'الغلام والملك',
+  art=["The story is from the hadith of Sahih Muslim 3005; the Quran's own words about it are 85:1-3. The boy, the king, the magician and the monk appear only as lights; nothing of the healing is shown but a light rising and a sick person sitting up.",
+       "The hadith tells of a people who lived long before the Prophet ﷺ; the commentators place them in Najran, in south Arabia. The look of the town is imagined, with buildings of the kind built there in that age.",
+       "Nothing of the tortures the hadith goes on to describe is shown."],
+  prompt="Night over an old Arabian town under a great sky of stars; a tall plain tower of a magician at the town's edge, and a small stone cell of a monk on the road outside it; between them a single small light of a boy walking, his light steadying as he goes; then inside a low room, a dim light lying still and a small clear light beside it, and the dim light lifting; ink-wash and parchment texture.",
+  world=TRENCH, ambient=['wind', 'crickets'], base='#141824',
+  layers=[
+    heav([[22, 22.6, 10000], [22.6, 23.4, 11000], [23.4, 24, 12000]], stars=1600),
+    {'type': 'ridge', 'depth': 0.03, 'y': 640, 'amp': 44, 'seed': 1940, 'sharp': 0.3, 'color': '#2a2a38', 'haze': 0.3, 'fog': 0.4},
+    {'type': 'town', 'depth': 0.1, 'y': 686, 'x0': -60, 'x1': 1660, 's': P(0.1, 1) / 30, 'grade': 'town', 'night': True, 'lit': 0.3, 'haze': '#2a2434', 'seed': 1941},
+    {'type': 'ground', 'depth': 0.2, 'y': 720, 'amp': 8, 'seed': 1942, 'color': '#3a3428', 'color2': '#1a1610'},
+    # the magician's tower at the town's edge
+    {'type': 'masonry', 'depth': 0.16, 'pos': [1400, 700], 'w': P(0.16, 9), 'h': P(0.16, 16), 'side': 26, 'courses': 14, 'blocks': 6, 'built': 1,
+     'stone': '#6a6258', 'stone2': '#7e766a', 'ink': '#241f1c'},
+    # the monk's cell by the road
+    {'type': 'facade', 'depth': 0.24, 'x': 380, 'y': 742, 'w': P(0.24, 5), 'h': P(0.24, 3.2), 'stone': '#5e5648', 'light': 0.5, 'style': 'ashlar',
+     'doors': [{'x': 380, 'w': P(0.24, 1.1), 'h': P(0.24, 2.2), 'lit': True}], 'ppu': 0.9},
+    {'type': 'ground', 'depth': 0.34, 'y': 762, 'amp': 6, 'seed': 1943, 'x0': -600, 'x1': 2200, 'color': '#4a4032', 'color2': '#241f18'},
+    # the boy: a small light that passes between the magician's tower and the monk's cell
+    {'type': 'light', 'depth': 0.42, 'pos': [1120, FEET], 'h': 92, 'color': '#fff0dc', 'glow': 0.35, 'bright': 1.1, 'solid': 0.5, 'pose': 'walk',
+     'path': [[1180, FEET], [1040, FEET + 2], [900, FEET]], 'dur': 11000, 'delay': 400,
+     'at': {'1': {'glow': 0.5, 'bright': 1.2}, '2': {'glow': 0.35, 'bright': 1.1}}},
+    motes(0.14),
+  ],
+  beats=[
+    {'dur': 12000, 'ambient': ['wind', 'crickets'], 'cam': cam([900, 520, 950], [900, 620, -3000]),
+     'say': "The Quran swears by the sky with its great stars, by the promised Day, and by the witness and what is witnessed. Then it speaks of the men who made a trench of fire."},
+    {'dur': 12000, 'ambient': ['wind', 'crickets'], 'cam': cam([760, 530, 750], [760, 700, -3000]),
+     'say': "A hadith in Sahih Muslim tells the story behind it. A king's old magician asked for a boy to teach. On the road the boy sat with a monk and came to believe, and he healed the sick by God's leave, saying: I do not cure anyone; it is God who cures."},
+    {'dur': 12000, 'ambient': ['crickets', 'air'], 'cam': cam([820, 525, 850], [820, 690, -3000]),
+     'verse': {'ref': '85:1-3', 'place': 'sky',
+               'en': "By the sky containing great stars And [by] the promised Day And [by] the witness and what is witnessed,"}},
+  ])
+
+scene('lord', 186.5, C, 'wisdom', 'The Lord of the Boy', 'رب الغلام',
+  art=["The story is from the hadith of Sahih Muslim 3005; the words the boy spoke are given there. The boy, the king and the crowds appear only as lights. Nothing is shown of how the boy's light went out: it goes out, and that is all.",
+       "The palm trunk and the plain are imagined; in the hadith the people were gathered in a field with a palm tree in it."],
+  prompt="A wide plain at night under a great sky, a crowd of dim lights gathered in a wide ring, a palm trunk standing among them; in the middle a small clear light standing alone, and beside it the tall cold light of a king; then the small light goes out, and every light in the crowd brightens at once; ink-wash and parchment texture.",
+  world=TRENCH, ambient=['wind', 'voices'], base='#141824',
+  layers=[
+    heav([[23.2, 23.8, 10000], [23.8, 24.4, 10000], [24.4, 25, 12000]], stars=1600),
+    {'type': 'ridge', 'depth': 0.03, 'y': 636, 'amp': 40, 'seed': 1950, 'sharp': 0.3, 'color': '#2a2a38', 'haze': 0.3, 'fog': 0.4},
+    {'type': 'ground', 'depth': 0.14, 'y': 692, 'amp': 8, 'seed': 1951, 'color': '#443c30', 'color2': '#201c16'},
+    {'type': 'ground', 'depth': 0.28, 'y': 762, 'amp': 6, 'seed': 1952, 'x0': -600, 'x1': 2200, 'color': '#524838', 'color2': '#2a241c'},
+    # the palm trunk the hadith mentions, standing in the middle of the gathered people
+    {'type': 'tree', 'depth': 0.22, 'x': 1180, 'y': 720, 'h': P(0.22, 9), 'kind': 'living', 'seed': 1953},
+    # the crowd of the kingdom, gathered in a wide ring
+    {'type': 'crowd', 'area': [-200, 1800, -3400, -2100], 'y': [FEET, 720], 'count': 260, 'size': P(0.3), 'color': '#ffd8a0', 'dim': 0.4, 'glow': 0.14, 'mill': 6, 'speed': 0, 'flicker': 0.3,
+     'at': {'1': {'glow': 0.5, 'dim': 0.15, 'flicker': 0.08}}},
+    # the boy: a small clear light in the middle of the ring
+    {'type': 'light', 'depth': 0.42, 'pos': [800, FEET + 6], 'h': 96, 'color': '#fffaf0', 'glow': 0.6, 'bright': 1.35, 'solid': 0.5, 'pose': 'raise',
+     'at': {'1': {'pose': 'gone'}}},
+    # the king: a tall cold light at the edge of the ring
+    {'type': 'light', 'depth': 0.42, 'pos': [560, FEET + 4], 'h': 118, 'color': '#b8b0c8', 'glow': 0.2, 'bright': 0.9, 'solid': 0.7},
+    motes(0.14),
+  ],
+  beats=[
+    {'dur': 12000, 'ambient': ['crowd', 'voices'], 'cam': cam([800, 520, 950], [800, 620, -3000]),
+     'say': "The king could not be rid of the boy. At last the boy told him how: gather all the people on one plain, and say before them, In the name of God, the Lord of the boy."},
+    {'dur': 12000, 'ambient': ['crowd', 'air'], 'world': {'bloom': 1.0}, 'cam': cam([820, 525, 700], [820, 700, -3000]),
+     'say': "The boy's light went out. Then the whole crowd said it together: we believe in the Lord of the boy, and all their lights burned bright at once."},
+    {'dur': 12000, 'ambient': ['wind', 'air'], 'cam': cam([800, 515, 900], [800, 600, -3000]),
+     'verse': {'ref': '85:8-9', 'place': 'sky',
+               'en': "And they resented them not except because they believed in Allah, the Exalted in Might, the Praiseworthy, To whom belongs the dominion of the heavens and the earth. And Allah, over all things, is Witness."}},
+  ])
+
+scene('trench', 186.6, C, 'wisdom', 'The Companions of the Trench', 'أصحاب الخندق',
+  art=["The story is from the hadith of Sahih Muslim 3005; the Quran's own words about these people are 85:4-8 and 85:11. Everyone appears only as a light. The trench and its fires are seen far off across the plain, and no one is shown near them; what happened to those who would not turn back is told in words, and their lights simply go out.",
+       "The child's words are given as the hadith has them. The look of the plain is imagined."],
+  prompt="Night over a wide empty plain; far off along the horizon a long line of fire glowing in trenches, seen from a great distance; near the front of the plain a small group of steady lights standing still at the edge of the darkness, and beside them a dim light with a tiny light close to it; then every light going out quietly, one by one; and last, the sky alone, its great stars clear and still; ink-wash and parchment texture.",
+  world=TRENCH, ambient=['wind', 'fire'], base='#141824',
+  layers=[
+    heav([[23.4, 24, 10000], [24, 24.6, 10000], [24.6, 25.2, 12000], [25.2, 26, 12000]], stars=1800),
+    {'type': 'ridge', 'depth': 0.03, 'y': 630, 'amp': 38, 'seed': 1960, 'sharp': 0.3, 'color': '#282838', 'haze': 0.3, 'fog': 0.4},
+    {'type': 'ground', 'depth': 0.14, 'y': 686, 'amp': 8, 'seed': 1961, 'color': '#3c3428', 'color2': '#1a1610'},
+    {'type': 'ground', 'depth': 0.3, 'y': 764, 'amp': 6, 'seed': 1962, 'x0': -600, 'x1': 2200, 'color': '#463c30', 'color2': '#221e18'},
+    # the fires in the trenches: far off, seen across the plain, never near anyone
+    {'type': 'fire', 'depth': 0.06, 'pos': [800, 664], 'w': P(0.06, 90), 'h': P(0.06, 14), 'heat': 1.0, 'sheets': 2,
+     'at': {'3': {'cool': 1, 'coolDur': 5000}}},
+    # the believers at the edge of the darkness, standing still, not turning back
+    *[light([600 + i * 54, FEET + 6], P(D), depth=D, color='#fff0dc', glow=0.35, bright=1.1, solid=0.5,
+            at={'2': {'pose': 'gone'}, '3': {'pose': 'gone'}}) for i in range(4)],
+    # the mother, and the child beside her
+    {'type': 'light', 'depth': D + 0.01, 'pos': [880, FEET + 4], 'h': 96, 'color': '#e8c088', 'glow': 0.2, 'bright': 0.95, 'solid': 0.6,
+     'at': {'2': {'pose': 'gone'}, '3': {'pose': 'gone'}}},
+    {'type': 'light', 'depth': D + 0.02, 'pos': [912, FEET + 2], 'h': 34, 'color': '#fff0dc', 'glow': 0.4, 'bright': 1.1, 'solid': 0.5, 'pose': 'babe', 'w': 1.0,
+     'at': {'2': {'pose': 'gone'}, '3': {'pose': 'gone'}}},
+    motes(0.14),
+  ],
+  beats=[
+    {'dur': 12000, 'ambient': ['wind', 'fire'], 'cam': cam([800, 520, 1000], [800, 620, -3000]),
+     'say': "The hadith goes on. The king had trenches dug at the roads and fires lit in them, and whoever would not give up their faith was to be thrown in. The believers' lights stood steady at the edge and did not turn back."},
+    {'dur': 12000, 'ambient': ['fire', 'wind'], 'cam': cam([800, 505, 1000], [800, 590, -3000]),
+     'verse': {'ref': '85:4-7', 'place': 'sky',
+               'en': "Cursed were the companions of the trench [Containing] the fire full of fuel, When they were sitting near it And they, to what they were doing against the believers, were witnesses."}},
+    {'dur': 12000, 'ambient': ['fire', 'wind'], 'cam': cam([760, 535, 620], [800, 720, -3000]),
+     'say': "A mother held back, with her child in her arms. And the child said to her: O mother, endure, for you are on the truth."},
+    {'dur': 12000, 'ambient': ['wind', 'air'], 'world': {'bloom': 1.0}, 'cam': cam([800, 505, 1100], [800, 560, -3000]),
+     'verse': {'ref': '85:11', 'place': 'sky',
+               'en': "Indeed, those who have believed and done righteous deeds will have gardens beneath which rivers flow. That is the great attainment."}},
+  ])
+
 write_chapter(ROOT + 'src/story/chapters/c18/chapter.json', {
     'number': 18, 'title': 'Stories of Wisdom', 'arabic': 'قصص وعبر', 'nodes': ['wisdom'],
-    'parts': [{'title': 'The Cave', 'from': ORDER.get('cave', 173), 'to': ORDER.get('awakening', 174)},
-              {'title': 'Dhul-Qarnayn', 'from': ORDER.get('qarnayn', 175), 'to': ORDER.get('ironwall', 176)},
-              {'title': 'Parables and Lessons', 'from': ORDER.get('gardens', 177), 'to': ORDER.get('luqman', 179)}]})
+    'parts': [{'title': 'The Cave', 'from': ORDER.get('cave', 172.1), 'to': ORDER.get('awakening', 172.2)},
+              {'title': 'Dhul-Qarnayn', 'from': ORDER.get('qarnayn', 172.3), 'to': ORDER.get('ironwall', 172.4)},
+              {'title': 'Parables and Lessons', 'from': ORDER.get('gardens', 172.5), 'to': ORDER.get('luqman', 172.7)},
+              {'title': 'The Town by the Sea', 'from': ORDER.get('sabbath', 186.1), 'to': ORDER.get('aftermath', 186.3)},
+              {'title': 'The Trench', 'from': ORDER.get('boy', 186.4), 'to': ORDER.get('trench', 186.6)}]})
 print('wisdom ok')

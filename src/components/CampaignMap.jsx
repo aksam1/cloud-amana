@@ -433,6 +433,14 @@ function Dossier({ n, st, onClose, seen }) {
           </p>
         </div>
       )}
+
+      {/* a page beyond the scenes that belongs to this stop (timeline.json `see`: { label, to }) */}
+      {n.see && (
+        <button type="button" className="mt-3 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-[#8a6a4e]/50 px-3 py-2 font-body text-[1.05rem] text-ink hover:bg-black/5" onClick={() => go(n.see.to)}>
+          {n.see.label}
+          <Icon name="next" className="h-4 w-4" />
+        </button>
+      )}
     </motion.aside>
   );
 }

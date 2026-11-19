@@ -1,0 +1,38 @@
+{
+  "id": "aftermath",
+  "chapter": 18,
+  "order": 196,
+  "node": "wisdom",
+  "title": "A Deterrent and a Lesson",
+  "arabic": "نكال وموعظة",
+  "source": "quran",
+  "ayahs": [],
+  "art": ["The people of the town appear only as dim figures of light, and their lights simply go out: nothing of what the Quran says happened to them is shown. The Quran tells in 7:166 and 2:65 that they were made apes, despised; that is not shown, and it is not said in the narration either.", "The look of the town is imagined: dressed limestone houses of the Levant in the time of Dawud."],
+  "ambient": ["sea", "wind"],
+  "base": "#3a4048",
+  "captions": "parchment",
+  "renderer": "gl",
+  "pen": true,
+  "dissolve": 2400,
+  "world": {"fog": "#c4ccd0", "fogNear": 6000, "fogFar": 46000, "light": 1.02, "rays": 0, "bloom": 0.62, "haze": 0.1, "hazeY": 0.62, "shake": 0.3, "dof": 0},
+  "cam": {"pos": [640, 535, 700], "look": [560, 740, -3000]},
+  "imagePrompt": "A harbour town at evening, the warners and the few who stood with them walking out of the town along the shore road, their steady lights moving away; then the same town from the water, every one of its lights gone out, the quay and the roofs dark, the sea calm and empty under the last of the sky; ink-wash and parchment texture.",
+  "layers": [
+    {"type": "heavens", "horizon": 630, "tod": [18.2, 19, 10000], "sun": {"rise": 6, "set": 18, "x0": 300, "x1": 1300, "peak": 300, "size": 34}, "moon": {"rise": 19, "set": 6.5, "x0": 1300, "x1": 300, "peak": 340, "size": 24}, "at": {"1": {"tod": [19, 19.8, 10000]}, "2": {"tod": [19.8, 20.6, 12000]}}},
+    {"type": "ridge", "depth": 0.03, "y": 604, "amp": 34, "seed": 1930, "sharp": 0.3, "color": "#8a8a90", "haze": 0.4, "fog": 0.5},
+    {"type": "water", "depth": 0.06, "mode": "sea", "level": 662, "reflect": [["0", "#a8c0cc"], ["1", "#3a5568"]]},
+    {"type": "town", "depth": 0.1, "y": 648, "x0": -40, "x1": 1640, "s": 0.5, "grade": "israelite", "lit": 0.3, "haze": "#b8b4ac", "seed": 1931},
+    {"type": "ground", "depth": 0.18, "y": 704, "amp": 4, "seed": 1932, "color": "#c2b294", "color2": "#8e8064"},
+    {"type": "ground", "depth": 0.3, "y": 762, "amp": 4, "seed": 1933, "x0": -600, "x1": 2200, "color": "#a89678", "color2": "#786a52"},
+    {"type": "crowd", "area": [900, 1600, -2600, -1900], "y": [792, 780], "count": 80, "size": 87, "color": "#ffd8a0", "dim": 0.4, "glow": 0.12, "mill": 5, "speed": 0, "flicker": 0.35, "at": {"1": {"out": 1, "outDur": 2600}, "2": {"out": 1, "outDur": 1}}},
+    {"type": "light", "depth": 0.42, "pos": [470, 800], "h": 107, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "walk", "path": [[470, 800], [190, 796]], "dur": 9000, "delay": 0},
+    {"type": "light", "depth": 0.42, "pos": [516, 800], "h": 107, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "walk", "path": [[516, 800], [230, 796]], "dur": 9000, "delay": 250},
+    {"type": "light", "depth": 0.42, "pos": [562, 800], "h": 107, "color": "#fff0dc", "glow": 0.3, "bright": 1.05, "solid": 0.5, "pose": "walk", "path": [[562, 800], [270, 796]], "dur": 9000, "delay": 500},
+    {"type": "dust", "box": [-1400, 200, -8000, 3000, 950, 600], "count": 400, "size": 2.6, "color": "#fff0d8", "opacity": 0.16, "wind": [4, -2, 0], "swirl": 40}
+  ],
+  "beats": [
+    {"dur": 11000, "ambient": ["sea", "wind"], "cam": {"pos": [640, 535, 700], "look": [560, 740, -3000]}, "say": "When they forgot what they had been reminded of, those who had forbidden the wrong were saved, and those who did wrong were seized."},
+    {"dur": 11000, "ambient": ["sea", "wind"], "cam": {"pos": [800, 515, 1000], "look": [800, 600, -3000]}, "say": "The warners walked out of the town at evening. Behind them its lights went out, and the sea lay calm and empty."},
+    {"dur": 12000, "ambient": ["sea", "air"], "cam": {"pos": [800, 525, 900], "look": [800, 630, -3000]}, "verse": {"ref": "2:66", "place": "sky", "en": "And We made it a deterrent punishment for those who were present and those who succeeded [them] and a lesson for those who fear Allah."}}
+  ]
+}

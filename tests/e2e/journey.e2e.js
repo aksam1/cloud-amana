@@ -310,5 +310,6 @@ test('a path lists its stops, plays one and comes back with it marked as watched
 
 test('the sky on Progress shows a star for every lesson and lights none for a new visitor', async ({ page }) => {
   await page.goto('/#/pyramid/progress');
-  await expect(page.getByRole('img', { name: /Your sky: 0 of 70 stars lit/ })).toBeVisible();
+  // one star per lesson part (55) and per pyramid unit (17)
+  await expect(page.getByRole('img', { name: /Your sky: 0 of 72 stars lit/ })).toBeVisible();
 });

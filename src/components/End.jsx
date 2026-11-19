@@ -183,6 +183,9 @@ export default function End() {
         <button type="button" className="hud-btn" onClick={() => go('/map')}>
           See the map
         </button>
+        <button type="button" className="hud-btn" onClick={() => go('/abodes')}>
+          The two abodes
+        </button>
         <button type="button" className="hud-btn" onClick={() => go('/stories')}>
           Revisit the stories
         </button>
