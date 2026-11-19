@@ -345,8 +345,14 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Checks: `npm test` (usage.test.js, contact.test.js, buildFlags.test.js), `npm run e2e:usage` (a test web build in
   `dist-usage/`; sendBeacon is captured and Google's hosts are refused, so nothing is sent: it checks the 13 fields,
   that the view and typed text never appear, and that the switch and GPC send nothing). After deploying the rules,
-  `node tools/rules-smoke.mjs --project=amanah-stories --key=<web key>` posts one real valid record and checks the
-  refusals. Firestore needs a TTL policy on `ev.exp` (Google Cloud console) for the 90 days to be true.
+  `node tools/rules-smoke.mjs --project=amanah-stories --key=<web key>` posts two real valid records (one as JSON,
+  one as text/plain the way the app sends) marked `ref: 'rules-smoke'`, and checks the refusals.
+- Live since 19 Nov 2026: rules published in the Firebase console, database `(default)` in nam5 (United States).
+  **Deletion is still owed.** Firestore's TTL policy needs the Blaze (billing) plan, and the owner chose to stay on
+  the free Spark plan, so nothing deletes the `ev` records yet. The Privacy page promises about 90 days, and the first
+  records reach it on **17 Feb 2027**: before then, either a TTL policy on `ev.exp` (if billing is ever turned on) or
+  a free scheduled job that deletes `ev` documents whose `exp` has passed must be running. Spark also caps writes at
+  20,000 a day; past that, sends fail quietly until the next day (nothing is charged).
 
 ## WebGL scenes (`"renderer": "gl"`, from Chapter 4)
 

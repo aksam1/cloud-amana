@@ -13,6 +13,9 @@
 // The requests it makes:
 //   must succeed
 //     · a valid `ev` document, built by buildDoc() and toFirestore() from src/lib/usageRules.js
+//     · the same, sent exactly as the app sends it (a text/plain body, which needs no CORS preflight)
+//   The two it adds are marked ref 'rules-smoke', so they can be left out of the totals; like every
+//   count they are deleted by the TTL policy on `exp`.
 //   must fail
 //     · an `ev` document with one extra field
 //     · an `ev` document carrying the reader's chosen view
@@ -45,10 +48,10 @@ let failures = 0;
 const newId = () => `smoke-${now.toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
 
 /** Post one document to a collection. Returns { ok, status, body }. */
-async function create(collection, fields) {
+async function create(collection, fields, type = 'application/json') {
   const res = await fetch(`${BASE}/${collection}?key=${encodeURIComponent(key)}`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': type },
     body: JSON.stringify({ fields }),
   });
   let body = '';
@@ -82,7 +85,7 @@ const validFields = () => {
     part: 0,
     device: 'phone',
     lang: 'en',
-    ref: 'google.com',
+    ref: 'rules-smoke',
     app: true,
     ret: '2-7d',
     seconds: 120,
@@ -96,6 +99,9 @@ const validFields = () => {
 // ── must succeed ──────────────────────────────────────────────────────────────
 const ok = await create('ev', validFields());
 check('a valid ev document is accepted', ok.ok, `status ${ok.status}`);
+
+const asApp = await create('ev', validFields(), 'text/plain;charset=UTF-8');
+check('a valid ev document sent as the app sends it (text/plain) is accepted', asApp.ok, `status ${asApp.status}`);
 
 // ── must fail ─────────────────────────────────────────────────────────────────
 const extra = { ...validFields(), secret: { stringValue: 'x' } };
