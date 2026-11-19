@@ -37,6 +37,10 @@ jobs:
         run: npm run e2e
         env:
           CI: true
+      - name: Usage counts journey (what would be sent; nothing leaves the test browser)
+        run: npm run e2e:usage
+        env:
+          CI: true
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

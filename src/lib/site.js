@@ -1,6 +1,8 @@
 // Where the site lives, and the small things that depend on it: sharing, and links out to read a verse.
 // When the site moves to its own address, change SITE_URL here (or set VITE_SITE_URL at build time).
 export const SITE_URL = import.meta.env?.VITE_SITE_URL || 'https://claude.ai/artifact/HRp6qy5JJwz6rBJGtARwLq';
+/** The web site (Netlify): the copy that can send counts and messages. The artifact points readers here. */
+export const WEB_SITE = 'https://amanah-stories.netlify.app';
 // Who makes it: shown on the About page and the Privacy page.
 export const MAKER = 'Amanah, an independent project';
 // How to reach the people who make it: the contact form in the app (no address is published).

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { IS_WEB, canInstall, promptInstall, standalone, watchForInstall } from '../lib/pwa.js';
 import { setPref, useStore } from '../lib/store.js';
+import { track } from '../lib/usage.js';
 
 /**
  * The invitation to install the app (web build only).
@@ -37,6 +38,15 @@ export default function InstallInvite({ where = '' }) {
     if (standalone()) return;
     setOffer(true);
   }, [IS_WEB, asked, done, seen, where]);
+
+  // the counts: the invitation was shown, and the app was installed
+  useEffect(() => {
+    if (!IS_WEB || !offer) return undefined;
+    track('install.prompt');
+    const onInstalled = () => track('install.done');
+    window.addEventListener('appinstalled', onInstalled);
+    return () => window.removeEventListener('appinstalled', onInstalled);
+  }, [IS_WEB, offer]);
 
   if (!IS_WEB || asked || !offer) return null;
 

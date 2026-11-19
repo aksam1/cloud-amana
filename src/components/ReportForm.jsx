@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { IS_WEB } from '../lib/pwa.js';
+import { CONTACT_KINDS, kindFrom } from '../lib/contact.js';
+import { track } from '../lib/usage.js';
+
+export { CONTACT_KINDS, kindFrom };
 
 /**
- * Report a mistake (web build only).
+ * Report a mistake, or write to the people who make the app (web build only).
  *
  * The form posts to Netlify's own form handling: the same form is declared as a hidden static form
  * in index.html, so Netlify finds it when it builds the site, and this page posts to it as
@@ -10,9 +14,10 @@ import { IS_WEB } from '../lib/pwa.js';
  *
  * On the artifact build there is no host to receive it, so the form is not shown at all.
  */
-export default function ReportForm({ where = '', onClose }) {
+export default function ReportForm({ where = '', onClose, kind = 'question', title, lead }) {
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
+  const [which, setWhich] = useState(kindFrom(kind));
   const [state, setState] = useState('idle'); // idle | sending | sent | failed
   const [detail, setDetail] = useState('');
 
@@ -25,6 +30,7 @@ export default function ReportForm({ where = '', onClose }) {
     try {
       const body = new URLSearchParams({
         'form-name': 'report',
+        kind: which,
         where,
         message: message.trim(),
         email: email.trim(),
@@ -38,9 +44,10 @@ export default function ReportForm({ where = '', onClose }) {
       setState('sent');
       setMessage('');
       setEmail('');
+      track('report.sent');
     } catch (err) {
       setState('failed');
-      setDetail('The report could not be sent. Please try again in a moment.');
+      setDetail('The message could not be sent. Please try again in a moment.');
     }
   };
 
@@ -48,7 +55,7 @@ export default function ReportForm({ where = '', onClose }) {
     return (
       <div className="rounded-2xl border border-gold/25 bg-black/25 p-5" role="status">
         <h3 className="font-display text-[1.15rem] font-semibold text-gold-hi">Thank you</h3>
-        <p className="mt-1 font-body text-[1.08rem] leading-snug text-ivory/85">The mistake has been sent. It will be read.</p>
+        <p className="mt-1 font-body text-[1.08rem] leading-snug text-ivory/85">Your message has been sent. It will be read.</p>
         {onClose && (
           <button type="button" className="hud-btn mt-3" onClick={onClose}>
             Close
@@ -60,12 +67,30 @@ export default function ReportForm({ where = '', onClose }) {
 
   return (
     <form className="rounded-2xl border border-gold/25 bg-black/25 p-5" onSubmit={submit}>
-      <h3 className="font-display text-[1.15rem] font-semibold text-gold-hi">Report a mistake</h3>
+      <h3 className="font-display text-[1.15rem] font-semibold text-gold-hi">{title || 'Report a mistake'}</h3>
       <p className="mt-1 font-body text-[1.05rem] leading-snug text-ivory/75">
-        {where ? <>In <span className="text-ivory/90">{where}</span>. </> : null}What is wrong?
+        {lead || <>{where ? <>In <span className="text-ivory/90">{where}</span>. </> : null}What would you like to say?</>}
       </p>
+
+      <label className="mt-3 block font-body text-[1rem] text-ivory/70" htmlFor="report-kind">
+        What is it about
+      </label>
+      <select
+        id="report-kind"
+        name="kind"
+        value={which}
+        onChange={(e) => setWhich(kindFrom(e.target.value))}
+        className="mt-1 w-full min-h-[44px] rounded-xl border border-gold/30 bg-black/40 px-3 py-2 font-body text-[1.05rem] text-ivory"
+      >
+        {CONTACT_KINDS.map((k) => (
+          <option key={k.id} value={k.id} className="bg-black">
+            {k.label}
+          </option>
+        ))}
+      </select>
+
       <label className="mt-3 block font-body text-[1rem] text-ivory/70" htmlFor="report-message">
-        What is wrong
+        Your message
       </label>
       <textarea
         id="report-message"
@@ -78,7 +103,7 @@ export default function ReportForm({ where = '', onClose }) {
         placeholder="A verse, a saying, a detail of a story…"
       />
       <label className="mt-3 block font-body text-[1rem] text-ivory/70" htmlFor="report-email">
-        Your email, if you would like a reply (optional)
+        Your email, only if you would like a reply (optional)
       </label>
       <input
         id="report-email"
@@ -91,7 +116,7 @@ export default function ReportForm({ where = '', onClose }) {
       />
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <button type="submit" className="btn-gold" disabled={state === 'sending' || !message.trim()}>
-          {state === 'sending' ? 'Sending…' : 'Send the report'}
+          {state === 'sending' ? 'Sending…' : 'Send the message'}
         </button>
         {onClose && (
           <button type="button" className="hud-btn" onClick={onClose}>
@@ -105,8 +130,12 @@ export default function ReportForm({ where = '', onClose }) {
         </p>
       )}
       <p className="mt-3 font-body text-[0.95rem] italic leading-snug text-ivory/50">
-        What you type and the page it is about go to this site&rsquo;s host, Netlify, which also notes the sender&rsquo;s
-        internet address and browser to keep out spam.
+        What you write, the kind, an email if you give one, and the page it is about go to this site&rsquo;s host,
+        Netlify, which also notes the sender&rsquo;s internet address and browser to keep out spam. The message is
+        deleted once it has been dealt with.
+      </p>
+      <p className="mt-1 font-body text-[0.95rem] italic leading-snug text-ivory/50">
+        Please don&rsquo;t include private details. If you&rsquo;re under 13, ask a parent to write for you.
       </p>
     </form>
   );

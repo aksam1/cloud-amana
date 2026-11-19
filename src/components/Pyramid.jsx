@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { savePlacement, setPref, useStore } from '../lib/store.js';
 import { ambience } from '../lib/audio.js';
+import { USAGE_ON, track } from '../lib/usage.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { download, FIRST_STORY, share, shareMessage } from '../lib/site.js';
@@ -186,7 +187,7 @@ function Home() {
     ? { label: 'Continue', href: resumeUnit ? `/unit/${resume.id}` : `/scene/${resume.id}`, note: resumeUnit ? `${resumeUnit.title}: you were on ${STEP_NAME[resume.step] || 'the lesson'}.` : `You were at “${resume.title}”.` }
     : placed
       ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
-      : { label: 'Begin your journey', href: '/begin', note: 'Free, private, no account.' };
+      : { label: 'Begin your journey', href: '/begin', note: 'Free and private. No account needed.' };
   const button = allWatched && !resume ? done : cta;
   // someone who has watched nothing and answered nothing yet is offered the short guide beside the main button,
   // until they have opened it (the guide marks `hints.guide`); after that it is the plain Guide link like everyone's
@@ -257,6 +258,12 @@ function Home() {
           </div>
           <InstallInvite where="home" />
           <p className="mt-4 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45 short:mt-0 short:max-w-none tiny:mt-0 tiny:text-[0.84rem] tiny:leading-tight">{inMode(DISCLAIMER, mode)}</p>
+          {/* CalOPPA wants a way to the privacy policy on the home page: small, calm, out of the way. */}
+          <p className="mt-2 font-body text-[1rem] text-ivory/50 short:mt-0 tiny:mt-0">
+            <button type="button" className="inline-flex min-h-[44px] items-center underline decoration-gold/30 underline-offset-4" onClick={() => go('/privacy')}>
+              Privacy
+            </button>
+          </p>
         </motion.main>
       </div>
     </div>
@@ -827,6 +834,8 @@ function Placement() {
   const finish = (all) => {
     const r = placementResult(path, all);
     savePlacement({ path, answers: all, at: new Date().toISOString(), start: r.start });
+    // the counts say only that the reflection was finished: never an answer, never the path
+    track('placement.done');
     go('/pyramid/result');
   };
   const answer = (q, k, points) => {
@@ -1199,7 +1208,7 @@ function Progress() {
       <section className="mt-6 rounded-2xl border border-gold/20 bg-black/25 p-5">
         <h2 className="font-display text-[1.05rem] text-ivory">Your data</h2>
         <p className="mt-1 font-body text-[1rem] leading-snug text-ivory/70">
-          Stored only in this browser. Nothing is sent anywhere.{' '}
+          Stored only in this browser.{USAGE_ON ? ' Only anonymous usage counts leave it, and Settings can turn them off.' : ' Nothing is sent anywhere.'}{' '}
           <button type="button" className="underline decoration-gold/40 underline-offset-4" onClick={() => go('/settings')}>
             Back it up, or delete it
           </button>

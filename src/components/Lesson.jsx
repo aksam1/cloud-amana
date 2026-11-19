@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { ayah, chapterByNumber } from '../lib/story.js';
 import { lessonFor, lessonKey, replayHref } from '../lib/lessons.js';
 import { markAnswered, markLearned, saveJournal, useStore } from '../lib/store.js';
+import { track } from '../lib/usage.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { quranLink } from '../lib/site.js';
@@ -30,6 +31,7 @@ export default function Lesson({ chapter, part, then }) {
   // `to` lets the reflection finish somewhere else than the story's way on (a lesson's `see` page).
   const finish = (to = onward) => {
     markLearned(key);
+    track('lesson.done', chapter, part);
     go(to);
   };
 
@@ -71,7 +73,7 @@ export default function Lesson({ chapter, part, then }) {
           </ol>
           <AnimatePresence mode="wait">
             <motion.div key={at} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }}>
-              {at === 'remember' && <Remember data={data} mode={mode} lessonKey={key} here={here} onDone={() => setStep(step + 1)} />}
+              {at === 'remember' && <Remember data={data} mode={mode} lessonKey={key} chapter={chapter} part={part} here={here} onDone={() => setStep(step + 1)} />}
               {at === 'lesson' && <TheLesson data={data} mode={mode} onDone={() => setStep(step + 1)} />}
               {at === 'carry' && <Carry data={data} onDone={() => setStep(step + 1)} />}
               {at === 'reflect' && <Reflect data={data} mode={mode} lessonKey={key} onDone={finish} />}
@@ -115,18 +117,26 @@ function Next({ onClick, children = 'Next' }) {
 }
 
 /** One question at a time. Right: on to the next. Wrong: try again, or replay the moment it is about. */
-function Remember({ data, mode, lessonKey: key, here, onDone }) {
+function Remember({ data, mode, lessonKey: key, chapter, part, here, onDone }) {
   const [i, setI] = useState(0);
   const [picked, setPicked] = useState(null);
+  const [tried, setTried] = useState(false); // has this question been answered wrongly at least once?
   const q = data.questions[i];
   const right = picked === q.answer;
   const replay = q.replay && replayHref(q.replay);
   const choose = (k) => {
     setPicked(k);
-    if (k === q.answer) markAnswered(`${key}:${i}`);
+    if (k === q.answer) {
+      markAnswered(`${key}:${i}`);
+      // the count says only whether the first try was right, never what was chosen
+      track('question', chapter, part, i, !tried);
+    } else {
+      setTried(true);
+    }
   };
   const next = () => {
     setPicked(null);
+    setTried(false);
     if (i + 1 < data.questions.length) setI(i + 1);
     else onDone();
   };

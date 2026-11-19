@@ -167,7 +167,9 @@ test('the privacy page explains what is kept, and has a way home', async ({ page
   await page.goto('/#/privacy');
   await expect(page.getByRole('heading', { name: 'Your privacy' })).toBeVisible();
   await expect(page.getByText(/kept in this browser/i)).toBeVisible();
-  await expect(page.getByText(/no analytics, no adverts, no cookies/i)).toBeVisible();
+  // this suite runs the artifact build, which sends nothing (the web build's counts: usage.e2e.js)
+  await expect(page.getByText(/sends nothing anywhere/i)).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Usage counts' })).toHaveCount(0);
   await page.getByRole('button', { name: 'Back home' }).click();
   await expect(page).toHaveURL(/#\/(?:$|[^/])/);
   await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();

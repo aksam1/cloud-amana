@@ -318,6 +318,36 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   (top right, its state written on it: "Sound on/off") is heard at once.
 - `tests/e2e/guide.e2e.js` walks the guide, the tips and the map's sound switch.
 
+## Usage counts, the contact form and the privacy page (Nov 2026)
+
+- The owner asked for usage data to improve the app, within US law. What was built is anonymous counts, not
+  tracking: `src/lib/usageRules.js` (pure: the event whitelist `EVENTS`/`SHAPES`, `buildDoc`, `toFirestore`, the
+  limits, `TTL_DAYS` 90) and `src/lib/usage.js` (the browser part: one tracker, sent on `pagehide` or when the page
+  is hidden, by `sendBeacon` to Firestore's REST API, collection `ev`, one separate document per page-load part).
+- A document holds exactly 13 fields (`app d dev err ev exp lang p pv ref ret sec v`): the day, a part number, the
+  device kind, language, the referring host only, installed or not, a return bucket (new … 31d+, from
+  `amanah:firstSeen`), seconds visible, routes opened, whitelisted events (ids and numbers only) and scrubbed errors.
+  `firestore.rules` accepts only that shape, and nobody but the owner can read it.
+- **Never sent**: the chosen view (`prefs.mode`, which says something about faith), reflections, placement answers,
+  notes, anything typed, an email, any identifier or cookie. Add an event only as a new whitelisted shape in
+  usageRules.js with ids or numbers, never free text, and update the Privacy page's list in the same commit.
+- The gates, checked at every send: `USAGE_ON` (= the web build; the artifact build drops it all), the Firebase env
+  keys, `trackingOff()` (Global Privacy Control or Do Not Track), `machineAddress()` (webdriver or localhost), and the
+  reader's own switch (Settings, "Share anonymous usage counts", `prefs.usage === false`; turning it off also runs
+  `forgetUsage()`). `tools/build-web.mjs` strips every `VITE_USAGE_*` variable unless given `--test`, so the Netlify
+  build can never carry `VITE_USAGE_TEST`, which lets a test browser on localhost send.
+- `#/contact?kind=` (`Contact.jsx`, kinds in `src/lib/contact.js`: mistake, privacy, question, other) and `#/report`
+  share `ReportForm.jsx`, posted to Netlify Forms (form `report`, declared in index.html). The owner must delete a
+  message once it has been dealt with: the Privacy page promises it.
+- `Privacy.jsx` reads `USAGE_ON` and `IS_WEB`: the artifact copy says only that it sends nothing and points to the web
+  site (`WEB_SITE` in site.js). `PRIVACY_EFFECTIVE` (site.js) is the day it takes effect; change it with the page.
+  Daily totals are not mentioned until the owner's roll-ups exist (the sign-in batch).
+- Checks: `npm test` (usage.test.js, contact.test.js, buildFlags.test.js), `npm run e2e:usage` (a test web build in
+  `dist-usage/`; sendBeacon is captured and Google's hosts are refused, so nothing is sent: it checks the 13 fields,
+  that the view and typed text never appear, and that the switch and GPC send nothing). After deploying the rules,
+  `node tools/rules-smoke.mjs --project=amanah-stories --key=<web key>` posts one real valid record and checks the
+  refusals. Firestore needs a TTL policy on `ev.exp` (Google Cloud console) for the 90 days to be true.
+
 ## WebGL scenes (`"renderer": "gl"`, from Chapter 4)
 
 - Design frame 1600×900, y down. The reference camera at Z = 1000 sees it exactly. A layer at parallax

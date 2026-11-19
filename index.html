@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#05060d" />
-    <meta name="description" content="Learn Islam through the stories of the prophets, told in light. Free, private, no account." />
+    <meta name="description" content="Learn Islam through the stories of the prophets, told in light. Free and private. No account needed." />
     <title>Amanah: the stories of the prophets</title>
     <link rel="canonical" href="%SITE_URL%" />
     <link rel="icon" href="/seal.svg" type="image/svg+xml" />
@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Amanah" />
     <meta property="og:title" content="Amanah: the stories of the prophets, told in light" />
-    <meta property="og:description" content="Learn Islam one story at a time. Free, private, no account." />
+    <meta property="og:description" content="Learn Islam one story at a time. Free and private. No account needed." />
     <meta property="og:url" content="%SITE_URL%" />
     <meta property="og:image" content="%SITE_URL%/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -26,6 +26,7 @@
     <div id="root"></div>
     <!-- Netlify finds this form when it builds the site, and the app posts to it (web build only). -->
     <form name="report" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="kind" />
       <input type="text" name="where" />
       <textarea name="message"></textarea>
       <input type="email" name="email" />

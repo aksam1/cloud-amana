@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { ayah, chapterByNumber, sceneList } from '../lib/story.js';
 import { STORY_PARTS } from '../lib/pyramid.js';
 import { useStore } from '../lib/store.js';
+import { track } from '../lib/usage.js';
 import { go } from '../lib/router.js';
 import { quranLink, share, shareMessage } from '../lib/site.js';
 import { PATHS } from './Paths.jsx';
@@ -29,6 +30,11 @@ export default function End() {
   const [note, setNote] = useState('');
   const seen = state.seen || {};
   const learned = state.learned || {};
+
+  // the counts: the reader reached the end of the chronicle
+  useEffect(() => {
+    track('end.reached');
+  }, []);
 
   const total = sceneList.length;
   const watched = sceneList.filter((s) => seen[s.id]).length;

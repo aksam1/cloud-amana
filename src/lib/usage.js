@@ -33,6 +33,13 @@ import { WEB_TARGET } from './target.js';
 /** True only in the web build (the artifact build never counts anything). */
 export const USAGE_ON = WEB_TARGET;
 
+/**
+ * A test build only: it skips the two checks that keep a machine or a test browser out
+ * (navigator.webdriver and localhost). Nothing else changes, and the flag is never set by
+ * tools/build-web.mjs or by netlify.toml: the Netlify build can never carry it.
+ */
+export const USAGE_TEST = import.meta.env.VITE_USAGE_TEST === '1';
+
 const FIRST_SEEN = 'amanah:firstSeen';
 
 // ── The gates ──────────────────────────────────────────────────────────────────
@@ -51,9 +58,9 @@ export function trackingOff() {
 /** Is this a test browser, a bot, or a machine address? Nothing is sent from one. */
 export function machineAddress() {
   try {
-    if (navigator.webdriver) return true;
+    if (!USAGE_TEST && navigator.webdriver) return true;
     const host = location.hostname;
-    if (host === 'localhost' || host === '127.0.0.1' || host === '::1') return true;
+    if (!USAGE_TEST && (host === 'localhost' || host === '127.0.0.1' || host === '::1')) return true;
   } catch {
     /* no browser: go on */
   }
@@ -281,6 +288,15 @@ export function usageAllowed() {
     /* no stored state: go on */
   }
   return true;
+}
+
+/**
+ * May the reader be offered the switch? The counts need the web build and a project to go to;
+ * the switch is not shown at all without them.
+ */
+export function usageAvailable() {
+  if (!USAGE_ON) return false;
+  return !!(import.meta.env.VITE_FIREBASE_API_KEY && import.meta.env.VITE_FIREBASE_PROJECT_ID);
 }
 
 // ── The calls the app makes ────────────────────────────────────────────────────

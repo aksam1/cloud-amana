@@ -13,7 +13,8 @@ const baseURL = `http://localhost:${PORT}/`;
 export default defineConfig({
   testDir: 'tests/e2e',
   testMatch: '**/*.e2e.js',
-  testIgnore: '**/offline.e2e.js', // the offline journey runs against a built web app (see playwright.offline.config.js)
+  // the offline and usage journeys run against a built web app (playwright.offline.config.js, playwright.usage.config.js)
+  testIgnore: ['**/offline.e2e.js', '**/usage.e2e.js'],
   timeout: 60_000,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? 'github' : 'list',

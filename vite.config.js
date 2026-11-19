@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { readFileSync, readdirSync, realpathSync, statSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 
 /**
@@ -22,13 +22,17 @@ const SITE_URL = process.env.VITE_SITE_URL || 'https://claude.ai/artifact/HRp6qy
  */
 function serviceWorker() {
   const TEMPLATE = join(process.cwd(), 'src', 'sw', 'sw.template.js');
+  let dist = join(process.cwd(), 'dist');
   return {
     name: 'amanah-service-worker',
     apply: 'build',
     enforce: 'post',
+    // the folder this build writes to (--outDir), so a test build never touches dist/
+    configResolved(config) {
+      dist = resolve(config.root, config.build.outDir);
+    },
     closeBundle() {
       if (process.env.VITE_TARGET !== 'web') return;
-      const dist = join(process.cwd(), 'dist');
       const files = [];
       const walk = (dir) => {
         for (const name of readdirSync(dir)) {

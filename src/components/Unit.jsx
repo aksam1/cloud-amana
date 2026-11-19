@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ayah, expandRef, sceneById } from '../lib/story.js';
 import { getState, saveDraft, saveJournal, saveUnit, useStore } from '../lib/store.js';
+import { track } from '../lib/usage.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { climb, CONFIG, completed, levelById, nextUnit, unitById, unitMeter, unitStatus, UNITS } from '../lib/pyramid.js';
@@ -51,6 +52,14 @@ export default function Unit({ id, step: startStep }) {
     saveDraft(id, { step, choice, firsts }, u?.title);
   }, [id, data, u, step, choice, firsts, result, draft]);
 
+  // the counts: a unit that was started (once), and a unit that was finished. Never an answer.
+  const countedStart = useRef(false);
+  useEffect(() => {
+    if (!data || !mode || countedStart.current) return;
+    countedStart.current = true;
+    track('unit.start', id);
+  }, [id, data, mode]);
+
   if (!u) return <Frame id={id}>{<p className="font-body text-lg text-ink">There is no unit called “{id}”.</p>}</Frame>;
   if (!data) {
     return (
@@ -90,6 +99,7 @@ export default function Unit({ id, step: startStep }) {
     const parts = { check: q.length ? right / q.length : 0, choice: choice === null ? 0 : ch.options[choice].points / best, reflection: true };
     const meter = unitMeter(parts);
     saveUnit(id, { ...parts, meter, at: new Date().toISOString() });
+    track('unit.done', id);
     setResult({ meter, right, total: q.length });
   };
 

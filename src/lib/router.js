@@ -24,6 +24,7 @@ function parse(hash) {
   if (parts[0] === 'settings') return { name: 'settings', query, key: 'settings' };
   if (parts[0] === 'end') return { name: 'end', query, key: 'end' };
   if (parts[0] === 'report') return { name: 'report', query, key: 'report' };
+  if (parts[0] === 'contact') return { name: 'contact', query, key: `contact:${parts[1] || ''}` };
   if (parts[0] === 'abodes') return { name: 'abodes', query, key: 'abodes' };
   // the newcomer's guide, #/guide?step=<id>: one key for every step, so moving between steps never fades the page
   if (parts[0] === 'guide') return { name: 'guide', query, key: 'guide' };

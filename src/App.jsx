@@ -5,6 +5,7 @@ import { getState } from './lib/store.js';
 import { ambience } from './lib/audio.js';
 import { GeoField, starPath } from './components/Ornaments.jsx';
 import { IS_WEB, registerWorker, watchForUpdate } from './lib/pwa.js';
+import { trackError, track } from './lib/usage.js';
 
 // Every page loads on demand, so the home page never waits for the whole story (about 1 MB) to download.
 const Title = lazy(() => import('./components/Title.jsx'));
@@ -21,6 +22,7 @@ const Settings = lazy(() => import('./components/Settings.jsx'));
 const Privacy = lazy(() => import('./components/Privacy.jsx'));
 const End = lazy(() => import('./components/End.jsx'));
 const Report = lazy(() => import('./components/Report.jsx'));
+const Contact = lazy(() => import('./components/Contact.jsx'));
 const Abodes = lazy(() => import('./components/Abodes.jsx'));
 const Guide = lazy(() => import('./components/Guide.jsx'));
 
@@ -51,6 +53,8 @@ class Recover extends Component {
   }
   componentDidCatch(error, info) {
     console.error('[amanah] page crashed', error, info?.componentStack);
+    // the count says which page failed, with any personal detail scrubbed out
+    trackError(error, `page:${this.props.where || ''}`);
   }
   componentDidUpdate(prev) {
     if (prev.routeKey !== this.props.routeKey && this.state.error) this.setState({ error: null });
@@ -87,6 +91,64 @@ class Recover extends Component {
                 </button>
                 <button type="button" className="btn-ink" onClick={() => window.location.reload()}>
                   Reload
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+/**
+ * A page or a scene whose file could not be loaded (usually: the device is offline and that part
+ * was never saved). The count says only that it happened; the reader gets a calm way out.
+ */
+class ChunkMiss extends Component {
+  state = { miss: false };
+  static getDerivedStateFromError() {
+    return { miss: true };
+  }
+  componentDidCatch(error) {
+    console.error('[amanah] a page could not be loaded', error);
+    track('offline.chunk');
+  }
+  componentDidUpdate(prev) {
+    if (prev.routeKey !== this.props.routeKey && this.state.miss) this.setState({ miss: false });
+  }
+  render() {
+    if (!this.state.miss) return this.props.children;
+    const offlineMiss = navigator.onLine === false;
+    return (
+      <div className="parchment-night grid h-full place-items-center px-6" role="alert">
+        <GeoField opacity={0.06} />
+        <div className="parchment cartouche relative z-10 max-w-[440px] px-6 py-6 text-center">
+          <h1 className="font-display text-[1.3rem] font-semibold text-ink">
+            {offlineMiss ? "This part isn't saved on this device yet" : 'This part could not be opened'}
+          </h1>
+          <p className="mt-2 font-body text-[1.08rem] leading-snug text-ink-soft">
+            {offlineMiss
+              ? 'Connect once to watch it, or keep the whole story for offline in Settings.'
+              : 'Your progress is safe. Reload the page, or go back home.'}
+          </p>
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
+            {offlineMiss ? (
+              <>
+                <button type="button" className="btn-gold" onClick={() => (window.location.hash = '/settings')}>
+                  Open Settings
+                </button>
+                <button type="button" className="btn-ink" onClick={() => (window.location.hash = '/')}>
+                  Back home
+                </button>
+              </>
+            ) : (
+              <>
+                <button type="button" className="btn-gold" onClick={() => window.location.reload()}>
+                  Reload
+                </button>
+                <button type="button" className="btn-ink" onClick={() => (window.location.hash = '/')}>
+                  Back home
                 </button>
               </>
             )}
@@ -151,7 +213,8 @@ export default function App() {
   return (
     <AnimatePresence mode="wait">
       <motion.div key={route.key} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: fade, ease: 'easeInOut' }}>
-        <Recover routeKey={route.key}>
+        <Recover routeKey={route.key} where={route.name}>
+        <ChunkMiss routeKey={route.key}>
         <Suspense fallback={<Loader />}>
           {route.name === 'scene' ? (
             <ScenePlayer id={route.id} beat={route.query.beat} still={'still' in route.query} moment={route.query.t} back={route.query.back} until={route.query.until} first={'first' in route.query} />
@@ -175,6 +238,8 @@ export default function App() {
             <End />
           ) : route.name === 'report' ? (
             <Report where={route.query.where || ''} />
+          ) : route.name === 'contact' ? (
+            <Contact kind={route.query.kind || ''} />
           ) : route.name === 'abodes' ? (
             <Abodes at={route.query.at} />
           ) : route.name === 'guide' ? (
@@ -187,6 +252,7 @@ export default function App() {
             <Title />
           )}
         </Suspense>
+        </ChunkMiss>
         </Recover>
         {update && !inScene && (
           <div className="absolute inset-x-0 bottom-24 z-50 flex justify-center px-4 sm:bottom-6" role="status" aria-live="polite">

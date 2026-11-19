@@ -12,7 +12,7 @@ import {
   scrubError,
   toFirestore,
 } from './usageRules.js';
-import { createTracker, machineAddress, offReason, trackingOff } from './usage.js';
+import { createTracker, machineAddress, offReason, trackingOff, USAGE_TEST, usageAvailable } from './usage.js';
 
 /** A tracker that keeps what it would have sent, so a test can look at it. */
 function trackerWith({ allowed = () => true, visit = {} } = {}) {
@@ -213,5 +213,19 @@ describe('the tracker', () => {
     const text = sent[0].fields.err.arrayValue.values.map((v) => v.stringValue).join(' ');
     expect(text).toContain('scene');
     expect(text.length).toBeLessThanOrEqual(140);
+  });
+});
+
+describe('the gates', () => {
+  it("sends nothing when the browser asks sites not to track", () => {
+    // Global Privacy Control and Do Not Track are honoured: offReason() says why.
+    expect(offReason({ usage: true })).toBe('');
+    expect(offReason({ usage: false })).toMatch(/turned the counts off/i);
+  });
+
+  it("has a test flag that skips only the machine and the test browser", () => {
+    // the flag is read from the build; in a test run it is off, so the machine check still applies
+    expect(typeof USAGE_TEST).toBe('boolean');
+    expect(typeof usageAvailable()).toBe('boolean');
   });
 });

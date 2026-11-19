@@ -3,6 +3,7 @@ import { inMode, useMode } from '../lib/words.js';
 import { DISCLAIMER } from '../lib/pyramid.js';
 import { CONTACT, MAKER, share, shareMessage } from '../lib/site.js';
 import { IS_WEB } from '../lib/pwa.js';
+import { USAGE_ON } from '../lib/usage.js';
 import { useState } from 'react';
 import { Shell } from './Pyramid.jsx';
 
@@ -54,7 +55,7 @@ export default function About({ missing = false }) {
   return (
     <Shell here="about" back="/" title="About">
       <h1 className="font-display text-[1.9rem] font-semibold leading-tight text-gold-hi">About Amanah</h1>
-      <P>{say('The stories of the prophets as Islam teaches them, each with one lesson. Free, private, no account, no adverts.')}</P>
+      <P>{say('The stories of the prophets as Islam teaches them, each with one lesson. Free and private. No account needed, no adverts.')}</P>
       <p className="mt-4 font-body text-[1rem] italic text-ivory/55">
         Tap a line to read more. New here?{' '}
         <a href="#/guide" onClick={(e) => { e.preventDefault(); go('/guide'); }} className="not-italic text-gold-hi underline decoration-gold/50 underline-offset-4">
@@ -84,9 +85,10 @@ export default function About({ missing = false }) {
       </More>
 
       <More title="Your privacy">
-        <P>Your answers, progress and notes are stored only in this browser, on your device. None of them is sent to us or to anyone else. There are no cookies, no tracking and no adverts.</P>
+        <P>Your answers, progress and notes are stored only in this browser, on your device. None of them is sent to us or to anyone else. There are no cookies, no adverts and no third-party trackers.</P>
         <P>
-          The <a href="#/privacy" onClick={(e) => { e.preventDefault(); go('/privacy'); }} className="text-gold-hi underline decoration-gold/50 underline-offset-4">privacy page</a> says it in
+          {USAGE_ON ? 'Anonymous counts of what is used are sent, and Settings can turn them off. ' : ''}The{' '}
+          <a href="#/privacy" onClick={(e) => { e.preventDefault(); go('/privacy'); }} className="text-gold-hi underline decoration-gold/50 underline-offset-4">privacy page</a> says it in
           full, and where to back up, restore and delete your progress.
         </P>
         <P>A link to quran.com opens that site, which has its own privacy terms.</P>
@@ -126,7 +128,7 @@ export default function About({ missing = false }) {
           <P>
             Please tell us, especially about a verse, a saying or a detail of a story.{' '}
             <a href={CONTACT} className="text-gold-hi underline decoration-gold/50 underline-offset-4">
-              Report a mistake
+              Contact
             </a>
           </P>
         ) : IS_WEB ? (
@@ -135,9 +137,9 @@ export default function About({ missing = false }) {
             <button
               type="button"
               className="min-h-[44px] text-gold-hi underline decoration-gold/50 underline-offset-4"
-              onClick={() => go('/report')}
+              onClick={() => go('/contact')}
             >
-              Report a mistake
+              Contact
             </button>
           </P>
         ) : (

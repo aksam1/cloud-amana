@@ -3,6 +3,7 @@ import { go } from '../lib/router.js';
 import { ambience } from '../lib/audio.js';
 import { countsOf, deleteAllData, exportState, mergeStates, replaceState, resetProgress, setPref, useStore, validateBackup } from '../lib/store.js';
 import { IS_WEB, cacheEverything, canInstall, isCachedFully, promptInstall, standalone, storageSize, watchForInstall } from '../lib/pwa.js';
+import { forgetUsage, track, trackingOff, usageAvailable } from '../lib/usage.js';
 import { quranLink } from '../lib/site.js';
 import { ModePicker } from './ModePicker.jsx';
 import ReportForm from './ReportForm.jsx';
@@ -11,8 +12,8 @@ import { Icon } from './Ornaments.jsx';
 
 /**
  * Settings (#/settings): the view, the watching, the device, and the reader's own progress.
- * Everything here is on the page itself; nothing is sent away, except the mistake report the
- * reader chooses to send.
+ * Everything here is on the page itself; the only things that ever leave the device are the
+ * anonymous usage counts (if the reader allows them) and a message the reader chooses to send.
  */
 
 const Section = ({ title, children, note }) => (
@@ -26,7 +27,7 @@ const Section = ({ title, children, note }) => (
 );
 
 // A switch that reads as one, and is one button to a keyboard.
-function Switch({ label, on, onChange, hint }) {
+function Switch({ label, on, onChange, hint, disabled = false }) {
   return (
     <div className="flex items-center justify-between gap-4 border-b border-gold/10 py-2 last:border-0">
       <span className="min-w-0">
@@ -39,7 +40,9 @@ function Switch({ label, on, onChange, hint }) {
         role="switch"
         aria-checked={on}
         aria-label={label}
-        onClick={() => onChange(!on)}
+        disabled={disabled}
+        data-tap={on ? 'off' : 'on'}
+        onClick={() => !disabled && onChange(!on)}
       >
         {on ? 'On' : 'Off'}
       </button>
@@ -101,6 +104,7 @@ export default function Settings() {
     a.click();
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
+    track('backup.export');
     setNote('The backup file has been saved.');
   };
 
@@ -127,12 +131,14 @@ export default function Settings() {
     const incoming = confirmReplace?.state || {};
     replaceState(mergeStates(state, incoming));
     setConfirmReplace(null);
+    track('backup.restore');
     setNote('The backup has been combined with this device.');
   };
 
   const replace = () => {
     replaceState(confirmReplace?.state || {});
     setConfirmReplace(null);
+    track('backup.restore');
     setNote('This device now holds the progress from that backup.');
   };
 
@@ -154,10 +160,17 @@ export default function Settings() {
 
   const counts = countsOf(state);
 
+  // The anonymous counts (web build only, and only when there is a project to send them to).
+  // The reader's own switch is off only when their browser asks sites not to track: in that case
+  // the switch shows off and cannot be turned on (and the line says why).
+  const counting = usageAvailable();
+  const blocked = trackingOff();
+  const usageOn = counting && prefs.usage !== false && !blocked;
+
   return (
     <Shell here="about" back="/" title="Settings">
       <h1 className="mt-4 font-display text-[1.9rem] font-semibold leading-tight text-gold-hi">Settings</h1>
-      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">Everything here stays on this device.</p>
+      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">Your progress and notes stay on this device.</p>
 
       {/* Your view */}
       <Section title="Your view" note="The stories and verses are the same in both. Only the words around them change.">
@@ -299,6 +312,7 @@ export default function Settings() {
                   className="hud-btn border-blood/70 text-[#f0b3a6]"
                   onClick={() => {
                     deleteAllData();
+                    forgetUsage();
                     setConfirmDelete(false);
                     setNote('Your data has been deleted from this browser.');
                   }}
@@ -324,19 +338,40 @@ export default function Settings() {
 
       {/* Privacy and mistakes */}
       <Section title="Privacy and mistakes">
-        <div className="flex flex-wrap gap-2">
+        {counting && (
+          <>
+            <Switch
+              label="Share anonymous usage counts"
+              on={usageOn}
+              disabled={blocked}
+              onChange={(v) => {
+                setPref('usage', v);
+                if (!v) forgetUsage();
+              }}
+            />
+            <p className="mt-2 font-body text-[1rem] italic leading-snug text-ivory/55">
+              {blocked ? 'Your browser asks sites not to track, so nothing is sent.' : 'Counts of what is used, never what you answer or write.'}
+            </p>
+          </>
+        )}
+        <div className="mt-3 flex flex-wrap gap-2">
           <button type="button" className="hud-btn" onClick={() => go('/privacy')}>
             Read the privacy page
           </button>
           {IS_WEB && (
-            <button type="button" className="hud-btn" onClick={() => setReport((r) => !r)} aria-expanded={report}>
-              Report a mistake
-            </button>
+            <>
+              <button type="button" className="hud-btn" onClick={() => go('/contact')}>
+                Contact
+              </button>
+              <button type="button" className="hud-btn" onClick={() => setReport((r) => !r)} aria-expanded={report}>
+                Report a mistake
+              </button>
+            </>
           )}
         </div>
         {report && (
           <div className="mt-4">
-            <ReportForm where="Settings" onClose={() => setReport(false)} />
+            <ReportForm where="Settings" kind="mistake" onClose={() => setReport(false)} />
           </div>
         )}
       </Section>

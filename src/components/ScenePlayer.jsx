@@ -14,6 +14,7 @@ import { IS_WEB } from '../lib/pwa.js';
 import { inMode, useMode } from '../lib/words.js';
 import { unitForChapter, unitStatus } from '../lib/pyramid.js';
 import { lessonAfter, lessonKey, watchForAt } from '../lib/lessons.js';
+import { track } from '../lib/usage.js';
 import { go } from '../lib/router.js';
 import { roman } from '../lib/geo.js';
 
@@ -75,6 +76,10 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   const [toast, showToast] = useToast();
   const swipe = useRef(null);
   const wheelAt = useRef(0);
+  // the counts: a scene that starts, one that ends, one left before its end (never on a still)
+  const countedEnd = useRef(false);
+  const beatRef = useRef(start);
+  beatRef.current = beat;
 
   const beats = scene.beats;
   const last = beats.length - 1;
@@ -116,6 +121,16 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
     return () => clearTimeout(t);
   }, [scene, cam, start, still, bridge, watchFor]);
 
+  // The counts: a scene that starts (never a still, which is a review, not a watching).
+  useEffect(() => {
+    if (still) return undefined;
+    track('scene.start', scene.id);
+    return () => {
+      // leaving before the end: the moment the reader stopped at
+      if (!countedEnd.current) track('scene.leave', scene.id, beatRef.current);
+    };
+  }, [scene.id, still]);
+
   // Camera: each beat glides (or cuts) to its framing; skipping ahead interrupts and re-aims.
   useEffect(() => {
     const c = b.cam;
@@ -145,6 +160,10 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   const finish = useCallback(() => {
     setEnded(true);
     markSeen(scene.id);
+    if (!countedEnd.current) {
+      countedEnd.current = true;
+      track('scene.end', scene.id);
+    }
   }, [scene.id]);
 
   const onBeatTimer = useCallback(() => {

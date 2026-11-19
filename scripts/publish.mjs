@@ -17,7 +17,7 @@ const css = assets.find((f) => /^index-.*\.css$/.test(f));
 const js = assets.find((f) => /^index-.*\.js$/.test(f));
 // The icon travels inside the page (the published page has no folder of its own for it).
 const icon = `data:image/svg+xml,${encodeURIComponent(readFileSync(join(root, 'public/seal.svg'), 'utf8'))}`;
-const DESCRIPTION = 'Learn Islam through the stories of the prophets, told in light. Free, private, no account.';
+const DESCRIPTION = 'Learn Islam through the stories of the prophets, told in light. Free and private. No account needed.';
 mkdirSync(join(root, 'deploy'), { recursive: true });
 writeFileSync(
   join(root, 'deploy/index.html'),
@@ -34,7 +34,7 @@ writeFileSync(
     '<meta property="og:type" content="website" />',
     '<meta property="og:site_name" content="Amanah" />',
     '<meta property="og:title" content="Amanah: the stories of the prophets, told in light" />',
-    '<meta property="og:description" content="Learn Islam one story at a time. Free, private, no account." />',
+    '<meta property="og:description" content="Learn Islam one story at a time. Free and private. No account needed." />',
     `<meta property="og:url" content="${URL}" />`,
     '<meta name="twitter:card" content="summary" />',
     // Fonts are bundled with the site (src/fonts.css): nothing is fetched from another host.

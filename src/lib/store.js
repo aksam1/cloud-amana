@@ -18,7 +18,9 @@ const DEFAULTS = {
   recent: null, // the last thing opened, for "Continue where you left off": { kind: 'unit'|'scene', id, title, at }
   // mode: 'muslim' | 'curious' | null (not chosen); taps: the soft click on buttons; hints: the first-visit
   // pointers a reader has closed (hintId → true), so each one shows once
-  prefs: { sound: false, auto: true, chronicle: true, mode: null, installAsked: false, taps: true, hints: {} },
+  // usage: the reader's own switch for the anonymous counts (off when set to false; the browser's own
+  // Global Privacy Control or Do Not Track also stops them, whatever this says)
+  prefs: { sound: false, auto: true, chronicle: true, mode: null, installAsked: false, taps: true, hints: {}, usage: true },
 };
 
 function load() {

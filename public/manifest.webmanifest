@@ -1,7 +1,7 @@
 {
   "name": "Amanah: the stories of the prophets",
   "short_name": "Amanah",
-  "description": "The stories of the prophets as Islam tells them, in animated scenes, with a lesson after each part. Free, private, no account.",
+  "description": "The stories of the prophets as Islam tells them, in animated scenes, with a lesson after each part. Free and private. No account needed.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

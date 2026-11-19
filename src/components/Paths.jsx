@@ -1,6 +1,7 @@
 import data from '../data/paths.json';
 import { sceneById, sceneList } from '../lib/story.js';
 import { useStore } from '../lib/store.js';
+import { track } from '../lib/usage.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { Icon } from './Ornaments.jsx';
@@ -90,6 +91,7 @@ export default function Paths({ id }) {
             <li key={st.title}>
               <a
                 href={`#${href}`}
+                onClick={() => track('path.start', path.id)}
                 className={`flex items-start gap-3 rounded-xl border px-3 py-3 transition-colors hover:border-gold-hi ${i === nextUp ? 'border-gold/60 bg-[#3c2a12]/45' : 'border-gold/25 bg-black/25'}`}
               >
                 <span

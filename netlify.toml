@@ -15,6 +15,14 @@
   NODE_VERSION = "22"
   VITE_TARGET = "web"
   VITE_SITE_URL = "https://amanah-stories.netlify.app"
+  # The Firebase web app's public values (a Firebase web API key is not a secret: it only says
+  # which project to talk to, and firestore.rules decides what that project allows). They are
+  # safe to commit. The counts go to Firestore; nothing else uses Firebase yet.
+  VITE_FIREBASE_API_KEY = "AIzaSyCW8gim_Tcs-4Nv8WSwjax-g5llpCtvDsE"
+  VITE_FIREBASE_AUTH_DOMAIN = "amanah-stories.netlify.app"
+  VITE_FIREBASE_PROJECT_ID = "amanah-stories"
+  VITE_FIREBASE_APP_ID = "1:1007526430443:web:985be940922daff53d20ae"
+  VITE_FIREBASE_GOOGLE = "0"
 
 # Hashed assets never change; the shell and the worker always do.
 [[headers]]

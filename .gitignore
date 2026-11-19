@@ -12,3 +12,5 @@ playwright-report/
 __pycache__/
 shots/
 shots-e2e.log
+dist-usage/
+dist-check/
