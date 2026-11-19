@@ -19,7 +19,7 @@
 import { clamp, lerp, rng, smoothPath } from './geo.js';
 
 export const W = 1700; // the width of the world; the thread wanders about its centre
-const TOP = 190; // the light of the Creation, and the first seal
+const TOP = 520; // room above the first seal for the seven heavens of the Creation
 const BOTTOM = 170; // the Hour
 const SPAN = 5200; // the length of the thread, from the first seal to the last
 const MIN_GAP = 100; // the least room two seals may have, in world units
@@ -163,8 +163,8 @@ function inBand(r, band, opts = {}) {
 /** The seven heavens: rings of light opening out of the one point at the top. */
 function buildHeavens(cx, cy) {
   return Array.from({ length: 7 }, (_, i) => ({
-    rx: 130 + i * 78,
-    ry: 74 + i * 44,
+    rx: 120 + i * 74,
+    ry: 56 + i * 34,
     o: 0.5 - i * 0.055,
   }));
 }
@@ -407,15 +407,15 @@ export function buildWorld({ eras, nodes }) {
       const idx = eras.indexOf(e);
       const prev = idx > 0 ? placed.filter((n) => n.era === eras[idx - 1].id).at(-1) : null;
       const next = idx < eras.length - 1 ? placed.find((n) => n.era === eras[idx + 1].id) : null;
-      const y0 = prev ? (prev.y + first.y) / 2 : TOP - 90;
-      const y1 = next ? (last.y + next.y) / 2 : H - BOTTOM + 90;
+      const y0 = prev ? (prev.y + first.y) / 2 : 0;
+      const y1 = next ? (last.y + next.y) / 2 : H;
       return { ...e, y0, y1, cy: (y0 + y1) / 2, first: first.id, last: last.id, count: ns.length };
     })
     .filter(Boolean);
 
   // ── The ground of each age ───────────────────────────────────────────────
   const first = placed[0];
-  const origin = { x: first.x, y: first.y - 96 };
+  const origin = { x: first.x, y: first.y - 250 };
   const band = (id) => regions.find((g) => g.id === id);
   const seals = placed;
   const creation = band('creation');
@@ -452,5 +452,19 @@ export function buildWorld({ eras, nodes }) {
     return { id: g.id, d: smoothPath(pts), y: g.y0 };
   });
 
-  return { W, H, nodes: placed, byId, segs, regions, scenery, ground, stars: scenery.stars };
+  // the bedding of each stratum: wavy layers of rock, seeded, that give the band its depth
+  const bedding = regions.map((g, i) => {
+    const r = rng(70 + i);
+    const n = Math.max(4, Math.round((g.y1 - g.y0) / 70));
+    return Array.from({ length: n }, (_, k) => {
+      const yb = lerp(g.y0, g.y1, (k + 0.5 + (r() - 0.5) * 0.5) / n);
+      const amp = 6 + r() * 16;
+      const ph = r() * 6.28;
+      const pts = [];
+      for (let x = -40; x <= W + 40; x += 85) pts.push([x, yb + Math.sin(x / 210 + ph) * amp + (r() - 0.5) * 6]);
+      return { d: smoothPath(pts), light: k % 2 === 0, o: 0.1 + r() * 0.14, w: 0.8 + r() * 1.6 };
+    });
+  });
+
+  return { W, H, nodes: placed, byId, segs, regions, scenery, ground, bedding, stars: scenery.stars };
 }

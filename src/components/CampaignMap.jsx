@@ -38,22 +38,51 @@ const Terrain = memo(function Terrain() {
         </radialGradient>
       </defs>
 
-      {/* the strata: one band of rock for each age */}
+      {/* the strata: one band of rock for each age, lit from above and deepening as it goes down */}
+      <defs>
+        {world.regions.map((g) => (
+          <linearGradient key={g.id} id={`band-${g.id}`} x1="0" y1="0" x2="0" y2="1">
+            {g.id === 'creation' ? (
+              <>
+                <stop offset="0" stopColor="#070a1c" stopOpacity="0.97" />
+                <stop offset="0.55" stopColor="#141c3e" stopOpacity="0.9" />
+                <stop offset="1" stopColor={g.tone} stopOpacity="0.75" />
+              </>
+            ) : (
+              <>
+                <stop offset="0" stopColor={g.tone} stopOpacity="0.32" />
+                <stop offset="0.7" stopColor={g.tone} stopOpacity="0.6" />
+                <stop offset="1" stopColor="#1e140b" stopOpacity="0.62" />
+              </>
+            )}
+          </linearGradient>
+        ))}
+        <linearGradient id="ledge" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#120b05" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#120b05" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="flank" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#120b05" stopOpacity="0.5" />
+          <stop offset="0.14" stopColor="#120b05" stopOpacity="0" />
+          <stop offset="0.86" stopColor="#120b05" stopOpacity="0" />
+          <stop offset="1" stopColor="#120b05" stopOpacity="0.5" />
+        </linearGradient>
+      </defs>
       {world.regions.map((g) => (
-        <rect key={g.id} x="0" y={g.y0} width={W} height={g.y1 - g.y0} fill={g.tone} opacity="0.3" />
-      ))}
-      {world.regions.map((g) => (
-        <rect key={`${g.id}-rule`} x="0" y={g.y0} width={W} height={g.y1 - g.y0} fill="url(#strata)" opacity="0.55" />
+        <rect key={g.id} x="0" y={g.y0} width={W} height={g.y1 - g.y0} fill={`url(#band-${g.id})`} />
       ))}
 
-      {/* the ruled lines of a page of time */}
-      {world.regions.map((g) => (
-        <g key={`${g.id}-lines`} opacity="0.26">
-          {Array.from({ length: 5 }, (_, i) => (
-            <line key={i} x1="0" y1={g.y0 + ((g.y1 - g.y0) * (i + 1)) / 6} x2={W} y2={g.y0 + ((g.y1 - g.y0) * (i + 1)) / 6} stroke="#5a4630" strokeWidth="0.7" strokeDasharray="1 9" />
+      {/* the bedding of the rock: wavy layers, alternately catching the light and holding shadow */}
+      {world.bedding.map((lines, i) => (
+        <g key={`bed-${i}`}>
+          {lines.map((l, k) => (
+            <path key={k} d={l.d} fill="none" stroke={l.light ? '#f4e4bc' : '#1e140b'} strokeWidth={l.w} opacity={i === 0 ? l.o * 0.5 : l.o} />
           ))}
         </g>
       ))}
+
+      {/* the flanks of the cliff fall into shadow, so the thread reads as the lit middle */}
+      <rect x="0" y="0" width={W} height={H} fill="url(#flank)" />
 
       {/* ── The Creation: seven heavens opening out of one point of light ─── */}
       <g>
@@ -183,9 +212,15 @@ const Terrain = memo(function Terrain() {
       ))}
 
       {/* the ground line between one age and the next: the edge of the rock */}
-      {world.ground.map((g) => (
-        <path key={`g-${g.id}`} d={g.d} fill="none" stroke="#3b2a18" strokeWidth="1.6" opacity="0.35" />
-      ))}
+      {world.ground.map((g, i) =>
+        i === 0 ? null : (
+          <g key={`g-${g.id}`}>
+            <rect x="0" y={g.y} width={W} height="46" fill="url(#ledge)" />
+            <path d={g.d} fill="none" stroke="#f4e4bc" strokeWidth="2" opacity="0.32" transform="translate(0 -2)" />
+            <path d={g.d} fill="none" stroke="#1e140b" strokeWidth="2.4" opacity="0.6" />
+          </g>
+        ),
+      )}
 
       {/* the thread: one line of light from the first seal to the last */}
       {world.segs.map((seg) => (
@@ -200,7 +235,7 @@ const Terrain = memo(function Terrain() {
       {/* the era names, in the left margin */}
       {world.regions.map((g) => (
         <g key={`${g.id}-name`}>
-          <text x="56" y={g.cy} fontFamily="Cinzel, serif" fontSize="30" letterSpacing="8" fill="#3b2a18" opacity="0.62" transform={`rotate(-90 56 ${g.cy})`}>
+          <text x="56" y={g.cy} fontFamily="Cinzel, serif" fontSize="30" letterSpacing="8" fill="#f4e4bc" opacity="0.55" transform={`rotate(-90 56 ${g.cy})`}>
             {g.title.toUpperCase()}
           </text>
           <line x1="30" y1={g.y0} x2={W - 30} y2={g.y0} stroke="#3b2a18" strokeWidth="1" opacity="0.28" />
