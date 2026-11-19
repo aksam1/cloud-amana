@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { deleteAllData, savePlacement, useStore } from '../lib/store.js';
+import { savePlacement, useStore } from '../lib/store.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { download, FIRST_STORY, share, shareMessage } from '../lib/site.js';
-import { climb, completed, DISCLAIMER, HISTORY_PARTS, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
+import { climb, completed, DISCLAIMER, HISTORY_PARTS, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, SCENE_COUNT, STORY_PARTS, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
+import InstallInvite from './InstallInvite.jsx';
 import Monument from './Monument.jsx';
 import Nav from './Nav.jsx';
 import Sky from './Sky.jsx';
@@ -86,9 +87,11 @@ function Stars() {
 }
 
 export function Disclaimer({ tone = 'night' }) {
+  // The disclaimer says "God" in the data; the Muslim view reads it as "Allah".
+  const mode = useStore((s) => s.prefs.mode);
   return (
     <p className={`mx-auto mt-6 max-w-[46ch] text-center font-body text-[0.98rem] italic leading-snug ${tone === 'night' ? 'text-ivory/60' : 'text-ink-soft'}`} role="note">
-      {DISCLAIMER}
+      {inMode(DISCLAIMER, mode)}
     </p>
   );
 }
@@ -169,11 +172,21 @@ function Home() {
   const resume = resumePoint(c.state);
   const resumeUnit = resume?.kind === 'unit' && unitById[resume.id];
   const next = placed ? suggestion(c.state, c.current) : null;
+  // when the whole chronicle has been watched, the next thing to offer is the next open lesson,
+  // and failing that, the stories themselves once more
+  const allWatched = c.state.seen && Object.keys(c.state.seen).length >= SCENE_COUNT;
+  const openLesson = STORY_PARTS.find((p) => !c.state.learned?.[p.key]);
+  const done = {
+    label: openLesson ? 'Next lesson' : 'Revisit the stories',
+    href: openLesson ? `/lesson/${openLesson.chapter}/${openLesson.key.split(':')[1]}` : '/stories',
+    note: openLesson ? `${openLesson.title}.` : 'The whole chronicle, from the first light to the Last Day.',
+  };
   const cta = resume
     ? { label: 'Continue', href: resumeUnit ? `/unit/${resume.id}` : `/scene/${resume.id}`, note: resumeUnit ? `${resumeUnit.title}: you were on ${STEP_NAME[resume.step] || 'the lesson'}.` : `You were at “${resume.title}”.` }
     : placed
       ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
       : { label: 'Begin your journey', href: '/begin', note: 'Free, private, no account.' };
+  const button = allWatched && !resume ? done : cta;
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-[#05060d]">
@@ -201,11 +214,11 @@ function Home() {
             Amanah
           </h1>
           <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90 short:mt-1 short:max-w-none short:text-[1.15rem] tiny:mt-2 tiny:text-[1.15rem]">The stories of the prophets, told in light.</p>
-          <button type="button" className="btn-gold mt-6 short:mt-2 tiny:mt-3" onClick={() => go(cta.href)} autoFocus>
+          <button type="button" className="btn-gold mt-6 short:mt-2 tiny:mt-3" onClick={() => go(button.href)} autoFocus>
             <Icon name="play" className="h-4 w-4" />
-            {cta.label}
+            {button.label}
           </button>
-          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none">{cta.note}</p>
+          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none">{button.note}</p>
           <div className="mt-3 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0 tiny:mt-1 tiny:gap-x-4 tiny:text-[1rem]">
             <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/stories')}>
               Watch the stories
@@ -216,11 +229,15 @@ function Home() {
             <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/pyramid')}>
               See the pyramid
             </button>
+            <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/settings')}>
+              Settings
+            </button>
             <button type="button" className="min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/about')}>
               About
             </button>
           </div>
-          <p className="mt-4 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45 short:mt-0 short:max-w-none tiny:mt-0 tiny:text-[0.84rem] tiny:leading-tight">{DISCLAIMER}</p>
+          <InstallInvite where="home" />
+          <p className="mt-4 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45 short:mt-0 short:max-w-none tiny:mt-0 tiny:text-[0.84rem] tiny:leading-tight">{inMode(DISCLAIMER, mode)}</p>
         </motion.main>
       </div>
     </div>
@@ -583,13 +600,14 @@ function Dunes() {
 }
 
 function StoriesStrip() {
+  const { mode } = useMode();
   return (
     <section className="mx-auto max-w-[1120px] px-5 pt-12 sm:px-8" aria-labelledby="stories-heading">
       <h2 id="stories-heading" className="font-body text-[1.7rem] font-semibold leading-tight text-gold-hi">
         Walk through the stories
       </h2>
       <p className="mt-1 max-w-[56ch] font-body text-[1.12rem] leading-[1.45] text-ivory/75">
-        203 painted scenes, from the creation of the heavens to the Day of Judgment, with verses of the Quran in Arabic and English. Allah is never depicted, and the prophets appear only as distant light.
+        {inMode('203 painted scenes, from the creation of the heavens to the Day of Judgment, with verses of the Quran in Arabic and English. God is never depicted, and the prophets appear only as distant light.', mode)}
       </p>
       <ul className="-mx-5 mt-5 flex snap-x snap-mandatory scroll-pl-5 gap-4 overflow-x-auto px-5 pb-3 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:px-0">
         {STORIES.map((s) => (
@@ -900,8 +918,6 @@ function Result() {
 function Progress() {
   const c = useClimb();
   const say = useSay();
-  const [confirm, setConfirm] = useState(false);
-  const [gone, setGone] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
   const [shared, setShared] = useState('');
   const [openLevel, setOpenLevel] = useState(null); // a level's lessons show when its row is tapped
@@ -1054,6 +1070,9 @@ function Progress() {
         <button type="button" className="hud-btn" onClick={() => go('/pyramid')}>
           Back to the pyramid
         </button>
+        <button type="button" className="hud-btn" onClick={() => go('/settings')}>
+          Settings
+        </button>
         <button type="button" className="hud-btn" onClick={async () => setShared(shareMessage(await share()))}>
           Share Amanah
         </button>
@@ -1064,43 +1083,16 @@ function Progress() {
         )}
       </section>
 
-      <section className="mt-6 rounded-2xl border border-blood/40 bg-black/30 p-5" aria-live="polite">
+      {/* Where the reader's data lives, and how to back it up or erase it: in Settings. */}
+      <section className="mt-6 rounded-2xl border border-gold/20 bg-black/25 p-5">
         <h2 className="font-display text-[1.05rem] text-ivory">Your data</h2>
         <p className="mt-1 font-body text-[1rem] leading-snug text-ivory/70">
           Stored only in this browser. Nothing is sent anywhere.{' '}
-          <a href="#/about" className="text-gold-hi/85 underline decoration-gold/40 underline-offset-4">
-            More about privacy and sources
-          </a>
-        </p>
-        {gone ? (
-          <p className="mt-3 font-body text-[1rem] text-gold-hi">Your data has been deleted from this browser.</p>
-        ) : confirm ? (
-          <div className="mt-3">
-            <p className="font-body text-[1rem] text-ivory">
-              This removes your reflection answers, every unit's progress, the chronicle's progress, your private notes and your settings. It can't be undone.
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <button
-                type="button"
-                className="hud-btn border-blood/70 text-[#f0b3a6]"
-                onClick={() => {
-                  deleteAllData();
-                  setGone(true);
-                  setConfirm(false);
-                }}
-              >
-                Delete everything
-              </button>
-              <button type="button" className="hud-btn" onClick={() => setConfirm(false)} autoFocus>
-                Keep my data
-              </button>
-            </div>
-          </div>
-        ) : (
-          <button type="button" className="hud-btn mt-3" onClick={() => setConfirm(true)}>
-            Delete my data
+          <button type="button" className="underline decoration-gold/40 underline-offset-4" onClick={() => go('/settings')}>
+            Back it up, or delete it
           </button>
-        )}
+          , in Settings.
+        </p>
       </section>
       <Disclaimer />
     </Shell>

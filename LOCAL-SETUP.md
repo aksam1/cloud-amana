@@ -6,7 +6,7 @@ Follow these steps in order. Each one should work before you move to the next.
 1. **Git**: https://git-scm.com/downloads
 2. **Node.js 22** (LTS): https://nodejs.org. Check with `node -v` (it should say v22 or higher).
 3. **Python 3** (for the scene generators): https://www.python.org. Check with `python3 --version`.
-4. **Claude Code** (the desktop app, or the CLI: `npm install -g @anthropic-ai/claude-code`), signed in
+4. **Claude Code** (the desktop app, or the CLI: `npm install -g @anthropic-code/claude-code`), signed in
    with the same account you use on claude.ai. That's what keeps publishing to the same app link possible.
 
 ## Step 2. Get the project
@@ -64,6 +64,50 @@ git checkout main
 git pull
 ```
 From then on, work on `main` or on short branches you merge into it.
+
+## The website build (the second build)
+
+There are two builds of the same app, and they differ in one switch.
+
+| Build | Command | What it is |
+| --- | --- | --- |
+| The artifact | `npm run publish` | One page for the Claude app link. No service worker, no install, no offline. |
+| The website | `node tools/build-web.mjs` | A full web app: a service worker, an installable icon, offline reading, the mistake-report form. |
+
+`VITE_TARGET=web` is the switch. It is set for you by `tools/build-web.mjs`; nothing else changes.
+
+Everything web-only (the "On this device" part of Settings, the install invitation, the report
+form) is hidden unless that switch is on, so the artifact keeps working exactly as before.
+
+### Hosting it on Netlify
+`netlify.toml` is already in the project. It sets the build command (`npm run build`), the folder
+to publish (`dist`), Node 22, and the site's address. On Netlify, the build command must be
+`node tools/build-web.mjs` (so the service worker is written) and `VITE_SITE_URL` must be set to
+the site's real address, so link previews and the canonical link point at it.
+
+### The icons and the link preview
+Both are drawn by the app's own mark (`public/seal.svg`):
+
+```bash
+node tools/render-icons.cjs   # public/icons/*.png and public/apple-touch-icon.png
+node tools/render-og.cjs      # public/og-image.png (1200×630, for link previews)
+```
+
+Both need a browser. They use Playwright's Chromium if it is installed, or the Chrome on the
+machine: set `CHROME_PATH` if it is somewhere unusual.
+
+### Checking that it works offline
+```bash
+npm run e2e:offline
+```
+This builds the web app, serves it, waits for the service worker to take over, turns the network
+off, reloads, and checks that the home page still appears. On a machine without Playwright's own
+Chromium, use `npm run e2e:offline:chrome` instead (it points at the installed Chrome).
+
+To try it by hand: run `node tools/build-web.mjs`, then `npx vite preview --port 5211`, open it,
+turn off the network (in the browser's developer tools, or by switching off Wi-Fi), and reload. The
+app opens from the saved files. In Settings, "Keep the whole story" saves every scene, so the
+whole chronicle works with no connection.
 
 ## Things that are different from the cloud chats
 - Quran verses: `npm run words` and `npm run ayahs` fetch from api.alquran.cloud, which works on a normal

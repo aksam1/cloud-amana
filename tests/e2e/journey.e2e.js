@@ -20,10 +20,10 @@ test('a first-time visitor understands the app, reflects, and reaches a lesson t
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();
   await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeInViewport();
-  await expect(page.getByText(/only Allah knows the state of anyone's heart/i)).toBeAttached();
+  await expect(page.getByText(/only (Allah|God) knows the state of anyone's heart/i)).toBeAttached();
   await reflect(page, 2); // "Sometimes" to everything: the case that once led to an empty page
   await expect(page.getByText('Begin your climb at')).toBeVisible();
-  await expect(page.getByText(/only Allah knows/i)).toBeVisible();
+  await expect(page.getByText(/only (Allah|God) knows/i)).toBeVisible();
   await page.getByRole('button', { name: /^(Begin|Begin the stories)/ }).first().click();
   await expect(page.getByText(/still being written/)).toHaveCount(0);
 });
@@ -60,12 +60,114 @@ test('finishing a unit lights its stone, and progress can be deleted', async ({ 
   await expect(page).toHaveURL(/#\/pyramid/);
   await expect(page.getByRole('button', { name: /^Sabr, Patience: \d+%, completed/ })).toBeVisible();
 
+  // the delete control lives in Settings now; Progress links to it
   await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Progress' }).click();
+  await page.getByRole('button', { name: 'Settings' }).first().click();
+  await expect(page).toHaveURL(/#\/settings/);
   await page.getByRole('button', { name: 'Delete my data' }).click();
   await page.getByRole('button', { name: 'Delete everything' }).click();
   await expect(page.getByText(/has been deleted/)).toBeVisible();
   await page.goto('/');
   await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeVisible();
+});
+
+test('a backup can be saved, the device wiped, and the backup brought back', async ({ page }) => {
+  // some progress on this device, as if a few scenes had been watched
+  await page.goto('/');
+  await page.evaluate(() => {
+    localStorage.setItem(
+      'amanah:v1',
+      JSON.stringify({
+        seen: { heavens: true, search: true },
+        lit: { earth: true },
+        last: 'search',
+        learned: { '1:0': true },
+        answers: {},
+        journal: { '1:0': 'A note I wrote to myself.' },
+        journalAt: { '1:0': '2026-11-01T10:00:00.000Z' },
+        placement: null,
+        units: {},
+        drafts: {},
+        recent: { kind: 'scene', id: 'search', title: 'The Search', at: '2026-11-01T10:00:00.000Z' },
+        prefs: { sound: false, auto: true, chronicle: true, mode: 'curious', installAsked: false },
+      }),
+    );
+  });
+  await page.goto('/#/settings');
+  await page.reload(); // the store reads the saved progress when the page loads
+  await expect(page.getByRole('heading', { name: 'Settings' })).toBeVisible();
+  await expect(page.getByText(/2 scenes watched/)).toBeVisible();
+
+  const download = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Save a backup' }).click(),
+  ]).then(([d]) => d);
+  const file = await download.path();
+  expect(download.suggestedFilename()).toMatch(/^amanah-backup-\d{4}-\d{2}-\d{2}\.json$/);
+
+  // wipe the device
+  await page.getByRole('button', { name: 'Delete my data' }).click();
+  await page.getByRole('button', { name: 'Delete everything' }).click();
+  await expect(page.getByText(/has been deleted/)).toBeVisible();
+  await expect(page.getByText(/0 scenes watched/)).toBeVisible();
+
+  // bring the backup back
+  await page.getByText('Restore from a backup').click();
+  await page.locator('input[type=file]').setInputFiles(file);
+  await expect(page.getByText('This backup holds')).toBeVisible();
+  await page.getByRole('button', { name: 'Combine with this device' }).click();
+  await expect(page.getByText(/has been combined/)).toBeVisible();
+
+  // the progress is back
+  await page.reload();
+  await expect(page.getByText(/2 scenes watched/)).toBeVisible();
+  await expect(page.getByText(/1 private notes/)).toBeVisible();
+});
+
+test('the last scene of the chronicle leads to the closing page', async ({ page }) => {
+  test.setTimeout(240000);
+  await page.goto('/#/scene/sovereign?beat=0');
+  // play to the end of the scene, then press the button that leads on
+  const cont = page.locator('button.btn-gold').filter({ hasText: /The end of the chronicle/ });
+  await cont.waitFor({ timeout: 120000 });
+  await cont.click();
+
+  // the last scene closes a part, so its lesson comes first, and the lesson leads on to the end
+  await expect(page).toHaveURL(/#\/lesson\//, { timeout: 30_000 });
+  await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
+  let pick = 0;
+  for (let i = 0; i < 30; i++) {
+    if (page.url().includes('/end')) break;
+    const gold = page.locator('button.btn-gold');
+    if (await gold.count()) {
+      await gold.first().click().catch(() => {});
+      pick = 0;
+    } else {
+      // a question: try the options until one is right (the gold button then appears)
+      const option = page.locator('section button:not([disabled])').nth(pick);
+      if (await option.count()) await option.click().catch(() => {});
+      pick = (pick + 1) % 4;
+    }
+    await page.waitForTimeout(450);
+  }
+  await expect(page).toHaveURL(/#\/end/);
+  await expect(page.getByRole('heading', { name: /The chronicle, from the Creation to the Day of Judgment/ })).toBeVisible();
+  // counts, not a grade
+  await expect(page.getByText(/scenes/)).toBeVisible();
+  await expect(page.getByText(/not a grade/)).toBeVisible();
+  // the map stays reachable from the closing page
+  await page.getByRole('button', { name: 'See the map' }).click();
+  await expect(page).toHaveURL(/#\/map/);
+});
+
+test('the privacy page explains what is kept, and has a way home', async ({ page }) => {
+  await page.goto('/#/privacy');
+  await expect(page.getByRole('heading', { name: 'Your privacy' })).toBeVisible();
+  await expect(page.getByText(/kept in this browser/i)).toBeVisible();
+  await expect(page.getByText(/no analytics, no adverts, no cookies/i)).toBeVisible();
+  await page.getByRole('button', { name: 'Back home' }).click();
+  await expect(page).toHaveURL(/#\/(?:$|[^/])/);
+  await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();
 });
 
 test('every part of the app has a way home', async ({ page }) => {
@@ -156,7 +258,7 @@ test('the About page says where the words come from and what is stored, and a wr
   await page.getByText('Your privacy').click();
   await expect(page.getByText(/stored only in this browser/)).toBeVisible();
   await page.getByText('What it is not').click();
-  await expect(page.getByText(/only Allah knows the state of anyone's heart/i)).toBeVisible();
+  await expect(page.getByText(/only (Allah|God) knows the state of anyone's heart/i)).toBeVisible();
   await page.goto('/#/no-such-page');
   await expect(page.getByRole('heading', { name: 'That page does not exist' })).toBeVisible();
   await page.getByRole('button', { name: 'Go to the start' }).click();

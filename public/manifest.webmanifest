@@ -1,0 +1,20 @@
+{
+  "name": "Amanah: the stories of the prophets",
+  "short_name": "Amanah",
+  "description": "The stories of the prophets as Islam tells them, in animated scenes, with a lesson after each part. Free, private, no account.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#05060d",
+  "theme_color": "#05060d",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "books"],
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "./seal.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

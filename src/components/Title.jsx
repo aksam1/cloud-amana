@@ -7,6 +7,7 @@ import { roman } from '../lib/geo.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import Nav from './Nav.jsx';
+import { inMode } from '../lib/words.js';
 
 /*
  * The concept story in one screen: the Trust was offered to the heavens, the earth and the
@@ -94,7 +95,7 @@ export default function Title() {
       </main>
 
       <footer className="relative z-10 mx-auto max-w-[900px] pb-28 text-center sm:pb-4 font-body text-[0.92rem] text-ivory/45">
-        Quran: Uthmani text with Sahih International translation. Scenes marked “Tradition” draw on hadith and classical narrations. Allah, the prophets and Hawwa are never depicted.
+        {inMode('Quran: Uthmani text with Sahih International translation. Scenes marked “Tradition” draw on hadith and classical narrations. God, the prophets and Hawwa are never depicted.', prefs.mode)}
       </footer>
     </div>
   );

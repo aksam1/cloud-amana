@@ -18,6 +18,10 @@ const chapters = Object.values(import.meta.glob('../story/chapters/*/chapter.jso
 const unitFiles = import.meta.glob('../pyramid/units/*.json');
 const WRITTEN = new Set(Object.keys(unitFiles).map((p) => p.split('/').pop().replace(/\.json$/, '')));
 
+// How many scenes the chronicle has: the file names only, so the home page never downloads the story.
+const sceneFiles = import.meta.glob('../story/chapters/**/s*.json');
+export const SCENE_COUNT = Object.keys(sceneFiles).length;
+
 export const LEVELS = structure.levels;
 export const UNITS = LEVELS.flatMap((l) => l.units.map((u) => ({ ...u, level: l.id })));
 export const unitById = Object.fromEntries(UNITS.map((u) => [u.id, u]));

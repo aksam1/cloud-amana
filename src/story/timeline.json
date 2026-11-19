@@ -1,11 +1,11 @@
 {
   "source": "Sequence and details from timelinev1.netlify.app (islamic_timeline_data.js), oldest first. Dates are the site's estimates; most are speculative in Islamic tradition.",
   "eras": [
-    { "id": "creation", "title": "Creation", "arabic": "الخلق", "tone": "#2a3a6b" },
-    { "id": "adam", "title": "Adam and His Children", "arabic": "آدم وبنوه", "tone": "#4c6a3a" },
-    { "id": "prophets", "title": "The Prophets", "arabic": "الأنبياء", "tone": "#9a7434" },
-    { "id": "messenger", "title": "The Final Messenger", "arabic": "خاتم النبيين", "tone": "#2f6150" },
-    { "id": "lastday", "title": "The Last Day", "arabic": "اليوم الآخر", "tone": "#6b2a22" }
+    { "id": "creation", "title": "Creation", "short": "Creation", "arabic": "الخلق", "tone": "#2a3a6b" },
+    { "id": "adam", "title": "Adam and His Children", "short": "Adam", "arabic": "آدم وبنوه", "tone": "#4c6a3a" },
+    { "id": "prophets", "title": "The Prophets", "short": "Prophets", "arabic": "الأنبياء", "tone": "#9a7434" },
+    { "id": "messenger", "title": "The Final Messenger", "short": "Messenger", "arabic": "خاتم النبيين", "tone": "#2f6150" },
+    { "id": "lastday", "title": "The Last Day", "short": "Last Day", "arabic": "اليوم الآخر", "tone": "#6b2a22" }
   ],
   "nodes": [
     { "id": "earth", "era": "creation", "title": "The Heavens and the Earth", "short": "Earth", "arabic": "السماوات والأرض", "date": "≈ 4.54 billion years", "summary": "The earth is created." },

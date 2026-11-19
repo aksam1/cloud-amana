@@ -19,6 +19,10 @@ function parse(hash) {
   if (parts[0] === 'lesson' && parts[1]) return { name: 'lesson', id: parts[1], part: parts[2] ?? '0', query, key: `lesson:${parts[1]}:${parts[2] ?? 0}` };
   if (parts[0] === 'sheet' && parts[1]) return { name: 'sheet', id: parts[1], query, key: `sheet:${parts[1]}:${query.device ?? ''}` };
   if (parts[0] === 'about') return { name: 'about', query, key: 'about' };
+  if (parts[0] === 'privacy') return { name: 'privacy', query, key: 'privacy' };
+  if (parts[0] === 'settings') return { name: 'settings', query, key: 'settings' };
+  if (parts[0] === 'end') return { name: 'end', query, key: 'end' };
+  if (parts[0] === 'report') return { name: 'report', query, key: 'report' };
   if (parts[0] === 'abodes') return { name: 'abodes', query, key: 'abodes' };
   // story first: #/begin (choose a view, then the first scene plays) and #/begin/next (where to go after it)
   if (parts[0] === 'begin') return { name: 'pyramid', view: parts[1] === 'next' ? 'begun' : 'begin', query, key: `begin:${parts[1] || ''}` };

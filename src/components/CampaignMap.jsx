@@ -260,7 +260,7 @@ function nodeState(n, store) {
 function MapNode({ n, st, selected, igniting, onSelect }) {
   const soon = !st.ready;
   const seal = soon ? (st.lit ? '#d8c08e' : '#cdb98f') : 'url(#bronze)';
-  const status = soon ? 'in preparation' : st.complete ? 'watched' : st.seen ? `${st.seen} of ${st.scenes.length} scenes watched` : `${st.scenes.length} scenes`;
+  const status = soon ? 'coming later' : st.complete ? 'watched' : st.seen ? `${st.seen} of ${st.scenes.length} scenes watched` : `${st.scenes.length} scenes`;
   return (
     <g
       className="map-node cursor-pointer"
@@ -303,7 +303,9 @@ function MapNode({ n, st, selected, igniting, onSelect }) {
       {/* the name sits beside the seal, not below it: in the crowded centuries two
           seals can be level with one another, and a label underneath would land on
           the next seal down. The name is also kept off the thread — it lies outward
-          from the seal, away from the centre line, so it never crosses the light. */}
+          from the seal, away from the centre line, so it never crosses the light.
+          The ink is light with a dark halo: the same label has to read on the pale
+          sandstone band and on the deep red-brown and green bands below it. */}
       <text
         x={n.side === 'left' ? -52 : 52}
         y="-4"
@@ -311,10 +313,10 @@ function MapNode({ n, st, selected, igniting, onSelect }) {
         fontFamily="Cinzel, serif"
         fontSize="15"
         letterSpacing="2"
-        fill="#24180e"
+        fill="#f7e7c4"
         fontWeight="600"
-        stroke="#ecdcb9"
-        strokeWidth="3"
+        stroke="#150e07"
+        strokeWidth="3.4"
         paintOrder="stroke"
         strokeLinejoin="round"
       >
@@ -328,9 +330,9 @@ function MapNode({ n, st, selected, igniting, onSelect }) {
           fontFamily="Cormorant Garamond, serif"
           fontSize="15"
           fontStyle="italic"
-          fill="#4a3826"
-          stroke="#ecdcb9"
-          strokeWidth="2.5"
+          fill="#ecd9b4"
+          stroke="#150e07"
+          strokeWidth="3"
           paintOrder="stroke"
           strokeLinejoin="round"
         >
@@ -746,10 +748,12 @@ export default function CampaignMap({ query = {} }) {
               type="button"
               className="hud-btn !text-[0.62rem]"
               aria-current={active ? 'true' : undefined}
+              aria-label={g.title}
               onClick={() => flyTo(g.first, { zoom: k.get() })}
             >
+              {/* phones get the era's short name (timeline.json `short`): its first letters said "THE" three times */}
               <span className="hidden sm:inline">{g.title}</span>
-              <span className="sm:hidden">{g.title.slice(0, 4)}</span>
+              <span className="sm:hidden">{g.short ?? g.title}</span>
             </button>
           );
         })}
@@ -773,7 +777,7 @@ export default function CampaignMap({ query = {} }) {
                           <button type="button" className="flex w-full items-center gap-3 rounded-md px-2 py-1.5 text-left hover:bg-black/5" onClick={() => select(n.id)}>
                             <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${st.complete ? 'bg-[#b8862b]' : st.ready ? 'border-2 border-[#b8862b]' : 'bg-[#bfae8a]'}`} />
                             <span className="flex-1 font-body text-[1.05rem] leading-tight text-ink">{n.title}</span>
-                            <span className="caps text-[0.52rem] text-ink-soft">{st.ready ? `${st.seen}/${st.scenes.length}` : 'soon'}</span>
+                            <span className="caps text-[0.52rem] text-ink-soft">{st.ready ? `${st.seen}/${st.scenes.length}` : 'coming later'}</span>
                           </button>
                         </li>
                       );

@@ -32,8 +32,26 @@ Opens on <http://localhost:5210>. The `amanah` entry in `LocalChat/.claude/launc
 | `npm run scene -- 5 49 id "Title" [--gl]` | Scaffolds a scene file in its chapter from a 2D or WebGL template; `npm run check` flags any TODO left. |
 | `npm run check` | Validates the story: every caption's English is a verbatim Sahih excerpt (`…` marks gaps), every Arabic word range exists, Arabic titles never quote the Quran, nodes, layer types and sound names exist, narration is 2–4 sentences. |
 | `npm run prompts` | Writes `docs/IMAGE-PROMPTS.md` from the scenes (shared style + content rules added). |
-| `npm run build` | Production build into `dist/`. |
+| `npm run build` | Production build into `dist/` (the artifact: one page, no service worker). |
+| `node tools/build-web.mjs` | The web build: the same app with the service worker, the install icon and the mistake-report form. |
 | `npm run publish` | Builds, writes the single-page `deploy/index.html` and prints the artifact's files map. |
+| `npm run e2e` | The browser journeys (Playwright). `npm run e2e:chrome` uses an installed Chrome. |
+| `npm run e2e:offline` | The offline journey: builds the web app, serves it, turns the network off and checks it still opens. |
+
+## Two builds
+
+| Build | Command | What it is |
+| --- | --- | --- |
+| The artifact | `npm run publish` | One page for the Claude app link. No service worker, no install, no offline. |
+| The website | `node tools/build-web.mjs` | The full app: installable, works offline, has the mistake-report form, hosted on Netlify (`netlify.toml` is in the project). |
+
+`VITE_TARGET=web` is the one switch between them. Everything web-only (the "On this device" part of
+Settings, the install invitation, the report form) is hidden without it, so the artifact keeps
+working exactly as before.
+
+`tools/render-icons.cjs` draws the PNG icons from `public/seal.svg`; `tools/render-og.cjs` draws
+the 1200×630 link preview. `tools/shots.cjs` walks the app and saves screenshots of the main
+screens at a phone's and a desktop's size.
 
 ## Where things live
 

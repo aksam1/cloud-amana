@@ -1,0 +1,51 @@
+# Amanah on Netlify.
+#
+# The site is a static build: `npm run build` writes dist/, which is what Netlify serves.
+# VITE_TARGET=web switches on the web-only parts (the service worker, the install prompt and the
+# mistake-report form). The artifact build leaves it unset, so that build stays a single page.
+#
+# The Content-Security-Policy is deliberately not set here: the sync batch adds one, once the
+# domains it needs are known.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  VITE_TARGET = "web"
+  VITE_SITE_URL = "https://amanah-stories.netlify.app"
+
+# Hashed assets never change; the shell and the worker always do.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# The same headers on every path.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

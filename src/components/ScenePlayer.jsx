@@ -10,6 +10,7 @@ import { cameraAt, chapterByNumber, chapterScenes, nextNodeId, nextScene, nodeBy
 import { captionHoldMs } from '../lib/pacing.js';
 import { ambience } from '../lib/audio.js';
 import { lightNode, markSeen, setLast, setPref, useStore } from '../lib/store.js';
+import { IS_WEB } from '../lib/pwa.js';
 import { inMode, useMode } from '../lib/words.js';
 import { unitForChapter, unitStatus } from '../lib/pyramid.js';
 import { lessonAfter, lessonKey, watchForAt } from '../lib/lessons.js';
@@ -162,7 +163,8 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
       return go(`/scene/${next.id}?back=${encodeURIComponent(back)}&until=${until}`);
     }
     const crossesNode = !next || next.node !== scene.node;
-    const target = scene.then === 'map' || !next ? `/map?from=${scene.node}&arrive=${crossesNode && next ? next.node : nextNodeId(scene.node)}` : `/scene/${next.id}`;
+    // the last scene of the chronicle leads to the closing page, not back to the map
+    const target = !next ? '/end' : scene.then === 'map' ? `/map?from=${scene.node}&arrive=${crossesNode && next ? next.node : nextNodeId(scene.node)}` : `/scene/${next.id}`;
     // the end of a part with a lesson goes to the lesson first; the lesson then continues to `target`
     const part = lessonAfter(scene);
     if (part !== null && !learned[lessonKey(scene.chapter, part)]) go(`/lesson/${scene.chapter}/${part}?then=${encodeURIComponent(target)}`);
@@ -262,7 +264,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   const frozen = !playing || ayahOpen || help || bridge;
   const relatedUnit = !back && (!next || next.chapter !== scene.chapter) ? unitForChapter(scene.chapter) : null;
   const related = relatedUnit && unitStatus(relatedUnit.id) === 'ready' ? relatedUnit : null; // only units with a lesson path yet
-  const nextLabel = first ? 'Continue' : back ? (until && scene.id !== until && next ? `${roman(next.order)}. ${next.title}` : back.startsWith('/path') ? 'Back to the path' : 'Back to the lesson') : scene.then === 'map' || !next ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `${roman(next.order)}. ${next.title}`;
+  const nextLabel = first ? 'Continue' : back ? (until && scene.id !== until && next ? `${roman(next.order)}. ${next.title}` : back.startsWith('/path') ? 'Back to the path' : 'Back to the lesson') : !next ? 'The end of the chronicle' : scene.then === 'map' ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `${roman(next.order)}. ${next.title}`;
 
   return (
     <div className="relative h-full w-full select-none overflow-hidden bg-night">
@@ -437,6 +439,18 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
               <button type="button" className="btn-ink mt-5" onClick={() => setHelp(false)}>
                 Close
               </button>
+              {IS_WEB && (
+                <button
+                  type="button"
+                  className="mt-3 block font-body text-[1rem] text-ink-soft underline decoration-[#8a6a4e] underline-offset-4"
+                  onClick={() => {
+                    setHelp(false);
+                    go(`/report?where=${encodeURIComponent(`Scene ${roman(scene.order)}: ${scene.title}`)}`);
+                  }}
+                >
+                  Report a mistake in this scene
+                </button>
+              )}
             </div>
           </motion.div>
         )}

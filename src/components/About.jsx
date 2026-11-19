@@ -2,6 +2,7 @@ import { go } from '../lib/router.js';
 import { inMode, useMode } from '../lib/words.js';
 import { DISCLAIMER } from '../lib/pyramid.js';
 import { CONTACT, MAKER, share, shareMessage } from '../lib/site.js';
+import { IS_WEB } from '../lib/pwa.js';
 import { useState } from 'react';
 import { Shell } from './Pyramid.jsx';
 
@@ -74,7 +75,11 @@ export default function About({ missing = false }) {
       </More>
 
       <More title="Your privacy">
-        <P>Your answers, progress and notes are stored only in this browser, on your device. Nothing is sent to us or to anyone else. There are no cookies, no tracking and no adverts. You can erase everything under Progress, “Delete my data”.</P>
+        <P>Your answers, progress and notes are stored only in this browser, on your device. Nothing is sent to us or to anyone else. There are no cookies, no tracking and no adverts.</P>
+        <P>
+          The <a href="#/privacy" onClick={(e) => { e.preventDefault(); go('/privacy'); }} className="text-gold-hi underline decoration-gold/50 underline-offset-4">privacy page</a> says it in
+          full, and where to back up, restore and delete your progress.
+        </P>
         <P>A link to quran.com opens that site, which has its own privacy terms.</P>
       </More>
 
@@ -87,11 +92,11 @@ export default function About({ missing = false }) {
       </More>
 
       <More title="What is still being written">
-        <P>The chapter on the Final Messenger ﷺ is not written yet: the map marks it “Soon”. The chapters on the signs of the Hour and the Day of Judgment are written, and are the last two chapters.</P>
+        <P>The chapter on the Final Messenger ﷺ is not written yet: the map marks it “Coming later”. The chapters on the signs of the Hour and the Day of Judgment are written, and are the last two chapters.</P>
       </More>
 
       <More title="What it is not">
-        <P>{DISCLAIMER} The meters show what you have understood in these lessons, nothing more. For rulings and personal questions, ask a scholar you trust.</P>
+        <P>{say(DISCLAIMER)} The meters show what you have understood in these lessons, nothing more. For rulings and personal questions, ask a scholar you trust.</P>
       </More>
 
       <More title="Who made this">
@@ -106,6 +111,17 @@ export default function About({ missing = false }) {
               Report a mistake
             </a>
           </P>
+        ) : IS_WEB ? (
+          <P>
+            Please tell us, especially about a verse, a saying or a detail of a story.{' '}
+            <button
+              type="button"
+              className="min-h-[44px] text-gold-hi underline decoration-gold/50 underline-offset-4"
+              onClick={() => go('/report')}
+            >
+              Report a mistake
+            </button>
+          </P>
         ) : (
           <P>A contact address for reporting mistakes will be added here.</P>
         )}
@@ -114,6 +130,9 @@ export default function About({ missing = false }) {
       <div className="mt-8 flex flex-wrap items-center gap-2">
         <button type="button" className="btn-gold" onClick={() => go('/stories')}>
           Watch the stories
+        </button>
+        <button type="button" className="hud-btn" onClick={() => go('/settings')}>
+          Settings
         </button>
         <button type="button" className="hud-btn" onClick={async () => setNote(shareMessage(await share()))}>
           Share Amanah

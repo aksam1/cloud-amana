@@ -10,3 +10,5 @@ Thumbs.db
 test-results/
 playwright-report/
 __pycache__/
+shots/
+shots-e2e.log
