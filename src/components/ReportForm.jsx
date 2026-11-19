@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { IS_WEB } from '../lib/pwa.js';
-import { CONTACT_KINDS, kindFrom } from '../lib/contact.js';
+import { CONTACT_KINDS, kindFrom, kindHint } from '../lib/contact.js';
 import { track } from '../lib/usage.js';
 
 export { CONTACT_KINDS, kindFrom };
@@ -100,7 +100,7 @@ export default function ReportForm({ where = '', onClose, kind = 'question', tit
         onChange={(e) => setMessage(e.target.value)}
         required
         className="mt-1 w-full rounded-xl border border-gold/30 bg-black/40 px-3 py-2 font-body text-[1.05rem] text-ivory placeholder:text-ivory/40"
-        placeholder="A verse, a saying, a detail of a story…"
+        placeholder={kindHint(which)}
       />
       <label className="mt-3 block font-body text-[1rem] text-ivory/70" htmlFor="report-email">
         Your email, only if you would like a reply (optional)

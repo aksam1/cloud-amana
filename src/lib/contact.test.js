@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CONTACT_KINDS, KIND_IDS, kindFrom, kindLabel } from './contact.js';
+import { CONTACT_KINDS, KIND_IDS, kindFrom, kindLabel, kindHint } from './contact.js';
 
 describe('the kinds of message', () => {
   it("are the four the form offers", () => {
@@ -25,5 +25,13 @@ describe('the kinds of message', () => {
   it("has a label for every kind", () => {
     for (const k of KIND_IDS) expect(kindLabel(k)).toBeTruthy();
     expect(kindLabel('privacy')).toMatch(/privacy request/i);
+  });
+
+  it("gives the empty message box a hint that fits the kind", () => {
+    for (const k of KIND_IDS) expect(kindHint(k)).toBeTruthy();
+    expect(new Set(KIND_IDS.map(kindHint)).size).toBe(KIND_IDS.length);
+    expect(kindHint('mistake')).toMatch(/verse/);
+    expect(kindHint('privacy')).toMatch(/delete/);
+    expect(kindHint('nonsense')).toBe(kindHint('mistake'));
   });
 });

@@ -4,10 +4,10 @@
 // message is about: nothing about the reader beyond the choice itself.
 
 export const CONTACT_KINDS = [
-  { id: 'mistake', label: 'A mistake in a story' },
-  { id: 'privacy', label: 'A privacy request (see, correct or delete my data)' },
-  { id: 'question', label: 'A question' },
-  { id: 'other', label: 'Something else' },
+  { id: 'mistake', label: 'A mistake in a story', hint: 'A verse, a saying, a detail of a story…' },
+  { id: 'privacy', label: 'A privacy request (see, correct or delete my data)', hint: 'What you would like to see, correct or delete…' },
+  { id: 'question', label: 'A question', hint: 'What would you like to know?' },
+  { id: 'other', label: 'Something else', hint: 'Whatever you would like to say…' },
 ];
 
 export const KIND_IDS = CONTACT_KINDS.map((k) => k.id);
@@ -26,4 +26,10 @@ export function kindFrom(value) {
 export function kindLabel(value) {
   const id = kindFrom(value);
   return CONTACT_KINDS.find((k) => k.id === id)?.label || CONTACT_KINDS[0].label;
+}
+
+/** The hint shown in an empty message box, so it fits what the message is about. */
+export function kindHint(value) {
+  const id = kindFrom(value);
+  return CONTACT_KINDS.find((k) => k.id === id)?.hint || CONTACT_KINDS[0].hint;
 }
