@@ -85,8 +85,10 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   const last = beats.length - 1;
   const b = beats[beat];
   const chapter = chapterByNumber[scene.chapter];
-  // Scenes are numbered through the whole story (chapter 2 opens at XIX), so show the chapter's last number.
-  const total = chapterScenes(scene.chapter).at(-1)?.order ?? scene.order;
+  // Where this scene stands in its chapter ("Scene 3 of 19"). The global order stays the scene's own number in the
+  // data and in reports, but a reader counts within the chapter they are watching.
+  const inChapter = chapterScenes(scene.chapter);
+  const place = { n: inChapter.findIndex((s) => s.id === scene.id) + 1, of: inChapter.length };
   const next = nextScene(scene.id);
   // while this scene plays, the next WebGL scene paints its opening cards in the background
   useEffect(() => {
@@ -210,11 +212,14 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
     return () => clearTimeout(t);
   }, [ended, scene.then, prefs.auto, lessonWaiting, continueOn]);
 
+  // A tap, a swipe or → at the end of a part never skips past the lesson on offer: it says the choice is on screen.
+  // The Continue buttons themselves still go on.
   const goNext = useCallback(() => {
-    if (ended) continueOn();
+    if (ended && lessonWaiting) showToast('A short lesson is waiting: take it, or choose to go on.');
+    else if (ended) continueOn();
     else if (beat < last) setBeat(beat + 1);
     else finish();
-  }, [ended, beat, last, continueOn, finish]);
+  }, [ended, lessonWaiting, beat, last, continueOn, finish, showToast]);
 
   const goPrev = useCallback(() => {
     if (ended) setEnded(false);
@@ -295,7 +300,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   const frozen = !playing || ayahOpen || help || bridge;
   const relatedUnit = !back && (!next || next.chapter !== scene.chapter) ? unitForChapter(scene.chapter) : null;
   const related = relatedUnit && unitStatus(relatedUnit.id) === 'ready' ? relatedUnit : null; // only units with a lesson path yet
-  const nextLabel = first ? 'Continue' : back ? (until && scene.id !== until && next ? `${roman(next.order)}. ${next.title}` : back.startsWith('/path') ? 'Back to the path' : back === '/abodes' ? 'Back to the two abodes' : 'Back to the lesson') : !next ? 'The end of the chronicle' : scene.then === 'map' ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `${roman(next.order)}. ${next.title}`;
+  const nextLabel = first ? 'Continue' : back ? (until && scene.id !== until && next ? `Next: ${next.title}` : back.startsWith('/path') ? 'Back to the path' : back === '/abodes' ? 'Back to the two abodes' : 'Back to the lesson') : !next ? 'The end of the chronicle' : scene.then === 'map' ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `Next: ${next.title}`;
 
   return (
     <div className="relative h-full w-full select-none overflow-hidden bg-night">
@@ -338,7 +343,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
               <div className="caps text-[0.66rem] text-gold/85">
                 Chapter {roman(chapter?.number || 1)} · {chapter?.title}
               </div>
-              <div className="caps mt-2 text-[0.8rem] text-gold-hi">Scene {roman(scene.order)}</div>
+              <div className="caps mt-2 text-[0.8rem] text-gold-hi">Scene {place.n} of {place.of}</div>
               <h1 className="font-display text-[clamp(20px,2.7vw,36px)] leading-tight text-ivory">{scene.title}</h1>
               <div className="mt-4 flex justify-center">
                 <SourceBadge source={scene.source} />
@@ -370,11 +375,11 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
               Chapter {roman(chapter?.number || 1)} · {chapter?.title}
             </div>
             <div className="font-display text-[0.86rem] text-ivory">
-              {roman(scene.order)} <span className="text-ivory/50">/ {roman(total)}</span> · {scene.title}
+              <span className="text-ivory/60">Scene {place.n} of {place.of}:</span> {scene.title}
             </div>
           </div>
           <div className="caps text-[0.66rem] text-ivory/80 sm:hidden" style={{ textShadow: '0 1px 8px #000' }}>
-            {roman(scene.order)} / {roman(total)}
+            {place.n} / {place.of}
           </div>
         </div>
         <div className="pointer-events-auto flex items-center gap-2">
@@ -407,14 +412,14 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
           )}
           {ended && (
             <motion.button key="continue" type="button" className={`${lessonWaiting ? 'hud-btn' : 'btn-gold'} pointer-events-auto self-end`} onClick={continueOn} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} autoFocus={!lessonWaiting}>
-              <span className="max-w-[62vw] truncate sm:max-w-[340px]">{nextLabel}</span>
+              <span className="max-w-[62vw] whitespace-normal text-left leading-tight sm:max-w-[340px]">{nextLabel}</span>
               <Icon name="next" className="h-4 w-4" />
             </motion.button>
           )}
           {ended && related && (
             <motion.button key="related" type="button" className="hud-btn pointer-events-auto self-end" onClick={() => go(`/unit/${related.id}`)} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-              <span className="max-w-[62vw] truncate sm:max-w-[340px]">
-                The pyramid: {related.title} · {related.english}
+              <span className="max-w-[62vw] whitespace-normal text-left leading-tight sm:max-w-[340px]">
+                The pyramid: {related.title}, {related.english}
               </span>
             </motion.button>
           )}
@@ -450,7 +455,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
           <button type="button" className="hud-btn icon border-transparent bg-transparent" onClick={() => setPlaying((p) => !p)} aria-label={playing ? 'Pause (P)' : 'Play (P)'} disabled={!prefs.auto || ended}>
             <Icon name={playing ? 'pause' : 'play'} className="h-4 w-4" />
           </button>
-          <button type="button" className={`hud-btn icon border-transparent bg-transparent ${!prefs.auto && !ended ? 'text-gold-hi' : ''}`} onClick={goNext} aria-label={ended ? 'Continue' : 'Next moment (→)'}>
+          <button type="button" className={`hud-btn icon border-transparent bg-transparent ${!prefs.auto && !ended ? 'text-gold-hi' : ''}`} onClick={ended ? continueOn : goNext} aria-label={ended ? 'Continue' : 'Next moment (→)'}>
             <Icon name="next" className="h-4 w-4" />
           </button>
         </div>
@@ -466,7 +471,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
                   ['→  Space  Click', 'next moment'],
                   ['←', 'previous moment'],
                   ['P', 'pause or play'],
-                  ['A', 'read the full ayat'],
+                  ['A', mode === 'curious' ? 'read the full verses' : 'read the full ayat'],
                   ['S', 'ambient sound'],
                   ['M  Esc', 'campaign map'],
                   ['Swipe', 'next or previous (touch)'],

@@ -6,7 +6,8 @@ import { USAGE_ON, track } from '../lib/usage.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { download, FIRST_STORY, share, shareMessage } from '../lib/site.js';
-import { climb, completed, DISCLAIMER, HISTORY_PARTS, lessonsWaiting, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, SCENE_COUNT, STORY_PARTS, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
+import { SCENES, seenCount, storyResume } from '../lib/sceneIndex.js';
+import { CHAPTERS, climb, completed, DISCLAIMER, HISTORY_PARTS, lessonsWaiting, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, SCENE_COUNT, STORY_PARTS, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
 import { ModePicker } from './ModePicker.jsx';
 import InstallInvite from './InstallInvite.jsx';
@@ -56,7 +57,7 @@ export function Shell({ children, back, title, stars = false, here, wide = false
           </div>
         )}
       </header>
-      <div className={`relative z-10 mx-auto flex min-h-full ${wide ? 'max-w-[860px]' : 'max-w-[600px]'} flex-col px-5 pb-28 pt-3 sm:pb-10`}>
+      <main className={`relative z-10 mx-auto flex min-h-full ${wide ? 'max-w-[860px]' : 'max-w-[600px]'} flex-col px-5 pb-28 pt-3 sm:pb-10`}>
         {(back || title) && (
           <div className="mb-2 flex min-h-[48px] items-center gap-3">
             {back && (
@@ -68,7 +69,7 @@ export function Shell({ children, back, title, stars = false, here, wide = false
           </div>
         )}
         {children}
-      </div>
+      </main>
     </div>
   );
 }
@@ -143,11 +144,33 @@ const useSay = () => {
 export const unitHref = (id) => (unitStatus(id) === 'history' ? '/stories' : `/unit/${id}`);
 
 const DAY = 864e5;
-/** "Continue where you left off": the most recent unfinished unit or story scene, if any. */
+
+/** The lesson left unfinished most recently, if any. */
+function latestDraft(state) {
+  return (
+    Object.entries(state.drafts || {})
+      .filter(([id]) => unitById[id])
+      .map(([id, d]) => ({ kind: 'unit', id, at: d.at || '', step: d.step }))
+      .sort((a, b) => b.at.localeCompare(a.at))[0] || null
+  );
+}
+
+/**
+ * "Continue": a lesson left half done, when it is newer than the last scene opened; otherwise, once the story has
+ * begun, the story itself, where it goes on (the next unseen scene, not only the one left half watched).
+ */
 function resumePoint(state) {
-  const drafts = Object.entries(state.drafts || {}).map(([id, d]) => ({ kind: 'unit', id, at: d.at, step: d.step }));
-  const scene = state.recent?.kind === 'scene' && !state.seen[state.recent.id] ? [{ kind: 'scene', id: state.recent.id, title: state.recent.title, at: state.recent.at }] : [];
-  return [...drafts, ...scene].sort((a, b) => (b.at || '').localeCompare(a.at || ''))[0] || null;
+  const draft = latestDraft(state);
+  const started = !!state.last || Object.keys(state.seen || {}).length > 0;
+  const sceneAt = state.recent?.kind === 'scene' ? state.recent.at || '' : '';
+  if (draft && (!started || draft.at > sceneAt)) return draft;
+  return started ? { kind: 'scene', ...storyResume(state) } : null;
+}
+
+/** "The Beginning, scene 3 of 19: “The Angels Ask”." */
+export function whereInStory(s) {
+  const ch = CHAPTERS.find((c) => c.number === s.chapter);
+  return `${ch ? ch.title : `Chapter ${s.chapter}`}, scene ${s.n} of ${s.of}: “${s.title}”.`;
 }
 const STEP_NAME = { story: 'the story', choice: 'the choice', teaching: 'the teaching', check: 'the understanding check', reflection: 'the reflection' };
 
@@ -179,16 +202,18 @@ function Home() {
   const allWatched = c.state.seen && Object.keys(c.state.seen).length >= SCENE_COUNT;
   const openLesson = STORY_PARTS.find((p) => !c.state.learned?.[p.key]);
   const done = {
-    label: openLesson ? 'Next lesson' : 'Revisit the stories',
-    href: openLesson ? `/lesson/${openLesson.chapter}/${openLesson.key.split(':')[1]}` : '/stories',
+    label: openLesson ? 'Next lesson' : 'Revisit the story',
+    href: openLesson ? `/lesson/${openLesson.chapter}/${openLesson.key.split(':')[1]}` : '/story',
     note: openLesson ? `${openLesson.title}.` : 'The whole chronicle, from the first light to the Last Day.',
   };
-  const cta = resume
-    ? { label: 'Continue', href: resumeUnit ? `/unit/${resume.id}` : `/scene/${resume.id}`, note: resumeUnit ? `${resumeUnit.title}: you were on ${STEP_NAME[resume.step] || 'the lesson'}.` : `You were at “${resume.title}”.` }
-    : placed
-      ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
-      : { label: 'Begin your journey', href: '/begin', note: 'Free and private. No account needed.' };
-  const button = allWatched && !resume ? done : cta;
+  const cta = resumeUnit
+    ? { label: `Continue ${resumeUnit.title}`, href: `/unit/${resume.id}`, note: `You were on ${STEP_NAME[resume.step] || 'the lesson'}.` }
+    : resume
+      ? { label: 'Continue the story', href: `/scene/${resume.id}`, note: whereInStory(resume) }
+      : placed
+        ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
+        : { label: 'Begin your journey', href: '/begin', note: 'Free and private. No account needed.' };
+  const button = allWatched && !resumeUnit ? done : cta;
   // someone who has watched nothing and answered nothing yet is offered the short guide beside the main button,
   // until they have opened it (the guide marks `hints.guide`); after that it is the plain Guide link like everyone's
   const newcomer = !placed && !resume && !Object.keys(c.state.seen || {}).length && !c.state.prefs?.hints?.guide;
@@ -231,19 +256,8 @@ function Home() {
               New here? Take the short guide
             </button>
           )}
+          {/* the rest of the site is in the menu (Story, Explore, Progress); here only the small housekeeping links */}
           <div className="mt-3 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0 tiny:mt-1 tiny:gap-x-4 tiny:text-[1rem]">
-            <button type="button" className={link} onClick={() => go('/stories')}>
-              Watch the stories
-            </button>
-            <button type="button" className={link} onClick={() => go('/paths')}>
-              Paths
-            </button>
-            <button type="button" className={link} onClick={() => go('/pyramid')}>
-              See the pyramid
-            </button>
-            <button type="button" className={link} onClick={() => go('/abodes')}>
-              The two abodes
-            </button>
             {!newcomer && (
               <button type="button" className={link} onClick={() => go('/guide')}>
                 Guide
@@ -313,6 +327,9 @@ export function SoundChoice({ label = 'Sound for the stories' }) {
  */
 function Begin() {
   const { mode } = useMode();
+  const state = useStore();
+  const started = !!state.last || Object.keys(state.seen || {}).length > 0;
+  const up = started ? storyResume(state) : null;
   if (!mode) {
     return (
       <Shell back="/" title="Begin">
@@ -329,9 +346,13 @@ function Begin() {
       <h1 className="mt-6 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">Where would you like to start?</h1>
       <p className="mt-1 font-body text-[1.1rem] text-ivory/70">Choose one. The others stay here for later.</p>
       <div className="mt-5 grid gap-3">
-        <Way main autoFocus title="Watch the first story" line="The beginning of everything, in about a minute." onClick={() => go(`/scene/${FIRST_STORY}?first=1`)} />
+        {up ? (
+          <Way main autoFocus title="Continue the story" line={whereInStory(up)} onClick={() => go(`/scene/${up.id}`)} />
+        ) : (
+          <Way main autoFocus title="Watch the first story" line="The beginning of everything, in about a minute." onClick={() => go(`/scene/${FIRST_STORY}?first=1`)} />
+        )}
         <Way title="Take the short guide" line="What is where, one step at a time." onClick={() => go('/guide')} />
-        <Way title="Look around on my own" line="Start from the map of time." onClick={() => go('/map')} />
+        <Way title="Look around on my own" line="Every chapter in order, or the other ways in." onClick={() => go('/story')} />
       </div>
       <div className="mt-4 flex flex-wrap items-center gap-x-6">
         <SoundChoice />
@@ -343,36 +364,17 @@ function Begin() {
 
 /** After that first scene: keep watching, or take one of the other ways in. The questions are an offer now. (#/begin/next) */
 function Begun() {
-  const { mode } = useMode();
-  const n = placementQuestions(pathOf(mode)).length;
-  const way = WAY;
   return (
-    <Shell here="home" back="/" title="Your first story">
+    <Shell here="story" back="/" title="Your first story">
       <h1 className="mt-4 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">That was the first minute</h1>
-      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">The story goes on, one short scene at a time.</p>
+      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">The story goes on, one short scene at a time. Story, in the menu, always shows where you are.</p>
       <button type="button" className="btn-gold mt-5 self-start" onClick={() => go('/stories')} autoFocus>
         <Icon name="play" className="h-4 w-4" />
         Keep watching
       </button>
-      <p className="mt-6 font-body text-[1.05rem] italic text-ivory/60">Or take another way in</p>
-      <div className="mt-2 grid gap-3">
-        <button type="button" className={way} onClick={() => go('/pyramid/placement')}>
-          <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">Find where to begin on the pyramid</span>
-          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">{n} private questions. Not a grade.</span>
-        </button>
-        <button type="button" className={way} onClick={() => go('/paths')}>
-          <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">Follow a path</span>
-          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">Women, creatures, dreams, prayers.</span>
-        </button>
-        <button type="button" className={way} onClick={() => go('/pyramid')}>
-          <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">See the pyramid</span>
-          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">Three levels of faith.</span>
-        </button>
-        <button type="button" className={way} onClick={() => go('/guide')}>
-          <span className="block font-body text-[1.2rem] font-semibold text-gold-hi">Take the short guide</span>
-          <span className="mt-1 block font-body text-[1.05rem] leading-snug text-ivory/80">What is where, one step at a time.</span>
-        </button>
-      </div>
+      <button type="button" className="mt-4 min-h-[44px] self-start font-body text-[1.08rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/explore')}>
+        Or explore other ways in
+      </button>
       <Disclaimer />
     </Shell>
   );
@@ -521,16 +523,17 @@ function Landing() {
   const [selected, setSelected] = useState(null);
   const placed = !!c.state.placement;
   const next = suggestion(c.state, c.current);
-  const resume = resumePoint(c.state);
+  // only a lesson left half done: the story has its own page (#/story), and its own Continue on the home page
+  const draft = latestDraft(c.state);
   const stale = placed && Date.now() - new Date(c.state.placement.at || 0).getTime() > 30 * DAY;
 
   // The one main action for this visitor, and the line under it.
-  const resumeUnit = resume?.kind === 'unit' && unitById[resume.id];
-  const cta = resume
+  const resumeUnit = draft && unitById[draft.id];
+  const cta = resumeUnit
     ? {
-        label: resumeUnit ? `Continue ${resumeUnit.title}` : 'Continue the story',
-        href: resumeUnit ? `/unit/${resume.id}` : `/scene/${resume.id}`,
-        note: resumeUnit ? `${inMode(resumeUnit.english, mode)}: you were on ${STEP_NAME[resume.step] || 'the lesson'}.` : `You were at “${resume.title}”.`,
+        label: `Continue ${resumeUnit.title}`,
+        href: `/unit/${draft.id}`,
+        note: `${inMode(resumeUnit.english, mode)}: you were on ${STEP_NAME[draft.step] || 'the lesson'}.`,
         region: true,
       }
     : placed
@@ -539,8 +542,8 @@ function Landing() {
           href: unitHref(next),
           note: unitStatus(next) === 'history' ? 'Next on your climb: the stories of the prophets.' : `Next on your climb: ${inMode(unitById[next].english, mode).toLowerCase()}.`,
         }
-      : { label: 'Begin your journey', href: '/pyramid/placement', note: 'A few private questions first. About 3 minutes, and never a grade.' };
-  const secondary = placed ? { label: 'Your progress', href: '/pyramid/progress' } : { label: 'Watch the stories first', href: '/stories' };
+      : { label: 'Find where to begin', href: '/pyramid/placement', note: 'A few private questions. About 3 minutes, and never a grade.' };
+  const secondary = placed ? { label: 'Your progress', href: '/pyramid/progress' } : { label: 'Or follow the story in order', href: '/story' };
 
   const Cta = (
     <div className="flex flex-col items-center gap-2" role={cta.region ? 'region' : undefined} aria-label={cta.region ? 'Continue where you left off' : undefined}>
@@ -1041,6 +1044,8 @@ function Progress() {
   const [shared, setShared] = useState('');
   const [openLevel, setOpenLevel] = useState(null); // a level's lessons show when its row is tapped
   const learned = Object.keys(c.state.learned || {}).length;
+  const watched = seenCount(c.state);
+  const placed = !!c.state.placement;
   const here = levelById[c.current];
   // The reader's private reflections, in the pyramid's order, then the story's.
   const notes = Object.entries(c.state.journal || {})
@@ -1056,28 +1061,52 @@ function Progress() {
   return (
     <Shell here="progress" stars wide>
       <motion.header className="mt-4 text-center" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-        <p className="font-body text-[1.1rem] italic text-gold-hi/80">Your climb, private to you</p>
+        <p className="font-body text-[1.1rem] italic text-gold-hi/80">Private to you, on this device</p>
         <h1 className="mt-1 bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(2rem,8vw,3rem)] font-semibold leading-none tracking-[0.03em] text-transparent">Progress</h1>
       </motion.header>
 
+      {/* the one number that matters first: how far into the story */}
+      <section className="mt-6 rounded-2xl border border-gold/40 bg-black/35 p-5" aria-labelledby="story-h">
+        <h2 id="story-h" className="font-body text-[1.05rem] italic text-ivory/60">The story</h2>
+        <p className="font-display text-[clamp(1.7rem,6vw,2.2rem)] font-semibold leading-tight text-gold-hi">
+          {watched} of {SCENES.length} scenes watched
+        </p>
+        <div className="mt-3">
+          <Meter value={Math.round((100 * watched) / Math.max(1, SCENES.length))} />
+        </div>
+        <p className="mt-3 font-body text-[1.04rem] text-ivory/75">
+          {learned} of {HISTORY_PARTS} lessons taken. A short one closes each part of the story.
+        </p>
+        <button type="button" className="mt-2 min-h-[44px] font-body text-[1.05rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/story')}>
+          {watched ? 'Continue, or see every chapter' : 'See every chapter'}
+        </button>
+      </section>
+
       <div className="mt-6 grid items-center gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
         <Monument className="mx-auto w-full max-w-[380px]" meters={c.meters} done={c.done} lit={c.lit} peak={c.peak} start={c.state.placement ? c.current : undefined} />
-        <section className="rounded-2xl border border-gold/25 bg-black/30 p-5" aria-label="Where you are">
-          <div className="font-body text-[1.05rem] italic text-ivory/60">{c.peak ? 'Every stone is lit' : 'You are climbing'}</div>
-          <div className="font-display text-[1.7rem] font-semibold leading-tight text-gold-hi">{here.title}</div>
-          <p className="font-body text-[1.02rem] leading-snug text-ivory/65">{say(here.meaning.split(':')[0])}</p>
+        <section className="rounded-2xl border border-gold/25 bg-black/30 p-5" aria-label="The pyramid">
+          {c.peak || placed ? (
+            <>
+              <div className="font-body text-[1.05rem] italic text-ivory/60">{c.peak ? 'Every stone is lit' : 'You are climbing'}</div>
+              <div className="font-display text-[1.7rem] font-semibold leading-tight text-gold-hi">{here.title}</div>
+              <p className="font-body text-[1.02rem] leading-snug text-ivory/65">{say(here.meaning.split(':')[0])}</p>
+            </>
+          ) : (
+            <>
+              <div className="font-display text-[1.7rem] font-semibold leading-tight text-gold-hi">The pyramid</div>
+              <p className="font-body text-[1.02rem] leading-snug text-ivory/70">Three levels of faith, made of short lessons. Optional, beside the story.</p>
+              <button type="button" className="min-h-[44px] font-body text-[1.05rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/pyramid/placement')}>
+                Find where to begin
+              </button>
+            </>
+          )}
           <div className="mt-4 space-y-3">
             {[...c.levels].reverse().map((l) => (
               <Meter key={l.id} value={l.progress} label={`${l.title}: ${l.done} of ${l.total} lessons${l.lit ? ', lit' : ''}`} />
             ))}
           </div>
           <p className="mt-4 border-t border-gold/15 pt-3 font-body text-[1.02rem] text-ivory/70">
-            <span className="mr-5 inline-block whitespace-nowrap">
-              Overall understanding <span className="text-gold-hi">{c.overall}%</span>
-            </span>
-            <span className="inline-block whitespace-nowrap">
-              Story lessons <span className="text-gold-hi">{learned} of {HISTORY_PARTS}</span>
-            </span>
+            Pyramid lessons, overall <span className="text-gold-hi">{c.overall}%</span>
           </p>
         </section>
       </div>
@@ -1090,7 +1119,7 @@ function Progress() {
         </h2>
         <Sky className="mt-2" learned={c.state.learned} done={c.done} />
         <a href="#/paths" className="mt-2 inline-flex min-h-[44px] items-center font-body text-[1.05rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4">
-          Paths through the stories
+          Follow a theme through the stories
         </a>
       </section>
 

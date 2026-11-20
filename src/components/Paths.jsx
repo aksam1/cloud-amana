@@ -32,7 +32,7 @@ export default function Paths({ id }) {
 
   if (id && !path) {
     return (
-      <Shell here="stories" back="/paths" title="Paths">
+      <Shell here="explore" back="/paths" title="Paths">
         <h1 className="mt-6 font-body text-[1.6rem] font-semibold text-gold-hi">That path does not exist</h1>
         <button type="button" className="btn-gold mt-5 self-start" onClick={() => go('/paths')} autoFocus>
           See all the paths
@@ -43,7 +43,7 @@ export default function Paths({ id }) {
 
   if (!path) {
     return (
-      <Shell here="stories" back="/" title="Paths through the stories">
+      <Shell here="explore" back="/explore" title="Paths through the stories">
         <h1 className="mt-4 font-display text-[1.7rem] font-semibold leading-tight text-gold-hi">Choose a path</h1>
         <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/75">The same stories, by a different door.</p>
         <ul className="mt-5 grid gap-3">
@@ -63,7 +63,7 @@ export default function Paths({ id }) {
             );
           })}
         </ul>
-        <button type="button" className="hud-btn mt-6 self-start" onClick={() => go('/stories')}>
+        <button type="button" className="hud-btn mt-6 self-start" onClick={() => go('/story')}>
           Or follow the whole story in order
         </button>
       </Shell>
@@ -73,7 +73,7 @@ export default function Paths({ id }) {
   const done = path.stops.filter((st) => watched(st, seen)).length;
   const nextUp = path.stops.findIndex((st) => !watched(st, seen));
   return (
-    <Shell here="stories" back="/paths" title="Paths through the stories">
+    <Shell here="explore" back="/paths" title="Paths through the stories">
       <h1 className="mt-4 font-display text-[1.7rem] font-semibold leading-tight text-gold-hi">{path.title}</h1>
       <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/75">{say(path.blurb)}</p>
       <p className="mt-1 font-body text-[1rem] italic text-ivory/60" role="status">

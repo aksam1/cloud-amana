@@ -57,6 +57,57 @@ function serviceWorker() {
   };
 }
 
+/**
+ * `virtual:scene-index`: every scene's id, chapter, order and title, in story order, and nothing else.
+ *
+ * Home and the Story page need to name "where you left off" (a title, "scene 3 of 19") on the first screen.
+ * The scenes themselves are about a megabyte, and the build gives each its own file, so even importing
+ * one field from each would make the first screen fetch all of them. This reads the files when the app is
+ * built (or served) and hands the page a few kilobytes instead. Adding or renumbering a scene needs no step:
+ * the index is read again from the files.
+ */
+function sceneIndex() {
+  const ID = 'virtual:scene-index';
+  const RESOLVED = `\0${ID}`;
+  const root = join(process.cwd(), 'src', 'story', 'chapters');
+  return {
+    name: 'amanah-scene-index',
+    resolveId(id) {
+      return id === ID ? RESOLVED : null;
+    },
+    // A new or deleted scene file is not an edit to any file the index already watches, so the dev server's own
+    // watcher tells the index to read the folders again. (Folders cannot go through addWatchFile: in dev Vite
+    // resolves each watched path as an import of this module, and a folder does not resolve.)
+    configureServer(server) {
+      const refresh = (file) => {
+        if (!file.startsWith(root) || !/[\\/]s\d+-.+\.json$/.test(file)) return;
+        const mod = server.moduleGraph.getModuleById(RESOLVED);
+        if (mod) server.moduleGraph.invalidateModule(mod);
+      };
+      server.watcher.on('add', refresh);
+      server.watcher.on('unlink', refresh);
+    },
+    load(id) {
+      if (id !== RESOLVED) return null;
+      const list = [];
+      for (const dir of readdirSync(root)) {
+        const folder = join(root, dir);
+        if (!statSync(folder).isDirectory()) continue;
+        for (const name of readdirSync(folder)) {
+          if (!/^s\d+-.+\.json$/.test(name)) continue;
+          const file = join(folder, name);
+          this.addWatchFile(file);
+          const s = JSON.parse(readFileSync(file, 'utf8'));
+          list.push({ id: s.id, chapter: s.chapter, order: s.order, title: s.title });
+        }
+      }
+      // the same order as the story itself (src/lib/story.js): by chapter, then by order
+      list.sort((a, b) => a.chapter - b.chapter || a.order - b.order);
+      return `export default ${JSON.stringify(list)};`;
+    },
+  };
+}
+
 export default defineConfig({
   // Relative asset paths, so the built app works from any folder or host (including a hosted link).
   base: './',
@@ -66,6 +117,7 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    sceneIndex(),
     serviceWorker(),
     {
       // The link preview's address and the canonical link: Vite replaces the placeholder in index.html.

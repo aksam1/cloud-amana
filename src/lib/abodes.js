@@ -39,6 +39,12 @@ export const STOPS = [
 
 export const stopById = Object.fromEntries(STOPS.map((s) => [s.id, s]));
 
+/**
+ * A stop's name for the reader. The Muslim view keeps the Quran's own names (Al-Firdaus, Jahannam); someone exploring
+ * reads the English meaning first (the part before any comma: "Hell, the Fire's general name" is "Hell").
+ */
+export const stopName = (stop, mode) => (mode === 'curious' && stop.entry?.en ? stop.entry.en.split(',')[0] : stop.name);
+
 /** The way back shown on a Fire level: its own (al-Hawiyah's 4:146), or the one every Fire level carries. */
 export const wayBackOf = (level) => level.wayBack || data.fire.wayBack;
 

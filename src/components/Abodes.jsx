@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { quranLink } from '../lib/site.js';
-import { ABODES, ayat, hadithById, STOPS, stopById, wayBackOf } from '../lib/abodes.js';
+import { ABODES, ayat, hadithById, STOPS, stopById, stopName, wayBackOf } from '../lib/abodes.js';
 import { Icon } from './Ornaments.jsx';
 import { Shell } from './Pyramid.jsx';
 import AbodesMonument from './AbodesMonument.jsx';
@@ -127,14 +127,14 @@ export default function Abodes({ at }) {
         </footer>
       </div>
 
-      <AnimatePresence mode="wait">{focus && <Brief key={focus} stop={stopById[focus]} say={say} still={still} onGo={setFocus} onClose={back} />}</AnimatePresence>
+      <AnimatePresence mode="wait">{focus && <Brief key={focus} stop={stopById[focus]} say={say} mode={mode} still={still} onGo={setFocus} onClose={back} />}</AnimatePresence>
     </Shell>
   );
 }
 
 // ── The pop-up for one stop ─────────────────────────────────
 
-function Brief({ stop, say, still, onGo, onClose }) {
+function Brief({ stop, say, mode, still, onGo, onClose }) {
   const ref = useRef(null);
   useEffect(() => ref.current?.focus({ preventScroll: true }), [stop.id]);
   const up = STOPS[stop.index - 1];
@@ -154,13 +154,13 @@ function Brief({ stop, say, still, onGo, onClose }) {
     >
       <div className="flex flex-wrap items-center gap-1">
         {up && (
-          <button type="button" onClick={() => onGo(up.id)} aria-label={`Up to ${up.name}`} className="min-h-[44px] rounded-full border border-gold/25 px-3 font-body text-[0.98rem] text-ivory/75 hover:border-gold-hi/60">
-            ↑ {up.name}
+          <button type="button" onClick={() => onGo(up.id)} aria-label={`Up to ${stopName(up, mode)}`} className="min-h-[44px] rounded-full border border-gold/25 px-3 font-body text-[0.98rem] text-ivory/75 hover:border-gold-hi/60">
+            ↑ {stopName(up, mode)}
           </button>
         )}
         {down && (
-          <button type="button" onClick={() => onGo(down.id)} aria-label={`Down to ${down.name}`} className="min-h-[44px] rounded-full border border-gold/25 px-3 font-body text-[0.98rem] text-ivory/75 hover:border-gold-hi/60">
-            ↓ {down.name}
+          <button type="button" onClick={() => onGo(down.id)} aria-label={`Down to ${stopName(down, mode)}`} className="min-h-[44px] rounded-full border border-gold/25 px-3 font-body text-[0.98rem] text-ivory/75 hover:border-gold-hi/60">
+            ↓ {stopName(down, mode)}
           </button>
         )}
         <button type="button" onClick={onClose} aria-label="Close and see both abodes" className="-mr-2 ml-auto grid h-11 w-11 place-items-center rounded-full text-ivory/70 hover:bg-white/5 hover:text-ivory">
@@ -168,7 +168,7 @@ function Brief({ stop, say, still, onGo, onClose }) {
         </button>
       </div>
 
-      {stop.side === 'throne' ? <ThroneCard e={e} say={say} /> : stop.side === 'between' ? <BetweenCard e={e} say={say} /> : <LevelCard e={e} side={stop.side} say={say} />}
+      {stop.side === 'throne' ? <ThroneCard e={e} say={say} /> : stop.side === 'between' ? <BetweenCard e={e} say={say} /> : <LevelCard e={e} side={stop.side} say={say} mode={mode} />}
     </motion.div>
   );
 }
@@ -225,13 +225,14 @@ function BetweenCard({ e, say }) {
 
 const named = (refs) => (refs.length > 1 ? `${refs.slice(0, -1).join(', ')} and ${refs[refs.length - 1]}` : refs[0]);
 
-function LevelCard({ e, side, say }) {
+function LevelCard({ e, side, say, mode }) {
   const paradise = side === 'paradise';
   const way = paradise ? ABODES.paradise.mercy : wayBackOf(e);
   return (
     <>
       <Kicker>{paradise ? 'In Paradise' : 'In the Fire'}</Kicker>
-      <Title sub={e.en}>{e.name}</Title>
+      {/* someone exploring reads the meaning first, with the Quran's name beneath it */}
+      {mode === 'curious' ? <Title sub={e.name === e.en ? undefined : e.name}>{e.en}</Title> : <Title sub={e.en}>{e.name}</Title>}
       <p className="mt-1 font-body text-[0.98rem] italic text-ivory/55">Named in Quran {named(e.named)}</p>
 
       <Heading>What leads there</Heading>

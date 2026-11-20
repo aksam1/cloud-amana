@@ -1,4 +1,5 @@
 // The journeys a real person takes, start to finish. Each test starts from a fresh browser (no saved data).
+import { readdirSync, readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 
 async function reflect(page, pick = 2, view = /I'm Muslim/) {
@@ -179,9 +180,16 @@ test('every part of the app has a way home', async ({ page }) => {
   await page.goto('/#/map');
   await page.getByRole('button', { name: 'Home' }).click();
   await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();
-  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Pyramid' }).click();
+  // the menu is Home, Story, Explore, Progress: the pyramid is one of the doors in Explore
+  const menu = page.getByRole('navigation', { name: 'Main' });
+  await menu.getByRole('link', { name: 'Explore' }).click();
+  await expect(page.getByRole('heading', { name: 'Explore', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: /^The pyramid/ }).click();
   await expect(page.getByRole('heading', { name: 'The Pyramid', exact: true })).toBeVisible();
-  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Stories' }).click();
+  await menu.getByRole('link', { name: 'Story' }).click();
+  await expect(page).toHaveURL(/#\/story$/);
+  await expect(page.getByRole('heading', { name: 'The story', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Start at the beginning' }).click();
   await expect(page).toHaveURL(/#\/scene\//);
 });
 
@@ -192,7 +200,7 @@ test('tapping a level of the pyramid looks closer, and the whole pyramid comes b
   await page.getByRole('button', { name: 'Up to Ihsan' }).click();
   await expect(page.getByRole('heading', { name: /^Ihsan/ })).toBeVisible();
   await page.getByRole('button', { name: 'Close and see the whole pyramid' }).click();
-  await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Find where to begin', exact: true })).toBeVisible();
 });
 
 test('a lesson chosen from the pyramid pop-up starts straight away', async ({ page }) => {
@@ -250,7 +258,7 @@ test('a finished lesson offers the next one, and the next one opens', async ({ p
   const next = page.getByRole('button', { name: /^Next: / });
   await expect(next).toBeVisible();
   await next.click();
-  await expect(page).toHaveURL(/#\/(unit\/(?!shahadah)|stories|scene)/);
+  await expect(page).toHaveURL(/#\/(unit\/(?!shahadah)|story|stories|scene)/);
   await expect(page.getByText(/still being written/)).toHaveCount(0);
 });
 
@@ -302,7 +310,12 @@ test('story first: a new visitor chooses a view, then where to start, with no qu
   await on.click();
   await expect(page.getByRole('heading', { name: 'That was the first minute' })).toBeVisible();
   await expect(page.getByRole('button', { name: /Keep watching/ })).toBeVisible();
-  await page.getByRole('button', { name: /Find where to begin on the pyramid/ }).click();
+  // the reflection questions are no longer offered here: one link to the other ways in, and they wait on the pyramid
+  await expect(page.getByRole('button', { name: /Find where to begin/ })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Or explore other ways in' }).click();
+  await expect(page).toHaveURL(/#\/explore$/);
+  await page.getByRole('button', { name: /^The pyramid/ }).click();
+  await page.getByRole('button', { name: 'Find where to begin', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Before you climb' })).toBeVisible();
 });
 
@@ -320,6 +333,41 @@ test('a path lists its stops, plays one and comes back with it marked as watched
   await back.waitFor({ timeout: 90000 });
   await back.click();
   await expect(page.getByText('1 of 5 watched')).toBeVisible();
+});
+
+test('one story path: Continue picks up the next scene, and the Story page shows where you are and the lesson that closes a part', async ({ page }) => {
+  const save = (state) => page.evaluate((s) => localStorage.setItem('amanah:v1', JSON.stringify(s)), state);
+  const prefs = { mode: 'curious', sound: false };
+  await page.goto('/');
+  await save({ seen: { heavens: true, jinn: true }, last: 'jinn', prefs });
+  await page.reload();
+  // home: one button, and it opens the next scene not yet watched
+  await page.getByRole('button', { name: 'Continue the story' }).click();
+  await expect(page).toHaveURL(/#\/scene\/khalifah/);
+
+  await page.goto('/#/story');
+  await expect(page.getByRole('heading', { name: 'The story', exact: true })).toBeVisible();
+  await expect(page.getByRole('status').filter({ hasText: /^2 of \d+ scenes watched/ })).toBeVisible();
+  // the chapter the reader is in stands open, marked, with the next scene marked "Up next"
+  await expect(page.getByRole('button', { name: /you are here/, expanded: true })).toHaveCount(1);
+  await expect(page.locator('a[aria-current="step"]')).toHaveAttribute('href', '#/scene/khalifah');
+  await expect(page.getByText('Opens after the last scene of this part.').first()).toBeVisible();
+
+  // the whole first part watched: its lesson is ready, as a step on the same path
+  // (in story order: the folder lists files as text, s1, s10, s11 … s2)
+  const dir = 'src/story/chapters/c1';
+  const part1 = readdirSync(dir)
+    .filter((f) => /^s\d+-.+\.json$/.test(f))
+    .map((f) => JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')))
+    .sort((a, b) => a.order - b.order)
+    .slice(0, 10)
+    .map((s) => s.id);
+  await save({ seen: Object.fromEntries(part1.map((id) => [id, true])), last: part1.at(-1), prefs });
+  await page.reload();
+  const ready = page.getByRole('link', { name: /^Take the lesson: / }).first();
+  await expect(ready).toBeVisible();
+  await ready.click();
+  await expect(page).toHaveURL(/#\/lesson\/1\/0\?then=%2Fstory/);
 });
 
 test('the sky on Progress shows a star for every lesson and lights none for a new visitor', async ({ page }) => {

@@ -10,6 +10,8 @@ import { trackError, track } from './lib/usage.js';
 // Every page loads on demand, so the home page never waits for the whole story (about 1 MB) to download.
 const Title = lazy(() => import('./components/Title.jsx'));
 const Stories = lazy(() => import('./components/Stories.jsx'));
+const StoryPage = lazy(() => import('./components/StoryPage.jsx'));
+const Explore = lazy(() => import('./components/Explore.jsx'));
 const ScenePlayer = lazy(() => import('./components/ScenePlayer.jsx'));
 const CampaignMap = lazy(() => import('./components/CampaignMap.jsx'));
 const Sheet = lazy(() => import('./components/Sheet.jsx'));
@@ -224,6 +226,10 @@ export default function App() {
             <Sheet id={route.id} device={route.query.device} />
           ) : route.name === 'stories' ? (
             <Stories />
+          ) : route.name === 'story' ? (
+            <StoryPage />
+          ) : route.name === 'explore' ? (
+            <Explore />
           ) : route.name === 'pyramid' ? (
             <Pyramid view={route.view} />
           ) : route.name === 'unit' ? (

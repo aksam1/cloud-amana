@@ -8,12 +8,12 @@
     { "title": "Adam's Family on Earth", "from": 11, "to": 19 }
   ],
   "bridge": {
-    "when": "Before time as we know it, then the first days of humankind",
-    "where": "The heavens, the Garden, and then the earth",
+    "when": "Before time, then the first people",
+    "where": "The heavens, the Garden, then the earth",
     "line": ["Adam", "Hawwa", "their children"],
     "text": [
-      "This chronicle follows the story of creation and the prophets as the Quran tells it. It begins before there were any people at all: with the heavens and the earth, the angels, and the jinn, beings God made from smokeless fire.",
-      "Then God makes Adam, the first human, and tells the angels he will be a khalifah, a steward on earth. Everything that follows grows from this beginning."
+      "The Quran's story of creation and the prophets, in order.",
+      "God makes Adam, the first human, to be a khalifah: a steward on earth. His wife is Hawwa, known as Eve in the Bible."
     ]
   }
 }

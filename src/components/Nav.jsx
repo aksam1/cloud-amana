@@ -1,13 +1,16 @@
 import { go } from '../lib/router.js';
 import { Icon } from './Ornaments.jsx';
 
+// One spine and one side door: Story is the chronicle in order (and where you left it); Explore holds the other
+// ways into the same stories (the map, paths, the pyramid, the two abodes, the guide).
 const ITEMS = [
   { id: 'home', label: 'Home', icon: 'home', to: '/' },
-  { id: 'pyramid', label: 'Pyramid', icon: 'pyramid', to: '/pyramid' },
-  { id: 'stories', label: 'Stories', icon: 'book', to: '/stories' },
-  { id: 'map', label: 'Map', icon: 'map', to: '/map' },
+  { id: 'story', label: 'Story', icon: 'book', to: '/story' },
+  { id: 'explore', label: 'Explore', icon: 'map', to: '/explore' },
   { id: 'progress', label: 'Progress', icon: 'bars', to: '/pyramid/progress' },
 ];
+// the pages that live under a tab without being it
+const UNDER = { stories: 'story', pyramid: 'explore', map: 'explore', paths: 'explore', abodes: 'explore', guide: 'explore' };
 
 /**
  * The one menu every page shares. On a phone it is a tab bar along the bottom edge, where a thumb reaches
@@ -16,6 +19,8 @@ const ITEMS = [
  */
 export default function Nav({ here, tone = 'night', spot = null }) {
   const ink = tone === 'parchment';
+  here = UNDER[here] || here;
+  spot = UNDER[spot] || spot;
   return (
     <nav
       aria-label="Main"

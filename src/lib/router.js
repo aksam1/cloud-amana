@@ -1,5 +1,6 @@
 // Hash routes: #/ (the start screen) · #/pyramid (the pyramid: #/pyramid/placement|result|progress, #/unit/:id?step=) · #/chronicle (the
-// chronicle's title page) · #/stories (back into the story where the reader left it) · #/map?arrive=&from= · #/scene/:id (?beat=n opens at a moment, &still holds it,
+// chronicle's title page) · #/stories (back into the story where the reader left it) · #/story (the story in order)
+// · #/explore (the other ways in) · #/map?arrive=&from= · #/scene/:id (?beat=n opens at a moment, &still holds it,
 // &t=0.5 holds it halfway through its timed motions)
 // · #/lesson/:chapter/:part?then=<route> (the lesson after a part; ?then is where it continues)
 // · #/begin and #/begin/next (a new visitor chooses a view, then where to start; after the first story, where to go next)
@@ -14,6 +15,9 @@ function parse(hash) {
   if (parts[0] === 'map') return { name: 'map', query, key: 'map' };
   if (parts[0] === 'scene' && parts[1]) return { name: 'scene', id: parts[1], query, key: `scene:${parts[1]}:${query.beat ?? ''}:${'still' in query}:${query.t ?? ''}` };
   if (parts[0] === 'stories') return { name: 'stories', query, key: 'stories' };
+  // the story in order (#/story: every chapter, part, scene and lesson) and the other ways in (#/explore)
+  if (parts[0] === 'story') return { name: 'story', query, key: 'story' };
+  if (parts[0] === 'explore') return { name: 'explore', query, key: 'explore' };
   if (parts[0] === 'chronicle') return { name: 'title', query, key: 'title' };
   if (parts[0] === 'pyramid') return { name: 'pyramid', view: parts[1] || 'landing', query, key: `pyramid:${parts[1] || ''}:${query.again ?? ''}` };
   if (parts[0] === 'unit' && parts[1]) return { name: 'unit', id: parts[1], query, key: `unit:${parts[1]}:${query.step ?? ''}:${query.again ?? ''}` };

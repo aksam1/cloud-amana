@@ -125,6 +125,9 @@ export const STORY_PARTS = [...chapters]
   .sort((a, b) => a.number - b.number)
   .flatMap((c) => (c.parts || []).map((p, i) => ({ p, i })).filter(({ p }) => p.from !== undefined).map(({ p, i }) => ({ key: `${c.number}:${i}`, chapter: c.number, title: partName(`${c.number}:${i}`), last: sceneIdByOrder[p.to] })));
 
+/** Every chapter (number, title, parts), in story order: the outline the Story page draws. */
+export const CHAPTERS = [...chapters].sort((a, b) => a.number - b.number);
+
 /**
  * The story lessons waiting for the reader: the part has been watched to its last scene, and its lesson, which is
  * only ever offered there, was left for later. Story order. Progress lists them, so a lesson passed by is never lost.

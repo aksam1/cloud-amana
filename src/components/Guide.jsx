@@ -17,19 +17,19 @@ export const STEPS = [
   {
     id: 'stories',
     icon: 'book',
-    title: 'The stories',
+    title: 'The story',
     line: 'The prophets, from the first light to the Last Day, told one moment at a time. A scene takes a minute or two.',
-    where: 'Stories, in the menu. Tap, or press →, for the next moment.',
-    spot: 'stories',
-    open: { label: 'Open the stories', to: '/stories' },
+    where: 'Story, in the menu: every chapter in order, and where you left off. In a scene, tap or press → for the next moment.',
+    spot: 'story',
+    open: { label: 'Open the story', to: '/story' },
   },
   {
     id: 'map',
     icon: 'map',
     title: 'The map of time',
     line: 'Every story on one thread of light, from the Creation at the top to the Hour at the bottom. Tap a seal to see its stories.',
-    where: 'Map, in the menu. Sound on or off is its top-right button.',
-    spot: 'map',
+    where: 'Explore, in the menu. Sound on or off is its top-right button.',
+    spot: 'explore',
     open: { label: 'Open the map', to: '/map' },
   },
   {
@@ -37,16 +37,16 @@ export const STEPS = [
     icon: 'check',
     title: 'Short lessons',
     line: 'At the end of each part of the story you can take a short lesson: what to remember, a verse, a question to think about. It is always your choice.',
-    where: 'Offered when a part ends. Any you leave wait for you in Progress.',
-    spot: 'progress',
+    where: 'In Story, after each part, and offered when a part ends. Any you leave also wait in Progress.',
+    spot: 'story',
   },
   {
     id: 'pyramid',
     icon: 'pyramid',
     title: 'The pyramid',
     line: 'Three levels of faith, each made of short lessons with a story inside. Not sure where to begin? A few private questions suggest a place. It is never a grade.',
-    where: 'Pyramid, in the menu. Tap a level to look closer.',
-    spot: 'pyramid',
+    where: 'Explore, in the menu. Tap a level to look closer.',
+    spot: 'explore',
     open: { label: 'See the pyramid', to: '/pyramid' },
   },
   {
@@ -54,8 +54,8 @@ export const STEPS = [
     icon: 'list',
     title: 'Paths',
     line: 'Other ways through the same stories: the women in them, the creatures, the dreams, the prayers.',
-    where: 'On the home page, under the main button.',
-    spot: 'home',
+    where: 'Explore, in the menu.',
+    spot: 'explore',
     open: { label: 'Open the paths', to: '/paths' },
   },
   {
@@ -63,8 +63,8 @@ export const STEPS = [
     icon: 'diamond',
     title: 'The two abodes',
     line: 'Paradise and the Fire, level by level, as the Quran describes them, and what it names as leading to each. Verses only; no one is ever placed there.',
-    where: "The map's last stop, Judgment, and the home page.",
-    spot: 'home',
+    where: "Explore, in the menu, and the map's last stop, Judgment.",
+    spot: 'explore',
     open: { label: 'Open the two abodes', to: '/abodes' },
   },
   {
@@ -142,10 +142,10 @@ function Start() {
       <p className="mt-1 font-body text-[1.1rem] text-ivory/70">Choose one. The rest will be where the guide showed you.</p>
       <div className="mt-5 grid gap-3">
         <Way main autoFocus title="Watch the first story" line="The beginning of everything, in about a minute." onClick={() => go(`/scene/${FIRST_STORY}?first=1`)} />
-        <Way title="Open the map" line="Choose any story along the thread of time." onClick={() => go('/map')} />
+        <Way title="See every chapter" line="The whole story in order: pick any chapter." onClick={() => go('/story')} />
         <Way title="Back home" line="Everything from the start screen." onClick={() => go('/')} />
       </div>
-      <p className="mt-5 font-body text-[1rem] italic text-ivory/55">This guide stays in Settings and About, and behind the ? in a story.</p>
+      <p className="mt-5 font-body text-[1rem] italic text-ivory/55">This guide stays in Explore, Settings and About, and behind the ? in a story.</p>
     </>
   );
 }

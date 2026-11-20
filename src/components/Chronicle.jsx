@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ayah, expandRef } from '../lib/story.js';
-import { roman } from '../lib/geo.js';
+import { ayah, chapterScenes, expandRef } from '../lib/story.js';
+import { useMode } from '../lib/words.js';
 import { Icon, Rule, SourceBadge } from './Ornaments.jsx';
 
 /**
@@ -12,6 +12,10 @@ import { Icon, Rule, SourceBadge } from './Ornaments.jsx';
  */
 export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTop }) {
   const refs = (scene.ayahs || []).flatMap(expandRef);
+  const { mode } = useMode();
+  const inChapter = chapterScenes(scene.chapter);
+  // someone exploring reads "verses"; the Muslim view keeps the Arabic words
+  const [one, many] = mode === 'curious' ? ['verse', 'verses'] : ['ayah', 'ayat'];
   const box = useRef(null);
   useEffect(() => {
     const el = box.current;
@@ -43,7 +47,7 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
           >
             <header className="flex items-start gap-3">
               <div className="min-w-0 flex-1">
-                <div className="caps text-[0.6rem] text-ink-soft short:hidden">Scene {roman(scene.order)}</div>
+                <div className="caps text-[0.6rem] text-ink-soft short:hidden">Scene {inChapter.findIndex((s) => s.id === scene.id) + 1} of {inChapter.length}</div>
                 <h2 className="font-display text-[1.02rem] font-semibold leading-tight text-ink">{scene.title}</h2>
               </div>
               <SourceBadge source={scene.source} />
@@ -66,7 +70,7 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
                 <Rule className="mx-auto my-3 h-3 w-40 text-[#7a5a2e] short:hidden" />
                 <button type="button" onClick={onAyah} aria-expanded={ayahOpen} className="flex min-h-[44px] w-full items-center justify-between gap-2 rounded-md px-1 py-1.5 text-left hover:bg-black/5">
                   <span className="caps text-[0.66rem] text-ink">
-                    {refs.length ? `The full ${refs.length === 1 ? 'ayah' : `ayat (${refs.length})`}` : 'Sources'}
+                    {refs.length ? `The full ${refs.length === 1 ? one : `${many} (${refs.length})`}` : 'Sources'}
                     {refs.length > 0 && (scene.notes?.length > 0 || scene.art?.length > 0) && ' & sources'}
                   </span>
                   <span className="flex items-center gap-2 text-[0.7rem] italic text-ink-soft">

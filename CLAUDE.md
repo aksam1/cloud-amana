@@ -37,7 +37,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## Numbering, inserting scenes, and the pages between stories
 
-- Scene `order` runs through the whole story and shows as a Roman numeral, so it must stay whole and
+- Scene `order` runs through the whole story (on screen a scene shows its place in its chapter), so it must stay whole and
   sequential. To insert a scene, give it a fractional order (e.g. `96.5`) and then renumber: the generators'
   `tools/generators/renum.py` sorts by (chapter, order), renames files `s<NN>-<id>.json`, rewrites each
   chapter's part ranges and records id → order in `order.json` (which the generators read). Without it,
@@ -113,8 +113,20 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## The journey and its safety nets
 
-- One menu everywhere (`src/components/Nav.jsx`: Pyramid · Stories · Map · Progress). `#/stories` drops the
-  reader back into the story where they left it (no second home page). The map's home button is the pyramid.
+- One story spine (20 Nov 2026): chapters → parts → scenes, with each part's lesson as a checkpoint on the same
+  path. One menu everywhere (`src/components/Nav.jsx`: Home · Story · Explore · Progress; old ids such as `pyramid`,
+  `map`, `paths`, `abodes` light Explore through `UNDER`). `#/story` (`StoryPage.jsx`) is the path: every chapter in
+  order, the reader's chapter open with "you are here" and the next scene "Up next", each part's lesson after its
+  scenes (locked until the part's last scene is seen, then "Take the lesson"). `#/explore` (`Explore.jsx`) holds the
+  other doors (map, paths, pyramid, two abodes, guide), none of them a step on the path. `#/stories` still drops the
+  reader straight back into the story where they left it.
+- Where the reader is comes from one place: `storyResume(state)` in `src/lib/sceneIndex.js` (the last scene if
+  unfinished, else the next unseen after it, else the first unseen). Home's "Continue the story", the Story page and
+  Progress all use it; `sceneIndex.js` reads only the light `virtual:scene-index`, never story.js.
+- Scenes are numbered within their chapter on screen ("Scene 3 of 19", `placeOf`/`chapterScenes`); the next-scene
+  button says "Next: <title>". Roman numerals remain only for chapters.
+- Progress leads with one number (scenes watched, with the lessons taken under it). The pyramid card says "You are
+  climbing" only once the reader has placed or lit the peak; before that it offers "Find where to begin".
 - Never send anyone to an unwritten unit: `playable()` in pyramid.js; placement recommends playable units
   only (`startReady` false → the result explains). Unfinished units keep a draft (`drafts` in store.js) and
   the home page shows "Continue where you left off" (`recent`). A crash shows a recovery card (App.jsx).
@@ -149,8 +161,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Story first: the start screen's "Begin your journey" goes to `#/begin` (choose a view; then "Where would you like to
   start?": Watch the first story `#/scene/heavens?first=1` (`FIRST_STORY` in site.js), Take the short guide, or Look
   around on my own, with the story sound switch beside them; nothing plays until chosen). That first scene ends at `#/begin/next` (`Begun` in Pyramid.jsx): Keep
-  watching, or the reflection questions as an offer, a path, or the pyramid. The reflection is never forced first; the
-  pyramid page still offers it.
+  watching, or one link, "Or explore other ways in" (`#/explore`). The reflection questions live on the pyramid page
+  (`#/pyramid`, "Find where to begin"), never forced first and no longer offered after the first scene.
 - Paths (`src/data/paths.json`, `Paths.jsx`, `#/paths`, `#/path/<id>`): new doors into existing scenes (women,
   creatures, dreams, prayers). A stop plays `from`..`to` with `?back=/path/<id>&until=<to>` and is "watched" when the
   story's own `seen` has its scenes. Lines only restate what those scenes' narration says. Add a path as data only.
@@ -293,7 +305,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   Every Fire card carries the way back (39:53 and 25:70; 4:146 for al-Hawiyah). No people are drawn in either abode,
   and nothing (a score, an answer, "you") ever links a reader to a level. Never predict anyone's place.
 - The 100 grades of Paradise (blueprint §8) are shelved by the owner, not planned.
-- Doors in: the home page's links, the end page, the map's `judgment` stop (timeline.json `see`: { label, to }, a
+- Doors in: Explore (`#/explore`; the home page no longer links it), the end page, the map's `judgment` stop (timeline.json `see`: { label, to }, a
   node's extra page, shown under its scenes), the end of the Last Day unit and of chapter 21's lesson (`see`), the
   guide and About. Doors out (its footer): the Day of Judgment story (`earth`..`sovereign` with `?back=/abodes`, whose
   last moment says "Back to the two abodes"), the Last Day unit, and the map opened at that stop (`#/map?at=judgment`;

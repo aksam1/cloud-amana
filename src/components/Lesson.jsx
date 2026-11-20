@@ -95,10 +95,10 @@ const LABELS = { remember: 'Remember', lesson: 'The lesson', carry: 'Carry it', 
 
 function Shell({ children }) {
   return (
-    <div className="parchment-night thin-scroll relative grid h-full w-full place-items-center overflow-y-auto px-4 py-8">
+    <main className="parchment-night thin-scroll relative grid h-full w-full place-items-center overflow-y-auto px-4 py-8">
       <GeoField opacity={0.06} size={140} />
       <article className="parchment ruled cartouche relative z-10 w-full max-w-[600px] px-6 pb-5 pt-5 shadow-[0_30px_70px_-20px_rgba(0,0,0,.9)] sm:px-8">{children}</article>
-    </div>
+    </main>
   );
 }
 
