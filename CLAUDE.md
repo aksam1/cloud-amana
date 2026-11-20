@@ -172,7 +172,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## Story first, paths and the sky (10 Nov 2026)
 
-- Story first: the start screen's "Begin your journey" goes to `#/begin` (choose a view; then "Where would you like to
+- Story first: the start screen's "Begin your journey" goes to `#/begin` (choose a view; a newcomer then goes through
+  the short guide, which can be skipped at once (see "Finding your way"); then "Where would you like to
   start?": Watch the first story `#/scene/heavens?first=1` (`FIRST_STORY` in site.js), Take the short guide, or Look
   around on my own, with the story sound switch beside them; nothing plays until chosen). That first scene ends at `#/begin/next` (`Begun` in Pyramid.jsx): Keep
   watching, or one link, "Or explore other ways in" (`#/explore`). The reflection questions live on the pyramid page
@@ -335,13 +336,21 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## Finding your way: the guide, tips and sounds (Nov 2026)
 
-- The owner's rule: never thrust a newcomer into anything; offer choices. Begin asks where to start, a part's end
+- The owner's rule: never thrust a reader into anything; offer choices. Begin asks where to start, a part's end
   offers its lesson, the guide ends with a choice, and auto-advance waits whenever a choice is on screen.
-- `#/guide?step=<id>` (`Guide.jsx`, `STEPS`: one place per step, its line, where it is, a way to open it; `spot`
-  rings that item of the real menu with `.guide-spot`). `?step=all` is every step on one page; the last step,
-  `start`, asks where to begin. Doors: the home page (a plain Guide link beside Settings, About and Privacy), Begin,
-  Explore (always open), the scene player's help, Settings ("Finding your way") and About.
-  Keep each step's `where` true when a place moves.
+  **One exception (owner, 20 Nov 2026): the guide is required for newcomers.** `newcomer(state)` (discover.js: no
+  `prefs.guide`, no `last`, nothing earned) is sent from Begin straight into `#/guide` once a view is chosen
+  (`go('/guide', { replace: true })`, so Back does not loop). "Skip the guide" is on every step; skipping or reaching
+  the last step sets `prefs.guide` (`'skipped'` / `'done'`), after which the guide is an offer like every other door.
+- The guide teaches by doing (`Guide.jsx`, `TOUR`, 4 steps, then `start`): `moments` (a practice scene, night to
+  morning: tap or click the picture, swipe or arrow keys), `verse` (open 33:72's Arabic from its reference,
+  `virtual:ayah/33:72`), `lesson` (one question; a wrong answer says why), `menu` (the real menu's Story is ringed with
+  `.guide-spot`; Nav's `onSpot` makes that tap practice instead of leaving). Next appears only once a step is done;
+  Previous keeps what was done. The last step, `start`, asks where to begin. `?step=all` is every place on one page
+  (`PLACES`, 8 entries, each with where it is and a way to open it; it opens them all via `markFound`), offered from
+  the start step and, for anyone but a newcomer, under each step. Keep each place's `where` true when a place moves.
+- Doors back in: Begin ("Take the short guide"), the home page (a plain Guide link beside Settings, About and
+  Privacy), Explore (always open), the scene player's help, Settings ("Finding your way") and About.
 - First-visit tips: `Hint.jsx` (`<Hint id>`: Got it, Show me around, No more tips), remembered in `prefs.hints`
   (`dismissHint(id)`, `all` for every tip; the guide sets `guide`). Settings can turn them all back on. Place a
   tip in the flow or over open sky, never over a page's own controls. The map has one today.

@@ -360,7 +360,7 @@ test('a verse still waiting for its text shows its reference and a way to read i
   await expect(page.getByText(/appear here once it is fetched/)).toHaveCount(0);
 });
 
-test('story first: a new visitor chooses a view, then where to start, with no questions before the first scene', async ({ page }) => {
+test('story first: a new visitor chooses a view, may skip the guide, then chooses where to start, with no questions before the first scene', async ({ page }) => {
   test.setTimeout(150000); // it waits for a scene's last moment to play out
   await page.goto('/');
   await skipOpening(page);
@@ -368,7 +368,10 @@ test('story first: a new visitor chooses a view, then where to start, with no qu
   await page.getByRole('button', { name: /Begin your journey/ }).click();
   await expect(page.getByRole('heading', { name: /how would you like to explore/ })).toBeVisible();
   await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
-  // a choice of where to start, never a scene that starts by itself
+  // a newcomer is taken into the short guide (tests/e2e/guide.e2e.js), and can skip it at once
+  await expect(page).toHaveURL(/#\/guide$/);
+  await page.getByRole('button', { name: 'Skip the guide', exact: true }).click();
+  // then a choice of where to start, never a scene that starts by itself
   await expect(page.getByRole('heading', { name: 'Where would you like to start?' })).toBeVisible();
   await expect(page.getByRole('button', { name: /Take the short guide/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /Look around on my own/ })).toBeVisible();

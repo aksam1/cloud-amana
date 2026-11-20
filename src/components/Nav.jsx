@@ -24,14 +24,17 @@ const UNDER = { stories: 'story', pyramid: 'explore', map: 'explore', paths: 'ex
 /**
  * The one menu every page shares. On a phone it is a tab bar along the bottom edge, where a thumb reaches
  * it (pages leave `pb-28` free for it); from the `sm` breakpoint up it sits inline where it is placed.
- * `here` marks the current section. `spot` rings one item in light: the guide uses it to show where a place is.
+ * `here` marks the current section. `spot` rings one item in light: the guide uses it to show where a place is,
+ * and with `onSpot` a tap on that item is the guide's to answer (it is practice, not a way out of the guide).
  * A small gold dot marks a tab with something newly opened behind it, until the reader goes there.
  */
-export default function Nav({ here, tone = 'night', spot = null }) {
+export default function Nav({ here, tone = 'night', spot = null, onSpot = null }) {
   const ink = tone === 'parchment';
-  here = UNDER[here] || here;
-  spot = UNDER[spot] || spot;
   const open = useStore(opened);
+  // the guide lives under Explore once Explore is in the menu; before that it belongs to no tab, so a newcomer's
+  // menu stays Home and Story
+  here = here === 'guide' && !open.explore ? null : UNDER[here] || here;
+  spot = UNDER[spot] || spot;
   const news = useStore(fresh);
   const isNew = { explore: DOORS.some((d) => news[d.id]), progress: !!news.progress };
   const items = ITEMS.filter((it) => ALWAYS.has(it.id) || open[it.id] || it.id === here || it.id === spot);
@@ -62,7 +65,8 @@ export default function Nav({ here, tone = 'night', spot = null }) {
                 href={`#${it.to}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  go(it.to);
+                  if (lit && onSpot) onSpot();
+                  else go(it.to);
                 }}
                 aria-current={on ? 'page' : undefined}
                 // one name read as one phrase (a visually hidden span would be read with a pause of its own)

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { savePlacement, setPref, useStore } from '../lib/store.js';
-import { fresh } from '../lib/discover.js';
+import { fresh, newcomer } from '../lib/discover.js';
 import { ambience } from '../lib/audio.js';
 import { USAGE_ON, track } from '../lib/usage.js';
 import { inMode, useMode } from '../lib/words.js';
@@ -45,7 +45,7 @@ export default function Pyramid({ view = 'landing' }) {
 
 // ── Shared pieces ─────────────────────────────────────────
 
-export function Shell({ children, back, title, stars = false, here, wide = false, spot = null }) {
+export function Shell({ children, back, title, stars = false, here, wide = false, spot = null, onSpot = null }) {
   return (
     <div className="thin-scroll relative h-full w-full overflow-y-auto" style={{ background: NIGHT }}>
       {stars && <Stars />}
@@ -56,7 +56,7 @@ export function Shell({ children, back, title, stars = false, here, wide = false
         </a>
         {here && (
           <div className="sm:w-[580px]">
-            <Nav here={here} spot={spot} />
+            <Nav here={here} spot={spot} onSpot={onSpot} />
           </div>
         )}
       </header>
@@ -448,15 +448,22 @@ export function SoundChoice({ label = 'Sound for the stories' }) {
 }
 
 /**
- * Story first, at the reader's own pace (#/begin). A new visitor chooses a view; then, on the same page, where
- * to start: the first story (the main choice, one tap away), the short guide, or the map on their own. Nothing
- * plays until they choose, and no questions stand between them and the story.
+ * Story first, at the reader's own pace (#/begin). A new visitor chooses a view, then takes the short guide (four
+ * things to try, each skippable in one tap: src/components/Guide.jsx). After that, or for anyone who has been
+ * here before, this page asks where to start: the first story (the main choice), the guide again, or a look
+ * around. Nothing plays until they choose, and no questions stand between them and the story.
  */
 function Begin() {
   const { mode } = useMode();
   const state = useStore();
+  const isNew = newcomer(state);
   const started = !!state.last || Object.keys(state.seen || {}).length > 0;
   const up = started ? storyResume(state) : null;
+  // the guide takes this page's place in the history, so Back from it goes home rather than bouncing back in
+  useEffect(() => {
+    if (mode && isNew) go('/guide', { replace: true });
+  }, [mode, isNew]);
+  if (mode && isNew) return <Shell back="/" title="Begin" />;
   if (!mode) {
     return (
       <Shell back="/" title="Begin">

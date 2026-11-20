@@ -92,5 +92,12 @@ export function placeOfRoute(route) {
   }
 }
 
-/** Which place each step of the guide shows, so taking the guide opens what it points at. */
+/** The places the guide's "every place on one page" shows, so reading it opens what it points at. */
 export const GUIDE_PLACES = { map: ['map', 'explore'], paths: ['paths', 'explore'], pyramid: ['pyramid', 'explore'], abodes: ['abodes', 'explore'], progress: ['progress'] };
+
+/**
+ * Is this a newcomer, who is taken into the short guide before anything else? Nothing watched or learned yet,
+ * no scene opened, and the guide neither finished nor skipped. Skipping is always one tap; after that the guide
+ * is an offer like any other.
+ */
+export const newcomer = (state) => !state?.prefs?.guide && !state?.last && !earned(state).progress;

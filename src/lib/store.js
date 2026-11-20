@@ -22,7 +22,8 @@ const DEFAULTS = {
   // usage: the reader's own switch for the anonymous counts (off when set to false; the browser's own
   // Global Privacy Control or Do Not Track also stops them, whatever this says)
   // unfold: places open as the story reaches them (false shows every place at once)
-  prefs: { sound: false, auto: true, chronicle: true, mode: null, installAsked: false, taps: true, hints: {}, usage: true, unfold: true },
+  // guide: the short guide, 'done' or 'skipped' (null: not yet; a newcomer is taken into it, src/lib/discover.js)
+  prefs: { sound: false, auto: true, chronicle: true, mode: null, installAsked: false, taps: true, hints: {}, usage: true, unfold: true, guide: null },
 };
 
 function load() {

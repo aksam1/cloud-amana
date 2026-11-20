@@ -1,7 +1,7 @@
 // The places that open as the story reaches them (src/lib/discover.js), checked on every run of `npm test`.
 import { describe, expect, it } from 'vitest';
 import paths from '../data/paths.json';
-import { DOORS, earned, fresh, GUIDE_PLACES, opened, placeOfRoute, unfolds } from './discover.js';
+import { DOORS, earned, fresh, GUIDE_PLACES, newcomer, opened, placeOfRoute, unfolds } from './discover.js';
 import { SCENES, scenesOf } from './sceneIndex.js';
 import { getState, markFound, mergeStates, replaceState, resetProgress, validateBackup } from './store.js';
 
@@ -123,5 +123,22 @@ describe('the found places in the store', () => {
   it('merges found places from two devices, and refuses a damaged list', () => {
     expect(mergeStates({ found: { map: true } }, { found: { abodes: true } }).found).toEqual({ map: true, abodes: true });
     expect(validateBackup({ app: 'amanah', version: 1, state: { found: [] } }).ok).toBe(false);
+  });
+});
+
+describe('who is taken into the short guide', () => {
+  it('takes a newcomer, whether the store is empty or holds only defaults and a chosen view', () => {
+    expect(newcomer({})).toBe(true);
+    expect(newcomer(undefined)).toBe(true);
+    expect(newcomer({ seen: {}, learned: {}, prefs: { mode: 'curious', guide: null } })).toBe(true);
+  });
+
+  it('never takes anyone who finished or skipped it, or who has already begun', () => {
+    expect(newcomer({ prefs: { guide: 'done' } })).toBe(false);
+    expect(newcomer({ prefs: { guide: 'skipped' } })).toBe(false);
+    expect(newcomer({ seen: seen(SCENES[0].id) })).toBe(false);
+    expect(newcomer({ last: SCENES[0].id })).toBe(false);
+    expect(newcomer({ learned: { '1:0': true } })).toBe(false);
+    expect(newcomer({ units: { sabr: { meter: 0.4 } } })).toBe(false);
   });
 });

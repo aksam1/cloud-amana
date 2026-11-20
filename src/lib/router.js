@@ -3,8 +3,9 @@
 // · #/explore (the other ways in) · #/map?arrive=&from= · #/scene/:id (?beat=n opens at a moment, &still holds it,
 // &t=0.5 holds it halfway through its timed motions)
 // · #/lesson/:chapter/:part?then=<route> (the lesson after a part; ?then is where it continues)
-// · #/begin and #/begin/next (a new visitor chooses a view, then where to start; after the first story, where to go next)
-// · #/guide?step=<id> (a short guide: what is where) · #/paths and #/path/:id (paths through the stories)
+// · #/begin and #/begin/next (a new visitor chooses a view, then takes the guide; after the first story, where to go next)
+// · #/guide?step=<id> (the short guide: try each thing once; ?step=all is every place on one page)
+// · #/paths and #/path/:id (paths through the stories)
 // · #/sheet/:chapter or #/sheet/:sceneId (contact sheet of every beat, for reviewing compositions)
 import { useEffect, useState } from 'react';
 
@@ -30,7 +31,7 @@ function parse(hash) {
   if (parts[0] === 'report') return { name: 'report', query, key: 'report' };
   if (parts[0] === 'contact') return { name: 'contact', query, key: `contact:${parts[1] || ''}` };
   if (parts[0] === 'abodes') return { name: 'abodes', query, key: 'abodes' };
-  // the newcomer's guide, #/guide?step=<id>: one key for every step, so moving between steps never fades the page
+  // the short guide, #/guide?step=<id>: one key for every step, so moving between steps never fades the page
   if (parts[0] === 'guide') return { name: 'guide', query, key: 'guide' };
   // story first: #/begin (choose a view, then where to start) and #/begin/next (where to go after the first story)
   if (parts[0] === 'begin') return { name: 'pyramid', view: parts[1] === 'next' ? 'begun' : 'begin', query, key: `begin:${parts[1] || ''}` };
@@ -51,6 +52,8 @@ export function useRoute() {
   return parse(hash);
 }
 
-export function go(path) {
-  window.location.hash = path;
+/** Go to a route. `replace` takes the current page's place in the history, so Back skips a page that only passed the reader on. */
+export function go(path, { replace = false } = {}) {
+  if (replace) window.location.replace(`#${path}`);
+  else window.location.hash = path;
 }
