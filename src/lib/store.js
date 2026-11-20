@@ -16,11 +16,13 @@ const DEFAULTS = {
   units: {}, // unitId → { meter, check, choice, reflection, attempts, at }
   drafts: {}, // unitId → an unfinished attempt { step, choice, firsts, at }, so leaving never loses a place
   recent: null, // the last thing opened, for "Continue where you left off": { kind: 'unit'|'scene', id, title, at }
+  found: {}, // places the reader has come across (src/lib/discover.js): placeId → true; a place found stays open
   // mode: 'muslim' | 'curious' | null (not chosen); taps: the soft click on buttons; hints: the first-visit
   // pointers a reader has closed (hintId → true), so each one shows once
   // usage: the reader's own switch for the anonymous counts (off when set to false; the browser's own
   // Global Privacy Control or Do Not Track also stops them, whatever this says)
-  prefs: { sound: false, auto: true, chronicle: true, mode: null, installAsked: false, taps: true, hints: {}, usage: true },
+  // unfold: places open as the story reaches them (false shows every place at once)
+  prefs: { sound: false, auto: true, chronicle: true, mode: null, installAsked: false, taps: true, hints: {}, usage: true, unfold: true },
 };
 
 function load() {
@@ -64,6 +66,15 @@ export const setPref = (k, v) => update((s) => void (s.prefs[k] = v));
 export const markSeen = (id) => update((s) => void (s.seen[id] = true));
 /** Close a first-visit pointer for good ('all' closes every one, as "Don't show tips" does). */
 export const dismissHint = (id) => update((s) => void (s.prefs.hints = { ...(s.prefs.hints || {}), [id]: true }));
+/** Places the reader has now come across. Writes only when one is new, so visiting a page costs nothing. */
+export function markFound(...ids) {
+  const add = ids.filter((id) => id && !state.found?.[id]);
+  if (!add.length) return;
+  update((s) => {
+    s.found = { ...(s.found || {}) };
+    for (const id of add) s.found[id] = true;
+  });
+}
 export const lightNode = (id) => update((s) => void (s.lit[id] = true));
 export const setLast = (id, title) =>
   update((s) => {
@@ -103,8 +114,9 @@ export function deleteAllData() {
   subs.forEach((f) => f());
 }
 // Starting again keeps preferences and the reader's private journal; only progress is cleared.
-// (The pyramid's placement and unit meters are kept too: this restarts the chronicle only.)
-export const resetProgress = () => update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs, journal: s.journal, journalAt: s.journalAt, placement: s.placement, units: s.units, drafts: s.drafts }));
+// (The pyramid's placement and unit meters are kept too: this restarts the chronicle only. The places already
+// found stay open: the reader knows their way around.)
+export const resetProgress = () => update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs, journal: s.journal, journalAt: s.journalAt, placement: s.placement, units: s.units, drafts: s.drafts, found: s.found || {} }));
 
 // ── Backup, restore and merge ─────────────────────────────────────────────────
 //
@@ -145,7 +157,7 @@ export function validateBackup(obj) {
   if (obj.version > BACKUP_VERSION) return { ok: false, error: 'This backup is from a newer version of Amanah. Update the app first.' };
   const state = obj.state;
   if (!state || typeof state !== 'object' || Array.isArray(state)) return { ok: false, error: 'This backup has no progress in it.' };
-  for (const k of ['seen', 'lit', 'learned', 'answers', 'journal', 'journalAt', 'units', 'drafts']) {
+  for (const k of ['seen', 'lit', 'learned', 'answers', 'journal', 'journalAt', 'units', 'drafts', 'found']) {
     if (state[k] !== undefined && (typeof state[k] !== 'object' || state[k] === null || Array.isArray(state[k]))) {
       return { ok: false, error: `This backup is damaged (${k} is not readable).` };
     }
@@ -157,7 +169,7 @@ export function validateBackup(obj) {
 }
 
 // ── The merge rules ───────────────────────────────────────────────────────────
-//  · seen, lit, learned, answers: a union (true wins)
+//  · seen, lit, learned, answers, found: a union (true wins)
 //  · units: the higher meter wins; a tie goes to the newer one; attempts: the larger count
 //  · journal: the newer text wins; without timestamps the local one is kept and the other follows it
 //  · placement, recent: the newer one wins
@@ -221,6 +233,7 @@ export function mergeStates(local, incoming) {
   out.lit = unionFlags(l.lit, i.lit);
   out.learned = unionFlags(l.learned, i.learned);
   out.answers = unionFlags(l.answers, i.answers);
+  out.found = unionFlags(l.found, i.found);
 
   // units: the higher meter is kept; a tie goes to the newer; attempts: the larger count
   const units = { ...(i.units || {}) };
@@ -290,7 +303,7 @@ export function mergeStates(local, incoming) {
 export function replaceState(next) {
   const clean = { ...structuredClone(DEFAULTS), ...(next || {}) };
   clean.prefs = { ...DEFAULTS.prefs, ...(next?.prefs || {}) };
-  for (const k of ['seen', 'lit', 'learned', 'answers', 'journal', 'journalAt', 'units', 'drafts']) {
+  for (const k of ['seen', 'lit', 'learned', 'answers', 'journal', 'journalAt', 'units', 'drafts', 'found']) {
     if (!clean[k] || typeof clean[k] !== 'object' || Array.isArray(clean[k])) clean[k] = {};
   }
   update(() => clean);

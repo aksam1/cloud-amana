@@ -2,7 +2,8 @@ import { useCallback, useEffect } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { go } from '../lib/router.js';
 import { FIRST_STORY } from '../lib/site.js';
-import { dismissHint } from '../lib/store.js';
+import { GUIDE_PLACES } from '../lib/discover.js';
+import { dismissHint, markFound } from '../lib/store.js';
 import { Icon } from './Ornaments.jsx';
 import { Shell } from './Pyramid.jsx';
 
@@ -198,6 +199,10 @@ export default function Guide({ step }) {
   useEffect(() => {
     dismissHint('guide');
   }, []);
+  // A step that shows a place opens it in the menu, so the guide never points at a tab the reader cannot see.
+  useEffect(() => {
+    markFound(...(all ? Object.values(GUIDE_PLACES).flat() : GUIDE_PLACES[id] || []));
+  }, [all, id]);
 
   const move = useCallback((to) => to && go(`/guide?step=${to}`), []);
   useEffect(() => {

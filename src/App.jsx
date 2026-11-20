@@ -1,7 +1,8 @@
 import { Component, lazy, Suspense, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useRoute } from './lib/router.js';
-import { getState } from './lib/store.js';
+import { getState, markFound } from './lib/store.js';
+import { placeOfRoute } from './lib/discover.js';
 import { ambience } from './lib/audio.js';
 import { GeoField, starPath } from './components/Ornaments.jsx';
 import { IS_WEB, registerWorker, watchForUpdate } from './lib/pwa.js';
@@ -202,6 +203,13 @@ export default function App() {
     });
     return () => off();
   }, []);
+
+  // Visiting a place opens it for good (src/lib/discover.js): the menu and Explore stop calling it new, and a
+  // place reached by a link or a typed address is never hidden from the menu again.
+  useEffect(() => {
+    const place = placeOfRoute(route);
+    if (place) markFound(place);
+  }, [route.key]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const inScene = route.name === 'scene';
   // Scenes keep the slow, cinematic fade in and out. Every other page (home, map, menus, lessons) fades

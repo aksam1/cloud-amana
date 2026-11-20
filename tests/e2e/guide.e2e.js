@@ -1,12 +1,14 @@
 // The newcomer's guide (#/guide) and the first-visit tips: a newcomer is shown what is where and then chooses,
 // never sent anywhere. Each test starts from a fresh browser.
 import { expect, test } from '@playwright/test';
+import { skipOpening } from './opening.js';
 
 const ringed = (page) => page.locator('nav[aria-label="Main"] li.guide-spot');
 
 test('a newcomer steps through the guide, sees where each place is in the menu, and chooses where to start', async ({ page }) => {
   await page.goto('/#/');
-  await page.getByRole('button', { name: 'New here? Take the short guide' }).click();
+  await skipOpening(page);
+  await page.getByRole('button', { name: 'Guide', exact: true }).click();
   await expect(page).toHaveURL(/#\/guide$/);
   await expect(page.getByRole('heading', { name: 'The story' })).toBeVisible();
   await expect(page.getByText('Step 1 of 8')).toBeVisible();
@@ -45,10 +47,9 @@ test('a newcomer steps through the guide, sees where each place is in the menu, 
   await page.getByRole('button', { name: /^See every chapter/ }).click();
   await expect(page).toHaveURL(/#\/story$/);
 
-  // once the guide has been opened, the home page offers it as a plain link, not the newcomer's invitation
+  // the home page keeps the guide as a plain link, one tap away, and never presses it on anyone
   await page.goto('/#/');
   await expect(page.getByRole('button', { name: 'Guide', exact: true })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'New here? Take the short guide' })).toHaveCount(0);
 });
 
 test("the map's first-visit tip shows the guide, closes for good, and Settings brings the tips back", async ({ page }) => {

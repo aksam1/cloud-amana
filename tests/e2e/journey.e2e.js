@@ -1,6 +1,7 @@
 // The journeys a real person takes, start to finish. Each test starts from a fresh browser (no saved data).
 import { readdirSync, readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
+import { skipOpening } from './opening.js';
 
 async function reflect(page, pick = 2, view = /I'm Muslim/) {
   await page.goto('/#/pyramid/placement'); // the reflection is an offer now (story first), reached from the pyramid or after the first story
@@ -20,14 +21,39 @@ async function reflect(page, pick = 2, view = /I'm Muslim/) {
 
 test('a first-time visitor understands the app, reflects, and reaches a lesson that exists', async ({ page }) => {
   await page.goto('/');
+  // a first visit opens on the Trust, the verse the app is named for, with the verse itself one tap away
+  await expect(page.getByRole('region', { name: 'The Trust' })).toContainText('Humankind took it up.');
+  await skipOpening(page);
+  await page.getByRole('button', { name: 'Quran 33:72' }).click();
+  const verse = page.getByRole('dialog', { name: /Quran 33:72/ });
+  await expect(verse.locator('p[lang="ar"]')).not.toBeEmpty();
+  await expect(verse).toContainText('Indeed, we offered the Trust');
+  await page.keyboard.press('Escape');
+  await expect(verse).toHaveCount(0);
   await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();
   await expect(page.getByRole('button', { name: /Begin your journey/ })).toBeInViewport();
+  await expect(page.getByRole('button', { name: 'Privacy', exact: true })).toBeInViewport();
   await expect(page.getByText(/only (Allah|God) knows the state of anyone's heart/i)).toBeAttached();
   await reflect(page, 2); // "Sometimes" to everything: the case that once led to an empty page
   await expect(page.getByText('Begin your climb at')).toBeVisible();
   await expect(page.getByText(/only (Allah|God) knows/i)).toBeVisible();
   await page.getByRole('button', { name: /^(Begin|Begin the stories)/ }).first().click();
   await expect(page.getByText(/still being written/)).toHaveCount(0);
+});
+
+test.describe('with reduced motion', () => {
+  test.use({ reducedMotion: 'reduce' });
+
+  test('the opening is there whole at once, and the first tap reaches the button', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('.hook-done')).toBeAttached();
+    await expect(page.getByRole('region', { name: 'The Trust' })).toContainText('Humankind took it up.');
+    // every line and the title are fully shown, none waiting on an animation
+    const faded = await page.locator('.hook-in').evaluateAll((els) => els.filter((e) => getComputedStyle(e).opacity !== '1').length);
+    expect(faded).toBe(0);
+    await page.getByRole('button', { name: /Begin your journey/ }).click();
+    await expect(page).toHaveURL(/#\/begin$/);
+  });
 });
 
 test('someone who leaves a unit half way comes back to exactly where they were', async ({ page }) => {
@@ -184,13 +210,58 @@ test('every part of the app has a way home', async ({ page }) => {
   const menu = page.getByRole('navigation', { name: 'Main' });
   await menu.getByRole('link', { name: 'Explore' }).click();
   await expect(page.getByRole('heading', { name: 'Explore', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: /^The pyramid/ }).click();
+  // a newcomer has not reached the pyramid yet: its door waits under "Still ahead", and opens when asked
+  await page.getByRole('button', { name: 'Open the pyramid now' }).click();
   await expect(page.getByRole('heading', { name: 'The Pyramid', exact: true })).toBeVisible();
   await menu.getByRole('link', { name: 'Story' }).click();
   await expect(page).toHaveURL(/#\/story$/);
   await expect(page.getByRole('heading', { name: 'The story', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Start at the beginning' }).click();
   await expect(page).toHaveURL(/#\/scene\//);
+});
+
+test('places open as the story reaches them, each says so once, and any of them can be opened early', async ({ page }) => {
+  await page.goto('/');
+  const menu = page.getByRole('navigation', { name: 'Main' });
+  // a newcomer's menu is Home and Story: nothing else to learn yet
+  await expect(menu.getByRole('link')).toHaveCount(2);
+
+  // the first scene watched opens the map (and with it Explore) and Progress, and the menu says so
+  await page.evaluate(() => localStorage.setItem('amanah:v1', JSON.stringify({ prefs: { usage: false }, seen: { heavens: true } })));
+  await page.goto('/#/story');
+  await page.reload();
+  await expect(menu.getByRole('link', { name: 'Explore, something new', exact: true })).toBeVisible();
+  await expect(menu.getByRole('link', { name: 'Progress, something new', exact: true })).toBeVisible();
+  await expect(page.getByText(/Newly open in Explore/)).toContainText('The map of time');
+
+  // in Explore the new door is marked once; the rest wait under "Still ahead", each saying how it opens
+  await menu.getByRole('link', { name: 'Explore, something new', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Explore', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: /^The map of time/ })).toContainText('New');
+  const ahead = page.getByRole('region', { name: 'Still ahead' });
+  await expect(ahead).toContainText('Opens with your first lesson.');
+  await expect(menu.getByRole('link', { name: 'Explore', exact: true })).toBeVisible();
+
+  // any door can be opened before its time, and stays open
+  await ahead.getByRole('button', { name: 'Open the pyramid now' }).click();
+  await expect(page.getByRole('heading', { name: 'The Pyramid', exact: true })).toBeVisible();
+  await menu.getByRole('link', { name: 'Explore', exact: true }).click();
+  await expect(page.getByRole('button', { name: /^The pyramid/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Open the pyramid now' })).toHaveCount(0);
+
+  // a returning reader's home page is the calm one: no opening, and the way back into the story
+  await menu.getByRole('link', { name: 'Home', exact: true }).click();
+  await expect(page.getByRole('button', { name: /Continue the story/ })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'The Trust' })).toHaveCount(0);
+
+  // Settings can show every place at once
+  await page.getByRole('button', { name: 'Settings', exact: true }).click();
+  const unfold = page.getByRole('switch', { name: 'Reveal places as I go' });
+  await unfold.click();
+  await expect(unfold).toHaveAttribute('aria-checked', 'false');
+  await menu.getByRole('link', { name: /^Explore/ }).click();
+  await expect(page.getByRole('region', { name: 'Still ahead' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /^The two abodes/ })).toBeVisible();
 });
 
 test('tapping a level of the pyramid looks closer, and the whole pyramid comes back', async ({ page }) => {
@@ -264,6 +335,7 @@ test('a finished lesson offers the next one, and the next one opens', async ({ p
 
 test('the About page says where the words come from and what is stored, and a wrong address says so', async ({ page }) => {
   await page.goto('/');
+  await skipOpening(page);
   await page.getByRole('button', { name: 'About', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'About Amanah' })).toBeVisible();
   // one line per subject; the detail opens when asked for
@@ -291,7 +363,8 @@ test('a verse still waiting for its text shows its reference and a way to read i
 test('story first: a new visitor chooses a view, then where to start, with no questions before the first scene', async ({ page }) => {
   test.setTimeout(150000); // it waits for a scene's last moment to play out
   await page.goto('/');
-  await expect(page.getByRole('button', { name: /New here\? Take the short guide/ })).toBeVisible();
+  await skipOpening(page);
+  await expect(page.getByRole('button', { name: 'Guide', exact: true })).toBeVisible();
   await page.getByRole('button', { name: /Begin your journey/ }).click();
   await expect(page.getByRole('heading', { name: /how would you like to explore/ })).toBeVisible();
   await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
@@ -314,7 +387,7 @@ test('story first: a new visitor chooses a view, then where to start, with no qu
   await expect(page.getByRole('button', { name: /Find where to begin/ })).toHaveCount(0);
   await page.getByRole('button', { name: 'Or explore other ways in' }).click();
   await expect(page).toHaveURL(/#\/explore$/);
-  await page.getByRole('button', { name: /^The pyramid/ }).click();
+  await page.getByRole('button', { name: 'Open the pyramid now' }).click();
   await page.getByRole('button', { name: 'Find where to begin', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Before you climb' })).toBeVisible();
 });

@@ -5,6 +5,7 @@ import { CHAPTERS, STORY_PARTS } from '../lib/pyramid.js';
 import { SCENES, scenesOf, seenCount, storyResume } from '../lib/sceneIndex.js';
 import { Icon } from './Ornaments.jsx';
 import { Shell, whereInStory } from './Pyramid.jsx';
+import Unveiled from './Unveiled.jsx';
 
 /**
  * #/story: the one path through Amanah. Every chapter in order, each chapter's parts, each part's scenes, and the
@@ -34,13 +35,14 @@ export default function StoryPage() {
       <h1 className="mt-4 font-display text-[1.8rem] font-semibold leading-tight text-gold-hi">The story</h1>
       <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/80">From the first light to the Last Day, in order. A short lesson closes each part.</p>
       <p className="mt-1 font-body text-[1rem] italic text-ivory/60" role="status">
-        {watched} of {SCENES.length} scenes watched · {lessons} of {STORY_PARTS.length} lessons
+        {watched} of {SCENES.length} scenes watched, {lessons} of {STORY_PARTS.length} lessons
       </p>
       <button type="button" className="btn-gold mt-5 self-start" onClick={() => go(`/scene/${up.id}`)} autoFocus>
         <Icon name="play" className="h-4 w-4" />
         {all ? 'Watch again from the beginning' : started ? 'Continue the story' : 'Start at the beginning'}
       </button>
       {started && !all && <p className="mt-2 font-body text-[1.02rem] italic text-ivory/65">{whereInStory(up)}</p>}
+      <Unveiled className="mt-5" />
 
       <ol className="mt-6 grid gap-2" aria-label="Chapters">
         {CHAPTERS.map((c) => (
@@ -78,7 +80,7 @@ function Chapter({ c, seen, learned, up, open, onToggle }) {
             <span className="block font-body text-[1.18rem] font-semibold leading-tight text-gold-hi">{c.title}</span>
             <span className="block font-body text-[0.98rem] italic text-ivory/60">
               {done === scenes.length ? `All ${scenes.length} scenes watched` : `${done} of ${scenes.length} scenes watched`}
-              {here ? ' · you are here' : ''}
+              {here ? ', you are here' : ''}
             </span>
           </span>
           <Icon name="chevron" className={`h-5 w-5 shrink-0 text-gold/70 transition-transform ${open ? 'rotate-180' : ''}`} />

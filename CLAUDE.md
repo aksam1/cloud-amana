@@ -122,6 +122,16 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   scenes (locked until the part's last scene is seen, then "Take the lesson"). `#/explore` (`Explore.jsx`) holds the
   other doors (map, paths, pyramid, two abodes, guide), none of them a step on the path. `#/stories` still drops the
   reader straight back into the story where they left it.
+- Places open as the story reaches them (`src/lib/discover.js`, 20 Nov 2026): a newcomer's menu is Home · Story; the
+  first scene opens the map (and so Explore) and Progress; the Garden (the first path stop) opens Paths; a lesson,
+  placement, unit or draft opens the pyramid; the end of chapter 1, any chapter 20+ scene or the Last Day unit opens
+  the two abodes. `earned(state)` is that rule; `opened()` adds `found` (store.js: a place visited, or shown by the
+  guide, stays open) and `prefs.unfold === false` (Settings, "Reveal places as I go", off shows everything). It is
+  disclosure, never a lock: every address works, Explore lists the rest under "Still ahead" with how each opens and
+  "Open it now", and the guide opens what it shows. A place newly open is said once: a gold dot on its menu tab
+  (Nav, named "…, something new"), "New" on its Explore card, and `Unveiled.jsx` on the Story page ("Newly open in
+  Explore: …", × puts it away), all cleared by `markFound`. Each door's "Opens …" line lives in `DOORS`; keep it true
+  when a rule changes. `tests/e2e/journey.e2e.js` ("places open as the story reaches them") walks it.
 - Where the reader is comes from one place: `storyResume(state)` in `src/lib/sceneIndex.js` (the last scene if
   unfinished, else the next unseen after it, else the first unseen). Home's "Continue the story", the Story page and
   Progress all use it; `sceneIndex.js` reads only the light `virtual:scene-index`, never story.js.
@@ -134,7 +144,9 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   the home page shows "Continue where you left off" (`recent`). A crash shows a recovery card (App.jsx).
 - Pages load on demand; the home page must not import `src/lib/story.js` (about 1 MB): pyramid.js reads
   only the chapter files, and only the *names* of the unit files (a lazy glob); Unit.jsx loads their content.
-  Measured: 144 KB compressed JS on first load with all 16 units written (was 319 KB).
+  Measured: 144 KB compressed JS on first load with all 16 units written (was 319 KB). Nor may it import
+  `src/data/ayahs.json` (about 280 KB): a page quoting one verse imports `virtual:ayah/<ref>` (vite.config.js
+  `ayahPick`), which inlines that one ayah from the same file at build time and fails the build if it is missing.
 - `npm test` (vitest: engine, placement never dead-ends, wording), `npm run e2e` (Playwright journeys on
   phone and desktop, including one that walks all 15 new units to the end; locally
   `CHROME_PATH=/usr/bin/google-chrome npm run e2e`), `npm run verify` (check +
@@ -183,7 +195,14 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## The look (first impression)
 
-- `#/` is a cinematic start screen (`Home` in Pyramid.jsx: Yusuf's eleven stars full screen, "Amanah", one button). The pyramid page is `#/pyramid`: one smooth sandstone pyramid at dusk (`Monument.jsx`: gilded courses split
+- `#/` is a cinematic start screen (`Home` in Pyramid.jsx: Yusuf's eleven stars full screen, "Amanah", one button).
+  A first visit (nothing seen, learned, placed or begun) opens on the Trust (`Trust`, about 7 s, `HOOK_AT`): four
+  plain lines retelling 33:72 arrive over the stars (heavens, earth and mountains light as named and dim as they
+  refuse; "Humankind took it up." opens in a warm light, no figure), then the title, then the button. Its citation
+  "Quran 33:72" opens `TrustVerse`, the verse itself (Arabic and Sahih English via `virtual:ayah/33:72`). The first
+  tap or key in the first 5.9 s only shows it all (Enter or Space does not also press the button); after that a tap
+  goes through. It plays once per page load, all at once with reduced motion, and never for a returning reader, who
+  gets the calm screen with "Continue the story". Tests pass it with `skipOpening(page)` (`tests/e2e/opening.js`). The pyramid page is `#/pyramid`: one smooth sandstone pyramid at dusk (`Monument.jsx`: gilded courses split
   the three levels, each unit a round seal: gold = can be opened today, a gold ring = its meter). Tapping a level
   zooms into it (`focus`, the SVG's viewBox animates; seals get their names; the other levels shade) and a pop-up
   brief (`Brief` in Pyramid.jsx, no scrolling) shows the level and its lessons as chips, or one lesson (its `brief`
@@ -307,7 +326,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   Every Fire card carries the way back (39:53 and 25:70; 4:146 for al-Hawiyah). No people are drawn in either abode,
   and nothing (a score, an answer, "you") ever links a reader to a level. Never predict anyone's place.
 - The 100 grades of Paradise (blueprint §8) are shelved by the owner, not planned.
-- Doors in: Explore (`#/explore`; the home page no longer links it), the end page, the map's `judgment` stop (timeline.json `see`: { label, to }, a
+- Doors in: Explore (`#/explore`; the home page no longer links it; under "Still ahead" with "Open the two abodes
+  now" until the story reaches it), the end page, the map's `judgment` stop (timeline.json `see`: { label, to }, a
   node's extra page, shown under its scenes), the end of the Last Day unit and of chapter 21's lesson (`see`), the
   guide and About. Doors out (its footer): the Day of Judgment story (`earth`..`sovereign` with `?back=/abodes`, whose
   last moment says "Back to the two abodes"), the Last Day unit, and the map opened at that stop (`#/map?at=judgment`;
@@ -319,8 +339,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   offers its lesson, the guide ends with a choice, and auto-advance waits whenever a choice is on screen.
 - `#/guide?step=<id>` (`Guide.jsx`, `STEPS`: one place per step, its line, where it is, a way to open it; `spot`
   rings that item of the real menu with `.guide-spot`). `?step=all` is every step on one page; the last step,
-  `start`, asks where to begin. Doors: the home page ("New here? Take the short guide" until the guide has been
-  opened, then a plain Guide link), Begin, the scene player's help, Settings ("Finding your way") and About.
+  `start`, asks where to begin. Doors: the home page (a plain Guide link beside Settings, About and Privacy), Begin,
+  Explore (always open), the scene player's help, Settings ("Finding your way") and About.
   Keep each step's `where` true when a place moves.
 - First-visit tips: `Hint.jsx` (`<Hint id>`: Got it, Show me around, No more tips), remembered in `prefs.hints`
   (`dismissHint(id)`, `all` for every tip; the guide sets `guide`). Settings can turn them all back on. Place a

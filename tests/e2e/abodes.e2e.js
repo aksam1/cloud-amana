@@ -92,9 +92,9 @@ test('the end of the chronicle, the map\'s last stop and the About page all lead
 
 test('the two abodes lead on: the Day of Judgment and back, the Last Day lesson, and the map\'s last stop', async ({ page }) => {
   test.setTimeout(90000);
-  // its door is in Explore now (the home page keeps one main button)
+  // its door is in Explore (the home page keeps one main button); a newcomer finds it under "Still ahead"
   await page.goto('/#/explore');
-  await page.getByRole('button', { name: /^The two abodes/ }).click();
+  await page.getByRole('button', { name: 'Open the two abodes now' }).click();
   await expect(page).toHaveURL(/#\/abodes$/);
 
   await page.getByRole('button', { name: 'Watch the Day of Judgment' }).click();

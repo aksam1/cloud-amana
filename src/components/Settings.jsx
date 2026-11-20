@@ -201,6 +201,12 @@ export default function Settings() {
             {Object.keys(prefs.hints || {}).length ? 'Show the first-visit tips again' : 'The first-visit tips are on'}
           </button>
         </div>
+        <Switch
+          label="Reveal places as I go"
+          hint="The map, the paths, the pyramid and the two abodes appear as the story reaches them. Off shows them all now."
+          on={prefs.unfold !== false}
+          onChange={(v) => setPref('unfold', v)}
+        />
       </Section>
 
       {/* On this device (web build only) */}

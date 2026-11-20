@@ -277,6 +277,60 @@ body {
   50% { box-shadow: 0 0 0 2px #f3d48c, 0 0 28px 6px rgb(226 187 104 / 0.6); }
 }
 
+/* A tab joining the menu (a place the story has just opened) glows in once; the dot says "new here" until visited. */
+.nav-arrive {
+  animation: nav-arrive 1.6s ease-out both;
+}
+@keyframes nav-arrive {
+  0% { opacity: 0; transform: scale(0.9); box-shadow: 0 0 0 0 rgb(226 187 104 / 0); }
+  35% { opacity: 1; transform: scale(1); box-shadow: 0 0 22px 4px rgb(226 187 104 / 0.55); }
+  100% { box-shadow: 0 0 0 0 rgb(226 187 104 / 0); }
+}
+.nav-dot {
+  box-shadow: 0 0 6px 1px rgb(243 212 140 / 0.7);
+}
+
+/*
+ * The home page's opening, on a first visit: the verse the app is named for (33:72), retold in four short lines
+ * over the stars. Each line arrives at --at; "heavens", "earth" and "mountains" light in turn as they are named
+ * and dim at --off, as they refuse; the last line opens in a warm light (light only, no figure). A tap, a key or
+ * reduced motion shows the whole of it at once (.hook-done).
+ */
+.hook-in {
+  opacity: 0;
+  animation: hook-in 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--at, 0s) forwards;
+}
+@keyframes hook-in {
+  from { opacity: 0; transform: translateY(8px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.hook-word {
+  animation: hook-lit 0.7s ease-out var(--at, 0s) forwards, hook-dim 1.4s ease-in-out var(--off, 0s) forwards;
+}
+@keyframes hook-lit {
+  to { color: #f7e0a3; text-shadow: 0 0 14px rgb(226 187 104 / 0.75); }
+}
+@keyframes hook-dim {
+  from { color: #f7e0a3; text-shadow: 0 0 14px rgb(226 187 104 / 0.75); }
+  to { color: rgb(243 231 204 / 0.5); text-shadow: none; }
+}
+.hook-bloom {
+  position: absolute;
+  inset: -110% -18%;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgb(247 224 163 / 0.34), rgb(226 187 104 / 0.12) 55%, transparent);
+  opacity: 0;
+  animation: hook-bloom 2.8s ease-out var(--at, 0s) forwards;
+}
+@keyframes hook-bloom {
+  0% { opacity: 0; transform: scale(0.45); }
+  45% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 0.6; transform: scale(1); }
+}
+.hook-done .hook-in { animation: none; opacity: 1; }
+.hook-done .hook-word { animation: none; color: rgb(243 231 204 / 0.5); }
+.hook-done .hook-bloom { animation: none; opacity: 0.6; }
+
 /* Arabic revealed right-to-left, the way the pen moves */
 .ink-reveal {
   -webkit-mask-image: linear-gradient(to left, #000 0 44%, transparent 56% 100%);
@@ -477,8 +531,11 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hook-in { animation: none !important; opacity: 1; }
+  .hook-word { animation: none !important; color: rgb(243 231 204 / 0.5); }
+  .hook-bloom { animation: none !important; opacity: 0.6; }
   .twinkle, .flicker, .flame, .bob, .drift, .sway, .spin, .breathe,
-  .rise-fade, .smoke, .shake, .halo-pulse, .wiggle, .shimmer, .flutter, .gait, .flap, .guide-spot {
+  .rise-fade, .smoke, .shake, .halo-pulse, .wiggle, .shimmer, .flutter, .gait, .flap, .guide-spot, .nav-arrive {
     animation: none !important;
   }
   .ink-reveal, .brush-reveal {

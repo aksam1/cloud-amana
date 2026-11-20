@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { savePlacement, setPref, useStore } from '../lib/store.js';
+import { fresh } from '../lib/discover.js';
 import { ambience } from '../lib/audio.js';
 import { USAGE_ON, track } from '../lib/usage.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
-import { download, FIRST_STORY, share, shareMessage } from '../lib/site.js';
+import { download, FIRST_STORY, quranLink, share, shareMessage } from '../lib/site.js';
 import { SCENES, seenCount, storyResume } from '../lib/sceneIndex.js';
 import { CHAPTERS, climb, completed, DISCLAIMER, HISTORY_PARTS, lessonsWaiting, levelById, LEVELS, partName, pathOf, placementQuestions, placementResult, playable, PLAYABLE, SCALE, SCENE_COUNT, STORY_PARTS, unitById, UNITS, unitStatus } from '../lib/pyramid.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
@@ -15,6 +16,8 @@ import Monument from './Monument.jsx';
 import Nav from './Nav.jsx';
 import Sky from './Sky.jsx';
 import heroStars from '../assets/hero-stars.webp';
+// the one verse the home page quotes (all of ayahs.json is about 280 KB): see vite.config.js
+import TRUST from 'virtual:ayah/33:72';
 import imgHeavens from '../assets/previews/heavens.webp';
 import imgSearch from '../assets/previews/search.webp';
 import imgStars from '../assets/previews/stars.webp';
@@ -214,25 +217,60 @@ function Home() {
         ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
         : { label: 'Begin your journey', href: '/begin', note: 'Free and private. No account needed.' };
   const button = allWatched && !resumeUnit ? done : cta;
-  // someone who has watched nothing and answered nothing yet is offered the short guide beside the main button,
-  // until they have opened it (the guide marks `hints.guide`); after that it is the plain Guide link like everyone's
-  const newcomer = !placed && !resume && !Object.keys(c.state.seen || {}).length && !c.state.prefs?.hints?.guide;
-  const link = 'min-h-[44px] text-gold-hi/90 underline decoration-gold/40 underline-offset-4';
+  // a first visit (nothing watched, answered or begun) opens on the Trust; a returning reader gets the calm title
+  const first = !placed && !resume && !Object.keys(c.state.seen || {}).length && !any(c.state.learned) && !any(c.state.units) && !any(c.state.drafts);
+  const reduce = useReducedMotion();
+  const [playing, setPlaying] = useState(() => first && !hookPlayed && !reduce);
+  const [verse, setVerse] = useState(false);
+  const finish = useCallback(() => {
+    hookPlayed = true;
+    setPlaying(false);
+  }, []);
+  // While the lines arrive, the first tap or key only shows the whole of them at once (and Enter or Space does
+  // not also press the button, which cannot be seen yet). The menu at the top stays live, and once the title has
+  // begun to appear a tap or key does what it says.
+  const began = useRef(0);
+  const early = () => performance.now() - began.current < HOOK_TITLE * 1000;
+  useEffect(() => {
+    if (!playing) return undefined;
+    began.current = performance.now();
+    const t = setTimeout(finish, HOOK_END * 1000);
+    const key = (e) => {
+      if (early() && (e.key === 'Enter' || e.key === ' ')) e.preventDefault();
+      finish();
+    };
+    window.addEventListener('keydown', key, true);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener('keydown', key, true);
+      hookPlayed = true; // left partway: the opening is not played again on this visit
+    };
+  }, [playing, finish]);
+  const skip = (e) => {
+    if (!playing || e.target.closest?.('header')) return;
+    if (!early()) return finish(); // the button can be seen: let the tap through
+    e.preventDefault();
+    e.stopPropagation();
+    finish();
+  };
+  const link = 'inline-flex min-h-[44px] items-center text-gold-hi/90 underline decoration-gold/40 underline-offset-4';
+  // with the opening, the title arrives after the last line; without it, it rises as before
+  const late = first ? { className: 'hook-in', style: { '--at': `${HOOK_TITLE}s` } } : {};
 
   return (
-    <div className="relative h-full w-full overflow-hidden bg-[#05060d]">
+    <div className={`relative h-full w-full overflow-hidden bg-[#05060d] ${playing ? '' : 'hook-done'}`} onClickCapture={skip}>
       <motion.img
         src={heroStars}
         alt=""
         className="absolute inset-x-0 top-0 h-[64%] w-full object-cover object-[50%_75%] [mask-image:linear-gradient(180deg,#000_70%,transparent)] sm:h-full sm:[mask-image:none]"
         initial={{ opacity: 0, scale: 1.06 }}
-        animate={{ opacity: 1, scale: 1 }}
+        animate={{ opacity: first ? 0.75 : 1, scale: 1 }}
         transition={{ duration: 2.4, ease: 'easeOut' }}
       />
       {/* darken top and bottom so the words read; keep the stars in the middle */}
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,6,13,0.75)_0%,rgba(5,6,13,0)_30%,rgba(5,6,13,0)_55%,rgba(5,6,13,0.92)_100%)]" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1100px] flex-col px-6 pb-28 pt-5 sm:px-10 sm:pb-12 short:pb-3 short:pt-3">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1100px] flex-col overflow-y-auto px-6 pb-28 pt-5 sm:px-10 sm:pb-12 short:pb-3 short:pt-3">
         <header className="flex items-center justify-between gap-6">
           <span className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi tiny:invisible">Amanah</span>
           <div className="sm:w-[580px]">
@@ -240,45 +278,134 @@ function Home() {
           </div>
         </header>
 
-        <motion.main className="mt-auto flex flex-col items-center text-center" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 1.2 }}>
-          <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(3rem,15vw,6.5rem)] font-semibold leading-none tracking-[0.06em] text-transparent [filter:drop-shadow(0_4px_24px_rgba(0,0,0,0.6))] short:text-[2.6rem] tiny:text-[2.5rem]">
-            Amanah
-          </h1>
-          <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90 short:mt-1 short:max-w-none short:text-[1.15rem] tiny:mt-2 tiny:text-[1.15rem]">The stories of the prophets, told in light.</p>
-          <button type="button" className="btn-gold mt-6 short:mt-2 tiny:mt-3" onClick={() => go(button.href)} autoFocus>
-            <Icon name="play" className="h-4 w-4" />
-            {button.label}
-          </button>
-          <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none">{button.note}</p>
-          {newcomer && (
-            <button type="button" className="mt-1 flex min-h-[44px] items-center gap-2 rounded-full border border-gold/40 bg-black/40 px-4 font-body text-[1.08rem] text-ivory hover:border-gold-hi short:mt-0" onClick={() => go('/guide')}>
-              <Icon name="help" className="h-4 w-4 text-gold-hi" />
-              New here? Take the short guide
+        {first && <Trust mode={mode} onVerse={() => setVerse(true)} />}
+
+        <motion.main className="mt-auto flex flex-col items-center text-center" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: first ? 0 : 0.9, duration: first ? 0.01 : 1.2 }}>
+          <div className={`flex flex-col items-center ${late.className || ''}`} style={late.style}>
+            {first && <p className="font-body text-[1.1rem] italic text-gold/80 tiny:hidden short:hidden">Arabic for the Trust</p>}
+            <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(3rem,15vw,6.5rem)] font-semibold leading-none tracking-[0.06em] text-transparent [filter:drop-shadow(0_4px_24px_rgba(0,0,0,0.6))] short:text-[2.6rem] tiny:text-[2.5rem]">
+              Amanah
+            </h1>
+            <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90 short:mt-1 short:max-w-none short:text-[1.15rem] tiny:mt-2 tiny:text-[1.15rem]">The stories of the prophets, told in light.</p>
+            <button type="button" className="btn-gold mt-6 short:mt-2 tiny:mt-3" onClick={() => go(button.href)} autoFocus>
+              <Icon name="play" className="h-4 w-4" />
+              {button.label}
             </button>
-          )}
-          {/* the rest of the site is in the menu (Story, Explore, Progress); here only the small housekeeping links */}
-          <div className="mt-3 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0 tiny:mt-1 tiny:gap-x-4 tiny:text-[1rem]">
-            {!newcomer && (
+            <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none">{button.note}</p>
+            {/* the rest of the site is in the menu; here only the small housekeeping links. CalOPPA wants a way to the
+                privacy policy on the home page: it is the last of them, small and calm. */}
+            <div className="mt-2 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0 tiny:mt-1 tiny:gap-x-4 tiny:text-[1rem]">
               <button type="button" className={link} onClick={() => go('/guide')}>
                 Guide
               </button>
-            )}
-            <button type="button" className={link} onClick={() => go('/settings')}>
-              Settings
-            </button>
-            <button type="button" className={link} onClick={() => go('/about')}>
-              About
-            </button>
+              <button type="button" className={link} onClick={() => go('/settings')}>
+                Settings
+              </button>
+              <button type="button" className={link} onClick={() => go('/about')}>
+                About
+              </button>
+              <button type="button" className={link} onClick={() => go('/privacy')}>
+                Privacy
+              </button>
+            </div>
+            {!first && <InstallInvite where="home" />}
+            <p className="mt-3 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45 short:mt-0 short:max-w-none tiny:mt-0 tiny:text-[0.84rem] tiny:leading-tight">{inMode(DISCLAIMER, mode)}</p>
           </div>
-          <InstallInvite where="home" />
-          <p className="mt-4 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45 short:mt-0 short:max-w-none tiny:mt-0 tiny:text-[0.84rem] tiny:leading-tight">{inMode(DISCLAIMER, mode)}</p>
-          {/* CalOPPA wants a way to the privacy policy on the home page: small, calm, out of the way. */}
-          <p className="mt-2 font-body text-[1rem] text-ivory/50 short:mt-0 tiny:mt-0">
-            <button type="button" className="inline-flex min-h-[44px] items-center underline decoration-gold/30 underline-offset-4" onClick={() => go('/privacy')}>
-              Privacy
-            </button>
-          </p>
         </motion.main>
+      </div>
+      {verse && <TrustVerse onClose={() => setVerse(false)} />}
+    </div>
+  );
+}
+
+// The opening plays once per visit to the site (a page load); coming back to Home shows it whole.
+let hookPlayed = false;
+// when each part arrives, in seconds
+const HOOK_AT = { offered: 0.5, to: 1.5, heavens: 1.9, earth: 2.45, mountains: 3, refused: 3.5, dim: 3.7, took: 4.6, cite: 5.4 };
+const HOOK_TITLE = 5.9;
+const HOOK_END = 7;
+const any = (o) => !!o && typeof o === 'object' && Object.keys(o).length > 0;
+const at = (s) => ({ '--at': `${s}s` });
+
+/**
+ * The Trust, in four lines: the verse the app is named for (Quran 33:72), retold plainly over the stars. It is a
+ * retelling, and says so by its citation: the button under it opens the verse itself, Arabic and English, from
+ * the one checked source (src/data/ayahs.json). Nothing is shown of anyone: only words and light.
+ */
+function Trust({ mode, onVerse }) {
+  const word = (w, t) => (
+    <span className="hook-word" style={{ '--at': `${t}s`, '--off': `${HOOK_AT.dim}s` }}>
+      {w}
+    </span>
+  );
+  return (
+    <section aria-label="The Trust" className="my-auto flex flex-col items-center gap-2 py-6 text-center font-body text-[clamp(1.3rem,5.2vw,1.75rem)] leading-snug text-ivory/90 [text-shadow:0_2px_14px_rgba(0,0,0,0.85)] short:flex-row short:flex-wrap short:justify-center short:gap-x-2 short:gap-y-0 short:py-2 short:text-[1.05rem] tiny:gap-1 tiny:py-3 tiny:text-[1.12rem]">
+      <p className="hook-in" style={at(HOOK_AT.offered)}>
+        {inMode('God offered the Trust', mode)}
+      </p>
+      <p className="hook-in" style={at(HOOK_AT.to)}>
+        to the {word('heavens', HOOK_AT.heavens)}, the {word('earth', HOOK_AT.earth)} and the {word('mountains', HOOK_AT.mountains)}.
+      </p>
+      <p className="hook-in text-ivory/60" style={at(HOOK_AT.refused)}>
+        They refused to bear it, and feared it.
+      </p>
+      <p className="hook-in relative mt-2 text-gold-hi short:mt-0" style={at(HOOK_AT.took)}>
+        <span className="hook-bloom" style={at(HOOK_AT.took)} aria-hidden="true" />
+        <span className="relative">Humankind took it up.</span>
+      </p>
+      <button
+        type="button"
+        className="hook-in mt-1 inline-flex min-h-[44px] items-center font-body text-[1rem] italic text-ivory/60 underline decoration-gold/30 underline-offset-4 hover:text-ivory short:mt-0 short:min-h-0"
+        style={at(HOOK_AT.cite)}
+        onClick={onVerse}
+        aria-haspopup="dialog"
+      >
+        Quran 33:72
+      </button>
+    </section>
+  );
+}
+
+/** The verse itself: the Arabic and the English, word for word from ayahs.json. Escape, Close or a tap outside closes it. */
+function TrustVerse({ onClose }) {
+  const box = useRef(null);
+  useEffect(() => {
+    const back = document.activeElement;
+    box.current?.focus();
+    const key = (e) => e.key === 'Escape' && onClose();
+    window.addEventListener('keydown', key);
+    return () => {
+      window.removeEventListener('keydown', key);
+      back?.focus?.();
+    };
+  }, [onClose]);
+  return (
+    <div className="fixed inset-0 z-50 grid place-items-center bg-black/75 px-4" onClick={onClose}>
+      <div
+        ref={box}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="trust-verse"
+        className="max-h-[90vh] w-full max-w-[34rem] overflow-y-auto rounded-2xl border border-gold/40 bg-[#0c0b12] px-5 py-4 text-left outline-none"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <p id="trust-verse" className="font-body text-[1.08rem] italic text-gold/85">
+          Quran 33:72, {TRUST.surah}
+        </p>
+        <p lang="ar" dir="rtl" className="quran mt-2 text-[1.5rem] leading-[1.95] text-ivory">
+          {TRUST.ar}
+        </p>
+        <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/90">{TRUST.en}</p>
+        <p className="mt-2 font-body text-[0.95rem] italic text-ivory/55">
+          Sahih International.{' '}
+          <a href={quranLink(TRUST.ref)} target="_blank" rel="noopener noreferrer" className="underline decoration-gold/30 underline-offset-4 hover:text-ivory">
+            Read it at quran.com
+          </a>
+        </p>
+        <button type="button" className="hud-btn mt-4" onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );
@@ -364,10 +491,18 @@ function Begin() {
 
 /** After that first scene: keep watching, or take one of the other ways in. The questions are an offer now. (#/begin/next) */
 function Begun() {
+  // the first scene has just opened Explore (with the map of time) and Progress: say so once, plainly
+  const joined = useStore((st) => {
+    const f = fresh(st);
+    return [f.map && 'Explore', f.progress && 'Progress'].filter(Boolean);
+  });
   return (
     <Shell here="story" back="/" title="Your first story">
       <h1 className="mt-4 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">That was the first minute</h1>
-      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">The story goes on, one short scene at a time. Story, in the menu, always shows where you are.</p>
+      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">
+        The story goes on, one short scene at a time. Story, in the menu, always shows where you are.
+        {joined.length > 0 && ` ${joined.join(' and ')} ${joined.length > 1 ? 'have' : 'has'} just joined it.`}
+      </p>
       <button type="button" className="btn-gold mt-5 self-start" onClick={() => go('/stories')} autoFocus>
         <Icon name="play" className="h-4 w-4" />
         Keep watching

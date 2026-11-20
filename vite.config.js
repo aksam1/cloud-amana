@@ -108,6 +108,31 @@ function sceneIndex() {
   };
 }
 
+/**
+ * `virtual:ayah/<ref>`: one ayah from src/data/ayahs.json, as `{ ref, surah, surahAr, ar, en }`, for a page that
+ * quotes a single verse and must not download the whole file (about 280 KB): the home page's opening (33:72).
+ * The words still come from the one checked source and are never typed by hand; a ref missing from it stops
+ * the build.
+ */
+function ayahPick() {
+  const PREFIX = 'virtual:ayah/';
+  const file = join(process.cwd(), 'src', 'data', 'ayahs.json');
+  return {
+    name: 'amanah-ayah',
+    resolveId(id) {
+      return id.startsWith(PREFIX) ? `\0${id}` : null;
+    },
+    load(id) {
+      if (!id.startsWith(`\0${PREFIX}`)) return null;
+      const ref = id.slice(PREFIX.length + 1);
+      this.addWatchFile(file);
+      const a = JSON.parse(readFileSync(file, 'utf8'))[ref];
+      if (!a) this.error(`virtual:ayah: ${ref} is not in src/data/ayahs.json`);
+      return `export default ${JSON.stringify({ ref, surah: a.surah, surahAr: a.surahAr, ar: a.ar, en: a.en })};`;
+    },
+  };
+}
+
 export default defineConfig({
   // Relative asset paths, so the built app works from any folder or host (including a hosted link).
   base: './',
@@ -118,6 +143,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     sceneIndex(),
+    ayahPick(),
     serviceWorker(),
     {
       // The link preview's address and the canonical link: Vite replaces the placeholder in index.html.
