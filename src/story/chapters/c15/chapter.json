@@ -9,11 +9,11 @@
   ],
   "bridge": {
     "when": "About 900–750 BCE",
-    "where": "The kingdoms of Israel, and Nineveh on the Tigris",
+    "where": "Israel, and Nineveh on the Tigris",
     "line": ["Sulayman", "…", "Ilyas", "Al-Yasa'"],
     "text": [
-      "After Sulayman, his kingdom split, and many of the Children of Israel turned to idols again. Ilyas, known as Elijah, and after him Al-Yasa', known as Elisha, called them back.",
-      "Yunus, known as Jonah, is sent to a great city that rejects him. He leaves before God gives him leave, and his story becomes one about turning back to God."
+      "After Sulayman, many in Israel turn to idols again. Ilyas, known as Elijah, and then Al-Yasa', known as Elisha, call them back.",
+      "Yunus, known as Jonah, leaves the city that rejects him before God gives him leave."
     ]
   }
 }

@@ -11,12 +11,12 @@
     { "title": "The Wandering", "from": 149, "to": 149 }
   ],
   "bridge": {
-    "when": "The forty years after the crossing",
-    "where": "The Sinai desert and the lands around it",
+    "when": "Forty years after the crossing",
+    "where": "The Sinai desert",
     "line": ["Musa · Harun", "the Children of Israel"],
     "text": [
-      "Free at last, the Children of Israel are in the desert with Musa and Harun. God feeds and shelters them, and gives Musa the Torah on the mountain.",
-      "Yet freedom is a test too. Much of this chapter is about a people learning to trust God, and failing, and being forgiven. It also tells of Musa's own journey to learn from a servant of God."
+      "Free at last, the Children of Israel are in the desert, where God gives Musa the Torah.",
+      "Freedom is a test too: learning to trust God, failing, and being forgiven."
     ]
   }
 }

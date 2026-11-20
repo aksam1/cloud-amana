@@ -8,12 +8,12 @@
     { "title": "The She-Camel of God", "from": 54, "to": 59 }
   ],
   "bridge": {
-    "when": "After 'Ad (roughly 3000–2000 BCE)",
-    "where": "Al-Hijr, in north-western Arabia, where homes were carved into the rock",
+    "when": "After 'Ad",
+    "where": "Al-Hijr, north-western Arabia",
     "line": ["Nuh", "…", "the people of Thamud", "Salih"],
     "text": [
-      "The people of Thamud came after 'Ad and inherited their strength. They carved fine houses into the mountains.",
-      "God sends them the prophet Salih, with a sign they ask for themselves: a she-camel. The test is simple. Share the water with her and leave her unharmed."
+      "Thamud inherited 'Ad's strength and carved fine houses into the mountains.",
+      "God sends them Salih, with the sign they asked for: a she-camel. The test is simple. Share the water with her and leave her unharmed."
     ]
   }
 }

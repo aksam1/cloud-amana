@@ -11,11 +11,11 @@
     { "title": "The Trench", "from": 197, "to": 199 }
   ],
   "bridge": {
-    "when": "Uncertain: some before Isa, some after",
+    "when": "Uncertain",
     "where": "Many lands",
     "text": [
-      "The Quran also tells stories that sit outside the line of prophets, or whose time no one can fix. They are told as lessons for those who reflect.",
-      "Here are young men who slept for centuries in a cave, a just king who travelled to the ends of the earth, a proud man and his garden, brothers who would not share their harvest, a land ruined by ingratitude, a town that rejected its messengers, a man who slept a hundred years, a father's advice to his son, a town by the sea that broke its trust, and a boy whose courage brought a whole people to believe."
+      "The Quran also tells stories outside the line of prophets, as lessons for those who reflect.",
+      "Among them: young men who slept for centuries in a cave, a just king who travelled to the ends of the earth, and a proud man and his garden."
     ]
   }
 }

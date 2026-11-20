@@ -8,12 +8,12 @@
     { "title": "The Sea", "from": 134, "to": 137 }
   ],
   "bridge": {
-    "when": "About 1400 BCE, after Musa's call",
-    "where": "Egypt, and the shore of the Red Sea",
+    "when": "About 1400 BCE",
+    "where": "Egypt and the Red Sea",
     "line": ["Imran", "Musa · Harun"],
     "text": [
-      "God has spoken to Musa on the mountain and sent him back to Egypt with two signs, the staff and the shining hand. His older brother Harun, known as Aaron, goes with him as his helper.",
-      "Their task is to call Pharaoh to God and to lead the Children of Israel out of slavery."
+      "God has sent Musa back to Egypt with two signs, the staff and the shining hand, and his brother Harun, known as Aaron.",
+      "Their task: call Pharaoh to God, and lead the Children of Israel out of slavery."
     ]
   }
 }

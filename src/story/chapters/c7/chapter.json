@@ -9,12 +9,12 @@
     { "title": "The Morning", "from": 84, "to": 85 }
   ],
   "bridge": {
-    "when": "In Ibrahim's lifetime (about 1900 BCE)",
-    "where": "The cities of the plain, near the Dead Sea",
+    "when": "In Ibrahim's lifetime",
+    "where": "Cities near the Dead Sea",
     "line": ["Ibrahim's family", "Lut"],
     "text": [
-      "Lut, known as Lot in the Bible, was Ibrahim's nephew and followed him out of Ur. While Ibrahim settled in Canaan, Lut was sent to the cities of the plain nearby.",
-      "The angels who brought Ibrahim the good news of a son (Chapter 6) were on their way to these very cities."
+      "Lut, known as Lot in the Bible, was Ibrahim's nephew, sent to a people nearby.",
+      "The angels who brought Ibrahim the news of a son were on their way here."
     ]
   }
 }

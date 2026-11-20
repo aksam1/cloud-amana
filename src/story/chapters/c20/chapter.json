@@ -9,11 +9,11 @@
   ],
   "bridge": {
     "when": "Before the Hour",
-    "where": "Everywhere, and then the sky",
+    "where": "Everywhere, then the sky",
     "line": ["Isa", "…", "the signs"],
     "text": [
-      "The story of the prophets ends where the Quran's own pictures begin. What is left is not a life but a set of signs — some of them told in the Quran, some of them told in the hadith — and a day that is described rather than shown.",
-      "This chapter holds the signs that come before the Hour: what the Prophet ﷺ said the world would drift toward. The next chapter holds the Hour itself."
+      "The story of the prophets ends here. What remains are the signs before the Hour, the end of this world, as the Quran and the Prophet Muhammad ﷺ describe them.",
+      "The next chapter is the Hour itself."
     ]
   }
 }

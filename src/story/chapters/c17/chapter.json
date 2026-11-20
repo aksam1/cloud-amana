@@ -8,12 +8,12 @@
     { "title": "Good News and Ascension", "from": 182, "to": 183 }
   ],
   "bridge": {
-    "when": "About 30 years later (the early first century CE)",
+    "when": "About thirty years later",
     "where": "Galilee and Jerusalem",
     "line": ["Maryam", "Isa"],
     "text": [
-      "The child who spoke from his mother's arms has grown up. Isa, known as Jesus, is honoured in Islam as one of the greatest messengers. He was born without a father by God's command, and he is a servant of God, not God.",
-      "His miracles, the Quran says again and again, happen by God's permission. The chapter ends as the Quran tells it: he was not killed, but raised up to God."
+      "Islam honours Isa, known as Jesus, as one of the greatest messengers: a servant of God, not God.",
+      "His miracles happen by God's permission. The chapter ends as the Quran tells it: he was not killed, but raised up to God."
     ]
   }
 }

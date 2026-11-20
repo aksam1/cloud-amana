@@ -9,12 +9,12 @@
     { "title": "Maryam", "from": 175, "to": 177 }
   ],
   "bridge": {
-    "when": "About eight centuries after Yunus (shortly before the Common Era)",
-    "where": "Jerusalem and the temple, then Bethlehem",
+    "when": "Centuries after Yunus",
+    "where": "Jerusalem, then Bethlehem",
     "line": ["Imran", "Maryam", "Isa"],
     "text": [
-      "Centuries pass. The temple in Jerusalem stands again, served by the prophet Zakariya, known as Zechariah.",
-      "This chapter tells of a family the Quran honours: the family of Imran. His daughter Maryam, known as Mary, is the only woman the Quran names, and a whole chapter of it bears her name. Her son Isa, known as Jesus, is born by a miracle."
+      "Zakariya, known as Zechariah, serves the temple in Jerusalem. He is given a son, Yahya, known as John.",
+      "Maryam, known as Mary, is the only woman the Quran names. Her son Isa, known as Jesus, is born by a miracle."
     ]
   }
 }

@@ -8,12 +8,12 @@
     { "title": "Shu'ayb and Madyan", "from": 112, "to": 116 }
   ],
   "bridge": {
-    "when": "Ayyub: uncertain (about 1500 BCE by some reckonings); Shu'ayb: before Musa",
-    "where": "Ayyub: the hills of the Levant; Shu'ayb: Madyan, in north-western Arabia",
+    "when": "Ayyub uncertain; Shu'ayb before Musa",
+    "where": "Ayyub: the Levant; Shu'ayb: Madyan, in Arabia",
     "line": ["Ibrahim", "…", "Ayyub · Shu'ayb"],
     "text": [
-      "Two prophets whose stories stand apart from the great family stories, both descended from Ibrahim according to the commentaries.",
-      "Ayyub, known as Job, is remembered for his patience through terrible loss. Shu'ayb is sent to Madyan, a trading town of cheats. Musa will later flee to Madyan and live there for ten years."
+      "Two prophets who stand apart from the great family stories.",
+      "Ayyub, known as Job, is remembered for his patience through terrible loss. Shu'ayb is sent to Madyan, a trading town of cheats, where Musa will later flee."
     ]
   }
 }

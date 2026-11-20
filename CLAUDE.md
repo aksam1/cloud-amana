@@ -50,6 +50,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   stories shown before the chapter's first scene (`src/components/Bridge.jsx`) and under "Before this
   story" on the map. Keep it plain, say which chapter it follows on from, and give Bible names in
   passing (Musa, known as Moses). Generators must keep it (write chapter.json without dropping `bridge`).
+  Every card's text lives in `tools/generators/bridges.py` (edit there, then `python tools/generators/bridges.py`),
+  and a whole card stays under about 80 words, counting its labels, the lesson's "Watch for" line and Begin.
 - Chapter 18, Stories of Wisdom (map stop `wisdom`), holds stories whose time is uncertain or that sit
   outside the line of prophets (the Cave, Dhul-Qarnayn, the two gardens, the owners of the garden, Saba's dam,
   the town of the messengers, the hundred years, Luqman, the town by the sea (the Sabbath-breakers, 7:163-166)
