@@ -253,65 +253,99 @@ function Home() {
     e.stopPropagation();
     finish();
   };
-  const link = 'inline-flex min-h-[44px] items-center text-gold-hi/90 underline decoration-gold/40 underline-offset-4';
-  // with the opening, the title arrives after the last line; without it, it rises as before
+  // with the opening, the title and the footer arrive after the last line; without it, they rise as before
   const late = first ? { className: 'hook-in', style: { '--at': `${HOOK_TITLE}s` } } : {};
+  // a reader partway through the chronicle sees where, as a line of progress rather than a sentence
+  const where = button === cta && !resumeUnit && resume ? resume : null;
+  const chapter = where && CHAPTERS.find((ch) => ch.number === where.chapter);
+  // with reduced motion nothing slides or zooms: the page is simply there
+  const rise = reduce ? {} : { initial: { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, transition: { delay: first ? 0 : 0.9, duration: first ? 0.01 : 1.2 } };
 
   return (
     <div className={`relative h-full w-full overflow-hidden bg-[#05060d] ${playing ? '' : 'hook-done'}`} onClickCapture={skip}>
-      <motion.img
-        src={heroStars}
-        alt=""
-        className="absolute inset-x-0 top-0 h-[64%] w-full object-cover object-[50%_75%] [mask-image:linear-gradient(180deg,#000_70%,transparent)] sm:h-full sm:[mask-image:none]"
-        initial={{ opacity: 0, scale: 1.06 }}
-        animate={{ opacity: first ? 0.75 : 1, scale: 1 }}
-        transition={{ duration: 2.4, ease: 'easeOut' }}
-      />
-      {/* darken top and bottom so the words read; keep the stars in the middle */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,6,13,0.75)_0%,rgba(5,6,13,0)_30%,rgba(5,6,13,0)_55%,rgba(5,6,13,0.92)_100%)]" />
+      <div className={`home-sky ${first ? 'arch' : ''}`}>
+        <motion.img
+          src={heroStars}
+          alt=""
+          className="h-full w-full"
+          initial={{ opacity: 0, scale: reduce ? 1 : 1.06 }}
+          animate={{ opacity: first ? 0.7 : 1, scale: 1 }}
+          transition={{ duration: reduce ? 0.6 : 2.4, ease: 'easeOut' }}
+        />
+      </div>
+      {/* a warm breath of light where the name stands, and the night deepening toward the foot of the page */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_38%_at_50%_58%,rgba(226,187,104,0.09),transparent_70%),linear-gradient(180deg,rgba(5,6,13,0.55)_0%,rgba(5,6,13,0)_18%,rgba(5,6,13,0)_60%,rgba(5,6,13,0.9)_100%)]" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1100px] flex-col overflow-y-auto px-6 pb-28 pt-5 sm:px-10 sm:pb-12 short:pb-3 short:pt-3">
-        <header className="flex items-center justify-between gap-6">
-          <span className="font-display text-[1.35rem] font-semibold tracking-[0.06em] text-gold-hi tiny:invisible">Amanah</span>
-          <div className="sm:w-[580px]">
-            <Nav here="home" />
-          </div>
+      <div className="relative z-10 mx-auto flex h-full max-w-[1120px] flex-col overflow-y-auto px-6 pb-28 pt-5 sm:px-10 sm:pb-6 short:pb-2 short:pt-3">
+        <header className="flex justify-end">
+          <Nav here="home" />
         </header>
 
         {first && <Trust mode={mode} onVerse={() => setVerse(true)} />}
 
-        <motion.main className="mt-auto flex flex-col items-center text-center" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: first ? 0 : 0.9, duration: first ? 0.01 : 1.2 }}>
-          <div className={`flex flex-col items-center ${late.className || ''}`} style={late.style}>
-            {first && <p className="font-body text-[1.1rem] italic text-gold/80 tiny:hidden short:hidden">Arabic for the Trust</p>}
-            <h1 className="bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(3rem,15vw,6.5rem)] font-semibold leading-none tracking-[0.06em] text-transparent [filter:drop-shadow(0_4px_24px_rgba(0,0,0,0.6))] short:text-[2.6rem] tiny:text-[2.5rem]">
+        <motion.main className={`flex flex-col items-center text-center ${first ? '' : 'my-auto pt-[18vh] short:pt-[22vh] tiny:pt-[17vh]'}`} {...rise}>
+          <div className={`flex w-full flex-col items-center ${late.className || ''}`} style={late.style}>
+            {first && (
+              <p className="flex items-center gap-3 font-body text-[1.05rem] italic text-gold/80 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-gold/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-gold/50 tiny:hidden short:hidden">
+                Arabic for the Trust
+              </p>
+            )}
+            <h1 className="mt-1 bg-gradient-to-b from-[#fff6dd] via-[#f1d08a] to-[#b98a3e] bg-clip-text pb-1 font-display text-[clamp(3.25rem,15vw,7rem)] font-semibold leading-none tracking-[0.05em] text-transparent [filter:drop-shadow(0_2px_18px_rgba(0,0,0,0.65))_drop-shadow(0_0_44px_rgba(226,187,104,0.22))] short:text-[2.5rem] tiny:text-[2.6rem]">
               Amanah
             </h1>
-            <p className="mt-4 max-w-[30ch] font-body text-[clamp(1.25rem,4.8vw,1.6rem)] leading-snug text-ivory/90 short:mt-1 short:max-w-none short:text-[1.15rem] tiny:mt-2 tiny:text-[1.15rem]">The stories of the prophets, told in light.</p>
-            <button type="button" className="btn-gold mt-6 short:mt-2 tiny:mt-3" onClick={() => go(button.href)} autoFocus>
-              <Icon name="play" className="h-4 w-4" />
+            <p className="mt-3 max-w-[26ch] text-balance font-body sm:max-w-none text-[clamp(1.2rem,4.4vw,1.5rem)] leading-snug text-ivory/80 short:mt-0.5 short:max-w-none short:text-[1.1rem] tiny:mt-1.5 tiny:max-w-none tiny:text-[1.12rem]">
+              The stories of the prophets, told in light.
+            </p>
+
+            <button type="button" className="btn-cta mt-8 short:mt-2.5 tiny:mt-5" onClick={() => go(button.href)} autoFocus>
               {button.label}
+              <span className="cta-arrow" aria-hidden="true">
+                <Icon name="arrow" className="h-[18px] w-[18px]" />
+              </span>
             </button>
-            <p className="mt-3 max-w-[36ch] font-body text-[1.05rem] italic text-ivory/65 short:mt-1 short:max-w-none">{button.note}</p>
-            {/* the rest of the site is in the menu; here only the small housekeeping links. CalOPPA wants a way to the
-                privacy policy on the home page: it is the last of them, small and calm. */}
-            <div className="mt-2 flex flex-wrap justify-center gap-x-6 font-body text-[1.08rem] short:mt-0 tiny:mt-1 tiny:gap-x-4 tiny:text-[1rem]">
-              <button type="button" className={link} onClick={() => go('/guide')}>
-                Guide
-              </button>
-              <button type="button" className={link} onClick={() => go('/settings')}>
-                Settings
-              </button>
-              <button type="button" className={link} onClick={() => go('/about')}>
-                About
-              </button>
-              <button type="button" className={link} onClick={() => go('/privacy')}>
-                Privacy
-              </button>
-            </div>
+
+            {where ? (
+              <div className="mt-5 w-full max-w-[290px] font-body short:mt-2 tiny:mt-3">
+                <div className="flex items-baseline justify-between gap-4 text-[0.98rem] text-ivory/55">
+                  <span className="truncate italic">{chapter ? chapter.title : `Chapter ${where.chapter}`}</span>
+                  <span className="shrink-0 tabular-nums">
+                    Scene {where.n} of {where.of}
+                  </span>
+                </div>
+                <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-ivory/10" aria-hidden="true">
+                  <div className="h-full rounded-full bg-gradient-to-r from-gold/70 to-gold-hi" style={{ width: `${Math.max(4, ((where.n - 1) / where.of) * 100)}%` }} />
+                </div>
+                <p className="mt-2 truncate text-[1.08rem] text-ivory/85 short:hidden">“{where.title}”</p>
+              </div>
+            ) : (
+              <p className="mt-4 max-w-[34ch] text-balance font-body text-[1.02rem] italic text-ivory/55 short:mt-1.5 tiny:mt-2.5">{button.note}</p>
+            )}
             {!first && <InstallInvite where="home" />}
-            <p className="mt-3 max-w-[48ch] font-body text-[0.92rem] italic text-ivory/45 short:mt-0 short:max-w-none tiny:mt-0 tiny:text-[0.84rem] tiny:leading-tight">{inMode(DISCLAIMER, mode)}</p>
           </div>
         </motion.main>
+
+        {/* The quiet foot of the page: what this is (and is not), and the housekeeping. The rest of the site is in the
+            menu. CalOPPA wants a way to the privacy policy on the home page: it is here, the last of them. */}
+        <motion.footer className="mt-auto pt-6 sm:pt-8 short:pt-2 tiny:pt-3" {...rise}>
+          <div
+            className={`flex flex-col items-center gap-1 border-t border-ivory/[0.07] pt-3 text-center sm:flex-row-reverse sm:items-center sm:justify-between sm:gap-8 sm:text-left short:flex-row-reverse short:items-center short:justify-between short:gap-6 short:pt-1 short:text-left ${late.className || ''}`}
+            style={late.style}
+          >
+            <div className="flex flex-wrap justify-center gap-x-1 font-body text-[1.02rem] sm:shrink-0 tiny:text-[0.98rem]">
+              {[
+                ['Guide', '/guide'],
+                ['Settings', '/settings'],
+                ['About', '/about'],
+                ['Privacy', '/privacy'],
+              ].map(([name, to]) => (
+                <button key={name} type="button" className="inline-flex min-h-[44px] items-center rounded-full px-3 text-ivory/60 transition-colors hover:bg-ivory/5 hover:text-ivory" onClick={() => go(to)}>
+                  {name}
+                </button>
+              ))}
+            </div>
+            <p className="max-w-[52ch] text-pretty font-body text-[0.9rem] italic leading-snug sm:max-w-[64ch] text-ivory/40 tiny:text-[0.84rem] short:text-[0.82rem]">{inMode(DISCLAIMER, mode)}</p>
+          </div>
+        </motion.footer>
       </div>
       {verse && <TrustVerse onClose={() => setVerse(false)} />}
     </div>
@@ -339,7 +373,7 @@ function Trust({ mode, onVerse }) {
     </span>
   );
   return (
-    <section aria-label="The Trust" className="my-auto flex flex-col items-center gap-2 py-6 text-center font-body text-[clamp(1.3rem,5.2vw,1.75rem)] leading-snug text-ivory/90 [text-shadow:0_2px_14px_rgba(0,0,0,0.85)] short:flex-row short:flex-wrap short:justify-center short:gap-x-2 short:gap-y-0 short:py-2 short:text-[1.05rem] tiny:gap-1 tiny:py-3 tiny:text-[1.12rem]">
+    <section aria-label="The Trust" className="my-auto flex flex-col items-center gap-2 pb-6 pt-12 text-center sm:pt-6 font-body text-[clamp(1.3rem,5.2vw,1.75rem)] leading-snug text-ivory/90 [text-shadow:0_2px_14px_rgba(0,0,0,0.85)] short:flex-row short:flex-wrap short:justify-center short:gap-x-2 short:gap-y-0 short:py-2 short:text-[1.05rem] tiny:gap-1 tiny:pb-3 tiny:pt-9 tiny:text-[1.12rem]">
       <p className="hook-in" style={at(HOOK_AT.offered)}>
         {inMode('God offered the Trust', mode)}
       </p>

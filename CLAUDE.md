@@ -203,7 +203,16 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   "Quran 33:72" opens `TrustVerse`, the verse itself (Arabic and Sahih English via `virtual:ayah/33:72`). The first
   tap or key in the first 5.9 s only shows it all (Enter or Space does not also press the button); after that a tap
   goes through. It plays once per page load, all at once with reduced motion, and never for a returning reader, who
-  gets the calm screen with "Continue the story". Tests pass it with `skipOpening(page)` (`tests/e2e/opening.js`). The pyramid page is `#/pyramid`: one smooth sandstone pyramid at dusk (`Monument.jsx`: gilded courses split
+  gets the calm screen with "Continue the story". Tests pass it with `skipOpening(page)` (`tests/e2e/opening.js`).
+  Its layout (revamped 20 Nov 2026): the stars are a crown, not a backdrop. `.home-sky` (index.css) places the
+  arc of hero-stars.webp by numbers (`--w` its width, `--arc` where the arc's centre lands; the arc is 0.4 W wide
+  and its centre 0.236 W below the image top), with `.arch` (first visit) a wider, higher arch the Trust stands
+  under, and its own values for `tiny:` and `short:`. No wordmark in the corner (the h1 is the name); the button is
+  `.btn-cta` (a gold pill, sentence case, an arrow in a circle), never tracked caps; a returning scene reader sees
+  chapter, "Scene n of N" and a thin progress bar instead of a sentence; the footer is one quiet row (disclaimer
+  left, Guide · Settings · About · Privacy as plain 44 px buttons right; stacked on phones). Before changing any of
+  it, check first visit and returning at 412×839, 375×812, 360×640, 844×390 and 1366×800: on phones the
+  disclaimer must clear the tab bar, and the stars must never cross a line of text. The pyramid page is `#/pyramid`: one smooth sandstone pyramid at dusk (`Monument.jsx`: gilded courses split
   the three levels, each unit a round seal: gold = can be opened today, a gold ring = its meter). Tapping a level
   zooms into it (`focus`, the SVG's viewBox animates; seals get their names; the other levels shade) and a pop-up
   brief (`Brief` in Pyramid.jsx, no scrolling) shows the level and its lessons as chips, or one lesson (its `brief`
@@ -221,7 +230,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   story-lesson count, and "Your private notes" (the `journal`, hidden until asked, each with an Open link).
   An axe-core WCAG 2 A/AA scan of home, pyramid (and its pop-up), placement, result, progress, a unit and a lesson
   came back clean; keep it that way (decorative meters are aria-hidden, tap targets 44 px).
-- Phones get the menu as a bottom tab bar (`Nav.jsx`, fixed): every page using it needs `pb-28 sm:pb-6`.
+- Phones get the menu as a bottom tab bar (`Nav.jsx`, fixed): every page using it needs `pb-28 sm:pb-6`. From `sm`
+  up the pill hugs its tabs (`sm:w-max`) and sits at the right of whatever holds it.
 - Story stills (`src/assets/previews/*.webp`, 800×450) are captured from the scenes: canvas-only screenshot of
   `#/scene/<id>?beat=n&still` in headless Chrome (hide everything but canvas). Every scene is a GL scene now.
 - The published page (`scripts/publish.mjs` → deploy/index.html) must start with `<!DOCTYPE html>`.

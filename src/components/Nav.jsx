@@ -51,7 +51,7 @@ export default function Nav({ here, tone = 'night', spot = null, onSpot = null }
       className="fixed inset-x-0 bottom-0 z-40 bg-gradient-to-t from-[#07080f] via-[#07080f]/95 to-transparent px-3 pb-[max(10px,env(safe-area-inset-bottom))] pt-5 sm:static sm:z-20 sm:bg-none sm:p-0"
     >
       <ul
-        className={`mx-auto flex max-w-[600px] items-stretch justify-between gap-0.5 rounded-[26px] border px-1 py-1 sm:gap-1 sm:rounded-full sm:px-1.5 ${
+        className={`mx-auto flex max-w-[600px] items-stretch justify-between gap-0.5 rounded-[26px] border px-1 py-1 sm:mr-0 sm:w-max sm:gap-1 sm:rounded-full sm:px-1.5 ${
           ink ? 'border-gold/30 bg-[#120d0a]/90 sm:border-[#8a6a4e]/40 sm:bg-[#5a3d22]/8' : 'border-gold/25 bg-[#0c0b12]/90 backdrop-blur-md sm:bg-black/35'
         }`}
       >
@@ -60,7 +60,7 @@ export default function Nav({ here, tone = 'night', spot = null, onSpot = null }
           const lit = it.id === spot;
           const dot = isNew[it.id] && !on;
           return (
-            <li key={it.id} className={`flex-1 rounded-full ${lit ? 'guide-spot' : ''} ${arriving.has(it.id) ? 'nav-arrive' : ''}`}>
+            <li key={it.id} className={`flex-1 rounded-full sm:flex-none ${lit ? 'guide-spot' : ''} ${arriving.has(it.id) ? 'nav-arrive' : ''}`}>
               <a
                 href={`#${it.to}`}
                 onClick={(e) => {

@@ -200,6 +200,50 @@ body {
   transform: scale(0.97);
 }
 
+/*
+ * The start screen's one button: a solid piece of gold with the words in sentence case (Cormorant, not tracked
+ * caps) and a small arrow in a well at its end. It lifts a hair on hover and the arrow leans on toward where it goes.
+ */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 56px;
+  padding: 0 0.5rem 0 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgb(255 244 214 / 0.65);
+  background: linear-gradient(180deg, #fbe9bb 0%, #ecc677 55%, #d9aa55 100%);
+  color: #1d1309;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6), inset 0 -2px 0 rgb(120 78 24 / 0.18), 0 18px 40px -16px rgb(233 190 110 / 0.7);
+  transition: transform 0.2s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s, filter 0.2s;
+  cursor: pointer;
+}
+.btn-cta .cta-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgb(29 19 9 / 0.1);
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.2s;
+}
+.btn-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6), inset 0 -2px 0 rgb(120 78 24 / 0.18), 0 22px 46px -16px rgb(233 190 110 / 0.85);
+}
+.btn-cta:hover .cta-arrow {
+  transform: translateX(3px);
+  background: rgb(29 19 9 / 0.16);
+}
+.btn-cta:active {
+  transform: scale(0.98);
+}
+
 .btn-ink {
   display: inline-flex;
   align-items: center;
@@ -327,6 +371,47 @@ body {
   45% { opacity: 1; transform: scale(1.08); }
   100% { opacity: 0.6; transform: scale(1); }
 }
+/*
+ * The start screen's sky: Yusuf's eleven stars, the sun and the moon (src/assets/hero-stars.webp, 1920×756, the arc
+ * centred at 60% of its height). It is sized so the whole arc fits across a phone and crowns the name on a wide
+ * screen, its arc placed at --arc down the screen, its edges fading into the night. It breathes very slowly.
+ */
+.home-sky {
+  --w: max(100vw, 100vh);
+  --arc: 23vh;
+  position: absolute;
+  left: 50%;
+  top: calc(var(--arc) - var(--w) * 0.236);
+  width: var(--w);
+  aspect-ratio: 1920 / 756;
+  margin-left: calc(var(--w) / -2);
+  pointer-events: none;
+  transform-origin: 50% 60%;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 72%, transparent 100%);
+  animation: home-sky 48s ease-in-out infinite alternate;
+}
+@keyframes home-sky {
+  to { transform: scale(1.06); }
+}
+/* on a first visit the arc is drawn wider and higher, an arch the verse stands under, so no word sits on a star */
+.home-sky.arch {
+  --w: max(118vw, 122vh);
+  --arc: 10vh;
+}
+@media (orientation: portrait) and (max-height: 700px) {
+  .home-sky { --arc: 19vh; }
+  .home-sky.arch { --w: 150vw; --arc: 5vh; }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .home-sky,
+  .home-sky.arch { --w: 100vw; --arc: 18vh; }
+  .home-sky.arch { --arc: 12vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-sky { animation: none; }
+}
+
 .hook-done .hook-in { animation: none; opacity: 1; }
 .hook-done .hook-word { animation: none; color: rgb(243 231 204 / 0.5); }
 .hook-done .hook-bloom { animation: none; opacity: 0.6; }
