@@ -22,6 +22,9 @@ export const MODES = {
 // Lowercase "god" and "gods" (idols, Pharaoh) are never touched: the match is case-sensitive.
 const NAME = /(?<!\b(?:the|The|your|Your|one|One|a|my|his|their|our|Musa's) )\bGod\b/g;
 
+/** "1 scene", "2 scenes": a count with its noun, singular for one. */
+export const nOf = (n, one, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
+
 /** Narration or lesson text as this mode reads it. */
 export function inMode(text, mode) {
   if (!text || mode !== 'muslim') return text;

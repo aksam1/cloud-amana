@@ -53,7 +53,7 @@ export default function About({ missing = false }) {
   }
 
   return (
-    <Shell here="about" back="/" title="About">
+    <Shell here="about" back="/">
       <h1 className="font-display text-[1.9rem] font-semibold leading-tight text-gold-hi">About Amanah</h1>
       <P>{say('The stories of the prophets as Islam teaches them, each with one lesson. Free and private. No account needed, no adverts.')}</P>
       <p className="mt-4 font-body text-[1rem] italic text-ivory/55">

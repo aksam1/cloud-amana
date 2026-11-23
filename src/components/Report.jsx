@@ -7,7 +7,7 @@ import ReportForm from './ReportForm.jsx';
  */
 export default function Report({ where = '' }) {
   return (
-    <Shell here="about" back="/" title="Report a mistake">
+    <Shell here="about" back="/">
       <h1 className="mt-4 font-display text-[1.8rem] font-semibold leading-tight text-gold-hi">Report a mistake</h1>
       <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">
         Especially about a verse, a saying or a detail of a story.

@@ -670,7 +670,7 @@ export default function CampaignMap({ query = {} }) {
         onPointerCancel={onPointerUp}
       >
         <motion.div className="parchment absolute left-0 top-0 origin-top-left" style={{ width: world.W, height: world.H, transform }}>
-          <svg width={world.W} height={world.H} viewBox={`0 0 ${world.W} ${world.H}`} className="absolute inset-0" role="group" aria-label="Campaign map of the timeline">
+          <svg width={world.W} height={world.H} viewBox={`0 0 ${world.W} ${world.H}`} className="absolute inset-0" role="group" aria-label="The map of time">
             <defs>
               <radialGradient id="bronze" cx="0.38" cy="0.32" r="0.8">
                 <stop offset="0" stopColor="#f3d48b" />

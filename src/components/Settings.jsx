@@ -5,6 +5,8 @@ import { countsOf, deleteAllData, exportState, mergeStates, replaceState, resetP
 import { IS_WEB, cacheEverything, canInstall, isCachedFully, promptInstall, standalone, storageSize, watchForInstall } from '../lib/pwa.js';
 import { forgetUsage, track, trackingOff, usageAvailable } from '../lib/usage.js';
 import { quranLink } from '../lib/site.js';
+import { nOf } from '../lib/words.js';
+import { seenCount } from '../lib/sceneIndex.js';
 import { ModePicker } from './ModePicker.jsx';
 import ReportForm from './ReportForm.jsx';
 import { Disclaimer, Shell } from './Pyramid.jsx';
@@ -158,7 +160,8 @@ export default function Settings() {
     }
   };
 
-  const counts = countsOf(state);
+  // scenes counted as Progress counts them: only scenes that exist today (an old or renamed id is not one)
+  const counts = { ...countsOf(state), scenes: seenCount(state) };
 
   // The anonymous counts (web build only, and only when there is a project to send them to).
   // The reader's own switch is off only when their browser asks sites not to track: in that case
@@ -168,12 +171,12 @@ export default function Settings() {
   const usageOn = counting && prefs.usage !== false && !blocked;
 
   return (
-    <Shell here="about" back="/" title="Settings">
+    <Shell here="about" back="/">
       <h1 className="mt-4 font-display text-[1.9rem] font-semibold leading-tight text-gold-hi">Settings</h1>
       <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">Your progress and notes stay on this device.</p>
 
       {/* Your view */}
-      <Section title="Your view" note="The stories and verses are the same in both. Only the words around them change.">
+      <Section title="Your view" note="The stories and verses are the same in both.">
         <ModePicker full />
       </Section>
 
@@ -259,7 +262,7 @@ export default function Settings() {
       )}
 
       {/* Your progress */}
-      <Section title="Your progress" note={`${counts.scenes} scenes watched, ${counts.lessons} lessons finished, ${counts.notes} private notes.`}>
+      <Section title="Your progress" note={`${nOf(counts.scenes, 'scene')} watched, ${nOf(counts.lessons, 'lesson')} finished, ${nOf(counts.notes, 'private note')}.`}>
         <div className="flex flex-wrap gap-2">
           <button type="button" className="hud-btn" onClick={saveBackup}>
             Save a backup
@@ -273,10 +276,10 @@ export default function Settings() {
             className="hud-btn"
             onClick={() => {
               resetProgress();
-              setNote('The chronicle starts again. Your notes and settings are kept.');
+              setNote('The story starts again from the first scene. Your notes and settings are kept.');
             }}
           >
-            Start the chronicle again
+            Start the story again
           </button>
         </div>
         <p className="mt-2 font-body text-[0.98rem] italic leading-snug text-ivory/50">
@@ -287,8 +290,8 @@ export default function Settings() {
           <div className="mt-4 rounded-xl border border-gold/30 bg-black/40 p-4">
             <h3 className="font-display text-[1.1rem] font-semibold text-gold-hi">This backup holds</h3>
             <p className="mt-1 font-body text-[1.05rem] leading-snug text-ivory/85">
-              {countsOf(confirmReplace.state).scenes} scenes watched, {countsOf(confirmReplace.state).lessons} lessons finished,{' '}
-              {countsOf(confirmReplace.state).notes} private notes.
+              {nOf(countsOf(confirmReplace.state).scenes, 'scene')} watched, {nOf(countsOf(confirmReplace.state).lessons, 'lesson')} finished,{' '}
+              {nOf(countsOf(confirmReplace.state).notes, 'private note')}.
             </p>
             <p className="mt-1 font-body text-[1rem] italic text-ivory/60">Saved on {new Date(confirmReplace.exportedAt || Date.now()).toLocaleDateString()}.</p>
             <div className="mt-3 flex flex-wrap gap-2">

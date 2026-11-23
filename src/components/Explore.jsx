@@ -23,7 +23,7 @@ export default function Explore() {
     if (readyIds) markFound(...readyIds.split(' '));
   }, [readyIds]);
   return (
-    <Shell here="explore" back="/" stars>
+    <Shell here="explore" stars>
       <h1 className="mt-4 font-display text-[1.8rem] font-semibold leading-tight text-gold-hi">Explore</h1>
       <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/80">Other ways into the same stories. Nothing here is required.</p>
       <ul className="mt-5 grid gap-3">
@@ -51,15 +51,19 @@ export default function Explore() {
           <p className="mt-1 font-body text-[1.02rem] italic leading-snug text-ivory/60">These open as you go. You can open any of them now.</p>
           <ul className="mt-3 grid gap-2">
             {ahead.map((d) => (
-              <li key={d.id} className="flex items-center gap-3 rounded-xl border border-dashed border-gold/20 bg-black/15 px-4 py-2.5">
+              <li key={d.id} className="flex items-start gap-3 rounded-xl border border-dashed border-gold/20 bg-black/15 px-4 pb-1 pt-3">
                 <Mark icon={d.icon} dim />
                 <span className="min-w-0 flex-1">
                   <span className="block font-body text-[1.12rem] font-semibold leading-tight text-ivory/75">{d.title}</span>
-                  <span className="block font-body text-[0.98rem] italic leading-snug text-ivory/55">{d.opens}</span>
+                  <span className="mt-0.5 block font-body text-[1rem] leading-snug text-ivory/65">{d.line}</span>
+                  <span className="mt-0.5 block font-body text-[0.98rem] italic leading-snug text-ivory/50">{d.opens}</span>
+                  {/* the way to open it now, always in the same place: under what it is and how it opens */}
+                  <span className="block">
+                    <button type="button" className="min-h-[44px] font-body text-[1rem] text-gold-hi/85 underline decoration-gold/35 underline-offset-4 hover:text-gold-hi" onClick={() => go(d.to)} aria-label={`Open ${d.title.toLowerCase()} now`}>
+                      Open it now
+                    </button>
+                  </span>
                 </span>
-                <button type="button" className="min-h-[44px] shrink-0 px-1 font-body text-[1rem] text-gold-hi/85 underline decoration-gold/35 underline-offset-4 hover:text-gold-hi" onClick={() => go(d.to)} aria-label={`Open ${d.title.toLowerCase()} now`}>
-                  Open it now
-                </button>
               </li>
             ))}
           </ul>

@@ -143,10 +143,11 @@ body {
   border: 1px solid rgb(226 187 104 / 0.32);
   background: rgb(14 11 9 / 0.55);
   color: var(--color-ivory);
-  font-family: var(--font-display);
-  font-size: 0.74rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  /* every button says its words in sentence case (Cormorant), as the start screen does: never tracked caps */
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.15;
   backdrop-filter: blur(6px);
   transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.12s;
   cursor: pointer;
@@ -183,11 +184,10 @@ body {
   border: 1px solid #f7e0a3;
   background: linear-gradient(180deg, #f3d48b 0%, #c8913e 100%);
   color: #22170b;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 1.1rem;
+  line-height: 1.15;
   box-shadow: 0 0 0 4px rgb(226 187 104 / 0.12), 0 10px 30px -10px rgb(226 187 104 / 0.6);
   transition: transform 0.12s, box-shadow 0.25s, filter 0.2s;
   cursor: pointer;
@@ -201,47 +201,41 @@ body {
 }
 
 /*
- * The start screen's one button: a solid piece of gold with the words in sentence case (Cormorant, not tracked
- * caps) and a small arrow in a well at its end. It lifts a hair on hover and the arrow leans on toward where it goes.
+ * The start screen's one button: a plain slab of ivory, like the one button on a film poster. Sentence case
+ * (Cormorant, never tracked caps), an arrow that leans on toward where it goes, no gloss.
  */
-.btn-cta {
+.btn-poster {
   display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 0.85rem;
   min-height: 56px;
-  padding: 0 0.5rem 0 1.6rem;
-  border-radius: 999px;
-  border: 1px solid rgb(255 244 214 / 0.65);
-  background: linear-gradient(180deg, #fbe9bb 0%, #ecc677 55%, #d9aa55 100%);
-  color: #1d1309;
+  padding: 0 1.4rem 0 1.6rem;
+  border-radius: 14px;
+  background: #f3e7cc;
+  color: #14100b;
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 1.3rem;
+  font-weight: 600; /* the heaviest Cormorant bundled (fonts.css) */
+  font-size: 1.28rem;
   line-height: 1;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6), inset 0 -2px 0 rgb(120 78 24 / 0.18), 0 18px 40px -16px rgb(233 190 110 / 0.7);
-  transition: transform 0.2s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s, filter 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 14px 34px -14px rgb(0 0 0 / 0.8);
+  transition: background 0.2s, transform 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
   cursor: pointer;
 }
-.btn-cta .cta-arrow {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  background: rgb(29 19 9 / 0.1);
-  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.2s;
+.btn-poster .poster-arrow {
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.btn-cta:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.04);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6), inset 0 -2px 0 rgb(120 78 24 / 0.18), 0 22px 46px -16px rgb(233 190 110 / 0.85);
+.btn-poster:hover {
+  background: #fffaf0;
 }
-.btn-cta:hover .cta-arrow {
-  transform: translateX(3px);
-  background: rgb(29 19 9 / 0.16);
+.btn-poster:hover .poster-arrow {
+  transform: translateX(4px);
 }
-.btn-cta:active {
+.btn-poster:active {
   transform: scale(0.98);
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .btn-poster { min-height: 48px; font-size: 1.15rem; }
 }
 
 .btn-ink {
@@ -254,10 +248,10 @@ body {
   border-radius: 999px;
   border: 1px solid rgb(84 54 20 / 0.45);
   color: var(--color-ink);
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.15;
   transition: background 0.2s, border-color 0.2s;
   cursor: pointer;
 }
@@ -372,44 +366,127 @@ body {
   100% { opacity: 0.6; transform: scale(1); }
 }
 /*
- * The start screen's sky: Yusuf's eleven stars, the sun and the moon (src/assets/hero-stars.webp, 1920×756, the arc
- * centred at 60% of its height). It is sized so the whole arc fits across a phone and crowns the name on a wide
- * screen, its arc placed at --arc down the screen, its edges fading into the night. It breathes very slowly.
+ * The start screen's poster (Home in Pyramid.jsx): stills from the scenes, one on at a time. The one coming in
+ * fades up over 1.8 s while the one leaving fades out under it, and each drifts very slowly closer while it shows.
+ * Upright, the still fills the top of the screen (src/assets/poster/*-p.webp, 4:5) and melts into the night below,
+ * where the words stand; wide, it fills the screen (*-l.webp, 16:9) and darkens toward the words at the left foot.
+ * `.hush` (a first visit) dims it further so the Trust reads over it; `.still` (reduced motion) never moves.
  */
-.home-sky {
-  --w: max(100vw, 100vh);
-  --arc: 23vh;
+.poster {
   position: absolute;
-  left: 50%;
-  top: calc(var(--arc) - var(--w) * 0.236);
-  width: var(--w);
-  aspect-ratio: 1920 / 756;
-  margin-left: calc(var(--w) / -2);
+  inset: 0;
+  overflow: hidden;
   pointer-events: none;
-  transform-origin: 50% 60%;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 72%, transparent 100%);
-  mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 72%, transparent 100%);
-  animation: home-sky 48s ease-in-out infinite alternate;
 }
-@keyframes home-sky {
-  to { transform: scale(1.06); }
+.poster-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
 }
-/* on a first visit the arc is drawn wider and higher, an arch the verse stands under, so no word sits on a star */
-.home-sky.arch {
-  --w: max(118vw, 122vh);
-  --arc: 10vh;
+.poster-slide.on {
+  opacity: 1;
+  z-index: 1;
 }
-@media (orientation: portrait) and (max-height: 700px) {
-  .home-sky { --arc: 19vh; }
-  .home-sky.arch { --w: 150vw; --arc: 5vh; }
+.poster-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 50% 40%;
+}
+.poster-slide.on img,
+.poster-slide.off img {
+  animation: poster-drift calc(8s + 2.4s) linear forwards;
+}
+@keyframes poster-drift {
+  from { transform: scale(1.07); }
+  to { transform: scale(1); }
+}
+/* the night closing in: from the left foot when wide, from below when upright */
+.poster::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgb(5 6 13 / 0.88) 0%, rgb(5 6 13 / 0.55) 34%, rgb(5 6 13 / 0) 62%),
+    linear-gradient(0deg, rgb(5 6 13 / 0.92) 0%, rgb(5 6 13 / 0.35) 34%, rgb(5 6 13 / 0) 55%),
+    linear-gradient(180deg, rgb(5 6 13 / 0.5) 0%, rgb(5 6 13 / 0) 16%);
+}
+.poster.hush::after {
+  background-color: rgb(5 6 13 / 0.3);
+}
+/*
+ * Wide, the words take the left half, so the still is drawn 1.35 screens wide from the left edge: its centre (where
+ * every subject stands) lands at about two thirds across, beside the words rather than behind them, and lifted
+ * (72%) so the figure of light and the tree stand clear of the footer. A phone turned sideways (under 500 px tall)
+ * has too little height between the menu and the footer for that: there the still keeps to the right 55% of the
+ * screen at its own height, and its left edge melts into the night.
+ */
+@media (orientation: landscape) {
+  .poster-slide img {
+    width: 135%;
+    max-width: none;
+    object-position: 50% 72%;
+    transform-origin: 67% 40%;
+  }
 }
 @media (orientation: landscape) and (max-height: 500px) {
-  .home-sky,
-  .home-sky.arch { --w: 100vw; --arc: 18vh; }
-  .home-sky.arch { --arc: 12vh; }
+  .poster-slide {
+    left: 45%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+  }
+  .poster-slide img {
+    width: 100%;
+    object-position: 50% 50%;
+    transform-origin: 50% 45%;
+  }
 }
+/*
+ * Upright, the still is a band across the top 44% that melts into the night where the words begin. A phone
+ * (narrower than 2:3) gets the 4:5 still pinned by its foot: every subject (the star arc and the figure of
+ * light, the tree, the fire in the sea) sits in the lower half of those frames, so pinning the foot lifts it
+ * clear of the words. A tablet held upright gets the wide still, which fits its band almost whole.
+ */
+@media (orientation: portrait) {
+  .poster-slide {
+    bottom: auto;
+    height: 44%;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 50%, transparent 92%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 50%, transparent 92%);
+  }
+  .poster::after {
+    background: linear-gradient(180deg, rgb(5 6 13 / 0.45) 0%, rgb(5 6 13 / 0) 12%);
+  }
+  /* a first visit: the Trust's lines stand on the still here, so it is only a faint sky behind them */
+  .poster.hush::after { background-color: rgb(5 6 13 / 0.62); }
+}
+@media (orientation: portrait) and (max-aspect-ratio: 2/3) {
+  .poster-slide img { object-position: 50% 100%; transform-origin: 50% 60%; }
+}
+/* a small phone (under 700 px tall) has room above the words for a thin band only: the wide still fits it whole */
+@media (orientation: portrait) and (max-height: 700px) {
+  .poster-slide {
+    height: 30%;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+  }
+  .poster-slide img { object-position: 50% 50%; transform-origin: 50% 50%; }
+}
+/* the caption beside the ticks rises in with each new still */
+.poster-caption {
+  animation: poster-caption 1.2s ease-out both;
+}
+@keyframes poster-caption {
+  from { opacity: 0; transform: translateY(4px); }
+}
+.poster.still .poster-slide { transition: none; }
+.poster.still .poster-slide img { animation: none; }
 @media (prefers-reduced-motion: reduce) {
-  .home-sky { animation: none; }
+  .poster-slide { transition: none; }
+  .poster-slide img { animation: none !important; }
+  .poster-caption { animation: none; }
 }
 
 .hook-done .hook-in { animation: none; opacity: 1; }

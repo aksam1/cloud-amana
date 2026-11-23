@@ -24,7 +24,7 @@ const H = ({ id, children }) => (
  */
 export default function Privacy() {
   return (
-    <Shell here="about" back="/" title="Privacy">
+    <Shell here="about" back="/">
       <h1 className="mt-4 font-display text-[1.9rem] font-semibold leading-tight text-gold-hi">Your privacy</h1>
       <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">
         This page says everything Amanah collects, in plain words. It takes effect on {PRIVACY_EFFECTIVE}, and when it

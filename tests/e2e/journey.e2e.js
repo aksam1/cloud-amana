@@ -149,7 +149,7 @@ test('a backup can be saved, the device wiped, and the backup brought back', asy
   // the progress is back
   await page.reload();
   await expect(page.getByText(/2 scenes watched/)).toBeVisible();
-  await expect(page.getByText(/1 private notes/)).toBeVisible();
+  await expect(page.getByText(/1 private note\.$/)).toBeVisible();
 });
 
 test('the last scene of the chronicle leads to the closing page', async ({ page }) => {
@@ -384,7 +384,7 @@ test('story first: a new visitor chooses a view, may skip the guide, then choose
   const on = page.locator('button.btn-gold', { hasText: 'Continue' }); // the transport's skip button is also labelled Continue
   await on.waitFor({ timeout: 90000 });
   await on.click();
-  await expect(page.getByRole('heading', { name: 'That was the first minute' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'That was the first scene' })).toBeVisible();
   await expect(page.getByRole('button', { name: /Keep watching/ })).toBeVisible();
   // the reflection questions are no longer offered here: one link to the other ways in, and they wait on the pyramid
   await expect(page.getByRole('button', { name: /Find where to begin/ })).toHaveCount(0);

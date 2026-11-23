@@ -15,7 +15,14 @@ import InstallInvite from './InstallInvite.jsx';
 import Monument from './Monument.jsx';
 import Nav from './Nav.jsx';
 import Sky from './Sky.jsx';
-import heroStars from '../assets/hero-stars.webp';
+import posterHeavensP from '../assets/poster/heavens-p.webp';
+import posterHeavensL from '../assets/poster/heavens-l.webp';
+import posterStarsP from '../assets/poster/stars-p.webp';
+import posterStarsL from '../assets/poster/stars-l.webp';
+import posterSeaP from '../assets/poster/sea-p.webp';
+import posterSeaL from '../assets/poster/sea-l.webp';
+import posterGourdP from '../assets/poster/gourd-p.webp';
+import posterGourdL from '../assets/poster/gourd-l.webp';
 // the one verse the home page quotes (all of ayahs.json is about 280 KB): see vite.config.js
 import TRUST from 'virtual:ayah/33:72';
 import imgHeavens from '../assets/previews/heavens.webp';
@@ -65,7 +72,7 @@ export function Shell({ children, back, title, stars = false, here, wide = false
           <div className="mb-2 flex min-h-[48px] items-center gap-3">
             {back && (
               <button type="button" className="hud-btn icon" onClick={() => go(back)} aria-label="Back">
-                <Icon name="prev" className="h-4 w-4" />
+                <Icon name="back" className="h-5 w-5" />
               </button>
             )}
             {title && <div className="font-body text-[1.1rem] italic text-gold/85">{title}</div>}
@@ -190,8 +197,10 @@ function UnitChip({ id }) {
 // ── Landing ───────────────────────────────────────────────
 
 /*
- * The start screen: one painting from the chronicle, full screen (Yusuf's eleven stars), the name, one line,
- * one button. Like a game's title screen. The pyramid lives on its own page (#/pyramid).
+ * The start screen, a film poster: stills from the chronicle itself crossfade slowly behind the name, one line and
+ * one button, all set at the foot of the screen. On a phone held upright the still fills the top of the screen and
+ * melts into the night, so the words never sit on a lit figure; wider screens get it full bleed, darkened toward
+ * the words. The pyramid lives on its own page (#/pyramid).
  */
 function Home() {
   const { mode } = useMode();
@@ -259,97 +268,157 @@ function Home() {
   const where = button === cta && !resumeUnit && resume ? resume : null;
   const chapter = where && CHAPTERS.find((ch) => ch.number === where.chapter);
   // with reduced motion nothing slides or zooms: the page is simply there
-  const rise = reduce ? {} : { initial: { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, transition: { delay: first ? 0 : 0.9, duration: first ? 0.01 : 1.2 } };
+  const rise = reduce ? {} : { initial: { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, transition: { delay: first ? 0 : 0.5, duration: first ? 0.01 : 1.1 } };
+  // The stills wait while the Trust is being told; with reduced motion they never change. On a phone held upright the
+  // Trust's lines stand where the still is, so a first visit keeps to the open heavens there (no figure, no arc of
+  // stars to run behind a line of text), which is also what the first line names.
+  const upright = useMedia('(orientation: portrait)');
+  const still = usePoster(!playing && !reduce && !(first && upright));
 
   return (
     <div className={`relative h-full w-full overflow-hidden bg-[#05060d] ${playing ? '' : 'hook-done'}`} onClickCapture={skip}>
-      <div className={`home-sky ${first ? 'arch' : ''}`}>
-        <motion.img
-          src={heroStars}
-          alt=""
-          className="h-full w-full"
-          initial={{ opacity: 0, scale: reduce ? 1 : 1.06 }}
-          animate={{ opacity: first ? 0.7 : 1, scale: 1 }}
-          transition={{ duration: reduce ? 0.6 : 2.4, ease: 'easeOut' }}
-        />
+      <div className={`poster ${first ? 'hush' : ''} ${reduce ? 'still' : ''}`} aria-hidden="true">
+        {POSTER.slice(0, still.warm ? POSTER.length : 1).map((p, i) => (
+          <picture key={p.id} className={`poster-slide ${i === still.at && still.lit ? 'on' : i === still.was ? 'off' : ''}`}>
+            <source media="(orientation: portrait) and (max-aspect-ratio: 2/3) and (min-height: 701px)" srcSet={p.portrait} />
+            <img src={p.wide} alt="" decoding="async" onLoad={i === 0 ? still.onFirst : undefined} />
+          </picture>
+        ))}
       </div>
-      {/* a warm breath of light where the name stands, and the night deepening toward the foot of the page */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_38%_at_50%_58%,rgba(226,187,104,0.09),transparent_70%),linear-gradient(180deg,rgba(5,6,13,0.55)_0%,rgba(5,6,13,0)_18%,rgba(5,6,13,0)_60%,rgba(5,6,13,0.9)_100%)]" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1120px] flex-col overflow-y-auto px-6 pb-28 pt-5 sm:px-10 sm:pb-6 short:pb-2 short:pt-3">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1240px] flex-col overflow-y-auto px-6 pb-28 pt-5 sm:px-12 sm:pb-7 short:px-8 short:pb-3 short:pt-3">
         <header className="flex justify-end">
           <Nav here="home" />
         </header>
 
-        {first && <Trust mode={mode} onVerse={() => setVerse(true)} />}
+        <div className="mt-auto flex w-full max-w-[34rem] flex-col items-start pt-8 text-left sm:pt-10 short:max-w-[30rem] short:pt-3">
+          {first && <Trust mode={mode} onVerse={() => setVerse(true)} />}
 
-        <motion.main className={`flex flex-col items-center text-center ${first ? '' : 'my-auto pt-[18vh] short:pt-[22vh] tiny:pt-[17vh]'}`} {...rise}>
-          <div className={`flex w-full flex-col items-center ${late.className || ''}`} style={late.style}>
-            {first && (
-              <p className="flex items-center gap-3 font-body text-[1.05rem] italic text-gold/80 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-gold/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-gold/50 tiny:hidden short:hidden">
-                Arabic for the Trust
+          <motion.main className="w-full" {...rise}>
+            <div className={late.className} style={late.style}>
+              <p className="flex items-center gap-3 font-body text-[1.02rem] italic text-ivory/75 [text-shadow:0_1px_10px_rgba(0,0,0,0.9)] short:hidden tiny:hidden" aria-hidden="true">
+                <span className="flex gap-1.5">
+                  {POSTER.map((p, i) => (
+                    <span key={p.id} className={`h-[2px] rounded-full transition-all duration-700 ${i === still.at ? 'w-6 bg-gold-hi' : 'w-3 bg-ivory/25'}`} />
+                  ))}
+                </span>
+                <span key={still.at} className="poster-caption">
+                  {POSTER[still.at].from}
+                </span>
               </p>
-            )}
-            <h1 className="mt-1 bg-gradient-to-b from-[#fff6dd] via-[#f1d08a] to-[#b98a3e] bg-clip-text pb-1 font-display text-[clamp(3.25rem,15vw,7rem)] font-semibold leading-none tracking-[0.05em] text-transparent [filter:drop-shadow(0_2px_18px_rgba(0,0,0,0.65))_drop-shadow(0_0_44px_rgba(226,187,104,0.22))] short:text-[2.5rem] tiny:text-[2.6rem]">
-              Amanah
-            </h1>
-            <p className="mt-3 max-w-[26ch] text-balance font-body sm:max-w-none text-[clamp(1.2rem,4.4vw,1.5rem)] leading-snug text-ivory/80 short:mt-0.5 short:max-w-none short:text-[1.1rem] tiny:mt-1.5 tiny:max-w-none tiny:text-[1.12rem]">
-              The stories of the prophets, told in light.
-            </p>
+              <h1 className="mt-3 font-display text-[clamp(3.4rem,14vw,6.5rem)] font-semibold leading-[0.95] tracking-[0.02em] text-ivory [text-shadow:0_2px_30px_rgba(0,0,0,0.55)] short:mt-0 short:text-[2.6rem] tiny:mt-2 tiny:text-[2.9rem]">
+                Amanah
+              </h1>
+              <p className="mt-3 max-w-[24ch] text-pretty font-body text-[clamp(1.25rem,4.6vw,1.6rem)] leading-snug text-ivory/80 sm:max-w-none short:mt-1 short:text-[1.12rem] tiny:mt-2 tiny:text-[1.15rem]">
+                The stories of the prophets, told in light.
+              </p>
 
-            <button type="button" className="btn-cta mt-8 short:mt-2.5 tiny:mt-5" onClick={() => go(button.href)} autoFocus>
-              {button.label}
-              <span className="cta-arrow" aria-hidden="true">
-                <Icon name="arrow" className="h-[18px] w-[18px]" />
-              </span>
-            </button>
+              <div className="mt-7 flex flex-col items-start gap-x-6 gap-y-4 sm:flex-row sm:items-center short:mt-3 short:flex-row short:items-center short:gap-y-2 tiny:mt-5">
+                <button type="button" className="btn-poster" onClick={() => go(button.href)} autoFocus>
+                  {button.label}
+                  <Icon name="arrow" className="poster-arrow h-[18px] w-[18px]" />
+                </button>
 
-            {where ? (
-              <div className="mt-5 w-full max-w-[290px] font-body short:mt-2 tiny:mt-3">
-                <div className="flex items-baseline justify-between gap-4 text-[0.98rem] text-ivory/55">
-                  <span className="truncate italic">{chapter ? chapter.title : `Chapter ${where.chapter}`}</span>
-                  <span className="shrink-0 tabular-nums">
-                    Scene {where.n} of {where.of}
-                  </span>
-                </div>
-                <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-ivory/10" aria-hidden="true">
-                  <div className="h-full rounded-full bg-gradient-to-r from-gold/70 to-gold-hi" style={{ width: `${Math.max(4, ((where.n - 1) / where.of) * 100)}%` }} />
-                </div>
-                <p className="mt-2 truncate text-[1.08rem] text-ivory/85 short:hidden">“{where.title}”</p>
+                {where ? (
+                  <div className="w-full max-w-[260px] font-body">
+                    <div className="flex items-baseline justify-between gap-4 text-[0.98rem] text-ivory/60">
+                      <span className="truncate italic">{chapter ? chapter.title : `Chapter ${where.chapter}`}</span>
+                      <span className="shrink-0 tabular-nums">
+                        Scene {where.n} of {where.of}
+                      </span>
+                    </div>
+                    <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-ivory/15" aria-hidden="true">
+                      <div className="h-full rounded-full bg-gold-hi" style={{ width: `${Math.max(4, ((where.n - 1) / where.of) * 100)}%` }} />
+                    </div>
+                    <p className="mt-2 truncate text-[1.05rem] text-ivory/85 short:hidden">“{where.title}”</p>
+                  </div>
+                ) : (
+                  <p className="max-w-[30ch] text-pretty font-body text-[1.02rem] italic leading-snug text-ivory/60">{button.note}</p>
+                )}
               </div>
-            ) : (
-              <p className="mt-4 max-w-[34ch] text-balance font-body text-[1.02rem] italic text-ivory/55 short:mt-1.5 tiny:mt-2.5">{button.note}</p>
-            )}
-            {!first && <InstallInvite where="home" />}
-          </div>
-        </motion.main>
+              {!first && <InstallInvite where="home" />}
+            </div>
+          </motion.main>
+        </div>
 
         {/* The quiet foot of the page: what this is (and is not), and the housekeeping. The rest of the site is in the
             menu. CalOPPA wants a way to the privacy policy on the home page: it is here, the last of them. */}
-        <motion.footer className="mt-auto pt-6 sm:pt-8 short:pt-2 tiny:pt-3" {...rise}>
+        <motion.footer className="pt-8 sm:pt-10 short:pt-2 tiny:pt-4" {...rise}>
           <div
-            className={`flex flex-col items-center gap-1 border-t border-ivory/[0.07] pt-3 text-center sm:flex-row-reverse sm:items-center sm:justify-between sm:gap-8 sm:text-left short:flex-row-reverse short:items-center short:justify-between short:gap-6 short:pt-1 short:text-left ${late.className || ''}`}
+            className={`flex flex-col items-start gap-1 border-t border-ivory/10 pt-2 sm:flex-row sm:items-center sm:justify-between sm:gap-8 short:flex-row short:items-center short:justify-between short:gap-6 short:pt-1 ${late.className || ''}`}
             style={late.style}
           >
-            <div className="flex flex-wrap justify-center gap-x-1 font-body text-[1.02rem] sm:shrink-0 tiny:text-[0.98rem]">
+            <div className="-ml-3 flex flex-wrap gap-x-1 font-body text-[1.02rem] sm:shrink-0 sm:order-2 short:order-2 tiny:text-[0.98rem]">
               {[
                 ['Guide', '/guide'],
                 ['Settings', '/settings'],
                 ['About', '/about'],
                 ['Privacy', '/privacy'],
               ].map(([name, to]) => (
-                <button key={name} type="button" className="inline-flex min-h-[44px] items-center rounded-full px-3 text-ivory/60 transition-colors hover:bg-ivory/5 hover:text-ivory" onClick={() => go(to)}>
+                <button key={name} type="button" className="inline-flex min-h-[44px] items-center rounded-full px-3 text-ivory/65 transition-colors hover:bg-ivory/5 hover:text-ivory" onClick={() => go(to)}>
                   {name}
                 </button>
               ))}
             </div>
-            <p className="max-w-[52ch] text-pretty font-body text-[0.9rem] italic leading-snug sm:max-w-[64ch] text-ivory/40 tiny:text-[0.84rem] short:text-[0.82rem]">{inMode(DISCLAIMER, mode)}</p>
+            <p className="max-w-[52ch] text-pretty font-body text-[0.9rem] italic leading-snug text-ivory/45 sm:max-w-[60ch] tiny:text-[0.84rem] short:text-[0.82rem]">{inMode(DISCLAIMER, mode)}</p>
           </div>
         </motion.footer>
       </div>
       {verse && <TrustVerse onClose={() => setVerse(false)} />}
     </div>
   );
+}
+
+// The poster's stills, captured from the scenes themselves (canvas only, no captions): an upright one for phones,
+// a wide one for everything else. Each is a moment where the prophet, if any, is only light.
+const POSTER = [
+  { id: 'heavens', portrait: posterHeavensP, wide: posterHeavensL, from: 'From the story of creation' },
+  { id: 'stars', portrait: posterStarsP, wide: posterStarsL, from: 'From the story of Yusuf' },
+  { id: 'sea', portrait: posterSeaP, wide: posterSeaL, from: 'From the story of Musa' },
+  { id: 'gourd', portrait: posterGourdP, wide: posterGourdL, from: 'From the story of Yunus' },
+];
+const POSTER_HOLD = 8000;
+
+/**
+ * Which still is showing. Only the first is fetched at first; the rest join once it has arrived (or after a moment),
+ * so they never hold up the page. `was` is the one fading out, which keeps its slow zoom while it goes.
+ */
+function usePoster(turning) {
+  const [{ at, was }, setTurn] = useState({ at: 0, was: -1 });
+  const [lit, setLit] = useState(false);
+  const [warm, setWarm] = useState(false);
+  const onFirst = useCallback(() => setLit(true), []);
+  useEffect(() => {
+    const t = setTimeout(() => setLit(true), 1500);
+    return () => clearTimeout(t);
+  }, []);
+  useEffect(() => {
+    if (!lit || warm) return undefined;
+    const t = setTimeout(() => setWarm(true), 1200);
+    return () => clearTimeout(t);
+  }, [lit, warm]);
+  useEffect(() => {
+    if (!turning || !warm) return undefined;
+    const t = setInterval(() => {
+      if (!document.hidden) setTurn((s) => ({ at: (s.at + 1) % POSTER.length, was: s.at }));
+    }, POSTER_HOLD);
+    return () => clearInterval(t);
+  }, [turning, warm]);
+  return { at, was, lit, warm, onFirst };
+}
+
+/** Whether a media query matches, kept current as the screen turns or resizes. */
+function useMedia(query) {
+  const [on, setOn] = useState(() => typeof window !== 'undefined' && !!window.matchMedia?.(query).matches);
+  useEffect(() => {
+    const mq = window.matchMedia?.(query);
+    if (!mq) return undefined;
+    const change = () => setOn(mq.matches);
+    change();
+    mq.addEventListener('change', change);
+    return () => mq.removeEventListener('change', change);
+  }, [query]);
+  return on;
 }
 
 // The opening plays once per visit to the site (a page load); coming back to Home shows it whole.
@@ -373,7 +442,7 @@ function Trust({ mode, onVerse }) {
     </span>
   );
   return (
-    <section aria-label="The Trust" className="my-auto flex flex-col items-center gap-2 pb-6 pt-12 text-center sm:pt-6 font-body text-[clamp(1.3rem,5.2vw,1.75rem)] leading-snug text-ivory/90 [text-shadow:0_2px_14px_rgba(0,0,0,0.85)] short:flex-row short:flex-wrap short:justify-center short:gap-x-2 short:gap-y-0 short:py-2 short:text-[1.05rem] tiny:gap-1 tiny:pb-3 tiny:pt-9 tiny:text-[1.12rem]">
+    <section aria-label="The Trust" className="mb-7 flex flex-col items-start gap-1.5 text-left font-body text-[clamp(1.25rem,5vw,1.6rem)] leading-snug text-ivory/90 [text-shadow:0_2px_14px_rgba(0,0,0,0.85)] sm:mb-9 short:mb-2 short:flex-row short:flex-wrap short:gap-x-1.5 short:gap-y-0 short:text-[1.02rem] tiny:mb-4 tiny:gap-0.5 tiny:text-[1.1rem]">
       <p className="hook-in" style={at(HOOK_AT.offered)}>
         {inMode('God offered the Trust', mode)}
       </p>
@@ -502,7 +571,7 @@ function Begin() {
     return (
       <Shell back="/" title="Begin">
         <h1 className="mt-6 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">First, how would you like to explore?</h1>
-        <p className="mt-1 font-body text-[1.1rem] text-ivory/70">Only the wording changes. You can switch at any time.</p>
+        <p className="mt-1 font-body text-[1.1rem] text-ivory/70">The stories are the same in both. You can switch at any time.</p>
         <div className="mt-5">
           <ModePicker full />
         </div>
@@ -539,7 +608,7 @@ function Begun() {
   });
   return (
     <Shell here="story" back="/" title="Your first story">
-      <h1 className="mt-4 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">That was the first minute</h1>
+      <h1 className="mt-4 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">That was the first scene</h1>
       <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">
         The story goes on, one short scene at a time. Story, in the menu, always shows where you are.
         {joined.length > 0 && ` ${joined.join(' and ')} ${joined.length > 1 ? 'have' : 'has'} just joined it.`}
@@ -1244,7 +1313,7 @@ function Progress() {
       {/* the one number that matters first: how far into the story */}
       <section className="mt-6 rounded-2xl border border-gold/40 bg-black/35 p-5" aria-labelledby="story-h">
         <h2 id="story-h" className="font-body text-[1.05rem] italic text-ivory/60">The story</h2>
-        <p className="font-display text-[clamp(1.7rem,6vw,2.2rem)] font-semibold leading-tight text-gold-hi">
+        <p className="font-body text-[clamp(1.9rem,6.5vw,2.4rem)] font-semibold leading-tight text-gold-hi">
           {watched} of {SCENES.length} scenes watched
         </p>
         <div className="mt-3">
@@ -1276,11 +1345,7 @@ function Progress() {
               </button>
             </>
           )}
-          <div className="mt-4 space-y-3">
-            {[...c.levels].reverse().map((l) => (
-              <Meter key={l.id} value={l.progress} label={`${l.title}: ${l.done} of ${l.total} lessons${l.lit ? ', lit' : ''}`} />
-            ))}
-          </div>
+          {/* each level's own count is in its row below; the card keeps one number */}
           <p className="mt-4 border-t border-gold/15 pt-3 font-body text-[1.02rem] text-ivory/70">
             Pyramid lessons, overall <span className="text-gold-hi">{c.overall}%</span>
           </p>
@@ -1390,11 +1455,13 @@ function Progress() {
       </section>
 
       <section className="mt-6 flex flex-wrap items-center gap-3">
-        <button type="button" className="hud-btn" onClick={() => go('/pyramid/placement')}>
-          Reflect again
-        </button>
+        {placed && (
+          <button type="button" className="hud-btn" onClick={() => go('/pyramid/placement')}>
+            Reflect again
+          </button>
+        )}
         <button type="button" className="hud-btn" onClick={() => go('/pyramid')}>
-          Back to the pyramid
+          See the pyramid
         </button>
         <button type="button" className="hud-btn" onClick={() => go('/settings')}>
           Settings

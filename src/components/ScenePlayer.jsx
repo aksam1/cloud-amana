@@ -366,7 +366,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
       {/* Top bar */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-3 p-3 sm:p-5 short:p-2">
         <div className="pointer-events-auto flex items-center gap-3">
-          <button type="button" className="hud-btn" onClick={() => go('/map')} aria-label="Campaign map (M)">
+          <button type="button" className="hud-btn" onClick={() => go('/map')} aria-label="The map of time (M)">
             <Icon name="map" className="h-4 w-4" />
             <span className="hidden sm:inline">Map</span>
           </button>

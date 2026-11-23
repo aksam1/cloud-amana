@@ -57,7 +57,7 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
             </header>
 
             <div className="mt-2 space-y-1.5 font-body text-[1.06rem] leading-snug" aria-live="polite">
-              {lines.length === 0 && <p className="italic text-ink-soft/80">The page waits for its first words…</p>}
+              {lines.length === 0 && <p className="italic text-ink-soft/80">The words appear here as the scene plays.</p>}
               {lines.map((line, i) => (
                 <motion.p key={line} initial={{ opacity: 0, filter: 'blur(3px)' }} animate={{ opacity: i === lines.length - 1 ? 1 : 0.6, filter: 'blur(0px)' }} transition={{ duration: 1 }} className="text-ink">
                   {line}

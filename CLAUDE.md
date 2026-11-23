@@ -196,23 +196,36 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## The look (first impression)
 
-- `#/` is a cinematic start screen (`Home` in Pyramid.jsx: Yusuf's eleven stars full screen, "Amanah", one button).
-  A first visit (nothing seen, learned, placed or begun) opens on the Trust (`Trust`, about 7 s, `HOOK_AT`): four
-  plain lines retelling 33:72 arrive over the stars (heavens, earth and mountains light as named and dim as they
+- `#/` is a film poster (`Home` in Pyramid.jsx, rebuilt 23 Nov 2026): stills from the chronicle crossfade slowly
+  behind "Amanah", one line ("The stories of the prophets, told in light.") and one `.btn-poster` button, all set at
+  the foot of the screen. A first visit (nothing seen, learned, placed or begun) opens on the Trust (`Trust`, about 7 s, `HOOK_AT`): four
+  plain lines retelling 33:72 arrive over the first still (heavens, earth and mountains light as named and dim as they
   refuse; "Humankind took it up." opens in a warm light, no figure), then the title, then the button. Its citation
   "Quran 33:72" opens `TrustVerse`, the verse itself (Arabic and Sahih English via `virtual:ayah/33:72`). The first
   tap or key in the first 5.9 s only shows it all (Enter or Space does not also press the button); after that a tap
   goes through. It plays once per page load, all at once with reduced motion, and never for a returning reader, who
   gets the calm screen with "Continue the story". Tests pass it with `skipOpening(page)` (`tests/e2e/opening.js`).
-  Its layout (revamped 20 Nov 2026): the stars are a crown, not a backdrop. `.home-sky` (index.css) places the
-  arc of hero-stars.webp by numbers (`--w` its width, `--arc` where the arc's centre lands; the arc is 0.4 W wide
-  and its centre 0.236 W below the image top), with `.arch` (first visit) a wider, higher arch the Trust stands
-  under, and its own values for `tiny:` and `short:`. No wordmark in the corner (the h1 is the name); the button is
-  `.btn-cta` (a gold pill, sentence case, an arrow in a circle), never tracked caps; a returning scene reader sees
-  chapter, "Scene n of N" and a thin progress bar instead of a sentence; the footer is one quiet row (disclaimer
-  left, Guide · Settings · About · Privacy as plain 44 px buttons right; stacked on phones). Before changing any of
-  it, check first visit and returning at 412×839, 375×812, 360×640, 844×390 and 1366×800: on phones the
-  disclaimer must clear the tab bar, and the stars must never cross a line of text. The pyramid page is `#/pyramid`: one smooth sandstone pyramid at dusk (`Monument.jsx`: gilded courses split
+
+- The poster's stills: `POSTER` in Pyramid.jsx (heavens, stars, sea, gourd, each with a "From the story of …"
+  caption under thin progress dashes), files in `src/assets/poster/`: `<id>-p.webp` (800×1000, for a phone held
+  upright) and `<id>-l.webp` (1600×900, everything else). They are captured from the scenes themselves, canvas only
+  with no captions, the same way as the scene previews (open `#/scene/<id>?beat=<n>&still` in a headless Chrome,
+  take the still driver's own jpeg, save it as webp); a new still must keep the art rules (no prophet or figure lit
+  in full). `usePoster` fetches only the first still; the rest join once it has loaded (or after 1.5 s), each held
+  `POSTER_HOLD` (8 s) with a slow zoom, and it pauses while the tab is hidden.
+- Where the still sits (`.poster` in index.css), so a subject never crosses a line of text: landscape draws it
+  135% wide at `object-position: 50% 72%` so the subject stands beside the words; short landscape (`short:`, up to
+  500 px tall) keeps it to the right 55% with a fade on its left; portrait is a band at the top, 44% of the screen,
+  pinned by its foot and melting into the night (30% and the wide still under 700 px tall). A first visit holds
+  the first still with a 0.62 dim (`.poster.hush`), and on a phone held upright it does not change at all
+  (`useMedia`), so the Trust's lines stay readable; reduced motion gets `.poster.still` (no fades, no zoom).
+- Buttons everywhere (`.hud-btn`, `.btn-gold`, `.btn-ink`, `.btn-poster`) are Cormorant 600 in sentence case, never
+  tracked caps. `.btn-poster` is the home page's solid ivory one with an arrow. A returning scene reader sees the
+  chapter, "Scene n of N" and a thin progress bar beside it instead of a sentence; the footer is one quiet row
+  (disclaimer, then Guide, Settings, About and Privacy as plain 44 px buttons; stacked on phones).
+- Before changing any of it, check first visit and returning at 412×839, 375×812, 360×640, 844×390 and 1366×800:
+  on phones the disclaimer must clear the tab bar, and a lit subject must never cross a line of text.
+- The pyramid page is `#/pyramid`: one smooth sandstone pyramid at dusk (`Monument.jsx`: gilded courses split
   the three levels, each unit a round seal: gold = can be opened today, a gold ring = its meter). Tapping a level
   zooms into it (`focus`, the SVG's viewBox animates; seals get their names; the other levels shade) and a pop-up
   brief (`Brief` in Pyramid.jsx, no scrolling) shows the level and its lessons as chips, or one lesson (its `brief`

@@ -38,20 +38,20 @@ export function BridgeCard({ chapter, watchFor, onBegin }) {
         onClick={(e) => e.stopPropagation()}
         aria-labelledby="bridge-title"
       >
-        <div className="caps text-[0.62rem] text-ink-soft">Between the stories</div>
+        <p className="font-body text-[0.98rem] italic text-ink-soft">Between the stories</p>
         <h2 id="bridge-title" className="font-display text-[1.3rem] font-semibold leading-tight text-ink">
-          Chapter {roman(chapter.number)} · {chapter.title}
+          Chapter {roman(chapter.number)}, {chapter.title}
         </h2>
         <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 font-body text-[0.98rem] text-ink">
           {when && (
             <>
-              <dt className="caps pt-[3px] text-[0.6rem] text-ink-soft">When</dt>
+              <dt className="italic text-ink-soft">When</dt>
               <dd>{when}</dd>
             </>
           )}
           {where && (
             <>
-              <dt className="caps pt-[3px] text-[0.6rem] text-ink-soft">Where</dt>
+              <dt className="italic text-ink-soft">Where</dt>
               <dd>{where}</dd>
             </>
           )}
@@ -73,7 +73,7 @@ export function BridgeCard({ chapter, watchFor, onBegin }) {
         </div>
         {watchFor && (
           <div className="mt-4 rounded-md border border-[#8a6a2e]/40 bg-[#5a3d22]/5 px-3 py-2">
-            <div className="caps text-[0.6rem] text-ink-soft">Watch for</div>
+            <p className="font-body text-[0.95rem] italic text-ink-soft">Watch for</p>
             <p className="font-body text-[1.02rem] leading-snug text-ink">{say(watchFor)}</p>
           </div>
         )}

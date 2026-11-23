@@ -31,7 +31,7 @@ export default function StoryPage() {
     });
 
   return (
-    <Shell here="story" back="/" stars>
+    <Shell here="story" stars>
       <h1 className="mt-4 font-display text-[1.8rem] font-semibold leading-tight text-gold-hi">The story</h1>
       <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/80">From the first light to the Last Day, in order. A short lesson closes each part.</p>
       <p className="mt-1 font-body text-[1rem] italic text-ivory/60" role="status">
@@ -107,7 +107,7 @@ function Part({ c, p, i, titled, scenes, seen, learned, up }) {
   const row = 'flex min-h-[48px] items-center gap-3 rounded-lg px-2 py-2';
   return (
     <section className="mt-2" aria-label={p.title}>
-      {titled && <h3 className="px-2 pb-1 pt-2 font-body text-[0.98rem] uppercase tracking-[0.08em] text-gold/80">{p.title}</h3>}
+      {titled && <h3 className="px-2 pb-1 pt-2 font-body text-[1.02rem] italic text-gold/80">{p.title}</h3>}
       <ol className="grid gap-0.5">
         {list.map((s) => {
           const isUp = s.id === up;

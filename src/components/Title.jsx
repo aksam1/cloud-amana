@@ -76,7 +76,7 @@ export default function Title() {
           )}
           <button type="button" className="hud-btn" onClick={() => go('/map')}>
             <Icon name="map" className="h-4 w-4" />
-            Campaign map
+            The map of time
           </button>
         </motion.div>
 

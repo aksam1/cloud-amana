@@ -15,7 +15,7 @@ export default function Contact({ kind = '' }) {
 
   if (!IS_WEB) {
     return (
-      <Shell here="about" back="/" title="Contact">
+      <Shell here="about" back="/">
         <h1 className="mt-6 font-body text-[1.6rem] font-semibold text-gold-hi">Writing to us needs the web site</h1>
         <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/80">
           This copy of Amanah cannot send anything. On the web site, a message can be sent to the person who makes the app.
@@ -28,7 +28,7 @@ export default function Contact({ kind = '' }) {
   }
 
   return (
-    <Shell here="about" back="/" title="Contact">
+    <Shell here="about" back="/">
       <h1 className="mt-4 font-display text-[1.8rem] font-semibold leading-tight text-gold-hi">Write to us</h1>
       <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">A mistake, a question, or a request about your data.</p>
       <div className="mt-5">

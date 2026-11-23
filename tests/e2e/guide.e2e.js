@@ -74,7 +74,7 @@ test('a newcomer is taken into the guide, tries each thing once, and then choose
 
   // the last step asks; nothing opens by itself
   await expect(page.getByRole('heading', { name: 'Where would you like to start?' })).toBeVisible();
-  await expect(page.getByText('Last step')).toBeVisible();
+  await expect(page.getByText('Ready to begin')).toBeVisible();
   for (const w of [/^Watch the first story/, /^See every chapter/, /^Every place, on one page/]) await expect(page.getByRole('button', { name: w })).toBeVisible();
   await page.waitForTimeout(2000);
   await expect(page).toHaveURL(/step=start$/);

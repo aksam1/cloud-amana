@@ -82,6 +82,7 @@ const ICONS = {
   check: 'M5 12.5l4.5 4.5L19 7.5',
   book: 'M4 5.5A2.5 2.5 0 016.5 3H20v16H6.5A2.5 2.5 0 004 21.5zM4 5.5v16M8 7h8',
   arrow: 'M5 12h14M13 6l6 6-6 6',
+  back: 'M19 12H5M11 6l-6 6 6 6',
 };
 
 export function Icon({ name, className = 'h-5 w-5', filled = false }) {

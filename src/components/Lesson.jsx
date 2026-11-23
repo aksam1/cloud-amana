@@ -50,9 +50,9 @@ export default function Lesson({ chapter, part, then }) {
 
   return (
     <Shell>
-      <div className="caps text-[0.62rem] text-ink-soft">
-        Lesson · Chapter {roman(chapter)} · {ch?.parts?.[part]?.title}
-      </div>
+      <p className="font-body text-[1rem] italic text-ink-soft">
+        The lesson for chapter {roman(chapter)}, {ch?.parts?.[part]?.title}
+      </p>
 
       {!mode ? (
         <div className="mt-3">
@@ -143,7 +143,7 @@ function Remember({ data, mode, lessonKey: key, chapter, part, here, onDone }) {
   return (
     <section aria-labelledby="q">
       <Heading>Remember</Heading>
-      <p className="caps mt-1 text-[0.6rem] text-ink-soft">
+      <p className="mt-1 font-body text-[0.98rem] italic text-ink-soft">
         Question {i + 1} of {data.questions.length}
       </p>
       <p id="q" className="mt-2 font-body text-[1.2rem] leading-snug text-ink">
@@ -204,7 +204,7 @@ function Verse({ refId }) {
         {a.ar}
       </p>
       <figcaption className="mt-1 font-body text-[1.02rem] leading-snug text-ink">
-        {a.en} <span className="caps whitespace-nowrap text-[0.56rem] text-ink-soft">{a.surah} · {refId}</span>
+        {a.en} <span className="whitespace-nowrap text-[0.92rem] italic text-ink-soft">{a.surah} {refId}</span>
       </figcaption>
     </figure>
   );
@@ -236,7 +236,7 @@ function Carry({ data, onDone }) {
             {a.ar}
           </p>
           <figcaption className="mt-1 font-body text-[1.02rem] leading-snug text-ink">
-            {a.en} <span className="caps whitespace-nowrap text-[0.56rem] text-ink-soft">{a.surah} · {data.carry.ref}</span>
+            {a.en} <span className="whitespace-nowrap text-[0.92rem] italic text-ink-soft">{a.surah} {data.carry.ref}</span>
           </figcaption>
         </figure>
       ) : (
@@ -276,7 +276,7 @@ function Reflect({ data, mode, lessonKey: key, onDone }) {
       <p className="mt-2 font-body text-[0.95rem] text-ink-soft">Finishing this lesson lights more of the Messengers stone on your pyramid.</p>
       {mode === 'muslim' && data.act && (
         <div className="mt-4 rounded-md border border-[#a5772f]/50 bg-[#a5772f]/8 px-3 py-2">
-          <div className="caps text-[0.6rem] text-ink-soft">This week</div>
+          <div className="font-body text-[0.95rem] italic text-ink-soft">This week</div>
           <p className="font-body text-[1.08rem] leading-snug text-ink">{inMode(data.act, mode)}</p>
         </div>
       )}

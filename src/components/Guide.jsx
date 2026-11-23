@@ -438,7 +438,7 @@ export default function Guide({ step }) {
           <div className="flex items-center justify-between gap-3">
             <Dots at={at} />
             <span className="font-body text-[1rem] italic text-ivory/55" aria-live="polite">
-              {s ? `Step ${at + 1} of ${TOUR.length}` : 'Last step'}
+              {s ? `Step ${at + 1} of ${TOUR.length}` : 'Ready to begin'}
             </span>
           </div>
           <AnimatePresence mode="wait" initial={false}>
