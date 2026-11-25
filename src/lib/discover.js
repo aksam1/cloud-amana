@@ -1,6 +1,6 @@
 // The places that open as the story reaches them.
 //
-// A new visitor's menu is Home and Story, nothing else to learn. The first scene opens the map of time (and
+// A new visitor's menu is Home and Journey, nothing else to learn. The first scene opens the map of time (and
 // with it Explore) and Progress; reaching the first stop of a path opens Paths; the first lesson (or the
 // pyramid's questions) opens the pyramid; the end of the first chapter opens the two abodes.
 //
@@ -18,7 +18,7 @@ export const DOORS = [
   { id: 'abodes', title: 'The two abodes', line: 'Paradise and the Fire as the Quran describes them. Verses only.', icon: 'diamond', to: '/abodes', opens: 'Opens when the first chapter ends.' },
 ];
 /** Always open: the guide is how a newcomer asks "what is where". */
-export const GUIDE_DOOR = { id: 'guide', title: 'The short guide', line: 'What is where, one step at a time.', icon: 'help', to: '/guide' };
+export const GUIDE_DOOR = { id: 'guide', title: 'How Amanah works', line: 'Four short things to try, and what is where.', icon: 'help', to: '/guide' };
 
 const PLACES = [...DOORS.map((d) => d.id), 'progress'];
 // a path "begins" for the reader at any of its stops
@@ -95,9 +95,12 @@ export function placeOfRoute(route) {
 /** The places the guide's "every place on one page" shows, so reading it opens what it points at. */
 export const GUIDE_PLACES = { map: ['map', 'explore'], paths: ['paths', 'explore'], pyramid: ['pyramid', 'explore'], abodes: ['abodes', 'explore'], progress: ['progress'] };
 
+/** Has the reader begun: a scene opened, or anything watched or learned? */
+export const begun = (state) => !!state?.last || earned(state).progress;
+
 /**
- * Is this a newcomer, who is taken into the short guide before anything else? Nothing watched or learned yet,
+ * Is this a newcomer, who is shown how Amanah works (#/guide) before anything else? Nothing watched or learned yet,
  * no scene opened, and the guide neither finished nor skipped. Skipping is always one tap; after that the guide
  * is an offer like any other.
  */
-export const newcomer = (state) => !state?.prefs?.guide && !state?.last && !earned(state).progress;
+export const newcomer = (state) => !state?.prefs?.guide && !begun(state);

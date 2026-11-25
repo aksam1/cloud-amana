@@ -9,7 +9,7 @@ const seen = (...ids) => Object.fromEntries(ids.map((id) => [id, true]));
 const NONE = { map: false, paths: false, pyramid: false, abodes: false, progress: false, explore: false };
 
 describe('a new visitor', () => {
-  it('has only Home and Story: every door, Explore and Progress are still to find', () => {
+  it('has only Home and Journey: every door, Explore and Progress are still to find', () => {
     expect(opened({})).toEqual(NONE);
     expect(opened({ seen: {}, learned: {}, units: {}, drafts: {}, placement: null, found: {}, prefs: {} })).toEqual(NONE);
     expect(fresh({})).toEqual({});
@@ -126,7 +126,7 @@ describe('the found places in the store', () => {
   });
 });
 
-describe('who is taken into the short guide', () => {
+describe('who is shown how Amanah works first', () => {
   it('takes a newcomer, whether the store is empty or holds only defaults and a chosen view', () => {
     expect(newcomer({})).toBe(true);
     expect(newcomer(undefined)).toBe(true);

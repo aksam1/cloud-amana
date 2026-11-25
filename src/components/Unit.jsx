@@ -5,6 +5,7 @@ import { getState, saveDraft, saveJournal, saveUnit, useStore } from '../lib/sto
 import { track } from '../lib/usage.js';
 import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
+import { closeGuide, guiding, nextHref, nextStep, skipStep, stepCopy, stepHref } from '../lib/journey.js';
 import { climb, CONFIG, completed, levelById, nextUnit, unitById, unitMeter, unitStatus, UNITS } from '../lib/pyramid.js';
 import { quranLink, share, shareMessage } from '../lib/site.js';
 
@@ -17,6 +18,7 @@ import { ModePicker } from './ModePicker.jsx';
 import { Disclaimer, Meter } from './Pyramid.jsx';
 import Monument from './Monument.jsx';
 import Nav from './Nav.jsx';
+import { ResumeGuide } from './GuideBar.jsx';
 
 /*
  * One unit of the pyramid, in five steps, one per screen:
@@ -475,6 +477,8 @@ function Reflection({ id, data, v, say, setReflected, onFinish }) {
   );
 }
 
+const QUIET_INK = 'inline-flex min-h-[44px] items-center rounded-full px-3 font-body text-[1rem] text-ink-soft hover:bg-black/5 hover:text-ink';
+
 // The stone's meter after a unit, and where to go next.
 function Done({ u, result, mode, see }) {
   const state = useStore();
@@ -484,6 +488,8 @@ function Done({ u, result, mode, see }) {
   const c = useMemo(() => climb(state), [state]);
   const done = useMemo(() => Object.fromEntries(UNITS.map((x) => [x.id, completed(state, x.id)])), [state]);
   const next = useMemo(() => nextUnit(state, u.id), [state, u]);
+  const guideStep = guiding(state) ? nextStep(state) : null;
+  const guideCopy = guideStep && stepCopy(guideStep, state, (t) => inMode(t, mode));
   const [note, setNote] = useState('');
   return (
     <Frame>
@@ -513,22 +519,54 @@ function Done({ u, result, mode, see }) {
         Understanding counts {Math.round(CONFIG.weights.check * 100)}%, your choice and reflection {Math.round((CONFIG.weights.choice + CONFIG.weights.reflection) * 100)}%. Take it again any time to raise your meter.
       </p>
       {levelDone && <p className="mt-2 font-body text-[1.05rem] italic text-[#8a5e1c]">Every stone of {levelById[u.level].title} is now lit.</p>}
-      {next && (
-        <div className="mt-5 flex justify-end">
-          <button type="button" className="btn-gold" onClick={() => go(next.history ? '/stories' : `/unit/${next.id}`)} ref={(el) => el?.focus({ preventScroll: true })}>
-            Next: {next.title}
+      {/* Following the guide (src/lib/journey.js), its next step is the way on; the next pyramid lesson stays a choice. */}
+      {guideStep ? (
+        <div className="mt-5 flex flex-col items-end gap-1 text-right">
+          <p className="font-body text-[1rem] italic text-ink-soft">Next in your guide: {guideCopy.title}</p>
+          <button type="button" className="btn-gold" onClick={() => go(stepHref(guideStep, getState()))} ref={(el) => el?.focus({ preventScroll: true })} data-tap="primary">
+            {guideCopy.action}
             <Icon name="next" className="h-4 w-4" />
           </button>
+          <div className="-mr-2 flex flex-wrap justify-end">
+            <button
+              type="button"
+              className={QUIET_INK}
+              onClick={() => {
+                skipStep(guideStep);
+                go(nextHref(getState()));
+              }}
+            >
+              Skip this step
+            </button>
+            <button type="button" className={QUIET_INK} onClick={closeGuide}>
+              Close the guide
+            </button>
+          </div>
         </div>
+      ) : (
+        next && (
+          <div className="mt-5 flex justify-end">
+            <button type="button" className="btn-gold" onClick={() => go(next.history ? '/stories' : `/unit/${next.id}`)} ref={(el) => el?.focus({ preventScroll: true })}>
+              Next: {next.title}
+              <Icon name="next" className="h-4 w-4" />
+            </button>
+          </div>
+        )
       )}
-      <div className={`${next ? 'mt-2' : 'mt-5'} flex flex-wrap items-center justify-end gap-2`}>
+      <div className={`${next || guideStep ? 'mt-2' : 'mt-5'} flex flex-wrap items-center justify-end gap-2`}>
+        {guideStep && next && (
+          <button type="button" className="btn-ink" onClick={() => go(next.history ? '/stories' : `/unit/${next.id}`)}>
+            Next pyramid lesson: {next.title}
+          </button>
+        )}
         <button type="button" className="btn-ink" onClick={() => go(`/unit/${u.id}?again=${Date.now()}`)}>
           Take it again
         </button>
-        <button type="button" className={next ? 'btn-ink' : 'btn-gold'} onClick={() => go('/pyramid')} autoFocus={!next}>
+        <button type="button" className={next || guideStep ? 'btn-ink' : 'btn-gold'} onClick={() => go('/pyramid')} autoFocus={!next && !guideStep}>
           Back to the pyramid
         </button>
       </div>
+      {!guideStep && <div className="mt-1 flex justify-end"><ResumeGuide ink /></div>}
       {/* a page that goes further on this lesson's subject (the unit file's `see`: { label, to }) */}
       {see && (
         <div className="mt-2 flex justify-end">

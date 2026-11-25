@@ -6,10 +6,12 @@ import { Chronicle } from './Chronicle.jsx';
 import { Icon, SourceBadge } from './Ornaments.jsx';
 import { Toast, useToast } from './Toast.jsx';
 import { BridgeCard } from './Bridge.jsx';
+import { GUIDE_CLOSED } from './GuideBar.jsx';
 import { cameraAt, chapterByNumber, chapterScenes, nextNodeId, nextScene, nodeById, prevScene, sceneById, verseArabic } from '../lib/story.js';
 import { captionHoldMs } from '../lib/pacing.js';
 import { ambience } from '../lib/audio.js';
-import { lightNode, markSeen, setLast, setPref, useStore } from '../lib/store.js';
+import { getState, lightNode, markSeen, setLast, setPref, useStore } from '../lib/store.js';
+import { closeGuide, nextHref, skipStep, stepCopy, stepHref, stopAfter } from '../lib/journey.js';
 import { IS_WEB } from '../lib/pwa.js';
 import { inMode, useMode } from '../lib/words.js';
 import { unitForChapter, unitStatus } from '../lib/pyramid.js';
@@ -26,7 +28,7 @@ const TITLE_MS = 2800;
 const WATCH_MS = 6500; // long enough to read the question to watch for
 const PENDING_MS = 6000; // a verse moment still waiting for its text holds only this long, not the verse's reading time
 
-export default function ScenePlayer({ id, beat, still = false, moment, back, until, first = false }) {
+export default function ScenePlayer({ id, beat, still = false, moment, back, until }) {
   const scene = sceneById[id];
   if (!scene) {
     return (
@@ -42,7 +44,7 @@ export default function ScenePlayer({ id, beat, still = false, moment, back, unt
     );
   }
   const start = Math.min(scene.beats.length - 1, Math.max(0, parseInt(beat, 10) || 0));
-  return <Player scene={scene} start={start} still={still} moment={moment} back={back} until={until} first={first} />;
+  return <Player scene={scene} start={start} still={still} moment={moment} back={back} until={until} />;
 }
 
 /*
@@ -57,8 +59,9 @@ export default function ScenePlayer({ id, beat, still = false, moment, back, unt
  * `still` (#/scene/<id>?beat=n&still) holds one moment for review: paused, no title card, the camera
  * already where that beat ends; `moment` (&t=0–1) holds a WebGL scene's walks and moves part way through.
  */
-function Player({ scene, start = 0, still = false, moment, back, until, first = false }) {
-  const prefs = useStore((s) => s.prefs);
+function Player({ scene, start = 0, still = false, moment, back, until }) {
+  const state = useStore();
+  const prefs = state.prefs;
   const reduced = useReducedMotion();
   const cam = useCamera();
   const [beat, setBeat] = useState(start);
@@ -73,6 +76,17 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   const [crowded, setCrowded] = useState(false); // a long verse on a small phone: the chronicle folds away for that moment
   const onCrowded = useCallback(() => setCrowded(true), []);
   useEffect(() => setCrowded(false), [beat, scene.id]);
+  // On a phone held upright the chronicle sits just above the transport; when the transport grows (the guide's stop,
+  // the end-of-scene buttons) the chronicle rises with it instead of being covered.
+  const transport = useRef(null);
+  const [lift, setLift] = useState(84);
+  useEffect(() => {
+    const el = transport.current;
+    if (!el) return undefined;
+    const ro = new ResizeObserver(() => setLift(Math.max(84, Math.round(el.offsetHeight) + 2))); // its own padding already leaves a gap
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
   const [toast, showToast] = useToast();
   const swipe = useRef(null);
   const wheelAt = useRef(0);
@@ -181,21 +195,36 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   }, [scene, next]);
   // The end of a part with a lesson not yet taken: the lesson is offered beside the way on, never forced. The reader
   // chooses; an unread lesson waits on Progress.
-  const lessonPart = first || back ? null : lessonAfter(scene);
+  const lessonPart = back ? null : lessonAfter(scene);
   const lessonWaiting = lessonPart !== null && !learned[lessonKey(scene.chapter, lessonPart)];
+
+  // The guide's stop (src/lib/journey.js): for a reader following the guide, where it goes once this scene has
+  // played, when that is not simply the story's next scene (the part's lesson, a place, a pyramid lesson). It takes
+  // the place of the usual buttons; closing the guide here brings them back.
+  const stop = ended && !back && !still ? stopAfter(state, scene.id, next?.id) : null;
+  const stopCopy = stop && stepCopy(stop, state, (t) => inMode(t, state.prefs.mode));
+  const followGuide = useCallback(() => {
+    if (!stop) return;
+    markSeen(scene.id);
+    go(stepHref(stop, getState()));
+  }, [stop, scene.id]);
+  const skipGuideStep = useCallback(() => {
+    if (!stop) return;
+    markSeen(scene.id);
+    skipStep(stop);
+    go(nextHref(getState()));
+  }, [stop, scene.id]);
 
   const continueOn = useCallback(() => {
     markSeen(scene.id);
     // played from a lesson or a pyramid unit: go back there, at once or (with ?until=<scene>) once that
     // scene has played, carrying the way back along through the scenes between
-    // a new visitor's first scene (story first): afterwards they choose where to go
-    if (first) return go('/begin/next');
     if (back) {
       if (!until || scene.id === until || !next) return go(back);
       return go(`/scene/${next.id}?back=${encodeURIComponent(back)}&until=${until}`);
     }
     go(onward);
-  }, [scene, next, back, until, first, onward]);
+  }, [scene, next, back, until, onward]);
 
   // The lesson, which then continues to where the story goes on.
   const takeLesson = useCallback(() => {
@@ -207,19 +236,21 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   // when the viewer is watching hands-free; in manual mode the Continue button waits for them. When a lesson is
   // waiting it waits too: the reader chooses between the lesson and the map.
   useEffect(() => {
-    if (!ended || scene.then !== 'map' || !prefs.auto || lessonWaiting) return undefined;
+    if (!ended || scene.then !== 'map' || !prefs.auto || lessonWaiting || stop) return undefined;
     const t = setTimeout(continueOn, 700);
     return () => clearTimeout(t);
-  }, [ended, scene.then, prefs.auto, lessonWaiting, continueOn]);
+  }, [ended, scene.then, prefs.auto, lessonWaiting, stop, continueOn]);
 
   // A tap, a swipe or → at the end of a part never skips past the lesson on offer: it says the choice is on screen.
-  // The Continue buttons themselves still go on.
+  // The Continue buttons themselves still go on. Following the guide, it takes the guide's next step: nothing is
+  // passed by, and that step is what the reader has been moving towards.
   const goNext = useCallback(() => {
-    if (ended && lessonWaiting) showToast('A short lesson is waiting: take it, or choose to go on.');
+    if (ended && stop) followGuide();
+    else if (ended && lessonWaiting) showToast('A short lesson is waiting: take it, or choose to go on.');
     else if (ended) continueOn();
     else if (beat < last) setBeat(beat + 1);
     else finish();
-  }, [ended, lessonWaiting, beat, last, continueOn, finish, showToast]);
+  }, [ended, stop, followGuide, lessonWaiting, beat, last, continueOn, finish, showToast]);
 
   const goPrev = useCallback(() => {
     if (ended) setEnded(false);
@@ -300,7 +331,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
   const frozen = !playing || ayahOpen || help || bridge;
   const relatedUnit = !back && (!next || next.chapter !== scene.chapter) ? unitForChapter(scene.chapter) : null;
   const related = relatedUnit && unitStatus(relatedUnit.id) === 'ready' ? relatedUnit : null; // only units with a lesson path yet
-  const nextLabel = first ? 'Continue' : back ? (until && scene.id !== until && next ? `Next: ${next.title}` : back.startsWith('/path') ? 'Back to the path' : back === '/abodes' ? 'Back to the two abodes' : 'Back to the lesson') : !next ? 'The end of the chronicle' : scene.then === 'map' ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `Next: ${next.title}`;
+  const nextLabel = back ? (until && scene.id !== until && next ? `Next: ${next.title}` : back.startsWith('/path') ? 'Back to the path' : back === '/abodes' ? 'Back to the two abodes' : 'Back to the lesson') : !next ? 'The end of the chronicle' : scene.then === 'map' ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `Next: ${next.title}`;
 
   return (
     <div className="relative h-full w-full select-none overflow-hidden bg-night">
@@ -399,24 +430,55 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
         </div>
       </div>
 
-      <Chronicle scene={scene} lines={ended ? lines : lines.slice(-1)} open={prefs.chronicle && !crowded} onToggle={() => (crowded ? setCrowded(false) : setPref('chronicle', !prefs.chronicle))} ayahOpen={ayahOpen} onAyah={() => setAyahOpen((o) => !o)} onTop={setDock} />
+      <Chronicle scene={scene} lines={ended ? lines : lines.slice(-1)} open={prefs.chronicle && !crowded} onToggle={() => (crowded ? setCrowded(false) : setPref('chronicle', !prefs.chronicle))} ayahOpen={ayahOpen} onAyah={() => setAyahOpen((o) => !o)} onTop={setDock} lift={lift} />
 
       {/* Transport */}
-      <div className="pointer-events-none absolute bottom-0 right-0 z-30 flex w-full flex-col items-stretch gap-2 p-3 sm:w-auto sm:items-end sm:p-6 short:max-w-[46vw] short:p-2">
+      <div ref={transport} className="pointer-events-none absolute bottom-0 right-0 z-30 flex w-full flex-col items-stretch gap-2 p-3 sm:w-auto sm:items-end sm:p-6 short:max-w-[46vw] short:p-2">
         <AnimatePresence>
-          {ended && lessonWaiting && (
+          {stop && (
+            <motion.section
+              key="guide"
+              aria-label="Your guide"
+              className="pointer-events-auto flex flex-col items-end gap-1 self-end rounded-2xl border border-gold/25 bg-black/55 p-3 text-right backdrop-blur-md sm:max-w-[380px]"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+            >
+              <p className="font-body text-[0.98rem] italic leading-snug text-gold/85">Next in your guide: {stopCopy.title}</p>
+              <button type="button" className="btn-gold" onClick={followGuide} autoFocus data-tap="primary">
+                <Icon name={stop.kind === 'lesson' ? 'book' : 'next'} className="h-4 w-4" />
+                <span className="max-w-[62vw] whitespace-normal text-left leading-tight sm:max-w-[300px]">{stopCopy.action}</span>
+              </button>
+              <div className="-mr-2 flex flex-wrap justify-end">
+                <button type="button" className="inline-flex min-h-[44px] items-center rounded-full px-3 font-body text-[1rem] text-ivory/70 hover:bg-ivory/5 hover:text-ivory" onClick={skipGuideStep}>
+                  Skip this step
+                </button>
+                <button
+                  type="button"
+                  className="inline-flex min-h-[44px] items-center rounded-full px-3 font-body text-[1rem] text-ivory/70 hover:bg-ivory/5 hover:text-ivory"
+                  onClick={() => {
+                    closeGuide();
+                    showToast(GUIDE_CLOSED);
+                  }}
+                >
+                  Close the guide
+                </button>
+              </div>
+            </motion.section>
+          )}
+          {ended && !stop && lessonWaiting && (
             <motion.button key="lesson" type="button" className="btn-gold pointer-events-auto self-end" onClick={takeLesson} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} autoFocus>
               <Icon name="book" className="h-4 w-4" />
               <span className="max-w-[62vw] truncate sm:max-w-[340px]">Take the short lesson</span>
             </motion.button>
           )}
-          {ended && (
+          {ended && !stop && (
             <motion.button key="continue" type="button" className={`${lessonWaiting ? 'hud-btn' : 'btn-gold'} pointer-events-auto self-end`} onClick={continueOn} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} autoFocus={!lessonWaiting}>
               <span className="max-w-[62vw] whitespace-normal text-left leading-tight sm:max-w-[340px]">{nextLabel}</span>
               <Icon name="next" className="h-4 w-4" />
             </motion.button>
           )}
-          {ended && related && (
+          {ended && !stop && related && (
             <motion.button key="related" type="button" className="hud-btn pointer-events-auto self-end" onClick={() => go(`/unit/${related.id}`)} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
               <span className="max-w-[62vw] whitespace-normal text-left leading-tight sm:max-w-[340px]">
                 The pyramid: {related.title}, {related.english}
@@ -455,7 +517,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
           <button type="button" className="hud-btn icon border-transparent bg-transparent" onClick={() => setPlaying((p) => !p)} aria-label={playing ? 'Pause (P)' : 'Play (P)'} disabled={!prefs.auto || ended}>
             <Icon name={playing ? 'pause' : 'play'} className="h-4 w-4" />
           </button>
-          <button type="button" className={`hud-btn icon border-transparent bg-transparent ${!prefs.auto && !ended ? 'text-gold-hi' : ''}`} onClick={ended ? continueOn : goNext} aria-label={ended ? 'Continue' : 'Next moment (→)'}>
+          <button type="button" className={`hud-btn icon border-transparent bg-transparent ${!prefs.auto && !ended ? 'text-gold-hi' : ''}`} onClick={ended ? (stop ? followGuide : continueOn) : goNext} aria-label={ended ? (stop ? stopCopy.action : 'Continue') : 'Next moment (→)'}>
             <Icon name="next" className="h-4 w-4" />
           </button>
         </div>
@@ -493,7 +555,7 @@ function Player({ scene, start = 0, still = false, moment, back, until, first = 
                   go('/guide');
                 }}
               >
-                The short guide: what is where
+                How Amanah works
               </button>
               {IS_WEB && (
                 <button

@@ -60,7 +60,7 @@ function serviceWorker() {
 /**
  * `virtual:scene-index`: every scene's id, chapter, order and title, in story order, and nothing else.
  *
- * Home and the Story page need to name "where you left off" (a title, "scene 3 of 19") on the first screen.
+ * Home and the Journey page need to name "where you left off" (a title, "scene 3 of 19") on the first screen.
  * The scenes themselves are about a megabyte, and the build gives each its own file, so even importing
  * one field from each would make the first screen fetch all of them. This reads the files when the app is
  * built (or served) and hands the page a few kilobytes instead. Adding or renumbering a scene needs no step:
@@ -109,6 +109,50 @@ function sceneIndex() {
 }
 
 /**
+ * `virtual:unit-index`: for every written pyramid unit, the part of the story it replays:
+ * `[{ id, chapter, part, from }]` (`from`: the id of the scene it starts at).
+ *
+ * The guide (src/lib/journey.js) puts each unit straight after the part of the story it belongs to, and the
+ * guide is on the home page, which must not fetch the units themselves. So the link is read here, when the app
+ * is built, from each unit file's `story` (src/pyramid/units/<id>.json), and a new unit needs no other step.
+ */
+function unitIndex() {
+  const ID = 'virtual:unit-index';
+  const RESOLVED = `\0${ID}`;
+  const root = join(process.cwd(), 'src', 'pyramid', 'units');
+  return {
+    name: 'amanah-unit-index',
+    resolveId(id) {
+      return id === ID ? RESOLVED : null;
+    },
+    configureServer(server) {
+      const refresh = (file) => {
+        if (!file.startsWith(root) || !file.endsWith('.json')) return;
+        const mod = server.moduleGraph.getModuleById(RESOLVED);
+        if (mod) server.moduleGraph.invalidateModule(mod);
+      };
+      server.watcher.on('add', refresh);
+      server.watcher.on('unlink', refresh);
+    },
+    load(id) {
+      if (id !== RESOLVED) return null;
+      const list = [];
+      for (const name of readdirSync(root)) {
+        if (!name.endsWith('.json')) continue;
+        const file = join(root, name);
+        this.addWatchFile(file);
+        const u = JSON.parse(readFileSync(file, 'utf8'));
+        const s = u.story;
+        if (!s || typeof s.chapter !== 'number' || typeof s.part !== 'number') continue;
+        list.push({ id: name.replace(/\.json$/, ''), chapter: s.chapter, part: s.part, from: s.from || null });
+      }
+      list.sort((a, b) => a.id.localeCompare(b.id));
+      return `export default ${JSON.stringify(list)};`;
+    },
+  };
+}
+
+/**
  * `virtual:ayah/<ref>`: one ayah from src/data/ayahs.json, as `{ ref, surah, surahAr, ar, en }`, for a page that
  * quotes a single verse and must not download the whole file (about 280 KB): the home page's opening (33:72).
  * The words still come from the one checked source and are never typed by hand; a ref missing from it stops
@@ -143,6 +187,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     sceneIndex(),
+    unitIndex(),
     ayahPick(),
     serviceWorker(),
     {

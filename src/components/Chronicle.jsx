@@ -10,7 +10,7 @@ import { Icon, Rule, SourceBadge } from './Ornaments.jsx';
  * `ayahOpen`), so nobody is rushed while reading scripture. `onTop` hears how far up the screen it
  * reaches, so a verse in the lower third can sit just above it.
  */
-export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTop }) {
+export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTop, lift = 84 }) {
   const refs = (scene.ayahs || []).flatMap(expandRef);
   const { mode } = useMode();
   const inChapter = chapterScenes(scene.chapter);
@@ -27,19 +27,22 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
     const ro = new ResizeObserver(measure);
     ro.observe(el);
     window.addEventListener('resize', measure);
+    el.addEventListener('transitionend', measure); // it rose or settled (`lift`) without changing size
     return () => {
       ro.disconnect();
       window.removeEventListener('resize', measure);
+      el.removeEventListener('transitionend', measure);
     };
   }, [onTop]);
   return (
-    <div ref={box} className="pointer-events-auto absolute bottom-[84px] left-3 right-3 z-30 sm:bottom-6 sm:left-6 sm:right-auto sm:w-[400px] short:bottom-2 short:left-2 short:w-[min(50vw,430px)]">
+    // `lift` (px): how far up a phone held upright sets it, clear of the transport below (from sm up they sit side by side)
+    <div ref={box} style={{ '--lift': `${lift}px` }} className="pointer-events-auto absolute bottom-[var(--lift)] left-3 right-3 z-30 transition-[bottom] duration-300 sm:bottom-6 sm:left-6 sm:right-auto sm:w-[400px] short:bottom-2 short:left-2 short:w-[min(50vw,430px)]">
       <AnimatePresence initial={false} mode="wait">
         {open ? (
           <motion.section
             key="open"
             aria-label="Chronicle"
-            className="parchment ruled cartouche thin-scroll max-h-[44vh] overflow-y-auto px-5 pb-4 pt-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,.8)] sm:max-h-[52vh] short:max-h-[36vh] short:px-4 short:pb-2 short:pt-2"
+            className="parchment ruled cartouche thin-scroll max-h-[min(44vh,calc(100dvh-var(--lift)-96px))] overflow-y-auto px-5 pb-4 pt-4 shadow-[0_20px_50px_-15px_rgba(0,0,0,.8)] sm:max-h-[52vh] short:max-h-[36vh] short:px-4 short:pb-2 short:pt-2"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 16 }}

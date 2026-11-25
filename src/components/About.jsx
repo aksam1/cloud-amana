@@ -44,7 +44,7 @@ export default function About({ missing = false }) {
               Watch the stories
             </button>
             <button type="button" className="hud-btn" onClick={() => go('/guide')}>
-              The short guide
+              How Amanah works
             </button>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function About({ missing = false }) {
       <p className="mt-4 font-body text-[1rem] italic text-ivory/55">
         Tap a line to read more. New here?{' '}
         <a href="#/guide" onClick={(e) => { e.preventDefault(); go('/guide'); }} className="not-italic text-gold-hi underline decoration-gold/50 underline-offset-4">
-          The short guide
+          How Amanah works
         </a>{' '}
         shows what is where.
       </p>

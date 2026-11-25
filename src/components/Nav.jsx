@@ -4,15 +4,15 @@ import { go } from '../lib/router.js';
 import { useStore } from '../lib/store.js';
 import { Icon } from './Ornaments.jsx';
 
-// One spine and one side door: Story is the chronicle in order (and where you left it); Explore holds the other
+// One spine and one side door: Journey is everything in order (and where you are in it); Explore holds the other
 // ways into the same stories (the map, paths, the pyramid, the two abodes, the guide).
 const ITEMS = [
   { id: 'home', label: 'Home', icon: 'home', to: '/' },
-  { id: 'story', label: 'Story', icon: 'book', to: '/story' },
+  { id: 'story', label: 'Journey', icon: 'book', to: '/story' },
   { id: 'explore', label: 'Explore', icon: 'map', to: '/explore' },
   { id: 'progress', label: 'Progress', icon: 'bars', to: '/pyramid/progress' },
 ];
-// Home and Story are there from the first visit; Explore and Progress join them as the story opens them
+// Home and Journey are there from the first visit; Explore and Progress join them as the story opens them
 // (src/lib/discover.js). A tab is always shown on its own pages, and wherever the guide points at it.
 const ALWAYS = new Set(['home', 'story']);
 // The tabs this page load has shown already: one that joins the menu later (the first scene opens Explore and
@@ -32,7 +32,7 @@ export default function Nav({ here, tone = 'night', spot = null, onSpot = null }
   const ink = tone === 'parchment';
   const open = useStore(opened);
   // the guide lives under Explore once Explore is in the menu; before that it belongs to no tab, so a newcomer's
-  // menu stays Home and Story
+  // menu stays Home and Journey
   here = here === 'guide' && !open.explore ? null : UNDER[here] || here;
   spot = UNDER[spot] || spot;
   const news = useStore(fresh);

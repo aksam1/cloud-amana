@@ -125,7 +125,7 @@ export const STORY_PARTS = [...chapters]
   .sort((a, b) => a.number - b.number)
   .flatMap((c) => (c.parts || []).map((p, i) => ({ p, i })).filter(({ p }) => p.from !== undefined).map(({ p, i }) => ({ key: `${c.number}:${i}`, chapter: c.number, title: partName(`${c.number}:${i}`), last: sceneIdByOrder[p.to] })));
 
-/** Every chapter (number, title, parts), in story order: the outline the Story page draws. */
+/** Every chapter (number, title, parts), in story order: the outline the Journey page draws. */
 export const CHAPTERS = [...chapters].sort((a, b) => a.number - b.number);
 
 /**

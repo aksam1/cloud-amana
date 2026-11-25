@@ -17,12 +17,15 @@ const DEFAULTS = {
   drafts: {}, // unitId → an unfinished attempt { step, choice, firsts, at }, so leaving never loses a place
   recent: null, // the last thing opened, for "Continue where you left off": { kind: 'unit'|'scene', id, title, at }
   found: {}, // places the reader has come across (src/lib/discover.js): placeId → true; a place found stays open
+  // The guide through everything, in order (src/lib/journey.js): `at`, the step it stands at (null: the first);
+  // `off`, true while the reader has closed it to roam freely. It picks up from `at` when they open it again.
+  journey: { at: null, off: false },
   // mode: 'muslim' | 'curious' | null (not chosen); taps: the soft click on buttons; hints: the first-visit
   // pointers a reader has closed (hintId → true), so each one shows once
   // usage: the reader's own switch for the anonymous counts (off when set to false; the browser's own
   // Global Privacy Control or Do Not Track also stops them, whatever this says)
   // unfold: places open as the story reaches them (false shows every place at once)
-  // guide: the short guide, 'done' or 'skipped' (null: not yet; a newcomer is taken into it, src/lib/discover.js)
+  // guide: how Amanah works (#/guide), 'done' or 'skipped' (null: not yet; a newcomer is taken into it, src/lib/discover.js)
   prefs: { sound: false, auto: true, chronicle: true, mode: null, installAsked: false, taps: true, hints: {}, usage: true, unfold: true, guide: null },
 };
 
@@ -117,7 +120,9 @@ export function deleteAllData() {
 // Starting again keeps preferences and the reader's private journal; only progress is cleared.
 // (The pyramid's placement and unit meters are kept too: this restarts the chronicle only. The places already
 // found stay open: the reader knows their way around.)
-export const resetProgress = () => update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs, journal: s.journal, journalAt: s.journalAt, placement: s.placement, units: s.units, drafts: s.drafts, found: s.found || {} }));
+// The guide goes back to its first step with the story, but stays closed if the reader had closed it.
+export const resetProgress = () =>
+  update((s) => ({ ...structuredClone(DEFAULTS), prefs: s.prefs, journal: s.journal, journalAt: s.journalAt, placement: s.placement, units: s.units, drafts: s.drafts, found: s.found || {}, journey: { at: null, off: !!s.journey?.off } }));
 
 // ── Backup, restore and merge ─────────────────────────────────────────────────
 //
@@ -158,7 +163,7 @@ export function validateBackup(obj) {
   if (obj.version > BACKUP_VERSION) return { ok: false, error: 'This backup is from a newer version of Amanah. Update the app first.' };
   const state = obj.state;
   if (!state || typeof state !== 'object' || Array.isArray(state)) return { ok: false, error: 'This backup has no progress in it.' };
-  for (const k of ['seen', 'lit', 'learned', 'answers', 'journal', 'journalAt', 'units', 'drafts', 'found']) {
+  for (const k of ['seen', 'lit', 'learned', 'answers', 'journal', 'journalAt', 'units', 'drafts', 'found', 'journey']) {
     if (state[k] !== undefined && (typeof state[k] !== 'object' || state[k] === null || Array.isArray(state[k]))) {
       return { ok: false, error: `This backup is damaged (${k} is not readable).` };
     }
@@ -177,6 +182,7 @@ export function validateBackup(obj) {
 //  · drafts: the newer one wins, unless the unit is already finished in the merged units
 //  · last: follows the winning recent, when that is a scene
 //  · prefs: the device's own wins, except the view (mode), which the device's own takes if it has one
+//  · journey (the guide): the device's own wins, like a preference
 //  · keys from a newer app version are kept, not dropped
 
 const asTime = (v) => {
@@ -304,7 +310,7 @@ export function mergeStates(local, incoming) {
 export function replaceState(next) {
   const clean = { ...structuredClone(DEFAULTS), ...(next || {}) };
   clean.prefs = { ...DEFAULTS.prefs, ...(next?.prefs || {}) };
-  for (const k of ['seen', 'lit', 'learned', 'answers', 'journal', 'journalAt', 'units', 'drafts', 'found']) {
+  for (const k of ['seen', 'lit', 'learned', 'answers', 'journal', 'journalAt', 'units', 'drafts', 'found', 'journey']) {
     if (!clean[k] || typeof clean[k] !== 'object' || Array.isArray(clean[k])) clean[k] = {};
   }
   update(() => clean);

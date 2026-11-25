@@ -7,6 +7,7 @@ import { forgetUsage, track, trackingOff, usageAvailable } from '../lib/usage.js
 import { quranLink } from '../lib/site.js';
 import { nOf } from '../lib/words.js';
 import { seenCount } from '../lib/sceneIndex.js';
+import { closeGuide, guiding, nextStep, resumeGuide } from '../lib/journey.js';
 import { ModePicker } from './ModePicker.jsx';
 import ReportForm from './ReportForm.jsx';
 import { Disclaimer, Shell } from './Pyramid.jsx';
@@ -55,6 +56,7 @@ function Switch({ label, on, onChange, hint, disabled = false }) {
 export default function Settings() {
   const state = useStore();
   const prefs = state.prefs || {};
+  const guideStep = nextStep(state);
   const [note, setNote] = useState('');
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [confirmReplace, setConfirmReplace] = useState(null); // the backup being restored
@@ -190,10 +192,23 @@ export default function Settings() {
 
       {/* Finding your way: the guide, and the first-visit tips */}
       <Section title="Finding your way">
-        <div className="flex flex-wrap items-center gap-2">
+        {/* The guide (src/lib/journey.js): off, the reader roams freely; on again, it carries on from where it was. */}
+        <Switch
+          label="Guide me, one step at a time"
+          hint={
+            !guideStep
+              ? 'You have taken every step the guide has.'
+              : guiding(state)
+                ? `Next: ${guideStep.title}. Off lets you find your own way; it waits where it is.`
+                : `It waits at: ${guideStep.title}. On picks it up again from there.`
+          }
+          on={guiding(state)}
+          onChange={(v) => (v ? resumeGuide() : closeGuide())}
+        />
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           <button type="button" className="hud-btn" onClick={() => go('/guide')}>
             <Icon name="help" className="h-4 w-4" />
-            The short guide: what is where
+            How Amanah works
           </button>
           <button
             type="button"

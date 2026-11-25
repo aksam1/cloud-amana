@@ -12,10 +12,14 @@ const baseURL = `http://localhost:${PORT}/`;
 
 export default defineConfig({
   testDir: 'tests/e2e',
+  globalSetup: './tests/e2e/warm.js',
   testMatch: '**/*.e2e.js',
   // the offline and usage journeys run against a built web app (playwright.offline.config.js, playwright.usage.config.js)
   testIgnore: ['**/offline.e2e.js', '**/usage.e2e.js'],
   timeout: 60_000,
+  // the dev server sends the map as some 250 separate files, to several browsers at once: far slower than the built
+  // site, where it opens in about a second. A wait that passes returns at once, so only a failure waits this long.
+  expect: { timeout: 15_000 },
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? 'github' : 'list',
   use: { baseURL, trace: 'retain-on-failure', launchOptions },

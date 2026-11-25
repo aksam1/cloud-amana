@@ -6,7 +6,7 @@ import { Icon } from './Ornaments.jsx';
 import { Shell } from './Pyramid.jsx';
 
 /**
- * #/explore: the other ways into the same stories. None of them is a step on the path: the path is Story.
+ * #/explore: the other ways into the same stories. None of them is a step on the path: the path is Journey.
  *
  * The doors open as the story reaches them (src/lib/discover.js). An open door is listed first, marked "New" on
  * the visit after it opened; a door still ahead says how it opens and can be opened now, by choice. Nothing here
@@ -23,7 +23,7 @@ export default function Explore() {
     if (readyIds) markFound(...readyIds.split(' '));
   }, [readyIds]);
   return (
-    <Shell here="explore" stars>
+    <Shell here="explore" stars guide>
       <h1 className="mt-4 font-display text-[1.8rem] font-semibold leading-tight text-gold-hi">Explore</h1>
       <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/80">Other ways into the same stories. Nothing here is required.</p>
       <ul className="mt-5 grid gap-3">

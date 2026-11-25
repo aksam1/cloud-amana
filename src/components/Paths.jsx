@@ -43,7 +43,7 @@ export default function Paths({ id }) {
 
   if (!path) {
     return (
-      <Shell here="explore" back="/explore" title="Paths through the stories">
+      <Shell here="explore" back="/explore" title="Paths through the stories" guide>
         <h1 className="mt-4 font-display text-[1.7rem] font-semibold leading-tight text-gold-hi">Choose a path</h1>
         <p className="mt-2 font-body text-[1.1rem] leading-snug text-ivory/75">The same stories, by a different door.</p>
         <ul className="mt-5 grid gap-3">

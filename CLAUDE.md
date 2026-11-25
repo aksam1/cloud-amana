@@ -116,24 +116,58 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 ## The journey and its safety nets
 
 - One story spine (20 Nov 2026): chapters → parts → scenes, with each part's lesson as a checkpoint on the same
-  path. One menu everywhere (`src/components/Nav.jsx`: Home · Story · Explore · Progress; old ids such as `pyramid`,
-  `map`, `paths`, `abodes` light Explore through `UNDER`). `#/story` (`StoryPage.jsx`) is the path: every chapter in
-  order, the reader's chapter open with "you are here" and the next scene "Up next", each part's lesson after its
-  scenes (locked until the part's last scene is seen, then "Take the lesson"). `#/explore` (`Explore.jsx`) holds the
-  other doors (map, paths, pyramid, two abodes, guide), none of them a step on the path. `#/stories` still drops the
-  reader straight back into the story where they left it.
-- Places open as the story reaches them (`src/lib/discover.js`, 20 Nov 2026): a newcomer's menu is Home · Story; the
+  path. One menu everywhere (`src/components/Nav.jsx`: Home · Journey · Explore · Progress; the Journey tab keeps the id
+  and address `story`; old ids such as `pyramid`, `map`, `paths`, `abodes` light Explore through `UNDER`). `#/story`
+  (`StoryPage.jsx`, "Your journey") is the guide's whole sequence on one page, in `STEPS` order: "Getting started" (the
+  view, How Amanah works), then each chapter's parts: scenes, the lesson (locked until the part's last scene is seen or
+  the guide reaches it, then "Take the lesson"), and what follows it (`stepsAfterLesson`: places to see, pyramid
+  lessons). One row is lit: "You are here" (the guide's step) or, with the guide closed, "Up next" (the story's next
+  scene); a quiet second mark says where the story was left or where the guide waits. `journey.test.js` checks that no
+  step is missing from the page. `#/explore` (`Explore.jsx`) holds the
+  other doors (map, paths, pyramid, two abodes, guide), none of them a step on the story's path. `#/stories` still
+  drops the reader straight back into the story where they left it.
+- **The guide: one path through everything, in order** (25 Nov 2026; the owner wanted the whole journey linear, with
+  the freedom to close it and resume it). `src/lib/journey.js` holds `STEPS`: the view, How Amanah works, then for each
+  story part its scenes, its lesson, and the pyramid lessons that replay it (`virtual:unit-index` in vite.config.js
+  reads each unit's `story`, so a new unit joins by itself). Each place is shown once where the story makes sense of
+  it: the pyramid after part 1, the two abodes after chapter 1, the map after the second chapter, Paths after the
+  third. A step is done by the reader's real progress, however they got there (`isDone`); How Amanah works counts as
+  done for anyone who is not a `newcomer`, and the view for anyone who has `begun` (discover.js), so an old reader is
+  never sent back to either, nor shown "Begin your journey".
+- The guide stores two things, `journey: { at, off }` in store.js: `at` is the step it stands at, `off` is closed.
+  `nextStep(state)` is the first step from `at` not yet done. `skipStep` moves one on, `closeGuide` / `resumeGuide`
+  only flip `off`, so it always picks up where it was; `aheadOfGuide` offers "go on from where you are in the story"
+  (`jumpTo`) to a reader who has run ahead. `#/next` (`Next.jsx`) redirects to the next step (the end page when every
+  step is done); lessons come back through `?then=/next`. Nothing in the guide opens a page by itself.
+- **The order must be visible, not only followed** (the owner could not see it when only the button changed).
+  `Rail.jsx` draws the steps around the reader as one line of light (`stepsAround`: the step just done, the one they
+  are at, lit, and the next; names from `stepName`), on Home under its button, in the guide's card and on How Amanah
+  works' last step. It is a list, never a control: the button beside it does the step and "See every step" opens the
+  Journey page. The card on the Journey page leaves it out (`Shell guide="plain"`), since the page shows every step.
+- Where the reader meets it, each with its own way to close it: Home's one button (`fromGuide` in Pyramid.jsx; a step
+  left half done keeps "Continue …"), `GuideBar.jsx` on the pages that pass `guide` to `Shell`, on the pyramid and on
+  the two abodes (× with an Undo, and "Skip this step"; on the abodes it folds away with the introduction, or on a
+  phone the level would sit behind its pop-up), the end of a part in the scene player (`stopAfter`: take it, skip it
+  or close it; hands-free play waits), a unit's Done panel, and the pill at the foot of the map (action only on phones).
+  Closed, it is offered back on Home, Journey and a unit's end (`ResumeGuide`), on Begin ("Follow the guide again") and
+  by the switch in Settings ("Guide me, one step at a time"). `stopAfter` only speaks for a scene in the guide's own
+  part: someone watching elsewhere goes on as the story does.
+- On a phone held upright the chronicle rises clear of the scene player's buttons when they grow (ScenePlayer's
+  ResizeObserver → Chronicle's `lift`).
+- `src/lib/journey.test.js` checks the order and the rules; `tests/e2e/linear.e2e.js` closes the guide in each place
+  and picks it up again.
+- Places open as the story reaches them (`src/lib/discover.js`, 20 Nov 2026): a newcomer's menu is Home · Journey; the
   first scene opens the map (and so Explore) and Progress; the Garden (the first path stop) opens Paths; a lesson,
   placement, unit or draft opens the pyramid; the end of chapter 1, any chapter 20+ scene or the Last Day unit opens
   the two abodes. `earned(state)` is that rule; `opened()` adds `found` (store.js: a place visited, or shown by the
   guide, stays open) and `prefs.unfold === false` (Settings, "Reveal places as I go", off shows everything). It is
   disclosure, never a lock: every address works, Explore lists the rest under "Still ahead" with how each opens and
   "Open it now", and the guide opens what it shows. A place newly open is said once: a gold dot on its menu tab
-  (Nav, named "…, something new"), "New" on its Explore card, and `Unveiled.jsx` on the Story page ("Newly open in
+  (Nav, named "…, something new"), "New" on its Explore card, and `Unveiled.jsx` on the Journey page ("Newly open in
   Explore: …", × puts it away), all cleared by `markFound`. Each door's "Opens …" line lives in `DOORS`; keep it true
   when a rule changes. `tests/e2e/journey.e2e.js` ("places open as the story reaches them") walks it.
 - Where the reader is comes from one place: `storyResume(state)` in `src/lib/sceneIndex.js` (the last scene if
-  unfinished, else the next unseen after it, else the first unseen). Home's "Continue the story", the Story page and
+  unfinished, else the next unseen after it, else the first unseen). Home's "Continue the story", the Journey page and
   Progress all use it; `sceneIndex.js` reads only the light `virtual:scene-index`, never story.js.
 - Scenes are numbered within their chapter on screen ("Scene 3 of 19", `placeOf`/`chapterScenes`); the next-scene
   button says "Next: <title>". Roman numerals remain only for chapters.
@@ -172,12 +206,13 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## Story first, paths and the sky (10 Nov 2026)
 
-- Story first: the start screen's "Begin your journey" goes to `#/begin` (choose a view; a newcomer then goes through
-  the short guide, which can be skipped at once (see "Finding your way"); then "Where would you like to
-  start?": Watch the first story `#/scene/heavens?first=1` (`FIRST_STORY` in site.js), Take the short guide, or Look
-  around on my own, with the story sound switch beside them; nothing plays until chosen). That first scene ends at `#/begin/next` (`Begun` in Pyramid.jsx): Keep
-  watching, or one link, "Or explore other ways in" (`#/explore`). The reflection questions live on the pyramid page
-  (`#/pyramid`, "Find where to begin"), never forced first and no longer offered after the first scene.
+- Story first: the start screen's "Begin your journey" goes to `#/begin`, which asks for a view. A newcomer then takes
+  How Amanah works (it can be skipped at once, see "Finding your way"), whose last step hands over to the guide's path
+  with the story sound switch beside it ("That is all you need", then "Watch the story", `FIRST_STORY` in site.js); anyone
+  else following the guide goes straight on to `#/next`. Only with the guide closed does Begin ask "Where would you
+  like to start?": the story, "Follow the guide again", how Amanah works, or a look around. Nothing plays until chosen.
+  `#/begin/next` (where the first scene once ended) only redirects to `#/next`. The reflection questions live on the
+  pyramid page (`#/pyramid`, "Find where to begin"), never forced first.
 - Paths (`src/data/paths.json`, `Paths.jsx`, `#/paths`, `#/path/<id>`): new doors into existing scenes (women,
   creatures, dreams, prayers). A stop plays `from`..`to` with `?back=/path/<id>&until=<to>` and is "watched" when the
   story's own `seen` has its scenes. Lines only restate what those scenes' narration says. Add a path as data only.
@@ -236,8 +271,9 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   No decorative Arabic in the UI: no Arabic logo, level, unit, scene or map titles (the data keeps `arabic`).
 - Type: Cinzel only for the headline and stone names; Cormorant Garamond for everything else in sentence
   case. No tracked-caps eyebrows or "A · B" strings in new UI: use an italic Cormorant label or a comma.
-- One main button per visitor state on the home page (new: Begin your journey, which starts the first story;
-  placed: next unit; returning: Continue …). The view choice is the first step after it, not on the home page.
+- One main button per visitor state on the home page: the guide's next step while it is on (new: Begin your journey);
+  with the guide closed, Continue … (returning) or the next unit (placed). The view choice is the first step after it,
+  not on the home page.
 - Every page after the start screen shares one header: "Amanah" (home) left, the menu right (`Shell` in
   Pyramid.jsx, `Frame` in Unit.jsx). Progress shows the monument, a card per level (rows open their unit), the
   story-lesson count, and "Your private notes" (the `journal`, hidden until asked, each with an Open link).
@@ -338,6 +374,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - The privacy page must stay exactly true: say what leaves the device and what the host sees (internet address,
   browser). Change it in the same commit as anything that sends data.
 - `npm run e2e:chrome` / `e2e:offline:chrome` run the journeys with the installed Chrome (`tools/run-e2e*.cjs`).
+  `tests/e2e/warm.js` opens the heavy pages once before the first test, and `expect` waits 15 s: the dev server is
+  far slower than the built site, so "Loading" in a failure means the test server, not the app (measure on the build).
 
 ## The two abodes (Nov 2026)
 
@@ -359,20 +397,25 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 
 ## Finding your way: the guide, tips and sounds (Nov 2026)
 
-- The owner's rule: never thrust a reader into anything; offer choices. Begin asks where to start, a part's end
-  offers its lesson, the guide ends with a choice, and auto-advance waits whenever a choice is on screen.
-  **One exception (owner, 20 Nov 2026): the guide is required for newcomers.** `newcomer(state)` (discover.js: no
+- The owner's rule: never thrust a reader into anything; offer choices. Two things must not be confused: **the guide**
+  (`journey.js`, the one path, see "The journey") and **How Amanah works** (`#/guide`, four things to try, its second
+  step; once called "the short guide", which made two guides, so never call it a guide on screen except the footer link).
+  The guide offers one next step and can be closed from every place it appears; with it closed, Begin asks where to
+  start. A part's end offers its next step or lesson, and auto-advance waits whenever a choice is on screen.
+  **One exception (owner, 20 Nov 2026): How Amanah works is required for newcomers.** `newcomer(state)` (discover.js: no
   `prefs.guide`, no `last`, nothing earned) is sent from Begin straight into `#/guide` once a view is chosen
-  (`go('/guide', { replace: true })`, so Back does not loop). "Skip the guide" is on every step; skipping or reaching
-  the last step sets `prefs.guide` (`'skipped'` / `'done'`), after which the guide is an offer like every other door.
-- The guide teaches by doing (`Guide.jsx`, `TOUR`, 4 steps, then `start`): `moments` (a practice scene, night to
+  (`go('/guide', { replace: true })`, so Back does not loop). "Skip this" is on every step; skipping (which
+  lands on the last step) or reaching it sets `prefs.guide` (`'skipped'` / `'done'`), after which it is an
+  offer like every other door.
+- How Amanah works teaches by doing (`Guide.jsx`, `TOUR`, 4 steps, then `start`): `moments` (a practice scene, night to
   morning: tap or click the picture, swipe or arrow keys), `verse` (open 33:72's Arabic from its reference,
-  `virtual:ayah/33:72`), `lesson` (one question; a wrong answer says why), `menu` (the real menu's Story is ringed with
+  `virtual:ayah/33:72`), `lesson` (one question; a wrong answer says why), `menu` (the real menu's Journey is ringed with
   `.guide-spot`; Nav's `onSpot` makes that tap practice instead of leaving). Next appears only once a step is done;
-  Previous keeps what was done. The last step, `start`, asks where to begin. `?step=all` is every place on one page
+  Previous keeps what was done. The last step, `start` ("That is all you need"), hands over to the guide's next step
+  and says it can be closed whenever the reader likes. `?step=all` is every place on one page
   (`PLACES`, 8 entries, each with where it is and a way to open it; it opens them all via `markFound`), offered from
   the start step and, for anyone but a newcomer, under each step. Keep each place's `where` true when a place moves.
-- Doors back in: Begin ("Take the short guide"), the home page (a plain Guide link beside Settings, About and
+- Doors back in: Begin with the guide closed ("See how Amanah works"), the home page (a plain Guide link beside Settings, About and
   Privacy), Explore (always open), the scene player's help, Settings ("Finding your way") and About.
 - First-visit tips: `Hint.jsx` (`<Hint id>`: Got it, Show me around, No more tips), remembered in `prefs.hints`
   (`dismissHint(id)`, `all` for every tip; the guide sets `guide`). Settings can turn them all back on. Place a
@@ -382,7 +425,7 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
   keeps one quiet; switches click on/off from their state before the press. Settings → Tap sounds (`prefs.taps`).
 - Ambient beds clear when leaving a scene (App.jsx), and the map keeps a soft wind of its own, so its Sound switch
   (top right, its state written on it: "Sound on/off") is heard at once.
-- `tests/e2e/guide.e2e.js` walks the guide, the tips and the map's sound switch.
+- `tests/e2e/guide.e2e.js` walks How Amanah works, the tips and the map's sound switch.
 
 ## Usage counts, the contact form and the privacy page (Nov 2026)
 

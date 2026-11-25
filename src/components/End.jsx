@@ -59,7 +59,7 @@ export default function End() {
   const a = ayah(CLOSING_VERSE);
 
   return (
-    <Shell here="stories" back="/map" title="The chronicle" stars>
+    <Shell here="stories" back="/map" title="The chronicle" stars guide>
       {/* the seal and its thread of light: the same gold the map ends with */}
       <div className="relative mx-auto mt-6 flex flex-col items-center">
         <svg viewBox="-60 -60 120 120" className="h-32 w-32 sm:h-40 sm:w-40" aria-hidden="true">

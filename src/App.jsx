@@ -28,6 +28,7 @@ const Report = lazy(() => import('./components/Report.jsx'));
 const Contact = lazy(() => import('./components/Contact.jsx'));
 const Abodes = lazy(() => import('./components/Abodes.jsx'));
 const Guide = lazy(() => import('./components/Guide.jsx'));
+const Next = lazy(() => import('./components/Next.jsx'));
 
 /** Shown until the calligraphy fonts arrive (capped, so a slow network never blocks the story). */
 function Loader() {
@@ -227,7 +228,7 @@ export default function App() {
         <ChunkMiss routeKey={route.key}>
         <Suspense fallback={<Loader />}>
           {route.name === 'scene' ? (
-            <ScenePlayer id={route.id} beat={route.query.beat} still={'still' in route.query} moment={route.query.t} back={route.query.back} until={route.query.until} first={'first' in route.query} />
+            <ScenePlayer id={route.id} beat={route.query.beat} still={'still' in route.query} moment={route.query.t} back={route.query.back} until={route.query.until} />
           ) : route.name === 'lesson' ? (
             <Lesson chapter={+route.id} part={+route.part} then={route.query.then} />
           ) : route.name === 'sheet' ? (
@@ -258,6 +259,8 @@ export default function App() {
             <Abodes at={route.query.at} />
           ) : route.name === 'guide' ? (
             <Guide step={route.query.step} />
+          ) : route.name === 'next' ? (
+            <Next />
           ) : route.name === 'about' || route.name === 'missing' ? (
             <About missing={route.name === 'missing'} />
           ) : route.name === 'map' ? (

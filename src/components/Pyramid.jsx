@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import { savePlacement, setPref, useStore } from '../lib/store.js';
-import { fresh, newcomer } from '../lib/discover.js';
+import { getState, savePlacement, setPref, useStore } from '../lib/store.js';
+import { newcomer } from '../lib/discover.js';
 import { ambience } from '../lib/audio.js';
 import { USAGE_ON, track } from '../lib/usage.js';
 import { inMode, useMode } from '../lib/words.js';
@@ -15,6 +15,9 @@ import InstallInvite from './InstallInvite.jsx';
 import Monument from './Monument.jsx';
 import Nav from './Nav.jsx';
 import Sky from './Sky.jsx';
+import GuideBar, { EveryStep, ResumeGuide } from './GuideBar.jsx';
+import Rail from './Rail.jsx';
+import { aheadOfGuide, closeGuide, guiding, jumpTo, nextStep, partOfScene, resumeGuide, stepCopy, stepHref } from '../lib/journey.js';
 import posterHeavensP from '../assets/poster/heavens-p.webp';
 import posterHeavensL from '../assets/poster/heavens-l.webp';
 import posterStarsP from '../assets/poster/stars-p.webp';
@@ -52,7 +55,7 @@ export default function Pyramid({ view = 'landing' }) {
 
 // ── Shared pieces ─────────────────────────────────────────
 
-export function Shell({ children, back, title, stars = false, here, wide = false, spot = null, onSpot = null }) {
+export function Shell({ children, back, title, stars = false, here, wide = false, spot = null, onSpot = null, guide = false }) {
   return (
     <div className="thin-scroll relative h-full w-full overflow-y-auto" style={{ background: NIGHT }}>
       {stars && <Stars />}
@@ -78,6 +81,8 @@ export function Shell({ children, back, title, stars = false, here, wide = false
             {title && <div className="font-body text-[1.1rem] italic text-gold/85">{title}</div>}
           </div>
         )}
+        {/* the pages a reader moves between carry the guide's next step (closable; see GuideBar.jsx) */}
+        {guide && <GuideBar className="mb-6" rail={guide !== 'plain'} />}
         {children}
       </main>
     </div>
@@ -183,6 +188,19 @@ export function whereInStory(s) {
   return `${ch ? ch.title : `Chapter ${s.chapter}`}, scene ${s.n} of ${s.of}: “${s.title}”.`;
 }
 const STEP_NAME = { story: 'the story', choice: 'the choice', teaching: 'the teaching', check: 'the understanding check', reflection: 'the reflection' };
+const QUIET = 'inline-flex min-h-[44px] items-center rounded-full px-3 text-ivory/65 transition-colors hover:bg-ivory/5 hover:text-ivory';
+
+/**
+ * The home page's one button for the guide's next step. A step the reader left half done keeps its "Continue …"
+ * button (and the story its line of progress); the view step keeps the newcomer's "Begin your journey".
+ */
+function fromGuide(step, state, { begin, unitCta, storyCta, resume, mode }) {
+  if (step.kind === 'view') return begin;
+  if (step.kind === 'unit' && unitCta && resume.id === step.unit) return unitCta;
+  if (step.kind === 'part' && storyCta && partOfScene(resume.id)?.id === step.id) return storyCta;
+  const copy = stepCopy(step, state, (t) => inMode(t, mode));
+  return { label: copy.action, href: stepHref(step, state), note: copy.line };
+}
 
 function UnitChip({ id }) {
   const u = unitById[id];
@@ -218,14 +236,21 @@ function Home() {
     href: openLesson ? `/lesson/${openLesson.chapter}/${openLesson.key.split(':')[1]}` : '/story',
     note: openLesson ? `${openLesson.title}.` : 'The whole chronicle, from the first light to the Last Day.',
   };
-  const cta = resumeUnit
-    ? { label: `Continue ${resumeUnit.title}`, href: `/unit/${resume.id}`, note: `You were on ${STEP_NAME[resume.step] || 'the lesson'}.` }
-    : resume
-      ? { label: 'Continue the story', href: `/scene/${resume.id}`, note: whereInStory(resume) }
-      : placed
-        ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` }
-        : { label: 'Begin your journey', href: '/begin', note: 'Free and private. No account needed.' };
-  const button = allWatched && !resumeUnit ? done : cta;
+  const begin = { label: 'Begin your journey', href: '/begin', note: 'Free, private, no account.' };
+  const unitCta = resumeUnit && { label: `Continue ${resumeUnit.title}`, href: `/unit/${resume.id}`, note: `You were on ${STEP_NAME[resume.step] || 'the lesson'}.` };
+  const storyCta = resume?.kind === 'scene' && { label: 'Continue the story', href: `/scene/${resume.id}`, note: whereInStory(resume), where: resume };
+  const cta =
+    unitCta ||
+    storyCta ||
+    (placed ? { label: 'Continue your climb', href: unitHref(next), note: unitStatus(next) === 'history' ? 'Next: the stories of the prophets.' : `Next: ${inMode(unitById[next].english, mode).toLowerCase()}.` } : begin);
+  // The guide, while it is on, chooses the one button: its next step, in the journey's order (src/lib/journey.js).
+  // Where that step is the very thing the reader left half done, the button keeps saying so ("Continue …").
+  const step = guiding(c.state) ? nextStep(c.state) : null;
+  const guided = step && fromGuide(step, c.state, { begin, unitCta, storyCta, resume, mode });
+  const button = guided || (allWatched && !resumeUnit ? done : cta);
+  // past the first two steps, the guide can be put away from here (and, closed, picked up here again)
+  const settled = step && step.kind !== 'view' && step.kind !== 'tour';
+  const ahead = settled ? aheadOfGuide(c.state) : null;
   // a first visit (nothing watched, answered or begun) opens on the Trust; a returning reader gets the calm title
   const first = !placed && !resume && !Object.keys(c.state.seen || {}).length && !any(c.state.learned) && !any(c.state.units) && !any(c.state.drafts);
   const reduce = useReducedMotion();
@@ -265,7 +290,7 @@ function Home() {
   // with the opening, the title and the footer arrive after the last line; without it, they rise as before
   const late = first ? { className: 'hook-in', style: { '--at': `${HOOK_TITLE}s` } } : {};
   // a reader partway through the chronicle sees where, as a line of progress rather than a sentence
-  const where = button === cta && !resumeUnit && resume ? resume : null;
+  const where = button.where || null;
   const chapter = where && CHAPTERS.find((ch) => ch.number === where.chapter);
   // with reduced motion nothing slides or zooms: the page is simply there
   const rise = reduce ? {} : { initial: { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, transition: { delay: first ? 0 : 0.5, duration: first ? 0.01 : 1.1 } };
@@ -309,7 +334,7 @@ function Home() {
               <h1 className="mt-3 font-display text-[clamp(3.4rem,14vw,6.5rem)] font-semibold leading-[0.95] tracking-[0.02em] text-ivory [text-shadow:0_2px_30px_rgba(0,0,0,0.55)] short:mt-0 short:text-[2.6rem] tiny:mt-2 tiny:text-[2.9rem]">
                 Amanah
               </h1>
-              <p className="mt-3 max-w-[24ch] text-pretty font-body text-[clamp(1.25rem,4.6vw,1.6rem)] leading-snug text-ivory/80 sm:max-w-none short:mt-1 short:text-[1.12rem] tiny:mt-2 tiny:text-[1.15rem]">
+              <p className="mt-3 max-w-[24ch] text-pretty font-body text-[clamp(1.25rem,4.6vw,1.6rem)] leading-snug text-ivory/80 sm:max-w-none short:mt-1 short:text-[1.12rem] tiny:mt-2 tiny:max-w-none tiny:text-[1.08rem]">
                 The stories of the prophets, told in light.
               </p>
 
@@ -330,12 +355,35 @@ function Home() {
                     <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-ivory/15" aria-hidden="true">
                       <div className="h-full rounded-full bg-gold-hi" style={{ width: `${Math.max(4, ((where.n - 1) / where.of) * 100)}%` }} />
                     </div>
-                    <p className="mt-2 truncate text-[1.05rem] text-ivory/85 short:hidden">“{where.title}”</p>
+                    <p className="mt-2 truncate text-[1.05rem] text-ivory/85 short:hidden tiny:hidden">“{where.title}”</p>
                   </div>
                 ) : (
                   <p className="max-w-[30ch] text-pretty font-body text-[1.02rem] italic leading-snug text-ivory/60">{button.note}</p>
                 )}
               </div>
+              {/* the journey as one line: the step just done, this one, the next (the Journey page holds them all) */}
+              {step && <Rail className="mt-7 max-w-[30rem] [text-shadow:0_1px_10px_rgba(0,0,0,0.9)] short:hidden tiny:mt-5" />}
+              {(step || c.state.journey?.off) && (
+                <div className={`-ml-3 mt-2 flex-wrap ${settled || !step ? 'flex' : 'hidden sm:flex'} gap-x-1 font-body text-[1rem] short:mt-1`}>
+                  {step ? (
+                    <>
+                      {ahead && (
+                        <button type="button" className={QUIET} onClick={() => { jumpTo(ahead); go(stepHref(ahead, getState())); }}>
+                          Or go on from where you left off
+                        </button>
+                      )}
+                      {settled && (
+                        <button type="button" className={QUIET} onClick={closeGuide}>
+                          Close the guide
+                        </button>
+                      )}
+                    </>
+                  ) : (
+                    <ResumeGuide />
+                  )}
+                  <EveryStep />
+                </div>
+              )}
               {!first && <InstallInvite where="home" />}
             </div>
           </motion.main>
@@ -551,22 +599,24 @@ export function SoundChoice({ label = 'Sound for the stories' }) {
 }
 
 /**
- * Story first, at the reader's own pace (#/begin). A new visitor chooses a view, then takes the short guide (four
- * things to try, each skippable in one tap: src/components/Guide.jsx). After that, or for anyone who has been
- * here before, this page asks where to start: the first story (the main choice), the guide again, or a look
- * around. Nothing plays until they choose, and no questions stand between them and the story.
+ * The first step of the journey (#/begin): choose a view. A new visitor then sees how Amanah works (four things to
+ * try, each skippable in one tap: src/components/Guide.jsx); anyone else following the guide goes straight on to its
+ * next step (#/next). With the guide closed this page asks where to start instead: the story, the guide again,
+ * how Amanah works, or a look around. Nothing plays until they choose, and no questions stand between them and the story.
  */
 function Begin() {
   const { mode } = useMode();
   const state = useStore();
   const isNew = newcomer(state);
+  const guided = guiding(state);
   const started = !!state.last || Object.keys(state.seen || {}).length > 0;
   const up = started ? storyResume(state) : null;
-  // the guide takes this page's place in the history, so Back from it goes home rather than bouncing back in
+  // the next page takes this one's place in the history, so Back from it goes home rather than bouncing back in
+  const onward = mode && (isNew || guided);
   useEffect(() => {
-    if (mode && isNew) go('/guide', { replace: true });
-  }, [mode, isNew]);
-  if (mode && isNew) return <Shell back="/" title="Begin" />;
+    if (onward) go(isNew ? '/guide' : '/next', { replace: true });
+  }, [onward, isNew]);
+  if (onward) return <Shell back="/" title="Begin" />;
   if (!mode) {
     return (
       <Shell back="/" title="Begin">
@@ -586,9 +636,17 @@ function Begin() {
         {up ? (
           <Way main autoFocus title="Continue the story" line={whereInStory(up)} onClick={() => go(`/scene/${up.id}`)} />
         ) : (
-          <Way main autoFocus title="Watch the first story" line="The beginning of everything, in about a minute." onClick={() => go(`/scene/${FIRST_STORY}?first=1`)} />
+          <Way main autoFocus title="Watch the first story" line="The beginning of everything, in about a minute." onClick={() => go(`/scene/${FIRST_STORY}`)} />
         )}
-        <Way title="Take the short guide" line="What is where, one step at a time." onClick={() => go('/guide')} />
+        <Way
+          title="Follow the guide again"
+          line="Everything in order, one step at a time, from where you left it. Close it whenever you like."
+          onClick={() => {
+            resumeGuide();
+            go('/next');
+          }}
+        />
+        <Way title="See how Amanah works" line="Four short things to try." onClick={() => go('/guide')} />
         <Way title="Look around on my own" line="Every chapter in order, or the other ways in." onClick={() => go('/story')} />
       </div>
       <div className="mt-4 flex flex-wrap items-center gap-x-6">
@@ -599,30 +657,15 @@ function Begin() {
   );
 }
 
-/** After that first scene: keep watching, or take one of the other ways in. The questions are an offer now. (#/begin/next) */
+/**
+ * #/begin/next, where the first scene used to end. The story now simply goes on (the guide carries the reader from
+ * one step to the next), so an old link lands on the journey's next step.
+ */
 function Begun() {
-  // the first scene has just opened Explore (with the map of time) and Progress: say so once, plainly
-  const joined = useStore((st) => {
-    const f = fresh(st);
-    return [f.map && 'Explore', f.progress && 'Progress'].filter(Boolean);
-  });
-  return (
-    <Shell here="story" back="/" title="Your first story">
-      <h1 className="mt-4 font-body text-[1.75rem] font-semibold leading-tight text-gold-hi">That was the first scene</h1>
-      <p className="mt-2 font-body text-[1.12rem] leading-snug text-ivory/80">
-        The story goes on, one short scene at a time. Story, in the menu, always shows where you are.
-        {joined.length > 0 && ` ${joined.join(' and ')} ${joined.length > 1 ? 'have' : 'has'} just joined it.`}
-      </p>
-      <button type="button" className="btn-gold mt-5 self-start" onClick={() => go('/stories')} autoFocus>
-        <Icon name="play" className="h-4 w-4" />
-        Keep watching
-      </button>
-      <button type="button" className="mt-4 min-h-[44px] self-start font-body text-[1.08rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4" onClick={() => go('/explore')}>
-        Or explore other ways in
-      </button>
-      <Disclaimer />
-    </Shell>
-  );
+  useEffect(() => {
+    go('/next', { replace: true });
+  }, []);
+  return <Shell back="/" title="Your first story" />;
 }
 
 // Stills from the chronicle, in story order (captured from the scenes themselves; about 48 KB together).
@@ -883,6 +926,7 @@ function Landing() {
         <div className={`relative bg-[#1d140d] px-5 pb-12 pt-3 ${focus && narrow ? 'invisible' : ''}`} aria-hidden={focus && narrow ? true : undefined}>
           {Cta}
           <p className="mx-auto mt-3 text-center font-body text-[1rem] italic text-ivory/55">Tap any part of the pyramid to look closer.</p>
+          <GuideBar className="mx-auto mt-6 max-w-[560px]" />
         </div>
       </section>
 
@@ -1304,7 +1348,7 @@ function Progress() {
     .sort((a, b) => a.order - b.order);
   const levelsTopDown = [...LEVELS].reverse();
   return (
-    <Shell here="progress" stars wide>
+    <Shell here="progress" stars wide guide>
       <motion.header className="mt-4 text-center" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
         <p className="font-body text-[1.1rem] italic text-gold-hi/80">Private to you, on this device</p>
         <h1 className="mt-1 bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(2rem,8vw,3rem)] font-semibold leading-none tracking-[0.03em] text-transparent">Progress</h1>

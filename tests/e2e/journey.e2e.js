@@ -183,7 +183,7 @@ test('the last scene of the chronicle leads to the closing page', async ({ page 
   await expect(page).toHaveURL(/#\/end/);
   await expect(page.getByRole('heading', { name: /The chronicle, from the Creation to the Day of Judgment/ })).toBeVisible();
   // counts, not a grade
-  await expect(page.getByText(/scenes/)).toBeVisible();
+  await expect(page.getByText(/of \d+ scenes/)).toBeVisible();
   await expect(page.getByText(/not a grade/)).toBeVisible();
   // the map stays reachable from the closing page
   await page.getByRole('button', { name: 'See the map' }).click();
@@ -206,24 +206,26 @@ test('every part of the app has a way home', async ({ page }) => {
   await page.goto('/#/map');
   await page.getByRole('button', { name: 'Home' }).click();
   await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();
-  // the menu is Home, Story, Explore, Progress: the pyramid is one of the doors in Explore
+  // the menu is Home, Journey, Explore, Progress: the pyramid is one of the doors in Explore
   const menu = page.getByRole('navigation', { name: 'Main' });
   await menu.getByRole('link', { name: 'Explore' }).click();
   await expect(page.getByRole('heading', { name: 'Explore', exact: true })).toBeVisible();
   // a newcomer has not reached the pyramid yet: its door waits under "Still ahead", and opens when asked
   await page.getByRole('button', { name: 'Open the pyramid now' }).click();
   await expect(page.getByRole('heading', { name: 'The Pyramid', exact: true })).toBeVisible();
-  await menu.getByRole('link', { name: 'Story' }).click();
+  await menu.getByRole('link', { name: 'Journey' }).click();
   await expect(page).toHaveURL(/#\/story$/);
-  await expect(page.getByRole('heading', { name: 'The story', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Start at the beginning' }).click();
-  await expect(page).toHaveURL(/#\/scene\//);
+  await expect(page.getByRole('heading', { name: 'Your journey', exact: true })).toBeVisible();
+  // a newcomer stands at the first steps, and any scene opens all the same: the order is never a lock
+  await page.getByRole('button', { name: /^The Beginning/ }).click();
+  await page.locator('a[href="#/scene/heavens"]').click();
+  await expect(page).toHaveURL(/#\/scene\/heavens/);
 });
 
 test('places open as the story reaches them, each says so once, and any of them can be opened early', async ({ page }) => {
   await page.goto('/');
   const menu = page.getByRole('navigation', { name: 'Main' });
-  // a newcomer's menu is Home and Story: nothing else to learn yet
+  // a newcomer's menu is Home and Journey: nothing else to learn yet
   await expect(menu.getByRole('link')).toHaveCount(2);
 
   // the first scene watched opens the map (and with it Explore) and Progress, and the menu says so
@@ -326,7 +328,14 @@ test('a finished lesson offers the next one, and the next one opens', async ({ p
     await page.getByRole('button', { name: /^(Next|On to reflection)$/ }).click();
   }
   await page.getByRole('button', { name: /I've reflected/ }).click();
+  // with the guide on, its step is the way on and the next pyramid lesson a choice; closed, that lesson is the way on
+  await expect(page.getByText(/^Next in your guide: /)).toBeVisible();
+  await expect(page.getByRole('button', { name: /^Next pyramid lesson: / })).toBeVisible();
   const next = page.getByRole('button', { name: /^Next: / });
+  await expect(next).toHaveCount(0);
+  await page.getByRole('button', { name: 'Close the guide', exact: true }).click();
+  await expect(page.getByRole('button', { name: /^Next pyramid lesson: / })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Resume the guide', exact: true })).toBeVisible();
   await expect(next).toBeVisible();
   await next.click();
   await expect(page).toHaveURL(/#\/(unit\/(?!shahadah)|story|stories|scene)/);
@@ -360,7 +369,7 @@ test('a verse still waiting for its text shows its reference and a way to read i
   await expect(page.getByText(/appear here once it is fetched/)).toHaveCount(0);
 });
 
-test('story first: a new visitor chooses a view, may skip the guide, then chooses where to start, with no questions before the first scene', async ({ page }) => {
+test('story first: a new visitor chooses a view, may skip how Amanah works, then follows one path, with no questions before the first scene', async ({ page }) => {
   test.setTimeout(150000); // it waits for a scene's last moment to play out
   await page.goto('/');
   await skipOpening(page);
@@ -368,28 +377,18 @@ test('story first: a new visitor chooses a view, may skip the guide, then choose
   await page.getByRole('button', { name: /Begin your journey/ }).click();
   await expect(page.getByRole('heading', { name: /how would you like to explore/ })).toBeVisible();
   await page.getByRole('button', { name: /I'm exploring Islam/ }).click();
-  // a newcomer is taken into the short guide (tests/e2e/guide.e2e.js), and can skip it at once
+  // a newcomer is shown how Amanah works (tests/e2e/guide.e2e.js), and can skip it at once
   await expect(page).toHaveURL(/#\/guide$/);
-  await page.getByRole('button', { name: 'Skip the guide', exact: true }).click();
-  // then a choice of where to start, never a scene that starts by itself
-  await expect(page.getByRole('heading', { name: 'Where would you like to start?' })).toBeVisible();
-  await expect(page.getByRole('button', { name: /Take the short guide/ })).toBeVisible();
-  await expect(page.getByRole('button', { name: /Look around on my own/ })).toBeVisible();
+  await page.getByRole('button', { name: 'Skip this', exact: true }).click();
+  // then the guide's last step: one way on (its first step, the story), never a scene that starts by itself
+  await expect(page.getByRole('heading', { name: 'That is all you need' })).toBeVisible();
   await expect(page.getByRole('switch', { name: /Sound for the stories/ })).toBeVisible();
-  await page.getByRole('button', { name: /Watch the first story/ }).click();
-  await expect(page).toHaveURL(/#\/scene\/heavens\?first=1/);
+  await expect(page.getByText(/close the guide whenever you like/)).toBeVisible();
+  await page.getByRole('button', { name: /^Watch the story/ }).click();
+  await expect(page).toHaveURL(/#\/scene\/heavens/);
   await expect(page.getByRole('radio')).toHaveCount(0);
-  // the end of that first scene leads to the choice of where to go, not straight into more
-  await page.goto('/#/scene/heavens?first=1&beat=7');
-  const on = page.locator('button.btn-gold', { hasText: 'Continue' }); // the transport's skip button is also labelled Continue
-  await on.waitFor({ timeout: 90000 });
-  await on.click();
-  await expect(page.getByRole('heading', { name: 'That was the first scene' })).toBeVisible();
-  await expect(page.getByRole('button', { name: /Keep watching/ })).toBeVisible();
-  // the reflection questions are no longer offered here: one link to the other ways in, and they wait on the pyramid
-  await expect(page.getByRole('button', { name: /Find where to begin/ })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Or explore other ways in' }).click();
-  await expect(page).toHaveURL(/#\/explore$/);
+  // the reflection questions wait on the pyramid, reached from Explore, never asked first
+  await page.goto('/#/explore');
   await page.getByRole('button', { name: 'Open the pyramid now' }).click();
   await page.getByRole('button', { name: 'Find where to begin', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Before you climb' })).toBeVisible();
@@ -411,7 +410,7 @@ test('a path lists its stops, plays one and comes back with it marked as watched
   await expect(page.getByText('1 of 5 watched')).toBeVisible();
 });
 
-test('one story path: Continue picks up the next scene, and the Story page shows where you are and the lesson that closes a part', async ({ page }) => {
+test('one story path: Continue picks up the next scene, and the Journey page shows where you are and the lesson that closes a part', async ({ page }) => {
   const save = (state) => page.evaluate((s) => localStorage.setItem('amanah:v1', JSON.stringify(s)), state);
   const prefs = { mode: 'curious', sound: false };
   await page.goto('/');
@@ -422,9 +421,9 @@ test('one story path: Continue picks up the next scene, and the Story page shows
   await expect(page).toHaveURL(/#\/scene\/khalifah/);
 
   await page.goto('/#/story');
-  await expect(page.getByRole('heading', { name: 'The story', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Your journey', exact: true })).toBeVisible();
   await expect(page.getByRole('status').filter({ hasText: /^2 of \d+ scenes watched/ })).toBeVisible();
-  // the chapter the reader is in stands open, marked, with the next scene marked "Up next"
+  // the chapter the reader is in stands open, with the next scene lit in it ("You are here")
   await expect(page.getByRole('button', { name: /you are here/, expanded: true })).toHaveCount(1);
   await expect(page.locator('a[aria-current="step"]')).toHaveAttribute('href', '#/scene/khalifah');
   await expect(page.getByText('Opens after the last scene of this part.').first()).toBeVisible();

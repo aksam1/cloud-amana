@@ -6,6 +6,7 @@ import { quranLink } from '../lib/site.js';
 import { ABODES, ayat, hadithById, STOPS, stopById, stopName, wayBackOf } from '../lib/abodes.js';
 import { Icon } from './Ornaments.jsx';
 import { Shell } from './Pyramid.jsx';
+import GuideBar from './GuideBar.jsx';
 import AbodesMonument from './AbodesMonument.jsx';
 
 /*
@@ -81,8 +82,10 @@ export default function Abodes({ at }) {
         initial={false}
         animate={shut ? { opacity: 0, height: 0 } : { opacity: 1, height: 'auto' }}
         transition={{ duration: still ? 0 : 0.6, ease }}
-        aria-hidden={shut || undefined}
+        inert={!!shut}
       >
+        {/* here rather than in the Shell: it folds away with the rest, or the level would sit behind its pop-up */}
+        <GuideBar className="mb-6 text-left" />
         <h1 className="mt-6 bg-gradient-to-b from-[#fff1cc] to-[#d9a54e] bg-clip-text font-display text-[clamp(2.2rem,9vw,3.6rem)] font-semibold leading-none tracking-[0.04em] text-transparent short:mt-1 short:text-[1.6rem]">
           {ABODES.title}
         </h1>

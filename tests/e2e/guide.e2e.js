@@ -1,5 +1,5 @@
-// The short guide (#/guide) and the first-visit tips. A newcomer is taken into the guide once they have chosen a
-// view, learns by doing (move a practice scene on, open a verse, answer a question, find Story in the menu), and
+// How Amanah works (#/guide) and the first-visit tips. A newcomer is taken into it once they have chosen a
+// view, learns by doing (move a practice scene on, open a verse, answer a question, find Journey in the menu), and
 // can skip it from any step; after that it is an offer like any other. Each test starts from a fresh browser.
 import { expect, test } from '@playwright/test';
 import { skipOpening } from './opening.js';
@@ -15,11 +15,11 @@ async function arrive(page) {
   await expect(page).toHaveURL(/#\/guide$/);
 }
 
-test('a newcomer is taken into the guide, tries each thing once, and then chooses where to start', async ({ page }) => {
+test('a newcomer is shown how Amanah works, tries each thing once, and then goes on to the story', async ({ page }) => {
   await arrive(page);
   await expect(page.getByRole('heading', { name: 'A story, one moment at a time' })).toBeVisible();
   await expect(page.getByText('Step 1 of 4')).toBeVisible();
-  await expect(button(page, 'Skip the guide')).toBeVisible();
+  await expect(button(page, 'Skip this')).toBeVisible();
   await expect(button(page, 'Every place on one page')).toHaveCount(0); // a newcomer is shown, not handed a list
   await expect(button(page, 'Next')).toHaveCount(0); // a step is done by doing it
 
@@ -59,11 +59,11 @@ test('a newcomer is taken into the guide, tries each thing once, and then choose
   await expect(page.getByText(/what this app is named for/)).toBeVisible();
   await button(page, 'Next').click();
 
-  // 4. the real menu: Story is lit, and tapping it there is practice, not a way out
+  // 4. the real menu: Journey is lit, and tapping it there is practice, not a way out
   await expect(page).toHaveURL(/step=menu$/);
-  await expect(ringed(page)).toHaveText('Story');
-  await expect(page.locator('nav[aria-label="Main"] li')).toHaveCount(2); // a newcomer's menu is Home and Story
-  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Story' }).click();
+  await expect(ringed(page)).toHaveText('Journey');
+  await expect(page.locator('nav[aria-label="Main"] li')).toHaveCount(2); // a newcomer's menu is Home and Journey
+  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Journey' }).click();
   await expect(page).toHaveURL(/step=menu$/);
   await expect(page.getByText(/^Found it\./)).toBeVisible();
   await button(page, 'Previous').click();
@@ -72,42 +72,45 @@ test('a newcomer is taken into the guide, tries each thing once, and then choose
   await button(page, 'Next').click();
   await button(page, 'Next').click();
 
-  // the last step asks; nothing opens by itself
-  await expect(page.getByRole('heading', { name: 'Where would you like to start?' })).toBeVisible();
+  // the last step hands over to the guide's one path; nothing opens by itself
+  await expect(page.getByRole('heading', { name: 'That is all you need' })).toBeVisible();
   await expect(page.getByText('Ready to begin')).toBeVisible();
-  for (const w of [/^Watch the first story/, /^See every chapter/, /^Every place, on one page/]) await expect(page.getByRole('button', { name: w })).toBeVisible();
+  for (const w of [/^Watch the story/, /^Every place, on one page/]) await expect(page.getByRole('button', { name: w })).toBeVisible();
+  await expect(page.getByRole('button', { name: /^See every chapter/ })).toHaveCount(0); // one path, not a menu
   await page.waitForTimeout(2000);
   await expect(page).toHaveURL(/step=start$/);
 
   // every place on one page, for those who would rather read
   await page.getByRole('button', { name: /^Every place, on one page/ }).click();
   await expect(page.getByRole('heading', { name: 'What is where' })).toBeVisible();
-  for (const h of ['The story', 'The map of time', 'Short lessons', 'The pyramid', 'Paths', 'The two abodes', 'Your progress', 'Settings']) {
+  for (const h of ['Your journey', 'The map of time', 'Short lessons', 'The pyramid', 'Paths', 'The two abodes', 'Your progress', 'Settings']) {
     await expect(page.getByRole('heading', { name: h, exact: true })).toBeVisible();
   }
   await expect(ringed(page)).toHaveCount(0);
 
-  // finished: Begin no longer sends anyone into the guide, it offers it
+  // finished: Begin now goes on to the guide's next step, and how Amanah works stays one tap away on Home
   await page.goto('/#/begin');
-  await expect(page.getByRole('heading', { name: 'Where would you like to start?' })).toBeVisible();
-  await page.getByRole('button', { name: /Take the short guide/ }).click();
+  await expect(page).toHaveURL(/#\/scene\/heavens/);
+  await page.goto('/#/');
+  await page.getByRole('button', { name: 'Guide', exact: true }).click();
   await expect(page.getByText('Step 1 of 4')).toBeVisible();
   await expect(button(page, 'Every place on one page')).toBeVisible(); // no longer a newcomer
 });
 
-test('a newcomer can skip the guide from any step, and find it again later', async ({ page }) => {
+test('a newcomer can skip how Amanah works from any step, and find it again later', async ({ page }) => {
   await arrive(page);
-  await button(page, 'Skip the guide').click();
-  await expect(page).toHaveURL(/#\/begin$/);
-  await expect(page.getByRole('heading', { name: 'Where would you like to start?' })).toBeVisible();
+  await button(page, 'Skip this').click();
+  // skipping lands on the last step, which hands over to the guide's path
+  await expect(page).toHaveURL(/#\/guide\?step=start$/);
+  await expect(page.getByRole('heading', { name: 'That is all you need' })).toBeVisible();
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Where would you like to start?' })).toBeVisible(); // never taken in again
-  await page.getByRole('button', { name: /Take the short guide/ }).click();
-  await expect(page.getByRole('heading', { name: 'A story, one moment at a time' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'That is all you need' })).toBeVisible(); // never taken back to step 1
 
-  // the home page keeps the guide as a plain link, one tap away
+  // the home page keeps it as a plain link (Guide), one tap away
   await page.goto('/#/');
-  await expect(page.getByRole('button', { name: 'Guide', exact: true })).toBeVisible();
+  await skipOpening(page); // nothing is watched yet, so a fresh load opens on the Trust again
+  await page.getByRole('button', { name: 'Guide', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'A story, one moment at a time' })).toBeVisible();
 });
 
 test("the map's first-visit tip shows the guide, closes for good, and Settings brings the tips back", async ({ page }) => {
@@ -122,14 +125,14 @@ test("the map's first-visit tip shows the guide, closes for good, and Settings b
   await tip.getByRole('button', { name: 'No more tips' }).click();
   await expect(tip).toHaveCount(0);
   await page.reload();
-  await expect(page.getByRole('button', { name: 'Sound', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Sound', exact: true })).toBeVisible({ timeout: 20_000 }); // the map loads slowly beside seven other tests
   await expect(tip).toHaveCount(0);
 
   await page.goto('/#/settings');
   const reset = page.getByRole('button', { name: 'Show the first-visit tips again' });
   await reset.click();
   await expect(page.getByRole('button', { name: 'The first-visit tips are on' })).toBeDisabled();
-  await page.getByRole('button', { name: 'The short guide: what is where' }).click();
+  await page.getByRole('button', { name: 'How Amanah works' }).click();
   await expect(page).toHaveURL(/#\/guide$/);
 
   await page.goto('/#/map');

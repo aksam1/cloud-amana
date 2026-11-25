@@ -6,14 +6,17 @@ import { go } from '../lib/router.js';
 import { FIRST_STORY, quranLink } from '../lib/site.js';
 import { GUIDE_PLACES, newcomer } from '../lib/discover.js';
 import { storyResume } from '../lib/sceneIndex.js';
+import { guiding, nextStep, stepCopy } from '../lib/journey.js';
 import { dismissHint, markFound, setPref, useStore } from '../lib/store.js';
+import { useMode } from '../lib/words.js';
 import { Icon } from './Ornaments.jsx';
-import { Shell, whereInStory } from './Pyramid.jsx';
+import { Shell, SoundChoice, whereInStory } from './Pyramid.jsx';
+import Rail from './Rail.jsx';
 
 /*
- * The short guide (#/guide?step=<id>): four things to try, one at a time, then where to start. Each step is
- * done by doing it: move a practice scene on, open a verse's Arabic, answer one lesson question, find Story in
- * the real menu. Next appears once the step is done; "Skip the guide" is on every step.
+ * How Amanah works (#/guide?step=<id>): four things to try, one at a time, then where to start. Each step is
+ * done by doing it: move a practice scene on, open a verse's Arabic, answer one lesson question, find Journey in
+ * the real menu. Next appears once the step is done; "Skip this" is on every step.
  *
  * A newcomer is taken here from #/begin once they have chosen a view (src/lib/discover.js `newcomer`). Finishing
  * or skipping is remembered (prefs.guide), and from then on the guide is an offer: on the home page, on #/begin,
@@ -50,8 +53,8 @@ const TOUR = [
   {
     id: 'menu',
     title: 'Your place, always',
-    line: 'Story, in the menu, holds every chapter in order and keeps your place.',
-    todo: `Try it: ${TAP} Story, lit up in the menu.`,
+    line: 'Journey, in the menu, holds every step in order and keeps your place.',
+    todo: `Try it: ${TAP} Journey, lit up in the menu.`,
     done: 'Found it. More places join the menu as the story reaches them, each with a small gold dot the first time.',
   },
 ];
@@ -236,30 +239,49 @@ function Way({ title, line, onClick, main = false, autoFocus = false }) {
   );
 }
 
+/**
+ * The last step of How Amanah works. With the guide on (src/lib/journey.js) it hands the reader to the guide's next step,
+ * usually the first story, and says plainly that the guide can be closed at any time. With it closed, it asks where
+ * to start, as Begin does.
+ */
 function Start({ up }) {
+  const state = useStore();
+  const { say } = useMode();
+  const step = guiding(state) ? nextStep(state) : null;
+  const copy = step && stepCopy(step, state, say);
   return (
     <>
-      <StepTitle>Where would you like to start?</StepTitle>
-      <p className="mt-1 font-body text-[1.1rem] text-ivory/70">That is all you need. The rest you will find as you go.</p>
+      <StepTitle>{step ? 'That is all you need' : 'Where would you like to start?'}</StepTitle>
+      <p className="mt-1 font-body text-[1.1rem] text-ivory/70">
+        {step ? 'From here the guide takes you through everything in order, one step at a time.' : 'That is all you need. The rest you will find as you go.'}
+      </p>
+      {step && <Rail className="mt-5" />}
       <div className="mt-5 grid gap-3">
-        {up ? (
+        {step ? (
+          <Way main autoFocus title={copy.action} line={`${copy.title}. ${copy.line}`} onClick={() => go('/next')} />
+        ) : up ? (
           <Way main autoFocus title="Continue the story" line={whereInStory(up)} onClick={() => go(`/scene/${up.id}`)} />
         ) : (
-          <Way main autoFocus title="Watch the first story" line="The beginning of everything, in about a minute." onClick={() => go(`/scene/${FIRST_STORY}?first=1`)} />
+          <Way main autoFocus title="Watch the first story" line="The beginning of everything, in about a minute." onClick={() => go(`/scene/${FIRST_STORY}`)} />
         )}
-        <Way title="See every chapter" line="The whole story in order: pick any chapter." onClick={() => go('/story')} />
+        {!step && <Way title="See every chapter" line="The whole story in order: pick any chapter." onClick={() => go('/story')} />}
         <Way title="Every place, on one page" line="The map, the pyramid, paths and more: what each is and where it waits." onClick={() => go('/guide?step=all')} />
       </div>
-      <p className="mt-5 font-body text-[1rem] italic text-ivory/55">The guide stays on the home page, in Settings and About, and behind the ? in a story.</p>
+      <div className="mt-4">
+        <SoundChoice />
+      </div>
+      <p className="mt-4 font-body text-[1rem] italic text-ivory/55">
+        {step ? 'You can close the guide whenever you like and pick it up again from Home, Journey or Settings.' : 'The guide waits on the home page, in Journey and in Settings.'}
+      </p>
     </>
   );
 }
 
 /** Every place in the app, what it is in a line and where it waits: the guide for readers rather than doers. */
 export const PLACES = [
-  { id: 'stories', icon: 'book', title: 'The story', line: 'The prophets, from the first light to the Last Day, told one moment at a time.', where: 'Story, in the menu: every chapter in order, and where you left off.', open: { label: 'Open the story', to: '/story' } },
+  { id: 'stories', icon: 'book', title: 'Your journey', line: 'The prophets, from the first light to the Last Day, told one moment at a time.', where: 'Journey, in the menu: every step in order, and where you are.', open: { label: 'Open your journey', to: '/story' } },
   { id: 'map', icon: 'map', title: 'The map of time', line: 'Every story on one thread of light, from the Creation to the Hour. Tap a seal to see its stories.', where: 'Explore, in the menu.', open: { label: 'Open the map', to: '/map' } },
-  { id: 'lessons', icon: 'check', title: 'Short lessons', line: 'After each part of the story: what to remember, a verse, a question to think about.', where: 'In Story, after each part. Any you leave also wait in Progress.' },
+  { id: 'lessons', icon: 'check', title: 'Short lessons', line: 'After each part of the story: what to remember, a verse, a question to think about.', where: 'In Journey, after each part. Any you leave also wait in Progress.' },
   { id: 'pyramid', icon: 'pyramid', title: 'The pyramid', line: 'Three levels of faith, each made of short lessons. A few private questions can suggest where to begin. Never a grade.', where: 'Explore, in the menu.', open: { label: 'See the pyramid', to: '/pyramid' } },
   { id: 'paths', icon: 'list', title: 'Paths', line: 'Other ways through the same stories: the women in them, the creatures, the dreams, the prayers.', where: 'Explore, in the menu.', open: { label: 'Open the paths', to: '/paths' } },
   { id: 'abodes', icon: 'diamond', title: 'The two abodes', line: 'Paradise and the Fire as the Quran describes them. Verses only; no one is ever placed there.', where: "Explore, in the menu, and the map's last stop.", open: { label: 'Open the two abodes', to: '/abodes' } },
@@ -310,7 +332,7 @@ function All() {
           <Icon name="next" className="h-4 w-4" />
         </button>
         <button type="button" className="hud-btn" onClick={() => go('/guide')}>
-          Try the short guide
+          See how Amanah works
         </button>
       </div>
     </>
@@ -399,7 +421,7 @@ export default function Guide({ step }) {
   }, [all]);
   // Reaching the end is finishing the guide: from now on it is an offer, never the way in.
   useEffect(() => {
-    if (id === LAST && !all && taken !== 'done') setPref('guide', 'done');
+    if (id === LAST && !all && !taken) setPref('guide', 'done');
   }, [id, all, taken]);
 
   const move = useCallback((to) => {
@@ -407,9 +429,11 @@ export default function Guide({ step }) {
     moved = true;
     go(`/guide?step=${to}`);
   }, []);
+  // Skipping lands on the last step, where the guide's next step (or, with the guide closed, the choice of where to
+  // start) waits: How Amanah works is passed by, never the way on.
   const skip = () => {
     if (!taken) setPref('guide', 'skipped');
-    go('/begin');
+    move(LAST);
   };
 
   useEffect(() => {
@@ -430,7 +454,7 @@ export default function Guide({ step }) {
 
   const menuStep = !all && id === 'menu';
   return (
-    <Shell back="/" title="A short guide" here="guide" spot={menuStep ? 'story' : null} onSpot={menuStep && !ok ? () => finish('menu') : null}>
+    <Shell back="/" title="How Amanah works" here="guide" spot={menuStep ? 'story' : null} onSpot={menuStep && !ok ? () => finish('menu') : null}>
       {all ? (
         <All />
       ) : (
@@ -486,7 +510,7 @@ export default function Guide({ step }) {
                   </div>
                   <div className="mt-4 flex flex-wrap gap-x-6 font-body text-[1rem]">
                     <button type="button" className={LINK} onClick={skip}>
-                      Skip the guide
+                      Skip this
                     </button>
                     {!isNew && (
                       <button type="button" className={LINK} onClick={() => go('/guide?step=all')}>

@@ -2,7 +2,8 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, animate, motion, useMotionTemplate, useMotionValue } from 'motion/react';
 import { buildWorld } from '../lib/mapWorld.js';
 import { chapterForNode, eraById, expandRef, ayah, nodeScenes, timeline } from '../lib/story.js';
-import { lightNode, setPref, useStore } from '../lib/store.js';
+import { getState, lightNode, setPref, useStore } from '../lib/store.js';
+import { closeGuide, guiding, nextStep, stepCopy, stepHref } from '../lib/journey.js';
 import { go } from '../lib/router.js';
 import { ambience } from '../lib/audio.js';
 import { clamp, roman } from '../lib/geo.js';
@@ -454,6 +455,8 @@ export default function CampaignMap({ query = {} }) {
   const [listOpen, setListOpen] = useState(false);
   const [arrival, setArrival] = useState(null);
   const sound = !!store.prefs.sound;
+  const guideStep = guiding(store) ? nextStep(store) : null;
+  const guideCopy = guideStep && stepCopy(guideStep, store);
   const toggleSound = () => {
     setPref('sound', !sound);
     ambience.setEnabled(!sound);
@@ -787,6 +790,22 @@ export default function CampaignMap({ query = {} }) {
           );
         })}
       </nav>
+
+      {/* The guide's next step (src/lib/journey.js), small and at the foot of the map, so the map stays the reader's own;
+          it steps aside while a seal or the list is open, and during an arrival, whose own way on is the guide's too. */}
+      {guideStep && !sel && !listOpen && !query.arrive && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-3 z-20 flex gap-1 pl-[4.25rem] pr-3 sm:bottom-5 sm:justify-center sm:px-16" role="region" aria-label="Your guide">
+          <button type="button" className="hud-btn pointer-events-auto min-w-0 max-w-full border-gold text-gold-hi" onClick={() => go(stepHref(guideStep, getState()))}>
+            {/* a phone has room for the action only; the hidden span drops out of the button's name, so it reads as seen */}
+            <span className="truncate sm:hidden">{guideCopy.action}</span>
+            <span className="hidden truncate sm:inline">Next in your guide: {guideCopy.title}</span>
+            <Icon name="arrow" className="h-4 w-4 shrink-0" />
+          </button>
+          <button type="button" className="hud-btn icon pointer-events-auto shrink-0" aria-label="Close the guide" title="Close the guide" onClick={closeGuide}>
+            <Icon name="close" className="h-4 w-4" />
+          </button>
+        </div>
+      )}
 
       {/* A first visit's pointer, over open sky below the top bar; it steps aside while anything is open. */}
       {!sel && !listOpen && !query.arrive && (

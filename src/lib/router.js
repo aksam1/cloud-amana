@@ -3,8 +3,10 @@
 // · #/explore (the other ways in) · #/map?arrive=&from= · #/scene/:id (?beat=n opens at a moment, &still holds it,
 // &t=0.5 holds it halfway through its timed motions)
 // · #/lesson/:chapter/:part?then=<route> (the lesson after a part; ?then is where it continues)
-// · #/begin and #/begin/next (a new visitor chooses a view, then takes the guide; after the first story, where to go next)
-// · #/guide?step=<id> (the short guide: try each thing once; ?step=all is every place on one page)
+// · #/begin (choose a view; a new visitor then sees how Amanah works, and with the guide closed: where to start)
+//   and #/begin/next (an old address: goes on to #/next)
+// · #/guide?step=<id> (how Amanah works: try each thing once; ?step=all is every place on one page)
+// · #/next (the guide's next step, src/lib/journey.js: passes the reader straight on to it)
 // · #/paths and #/path/:id (paths through the stories)
 // · #/sheet/:chapter or #/sheet/:sceneId (contact sheet of every beat, for reviewing compositions)
 import { useEffect, useState } from 'react';
@@ -31,10 +33,12 @@ function parse(hash) {
   if (parts[0] === 'report') return { name: 'report', query, key: 'report' };
   if (parts[0] === 'contact') return { name: 'contact', query, key: `contact:${parts[1] || ''}` };
   if (parts[0] === 'abodes') return { name: 'abodes', query, key: 'abodes' };
-  // the short guide, #/guide?step=<id>: one key for every step, so moving between steps never fades the page
+  // how Amanah works, #/guide?step=<id>: one key for every step, so moving between steps never fades the page
   if (parts[0] === 'guide') return { name: 'guide', query, key: 'guide' };
-  // story first: #/begin (choose a view, then where to start) and #/begin/next (where to go after the first story)
+  // story first: #/begin (choose a view, then the way on) and #/begin/next (an old address, passed on to #/next)
   if (parts[0] === 'begin') return { name: 'pyramid', view: parts[1] === 'next' ? 'begun' : 'begin', query, key: `begin:${parts[1] || ''}` };
+  // the guide's next step (src/lib/journey.js): a lesson or a pyramid lesson finished inside the guide continues here
+  if (parts[0] === 'next') return { name: 'next', query, key: 'next' };
   if (parts[0] === 'paths') return { name: 'paths', query, key: 'paths' };
   if (parts[0] === 'path' && parts[1]) return { name: 'paths', id: parts[1], query, key: `path:${parts[1]}` };
   // an address that leads nowhere says so, instead of quietly showing the start screen
