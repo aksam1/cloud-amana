@@ -204,7 +204,10 @@ test('the privacy page explains what is kept, and has a way home', async ({ page
 
 test('every part of the app has a way home', async ({ page }) => {
   await page.goto('/#/map');
-  await page.getByRole('button', { name: 'Home' }).click();
+  // the map leads back along the line, to the journey; the menu there goes home
+  await page.getByRole('button', { name: 'Your journey (Esc)' }).click();
+  await expect(page.getByRole('heading', { name: 'Your journey', exact: true })).toBeVisible();
+  await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Home', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Amanah' })).toBeVisible();
   // the menu is Home, Journey, Explore, Progress: the pyramid is one of the doors in Explore
   const menu = page.getByRole('navigation', { name: 'Main' });
@@ -404,7 +407,7 @@ test('a path lists its stops, plays one and comes back with it marked as watched
   await page.getByRole('link', { name: /Yusuf's dream/ }).click();
   await expect(page).toHaveURL(/#\/scene\/stars\?back=/);
   await page.goto(`/#/scene/stars?back=${encodeURIComponent('/path/dreams')}&beat=3`);
-  const back = page.getByRole('button', { name: 'Back to the path' });
+  const back = page.getByRole('button', { name: 'Back to the path', exact: true }); // the story's end, not the top bar's "Back to the path (Esc)"
   await back.waitFor({ timeout: 90000 });
   await back.click();
   await expect(page.getByText('1 of 5 watched')).toBeVisible();
@@ -449,4 +452,24 @@ test('the sky on Progress shows a star for every lesson and lights none for a ne
   await page.goto('/#/pyramid/progress');
   // one star per lesson part (55) and per pyramid unit (17)
   await expect(page.getByRole('img', { name: /Your sky: 0 of 72 stars lit/ })).toBeVisible();
+});
+
+test('the ways out lead back along the line, and no address strands anyone', async ({ page }) => {
+  // a scene opened on its own (the second, so no page between stories): its top-left button and Escape go to the journey
+  await page.goto('/#/scene/jinn');
+  await expect(page.getByRole('button', { name: 'Your journey (Esc)' })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page).toHaveURL(/#\/story$/);
+  await expect(page.getByRole('heading', { name: 'Your journey', exact: true })).toBeVisible();
+  // a scene that does not exist, a lesson that does not exist, and the old title page's address
+  await page.goto('/#/scene/nope');
+  await expect(page.getByRole('heading', { name: 'That scene does not exist' })).toBeVisible();
+  await page.getByRole('button', { name: 'Open your journey' }).click();
+  await expect(page).toHaveURL(/#\/story$/);
+  await page.goto('/#/unit/nope');
+  await expect(page.getByRole('heading', { name: 'That lesson does not exist' })).toBeVisible();
+  await page.getByRole('button', { name: 'See the pyramid' }).click();
+  await expect(page).toHaveURL(/#\/pyramid$/);
+  await page.goto('/#/chronicle');
+  await expect(page.getByRole('heading', { name: 'Your journey', exact: true })).toBeVisible();
 });

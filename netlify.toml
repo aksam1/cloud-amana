@@ -4,8 +4,10 @@
 # VITE_TARGET=web switches on the web-only parts (the service worker, the install prompt and the
 # mistake-report form). The artifact build leaves it unset, so that build stays a single page.
 #
-# The Content-Security-Policy is deliberately not set here: the sync batch adds one, once the
-# domains it needs are known.
+# The Content-Security-Policy (below) names everything the app talks to: its own site (pages, the
+# mistake-report and contact forms, the service worker) and Firestore's REST address for the anonymous
+# counts. Verse links to quran.com are plain links, which a CSP does not limit. Anything new that loads
+# or sends from another address must be added there, and to the privacy page in the same commit.
 
 [build]
   command = "npm run build"
@@ -57,3 +59,5 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-Frame-Options = "DENY"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://firestore.googleapis.com; media-src 'self' data: blob:; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"

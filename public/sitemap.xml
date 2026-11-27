@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Amanah is one page with a hash router (#/map, #/story ...), so search engines see a single address. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://amanah-stories.netlify.app/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+</urlset>

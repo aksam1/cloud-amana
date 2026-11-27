@@ -94,6 +94,13 @@ Two refusals to expect, and their fixes:
 - *"some files changed since Claude last saw them"*: the 22 old bundles being removed must be
   named in `overwrite_unread` on the publish call.
 
+## 6b. Checks before anything ships (25 Nov 2026)
+1. `npm run check` (0 errors), `npm test`, `npm run build`.
+2. `npm run e2e:chrome` (the journeys, phone and desktop), `npm run e2e:usage:chrome` (the counts), and
+   `npm run e2e:offline:chrome` (it overwrites `dist/`, so build again after it).
+3. A new page: give it a name in `src/lib/title.js` and one `h1`; keep every target 44 px; if it loads or sends anything
+   from another address, add that address to the Content-Security-Policy in netlify.toml and to the privacy page.
+
 ## 7. Rules never to break (full list in CLAUDE.md)
 - Allah never depicted. Prophets only as distant lights of steady light, no faces.
 - Quran text only from `src/data/ayahs.json` (Sahih International), never typed by hand.

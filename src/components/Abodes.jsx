@@ -109,7 +109,14 @@ export default function Abodes({ at }) {
       </motion.div>
 
       <div className={shut ? 'invisible' : undefined} aria-hidden={shut || undefined}>
-        <p className="mt-3 text-center font-body text-[1rem] italic text-ivory/55">Tap a level to read what the verses say.</p>
+        {/* On a phone each course is only about 25 px tall, so a full-size way in stands beside the picture: the
+            pop-up's Up and Down then walk every level in turn. */}
+        <p className="mt-3 text-center font-body text-[1rem] italic text-ivory/55">Tap a level to read what the verses say, or</p>
+        <div className="mt-1 flex justify-center">
+          <button type="button" className={LINK} onClick={() => setFocus(STOPS[0].id)}>
+            Read them in order, from the top
+          </button>
+        </div>
         <footer className="mx-auto mt-8 max-w-[46ch] text-center">
           <p className="font-body text-[1rem] italic leading-snug text-ivory/60">{ABODES.orderNote}</p>
           <p className="mt-3 font-body text-[1.08rem] leading-snug text-ivory/85">{say(ABODES.closing)}</p>

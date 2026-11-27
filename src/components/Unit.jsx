@@ -14,6 +14,7 @@ const unitFiles = import.meta.glob('../pyramid/units/*.json', { eager: true, imp
 const unitContent = Object.fromEntries(Object.values(unitFiles).map((u) => [u.id, u]));
 import hadithData from '../data/hadith.json';
 import { Icon, Rule } from './Ornaments.jsx';
+import { useTitle } from '../lib/title.js';
 import { ModePicker } from './ModePicker.jsx';
 import { Disclaimer, Meter } from './Pyramid.jsx';
 import Monument from './Monument.jsx';
@@ -37,6 +38,7 @@ export default function Unit({ id, step: startStep }) {
   const data = unitContent[id];
   const status = u ? unitStatus(id) : null;
   const { mode } = useMode();
+  useTitle(u ? u.title : 'Lesson not found');
   // An unfinished attempt picks up exactly where it was left (choice, first answers, step).
   const [draft] = useState(() => getState().drafts?.[id] || null);
   const [step, setStep] = useState(STEPS.includes(startStep) ? startStep : draft?.step || 'story');
@@ -62,7 +64,22 @@ export default function Unit({ id, step: startStep }) {
     track('unit.start', id);
   }, [id, data, mode]);
 
-  if (!u) return <Frame id={id}>{<p className="font-body text-lg text-ink">There is no unit called “{id}”.</p>}</Frame>;
+  if (!u) {
+    return (
+      <Frame id={id}>
+        <h1 className="font-display text-[1.45rem] font-semibold leading-tight text-ink">That lesson does not exist</h1>
+        <p className="mt-2 font-body text-[1.1rem] leading-snug text-ink-soft">No pyramid lesson is called “{id}”. Your progress is safe.</p>
+        <div className="mt-4 flex flex-wrap justify-end gap-2">
+          <button type="button" className="btn-ink" onClick={() => go('/story')}>
+            Your journey
+          </button>
+          <button type="button" className="btn-gold" onClick={() => go('/pyramid')} autoFocus>
+            See the pyramid
+          </button>
+        </div>
+      </Frame>
+    );
+  }
   if (!data) {
     return (
       <Frame id={id}>

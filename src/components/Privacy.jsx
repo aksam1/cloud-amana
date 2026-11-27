@@ -34,17 +34,26 @@ export default function Privacy() {
       <section className="mt-6" aria-labelledby="p1">
         <H id="p1">On this device</H>
         <ul className="mt-2 list-disc space-y-1 pl-5">
-          <L>Which scenes you have watched, and which map events the story has reached.</L>
-          <L>Which lessons you have finished, and the answers you gave.</L>
-          <L>Your private reflections, in your own words.</L>
+          <L>Which scenes you have watched, which map events the story has reached, and the last thing you opened.</L>
+          <L>Which story lessons you have finished, and which of their questions you have answered.</L>
           <L>
-            Your settings: the view you chose, sound, whether the captions show
+            Your pyramid lessons: how far each has come (from your answers and the choice you made), when, and any you left half done.
+          </L>
+          <L>If you took the placement questions: your path, your answers, the day, and the level they suggested.</L>
+          <L>Your private reflections, in your own words, and when you wrote each one.</L>
+          <L>Where your guide stands, whether you closed it, and which places in the app you have found.</L>
+          <L>
+            Your settings: the view you chose, ambient and tap sounds, whether scenes play on their own, whether the
+            captions show, whether places are revealed as you go, which tips you closed, and whether you have taken How
+            Amanah works{IS_WEB ? ' or been asked about installing the app' : ''}
             {USAGE_ON ? ', and whether you share usage counts' : ''}.
           </L>
+          {USAGE_ON && <L>The first day this browser was here, so the counts can tell a first visit from a return.</L>}
+          {IS_WEB && <L>The app&rsquo;s own files, so it opens quickly and with no connection.</L>}
         </ul>
         <P>
-          All of it is kept in this browser&rsquo;s storage, on this device, and none of it is sent to us or to anyone
-          else. In Settings you can save a backup file, bring one back, or delete everything.
+          All of it is kept in this browser&rsquo;s storage, on this device, and none of this record is sent to us or to
+          anyone else. In Settings you can save a backup file, bring one back, or delete everything.
         </P>
       </section>
 

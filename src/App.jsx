@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, useEffect, useState } from 'react';
+import { Component, lazy, Suspense, useEffect, useLayoutEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useRoute } from './lib/router.js';
 import { getState, markFound } from './lib/store.js';
@@ -7,9 +7,9 @@ import { ambience } from './lib/audio.js';
 import { GeoField, starPath } from './components/Ornaments.jsx';
 import { IS_WEB, registerWorker, watchForUpdate } from './lib/pwa.js';
 import { trackError, track } from './lib/usage.js';
+import { titleFor } from './lib/title.js';
 
 // Every page loads on demand, so the home page never waits for the whole story (about 1 MB) to download.
-const Title = lazy(() => import('./components/Title.jsx'));
 const Stories = lazy(() => import('./components/Stories.jsx'));
 const StoryPage = lazy(() => import('./components/StoryPage.jsx'));
 const Explore = lazy(() => import('./components/Explore.jsx'));
@@ -76,7 +76,7 @@ class Recover extends Component {
           <p className="mt-2 font-body text-[1.08rem] leading-snug text-ink-soft">
             {offlineMiss
               ? 'Connect once to watch it, or keep the whole story for offline in Settings.'
-              : 'Your progress is safe. You can go back to the pyramid, or reload and try again.'}
+              : 'Your progress is safe. You can go back home, or reload and try again.'}
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-2">
             {offlineMiss ? (
@@ -91,7 +91,7 @@ class Recover extends Component {
             ) : (
               <>
                 <button type="button" className="btn-gold" onClick={() => (window.location.hash = '/')}>
-                  Back to the pyramid
+                  Back home
                 </button>
                 <button type="button" className="btn-ink" onClick={() => window.location.reload()}>
                   Reload
@@ -205,6 +205,12 @@ export default function App() {
     return () => off();
   }, []);
 
+  // The tab's name for this page (src/lib/title.js). A layout effect runs before every page's own effects, so a
+  // page that knows a better name (a scene's title) sets it after this one, and never the other way round.
+  useLayoutEffect(() => {
+    document.title = titleFor(route);
+  }, [route.key]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Visiting a place opens it for good (src/lib/discover.js): the menu and Explore stop calling it new, and a
   // place reached by a link or a typed address is never hidden from the menu again.
   useEffect(() => {
@@ -266,7 +272,7 @@ export default function App() {
           ) : route.name === 'map' ? (
             <CampaignMap query={route.query} />
           ) : (
-            <Title />
+            <About missing />
           )}
         </Suspense>
         </ChunkMiss>

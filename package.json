@@ -20,6 +20,7 @@
     "e2e:usage": "playwright test --config playwright.usage.config.js",
     "e2e:chrome": "node tools/run-e2e.cjs",
     "e2e:offline:chrome": "node tools/run-e2e-offline.cjs",
+    "e2e:usage:chrome": "node tools/run-e2e-usage.cjs",
     "verify": "npm run check && npm test && npm run build"
   },
   "dependencies": {

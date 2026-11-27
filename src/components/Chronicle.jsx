@@ -10,7 +10,7 @@ import { Icon, Rule, SourceBadge } from './Ornaments.jsx';
  * `ayahOpen`), so nobody is rushed while reading scripture. `onTop` hears how far up the screen it
  * reaches, so a verse in the lower third can sit just above it.
  */
-export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTop, lift = 84 }) {
+export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTop, lift = 84, hidden = false }) {
   const refs = (scene.ayahs || []).flatMap(expandRef);
   const { mode } = useMode();
   const inChapter = chapterScenes(scene.chapter);
@@ -35,8 +35,9 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
     };
   }, [onTop]);
   return (
-    // `lift` (px): how far up a phone held upright sets it, clear of the transport below (from sm up they sit side by side)
-    <div ref={box} style={{ '--lift': `${lift}px` }} className="pointer-events-auto absolute bottom-[var(--lift)] left-3 right-3 z-30 transition-[bottom] duration-300 sm:bottom-6 sm:left-6 sm:right-auto sm:w-[400px] short:bottom-2 short:left-2 short:w-[min(50vw,430px)]">
+    // `lift` (px): how far up a phone held upright sets it, clear of the transport below (from sm up they sit side by side).
+    // `hidden`: the scene's title card is showing; it goes at once and fades back in, keeping its size (so `onTop` holds).
+    <div ref={box} style={{ '--lift': `${lift}px` }} aria-hidden={hidden || undefined} className={`${hidden ? 'invisible opacity-0' : 'opacity-100'} pointer-events-auto absolute bottom-[var(--lift)] left-3 right-3 z-30 transition-[bottom,opacity] duration-300 sm:bottom-6 sm:left-6 sm:right-auto sm:w-[400px] short:bottom-2 short:left-2 short:w-[min(50vw,430px)]`}>
       <AnimatePresence initial={false} mode="wait">
         {open ? (
           <motion.section
@@ -50,7 +51,7 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
           >
             <header className="flex items-start gap-3">
               <div className="min-w-0 flex-1">
-                <div className="caps text-[0.6rem] text-ink-soft short:hidden">Scene {inChapter.findIndex((s) => s.id === scene.id) + 1} of {inChapter.length}</div>
+                <div className="font-body text-[0.95rem] italic leading-tight text-ink-soft short:hidden">Scene {inChapter.findIndex((s) => s.id === scene.id) + 1} of {inChapter.length}</div>
                 <h2 className="font-display text-[1.02rem] font-semibold leading-tight text-ink">{scene.title}</h2>
               </div>
               <SourceBadge source={scene.source} />
@@ -72,11 +73,11 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
               <>
                 <Rule className="mx-auto my-3 h-3 w-40 text-[#7a5a2e] short:hidden" />
                 <button type="button" onClick={onAyah} aria-expanded={ayahOpen} className="flex min-h-[44px] w-full items-center justify-between gap-2 rounded-md px-1 py-1.5 text-left hover:bg-black/5">
-                  <span className="caps text-[0.66rem] text-ink">
+                  <span className="font-body text-[1.02rem] font-semibold text-ink">
                     {refs.length ? `The full ${refs.length === 1 ? one : `${many} (${refs.length})`}` : 'Sources'}
-                    {refs.length > 0 && (scene.notes?.length > 0 || scene.art?.length > 0) && ' & sources'}
+                    {refs.length > 0 && (scene.notes?.length > 0 || scene.art?.length > 0) && ' and sources'}
                   </span>
-                  <span className="flex items-center gap-2 text-[0.7rem] italic text-ink-soft">
+                  <span className="flex items-center gap-2 font-body text-[0.92rem] italic text-ink-soft">
                     {ayahOpen ? 'paused while you read' : ''}
                     <Icon name="chevron" className={`h-4 w-4 transition-transform ${ayahOpen ? 'rotate-180' : ''}`} />
                   </span>
@@ -90,8 +91,8 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
                           if (!a) return null;
                           return (
                             <article key={ref}>
-                              <div className="caps text-[0.58rem] text-ink-soft">
-                                {a.surah} · {ref}
+                              <div className="font-body text-[0.95rem] italic text-ink-soft">
+                                {a.surah}, {ref}
                               </div>
                               <p lang="ar" className="quran mt-1 text-[1.5rem] text-ink">
                                 {a.ar}
@@ -107,7 +108,7 @@ export function Chronicle({ scene, lines, open, onToggle, ayahOpen, onAyah, onTo
                           ([key, label]) =>
                             scene[key]?.length > 0 && (
                               <div key={key} className="rounded-md border border-[#8a6a4e]/40 bg-[#5a3d22]/5 p-3">
-                                <div className="caps mb-1 text-[0.58rem] text-ink-soft">{label}</div>
+                                <div className="mb-1 font-body text-[0.95rem] italic text-ink-soft">{label}</div>
                                 <ul className="list-disc space-y-1 pl-4 font-body text-[0.98rem] leading-snug text-ink">
                                   {scene[key].map((n) => (
                                     <li key={n}>{n}</li>

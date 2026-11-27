@@ -102,7 +102,7 @@ test('the two abodes lead on: the Day of Judgment and back, the Last Day lesson,
 
   // the story's last moment offers the way back to the page it was opened from
   await page.goto('/#/scene/sovereign?back=%2Fabodes&until=sovereign&beat=2');
-  const back = page.getByRole('button', { name: 'Back to the two abodes' });
+  const back = page.getByRole('button', { name: 'Back to the two abodes', exact: true }); // the story's end, not the top bar's way out
   await expect(back).toBeVisible({ timeout: 45000 });
   await back.click();
   await expect(page).toHaveURL(/#\/abodes$/);

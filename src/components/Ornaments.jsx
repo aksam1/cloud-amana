@@ -51,7 +51,7 @@ const SOURCE = {
 export function SourceBadge({ source = 'quran', className = '' }) {
   const s = SOURCE[source] || SOURCE.quran;
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[0.62rem] caps ${s.tone} ${className}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-body text-[0.9rem] font-semibold leading-tight ${s.tone} ${className}`}>
       <svg viewBox="-8 -8 16 16" className="h-2.5 w-2.5" aria-hidden="true">
         <path d={starPath(7.5, 0.62)} fill="currentColor" />
       </svg>

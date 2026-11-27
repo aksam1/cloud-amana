@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { LEVELS, unitStatus } from '../lib/pyramid.js';
 
@@ -59,6 +60,15 @@ function viewOf(focus) {
   return [200 - vw / 2, cy - vh / 2, vw, vh].map(r1);
 }
 
+// Half the distance from each seal to its nearest neighbour on the same level, so a seal's invisible target can grow
+// toward 44 px on screen without ever reaching the next seal.
+const ROOM = LEVELS.map((level, li) => {
+  const s = seals(level, BANDS[li]);
+  let d = Infinity;
+  for (let a = 0; a < s.length; a++) for (let b = a + 1; b < s.length; b++) d = Math.min(d, Math.hypot(s[a].x - s[b].x, s[a].y - s[b].y));
+  return d === Infinity ? 30 : d / 2;
+});
+
 // Unit names under (or, every other one, above) their seals when a level is looked at closely.
 const LABEL = [12, 9, 5]; // seal names when a level is looked at closely: about 11 px tall on a phone
 
@@ -69,8 +79,20 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
   const right = `${APEX[0]},${APEX[1]} ${200 + HALF},${BASE} ${200 + HALF * 0.18},${BASE}`;
   const capY = yAt(CAP);
   const capH = halfAt(CAP);
+  // how wide the drawing is on screen, so a seal's target can be sized in screen pixels
+  const box = useRef(null);
+  const [px, setPx] = useState(0);
+  useEffect(() => {
+    const el = box.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(([e]) => setPx(e.contentRect.width));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  const ppu = px ? px / viewOf(focus)[2] : 1;
   return (
     <motion.svg
+      ref={box}
       viewBox={`0 0 ${W} 300`}
       animate={{ viewBox: viewOf(focus).join(' ') }}
       transition={{ duration: still ? 0 : 0.9, ease: [0.65, 0, 0.35, 1] }}
@@ -221,7 +243,7 @@ export default function Monument({ meters = {}, done = {}, lit = {}, peak = fals
               onKeyDown={interactive ? (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onSelect(unit.id)) : undefined}
               className={interactive ? 'group cursor-pointer outline-none' : ''}
             >
-              {interactive && <circle cx={x} cy={y} r={Math.max(r + 6, 13)} fill="transparent" />}
+              {interactive && <circle cx={x} cy={y} r={Math.min(ROOM[li], Math.max(r + 3, 22 / ppu))} fill="transparent" />}
               {(isDone || selected === unit.id) && <circle cx={x} cy={y} r={r + 5} fill="#ffe7a0" opacity={isDone ? 0.85 : 0.6} filter="url(#mn-blur)" />}
               {/* the socket cut into the stone */}
               <circle cx={x} cy={y + 0.6} r={r + 1.2} fill="#fff3d6" opacity="0.35" />

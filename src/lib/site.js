@@ -8,7 +8,7 @@ export const MAKER = 'Amanah, an independent project';
 // How to reach the people who make it: the contact form in the app (no address is published).
 export const CONTACT = '#/contact';
 // The date the Privacy page takes effect. The owner changes it on the day counting goes live.
-export const PRIVACY_EFFECTIVE = '19 November 2026';
+export const PRIVACY_EFFECTIVE = '25 November 2026';
 // The scene a new visitor is shown first, before any questions (a unit test keeps it the story's first scene).
 export const FIRST_STORY = 'heavens';
 export const SITE_LINE = 'Learn Islam through the stories of the prophets. Free and private. No account needed.';

@@ -1524,12 +1524,11 @@ function Progress() {
       <section className="mt-6 rounded-2xl border border-gold/20 bg-black/25 p-5">
         <h2 className="font-display text-[1.05rem] text-ivory">Your data</h2>
         <p className="mt-1 font-body text-[1rem] leading-snug text-ivory/70">
-          Stored only in this browser.{USAGE_ON ? ' Only anonymous usage counts leave it, and Settings can turn them off.' : ' Nothing is sent anywhere.'}{' '}
-          <button type="button" className="underline decoration-gold/40 underline-offset-4" onClick={() => go('/settings')}>
-            Back it up, or delete it
-          </button>
-          , in Settings.
+          Stored only in this browser.{USAGE_ON ? ' Only anonymous usage counts leave it, and Settings can turn them off.' : ' Nothing is sent anywhere.'}
         </p>
+        <button type="button" className="mt-1 inline-flex min-h-[44px] items-center font-body text-[1rem] text-gold-hi/90 underline decoration-gold/40 underline-offset-4 hover:decoration-gold-hi" onClick={() => go('/settings')}>
+          Back it up or delete it, in Settings
+        </button>
       </section>
       <Disclaimer />
     </Shell>

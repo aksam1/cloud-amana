@@ -119,8 +119,8 @@ export default function End() {
               {a.ar}
             </p>
             <figcaption className="mt-2 font-body text-[1.08rem] leading-snug text-ivory/85">
-              “{a.en}”{' '}
-              <a href={quranLink(CLOSING_VERSE)} target="_blank" rel="noopener noreferrer" className="whitespace-nowrap text-gold-hi underline decoration-gold/40 underline-offset-4">
+              “{a.en}”
+              <a href={quranLink(CLOSING_VERSE)} target="_blank" rel="noopener noreferrer" className="flex min-h-[44px] w-fit items-center whitespace-nowrap text-gold-hi underline decoration-gold/40 underline-offset-4">
                 Quran {CLOSING_VERSE}, {a.surah}
               </a>
             </figcaption>

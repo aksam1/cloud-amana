@@ -87,7 +87,7 @@ export function VerseCaption({ verse, tone, dock, pen = false, onCrowded }) {
       <div className={lower ? `parchment ruled cartouche px-6 sm:px-10 ${fit < 1 ? 'py-3' : 'py-5'}` : 'relative'}>
         {!lower && <div className="absolute -inset-x-20 -inset-y-12 -z-10" style={{ background: 'radial-gradient(ellipse at center, rgb(6 5 4 / .74) 0%, rgb(6 5 4 / .5) 42%, transparent 72%)' }} />}
         {verse.who && (
-          <figcaption className={`caps mb-2 text-[0.66rem] ${lower ? 'text-ink-soft' : 'text-[#e9d5a6]/85'}`}>
+          <figcaption className={`mb-2 font-body text-[1rem] italic ${lower ? 'text-ink-soft' : 'text-[#e9d5a6]/90'}`}>
             {verse.who}
           </figcaption>
         )}
@@ -132,12 +132,12 @@ export function VerseCaption({ verse, tone, dock, pen = false, onCrowded }) {
             : `“${verse.en}”`}
         </motion.blockquote>
         <motion.div
-          className={`caps mt-2 text-[0.6rem] ${lower ? 'text-ink-soft' : 'text-[#d9c08a]/80'}`}
+          className={`mt-2 font-body text-[0.95rem] italic ${lower ? 'text-ink-soft' : 'text-[#d9c08a]/90'}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: pen ? enStart + enWords.length * 0.09 : (revealMs / 1000) * 0.8, duration: 1 }}
         >
-          Quran {verse.ref.replace('-', '–')} · {a.surah}
+          Quran {verse.ref.replace('-', '–')}, {a.surah}
         </motion.div>
       </div>
     </motion.figure>

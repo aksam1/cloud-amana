@@ -71,7 +71,7 @@ export default function Nav({ here, tone = 'night', spot = null, onSpot = null }
                 aria-current={on ? 'page' : undefined}
                 // one name read as one phrase (a visually hidden span would be read with a pause of its own)
                 aria-label={dot ? `${it.label}, something new` : undefined}
-                className={`flex min-h-[50px] flex-col items-center justify-center gap-0.5 rounded-full px-1 font-body text-[0.92rem] transition-colors sm:min-h-[42px] sm:flex-row sm:gap-1.5 sm:px-3 sm:text-[1rem] ${
+                className={`flex min-h-[50px] flex-col items-center justify-center gap-0.5 rounded-full px-1 font-body text-[0.92rem] transition-colors sm:min-h-[44px] sm:flex-row sm:gap-1.5 sm:px-3 sm:text-[1rem] ${
                   on
                     ? ink
                       ? 'bg-[#3c2a12] text-gold-hi sm:bg-[#a5772f]/20 sm:text-ink'

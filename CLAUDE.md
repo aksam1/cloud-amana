@@ -91,7 +91,8 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 ## The Pyramid of Righteousness (the home page)
 
 - Built from the owner's blueprint (hadith of Jibril: Islam base, Iman middle, Ihsan peak). `#/` is the
-  pyramid; the chronicle's title page moved to `#/chronicle` and lives inside the Messengers unit. Routes:
+  pyramid. The chronicle's old title page is gone (`Title.jsx` deleted 25 Nov 2026): `#/chronicle` opens the Journey
+  page (`#/story`), and the Messengers unit is the chronicle itself. Routes:
   `#/pyramid/placement`, `#/pyramid/result`, `#/pyramid/progress`, `#/unit/<id>?step=`.
 - Data only, no code changes to add content: `src/pyramid/units.json` (levels, units, `chapterUnits` =
   the unit each chapter's last scene links to), `placement.json` (10–15 reflection questions per path,
@@ -284,6 +285,31 @@ npm run verses              # turn each beat's pendingVerse into its verse once 
 - Story stills (`src/assets/previews/*.webp`, 800×450) are captured from the scenes: canvas-only screenshot of
   `#/scene/<id>?beat=n&still` in headless Chrome (hide everything but canvas). Every scene is a GL scene now.
 - The published page (`scripts/publish.mjs` → deploy/index.html) must start with `<!DOCTYPE html>`.
+
+## The 25 Nov 2026 review: names, targets and headers
+
+- **Every page has a name** in the tab, history and bookmarks (`src/lib/title.js`): App.jsx sets `titleFor(route)` in a
+  layout effect (so it runs before any page's effects), and a page that knows more calls `useTitle(name)` (a scene's
+  title, a unit's, "The lesson: <part>", a path's). A new route needs a name in `NAMES`; `title.test.js` reads the route
+  names from router.js, so a missing one fails. Every page has one `h1` (the scene player keeps an `sr-only` one with
+  the scene's title while its title card is not showing; a lesson's "The lesson for chapter …" line is its `h1`).
+- **44 px targets everywhere**, including the drawings. Map seals carry a transparent hit circle that grows as the map
+  zooms out (`hit = clamp(24/zk, 40, 56)` design units) and labels keep about 14 px on screen; the overview's least zoom
+  is 0.42, where neighbouring hit circles still never overlap. Monument seals are sized in screen pixels, capped at half
+  the distance to their neighbour, with a level's band as the large target when zoomed out. The abodes' courses are
+  about 23 px tall on a phone and cannot grow, so "Read them in order, from the top" and the pop-up's Up/Down are the
+  44 px way through them. Inline links inside a sentence are exempt (WCAG 2.5.8).
+- The chronicle (`Chronicle.jsx` `hidden`) steps out of the way while the scene's title card or the bridge page shows.
+- The same type rules reach the small labels: chronicle, captions, `SourceBadge`, the map's dossier and list, and the
+  scene's top bar are italic Cormorant with commas, never tracked caps or "A · B" strings.
+- **Security headers** (netlify.toml): a Content-Security-Policy naming only the site itself and Firestore's REST
+  address (the counts), plus `X-Frame-Options: DENY`. Anything new that loads or sends from another address goes in
+  the policy and on the privacy page in the same commit. It was checked by loading 19 pages of the build with the
+  header added (no violations).
+- `public/robots.txt` and `public/sitemap.xml` name `https://amanah-stories.netlify.app/` (one address: the router uses
+  hashes); change them with `SITE_URL`. `index.html` has a `<noscript>` page with its own background.
+- `npm run e2e:usage:chrome` runs the usage-counts journey with the installed Chrome. `out/` (old review stills) is
+  ignored, not tracked.
 
 ## Reviewing scenes (do this for every beat)
 

@@ -6,6 +6,7 @@ import { inMode, useMode } from '../lib/words.js';
 import { go } from '../lib/router.js';
 import { Icon } from './Ornaments.jsx';
 import { Shell } from './Pyramid.jsx';
+import { useTitle } from '../lib/title.js';
 
 export const PATHS = data.paths;
 
@@ -29,6 +30,7 @@ export default function Paths({ id }) {
   const say = (t) => inMode(t, mode);
   const seen = useStore((s) => s.seen);
   const path = id && PATHS.find((p) => p.id === id);
+  useTitle(id ? (path ? path.title : 'Path not found') : null);
 
   if (id && !path) {
     return (

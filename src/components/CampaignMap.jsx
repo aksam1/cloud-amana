@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { AnimatePresence, animate, motion, useMotionTemplate, useMotionValue } from 'motion/react';
+import { AnimatePresence, animate, motion, useMotionTemplate, useMotionValue, useMotionValueEvent } from 'motion/react';
 import { buildWorld } from '../lib/mapWorld.js';
 import { chapterForNode, eraById, expandRef, ayah, nodeScenes, timeline } from '../lib/story.js';
 import { getState, lightNode, setPref, useStore } from '../lib/store.js';
@@ -237,8 +237,8 @@ const Terrain = memo(function Terrain() {
       {/* the era names, in the left margin */}
       {world.regions.map((g) => (
         <g key={`${g.id}-name`}>
-          <text x="56" y={g.cy} fontFamily="Cinzel, serif" fontSize="30" letterSpacing="8" fill="#f4e4bc" opacity="0.55" transform={`rotate(-90 56 ${g.cy})`}>
-            {g.title.toUpperCase()}
+          <text x="56" y={g.cy} fontFamily="Cormorant Garamond, serif" fontSize="40" fontStyle="italic" fontWeight="600" fill="#f4e4bc" opacity="0.6" transform={`rotate(-90 56 ${g.cy})`}>
+            {g.title}
           </text>
           <line x1="30" y1={g.y0} x2={W - 30} y2={g.y0} stroke="#3b2a18" strokeWidth="1" opacity="0.28" />
         </g>
@@ -259,7 +259,12 @@ function nodeState(n, store) {
   };
 }
 
-function MapNode({ n, st, selected, igniting, onSelect }) {
+// The names are drawn in the world, so they shrink as the map zooms out: `zk` (the zoom, in steps of 0.05) sets them
+// back to about 14 px on screen, up to 2.4 times their size (two lines still clear the next seal on the same side, 113
+// units down), and widens each seal's invisible target so it stays near 44 px without reaching its neighbour.
+function MapNode({ n, st, selected, igniting, onSelect, zk = 1 }) {
+  const ls = clamp(14 / (19 * zk), 1, 2.4);
+  const hit = clamp(24 / zk, 40, 56);
   const soon = !st.ready;
   const seal = soon ? (st.lit ? '#d8c08e' : '#cdb98f') : 'url(#bronze)';
   const status = soon ? 'coming later' : st.complete ? 'watched' : st.seen ? `${st.seen} of ${st.scenes.length} scenes watched` : `${st.scenes.length} scenes`;
@@ -283,6 +288,7 @@ function MapNode({ n, st, selected, igniting, onSelect }) {
       }}
       opacity={soon && !st.lit ? 0.62 : 1}
     >
+      <circle r={hit} fill="transparent" />
       <circle r="66" className="node-focus" fill="none" stroke="#f7e0a3" strokeWidth="3" opacity="0" />
       {st.lit && <circle r="62" fill="url(#halo)" className={st.ready && !st.complete ? 'halo-pulse' : undefined} />}
       {igniting && (
@@ -308,39 +314,38 @@ function MapNode({ n, st, selected, igniting, onSelect }) {
           from the seal, away from the centre line, so it never crosses the light.
           The ink is light with a dark halo: the same label has to read on the pale
           sandstone band and on the deep red-brown and green bands below it. */}
-      <text
-        x={n.side === 'left' ? -52 : 52}
-        y="-4"
-        textAnchor={n.side === 'left' ? 'end' : 'start'}
-        fontFamily="Cinzel, serif"
-        fontSize="15"
-        letterSpacing="2"
-        fill="#f7e7c4"
-        fontWeight="600"
-        stroke="#150e07"
-        strokeWidth="3.4"
-        paintOrder="stroke"
-        strokeLinejoin="round"
-      >
-        {n.short.toUpperCase()}
-      </text>
-      {n.alt && (
+      <g transform={`translate(${n.side === 'left' ? -52 : 52} 0) scale(${ls})`}>
         <text
-          x={n.side === 'left' ? -52 : 52}
-          y="14"
+          y="-2"
           textAnchor={n.side === 'left' ? 'end' : 'start'}
           fontFamily="Cormorant Garamond, serif"
-          fontSize="15"
-          fontStyle="italic"
-          fill="#ecd9b4"
+          fontSize="19"
+          fill="#f7e7c4"
+          fontWeight="700"
           stroke="#150e07"
-          strokeWidth="3"
+          strokeWidth="3.4"
           paintOrder="stroke"
           strokeLinejoin="round"
         >
-          {n.alt}
+          {n.short}
         </text>
-      )}
+        {n.alt && (
+          <text
+            y="16"
+            textAnchor={n.side === 'left' ? 'end' : 'start'}
+            fontFamily="Cormorant Garamond, serif"
+            fontSize="16"
+            fontStyle="italic"
+            fill="#ecd9b4"
+            stroke="#150e07"
+            strokeWidth="3"
+            paintOrder="stroke"
+            strokeLinejoin="round"
+          >
+            {n.alt}
+          </text>
+        )}
+      </g>
     </g>
   );
 }
@@ -352,7 +357,7 @@ function Dossier({ n, st, onClose, seen }) {
   const era = eraById[n.era];
   const first = st.scenes.find((s) => !seen[s.id]);
   const target = first || st.scenes[0];
-  const label = !st.ready ? null : st.seen === 0 ? 'Begin' : first ? `Continue: ${roman(first.order)}. ${first.title}` : 'Watch again';
+  const label = !st.ready ? null : st.seen === 0 ? 'Begin' : first ? `Continue: ${first.title}` : 'Watch again';
   const refs = (n.ayahs || []).flatMap(expandRef);
   const planned = chapterForNode(n.id);
   return (
@@ -365,18 +370,18 @@ function Dossier({ n, st, onClose, seen }) {
       transition={{ duration: 0.35 }}
       aria-label={n.title}
     >
-      <button type="button" onClick={onClose} className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full text-ink-soft hover:bg-black/5" aria-label="Close">
+      <button type="button" onClick={onClose} className="absolute right-2 top-2 grid h-11 w-11 place-items-center rounded-full text-ink-soft hover:bg-black/5" aria-label="Close">
         <Icon name="close" className="h-4 w-4" />
       </button>
-      <div className="caps text-[0.6rem] text-ink-soft">{era?.title}</div>
+      <div className="pr-10 font-body text-[0.98rem] italic text-ink-soft">{era?.title}</div>
       <h2 className="font-display text-[1.35rem] font-semibold leading-tight text-ink">{n.title}</h2>
       {n.alt && <div className="font-body text-[1.05rem] italic text-ink-soft">{n.alt}</div>}
-      <div className="caps mt-2 text-[0.6rem] text-ink-soft">{n.date}</div>
+      <div className="mt-1 font-body text-[0.98rem] italic text-ink-soft">{n.date}</div>
       <p className="mt-3 font-body text-[1.12rem] leading-snug text-ink">{n.summary}</p>
 
       {planned?.bridge && (
         <details className="mt-3 rounded-md border border-[#8a6a4e]/30 bg-[#5a3d22]/5 px-3 py-2">
-          <summary className="caps cursor-pointer text-[0.62rem] text-ink">Before this story · Chapter {roman(planned.number)}</summary>
+          <summary className="flex min-h-[44px] cursor-pointer items-center font-body text-[1.02rem] font-semibold text-ink">Before this story, chapter {roman(planned.number)}</summary>
           {planned.bridge.where && <p className="mt-2 font-body text-[0.98rem] leading-snug text-ink-soft">{planned.bridge.where}</p>}
           {planned.bridge.line?.length > 0 && <p className="mt-1 font-display text-[0.92rem] text-ink">{planned.bridge.line.join(' → ')}</p>}
           {(planned.bridge.text || []).map((t, i) => (
@@ -398,7 +403,7 @@ function Dossier({ n, st, onClose, seen }) {
                     {a.ar}
                   </p>
                   <p className="font-body text-[1rem] italic leading-snug text-ink">
-                    “{a.en}” <span className="caps not-italic text-[0.56rem] text-ink-soft">{ref}</span>
+                    “{a.en}” <span className="whitespace-nowrap not-italic text-ink-soft">({ref})</span>
                   </p>
                 </div>
               )
@@ -412,10 +417,10 @@ function Dossier({ n, st, onClose, seen }) {
       {st.ready ? (
         <>
           <ol className="space-y-1">
-            {st.scenes.map((s) => (
+            {st.scenes.map((s, i) => (
               <li key={s.id}>
-                <button type="button" onClick={() => go(`/scene/${s.id}`)} className="flex w-full items-center gap-3 rounded-md px-2 py-1.5 text-left hover:bg-black/5">
-                  <span className="caps w-8 shrink-0 text-[0.62rem] text-ink-soft">{roman(s.order)}</span>
+                <button type="button" onClick={() => go(`/scene/${s.id}`)} className="flex min-h-[44px] w-full items-center gap-3 rounded-md px-2 py-1.5 text-left hover:bg-black/5">
+                  <span className="w-6 shrink-0 font-body text-[0.98rem] tabular-nums text-ink-soft">{i + 1}</span>
                   <span className="flex-1 font-body text-[1.04rem] leading-tight text-ink">{s.title}</span>
                   {seen[s.id] && <Icon name="check" className="h-4 w-4 text-[#8a6a2e]" />}
                 </button>
@@ -429,7 +434,7 @@ function Dossier({ n, st, onClose, seen }) {
         </>
       ) : (
         <div className="rounded-md border border-[#8a6a4e]/40 bg-[#5a3d22]/5 p-4">
-          <div className="caps text-[0.62rem] text-ink">In preparation{planned && ` · Chapter ${roman(planned.number)}`}</div>
+          <div className="font-body text-[1.02rem] font-semibold text-ink">In preparation</div>
           <p className="mt-1 font-body text-[1.04rem] leading-snug text-ink">
             {planned ? `This page of the chronicle will be painted in Chapter ${roman(planned.number)}, ${planned.title}.` : 'This page of the chronicle will be painted in a later chapter.'} Its place in time is already marked; the scenes are still to come.
           </p>
@@ -465,6 +470,12 @@ export default function CampaignMap({ query = {} }) {
   const y = useMotionValue(0);
   const k = useMotionValue(1);
   const transform = useMotionTemplate`translate3d(${x}px, ${y}px, 0) scale(${k})`;
+  // the zoom in coarse steps, for the seals' names and targets (a re-render per step, not per frame)
+  const [zk, setZk] = useState(1);
+  useMotionValueEvent(k, 'change', (v) => {
+    const q = Math.max(0.05, Math.round(v * 20) / 20);
+    setZk((p) => (p === q ? p : q));
+  });
   const drag = useRef({ pointers: new Map() });
 
   // The world is a tall column of time, so the map is read by scrolling down it.
@@ -530,7 +541,7 @@ export default function CampaignMap({ query = {} }) {
   useEffect(() => {
     const from = world.byId[query.from];
     const to = world.byId[query.arrive];
-    const overview = clamp((vs.w / world.W) * 1.05, 0.3, 0.9);
+    const overview = clamp((vs.w / world.W) * 1.05, 0.42, 0.9);
     k.set(overview);
     if (from && to) {
       try {
@@ -652,7 +663,7 @@ export default function CampaignMap({ query = {} }) {
       else if (e.key === 'Escape') {
         if (listOpen) setListOpen(false);
         else if (selected) setSelected(null);
-        else go('/');
+        else go('/story');
       }
     };
     window.addEventListener('keydown', onKey);
@@ -716,7 +727,7 @@ export default function CampaignMap({ query = {} }) {
               ))}
 
             {world.nodes.map((n) => (
-              <MapNode key={n.id} n={n} st={states[n.id]} selected={selected === n.id} igniting={arrival?.lit && arrival.to === n.id} onSelect={select} />
+              <MapNode key={n.id} n={n} st={states[n.id]} zk={zk} selected={selected === n.id} igniting={arrival?.lit && arrival.to === n.id} onSelect={select} />
             ))}
           </svg>
         </motion.div>
@@ -726,13 +737,15 @@ export default function CampaignMap({ query = {} }) {
 
       {/* Top bar */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between gap-3 p-3 sm:p-5">
-        <button type="button" className="hud-btn pointer-events-auto" onClick={() => go('/')} aria-label="Home">
-          <Icon name="pyramid" className="h-5 w-5" />
-          <span className="hidden sm:inline">Pyramid</span>
+        {/* the way out leads back along the line, to the journey (Escape too), never sideways */}
+        <button type="button" className="hud-btn pointer-events-auto" onClick={() => go('/story')} aria-label="Your journey (Esc)">
+          <Icon name="book" className="h-5 w-5" />
+          <span className="hidden sm:inline">Journey</span>
         </button>
-        <div className="parchment cartouche pointer-events-none hidden px-6 py-2 text-center md:block">
-          <div className="caps text-[0.58rem] text-ink-soft">The campaign map</div>
-          <div className="font-display text-[1rem] font-semibold text-ink">The Chronicle of the Trust</div>
+        {/* the page's name: a cartouche from md up, read aloud only on a phone */}
+        <div className="parchment cartouche pointer-events-none text-center max-md:sr-only md:px-6 md:py-2">
+          <h1 className="font-display text-[1rem] font-semibold text-ink">The map of time</h1>
+          <p className="font-body text-[0.95rem] italic leading-tight text-ink-soft">From the Creation to the Last Day</p>
         </div>
         <div className="pointer-events-auto flex gap-2">
           {/* Sound, with its state written on it (not an icon alone), on every screen size. */}
@@ -778,7 +791,7 @@ export default function CampaignMap({ query = {} }) {
             <button
               key={g.id}
               type="button"
-              className="hud-btn !text-[0.62rem]"
+              className="hud-btn !px-3 !text-[0.95rem]"
               aria-current={active ? 'true' : undefined}
               aria-label={g.title}
               onClick={() => flyTo(g.first, { zoom: k.get() })}
@@ -821,7 +834,7 @@ export default function CampaignMap({ query = {} }) {
           <motion.div key="list" className="parchment ruled cartouche thin-scroll absolute bottom-3 left-3 right-3 top-20 z-40 overflow-y-auto p-6 sm:left-6 sm:right-auto sm:w-[380px]" initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }} role="dialog" aria-label="All events">
             {timeline.eras.map((e) => (
               <section key={e.id} className="mb-4">
-                <h3 className="caps mb-1 text-[0.62rem] text-ink-soft">{e.title}</h3>
+                <h3 className="mb-1 font-body text-[1rem] font-semibold italic text-ink-soft">{e.title}</h3>
                 <ul>
                   {world.nodes
                     .filter((n) => n.era === e.id)
@@ -829,10 +842,10 @@ export default function CampaignMap({ query = {} }) {
                       const st = states[n.id];
                       return (
                         <li key={n.id}>
-                          <button type="button" className="flex w-full items-center gap-3 rounded-md px-2 py-1.5 text-left hover:bg-black/5" onClick={() => select(n.id)}>
+                          <button type="button" className="flex min-h-[44px] w-full items-center gap-3 rounded-md px-2 py-1.5 text-left hover:bg-black/5" onClick={() => select(n.id)}>
                             <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${st.complete ? 'bg-[#b8862b]' : st.ready ? 'border-2 border-[#b8862b]' : 'bg-[#bfae8a]'}`} />
                             <span className="flex-1 font-body text-[1.05rem] leading-tight text-ink">{n.title}</span>
-                            <span className="caps text-[0.52rem] text-ink-soft">{st.ready ? `${st.seen}/${st.scenes.length}` : 'coming later'}</span>
+                            <span className="font-body text-[0.92rem] italic tabular-nums text-ink-soft">{st.ready ? `${st.seen} of ${st.scenes.length}` : 'coming later'}</span>
                           </button>
                         </li>
                       );

@@ -59,6 +59,7 @@ export default function Settings() {
   const guideStep = nextStep(state);
   const [note, setNote] = useState('');
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const [confirmReset, setConfirmReset] = useState(false);
   const [confirmReplace, setConfirmReplace] = useState(null); // the backup being restored
   const [report, setReport] = useState(false);
 
@@ -229,7 +230,7 @@ export default function Settings() {
 
       {/* On this device (web build only) */}
       {IS_WEB && (
-        <Section title="On this device" note="The web build only. The hosted artifact has no install and no offline storage.">
+        <Section title="On this device" note="Amanah can be added to this device, and opened with no connection.">
           {installed ? (
             <p className="font-body text-[1.08rem] leading-snug text-ivory/85">Amanah is installed on this device.</p>
           ) : installable ? (
@@ -256,7 +257,7 @@ export default function Settings() {
               {saved && <span className="font-body text-[1rem] italic text-gold-hi">Saved</span>}
             </div>
             <p className="mt-1 font-body text-[1rem] leading-snug text-ivory/65">
-              Every scene, so the whole chronicle works with no connection.
+              Every scene, so the whole story plays with no connection.
             </p>
             {progress && (
               <div className="mt-2" role="status" aria-live="polite">
@@ -286,20 +287,39 @@ export default function Settings() {
             Restore from a backup
             <input type="file" accept="application/json,.json" className="sr-only" onChange={pickBackup} />
           </label>
-          <button
-            type="button"
-            className="hud-btn"
-            onClick={() => {
-              resetProgress();
-              setNote('The story starts again from the first scene. Your notes and settings are kept.');
-            }}
-          >
+          <button type="button" className="hud-btn" onClick={() => setConfirmReset(true)} aria-expanded={confirmReset}>
             Start the story again
           </button>
         </div>
         <p className="mt-2 font-body text-[0.98rem] italic leading-snug text-ivory/50">
-          A backup is a file you keep. It holds your progress and your private notes, and nothing else.
+          A backup is a file you keep. It holds your progress, your private notes and your settings, and nothing else.
         </p>
+
+        {/* One press must never clear what has been watched: it asks first, as "Delete my data" does. */}
+        {confirmReset && (
+          <div className="mt-4 rounded-xl border border-gold/30 bg-black/40 p-4">
+            <p className="font-body text-[1.05rem] leading-snug text-ivory/90">
+              This clears the scenes you have watched and the story lessons you have finished, with their answers. Your
+              notes, your settings and your pyramid lessons are kept. It cannot be undone.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <button
+                type="button"
+                className="hud-btn border-blood/70 text-[#f0b3a6]"
+                onClick={() => {
+                  resetProgress();
+                  setConfirmReset(false);
+                  setNote('The story starts again from the first scene. Your notes and settings are kept.');
+                }}
+              >
+                Start again
+              </button>
+              <button type="button" className="hud-btn" onClick={() => setConfirmReset(false)} autoFocus>
+                Keep my place
+              </button>
+            </div>
+          </div>
+        )}
 
         {confirmReplace && (
           <div className="mt-4 rounded-xl border border-gold/30 bg-black/40 p-4">
@@ -317,7 +337,7 @@ export default function Settings() {
                 Cancel
               </button>
             </div>
-            <button type="button" className="mt-3 block font-body text-[1rem] text-gold-hi/85 underline decoration-gold/40 underline-offset-4" onClick={replace}>
+            <button type="button" className="mt-3 block min-h-[44px] text-left font-body text-[1rem] text-gold-hi/85 underline decoration-gold/40 underline-offset-4" onClick={replace}>
               Replace this device&rsquo;s progress instead
             </button>
           </div>

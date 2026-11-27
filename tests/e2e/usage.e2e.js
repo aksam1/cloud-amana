@@ -6,6 +6,7 @@
 //   · never the chosen view, never anything typed, never an email address
 //   · nothing at all when the reader turns the counts off, or the browser sends Global Privacy Control
 import { expect, test } from '@playwright/test';
+import { skipOpening } from './opening.js';
 
 const FIELDS = ['app', 'd', 'dev', 'err', 'ev', 'exp', 'lang', 'p', 'pv', 'ref', 'ret', 'sec', 'v'];
 
@@ -55,6 +56,8 @@ test("a visit's counts hold only the fields the rules accept, and never the view
   // a reader who chose the Muslim view: that choice must never leave the device
   await page.evaluate(() => localStorage.setItem('amanah:v1', JSON.stringify({ prefs: { mode: 'muslim' } })));
   await page.reload();
+  // nothing seen yet, so the home page opens on the Trust: let it finish before tapping the footer
+  await skipOpening(page);
 
   // the home page links to the privacy page
   await page.getByRole('button', { name: 'Privacy', exact: true }).click();

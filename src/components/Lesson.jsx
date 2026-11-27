@@ -9,6 +9,7 @@ import { go } from '../lib/router.js';
 import { quranLink } from '../lib/site.js';
 import { roman } from '../lib/geo.js';
 import { GeoField, Icon, Rule } from './Ornaments.jsx';
+import { useTitle } from '../lib/title.js';
 import { ModePicker } from './ModePicker.jsx';
 
 /*
@@ -23,6 +24,9 @@ export default function Lesson({ chapter, part, then }) {
   const key = lessonKey(chapter, part);
   const here = `/lesson/${chapter}/${part}${then ? `?then=${encodeURIComponent(then)}` : ''}`;
   const onward = then || '/map';
+  const partTitle = ch?.parts?.[part]?.title;
+  // the tab says what the page holds: a part with no lesson (chapter 19 is paused) is not named as a lesson
+  useTitle(data && partTitle ? `The lesson: ${partTitle}` : 'No lesson yet');
 
   const steps = data ? ['remember', 'lesson', ...(mode === 'muslim' ? ['carry'] : []), 'reflect'] : [];
   const [step, setStep] = useState(0);
@@ -38,7 +42,7 @@ export default function Lesson({ chapter, part, then }) {
   if (!data) {
     return (
       <Shell>
-        <p className="font-body text-lg text-ink">There is no lesson for this part yet.</p>
+        <h1 className="font-body text-lg text-ink">There is no lesson for this part yet.</h1>
         <div className="mt-4 flex justify-end">
           <button type="button" className="btn-ink" onClick={() => go(onward)}>
             Continue
@@ -50,9 +54,9 @@ export default function Lesson({ chapter, part, then }) {
 
   return (
     <Shell>
-      <p className="font-body text-[1rem] italic text-ink-soft">
-        The lesson for chapter {roman(chapter)}, {ch?.parts?.[part]?.title}
-      </p>
+      <h1 className="font-body text-[1rem] italic text-ink-soft">
+        The lesson for chapter {roman(chapter)}, {partTitle}
+      </h1>
 
       {!mode ? (
         <div className="mt-3">

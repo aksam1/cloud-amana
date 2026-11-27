@@ -19,6 +19,7 @@ import { lessonAfter, lessonKey, watchForAt } from '../lib/lessons.js';
 import { track } from '../lib/usage.js';
 import { go } from '../lib/router.js';
 import { roman } from '../lib/geo.js';
+import { useTitle } from '../lib/title.js';
 
 // WebGL scenes load their renderer (Three.js) only when one is played.
 const GLStage = lazy(() => import('../gl/GLStage.jsx'));
@@ -30,14 +31,15 @@ const PENDING_MS = 6000; // a verse moment still waiting for its text holds only
 
 export default function ScenePlayer({ id, beat, still = false, moment, back, until }) {
   const scene = sceneById[id];
+  useTitle(scene ? scene.title : 'Scene not found');
   if (!scene) {
     return (
       <div className="parchment-night grid h-full place-items-center p-6 text-center">
         <div>
-          <p className="font-display text-xl text-gold-hi">This page of the chronicle is missing.</p>
-          <p className="mt-2 font-body text-lg text-ivory/80">No scene is called “{id}”.</p>
-          <button type="button" className="btn-gold mt-6" onClick={() => go('/map')}>
-            Back to the map
+          <h1 className="font-display text-[1.5rem] font-semibold text-gold-hi">That scene does not exist</h1>
+          <p className="mt-2 font-body text-lg text-ivory/80">No scene is called “{id}”. Your progress is safe.</p>
+          <button type="button" className="btn-gold mt-6" onClick={() => go('/story')} autoFocus>
+            Open your journey
           </button>
         </div>
       </div>
@@ -313,8 +315,9 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
           go('/map');
           break;
         case 'Escape':
+          // the way out leads back along the line: to the page that opened the scene, or the journey
           if (ayahOpen) setAyahOpen(false);
-          else go('/map');
+          else go(back || '/story');
           break;
         case '?':
           setHelp((h) => !h);
@@ -324,13 +327,21 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [goNext, goPrev, help, ayahOpen, prefs.chronicle, toggleSound]);
+  }, [goNext, goPrev, help, ayahOpen, prefs.chronicle, toggleSound, back]);
 
   const { mode } = useMode();
   const lines = useMemo(() => beats.slice(0, beat + 1).filter((bt) => bt.say).map((bt) => inMode(bt.say, mode)), [beats, beat, mode]);
   const frozen = !playing || ayahOpen || help || bridge;
   const relatedUnit = !back && (!next || next.chapter !== scene.chapter) ? unitForChapter(scene.chapter) : null;
   const related = relatedUnit && unitStatus(relatedUnit.id) === 'ready' ? relatedUnit : null; // only units with a lesson path yet
+  // where the top-left button and Escape lead: back to the page that opened the scene, else the journey
+  const out = !back
+    ? { to: '/story', label: 'Journey', name: 'Your journey' }
+    : back.startsWith('/path')
+      ? { to: back, label: 'Path', name: 'Back to the path' }
+      : back === '/abodes'
+        ? { to: back, label: 'Two abodes', name: 'Back to the two abodes' }
+        : { to: back, label: 'Lesson', name: 'Back to the lesson' };
   const nextLabel = back ? (until && scene.id !== until && next ? `Next: ${next.title}` : back.startsWith('/path') ? 'Back to the path' : back === '/abodes' ? 'Back to the two abodes' : 'Back to the lesson') : !next ? 'The end of the chronicle' : scene.then === 'map' ? `To the map: ${nodeById[next && next.node !== scene.node ? next.node : nextNodeId(scene.node)]?.title ?? 'onward'}` : `Next: ${next.title}`;
 
   return (
@@ -371,10 +382,12 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
         {titleCard && !bridge && (
           <motion.div key="title" className="pointer-events-none absolute inset-0 z-20 grid place-items-center px-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 1.1 } }}>
             <div className="text-center" style={{ textShadow: '0 2px 24px rgb(0 0 0 / .9)' }}>
-              <div className="caps text-[0.66rem] text-gold/85">
-                Chapter {roman(chapter?.number || 1)} · {chapter?.title}
-              </div>
-              <div className="caps mt-2 text-[0.8rem] text-gold-hi">Scene {place.n} of {place.of}</div>
+              <p className="font-body text-[1.05rem] italic leading-snug text-gold/90">
+                Chapter {roman(chapter?.number || 1)}, {chapter?.title}
+              </p>
+              <p className="font-body text-[1.05rem] font-semibold leading-snug text-gold-hi">
+                Scene {place.n} of {place.of}
+              </p>
               <h1 className="font-display text-[clamp(20px,2.7vw,36px)] leading-tight text-ivory">{scene.title}</h1>
               <div className="mt-4 flex justify-center">
                 <SourceBadge source={scene.source} />
@@ -382,7 +395,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
               {scene.source === 'tradition' && <p className="mt-2 font-body text-[1rem] italic text-ivory/80">Based on hadith and classical narrations, not the Quran.</p>}
               {watchFor && (
                 <p className="mx-auto mt-5 max-w-[46ch] font-body text-[1.1rem] leading-snug text-ivory">
-                  <span className="caps mr-2 text-[0.62rem] text-gold-hi">Watch for</span>
+                  <span className="mr-1.5 font-semibold italic text-gold-hi">Watch for:</span>
                   {inMode(watchFor, mode)}
                 </p>
               )}
@@ -394,23 +407,25 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
       <AnimatePresence mode="wait">{!titleCard && b.verse && <VerseCaption key={`${scene.id}-${beat}`} verse={b.verse} tone={scene.captions} dock={dock} pen={!!scene.pen} onCrowded={onCrowded} />}</AnimatePresence>
       <AnimatePresence mode="wait">{!titleCard && !b.verse && b.pendingVerse && <PendingCaption key={`${scene.id}-${beat}`} pending={b.pendingVerse} dock={dock} />}</AnimatePresence>
 
+      {!(titleCard && !bridge) && <h1 className="sr-only">{scene.title}</h1>}
+
       {/* Top bar */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-start justify-between gap-3 p-3 sm:p-5 short:p-2">
         <div className="pointer-events-auto flex items-center gap-3">
-          <button type="button" className="hud-btn" onClick={() => go('/map')} aria-label="The map of time (M)">
-            <Icon name="map" className="h-4 w-4" />
-            <span className="hidden sm:inline">Map</span>
+          <button type="button" className="hud-btn" onClick={() => go(out.to)} aria-label={`${out.name} (Esc)`}>
+            <Icon name={back ? 'back' : 'book'} className="h-4 w-4" />
+            <span className="hidden sm:inline">{out.label}</span>
           </button>
           <div className="hidden leading-tight sm:block short:!hidden" style={{ textShadow: '0 1px 8px #000' }}>
-            <div className="caps text-[0.6rem] text-gold/80">
-              Chapter {roman(chapter?.number || 1)} · {chapter?.title}
+            <div className="font-body text-[0.95rem] italic text-gold/85">
+              Chapter {roman(chapter?.number || 1)}, {chapter?.title}
             </div>
             <div className="font-display text-[0.86rem] text-ivory">
               <span className="text-ivory/60">Scene {place.n} of {place.of}:</span> {scene.title}
             </div>
           </div>
-          <div className="caps text-[0.66rem] text-ivory/80 sm:hidden" style={{ textShadow: '0 1px 8px #000' }}>
-            {place.n} / {place.of}
+          <div className="font-body text-[1rem] font-semibold tabular-nums text-ivory/85 sm:hidden" style={{ textShadow: '0 1px 8px #000' }}>
+            {place.n} of {place.of}
           </div>
         </div>
         <div className="pointer-events-auto flex items-center gap-2">
@@ -430,7 +445,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
         </div>
       </div>
 
-      <Chronicle scene={scene} lines={ended ? lines : lines.slice(-1)} open={prefs.chronicle && !crowded} onToggle={() => (crowded ? setCrowded(false) : setPref('chronicle', !prefs.chronicle))} ayahOpen={ayahOpen} onAyah={() => setAyahOpen((o) => !o)} onTop={setDock} lift={lift} />
+      <Chronicle scene={scene} hidden={titleCard || bridge} lines={ended ? lines : lines.slice(-1)} open={prefs.chronicle && !crowded} onToggle={() => (crowded ? setCrowded(false) : setPref('chronicle', !prefs.chronicle))} ayahOpen={ayahOpen} onAyah={() => setAyahOpen((o) => !o)} onTop={setDock} lift={lift} />
 
       {/* Transport */}
       <div ref={transport} className="pointer-events-none absolute bottom-0 right-0 z-30 flex w-full flex-col items-stretch gap-2 p-3 sm:w-auto sm:items-end sm:p-6 short:max-w-[46vw] short:p-2">
@@ -500,7 +515,7 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
                   setBeat(i);
                   setEnded(false);
                 }}
-                className="group grid h-11 w-5 min-w-[7px] shrink place-items-center" aria-label={`Moment ${i + 1} of ${beats.length}`} aria-current={i === beat ? 'step' : undefined}>
+                className="group grid h-11 w-6 min-w-[7px] shrink place-items-center" aria-label={`Moment ${i + 1} of ${beats.length}`} aria-current={i === beat ? 'step' : undefined}>
                 <span className={`relative block h-1.5 overflow-hidden rounded-full transition-all ${i === beat ? 'w-full bg-gold/30' : i < beat || ended ? 'w-1.5 bg-gold' : 'w-1.5 bg-ivory/30 group-hover:bg-ivory/60'}`}>
                   {i === beat && prefs.auto && !ended && (
                     <span
@@ -530,16 +545,17 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
               <h2 className="font-display text-lg font-semibold text-ink">Moving through the story</h2>
               <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 font-body text-[1.05rem] text-ink">
                 {[
-                  ['→  Space  Click', 'next moment'],
+                  ['→, Space, click', 'next moment'],
                   ['←', 'previous moment'],
                   ['P', 'pause or play'],
                   ['A', mode === 'curious' ? 'read the full verses' : 'read the full ayat'],
                   ['S', 'ambient sound'],
-                  ['M  Esc', 'campaign map'],
+                  ['M', 'the map of time'],
+                  ['Esc', back ? out.name.replace('Back to', 'back to') : 'your journey'],
                   ['Swipe', 'next or previous (touch)'],
                 ].map(([k, v]) => (
                   <div key={k} className="contents">
-                    <dt className="caps text-[0.68rem] leading-7 text-ink-soft">{k}</dt>
+                    <dt className="font-body text-[0.98rem] font-semibold leading-7 text-ink-soft">{k}</dt>
                     <dd>{v}</dd>
                   </div>
                 ))}
@@ -560,10 +576,10 @@ function Player({ scene, start = 0, still = false, moment, back, until }) {
               {IS_WEB && (
                 <button
                   type="button"
-                  className="mt-3 block font-body text-[1rem] text-ink-soft underline decoration-[#8a6a4e] underline-offset-4"
+                  className="mt-1 block min-h-[44px] font-body text-[1rem] text-ink-soft underline decoration-[#8a6a4e] underline-offset-4"
                   onClick={() => {
                     setHelp(false);
-                    go(`/report?where=${encodeURIComponent(`Scene ${roman(scene.order)}: ${scene.title}`)}`);
+                    go(`/report?where=${encodeURIComponent(`${chapter?.title || 'Chapter ' + scene.chapter}, scene ${place.n}: ${scene.title}`)}`);
                   }}
                 >
                   Report a mistake in this scene
